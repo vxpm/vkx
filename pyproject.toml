@@ -1,11 +1,10 @@
 [project]
 name = "vkdefs"
 version = "0.1.0"
-readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "textcase>=0.4.5",
-    "vulkan-object>=1.4.362",
+  "textcase>=0.4.5",
+  "vulkan-object>=1.4.362",
 ]
 
 [project.scripts]

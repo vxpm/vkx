@@ -2,6 +2,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import override
 
+
 # A rust type.
 class RustType:
     @staticmethod
@@ -36,15 +37,11 @@ class RustType:
             "int32_t": "i32",
             "int64_t": "i64",
             "size_t": "usize",
-
             "int": "c_int",
             "unsigned int": "c_uint",
-
             "float": "f32",
             "double": "f64",
-
             "char": "c_char",
-
             # special
             "void": "c_void",
             "VkResult": "VkResult",
@@ -52,12 +49,18 @@ class RustType:
 
         rust = mapping.get(type)
         if rust is None:
-            rust = type.removeprefix("struct ").removeprefix("Vk").replace("FlagBits", "Flags")
+            rust = (
+                type.removeprefix("struct ")
+                .removeprefix("Vk")
+                .removeprefix("PFN_")
+                .replace("FlagBits", "Flags")
+            )
 
         return RustBasic(rust)
 
     def array(self, size: int) -> RustArray:
         return RustArray(self, size)
+
 
 # A rust type that cannot be broken down further.
 @dataclass
@@ -68,6 +71,7 @@ class RustBasic(RustType):
     def __str__(self) -> str:
         return self.value
 
+
 # A rust pointer.
 @dataclass
 class RustPointer(RustType):
@@ -76,7 +80,8 @@ class RustPointer(RustType):
 
     @override
     def __str__(self) -> str:
-        return f"{"*const" if self.const else "*mut"} {self.pointee}"
+        return f"{'*const' if self.const else '*mut'} {self.pointee}"
+
 
 # A rust array.
 @dataclass

@@ -96,6 +96,25 @@ mod platform {
     // UBM
     pub type ubm_device = c_void;
     pub type ubm_surface = c_void;
+
+    // Open Harmony
+    pub type OHNativeWindow = c_void;
+    pub type OH_NativeBuffer = c_void;
+
+    // Metal
+    pub type CAMetalLayer = c_void;
+
+    pub type MTLBuffer_id = *mut c_void;
+    pub type MTLCommandQueue_id = *mut c_void;
+    pub type MTLDevice_id = *mut c_void;
+    pub type MTLSharedEvent_id = *mut c_void;
+    pub type MTLTexture_id = *mut c_void;
+
+    pub type IOSurfaceRef = *mut c_void;
+
+    // Android
+    pub type AHardwareBuffer = c_void;
+    pub type ANativeWindow = c_void;
 }
 
 pub use platform::*;

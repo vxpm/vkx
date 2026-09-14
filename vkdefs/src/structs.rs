@@ -8,6 +8,7 @@ use crate::handles::*;
         use crate::enums::*;
         use crate::bitmasks::*;
         use crate::flags::*;
+        use crate::fn_pointers::*;
 
         /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExtent2D.html>
 #[derive(Debug, Clone, Copy)]
@@ -72,11 +73,11 @@ pub struct BaseOutStructure {
 #[repr(C)]
 pub struct AllocationCallbacks {
     pub p_user_data: *mut c_void,
-    pub pfn_allocation: PFN_vkAllocationFunction,
-    pub pfn_reallocation: PFN_vkReallocationFunction,
-    pub pfn_free: PFN_vkFreeFunction,
-    pub pfn_internal_allocation: PFN_vkInternalAllocationNotification,
-    pub pfn_internal_free: PFN_vkInternalFreeNotification,
+    pub pfn_allocation: vkAllocationFunction,
+    pub pfn_reallocation: vkReallocationFunction,
+    pub pfn_free: vkFreeFunction,
+    pub pfn_internal_allocation: vkInternalAllocationNotification,
+    pub pfn_internal_free: vkInternalFreeNotification,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkApplicationInfo.html>
@@ -7917,7 +7918,7 @@ pub struct DebugReportCallbackCreateInfoEXT {
     pub s_type: StructureType,
     pub p_next: *const c_void,
     pub flags: DebugReportFlagsEXT,
-    pub pfn_callback: PFN_vkDebugReportCallbackEXT,
+    pub pfn_callback: vkDebugReportCallbackEXT,
     pub p_user_data: *mut c_void,
 }
 
@@ -8602,7 +8603,7 @@ pub struct DebugUtilsMessengerCreateInfoEXT {
     pub flags: DebugUtilsMessengerCreateFlagsEXT,
     pub message_severity: DebugUtilsMessageSeverityFlagsEXT,
     pub message_type: DebugUtilsMessageTypeFlagsEXT,
-    pub pfn_user_callback: PFN_vkDebugUtilsMessengerCallbackEXT,
+    pub pfn_user_callback: vkDebugUtilsMessengerCallbackEXT,
     pub p_user_data: *mut c_void,
 }
 
@@ -10910,7 +10911,7 @@ pub struct DeviceDeviceMemoryReportCreateInfoEXT {
     pub s_type: StructureType,
     pub p_next: *const c_void,
     pub flags: DeviceMemoryReportFlagsEXT,
-    pub pfn_user_callback: PFN_vkDeviceMemoryReportCallbackEXT,
+    pub pfn_user_callback: vkDeviceMemoryReportCallbackEXT,
     pub p_user_data: *mut c_void,
 }
 
@@ -13270,7 +13271,7 @@ pub struct DirectDriverLoadingInfoLUNARG {
     pub s_type: StructureType,
     pub p_next: *mut c_void,
     pub flags: DirectDriverLoadingFlagsLUNARG,
-    pub pfn_get_instance_proc_addr: PFN_vkGetInstanceProcAddrLUNARG,
+    pub pfn_get_instance_proc_addr: vkGetInstanceProcAddrLUNARG,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDirectDriverLoadingListLUNARG.html>

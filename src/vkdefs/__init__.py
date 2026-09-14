@@ -16,6 +16,7 @@ use std::ffi::{c_void, c_int, c_uint, c_char};
 use crate::inner::*;
 """
 
+
 class CodeWriter:
     content: str = ""
     newline: bool = True
@@ -25,12 +26,12 @@ class CodeWriter:
         self.level += 1
 
     def deindent(self):
-        assert(self.level != 0)
+        assert self.level != 0
         self.level -= 1
 
     def write_indent(self):
         if self.newline:
-            self.content += "    " * self.level 
+            self.content += "    " * self.level
             self.newline = False
 
     def write(self, value: str):
@@ -40,6 +41,7 @@ class CodeWriter:
     def writeln(self, value: str):
         self.write(value + "\n")
         self.newline = True
+
 
 class Context:
     root: Path
@@ -56,15 +58,17 @@ class Context:
         type_name = s.name.removeprefix("Vk")
 
         # definition
-        out.writeln(f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{s.name}.html>")
+        out.writeln(
+            f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{s.name}.html>"
+        )
 
         if s.union:
-            out.writeln(f"#[derive(Clone, Copy)]")
+            out.writeln("#[derive(Clone, Copy)]")
         else:
-            out.writeln(f"#[derive(Debug, Clone, Copy)]")
+            out.writeln("#[derive(Debug, Clone, Copy)]")
 
-        out.writeln(f"#[repr(C)]")
-        out.writeln(f"pub struct {type_name} {"{"}")
+        out.writeln("#[repr(C)]")
+        out.writeln(f"pub struct {type_name} {'{'}")
         out.indent()
 
         for member in s.members:
@@ -88,9 +92,11 @@ class Context:
         if s.union:
             out.writeln(f"impl std::fmt::Debug for {type_name} {{")
             out.indent()
-            out.writeln("fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {")
+            out.writeln(
+                "fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {"
+            )
             out.indent()
-            out.writeln(f"write!(f, \"{type_name} {{{{ .. }}}}\")")
+            out.writeln(f'write!(f, "{type_name} {{{{ .. }}}}")')
             out.deindent()
             out.writeln("}")
             out.deindent()
@@ -106,8 +112,10 @@ class Context:
     def generate_handle(self, h: vkobj.Handle) -> str:
         out = CodeWriter()
 
-        out.writeln(f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{h.name}.html>")
-        out.writeln(f"#[derive(Debug, Clone, Copy, PartialEq, Eq)]")
+        out.writeln(
+            f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{h.name}.html>"
+        )
+        out.writeln("#[derive(Debug, Clone, Copy, PartialEq, Eq)]")
         out.writeln("#[repr(transparent)]")
 
         type_name = h.name.removeprefix("Vk")
@@ -130,7 +138,9 @@ class Context:
         type_name_snake = textcase.snake(type_name).upper()
         repr_type = "i32" if e.bitWidth == 32 else "i64"
 
-        out.writeln(f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{e.name}.html>")
+        out.writeln(
+            f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{e.name}.html>"
+        )
         out.writeln("#[derive(Debug, Clone, Copy, PartialEq, Eq)]")
         out.writeln(f"#[repr({repr_type})]")
         out.writeln(f"pub enum {type_name} {{")
@@ -164,14 +174,18 @@ class Context:
         out = CodeWriter()
 
         type_name = m.name.removeprefix("Vk").replace("FlagBits", "Flags")
-        type_name_snake = textcase.snake(self.remove_vendor_tag(m.name.removeprefix("Vk").replace("FlagBits", ""))).upper()
+        type_name_snake = textcase.snake(
+            self.remove_vendor_tag(m.name.removeprefix("Vk").replace("FlagBits", ""))
+        ).upper()
         repr_type = "u32" if m.bitWidth == 32 else "u64"
 
         out.writeln("bitflags::bitflags! {")
         out.indent()
-        out.writeln(f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{m.name}.html>")
-        out.writeln(f"#[derive(Debug, Clone, Copy, PartialEq, Eq)]")
-        out.writeln(f"#[repr(transparent)]")
+        out.writeln(
+            f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{m.name}.html>"
+        )
+        out.writeln("#[derive(Debug, Clone, Copy, PartialEq, Eq)]")
+        out.writeln("#[repr(transparent)]")
         out.writeln(f"pub struct {type_name}: {repr_type} {{")
         out.indent()
 
@@ -200,7 +214,9 @@ class Context:
         type_name = f.name.removeprefix("Vk")
         repr_type = "u32" if f.bitWidth == 32 else "u64"
 
-        out.writeln(f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{f.name}.html>")
+        out.writeln(
+            f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{f.name}.html>"
+        )
         out.writeln(f"pub type {type_name} = {repr_type};")
 
         # aliases
@@ -210,10 +226,31 @@ class Context:
 
         return out.content
 
+    def generate_fnptr(self, f: vkobj.FuncPointer) -> str:
+        out = CodeWriter()
+
+        type_name = f.name.removeprefix("PFN_")
+
+        out.writeln(
+            f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{f.name}.html>"
+        )
+
+        params: list[str] = []
+        for param in f.params:
+            params.append(str(RustType.parse(param.fullType)))
+
+        return_ty = (
+            "" if f.returnType == "void" else f"-> {RustType.parse(f.returnType)}"
+        )
+        signature = f'unsafe extern "C" fn({",".join(params)}) {return_ty}'
+        out.writeln(f"pub type {type_name} = {signature};")
+
+        return out.content
+
     def write_module(self, path: str, content: str):
         path = f"{self.root}/src/{path}"
         os.makedirs(os.path.dirname(path), exist_ok=True)
-        with open(path, 'w+') as f:
+        with open(path, "w+") as f:
             _ = f.truncate(0)
             _ = f.write(MODULE_PREFIX)
             _ = f.write(content)
@@ -230,6 +267,7 @@ class Context:
         use crate::enums::*;
         use crate::bitmasks::*;
         use crate::flags::*;
+        use crate::fn_pointers::*;
 
         """
         self.write_module("structs.rs", base + "\n".join(structs))
@@ -259,8 +297,23 @@ class Context:
                 flags.append(self.generate_flags(flags_ty))
         self.write_module("flags.rs", "\n".join(flags))
 
+        print("06. Generating function pointers...")
+        fnptrs: list[str] = []
+        for fnptr in self.vk.funcPointers.values():
+            fnptrs.append(self.generate_fnptr(fnptr))
+
+        base = """use crate::handles::*;
+        use crate::enums::*;
+        use crate::bitmasks::*;
+        use crate::flags::*;
+        use crate::structs::*;
+
+        """
+        self.write_module("fn_pointers.rs", "\n".join(fnptrs))
+
         # done
         print("Done!")
+
 
 def main() -> None:
     root = Path(sys.argv[1])
