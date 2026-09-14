@@ -2,15 +2,15 @@
 #![allow(nonstandard_style)]
 #![allow(unused_imports)]
 
-use crate::bitmasks::*;
-use crate::enums::*;
-use crate::flags::*;
-use crate::fn_pointers::*;
-use crate::handles::*;
-use crate::inner::*;
+use crate::manual::*;
 use crate::platform::*;
 use std::ffi::{c_char, c_int, c_uint, c_void};
 
+use crate::bitmasks::*;
+use crate::enums::*;
+use crate::flags::*;
+use crate::fn_ptrs::*;
+use crate::handles::*;
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExtent2D.html>
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]

@@ -2,7 +2,7 @@
 #![allow(nonstandard_style)]
 #![allow(unused_imports)]
 
-use crate::inner::*;
+use crate::manual::*;
 use crate::platform::*;
 use std::ffi::{c_char, c_int, c_uint, c_void};
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkResult.html>

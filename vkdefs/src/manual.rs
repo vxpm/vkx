@@ -1,30 +1,20 @@
-/// Boolean like 32 bit integer wrapper.
-///
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBool32.html>
-#[derive(Debug, Clone, Copy)]
-#[repr(transparent)]
-pub struct Bool32(u32);
-
-impl Bool32 {
-    pub const FALSE: Self = Self(0);
-    pub const TRUE: Self = Self(1);
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[repr(u32)]
+pub enum Bool32 {
+    False = 0,
+    True = 1,
 }
 
 impl From<Bool32> for bool {
     fn from(value: Bool32) -> Self {
-        value.0 != 0
+        value == Bool32::True
     }
 }
 
 impl From<bool> for Bool32 {
     fn from(value: bool) -> Self {
-        Self(value as u32)
-    }
-}
-
-impl std::cmp::PartialEq<Self> for Bool32 {
-    fn eq(&self, other: &Self) -> bool {
-        bool::from(*self) == bool::from(*other)
+        if value { Self::True } else { Self::False }
     }
 }
 

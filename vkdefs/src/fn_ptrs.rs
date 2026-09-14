@@ -2,15 +2,15 @@
 #![allow(nonstandard_style)]
 #![allow(unused_imports)]
 
+use crate::manual::*;
+use crate::platform::*;
+use std::ffi::{c_char, c_int, c_uint, c_void};
+
 use crate::bitmasks::*;
 use crate::enums::*;
 use crate::flags::*;
 use crate::handles::*;
-use crate::inner::*;
-use crate::platform::*;
 use crate::structs::*;
-use std::ffi::{c_char, c_int, c_uint, c_void};
-
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/PFN_vkAllocationFunction.html>
 pub type vkAllocationFunction =
     unsafe extern "C" fn(*mut c_void, usize, usize, SystemAllocationScope) -> *mut c_void;

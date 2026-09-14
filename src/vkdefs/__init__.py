@@ -15,8 +15,24 @@ MODULE_PREFIX: str = """ // WARNING: AUTO GENERATED MODULE
 #![allow(unused_imports)]
 
 use std::ffi::{c_void, c_int, c_uint, c_char};
-use crate::inner::*;
+use crate::manual::*;
 use crate::platform::*;
+"""
+
+FN_PTRS_MODULE_PREFIX: str = """
+use crate::bitmasks::*;
+use crate::enums::*;
+use crate::flags::*;
+use crate::handles::*;
+use crate::structs::*;
+"""
+
+STRUCTS_MODULE_PREFIX: str = """
+use crate::bitmasks::*;
+use crate::enums::*;
+use crate::flags::*;
+use crate::fn_ptrs::*;
+use crate::handles::*;
 """
 
 
@@ -336,6 +352,15 @@ class Context:
             _ = f.write(MODULE_PREFIX)
             _ = f.write(content)
 
+    def write_generated_to_module(
+        self, path: str, prefix: str, generated: dict[str, Generated[T]]
+    ):
+        content = prefix
+        for elem in generated.values():
+            content += f"{elem.definition}\n"
+
+        self.write_module(path, content)
+
     def generate(self):
         print("Filling registry...")
         self.fill_registry()
@@ -346,6 +371,19 @@ class Context:
         print(f"- Function Pointers: {len(self.reg.fnptrs)}")
         print(f"- Handles: {len(self.reg.handles)}")
         print(f"- Structs: {len(self.reg.structs)}")
+        print("Generating source files...")
+        self.write_generated_to_module("bitmasks.rs", "", self.reg.bitmasks)
+        self.write_generated_to_module("enums.rs", "", self.reg.enums)
+        self.write_generated_to_module("flags.rs", "", self.reg.flags)
+        self.write_generated_to_module(
+            "fn_ptrs.rs", FN_PTRS_MODULE_PREFIX, self.reg.fnptrs
+        )
+        self.write_generated_to_module("handles.rs", "", self.reg.handles)
+        self.write_generated_to_module(
+            "structs.rs", STRUCTS_MODULE_PREFIX, self.reg.structs
+        )
+
+        print("Done!")
 
 
 def main() -> None:
