@@ -14,6 +14,7 @@ MODULE_PREFIX: str = """ // WARNING: AUTO GENERATED MODULE
 
 use std::ffi::{c_void, c_int, c_uint, c_char};
 use crate::inner::*;
+use crate::platform::*;
 """
 
 
@@ -137,6 +138,9 @@ class Context:
         type_name = e.name.removeprefix("Vk")
         type_name_snake = textcase.snake(type_name).upper()
         repr_type = "i32" if e.bitWidth == 32 else "i64"
+
+        if type_name == "Result":
+            type_name = "ResultCode"
 
         out.writeln(
             f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{e.name}.html>"
@@ -309,7 +313,7 @@ class Context:
         use crate::structs::*;
 
         """
-        self.write_module("fn_pointers.rs", "\n".join(fnptrs))
+        self.write_module("fn_pointers.rs", base + "\n".join(fnptrs))
 
         # done
         print("Done!")

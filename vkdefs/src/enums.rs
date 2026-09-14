@@ -1,13 +1,14 @@
- // WARNING: AUTO GENERATED MODULE
+// WARNING: AUTO GENERATED MODULE
 #![allow(nonstandard_style)]
 #![allow(unused_imports)]
 
-use std::ffi::{c_void, c_int, c_uint, c_char};
 use crate::inner::*;
+use crate::platform::*;
+use std::ffi::{c_char, c_int, c_uint, c_void};
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkResult.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
-pub enum Result {
+pub enum ResultCode {
     SUCCESS = 0,
     NOT_READY = 1,
     TIMEOUT = 2,

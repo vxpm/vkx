@@ -1,9 +1,10 @@
- // WARNING: AUTO GENERATED MODULE
+// WARNING: AUTO GENERATED MODULE
 #![allow(nonstandard_style)]
 #![allow(unused_imports)]
 
-use std::ffi::{c_void, c_int, c_uint, c_char};
 use crate::inner::*;
+use crate::platform::*;
+use std::ffi::{c_char, c_int, c_uint, c_void};
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceCreateFlags.html>
 pub type DeviceCreateFlags = u32;
 

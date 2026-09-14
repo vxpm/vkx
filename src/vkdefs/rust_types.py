@@ -44,7 +44,7 @@ class RustType:
             "char": "c_char",
             # special
             "void": "c_void",
-            "VkResult": "VkResult",
+            "VkResult": "ResultCode",
         }
 
         rust = mapping.get(type)

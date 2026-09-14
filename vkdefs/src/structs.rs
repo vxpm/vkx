@@ -1,16 +1,17 @@
- // WARNING: AUTO GENERATED MODULE
+// WARNING: AUTO GENERATED MODULE
 #![allow(nonstandard_style)]
 #![allow(unused_imports)]
 
-use std::ffi::{c_void, c_int, c_uint, c_char};
-use crate::inner::*;
+use crate::bitmasks::*;
+use crate::enums::*;
+use crate::flags::*;
+use crate::fn_pointers::*;
 use crate::handles::*;
-        use crate::enums::*;
-        use crate::bitmasks::*;
-        use crate::flags::*;
-        use crate::fn_pointers::*;
+use crate::inner::*;
+use crate::platform::*;
+use std::ffi::{c_char, c_int, c_uint, c_void};
 
-        /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExtent2D.html>
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExtent2D.html>
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct Extent2D {
@@ -2083,7 +2084,8 @@ pub struct PhysicalDeviceSamplerYcbcrConversionFeatures {
     pub p_next: *mut c_void,
     pub sampler_ycbcr_conversion: Bool32,
 }
-pub type PhysicalDeviceSamplerYcbcrConversionFeaturesKHR = PhysicalDeviceSamplerYcbcrConversionFeatures;
+pub type PhysicalDeviceSamplerYcbcrConversionFeaturesKHR =
+    PhysicalDeviceSamplerYcbcrConversionFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerYcbcrConversionImageFormatProperties.html>
 #[derive(Debug, Clone, Copy)]
@@ -2093,7 +2095,8 @@ pub struct SamplerYcbcrConversionImageFormatProperties {
     pub p_next: *mut c_void,
     pub combined_image_sampler_descriptor_count: u32,
 }
-pub type SamplerYcbcrConversionImageFormatPropertiesKHR = SamplerYcbcrConversionImageFormatProperties;
+pub type SamplerYcbcrConversionImageFormatPropertiesKHR =
+    SamplerYcbcrConversionImageFormatProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceGroupRenderPassBeginInfo.html>
 #[derive(Debug, Clone, Copy)]
@@ -2146,7 +2149,8 @@ pub struct PipelineTessellationDomainOriginStateCreateInfo {
     pub p_next: *const c_void,
     pub domain_origin: TessellationDomainOrigin,
 }
-pub type PipelineTessellationDomainOriginStateCreateInfoKHR = PipelineTessellationDomainOriginStateCreateInfo;
+pub type PipelineTessellationDomainOriginStateCreateInfoKHR =
+    PipelineTessellationDomainOriginStateCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPassMultiviewCreateInfo.html>
 #[derive(Debug, Clone, Copy)]
@@ -2674,7 +2678,8 @@ pub struct DescriptorSetVariableDescriptorCountAllocateInfo {
     pub descriptor_set_count: u32,
     pub p_descriptor_counts: *const u32,
 }
-pub type DescriptorSetVariableDescriptorCountAllocateInfoEXT = DescriptorSetVariableDescriptorCountAllocateInfo;
+pub type DescriptorSetVariableDescriptorCountAllocateInfoEXT =
+    DescriptorSetVariableDescriptorCountAllocateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorSetVariableDescriptorCountLayoutSupport.html>
 #[derive(Debug, Clone, Copy)]
@@ -2684,7 +2689,8 @@ pub struct DescriptorSetVariableDescriptorCountLayoutSupport {
     pub p_next: *mut c_void,
     pub max_variable_descriptor_count: u32,
 }
-pub type DescriptorSetVariableDescriptorCountLayoutSupportEXT = DescriptorSetVariableDescriptorCountLayoutSupport;
+pub type DescriptorSetVariableDescriptorCountLayoutSupportEXT =
+    DescriptorSetVariableDescriptorCountLayoutSupport;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceScalarBlockLayoutFeatures.html>
 #[derive(Debug, Clone, Copy)]
@@ -2715,7 +2721,8 @@ pub struct PhysicalDeviceSamplerFilterMinmaxProperties {
     pub filter_minmax_single_component_formats: Bool32,
     pub filter_minmax_image_component_mapping: Bool32,
 }
-pub type PhysicalDeviceSamplerFilterMinmaxPropertiesEXT = PhysicalDeviceSamplerFilterMinmaxProperties;
+pub type PhysicalDeviceSamplerFilterMinmaxPropertiesEXT =
+    PhysicalDeviceSamplerFilterMinmaxProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceUniformBufferStandardLayoutFeatures.html>
 #[derive(Debug, Clone, Copy)]
@@ -2725,7 +2732,8 @@ pub struct PhysicalDeviceUniformBufferStandardLayoutFeatures {
     pub p_next: *mut c_void,
     pub uniform_buffer_standard_layout: Bool32,
 }
-pub type PhysicalDeviceUniformBufferStandardLayoutFeaturesKHR = PhysicalDeviceUniformBufferStandardLayoutFeatures;
+pub type PhysicalDeviceUniformBufferStandardLayoutFeaturesKHR =
+    PhysicalDeviceUniformBufferStandardLayoutFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderSubgroupExtendedTypesFeatures.html>
 #[derive(Debug, Clone, Copy)]
@@ -2735,7 +2743,8 @@ pub struct PhysicalDeviceShaderSubgroupExtendedTypesFeatures {
     pub p_next: *mut c_void,
     pub shader_subgroup_extended_types: Bool32,
 }
-pub type PhysicalDeviceShaderSubgroupExtendedTypesFeaturesKHR = PhysicalDeviceShaderSubgroupExtendedTypesFeatures;
+pub type PhysicalDeviceShaderSubgroupExtendedTypesFeaturesKHR =
+    PhysicalDeviceShaderSubgroupExtendedTypesFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAttachmentDescription2.html>
 #[derive(Debug, Clone, Copy)]
@@ -2864,7 +2873,8 @@ pub struct PhysicalDeviceDepthStencilResolveProperties {
     pub independent_resolve_none: Bool32,
     pub independent_resolve: Bool32,
 }
-pub type PhysicalDeviceDepthStencilResolvePropertiesKHR = PhysicalDeviceDepthStencilResolveProperties;
+pub type PhysicalDeviceDepthStencilResolvePropertiesKHR =
+    PhysicalDeviceDepthStencilResolveProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageStencilUsageCreateInfo.html>
 #[derive(Debug, Clone, Copy)]
@@ -2932,7 +2942,8 @@ pub struct PhysicalDeviceSeparateDepthStencilLayoutsFeatures {
     pub p_next: *mut c_void,
     pub separate_depth_stencil_layouts: Bool32,
 }
-pub type PhysicalDeviceSeparateDepthStencilLayoutsFeaturesKHR = PhysicalDeviceSeparateDepthStencilLayoutsFeatures;
+pub type PhysicalDeviceSeparateDepthStencilLayoutsFeaturesKHR =
+    PhysicalDeviceSeparateDepthStencilLayoutsFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAttachmentReferenceStencilLayout.html>
 #[derive(Debug, Clone, Copy)]
@@ -3014,7 +3025,8 @@ pub struct PhysicalDeviceVulkan13Properties {
     pub integer_dot_product_accumulating_saturating_8_bit_mixed_signedness_accelerated: Bool32,
     pub integer_dot_product_accumulating_saturating_4_x_8_bit_packed_unsigned_accelerated: Bool32,
     pub integer_dot_product_accumulating_saturating_4_x_8_bit_packed_signed_accelerated: Bool32,
-    pub integer_dot_product_accumulating_saturating_4_x_8_bit_packed_mixed_signedness_accelerated: Bool32,
+    pub integer_dot_product_accumulating_saturating_4_x_8_bit_packed_mixed_signedness_accelerated:
+        Bool32,
     pub integer_dot_product_accumulating_saturating_16_bit_unsigned_accelerated: Bool32,
     pub integer_dot_product_accumulating_saturating_16_bit_signed_accelerated: Bool32,
     pub integer_dot_product_accumulating_saturating_16_bit_mixed_signedness_accelerated: Bool32,
@@ -3296,7 +3308,8 @@ pub struct PhysicalDeviceTextureCompressionASTCHDRFeatures {
     pub p_next: *mut c_void,
     pub texture_compression_astc_hdr: Bool32,
 }
-pub type PhysicalDeviceTextureCompressionASTCHDRFeaturesEXT = PhysicalDeviceTextureCompressionASTCHDRFeatures;
+pub type PhysicalDeviceTextureCompressionASTCHDRFeaturesEXT =
+    PhysicalDeviceTextureCompressionASTCHDRFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFormatProperties3.html>
 #[derive(Debug, Clone, Copy)]
@@ -3380,7 +3393,8 @@ pub struct PhysicalDeviceShaderTerminateInvocationFeatures {
     pub p_next: *mut c_void,
     pub shader_terminate_invocation: Bool32,
 }
-pub type PhysicalDeviceShaderTerminateInvocationFeaturesKHR = PhysicalDeviceShaderTerminateInvocationFeatures;
+pub type PhysicalDeviceShaderTerminateInvocationFeaturesKHR =
+    PhysicalDeviceShaderTerminateInvocationFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderDemoteToHelperInvocationFeatures.html>
 #[derive(Debug, Clone, Copy)]
@@ -3390,7 +3404,8 @@ pub struct PhysicalDeviceShaderDemoteToHelperInvocationFeatures {
     pub p_next: *mut c_void,
     pub shader_demote_to_helper_invocation: Bool32,
 }
-pub type PhysicalDeviceShaderDemoteToHelperInvocationFeaturesEXT = PhysicalDeviceShaderDemoteToHelperInvocationFeatures;
+pub type PhysicalDeviceShaderDemoteToHelperInvocationFeaturesEXT =
+    PhysicalDeviceShaderDemoteToHelperInvocationFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePipelineCreationCacheControlFeatures.html>
 #[derive(Debug, Clone, Copy)]
@@ -3400,7 +3415,8 @@ pub struct PhysicalDevicePipelineCreationCacheControlFeatures {
     pub p_next: *mut c_void,
     pub pipeline_creation_cache_control: Bool32,
 }
-pub type PhysicalDevicePipelineCreationCacheControlFeaturesEXT = PhysicalDevicePipelineCreationCacheControlFeatures;
+pub type PhysicalDevicePipelineCreationCacheControlFeaturesEXT =
+    PhysicalDevicePipelineCreationCacheControlFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeatures.html>
 #[derive(Debug, Clone, Copy)]
@@ -3410,7 +3426,8 @@ pub struct PhysicalDeviceZeroInitializeWorkgroupMemoryFeatures {
     pub p_next: *mut c_void,
     pub shader_zero_initialize_workgroup_memory: Bool32,
 }
-pub type PhysicalDeviceZeroInitializeWorkgroupMemoryFeaturesKHR = PhysicalDeviceZeroInitializeWorkgroupMemoryFeatures;
+pub type PhysicalDeviceZeroInitializeWorkgroupMemoryFeaturesKHR =
+    PhysicalDeviceZeroInitializeWorkgroupMemoryFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceImageRobustnessFeatures.html>
 #[derive(Debug, Clone, Copy)]
@@ -3444,7 +3461,8 @@ pub struct PhysicalDeviceSubgroupSizeControlProperties {
     pub max_compute_workgroup_subgroups: u32,
     pub required_subgroup_size_stages: ShaderStageFlags,
 }
-pub type PhysicalDeviceSubgroupSizeControlPropertiesEXT = PhysicalDeviceSubgroupSizeControlProperties;
+pub type PhysicalDeviceSubgroupSizeControlPropertiesEXT =
+    PhysicalDeviceSubgroupSizeControlProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineShaderStageRequiredSubgroupSizeCreateInfo.html>
 #[derive(Debug, Clone, Copy)]
@@ -3454,8 +3472,10 @@ pub struct PipelineShaderStageRequiredSubgroupSizeCreateInfo {
     pub p_next: *const c_void,
     pub required_subgroup_size: u32,
 }
-pub type PipelineShaderStageRequiredSubgroupSizeCreateInfoEXT = PipelineShaderStageRequiredSubgroupSizeCreateInfo;
-pub type ShaderRequiredSubgroupSizeCreateInfoEXT = PipelineShaderStageRequiredSubgroupSizeCreateInfo;
+pub type PipelineShaderStageRequiredSubgroupSizeCreateInfoEXT =
+    PipelineShaderStageRequiredSubgroupSizeCreateInfo;
+pub type ShaderRequiredSubgroupSizeCreateInfoEXT =
+    PipelineShaderStageRequiredSubgroupSizeCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceInlineUniformBlockFeatures.html>
 #[derive(Debug, Clone, Copy)]
@@ -3511,7 +3531,8 @@ pub struct PhysicalDeviceShaderIntegerDotProductFeatures {
     pub p_next: *mut c_void,
     pub shader_integer_dot_product: Bool32,
 }
-pub type PhysicalDeviceShaderIntegerDotProductFeaturesKHR = PhysicalDeviceShaderIntegerDotProductFeatures;
+pub type PhysicalDeviceShaderIntegerDotProductFeaturesKHR =
+    PhysicalDeviceShaderIntegerDotProductFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderIntegerDotProductProperties.html>
 #[derive(Debug, Clone, Copy)]
@@ -3539,7 +3560,8 @@ pub struct PhysicalDeviceShaderIntegerDotProductProperties {
     pub integer_dot_product_accumulating_saturating_8_bit_mixed_signedness_accelerated: Bool32,
     pub integer_dot_product_accumulating_saturating_4_x_8_bit_packed_unsigned_accelerated: Bool32,
     pub integer_dot_product_accumulating_saturating_4_x_8_bit_packed_signed_accelerated: Bool32,
-    pub integer_dot_product_accumulating_saturating_4_x_8_bit_packed_mixed_signedness_accelerated: Bool32,
+    pub integer_dot_product_accumulating_saturating_4_x_8_bit_packed_mixed_signedness_accelerated:
+        Bool32,
     pub integer_dot_product_accumulating_saturating_16_bit_unsigned_accelerated: Bool32,
     pub integer_dot_product_accumulating_saturating_16_bit_signed_accelerated: Bool32,
     pub integer_dot_product_accumulating_saturating_16_bit_mixed_signedness_accelerated: Bool32,
@@ -3550,7 +3572,8 @@ pub struct PhysicalDeviceShaderIntegerDotProductProperties {
     pub integer_dot_product_accumulating_saturating_64_bit_signed_accelerated: Bool32,
     pub integer_dot_product_accumulating_saturating_64_bit_mixed_signedness_accelerated: Bool32,
 }
-pub type PhysicalDeviceShaderIntegerDotProductPropertiesKHR = PhysicalDeviceShaderIntegerDotProductProperties;
+pub type PhysicalDeviceShaderIntegerDotProductPropertiesKHR =
+    PhysicalDeviceShaderIntegerDotProductProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceTexelBufferAlignmentProperties.html>
 #[derive(Debug, Clone, Copy)]
@@ -3563,7 +3586,8 @@ pub struct PhysicalDeviceTexelBufferAlignmentProperties {
     pub uniform_texel_buffer_offset_alignment_bytes: DeviceSize,
     pub uniform_texel_buffer_offset_single_texel_alignment: Bool32,
 }
-pub type PhysicalDeviceTexelBufferAlignmentPropertiesEXT = PhysicalDeviceTexelBufferAlignmentProperties;
+pub type PhysicalDeviceTexelBufferAlignmentPropertiesEXT =
+    PhysicalDeviceTexelBufferAlignmentProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageBlit2.html>
 #[derive(Debug, Clone, Copy)]
@@ -3924,7 +3948,7 @@ pub type PhysicalDeviceMaintenance6PropertiesKHR = PhysicalDeviceMaintenance6Pro
 pub struct BindMemoryStatus {
     pub s_type: StructureType,
     pub p_next: *const c_void,
-    pub p_result: *mut VkResult,
+    pub p_result: *mut ResultCode,
 }
 pub type BindMemoryStatusKHR = BindMemoryStatus;
 
@@ -4177,7 +4201,8 @@ pub struct PhysicalDevicePipelineProtectedAccessFeatures {
     pub p_next: *mut c_void,
     pub pipeline_protected_access: Bool32,
 }
-pub type PhysicalDevicePipelineProtectedAccessFeaturesEXT = PhysicalDevicePipelineProtectedAccessFeatures;
+pub type PhysicalDevicePipelineProtectedAccessFeaturesEXT =
+    PhysicalDevicePipelineProtectedAccessFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePipelineRobustnessFeatures.html>
 #[derive(Debug, Clone, Copy)]
@@ -4265,7 +4290,8 @@ pub struct PhysicalDeviceVertexAttributeDivisorProperties {
     pub max_vertex_attrib_divisor: u32,
     pub supports_non_zero_first_instance: Bool32,
 }
-pub type PhysicalDeviceVertexAttributeDivisorPropertiesKHR = PhysicalDeviceVertexAttributeDivisorProperties;
+pub type PhysicalDeviceVertexAttributeDivisorPropertiesKHR =
+    PhysicalDeviceVertexAttributeDivisorProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVertexInputBindingDivisorDescription.html>
 #[derive(Debug, Clone, Copy)]
@@ -4298,8 +4324,10 @@ pub struct PhysicalDeviceVertexAttributeDivisorFeatures {
     pub vertex_attribute_instance_rate_divisor: Bool32,
     pub vertex_attribute_instance_rate_zero_divisor: Bool32,
 }
-pub type PhysicalDeviceVertexAttributeDivisorFeaturesKHR = PhysicalDeviceVertexAttributeDivisorFeatures;
-pub type PhysicalDeviceVertexAttributeDivisorFeaturesEXT = PhysicalDeviceVertexAttributeDivisorFeatures;
+pub type PhysicalDeviceVertexAttributeDivisorFeaturesKHR =
+    PhysicalDeviceVertexAttributeDivisorFeatures;
+pub type PhysicalDeviceVertexAttributeDivisorFeaturesEXT =
+    PhysicalDeviceVertexAttributeDivisorFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderingAreaInfo.html>
 #[derive(Debug, Clone, Copy)]
@@ -4323,7 +4351,8 @@ pub struct PhysicalDeviceDynamicRenderingLocalReadFeatures {
     pub p_next: *mut c_void,
     pub dynamic_rendering_local_read: Bool32,
 }
-pub type PhysicalDeviceDynamicRenderingLocalReadFeaturesKHR = PhysicalDeviceDynamicRenderingLocalReadFeatures;
+pub type PhysicalDeviceDynamicRenderingLocalReadFeaturesKHR =
+    PhysicalDeviceDynamicRenderingLocalReadFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderingAttachmentLocationInfo.html>
 #[derive(Debug, Clone, Copy)]
@@ -4408,7 +4437,7 @@ pub struct PresentInfoKHR {
     pub swapchain_count: u32,
     pub p_swapchains: *const SwapchainKHR,
     pub p_image_indices: *const u32,
-    pub p_results: *mut VkResult,
+    pub p_results: *mut ResultCode,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageSwapchainCreateInfoKHR.html>
@@ -6404,7 +6433,8 @@ pub struct PhysicalDeviceFragmentShaderBarycentricFeaturesKHR {
     pub p_next: *mut c_void,
     pub fragment_shader_barycentric: Bool32,
 }
-pub type PhysicalDeviceFragmentShaderBarycentricFeaturesNV = PhysicalDeviceFragmentShaderBarycentricFeaturesKHR;
+pub type PhysicalDeviceFragmentShaderBarycentricFeaturesNV =
+    PhysicalDeviceFragmentShaderBarycentricFeaturesKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR.html>
 #[derive(Debug, Clone, Copy)]
@@ -6707,7 +6737,8 @@ pub struct PhysicalDeviceSwapchainMaintenance1FeaturesKHR {
     pub p_next: *mut c_void,
     pub swapchain_maintenance_1: Bool32,
 }
-pub type PhysicalDeviceSwapchainMaintenance1FeaturesEXT = PhysicalDeviceSwapchainMaintenance1FeaturesKHR;
+pub type PhysicalDeviceSwapchainMaintenance1FeaturesEXT =
+    PhysicalDeviceSwapchainMaintenance1FeaturesKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSwapchainPresentFenceInfoKHR.html>
 #[derive(Debug, Clone, Copy)]
@@ -6820,7 +6851,8 @@ pub struct PhysicalDeviceComputeShaderDerivativesFeaturesKHR {
     pub compute_derivative_group_quads: Bool32,
     pub compute_derivative_group_linear: Bool32,
 }
-pub type PhysicalDeviceComputeShaderDerivativesFeaturesNV = PhysicalDeviceComputeShaderDerivativesFeaturesKHR;
+pub type PhysicalDeviceComputeShaderDerivativesFeaturesNV =
+    PhysicalDeviceComputeShaderDerivativesFeaturesKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceComputeShaderDerivativesPropertiesKHR.html>
 #[derive(Debug, Clone, Copy)]
@@ -7239,7 +7271,8 @@ pub struct PhysicalDeviceCopyMemoryIndirectPropertiesKHR {
     pub p_next: *mut c_void,
     pub supported_queues: QueueFlags,
 }
-pub type PhysicalDeviceCopyMemoryIndirectPropertiesNV = PhysicalDeviceCopyMemoryIndirectPropertiesKHR;
+pub type PhysicalDeviceCopyMemoryIndirectPropertiesNV =
+    PhysicalDeviceCopyMemoryIndirectPropertiesKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeIntraRefreshCapabilitiesKHR.html>
 #[derive(Debug, Clone, Copy)]
@@ -7700,7 +7733,8 @@ pub struct PhysicalDevicePresentModeFifoLatestReadyFeaturesKHR {
     pub p_next: *mut c_void,
     pub present_mode_fifo_latest_ready: Bool32,
 }
-pub type PhysicalDevicePresentModeFifoLatestReadyFeaturesEXT = PhysicalDevicePresentModeFifoLatestReadyFeaturesKHR;
+pub type PhysicalDevicePresentModeFifoLatestReadyFeaturesEXT =
+    PhysicalDevicePresentModeFifoLatestReadyFeaturesKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMicromapUsageKHR.html>
 #[derive(Debug, Clone, Copy)]
@@ -7826,7 +7860,8 @@ pub struct PhysicalDevicePipelineLibraryGroupHandlesFeaturesKHR {
     pub p_next: *mut c_void,
     pub pipeline_library_group_handles: Bool32,
 }
-pub type PhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT = PhysicalDevicePipelineLibraryGroupHandlesFeaturesKHR;
+pub type PhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT =
+    PhysicalDevicePipelineLibraryGroupHandlesFeaturesKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMaintenance11FeaturesKHR.html>
 #[derive(Debug, Clone, Copy)]
@@ -11806,7 +11841,8 @@ pub struct PhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT {
     pub rasterization_order_depth_attachment_access: Bool32,
     pub rasterization_order_stencil_attachment_access: Bool32,
 }
-pub type PhysicalDeviceRasterizationOrderAttachmentAccessFeaturesARM = PhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT;
+pub type PhysicalDeviceRasterizationOrderAttachmentAccessFeaturesARM =
+    PhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceRGBA10X6FormatsFeaturesEXT.html>
 #[derive(Debug, Clone, Copy)]
@@ -11836,7 +11872,8 @@ pub struct PhysicalDeviceMutableDescriptorTypeFeaturesEXT {
     pub p_next: *mut c_void,
     pub mutable_descriptor_type: Bool32,
 }
-pub type PhysicalDeviceMutableDescriptorTypeFeaturesVALVE = PhysicalDeviceMutableDescriptorTypeFeaturesEXT;
+pub type PhysicalDeviceMutableDescriptorTypeFeaturesVALVE =
+    PhysicalDeviceMutableDescriptorTypeFeaturesEXT;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMutableDescriptorTypeListEXT.html>
 #[derive(Debug, Clone, Copy)]
@@ -12849,7 +12886,8 @@ pub struct PhysicalDeviceFragmentDensityMapOffsetFeaturesEXT {
     pub p_next: *mut c_void,
     pub fragment_density_map_offset: Bool32,
 }
-pub type PhysicalDeviceFragmentDensityMapOffsetFeaturesQCOM = PhysicalDeviceFragmentDensityMapOffsetFeaturesEXT;
+pub type PhysicalDeviceFragmentDensityMapOffsetFeaturesQCOM =
+    PhysicalDeviceFragmentDensityMapOffsetFeaturesEXT;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFragmentDensityMapOffsetPropertiesEXT.html>
 #[derive(Debug, Clone, Copy)]
@@ -12859,7 +12897,8 @@ pub struct PhysicalDeviceFragmentDensityMapOffsetPropertiesEXT {
     pub p_next: *mut c_void,
     pub fragment_density_offset_granularity: Extent2D,
 }
-pub type PhysicalDeviceFragmentDensityMapOffsetPropertiesQCOM = PhysicalDeviceFragmentDensityMapOffsetPropertiesEXT;
+pub type PhysicalDeviceFragmentDensityMapOffsetPropertiesQCOM =
+    PhysicalDeviceFragmentDensityMapOffsetPropertiesEXT;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPassFragmentDensityMapOffsetEndInfoEXT.html>
 #[derive(Debug, Clone, Copy)]
@@ -12911,7 +12950,8 @@ pub struct PhysicalDeviceMemoryDecompressionPropertiesEXT {
     pub decompression_methods: MemoryDecompressionMethodFlagsEXT,
     pub max_decompression_indirect_count: u64,
 }
-pub type PhysicalDeviceMemoryDecompressionPropertiesNV = PhysicalDeviceMemoryDecompressionPropertiesEXT;
+pub type PhysicalDeviceMemoryDecompressionPropertiesNV =
+    PhysicalDeviceMemoryDecompressionPropertiesEXT;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV.html>
 #[derive(Debug, Clone, Copy)]
@@ -14914,7 +14954,8 @@ pub struct ClusterAccelerationStructureBuildTriangleClusterInfoNV {
     pub position_truncate_bit_count: u32,
     pub index_type: u32,
     pub opacity_micromap_index_type: u32,
-    pub base_geometry_index_and_geometry_flags: ClusterAccelerationStructureGeometryIndexAndGeometryFlagsNV,
+    pub base_geometry_index_and_geometry_flags:
+        ClusterAccelerationStructureGeometryIndexAndGeometryFlagsNV,
     pub index_buffer_stride: u16,
     pub vertex_buffer_stride: u16,
     pub geometry_index_and_flags_buffer_stride: u16,
@@ -14937,7 +14978,8 @@ pub struct ClusterAccelerationStructureBuildTriangleClusterTemplateInfoNV {
     pub position_truncate_bit_count: u32,
     pub index_type: u32,
     pub opacity_micromap_index_type: u32,
-    pub base_geometry_index_and_geometry_flags: ClusterAccelerationStructureGeometryIndexAndGeometryFlagsNV,
+    pub base_geometry_index_and_geometry_flags:
+        ClusterAccelerationStructureGeometryIndexAndGeometryFlagsNV,
     pub index_buffer_stride: u16,
     pub vertex_buffer_stride: u16,
     pub geometry_index_and_flags_buffer_stride: u16,
