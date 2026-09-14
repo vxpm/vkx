@@ -21,6 +21,7 @@ use crate::platform::*;
 
 FN_PTRS_MODULE_PREFIX: str = """
 use crate::bitmasks::*;
+use crate::consts_inner::*;
 use crate::enums::*;
 use crate::flags::*;
 use crate::handles::*;
@@ -29,12 +30,16 @@ use crate::structs::*;
 
 STRUCTS_MODULE_PREFIX: str = """
 use crate::bitmasks::*;
+use crate::consts_inner::*;
 use crate::enums::*;
 use crate::flags::*;
 use crate::fn_ptrs::*;
 use crate::handles::*;
 """
 
+CONSTS_MODULE_PREFIX: str = """
+use crate::consts_inner::*;
+"""
 
 class CodeWriter:
     content: str = ""
@@ -75,6 +80,8 @@ class Generated(Generic[T]):
 @dataclass
 class Registry:
     bitmasks: dict[str, Generated[vkobj.Bitmask]] = field(default_factory=dict)
+    constants: dict[str, Generated[vkobj.Constant]] = field(default_factory=dict)
+    constants_inner: dict[str, Generated[vkobj.Constant]] = field(default_factory=dict)
     enums: dict[str, Generated[vkobj.Enum]] = field(default_factory=dict)
     flags: dict[str, Generated[vkobj.Flags]] = field(default_factory=dict)
     fnptrs: dict[str, Generated[vkobj.FuncPointer]] = field(default_factory=dict)
@@ -119,14 +126,7 @@ class Context:
 
             type = RustType.parse(member.fullType)
             for size in member.fixedSizeArray:
-                constant = self.vk.constants.get(
-                    size
-                ) or self.vk.videoStd.constants.get(size)
-
-                if constant is None:
-                    type = type.array(int(size))
-                else:
-                    type = type.array(int(constant.value))
+                type = type.array(size)
 
             out.writeln(f"pub {field_name}: {type},")
         out.deindent()
@@ -345,6 +345,34 @@ class Context:
 
         return Generated(type_name, out.content, x)
 
+    def generate_const_inner(self, x: vkobj.Constant) -> Generated[vkobj.Constant]:
+        out = CodeWriter()
+
+        const_name = x.name
+        const_ty = RustType.parse(x.type)
+        const_value = x.value
+
+        out.writeln(
+            f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{x.name}.html>"
+        )
+        out.writeln(f"pub const {const_name}: {const_ty} = {const_value};")
+
+        return Generated(const_name, out.content, x)
+
+    def generate_const(self, x: vkobj.Constant) -> Generated[vkobj.Constant]:
+        out = CodeWriter()
+
+        const_name = x.name.removeprefix("VK_").removeprefix("STD_VIDEO_")
+        const_ty = RustType.parse(x.type)
+
+        out.writeln(
+            f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{x.name}.html>"
+        )
+        out.writeln(f"#[doc(alias = \"{x.name}\")]")
+        out.writeln(f"pub const {const_name}: {const_ty} = {x.name};")
+
+        return Generated(const_name, out.content, x)
+
     def fill_registry(self):
         assert self.vk.videoStd is not None
 
@@ -389,6 +417,19 @@ class Context:
             fnptr = self.generate_fnptr(fnptr)
             self.reg.fnptrs[fnptr.original.name] = fnptr
 
+        # constants
+        for const in self.vk.constants.values():
+            const_inner = self.generate_const_inner(const)
+            const = self.generate_const(const)
+            self.reg.constants_inner[const_inner.original.name] = const_inner
+            self.reg.constants[const.original.name] = const
+
+        for const in self.vk.videoStd.constants.values():
+            const_inner = self.generate_const_inner(const)
+            const = self.generate_const(const)
+            self.reg.constants_inner[const_inner.original.name] = const_inner
+            self.reg.constants[const.original.name] = const
+
     def write_module(self, path: str, content: str):
         path = f"{self.root}/src/{path}"
         os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -411,6 +452,7 @@ class Context:
         self.fill_registry()
         print("Done!")
         print(f"- Bitmasks: {len(self.reg.bitmasks)}")
+        print(f"- Constants: {len(self.reg.constants_inner)}")
         print(f"- Enums: {len(self.reg.enums)}")
         print(f"- Flags: {len(self.reg.flags)}")
         print(f"- Function Pointers: {len(self.reg.fnptrs)}")
@@ -418,6 +460,8 @@ class Context:
         print(f"- Structs: {len(self.reg.structs)}")
         print("Generating source files...")
         self.write_generated_to_module("bitmasks.rs", "", self.reg.bitmasks)
+        self.write_generated_to_module("consts_inner.rs", "", self.reg.constants_inner)
+        self.write_generated_to_module("consts.rs", CONSTS_MODULE_PREFIX, self.reg.constants)
         self.write_generated_to_module("enums.rs", "", self.reg.enums)
         self.write_generated_to_module("flags.rs", "", self.reg.flags)
         self.write_generated_to_module(

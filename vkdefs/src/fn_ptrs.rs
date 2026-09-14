@@ -7,6 +7,7 @@ use crate::platform::*;
 use std::ffi::{c_char, c_int, c_uint, c_void};
 
 use crate::bitmasks::*;
+use crate::consts_inner::*;
 use crate::enums::*;
 use crate::flags::*;
 use crate::handles::*;

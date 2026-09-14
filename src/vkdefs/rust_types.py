@@ -59,7 +59,7 @@ class RustType:
 
         return RustBasic(rust)
 
-    def array(self, size: int) -> RustArray:
+    def array(self, size: str) -> RustArray:
         return RustArray(self, size)
 
 
@@ -88,8 +88,8 @@ class RustPointer(RustType):
 @dataclass
 class RustArray(RustType):
     inner: RustType
-    size: int
+    size: str
 
     @override
     def __str__(self) -> str:
-        return f"[{self.inner}; {self.size}]"
+        return f"[{self.inner}; {self.size} as usize]"

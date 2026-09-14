@@ -7,6 +7,7 @@ use crate::platform::*;
 use std::ffi::{c_char, c_int, c_uint, c_void};
 
 use crate::bitmasks::*;
+use crate::consts_inner::*;
 use crate::enums::*;
 use crate::flags::*;
 use crate::fn_ptrs::*;
@@ -277,9 +278,9 @@ pub struct PhysicalDeviceLimits {
     pub max_fragment_dual_src_attachments: u32,
     pub max_fragment_combined_output_resources: u32,
     pub max_compute_shared_memory_size: u32,
-    pub max_compute_work_group_count: [u32; 3],
+    pub max_compute_work_group_count: [u32; 3 as usize],
     pub max_compute_work_group_invocations: u32,
-    pub max_compute_work_group_size: [u32; 3],
+    pub max_compute_work_group_size: [u32; 3 as usize],
     pub sub_pixel_precision_bits: u32,
     pub sub_texel_precision_bits: u32,
     pub mipmap_precision_bits: u32,
@@ -288,8 +289,8 @@ pub struct PhysicalDeviceLimits {
     pub max_sampler_lod_bias: f32,
     pub max_sampler_anisotropy: f32,
     pub max_viewports: u32,
-    pub max_viewport_dimensions: [u32; 2],
-    pub viewport_bounds_range: [f32; 2],
+    pub max_viewport_dimensions: [u32; 2 as usize],
+    pub viewport_bounds_range: [f32; 2 as usize],
     pub viewport_sub_pixel_bits: u32,
     pub min_memory_map_alignment: usize,
     pub min_texel_buffer_offset_alignment: DeviceSize,
@@ -322,8 +323,8 @@ pub struct PhysicalDeviceLimits {
     pub max_cull_distances: u32,
     pub max_combined_clip_and_cull_distances: u32,
     pub discrete_queue_priorities: u32,
-    pub point_size_range: [f32; 2],
-    pub line_width_range: [f32; 2],
+    pub point_size_range: [f32; 2 as usize],
+    pub line_width_range: [f32; 2 as usize],
     pub point_size_granularity: f32,
     pub line_width_granularity: f32,
     pub strict_lines: Bool32,
@@ -339,9 +340,9 @@ pub struct PhysicalDeviceLimits {
 #[repr(C)]
 pub struct PhysicalDeviceMemoryProperties {
     pub memory_type_count: u32,
-    pub memory_types: [MemoryType; 32],
+    pub memory_types: [MemoryType; VK_MAX_MEMORY_TYPES as usize],
     pub memory_heap_count: u32,
-    pub memory_heaps: [MemoryHeap; 16],
+    pub memory_heaps: [MemoryHeap; VK_MAX_MEMORY_HEAPS as usize],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSparseProperties.html>
@@ -366,8 +367,8 @@ pub struct PhysicalDeviceProperties {
     pub vendor_id: u32,
     pub device_id: u32,
     pub device_type: PhysicalDeviceType,
-    pub device_name: [c_char; 256],
-    pub pipeline_cache_uuid: [u8; 16],
+    pub device_name: [c_char; VK_MAX_PHYSICAL_DEVICE_NAME_SIZE as usize],
+    pub pipeline_cache_uuid: [u8; VK_UUID_SIZE as usize],
     pub limits: PhysicalDeviceLimits,
     pub sparse_properties: PhysicalDeviceSparseProperties,
 }
@@ -418,7 +419,7 @@ pub struct DeviceCreateInfo {
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ExtensionProperties {
-    pub extension_name: [c_char; 256],
+    pub extension_name: [c_char; VK_MAX_EXTENSION_NAME_SIZE as usize],
     pub spec_version: u32,
 }
 
@@ -427,10 +428,10 @@ pub struct ExtensionProperties {
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct LayerProperties {
-    pub layer_name: [c_char; 256],
+    pub layer_name: [c_char; VK_MAX_EXTENSION_NAME_SIZE as usize],
     pub spec_version: u32,
     pub implementation_version: u32,
-    pub description: [c_char; 256],
+    pub description: [c_char; VK_MAX_DESCRIPTION_SIZE as usize],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSubmitInfo.html>
@@ -866,7 +867,7 @@ pub struct PipelineCacheHeaderVersionOne {
     pub header_version: PipelineCacheHeaderVersion,
     pub vendor_id: u32,
     pub device_id: u32,
-    pub pipeline_cache_uuid: [u8; 16],
+    pub pipeline_cache_uuid: [u8; VK_UUID_SIZE as usize],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkEventCreateInfo.html>
@@ -1131,9 +1132,9 @@ pub struct WriteDescriptorSet {
 #[derive(Clone, Copy)]
 #[repr(C)]
 pub struct ClearColorValue {
-    pub float_32: [f32; 4],
-    pub int_32: [i32; 4],
-    pub uint_32: [u32; 4],
+    pub float_32: [f32; 4 as usize],
+    pub int_32: [i32; 4 as usize],
+    pub uint_32: [u32; 4 as usize],
 }
 impl std::fmt::Debug for ClearColorValue {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
@@ -1239,7 +1240,7 @@ pub struct PipelineColorBlendStateCreateInfo {
     pub logic_op: LogicOp,
     pub attachment_count: u32,
     pub p_attachments: *const PipelineColorBlendAttachmentState,
-    pub blend_constants: [f32; 4],
+    pub blend_constants: [f32; 4 as usize],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineDepthStencilStateCreateInfo.html>
@@ -1523,9 +1524,9 @@ pub struct ClearAttachment {
 #[repr(C)]
 pub struct ImageBlit {
     pub src_subresource: ImageSubresourceLayers,
-    pub src_offsets: [Offset3D; 2],
+    pub src_offsets: [Offset3D; 2 as usize],
     pub dst_subresource: ImageSubresourceLayers,
-    pub dst_offsets: [Offset3D; 2],
+    pub dst_offsets: [Offset3D; 2 as usize],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageResolve.html>
@@ -1689,7 +1690,7 @@ pub struct PhysicalDeviceGroupProperties {
     pub s_type: StructureType,
     pub p_next: *mut c_void,
     pub physical_device_count: u32,
-    pub physical_devices: [PhysicalDevice; 32],
+    pub physical_devices: [PhysicalDevice; VK_MAX_DEVICE_GROUP_SIZE as usize],
     pub subset_allocation: Bool32,
 }
 pub type PhysicalDeviceGroupPropertiesKHR = PhysicalDeviceGroupProperties;
@@ -2007,9 +2008,9 @@ pub type ExternalBufferPropertiesKHR = ExternalBufferProperties;
 pub struct PhysicalDeviceIDProperties {
     pub s_type: StructureType,
     pub p_next: *mut c_void,
-    pub device_uuid: [u8; 16],
-    pub driver_uuid: [u8; 16],
-    pub device_luid: [u8; 8],
+    pub device_uuid: [u8; VK_UUID_SIZE as usize],
+    pub driver_uuid: [u8; VK_UUID_SIZE as usize],
+    pub device_luid: [u8; VK_LUID_SIZE as usize],
     pub device_node_mask: u32,
     pub device_luid_valid: Bool32,
 }
@@ -2398,8 +2399,8 @@ pub struct PhysicalDeviceDriverProperties {
     pub s_type: StructureType,
     pub p_next: *mut c_void,
     pub driver_id: DriverId,
-    pub driver_name: [c_char; 256],
-    pub driver_info: [c_char; 256],
+    pub driver_name: [c_char; VK_MAX_DRIVER_NAME_SIZE as usize],
+    pub driver_info: [c_char; VK_MAX_DRIVER_INFO_SIZE as usize],
     pub conformance_version: ConformanceVersion,
 }
 pub type PhysicalDeviceDriverPropertiesKHR = PhysicalDeviceDriverProperties;
@@ -2432,9 +2433,9 @@ pub struct PhysicalDeviceVulkan11Features {
 pub struct PhysicalDeviceVulkan11Properties {
     pub s_type: StructureType,
     pub p_next: *mut c_void,
-    pub device_uuid: [u8; 16],
-    pub driver_uuid: [u8; 16],
-    pub device_luid: [u8; 8],
+    pub device_uuid: [u8; VK_UUID_SIZE as usize],
+    pub driver_uuid: [u8; VK_UUID_SIZE as usize],
+    pub device_luid: [u8; VK_LUID_SIZE as usize],
     pub device_node_mask: u32,
     pub device_luid_valid: Bool32,
     pub subgroup_size: u32,
@@ -2513,8 +2514,8 @@ pub struct PhysicalDeviceVulkan12Properties {
     pub s_type: StructureType,
     pub p_next: *mut c_void,
     pub driver_id: DriverId,
-    pub driver_name: [c_char; 256],
-    pub driver_info: [c_char; 256],
+    pub driver_name: [c_char; VK_MAX_DRIVER_NAME_SIZE as usize],
+    pub driver_info: [c_char; VK_MAX_DRIVER_INFO_SIZE as usize],
     pub conformance_version: ConformanceVersion,
     pub denorm_behavior_independence: ShaderFloatControlsIndependence,
     pub rounding_mode_independence: ShaderFloatControlsIndependence,
@@ -3281,11 +3282,11 @@ pub struct PhysicalDeviceVulkan13Properties {
 pub struct PhysicalDeviceToolProperties {
     pub s_type: StructureType,
     pub p_next: *mut c_void,
-    pub name: [c_char; 256],
-    pub version: [c_char; 256],
+    pub name: [c_char; VK_MAX_EXTENSION_NAME_SIZE as usize],
+    pub version: [c_char; VK_MAX_EXTENSION_NAME_SIZE as usize],
     pub purposes: ToolPurposeFlags,
-    pub description: [c_char; 256],
-    pub layer: [c_char; 256],
+    pub description: [c_char; VK_MAX_DESCRIPTION_SIZE as usize],
+    pub layer: [c_char; VK_MAX_EXTENSION_NAME_SIZE as usize],
 }
 pub type PhysicalDeviceToolPropertiesEXT = PhysicalDeviceToolProperties;
 
@@ -3870,9 +3871,9 @@ pub struct ImageBlit2 {
     pub s_type: StructureType,
     pub p_next: *const c_void,
     pub src_subresource: ImageSubresourceLayers,
-    pub src_offsets: [Offset3D; 2],
+    pub src_offsets: [Offset3D; 2 as usize],
     pub dst_subresource: ImageSubresourceLayers,
-    pub dst_offsets: [Offset3D; 2],
+    pub dst_offsets: [Offset3D; 2 as usize],
 }
 pub type ImageBlit2KHR = ImageBlit2;
 
@@ -4063,7 +4064,7 @@ pub struct PhysicalDeviceVulkan14Properties {
     pub p_copy_src_layouts: *mut ImageLayout,
     pub copy_dst_layout_count: u32,
     pub p_copy_dst_layouts: *mut ImageLayout,
-    pub optimal_tiling_layout_uuid: [u8; 16],
+    pub optimal_tiling_layout_uuid: [u8; VK_UUID_SIZE as usize],
     pub identical_memory_type_requirements: Bool32,
 }
 
@@ -4099,7 +4100,7 @@ pub struct QueueFamilyGlobalPriorityProperties {
     pub s_type: StructureType,
     pub p_next: *mut c_void,
     pub priority_count: u32,
-    pub priorities: [QueueGlobalPriority; 16],
+    pub priorities: [QueueGlobalPriority; VK_MAX_GLOBAL_PRIORITY_SIZE as usize],
 }
 pub type QueueFamilyGlobalPriorityPropertiesKHR = QueueFamilyGlobalPriorityProperties;
 pub type QueueFamilyGlobalPriorityPropertiesEXT = QueueFamilyGlobalPriorityProperties;
@@ -4273,7 +4274,7 @@ pub struct PhysicalDeviceHostImageCopyProperties {
     pub p_copy_src_layouts: *mut ImageLayout,
     pub copy_dst_layout_count: u32,
     pub p_copy_dst_layouts: *mut ImageLayout,
-    pub optimal_tiling_layout_uuid: [u8; 16],
+    pub optimal_tiling_layout_uuid: [u8; VK_UUID_SIZE as usize],
     pub identical_memory_type_requirements: Bool32,
 }
 pub type PhysicalDeviceHostImageCopyPropertiesEXT = PhysicalDeviceHostImageCopyProperties;
@@ -4819,7 +4820,7 @@ pub struct AcquireNextImageInfoKHR {
 pub struct DeviceGroupPresentCapabilitiesKHR {
     pub s_type: StructureType,
     pub p_next: *mut c_void,
-    pub present_mask: [u32; 32],
+    pub present_mask: [u32; VK_MAX_DEVICE_GROUP_SIZE as usize],
     pub modes: DeviceGroupPresentModeFlagsKHR,
 }
 
@@ -6034,7 +6035,7 @@ pub struct PerformanceCounterKHR {
     pub unit: PerformanceCounterUnitKHR,
     pub scope: PerformanceCounterScopeKHR,
     pub storage: PerformanceCounterStorageKHR,
-    pub uuid: [u8; 16],
+    pub uuid: [u8; VK_UUID_SIZE as usize],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceCounterDescriptionKHR.html>
@@ -6045,9 +6046,9 @@ pub struct PerformanceCounterDescriptionKHR {
     pub s_type: StructureType,
     pub p_next: *mut c_void,
     pub flags: PerformanceCounterDescriptionFlagsKHR,
-    pub name: [c_char; 256],
-    pub category: [c_char; 256],
-    pub description: [c_char; 256],
+    pub name: [c_char; VK_MAX_DESCRIPTION_SIZE as usize],
+    pub category: [c_char; VK_MAX_DESCRIPTION_SIZE as usize],
+    pub description: [c_char; VK_MAX_DESCRIPTION_SIZE as usize],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkQueryPoolPerformanceCreateInfoKHR.html>
@@ -6328,7 +6329,7 @@ pub struct PipelineFragmentShadingRateStateCreateInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
     pub fragment_size: Extent2D,
-    pub combiner_ops: [FragmentShadingRateCombinerOpKHR; 2],
+    pub combiner_ops: [FragmentShadingRateCombinerOpKHR; 2 as usize],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFragmentShadingRateFeaturesKHR.html>
@@ -6492,8 +6493,8 @@ pub struct PipelineExecutablePropertiesKHR {
     pub s_type: StructureType,
     pub p_next: *mut c_void,
     pub stages: ShaderStageFlags,
-    pub name: [c_char; 256],
-    pub description: [c_char; 256],
+    pub name: [c_char; VK_MAX_DESCRIPTION_SIZE as usize],
+    pub description: [c_char; VK_MAX_DESCRIPTION_SIZE as usize],
     pub subgroup_size: u32,
 }
 
@@ -6531,8 +6532,8 @@ impl std::fmt::Debug for PipelineExecutableStatisticValueKHR {
 pub struct PipelineExecutableStatisticKHR {
     pub s_type: StructureType,
     pub p_next: *mut c_void,
-    pub name: [c_char; 256],
-    pub description: [c_char; 256],
+    pub name: [c_char; VK_MAX_DESCRIPTION_SIZE as usize],
+    pub description: [c_char; VK_MAX_DESCRIPTION_SIZE as usize],
     pub format: PipelineExecutableStatisticFormatKHR,
     pub value: PipelineExecutableStatisticValueKHR,
 }
@@ -6544,8 +6545,8 @@ pub struct PipelineExecutableStatisticKHR {
 pub struct PipelineExecutableInternalRepresentationKHR {
     pub s_type: StructureType,
     pub p_next: *mut c_void,
-    pub name: [c_char; 256],
-    pub description: [c_char; 256],
+    pub name: [c_char; VK_MAX_DESCRIPTION_SIZE as usize],
+    pub description: [c_char; VK_MAX_DESCRIPTION_SIZE as usize],
     pub is_text: Bool32,
     pub data_size: usize,
     pub p_data: *mut c_void,
@@ -7151,7 +7152,7 @@ pub struct PipelineBinaryKeyKHR {
     pub s_type: StructureType,
     pub p_next: *mut c_void,
     pub key_size: u32,
-    pub key: [u8; 32],
+    pub key: [u8; VK_MAX_PIPELINE_BINARY_KEY_SIZE_KHR as usize],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineBinaryDataKHR.html>
@@ -7459,7 +7460,7 @@ pub struct VideoDecodeAV1PictureInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
     pub p_std_picture_info: *const DecodeAV1PictureInfo,
-    pub reference_name_slot_indices: [i32; 7],
+    pub reference_name_slot_indices: [i32; VK_MAX_VIDEO_AV1_REFERENCES_PER_FRAME_KHR as usize],
     pub frame_header_offset: u32,
     pub tile_count: u32,
     pub p_tile_offsets: *const u32,
@@ -7588,7 +7589,7 @@ pub struct VideoEncodeAV1PictureInfoKHR {
     pub rate_control_group: VideoEncodeAV1RateControlGroupKHR,
     pub constant_q_index: u32,
     pub p_std_picture_info: *const EncodeAV1PictureInfo,
-    pub reference_name_slot_indices: [i32; 7],
+    pub reference_name_slot_indices: [i32; VK_MAX_VIDEO_AV1_REFERENCES_PER_FRAME_KHR as usize],
     pub primary_reference_cdf_only: Bool32,
     pub generate_obu_extension_header: Bool32,
 }
@@ -7703,7 +7704,7 @@ pub struct VideoDecodeVP9PictureInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
     pub p_std_picture_info: *const DecodeVP9PictureInfo,
-    pub reference_name_slot_indices: [i32; 3],
+    pub reference_name_slot_indices: [i32; VK_MAX_VIDEO_VP9_REFERENCES_PER_FRAME_KHR as usize],
     pub uncompressed_header_offset: u32,
     pub compressed_header_offset: u32,
     pub tiles_offset: u32,
@@ -8072,7 +8073,7 @@ pub struct PhysicalDeviceLayeredApiPropertiesKHR {
     pub vendor_id: u32,
     pub device_id: u32,
     pub layered_api: PhysicalDeviceLayeredApiKHR,
-    pub device_name: [c_char; 256],
+    pub device_name: [c_char; VK_MAX_PHYSICAL_DEVICE_NAME_SIZE as usize],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceLayeredApiPropertiesListKHR.html>
@@ -8135,7 +8136,7 @@ pub type DeviceFaultAddressInfoEXT = DeviceFaultAddressInfoKHR;
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DeviceFaultVendorInfoKHR {
-    pub description: [c_char; 256],
+    pub description: [c_char; VK_MAX_DESCRIPTION_SIZE as usize],
     pub vendor_fault_code: u64,
     pub vendor_fault_data: u64,
 }
@@ -8150,7 +8151,7 @@ pub struct DeviceFaultInfoKHR {
     pub p_next: *mut c_void,
     pub flags: DeviceFaultFlagsKHR,
     pub group_id: u64,
-    pub description: [c_char; 256],
+    pub description: [c_char; VK_MAX_DESCRIPTION_SIZE as usize],
     pub fault_address_info: DeviceFaultAddressInfoKHR,
     pub instruction_address_info: DeviceFaultAddressInfoKHR,
     pub vendor_info: DeviceFaultVendorInfoKHR,
@@ -8177,7 +8178,7 @@ pub struct DeviceFaultVendorBinaryHeaderVersionOneKHR {
     pub vendor_id: u32,
     pub device_id: u32,
     pub driver_version: u32,
-    pub pipeline_cache_uuid: [u8; 16],
+    pub pipeline_cache_uuid: [u8; VK_UUID_SIZE as usize],
     pub application_name_offset: u32,
     pub application_version: u32,
     pub engine_name_offset: u32,
@@ -8660,7 +8661,7 @@ pub struct DebugMarkerMarkerInfoEXT {
     pub s_type: StructureType,
     pub p_next: *const c_void,
     pub p_marker_name: *const c_char,
-    pub color: [f32; 4],
+    pub color: [f32; 4 as usize],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDedicatedAllocationImageCreateInfoNV.html>
@@ -8844,7 +8845,7 @@ pub struct ShaderStatisticsInfoAMD {
     pub num_physical_sgprs: u32,
     pub num_available_vgprs: u32,
     pub num_available_sgprs: u32,
-    pub compute_work_group_size: [u32; 3],
+    pub compute_work_group_size: [u32; 3 as usize],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkStreamDescriptorSurfaceCreateInfoGGP.html>
@@ -9317,7 +9318,7 @@ pub struct DebugUtilsLabelEXT {
     pub s_type: StructureType,
     pub p_next: *const c_void,
     pub p_label_name: *const c_char,
-    pub color: [f32; 4],
+    pub color: [f32; 4 as usize],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDebugUtilsObjectNameInfoEXT.html>
@@ -9606,7 +9607,7 @@ pub struct PhysicalDeviceShaderEnqueuePropertiesAMDX {
     pub max_execution_graph_shader_payload_size: u32,
     pub max_execution_graph_shader_payload_count: u32,
     pub execution_graph_dispatch_address_alignment: u32,
-    pub max_execution_graph_workgroup_count: [u32; 3],
+    pub max_execution_graph_workgroup_count: [u32; 3 as usize],
     pub max_execution_graph_workgroups: u32,
 }
 
@@ -10135,7 +10136,7 @@ pub struct PhysicalDeviceSampleLocationsPropertiesEXT {
     pub p_next: *mut c_void,
     pub sample_location_sample_counts: SampleCountFlags,
     pub max_sample_location_grid_size: Extent2D,
-    pub sample_location_coordinate_range: [f32; 2],
+    pub sample_location_coordinate_range: [f32; 2 as usize],
     pub sample_location_sub_pixel_bits: u32,
     pub variable_sample_locations: Bool32,
 }
@@ -10590,7 +10591,7 @@ pub struct PhysicalDeviceRayTracingPropertiesNV {
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct TransformMatrixKHR {
-    pub matrix: [[f32; 3]; 4],
+    pub matrix: [[f32; 3 as usize]; 4 as usize],
 }
 pub type TransformMatrixNV = TransformMatrixKHR;
 
@@ -10797,11 +10798,11 @@ pub struct PhysicalDeviceMeshShaderPropertiesNV {
     pub p_next: *mut c_void,
     pub max_draw_mesh_tasks_count: u32,
     pub max_task_work_group_invocations: u32,
-    pub max_task_work_group_size: [u32; 3],
+    pub max_task_work_group_size: [u32; 3 as usize],
     pub max_task_total_memory_size: u32,
     pub max_task_output_count: u32,
     pub max_mesh_work_group_invocations: u32,
-    pub max_mesh_work_group_size: [u32; 3],
+    pub max_mesh_work_group_size: [u32; 3 as usize],
     pub max_mesh_total_memory_size: u32,
     pub max_mesh_output_vertices: u32,
     pub max_mesh_output_primitives: u32,
@@ -11264,8 +11265,8 @@ pub struct PhysicalDeviceShaderImageAtomicInt64FeaturesEXT {
 pub struct PhysicalDeviceMemoryBudgetPropertiesEXT {
     pub s_type: StructureType,
     pub p_next: *mut c_void,
-    pub heap_budget: [DeviceSize; 16],
-    pub heap_usage: [DeviceSize; 16],
+    pub heap_budget: [DeviceSize; VK_MAX_MEMORY_HEAPS as usize],
+    pub heap_usage: [DeviceSize; VK_MAX_MEMORY_HEAPS as usize],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMemoryPriorityFeaturesEXT.html>
@@ -12587,7 +12588,7 @@ pub struct PipelineFragmentShadingRateEnumStateCreateInfoNV {
     pub p_next: *const c_void,
     pub shading_rate_type: FragmentShadingRateTypeNV,
     pub shading_rate: FragmentShadingRateNV,
-    pub combiner_ops: [FragmentShadingRateCombinerOpKHR; 2],
+    pub combiner_ops: [FragmentShadingRateCombinerOpKHR; 2 as usize],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceOrHostAddressConstKHR.html>
@@ -12839,7 +12840,7 @@ pub struct DeviceFaultCountsEXT {
 pub struct DeviceFaultInfoEXT {
     pub s_type: StructureType,
     pub p_next: *mut c_void,
-    pub description: [c_char; 256],
+    pub description: [c_char; VK_MAX_DESCRIPTION_SIZE as usize],
     pub p_address_infos: *mut DeviceFaultAddressInfoKHR,
     pub p_vendor_infos: *mut DeviceFaultVendorInfoKHR,
     pub p_vendor_binary_data: *mut c_void,
@@ -13272,7 +13273,7 @@ pub struct PhysicalDeviceExternalMemoryRDMAFeaturesNV {
 pub struct PipelinePropertiesIdentifierEXT {
     pub s_type: StructureType,
     pub p_next: *mut c_void,
-    pub pipeline_identifier: [u8; 16],
+    pub pipeline_identifier: [u8; VK_UUID_SIZE as usize],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePipelinePropertiesFeaturesEXT.html>
@@ -13761,8 +13762,8 @@ pub struct PhysicalDeviceClusterCullingShaderFeaturesHUAWEI {
 pub struct PhysicalDeviceClusterCullingShaderPropertiesHUAWEI {
     pub s_type: StructureType,
     pub p_next: *mut c_void,
-    pub max_work_group_count: [u32; 3],
-    pub max_work_group_size: [u32; 3],
+    pub max_work_group_count: [u32; 3 as usize],
+    pub max_work_group_size: [u32; 3 as usize],
     pub max_output_cluster_count: u32,
     pub indirect_buffer_offset_alignment: DeviceSize,
 }
@@ -14441,7 +14442,7 @@ pub struct RenderPassCreationFeedbackCreateInfoEXT {
 #[repr(C)]
 pub struct RenderPassSubpassFeedbackInfoEXT {
     pub subpass_merge_status: SubpassMergeStatusEXT,
-    pub description: [c_char; 256],
+    pub description: [c_char; VK_MAX_DESCRIPTION_SIZE as usize],
     pub post_merge_index: u32,
 }
 
@@ -14773,7 +14774,7 @@ pub struct PhysicalDeviceShaderModuleIdentifierFeaturesEXT {
 pub struct PhysicalDeviceShaderModuleIdentifierPropertiesEXT {
     pub s_type: StructureType,
     pub p_next: *mut c_void,
-    pub shader_module_identifier_algorithm_uuid: [u8; 16],
+    pub shader_module_identifier_algorithm_uuid: [u8; VK_UUID_SIZE as usize],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineShaderStageModuleIdentifierCreateInfoEXT.html>
@@ -14795,7 +14796,7 @@ pub struct ShaderModuleIdentifierEXT {
     pub s_type: StructureType,
     pub p_next: *mut c_void,
     pub identifier_size: u32,
-    pub identifier: [u8; 32],
+    pub identifier: [u8; VK_MAX_SHADER_MODULE_IDENTIFIER_SIZE_EXT as usize],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceOpticalFlowFeaturesNV.html>
@@ -15008,7 +15009,7 @@ pub struct PhysicalDeviceShaderObjectFeaturesEXT {
 pub struct PhysicalDeviceShaderObjectPropertiesEXT {
     pub s_type: StructureType,
     pub p_next: *mut c_void,
-    pub shader_binary_uuid: [u8; 16],
+    pub shader_binary_uuid: [u8; VK_UUID_SIZE as usize],
     pub shader_binary_version: u32,
 }
 
@@ -15573,7 +15574,7 @@ pub struct PhysicalDeviceDataGraphProcessingEngineARM {
 #[repr(C)]
 pub struct PhysicalDeviceDataGraphOperationSupportARM {
     pub operation_type: PhysicalDeviceDataGraphOperationTypeARM,
-    pub name: [c_char; 128],
+    pub name: [c_char; VK_MAX_PHYSICAL_DEVICE_DATA_GRAPH_OPERATION_SET_NAME_SIZE_ARM as usize],
     pub version: u32,
 }
 
@@ -15638,7 +15639,7 @@ pub struct DataGraphPipelineConstantTensorSemiStructuredSparsityInfoARM {
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DataGraphTOSANameQualityARM {
-    pub name: [c_char; 128],
+    pub name: [c_char; VK_MAX_DATA_GRAPH_TOSA_NAME_SIZE_ARM as usize],
     pub quality_flags: DataGraphTOSAQualityFlagsARM,
 }
 
@@ -16052,7 +16053,7 @@ pub struct PhysicalDeviceShaderReplicatedCompositesFeaturesEXT {
 pub struct TensorRollingBackingCreateInfoARM {
     pub s_type: StructureType,
     pub p_next: *const c_void,
-    pub wraps: [u32; 4],
+    pub wraps: [u32; VK_MAX_TENSOR_CREATE_INFO_ROLLING_BACKING_WRAP_COUNT_ARM as usize],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTensorExplicitTilingFormatPropertiesARM.html>
@@ -16389,7 +16390,7 @@ pub struct BuildPartitionedAccelerationStructureIndirectCommandNV {
 #[repr(C)]
 pub struct PartitionedAccelerationStructureWriteInstanceDataNV {
     pub transform: TransformMatrixKHR,
-    pub explicit_aabb: [f32; 6],
+    pub explicit_aabb: [f32; 6 as usize],
     pub instance_id: u32,
     pub instance_mask: u32,
     pub instance_contribution_to_hit_group_index: u32,
@@ -16415,7 +16416,7 @@ pub struct PartitionedAccelerationStructureUpdateInstanceDataNV {
 #[repr(C)]
 pub struct PartitionedAccelerationStructureWritePartitionTranslationDataNV {
     pub partition_index: u32,
-    pub partition_translation: [f32; 3],
+    pub partition_translation: [f32; 3 as usize],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkWriteDescriptorSetPartitionedAccelerationStructureNV.html>
@@ -17001,7 +17002,7 @@ pub struct PerformanceCounterDescriptionARM {
     pub s_type: StructureType,
     pub p_next: *mut c_void,
     pub flags: PerformanceCounterDescriptionFlagsARM,
-    pub name: [c_char; 256],
+    pub name: [c_char; VK_MAX_DESCRIPTION_SIZE as usize],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPassPerformanceCountersByRegionBeginInfoARM.html>
@@ -17055,8 +17056,8 @@ pub struct ShaderInstrumentationCreateInfoARM {
 pub struct ShaderInstrumentationMetricDescriptionARM {
     pub s_type: StructureType,
     pub p_next: *mut c_void,
-    pub name: [c_char; 256],
-    pub description: [c_char; 256],
+    pub name: [c_char; VK_MAX_DESCRIPTION_SIZE as usize],
+    pub description: [c_char; VK_MAX_DESCRIPTION_SIZE as usize],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderInstrumentationMetricDataHeaderARM.html>
@@ -17223,7 +17224,7 @@ pub struct PipelineCacheHeaderVersionDataGraphQCOM {
     pub header_version: PipelineCacheHeaderVersion,
     pub cache_type: DataGraphModelCacheTypeQCOM,
     pub cache_version: u32,
-    pub toolchain_version: [u32; 3],
+    pub toolchain_version: [u32; VK_DATA_GRAPH_MODEL_TOOLCHAIN_VERSION_LENGTH_QCOM as usize],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineBuiltinModelCreateInfoQCOM.html>
@@ -17965,16 +17966,16 @@ pub struct PhysicalDeviceMeshShaderPropertiesEXT {
     pub s_type: StructureType,
     pub p_next: *mut c_void,
     pub max_task_work_group_total_count: u32,
-    pub max_task_work_group_count: [u32; 3],
+    pub max_task_work_group_count: [u32; 3 as usize],
     pub max_task_work_group_invocations: u32,
-    pub max_task_work_group_size: [u32; 3],
+    pub max_task_work_group_size: [u32; 3 as usize],
     pub max_task_payload_size: u32,
     pub max_task_shared_memory_size: u32,
     pub max_task_payload_and_shared_memory_size: u32,
     pub max_mesh_work_group_total_count: u32,
-    pub max_mesh_work_group_count: [u32; 3],
+    pub max_mesh_work_group_count: [u32; 3 as usize],
     pub max_mesh_work_group_invocations: u32,
-    pub max_mesh_work_group_size: [u32; 3],
+    pub max_mesh_work_group_size: [u32; 3 as usize],
     pub max_mesh_shared_memory_size: u32,
     pub max_mesh_payload_and_shared_memory_size: u32,
     pub max_mesh_output_memory_size: u32,
@@ -18032,9 +18033,9 @@ pub struct H264HrdParameters {
     pub bit_rate_scale: u8,
     pub cpb_size_scale: u8,
     pub reserved_1: u8,
-    pub bit_rate_value_minus_1: [u32; 32],
-    pub cpb_size_value_minus_1: [u32; 32],
-    pub cbr_flag: [u8; 32],
+    pub bit_rate_value_minus_1: [u32; STD_VIDEO_H264_CPB_CNT_LIST_SIZE as usize],
+    pub cpb_size_value_minus_1: [u32; STD_VIDEO_H264_CPB_CNT_LIST_SIZE as usize],
+    pub cbr_flag: [u8; STD_VIDEO_H264_CPB_CNT_LIST_SIZE as usize],
     pub initial_cpb_removal_delay_length_minus_1: u32,
     pub cpb_removal_delay_length_minus_1: u32,
     pub dpb_output_delay_length_minus_1: u32,
@@ -18094,8 +18095,10 @@ pub struct H264SpsFlags {
 pub struct H264ScalingLists {
     pub scaling_list_present_mask: u16,
     pub use_default_scaling_matrix_mask: u16,
-    pub scaling_list_4_x_4: [[u8; 6]; 16],
-    pub scaling_list_8_x_8: [[u8; 6]; 64],
+    pub scaling_list_4_x_4: [[u8; STD_VIDEO_H264_SCALING_LIST_4X4_NUM_LISTS as usize];
+        STD_VIDEO_H264_SCALING_LIST_4X4_NUM_ELEMENTS as usize],
+    pub scaling_list_8_x_8: [[u8; STD_VIDEO_H264_SCALING_LIST_8X8_NUM_LISTS as usize];
+        STD_VIDEO_H264_SCALING_LIST_8X8_NUM_ELEMENTS as usize],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264SequenceParameterSet.html>
@@ -18188,7 +18191,7 @@ pub struct DecodeH264PictureInfo {
     pub reserved_2: u8,
     pub frame_num: u16,
     pub idr_pic_id: u16,
-    pub pic_order_cnt: [i32; 2],
+    pub pic_order_cnt: [i32; STD_VIDEO_DECODE_H264_FIELD_ORDER_COUNT_LIST_SIZE as usize],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeH264ReferenceInfoFlags.html>
@@ -18210,7 +18213,7 @@ pub struct DecodeH264ReferenceInfo {
     pub flags: DecodeH264ReferenceInfoFlags,
     pub frame_num: u16,
     pub reserved: u16,
-    pub pic_order_cnt: [i32; 2],
+    pub pic_order_cnt: [i32; STD_VIDEO_DECODE_H264_FIELD_ORDER_COUNT_LIST_SIZE as usize],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH264WeightTableFlags.html>
@@ -18232,14 +18235,18 @@ pub struct EncodeH264WeightTable {
     pub flags: EncodeH264WeightTableFlags,
     pub luma_log_2_weight_denom: u8,
     pub chroma_log_2_weight_denom: u8,
-    pub luma_weight_l_0: [i8; 32],
-    pub luma_offset_l_0: [i8; 32],
-    pub chroma_weight_l_0: [[i8; 32]; 2],
-    pub chroma_offset_l_0: [[i8; 32]; 2],
-    pub luma_weight_l_1: [i8; 32],
-    pub luma_offset_l_1: [i8; 32],
-    pub chroma_weight_l_1: [[i8; 32]; 2],
-    pub chroma_offset_l_1: [[i8; 32]; 2],
+    pub luma_weight_l_0: [i8; STD_VIDEO_H264_MAX_NUM_LIST_REF as usize],
+    pub luma_offset_l_0: [i8; STD_VIDEO_H264_MAX_NUM_LIST_REF as usize],
+    pub chroma_weight_l_0:
+        [[i8; STD_VIDEO_H264_MAX_NUM_LIST_REF as usize]; STD_VIDEO_H264_MAX_CHROMA_PLANES as usize],
+    pub chroma_offset_l_0:
+        [[i8; STD_VIDEO_H264_MAX_NUM_LIST_REF as usize]; STD_VIDEO_H264_MAX_CHROMA_PLANES as usize],
+    pub luma_weight_l_1: [i8; STD_VIDEO_H264_MAX_NUM_LIST_REF as usize],
+    pub luma_offset_l_1: [i8; STD_VIDEO_H264_MAX_NUM_LIST_REF as usize],
+    pub chroma_weight_l_1:
+        [[i8; STD_VIDEO_H264_MAX_NUM_LIST_REF as usize]; STD_VIDEO_H264_MAX_CHROMA_PLANES as usize],
+    pub chroma_offset_l_1:
+        [[i8; STD_VIDEO_H264_MAX_NUM_LIST_REF as usize]; STD_VIDEO_H264_MAX_CHROMA_PLANES as usize],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH264SliceHeaderFlags.html>
@@ -18314,12 +18321,12 @@ pub struct EncodeH264ReferenceListsInfo {
     pub flags: EncodeH264ReferenceListsInfoFlags,
     pub num_ref_idx_l_0_active_minus_1: u8,
     pub num_ref_idx_l_1_active_minus_1: u8,
-    pub ref_pic_list_0: [u8; 32],
-    pub ref_pic_list_1: [u8; 32],
+    pub ref_pic_list_0: [u8; STD_VIDEO_H264_MAX_NUM_LIST_REF as usize],
+    pub ref_pic_list_1: [u8; STD_VIDEO_H264_MAX_NUM_LIST_REF as usize],
     pub ref_list_0_mod_op_count: u8,
     pub ref_list_1_mod_op_count: u8,
     pub ref_pic_marking_op_count: u8,
-    pub reserved_1: [u8; 7],
+    pub reserved_1: [u8; 7 as usize],
     pub p_ref_list_0_mod_operations: *const EncodeH264RefListModEntry,
     pub p_ref_list_1_mod_operations: *const EncodeH264RefListModEntry,
     pub p_ref_pic_marking_operations: *const EncodeH264RefPicMarkingEntry,
@@ -18338,7 +18345,7 @@ pub struct EncodeH264PictureInfo {
     pub frame_num: u32,
     pub pic_order_cnt: i32,
     pub temporal_id: u8,
-    pub reserved_1: [u8; 3],
+    pub reserved_1: [u8; 3 as usize],
     pub p_ref_lists: *const EncodeH264ReferenceListsInfo,
 }
 
@@ -18378,9 +18385,9 @@ pub struct EncodeH264SliceHeader {
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct H265DecPicBufMgr {
-    pub max_latency_increase_plus_1: [u32; 7],
-    pub max_dec_pic_buffering_minus_1: [u8; 7],
-    pub max_num_reorder_pics: [u8; 7],
+    pub max_latency_increase_plus_1: [u32; STD_VIDEO_H265_SUBLAYERS_LIST_SIZE as usize],
+    pub max_dec_pic_buffering_minus_1: [u8; STD_VIDEO_H265_SUBLAYERS_LIST_SIZE as usize],
+    pub max_num_reorder_pics: [u8; STD_VIDEO_H265_SUBLAYERS_LIST_SIZE as usize],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265SubLayerHrdParameters.html>
@@ -18388,10 +18395,10 @@ pub struct H265DecPicBufMgr {
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct H265SubLayerHrdParameters {
-    pub bit_rate_value_minus_1: [u32; 32],
-    pub cpb_size_value_minus_1: [u32; 32],
-    pub cpb_size_du_value_minus_1: [u32; 32],
-    pub bit_rate_du_value_minus_1: [u32; 32],
+    pub bit_rate_value_minus_1: [u32; STD_VIDEO_H265_CPB_CNT_LIST_SIZE as usize],
+    pub cpb_size_value_minus_1: [u32; STD_VIDEO_H265_CPB_CNT_LIST_SIZE as usize],
+    pub cpb_size_du_value_minus_1: [u32; STD_VIDEO_H265_CPB_CNT_LIST_SIZE as usize],
+    pub bit_rate_du_value_minus_1: [u32; STD_VIDEO_H265_CPB_CNT_LIST_SIZE as usize],
     pub cbr_flag: u32,
 }
 
@@ -18424,9 +18431,9 @@ pub struct H265HrdParameters {
     pub initial_cpb_removal_delay_length_minus_1: u8,
     pub au_cpb_removal_delay_length_minus_1: u8,
     pub dpb_output_delay_length_minus_1: u8,
-    pub cpb_cnt_minus_1: [u8; 7],
-    pub elemental_duration_in_tc_minus_1: [u16; 7],
-    pub reserved: [u16; 3],
+    pub cpb_cnt_minus_1: [u8; STD_VIDEO_H265_SUBLAYERS_LIST_SIZE as usize],
+    pub elemental_duration_in_tc_minus_1: [u16; STD_VIDEO_H265_SUBLAYERS_LIST_SIZE as usize],
+    pub reserved: [u16; 3 as usize],
     pub p_sub_layer_hrd_parameters_nal: *const H265SubLayerHrdParameters,
     pub p_sub_layer_hrd_parameters_vcl: *const H265SubLayerHrdParameters,
 }
@@ -18488,12 +18495,16 @@ pub struct H265VideoParameterSet {
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct H265ScalingLists {
-    pub scaling_list_4_x_4: [[u8; 6]; 16],
-    pub scaling_list_8_x_8: [[u8; 6]; 64],
-    pub scaling_list_16_x_16: [[u8; 6]; 64],
-    pub scaling_list_32_x_32: [[u8; 2]; 64],
-    pub scaling_list_dc_coef_16_x_16: [u8; 6],
-    pub scaling_list_dc_coef_32_x_32: [u8; 2],
+    pub scaling_list_4_x_4: [[u8; STD_VIDEO_H265_SCALING_LIST_4X4_NUM_LISTS as usize];
+        STD_VIDEO_H265_SCALING_LIST_4X4_NUM_ELEMENTS as usize],
+    pub scaling_list_8_x_8: [[u8; STD_VIDEO_H265_SCALING_LIST_8X8_NUM_LISTS as usize];
+        STD_VIDEO_H265_SCALING_LIST_8X8_NUM_ELEMENTS as usize],
+    pub scaling_list_16_x_16: [[u8; STD_VIDEO_H265_SCALING_LIST_16X16_NUM_LISTS as usize];
+        STD_VIDEO_H265_SCALING_LIST_16X16_NUM_ELEMENTS as usize],
+    pub scaling_list_32_x_32: [[u8; STD_VIDEO_H265_SCALING_LIST_32X32_NUM_LISTS as usize];
+        STD_VIDEO_H265_SCALING_LIST_32X32_NUM_ELEMENTS as usize],
+    pub scaling_list_dc_coef_16_x_16: [u8; STD_VIDEO_H265_SCALING_LIST_16X16_NUM_LISTS as usize],
+    pub scaling_list_dc_coef_32_x_32: [u8; STD_VIDEO_H265_SCALING_LIST_32X32_NUM_LISTS as usize],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265SpsVuiFlags.html>
@@ -18559,7 +18570,9 @@ pub struct H265SequenceParameterSetVui {
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct H265PredictorPaletteEntries {
-    pub predictor_palette_entries: [[u16; 3]; 128],
+    pub predictor_palette_entries: [[u16; STD_VIDEO_H265_PREDICTOR_PALETTE_COMPONENTS_LIST_SIZE
+        as usize];
+        STD_VIDEO_H265_PREDICTOR_PALETTE_COMP_ENTRIES_LIST_SIZE as usize],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265SpsFlags.html>
@@ -18625,8 +18638,8 @@ pub struct H265ShortTermRefPicSet {
     pub reserved_3: u8,
     pub num_negative_pics: u8,
     pub num_positive_pics: u8,
-    pub delta_poc_s_0_minus_1: [u16; 16],
-    pub delta_poc_s_1_minus_1: [u16; 16],
+    pub delta_poc_s_0_minus_1: [u16; STD_VIDEO_H265_MAX_DPB_SIZE as usize],
+    pub delta_poc_s_1_minus_1: [u16; STD_VIDEO_H265_MAX_DPB_SIZE as usize],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265LongTermRefPicsSps.html>
@@ -18635,7 +18648,7 @@ pub struct H265ShortTermRefPicSet {
 #[repr(C)]
 pub struct H265LongTermRefPicsSps {
     pub used_by_curr_pic_lt_sps_flag: u32,
-    pub lt_ref_pic_poc_lsb_sps: [u32; 32],
+    pub lt_ref_pic_poc_lsb_sps: [u32; STD_VIDEO_H265_MAX_LONG_TERM_REF_PICS_SPS as usize],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265SequenceParameterSet.html>
@@ -18744,8 +18757,8 @@ pub struct H265PictureParameterSet {
     pub log_2_max_transform_skip_block_size_minus_2: u8,
     pub diff_cu_chroma_qp_offset_depth: u8,
     pub chroma_qp_offset_list_len_minus_1: u8,
-    pub cb_qp_offset_list: [i8; 6],
-    pub cr_qp_offset_list: [i8; 6],
+    pub cb_qp_offset_list: [i8; STD_VIDEO_H265_CHROMA_QP_OFFSET_LIST_SIZE as usize],
+    pub cr_qp_offset_list: [i8; STD_VIDEO_H265_CHROMA_QP_OFFSET_LIST_SIZE as usize],
     pub log_2_sao_offset_scale_luma: u8,
     pub log_2_sao_offset_scale_chroma: u8,
     pub pps_act_y_qp_offset_plus_5: i8,
@@ -18758,8 +18771,8 @@ pub struct H265PictureParameterSet {
     pub num_tile_rows_minus_1: u8,
     pub reserved_1: u8,
     pub reserved_2: u8,
-    pub column_width_minus_1: [u16; 19],
-    pub row_height_minus_1: [u16; 21],
+    pub column_width_minus_1: [u16; STD_VIDEO_H265_CHROMA_QP_OFFSET_TILE_COLS_LIST_SIZE as usize],
+    pub row_height_minus_1: [u16; STD_VIDEO_H265_CHROMA_QP_OFFSET_TILE_ROWS_LIST_SIZE as usize],
     pub reserved_3: u32,
     pub p_scaling_lists: *const H265ScalingLists,
     pub p_predictor_palette_entries: *const H265PredictorPaletteEntries,
@@ -18789,9 +18802,9 @@ pub struct DecodeH265PictureInfo {
     pub pic_order_cnt_val: i32,
     pub num_bits_for_st_ref_pic_set_in_slice: u16,
     pub reserved: u16,
-    pub ref_pic_set_st_curr_before: [u8; 8],
-    pub ref_pic_set_st_curr_after: [u8; 8],
-    pub ref_pic_set_lt_curr: [u8; 8],
+    pub ref_pic_set_st_curr_before: [u8; STD_VIDEO_DECODE_H265_REF_PIC_SET_LIST_SIZE as usize],
+    pub ref_pic_set_st_curr_after: [u8; STD_VIDEO_DECODE_H265_REF_PIC_SET_LIST_SIZE as usize],
+    pub ref_pic_set_lt_curr: [u8; STD_VIDEO_DECODE_H265_REF_PIC_SET_LIST_SIZE as usize],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeH265ReferenceInfoFlags.html>
@@ -18831,14 +18844,18 @@ pub struct EncodeH265WeightTable {
     pub flags: EncodeH265WeightTableFlags,
     pub luma_log_2_weight_denom: u8,
     pub delta_chroma_log_2_weight_denom: i8,
-    pub delta_luma_weight_l_0: [i8; 15],
-    pub luma_offset_l_0: [i8; 15],
-    pub delta_chroma_weight_l_0: [[i8; 15]; 2],
-    pub delta_chroma_offset_l_0: [[i8; 15]; 2],
-    pub delta_luma_weight_l_1: [i8; 15],
-    pub luma_offset_l_1: [i8; 15],
-    pub delta_chroma_weight_l_1: [[i8; 15]; 2],
-    pub delta_chroma_offset_l_1: [[i8; 15]; 2],
+    pub delta_luma_weight_l_0: [i8; STD_VIDEO_H265_MAX_NUM_LIST_REF as usize],
+    pub luma_offset_l_0: [i8; STD_VIDEO_H265_MAX_NUM_LIST_REF as usize],
+    pub delta_chroma_weight_l_0:
+        [[i8; STD_VIDEO_H265_MAX_NUM_LIST_REF as usize]; STD_VIDEO_H265_MAX_CHROMA_PLANES as usize],
+    pub delta_chroma_offset_l_0:
+        [[i8; STD_VIDEO_H265_MAX_NUM_LIST_REF as usize]; STD_VIDEO_H265_MAX_CHROMA_PLANES as usize],
+    pub delta_luma_weight_l_1: [i8; STD_VIDEO_H265_MAX_NUM_LIST_REF as usize],
+    pub luma_offset_l_1: [i8; STD_VIDEO_H265_MAX_NUM_LIST_REF as usize],
+    pub delta_chroma_weight_l_1:
+        [[i8; STD_VIDEO_H265_MAX_NUM_LIST_REF as usize]; STD_VIDEO_H265_MAX_CHROMA_PLANES as usize],
+    pub delta_chroma_offset_l_1:
+        [[i8; STD_VIDEO_H265_MAX_NUM_LIST_REF as usize]; STD_VIDEO_H265_MAX_CHROMA_PLANES as usize],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH265SliceSegmentHeaderFlags.html>
@@ -18901,10 +18918,10 @@ pub struct EncodeH265ReferenceListsInfo {
     pub flags: EncodeH265ReferenceListsInfoFlags,
     pub num_ref_idx_l_0_active_minus_1: u8,
     pub num_ref_idx_l_1_active_minus_1: u8,
-    pub ref_pic_list_0: [u8; 15],
-    pub ref_pic_list_1: [u8; 15],
-    pub list_entry_l_0: [u8; 15],
-    pub list_entry_l_1: [u8; 15],
+    pub ref_pic_list_0: [u8; STD_VIDEO_H265_MAX_NUM_LIST_REF as usize],
+    pub ref_pic_list_1: [u8; STD_VIDEO_H265_MAX_NUM_LIST_REF as usize],
+    pub list_entry_l_0: [u8; STD_VIDEO_H265_MAX_NUM_LIST_REF as usize],
+    pub list_entry_l_1: [u8; STD_VIDEO_H265_MAX_NUM_LIST_REF as usize],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH265PictureInfoFlags.html>
@@ -18931,11 +18948,11 @@ pub struct EncodeH265PictureInfoFlags {
 pub struct EncodeH265LongTermRefPics {
     pub num_long_term_sps: u8,
     pub num_long_term_pics: u8,
-    pub lt_idx_sps: [u8; 32],
-    pub poc_lsb_lt: [u8; 16],
+    pub lt_idx_sps: [u8; STD_VIDEO_H265_MAX_LONG_TERM_REF_PICS_SPS as usize],
+    pub poc_lsb_lt: [u8; STD_VIDEO_H265_MAX_LONG_TERM_PICS as usize],
     pub used_by_curr_pic_lt_flag: u16,
-    pub delta_poc_msb_present_flag: [u8; 48],
-    pub delta_poc_msb_cycle_lt: [u8; 48],
+    pub delta_poc_msb_present_flag: [u8; STD_VIDEO_H265_MAX_DELTA_POC as usize],
+    pub delta_poc_msb_cycle_lt: [u8; STD_VIDEO_H265_MAX_DELTA_POC as usize],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH265PictureInfo.html>
@@ -18951,7 +18968,7 @@ pub struct EncodeH265PictureInfo {
     pub short_term_ref_pic_set_idx: u8,
     pub pic_order_cnt_val: i32,
     pub temporal_id: u8,
-    pub reserved_1: [u8; 7],
+    pub reserved_1: [u8; 7 as usize],
     pub p_ref_lists: *const EncodeH265ReferenceListsInfo,
     pub p_short_term_ref_pic_set: *const H265ShortTermRefPicSet,
     pub p_long_term_ref_pics: *const EncodeH265LongTermRefPics,
@@ -19042,12 +19059,12 @@ pub struct AV1LoopFilterFlags {
 #[repr(C)]
 pub struct AV1LoopFilter {
     pub flags: AV1LoopFilterFlags,
-    pub loop_filter_level: [u8; 4],
+    pub loop_filter_level: [u8; STD_VIDEO_AV1_MAX_LOOP_FILTER_STRENGTHS as usize],
     pub loop_filter_sharpness: u8,
     pub update_ref_delta: u8,
-    pub loop_filter_ref_deltas: [i8; 8],
+    pub loop_filter_ref_deltas: [i8; STD_VIDEO_AV1_TOTAL_REFS_PER_FRAME as usize],
     pub update_mode_delta: u8,
-    pub loop_filter_mode_deltas: [i8; 2],
+    pub loop_filter_mode_deltas: [i8; STD_VIDEO_AV1_LOOP_FILTER_ADJUSTMENTS as usize],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1QuantizationFlags.html>
@@ -19082,8 +19099,9 @@ pub struct AV1Quantization {
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AV1Segmentation {
-    pub feature_enabled: [u8; 8],
-    pub feature_data: [[i16; 8]; 8],
+    pub feature_enabled: [u8; STD_VIDEO_AV1_MAX_SEGMENTS as usize],
+    pub feature_data:
+        [[i16; STD_VIDEO_AV1_MAX_SEGMENTS as usize]; STD_VIDEO_AV1_SEG_LVL_MAX as usize],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1TileInfoFlags.html>
@@ -19105,7 +19123,7 @@ pub struct AV1TileInfo {
     pub tile_rows: u8,
     pub context_update_tile_id: u16,
     pub tile_size_bytes_minus_1: u8,
-    pub reserved_1: [u8; 7],
+    pub reserved_1: [u8; 7 as usize],
     pub p_mi_col_starts: *const u16,
     pub p_mi_row_starts: *const u16,
     pub p_width_in_sbs_minus_1: *const u16,
@@ -19119,10 +19137,10 @@ pub struct AV1TileInfo {
 pub struct AV1CDEF {
     pub cdef_damping_minus_3: u8,
     pub cdef_bits: u8,
-    pub cdef_y_pri_strength: [u8; 8],
-    pub cdef_y_sec_strength: [u8; 8],
-    pub cdef_uv_pri_strength: [u8; 8],
-    pub cdef_uv_sec_strength: [u8; 8],
+    pub cdef_y_pri_strength: [u8; STD_VIDEO_AV1_MAX_CDEF_FILTER_STRENGTHS as usize],
+    pub cdef_y_sec_strength: [u8; STD_VIDEO_AV1_MAX_CDEF_FILTER_STRENGTHS as usize],
+    pub cdef_uv_pri_strength: [u8; STD_VIDEO_AV1_MAX_CDEF_FILTER_STRENGTHS as usize],
+    pub cdef_uv_sec_strength: [u8; STD_VIDEO_AV1_MAX_CDEF_FILTER_STRENGTHS as usize],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1LoopRestoration.html>
@@ -19130,8 +19148,8 @@ pub struct AV1CDEF {
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AV1LoopRestoration {
-    pub frame_restoration_type: [AV1FrameRestorationType; 3],
-    pub loop_restoration_size: [u16; 3],
+    pub frame_restoration_type: [AV1FrameRestorationType; STD_VIDEO_AV1_MAX_NUM_PLANES as usize],
+    pub loop_restoration_size: [u16; STD_VIDEO_AV1_MAX_NUM_PLANES as usize],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1GlobalMotion.html>
@@ -19139,8 +19157,9 @@ pub struct AV1LoopRestoration {
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AV1GlobalMotion {
-    pub gm_type: [u8; 8],
-    pub gm_params: [[i32; 8]; 6],
+    pub gm_type: [u8; STD_VIDEO_AV1_NUM_REF_FRAMES as usize],
+    pub gm_params:
+        [[i32; STD_VIDEO_AV1_NUM_REF_FRAMES as usize]; STD_VIDEO_AV1_GLOBAL_MOTION_PARAMS as usize],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1FilmGrainFlags.html>
@@ -19168,17 +19187,17 @@ pub struct AV1FilmGrain {
     pub grain_seed: u16,
     pub film_grain_params_ref_idx: u8,
     pub num_y_points: u8,
-    pub point_y_value: [u8; 14],
-    pub point_y_scaling: [u8; 14],
+    pub point_y_value: [u8; STD_VIDEO_AV1_MAX_NUM_Y_POINTS as usize],
+    pub point_y_scaling: [u8; STD_VIDEO_AV1_MAX_NUM_Y_POINTS as usize],
     pub num_cb_points: u8,
-    pub point_cb_value: [u8; 10],
-    pub point_cb_scaling: [u8; 10],
+    pub point_cb_value: [u8; STD_VIDEO_AV1_MAX_NUM_CB_POINTS as usize],
+    pub point_cb_scaling: [u8; STD_VIDEO_AV1_MAX_NUM_CB_POINTS as usize],
     pub num_cr_points: u8,
-    pub point_cr_value: [u8; 10],
-    pub point_cr_scaling: [u8; 10],
-    pub ar_coeffs_y_plus_128: [i8; 24],
-    pub ar_coeffs_cb_plus_128: [i8; 25],
-    pub ar_coeffs_cr_plus_128: [i8; 25],
+    pub point_cr_value: [u8; STD_VIDEO_AV1_MAX_NUM_CR_POINTS as usize],
+    pub point_cr_scaling: [u8; STD_VIDEO_AV1_MAX_NUM_CR_POINTS as usize],
+    pub ar_coeffs_y_plus_128: [i8; STD_VIDEO_AV1_MAX_NUM_POS_LUMA as usize],
+    pub ar_coeffs_cb_plus_128: [i8; STD_VIDEO_AV1_MAX_NUM_POS_CHROMA as usize],
+    pub ar_coeffs_cr_plus_128: [i8; STD_VIDEO_AV1_MAX_NUM_POS_CHROMA as usize],
     pub cb_mult: u8,
     pub cb_luma_mult: u8,
     pub cb_offset: u16,
@@ -19230,7 +19249,7 @@ pub struct AV1SequenceHeader {
     pub order_hint_bits_minus_1: u8,
     pub seq_force_integer_mv: u8,
     pub seq_force_screen_content_tools: u8,
-    pub reserved_1: [u8; 5],
+    pub reserved_1: [u8; 5 as usize],
     pub p_color_config: *const AV1ColorConfig,
     pub p_timing_info: *const AV1TimingInfo,
 }
@@ -19288,11 +19307,11 @@ pub struct DecodeAV1PictureInfo {
     pub tx_mode: AV1TxMode,
     pub delta_q_res: u8,
     pub delta_lf_res: u8,
-    pub skip_mode_frame: [u8; 2],
+    pub skip_mode_frame: [u8; STD_VIDEO_AV1_SKIP_MODE_FRAMES as usize],
     pub coded_denom: u8,
-    pub reserved_2: [u8; 3],
-    pub order_hints: [u8; 8],
-    pub expected_frame_id: [u32; 8],
+    pub reserved_2: [u8; 3 as usize],
+    pub order_hints: [u8; STD_VIDEO_AV1_NUM_REF_FRAMES as usize],
+    pub expected_frame_id: [u32; STD_VIDEO_AV1_NUM_REF_FRAMES as usize],
     pub p_tile_info: *const AV1TileInfo,
     pub p_quantization: *const AV1Quantization,
     pub p_segmentation: *const AV1Segmentation,
@@ -19322,7 +19341,7 @@ pub struct DecodeAV1ReferenceInfo {
     pub frame_type: u8,
     pub ref_frame_sign_bias: u8,
     pub order_hint: u8,
-    pub saved_order_hints: [u8; 8],
+    pub saved_order_hints: [u8; STD_VIDEO_AV1_NUM_REF_FRAMES as usize],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeAV1DecoderModelInfo.html>
@@ -19427,10 +19446,10 @@ pub struct EncodeAV1PictureInfo {
     pub tx_mode: AV1TxMode,
     pub delta_q_res: u8,
     pub delta_lf_res: u8,
-    pub ref_order_hint: [u8; 8],
-    pub ref_frame_idx: [i8; 7],
-    pub reserved_1: [u8; 3],
-    pub delta_frame_id_minus_1: [u32; 7],
+    pub ref_order_hint: [u8; STD_VIDEO_AV1_NUM_REF_FRAMES as usize],
+    pub ref_frame_idx: [i8; STD_VIDEO_AV1_REFS_PER_FRAME as usize],
+    pub reserved_1: [u8; 3 as usize],
+    pub delta_frame_id_minus_1: [u32; STD_VIDEO_AV1_REFS_PER_FRAME as usize],
     pub p_tile_info: *const AV1TileInfo,
     pub p_quantization: *const AV1Quantization,
     pub p_segmentation: *const AV1Segmentation,
@@ -19461,7 +19480,7 @@ pub struct EncodeAV1ReferenceInfo {
     pub ref_frame_id: u32,
     pub frame_type: AV1FrameType,
     pub order_hint: u8,
-    pub reserved_1: [u8; 3],
+    pub reserved_1: [u8; 3 as usize],
     pub p_extension_header: *const EncodeAV1ExtensionHeader,
 }
 
@@ -19506,9 +19525,9 @@ pub struct VP9LoopFilter {
     pub loop_filter_level: u8,
     pub loop_filter_sharpness: u8,
     pub update_ref_delta: u8,
-    pub loop_filter_ref_deltas: [i8; 4],
+    pub loop_filter_ref_deltas: [i8; STD_VIDEO_VP9_MAX_REF_FRAMES as usize],
     pub update_mode_delta: u8,
-    pub loop_filter_mode_deltas: [i8; 2],
+    pub loop_filter_mode_deltas: [i8; STD_VIDEO_VP9_LOOP_FILTER_ADJUSTMENTS as usize],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoVP9SegmentationFlags.html>
@@ -19529,10 +19548,11 @@ pub struct VP9SegmentationFlags {
 #[repr(C)]
 pub struct VP9Segmentation {
     pub flags: VP9SegmentationFlags,
-    pub segmentation_tree_probs: [u8; 7],
-    pub segmentation_pred_prob: [u8; 3],
-    pub feature_enabled: [u8; 8],
-    pub feature_data: [[i16; 8]; 4],
+    pub segmentation_tree_probs: [u8; STD_VIDEO_VP9_MAX_SEGMENTATION_TREE_PROBS as usize],
+    pub segmentation_pred_prob: [u8; STD_VIDEO_VP9_MAX_SEGMENTATION_PRED_PROB as usize],
+    pub feature_enabled: [u8; STD_VIDEO_VP9_MAX_SEGMENTS as usize],
+    pub feature_data:
+        [[i16; STD_VIDEO_VP9_MAX_SEGMENTS as usize]; STD_VIDEO_VP9_SEG_LVL_MAX as usize],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeVP9PictureInfoFlags.html>
@@ -19570,7 +19590,7 @@ pub struct DecodeVP9PictureInfo {
     pub delta_q_uv_ac: i8,
     pub tile_cols_log_2: u8,
     pub tile_rows_log_2: u8,
-    pub reserved_1: [u16; 3],
+    pub reserved_1: [u16; 3 as usize],
     pub p_color_config: *const VP9ColorConfig,
     pub p_loop_filter: *const VP9LoopFilter,
     pub p_segmentation: *const VP9Segmentation,
