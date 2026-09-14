@@ -1,48 +1,50 @@
+/// Boolean like 32 bit integer wrapper.
+///
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBool32.html>
-#[doc(alias = "VkBool32")]
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[repr(u32)]
-pub enum Bool32 {
-    False = 0,
-    True = 1,
+#[derive(Debug, Clone, Copy)]
+#[repr(transparent)]
+pub struct Bool32(u32);
+
+impl Bool32 {
+    pub const FALSE: Self = Self(0);
+    pub const TRUE: Self = Self(1);
 }
 
 impl From<Bool32> for bool {
-    #[inline(always)]
     fn from(value: Bool32) -> Self {
-        value == Bool32::True
+        value.0 != 0
     }
 }
 
 impl From<bool> for Bool32 {
-    #[inline(always)]
     fn from(value: bool) -> Self {
-        if value { Self::True } else { Self::False }
+        Self(value as u32)
+    }
+}
+
+impl std::cmp::PartialEq<Self> for Bool32 {
+    fn eq(&self, other: &Self) -> bool {
+        bool::from(*self) == bool::from(*other)
     }
 }
 
 impl std::cmp::PartialEq<bool> for Bool32 {
-    #[inline(always)]
     fn eq(&self, other: &bool) -> bool {
         bool::from(*self) == *other
     }
 }
 
 impl std::cmp::PartialEq<Bool32> for bool {
-    #[inline(always)]
     fn eq(&self, other: &Bool32) -> bool {
         bool::from(*other) == *self
     }
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceAddress.html>
-#[doc(alias = "VkDeviceAddress")]
 pub type DeviceAddress = u64;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceAddress.html>
-#[doc(alias = "VkDeviceSize")]
 pub type DeviceSize = u64;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSampleMask.html>
-#[doc(alias = "VkSampleMask")]
 pub type SampleMask = u32;

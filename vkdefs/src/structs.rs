@@ -12,6 +12,7 @@ use crate::flags::*;
 use crate::fn_ptrs::*;
 use crate::handles::*;
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExtent2D.html>
+#[doc(alias = "VkExtent2D")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct Extent2D {
@@ -20,6 +21,7 @@ pub struct Extent2D {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExtent3D.html>
+#[doc(alias = "VkExtent3D")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct Extent3D {
@@ -29,6 +31,7 @@ pub struct Extent3D {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkOffset2D.html>
+#[doc(alias = "VkOffset2D")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct Offset2D {
@@ -37,6 +40,7 @@ pub struct Offset2D {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkOffset3D.html>
+#[doc(alias = "VkOffset3D")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct Offset3D {
@@ -46,6 +50,7 @@ pub struct Offset3D {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRect2D.html>
+#[doc(alias = "VkRect2D")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct Rect2D {
@@ -54,6 +59,7 @@ pub struct Rect2D {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBaseInStructure.html>
+#[doc(alias = "VkBaseInStructure")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BaseInStructure {
@@ -62,6 +68,7 @@ pub struct BaseInStructure {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBaseOutStructure.html>
+#[doc(alias = "VkBaseOutStructure")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BaseOutStructure {
@@ -70,6 +77,7 @@ pub struct BaseOutStructure {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAllocationCallbacks.html>
+#[doc(alias = "VkAllocationCallbacks")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AllocationCallbacks {
@@ -82,6 +90,7 @@ pub struct AllocationCallbacks {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkApplicationInfo.html>
+#[doc(alias = "VkApplicationInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ApplicationInfo {
@@ -95,6 +104,7 @@ pub struct ApplicationInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFormatProperties.html>
+#[doc(alias = "VkFormatProperties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct FormatProperties {
@@ -104,6 +114,7 @@ pub struct FormatProperties {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageFormatProperties.html>
+#[doc(alias = "VkImageFormatProperties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageFormatProperties {
@@ -115,6 +126,7 @@ pub struct ImageFormatProperties {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkInstanceCreateInfo.html>
+#[doc(alias = "VkInstanceCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct InstanceCreateInfo {
@@ -129,6 +141,7 @@ pub struct InstanceCreateInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryHeap.html>
+#[doc(alias = "VkMemoryHeap")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MemoryHeap {
@@ -137,6 +150,7 @@ pub struct MemoryHeap {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryType.html>
+#[doc(alias = "VkMemoryType")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MemoryType {
@@ -145,6 +159,7 @@ pub struct MemoryType {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFeatures.html>
+#[doc(alias = "VkPhysicalDeviceFeatures")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceFeatures {
@@ -206,6 +221,7 @@ pub struct PhysicalDeviceFeatures {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceLimits.html>
+#[doc(alias = "VkPhysicalDeviceLimits")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceLimits {
@@ -318,6 +334,7 @@ pub struct PhysicalDeviceLimits {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMemoryProperties.html>
+#[doc(alias = "VkPhysicalDeviceMemoryProperties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceMemoryProperties {
@@ -328,6 +345,7 @@ pub struct PhysicalDeviceMemoryProperties {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSparseProperties.html>
+#[doc(alias = "VkPhysicalDeviceSparseProperties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceSparseProperties {
@@ -339,6 +357,7 @@ pub struct PhysicalDeviceSparseProperties {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceProperties.html>
+#[doc(alias = "VkPhysicalDeviceProperties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceProperties {
@@ -354,6 +373,7 @@ pub struct PhysicalDeviceProperties {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkQueueFamilyProperties.html>
+#[doc(alias = "VkQueueFamilyProperties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct QueueFamilyProperties {
@@ -364,6 +384,7 @@ pub struct QueueFamilyProperties {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceQueueCreateInfo.html>
+#[doc(alias = "VkDeviceQueueCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DeviceQueueCreateInfo {
@@ -376,6 +397,7 @@ pub struct DeviceQueueCreateInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceCreateInfo.html>
+#[doc(alias = "VkDeviceCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DeviceCreateInfo {
@@ -392,6 +414,7 @@ pub struct DeviceCreateInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExtensionProperties.html>
+#[doc(alias = "VkExtensionProperties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ExtensionProperties {
@@ -400,6 +423,7 @@ pub struct ExtensionProperties {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkLayerProperties.html>
+#[doc(alias = "VkLayerProperties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct LayerProperties {
@@ -410,6 +434,7 @@ pub struct LayerProperties {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSubmitInfo.html>
+#[doc(alias = "VkSubmitInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SubmitInfo {
@@ -425,6 +450,7 @@ pub struct SubmitInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMappedMemoryRange.html>
+#[doc(alias = "VkMappedMemoryRange")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MappedMemoryRange {
@@ -436,6 +462,7 @@ pub struct MappedMemoryRange {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryAllocateInfo.html>
+#[doc(alias = "VkMemoryAllocateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MemoryAllocateInfo {
@@ -446,6 +473,7 @@ pub struct MemoryAllocateInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryRequirements.html>
+#[doc(alias = "VkMemoryRequirements")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MemoryRequirements {
@@ -455,6 +483,7 @@ pub struct MemoryRequirements {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageSubresource.html>
+#[doc(alias = "VkImageSubresource")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageSubresource {
@@ -464,6 +493,7 @@ pub struct ImageSubresource {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSparseImageFormatProperties.html>
+#[doc(alias = "VkSparseImageFormatProperties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SparseImageFormatProperties {
@@ -473,6 +503,7 @@ pub struct SparseImageFormatProperties {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSparseImageMemoryBind.html>
+#[doc(alias = "VkSparseImageMemoryBind")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SparseImageMemoryBind {
@@ -485,6 +516,7 @@ pub struct SparseImageMemoryBind {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSparseImageMemoryBindInfo.html>
+#[doc(alias = "VkSparseImageMemoryBindInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SparseImageMemoryBindInfo {
@@ -494,6 +526,7 @@ pub struct SparseImageMemoryBindInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSparseImageMemoryRequirements.html>
+#[doc(alias = "VkSparseImageMemoryRequirements")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SparseImageMemoryRequirements {
@@ -505,6 +538,7 @@ pub struct SparseImageMemoryRequirements {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSparseMemoryBind.html>
+#[doc(alias = "VkSparseMemoryBind")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SparseMemoryBind {
@@ -516,6 +550,7 @@ pub struct SparseMemoryBind {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSparseBufferMemoryBindInfo.html>
+#[doc(alias = "VkSparseBufferMemoryBindInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SparseBufferMemoryBindInfo {
@@ -525,6 +560,7 @@ pub struct SparseBufferMemoryBindInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSparseImageOpaqueMemoryBindInfo.html>
+#[doc(alias = "VkSparseImageOpaqueMemoryBindInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SparseImageOpaqueMemoryBindInfo {
@@ -534,6 +570,7 @@ pub struct SparseImageOpaqueMemoryBindInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBindSparseInfo.html>
+#[doc(alias = "VkBindSparseInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BindSparseInfo {
@@ -552,6 +589,7 @@ pub struct BindSparseInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFenceCreateInfo.html>
+#[doc(alias = "VkFenceCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct FenceCreateInfo {
@@ -561,6 +599,7 @@ pub struct FenceCreateInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSemaphoreCreateInfo.html>
+#[doc(alias = "VkSemaphoreCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SemaphoreCreateInfo {
@@ -570,6 +609,7 @@ pub struct SemaphoreCreateInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkQueryPoolCreateInfo.html>
+#[doc(alias = "VkQueryPoolCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct QueryPoolCreateInfo {
@@ -582,6 +622,7 @@ pub struct QueryPoolCreateInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferCreateInfo.html>
+#[doc(alias = "VkBufferCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BufferCreateInfo {
@@ -596,6 +637,7 @@ pub struct BufferCreateInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageCreateInfo.html>
+#[doc(alias = "VkImageCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageCreateInfo {
@@ -617,6 +659,7 @@ pub struct ImageCreateInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSubresourceLayout.html>
+#[doc(alias = "VkSubresourceLayout")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SubresourceLayout {
@@ -628,6 +671,7 @@ pub struct SubresourceLayout {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkComponentMapping.html>
+#[doc(alias = "VkComponentMapping")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ComponentMapping {
@@ -638,6 +682,7 @@ pub struct ComponentMapping {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageSubresourceRange.html>
+#[doc(alias = "VkImageSubresourceRange")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageSubresourceRange {
@@ -649,6 +694,7 @@ pub struct ImageSubresourceRange {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageViewCreateInfo.html>
+#[doc(alias = "VkImageViewCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageViewCreateInfo {
@@ -663,6 +709,7 @@ pub struct ImageViewCreateInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandPoolCreateInfo.html>
+#[doc(alias = "VkCommandPoolCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CommandPoolCreateInfo {
@@ -673,6 +720,7 @@ pub struct CommandPoolCreateInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandBufferAllocateInfo.html>
+#[doc(alias = "VkCommandBufferAllocateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CommandBufferAllocateInfo {
@@ -684,6 +732,7 @@ pub struct CommandBufferAllocateInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandBufferInheritanceInfo.html>
+#[doc(alias = "VkCommandBufferInheritanceInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CommandBufferInheritanceInfo {
@@ -698,6 +747,7 @@ pub struct CommandBufferInheritanceInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandBufferBeginInfo.html>
+#[doc(alias = "VkCommandBufferBeginInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CommandBufferBeginInfo {
@@ -708,6 +758,7 @@ pub struct CommandBufferBeginInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferCopy.html>
+#[doc(alias = "VkBufferCopy")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BufferCopy {
@@ -717,6 +768,7 @@ pub struct BufferCopy {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageSubresourceLayers.html>
+#[doc(alias = "VkImageSubresourceLayers")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageSubresourceLayers {
@@ -727,6 +779,7 @@ pub struct ImageSubresourceLayers {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferImageCopy.html>
+#[doc(alias = "VkBufferImageCopy")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BufferImageCopy {
@@ -739,6 +792,7 @@ pub struct BufferImageCopy {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageCopy.html>
+#[doc(alias = "VkImageCopy")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageCopy {
@@ -750,6 +804,7 @@ pub struct ImageCopy {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferMemoryBarrier.html>
+#[doc(alias = "VkBufferMemoryBarrier")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BufferMemoryBarrier {
@@ -765,6 +820,7 @@ pub struct BufferMemoryBarrier {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageMemoryBarrier.html>
+#[doc(alias = "VkImageMemoryBarrier")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageMemoryBarrier {
@@ -781,6 +837,7 @@ pub struct ImageMemoryBarrier {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryBarrier.html>
+#[doc(alias = "VkMemoryBarrier")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MemoryBarrier {
@@ -791,6 +848,7 @@ pub struct MemoryBarrier {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDispatchIndirectCommand.html>
+#[doc(alias = "VkDispatchIndirectCommand")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DispatchIndirectCommand {
@@ -800,6 +858,7 @@ pub struct DispatchIndirectCommand {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCacheHeaderVersionOne.html>
+#[doc(alias = "VkPipelineCacheHeaderVersionOne")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineCacheHeaderVersionOne {
@@ -811,6 +870,7 @@ pub struct PipelineCacheHeaderVersionOne {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkEventCreateInfo.html>
+#[doc(alias = "VkEventCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct EventCreateInfo {
@@ -820,6 +880,7 @@ pub struct EventCreateInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferViewCreateInfo.html>
+#[doc(alias = "VkBufferViewCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BufferViewCreateInfo {
@@ -833,6 +894,7 @@ pub struct BufferViewCreateInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderModuleCreateInfo.html>
+#[doc(alias = "VkShaderModuleCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ShaderModuleCreateInfo {
@@ -844,6 +906,7 @@ pub struct ShaderModuleCreateInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCacheCreateInfo.html>
+#[doc(alias = "VkPipelineCacheCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineCacheCreateInfo {
@@ -855,6 +918,7 @@ pub struct PipelineCacheCreateInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSpecializationMapEntry.html>
+#[doc(alias = "VkSpecializationMapEntry")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SpecializationMapEntry {
@@ -864,6 +928,7 @@ pub struct SpecializationMapEntry {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSpecializationInfo.html>
+#[doc(alias = "VkSpecializationInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SpecializationInfo {
@@ -874,6 +939,7 @@ pub struct SpecializationInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineShaderStageCreateInfo.html>
+#[doc(alias = "VkPipelineShaderStageCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineShaderStageCreateInfo {
@@ -887,6 +953,7 @@ pub struct PipelineShaderStageCreateInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkComputePipelineCreateInfo.html>
+#[doc(alias = "VkComputePipelineCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ComputePipelineCreateInfo {
@@ -900,6 +967,7 @@ pub struct ComputePipelineCreateInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPushConstantRange.html>
+#[doc(alias = "VkPushConstantRange")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PushConstantRange {
@@ -909,6 +977,7 @@ pub struct PushConstantRange {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineLayoutCreateInfo.html>
+#[doc(alias = "VkPipelineLayoutCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineLayoutCreateInfo {
@@ -922,6 +991,7 @@ pub struct PipelineLayoutCreateInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerCreateInfo.html>
+#[doc(alias = "VkSamplerCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SamplerCreateInfo {
@@ -946,6 +1016,7 @@ pub struct SamplerCreateInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyDescriptorSet.html>
+#[doc(alias = "VkCopyDescriptorSet")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CopyDescriptorSet {
@@ -961,6 +1032,7 @@ pub struct CopyDescriptorSet {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorBufferInfo.html>
+#[doc(alias = "VkDescriptorBufferInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DescriptorBufferInfo {
@@ -970,6 +1042,7 @@ pub struct DescriptorBufferInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorImageInfo.html>
+#[doc(alias = "VkDescriptorImageInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DescriptorImageInfo {
@@ -979,6 +1052,7 @@ pub struct DescriptorImageInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorPoolSize.html>
+#[doc(alias = "VkDescriptorPoolSize")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DescriptorPoolSize {
@@ -987,6 +1061,7 @@ pub struct DescriptorPoolSize {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorPoolCreateInfo.html>
+#[doc(alias = "VkDescriptorPoolCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DescriptorPoolCreateInfo {
@@ -999,6 +1074,7 @@ pub struct DescriptorPoolCreateInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorSetAllocateInfo.html>
+#[doc(alias = "VkDescriptorSetAllocateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DescriptorSetAllocateInfo {
@@ -1010,6 +1086,7 @@ pub struct DescriptorSetAllocateInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorSetLayoutBinding.html>
+#[doc(alias = "VkDescriptorSetLayoutBinding")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DescriptorSetLayoutBinding {
@@ -1021,6 +1098,7 @@ pub struct DescriptorSetLayoutBinding {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorSetLayoutCreateInfo.html>
+#[doc(alias = "VkDescriptorSetLayoutCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DescriptorSetLayoutCreateInfo {
@@ -1032,6 +1110,7 @@ pub struct DescriptorSetLayoutCreateInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkWriteDescriptorSet.html>
+#[doc(alias = "VkWriteDescriptorSet")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct WriteDescriptorSet {
@@ -1048,6 +1127,7 @@ pub struct WriteDescriptorSet {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkClearColorValue.html>
+#[doc(alias = "VkClearColorValue")]
 #[derive(Clone, Copy)]
 #[repr(C)]
 pub struct ClearColorValue {
@@ -1062,6 +1142,7 @@ impl std::fmt::Debug for ClearColorValue {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDrawIndexedIndirectCommand.html>
+#[doc(alias = "VkDrawIndexedIndirectCommand")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DrawIndexedIndirectCommand {
@@ -1073,6 +1154,7 @@ pub struct DrawIndexedIndirectCommand {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDrawIndirectCommand.html>
+#[doc(alias = "VkDrawIndirectCommand")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DrawIndirectCommand {
@@ -1083,6 +1165,7 @@ pub struct DrawIndirectCommand {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkStencilOpState.html>
+#[doc(alias = "VkStencilOpState")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct StencilOpState {
@@ -1096,6 +1179,7 @@ pub struct StencilOpState {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVertexInputAttributeDescription.html>
+#[doc(alias = "VkVertexInputAttributeDescription")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VertexInputAttributeDescription {
@@ -1106,6 +1190,7 @@ pub struct VertexInputAttributeDescription {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVertexInputBindingDescription.html>
+#[doc(alias = "VkVertexInputBindingDescription")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VertexInputBindingDescription {
@@ -1115,6 +1200,7 @@ pub struct VertexInputBindingDescription {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkViewport.html>
+#[doc(alias = "VkViewport")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct Viewport {
@@ -1127,6 +1213,7 @@ pub struct Viewport {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineColorBlendAttachmentState.html>
+#[doc(alias = "VkPipelineColorBlendAttachmentState")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineColorBlendAttachmentState {
@@ -1141,6 +1228,7 @@ pub struct PipelineColorBlendAttachmentState {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineColorBlendStateCreateInfo.html>
+#[doc(alias = "VkPipelineColorBlendStateCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineColorBlendStateCreateInfo {
@@ -1155,6 +1243,7 @@ pub struct PipelineColorBlendStateCreateInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineDepthStencilStateCreateInfo.html>
+#[doc(alias = "VkPipelineDepthStencilStateCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineDepthStencilStateCreateInfo {
@@ -1173,6 +1262,7 @@ pub struct PipelineDepthStencilStateCreateInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineDynamicStateCreateInfo.html>
+#[doc(alias = "VkPipelineDynamicStateCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineDynamicStateCreateInfo {
@@ -1184,6 +1274,7 @@ pub struct PipelineDynamicStateCreateInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineInputAssemblyStateCreateInfo.html>
+#[doc(alias = "VkPipelineInputAssemblyStateCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineInputAssemblyStateCreateInfo {
@@ -1195,6 +1286,7 @@ pub struct PipelineInputAssemblyStateCreateInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineMultisampleStateCreateInfo.html>
+#[doc(alias = "VkPipelineMultisampleStateCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineMultisampleStateCreateInfo {
@@ -1210,6 +1302,7 @@ pub struct PipelineMultisampleStateCreateInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineRasterizationStateCreateInfo.html>
+#[doc(alias = "VkPipelineRasterizationStateCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineRasterizationStateCreateInfo {
@@ -1229,6 +1322,7 @@ pub struct PipelineRasterizationStateCreateInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineTessellationStateCreateInfo.html>
+#[doc(alias = "VkPipelineTessellationStateCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineTessellationStateCreateInfo {
@@ -1239,6 +1333,7 @@ pub struct PipelineTessellationStateCreateInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineVertexInputStateCreateInfo.html>
+#[doc(alias = "VkPipelineVertexInputStateCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineVertexInputStateCreateInfo {
@@ -1252,6 +1347,7 @@ pub struct PipelineVertexInputStateCreateInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineViewportStateCreateInfo.html>
+#[doc(alias = "VkPipelineViewportStateCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineViewportStateCreateInfo {
@@ -1265,6 +1361,7 @@ pub struct PipelineViewportStateCreateInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkGraphicsPipelineCreateInfo.html>
+#[doc(alias = "VkGraphicsPipelineCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct GraphicsPipelineCreateInfo {
@@ -1290,6 +1387,7 @@ pub struct GraphicsPipelineCreateInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAttachmentDescription.html>
+#[doc(alias = "VkAttachmentDescription")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AttachmentDescription {
@@ -1305,6 +1403,7 @@ pub struct AttachmentDescription {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAttachmentReference.html>
+#[doc(alias = "VkAttachmentReference")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AttachmentReference {
@@ -1313,6 +1412,7 @@ pub struct AttachmentReference {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFramebufferCreateInfo.html>
+#[doc(alias = "VkFramebufferCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct FramebufferCreateInfo {
@@ -1328,6 +1428,7 @@ pub struct FramebufferCreateInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSubpassDependency.html>
+#[doc(alias = "VkSubpassDependency")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SubpassDependency {
@@ -1341,6 +1442,7 @@ pub struct SubpassDependency {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSubpassDescription.html>
+#[doc(alias = "VkSubpassDescription")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SubpassDescription {
@@ -1357,6 +1459,7 @@ pub struct SubpassDescription {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPassCreateInfo.html>
+#[doc(alias = "VkRenderPassCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct RenderPassCreateInfo {
@@ -1372,6 +1475,7 @@ pub struct RenderPassCreateInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkClearDepthStencilValue.html>
+#[doc(alias = "VkClearDepthStencilValue")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ClearDepthStencilValue {
@@ -1380,6 +1484,7 @@ pub struct ClearDepthStencilValue {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkClearRect.html>
+#[doc(alias = "VkClearRect")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ClearRect {
@@ -1389,6 +1494,7 @@ pub struct ClearRect {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkClearValue.html>
+#[doc(alias = "VkClearValue")]
 #[derive(Clone, Copy)]
 #[repr(C)]
 pub struct ClearValue {
@@ -1402,6 +1508,7 @@ impl std::fmt::Debug for ClearValue {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkClearAttachment.html>
+#[doc(alias = "VkClearAttachment")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ClearAttachment {
@@ -1411,6 +1518,7 @@ pub struct ClearAttachment {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageBlit.html>
+#[doc(alias = "VkImageBlit")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageBlit {
@@ -1421,6 +1529,7 @@ pub struct ImageBlit {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageResolve.html>
+#[doc(alias = "VkImageResolve")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageResolve {
@@ -1432,6 +1541,7 @@ pub struct ImageResolve {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPassBeginInfo.html>
+#[doc(alias = "VkRenderPassBeginInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct RenderPassBeginInfo {
@@ -1445,6 +1555,7 @@ pub struct RenderPassBeginInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBindBufferMemoryInfo.html>
+#[doc(alias = "VkBindBufferMemoryInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BindBufferMemoryInfo {
@@ -1457,6 +1568,7 @@ pub struct BindBufferMemoryInfo {
 pub type BindBufferMemoryInfoKHR = BindBufferMemoryInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBindImageMemoryInfo.html>
+#[doc(alias = "VkBindImageMemoryInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BindImageMemoryInfo {
@@ -1469,6 +1581,7 @@ pub struct BindImageMemoryInfo {
 pub type BindImageMemoryInfoKHR = BindImageMemoryInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryDedicatedRequirements.html>
+#[doc(alias = "VkMemoryDedicatedRequirements")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MemoryDedicatedRequirements {
@@ -1480,6 +1593,7 @@ pub struct MemoryDedicatedRequirements {
 pub type MemoryDedicatedRequirementsKHR = MemoryDedicatedRequirements;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryDedicatedAllocateInfo.html>
+#[doc(alias = "VkMemoryDedicatedAllocateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MemoryDedicatedAllocateInfo {
@@ -1491,6 +1605,7 @@ pub struct MemoryDedicatedAllocateInfo {
 pub type MemoryDedicatedAllocateInfoKHR = MemoryDedicatedAllocateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryAllocateFlagsInfo.html>
+#[doc(alias = "VkMemoryAllocateFlagsInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MemoryAllocateFlagsInfo {
@@ -1502,6 +1617,7 @@ pub struct MemoryAllocateFlagsInfo {
 pub type MemoryAllocateFlagsInfoKHR = MemoryAllocateFlagsInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceGroupCommandBufferBeginInfo.html>
+#[doc(alias = "VkDeviceGroupCommandBufferBeginInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DeviceGroupCommandBufferBeginInfo {
@@ -1512,6 +1628,7 @@ pub struct DeviceGroupCommandBufferBeginInfo {
 pub type DeviceGroupCommandBufferBeginInfoKHR = DeviceGroupCommandBufferBeginInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceGroupSubmitInfo.html>
+#[doc(alias = "VkDeviceGroupSubmitInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DeviceGroupSubmitInfo {
@@ -1527,6 +1644,7 @@ pub struct DeviceGroupSubmitInfo {
 pub type DeviceGroupSubmitInfoKHR = DeviceGroupSubmitInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceGroupBindSparseInfo.html>
+#[doc(alias = "VkDeviceGroupBindSparseInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DeviceGroupBindSparseInfo {
@@ -1538,6 +1656,7 @@ pub struct DeviceGroupBindSparseInfo {
 pub type DeviceGroupBindSparseInfoKHR = DeviceGroupBindSparseInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBindBufferMemoryDeviceGroupInfo.html>
+#[doc(alias = "VkBindBufferMemoryDeviceGroupInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BindBufferMemoryDeviceGroupInfo {
@@ -1549,6 +1668,7 @@ pub struct BindBufferMemoryDeviceGroupInfo {
 pub type BindBufferMemoryDeviceGroupInfoKHR = BindBufferMemoryDeviceGroupInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBindImageMemoryDeviceGroupInfo.html>
+#[doc(alias = "VkBindImageMemoryDeviceGroupInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BindImageMemoryDeviceGroupInfo {
@@ -1562,6 +1682,7 @@ pub struct BindImageMemoryDeviceGroupInfo {
 pub type BindImageMemoryDeviceGroupInfoKHR = BindImageMemoryDeviceGroupInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceGroupProperties.html>
+#[doc(alias = "VkPhysicalDeviceGroupProperties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceGroupProperties {
@@ -1574,6 +1695,7 @@ pub struct PhysicalDeviceGroupProperties {
 pub type PhysicalDeviceGroupPropertiesKHR = PhysicalDeviceGroupProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceGroupDeviceCreateInfo.html>
+#[doc(alias = "VkDeviceGroupDeviceCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DeviceGroupDeviceCreateInfo {
@@ -1585,6 +1707,7 @@ pub struct DeviceGroupDeviceCreateInfo {
 pub type DeviceGroupDeviceCreateInfoKHR = DeviceGroupDeviceCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferMemoryRequirementsInfo2.html>
+#[doc(alias = "VkBufferMemoryRequirementsInfo2")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BufferMemoryRequirementsInfo2 {
@@ -1595,6 +1718,7 @@ pub struct BufferMemoryRequirementsInfo2 {
 pub type BufferMemoryRequirementsInfo2KHR = BufferMemoryRequirementsInfo2;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageMemoryRequirementsInfo2.html>
+#[doc(alias = "VkImageMemoryRequirementsInfo2")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageMemoryRequirementsInfo2 {
@@ -1605,6 +1729,7 @@ pub struct ImageMemoryRequirementsInfo2 {
 pub type ImageMemoryRequirementsInfo2KHR = ImageMemoryRequirementsInfo2;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageSparseMemoryRequirementsInfo2.html>
+#[doc(alias = "VkImageSparseMemoryRequirementsInfo2")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageSparseMemoryRequirementsInfo2 {
@@ -1615,6 +1740,7 @@ pub struct ImageSparseMemoryRequirementsInfo2 {
 pub type ImageSparseMemoryRequirementsInfo2KHR = ImageSparseMemoryRequirementsInfo2;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryRequirements2.html>
+#[doc(alias = "VkMemoryRequirements2")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MemoryRequirements2 {
@@ -1625,6 +1751,7 @@ pub struct MemoryRequirements2 {
 pub type MemoryRequirements2KHR = MemoryRequirements2;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSparseImageMemoryRequirements2.html>
+#[doc(alias = "VkSparseImageMemoryRequirements2")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SparseImageMemoryRequirements2 {
@@ -1635,6 +1762,7 @@ pub struct SparseImageMemoryRequirements2 {
 pub type SparseImageMemoryRequirements2KHR = SparseImageMemoryRequirements2;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFeatures2.html>
+#[doc(alias = "VkPhysicalDeviceFeatures2")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceFeatures2 {
@@ -1645,6 +1773,7 @@ pub struct PhysicalDeviceFeatures2 {
 pub type PhysicalDeviceFeatures2KHR = PhysicalDeviceFeatures2;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceProperties2.html>
+#[doc(alias = "VkPhysicalDeviceProperties2")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceProperties2 {
@@ -1655,6 +1784,7 @@ pub struct PhysicalDeviceProperties2 {
 pub type PhysicalDeviceProperties2KHR = PhysicalDeviceProperties2;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFormatProperties2.html>
+#[doc(alias = "VkFormatProperties2")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct FormatProperties2 {
@@ -1665,6 +1795,7 @@ pub struct FormatProperties2 {
 pub type FormatProperties2KHR = FormatProperties2;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageFormatProperties2.html>
+#[doc(alias = "VkImageFormatProperties2")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageFormatProperties2 {
@@ -1675,6 +1806,7 @@ pub struct ImageFormatProperties2 {
 pub type ImageFormatProperties2KHR = ImageFormatProperties2;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceImageFormatInfo2.html>
+#[doc(alias = "VkPhysicalDeviceImageFormatInfo2")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceImageFormatInfo2 {
@@ -1689,6 +1821,7 @@ pub struct PhysicalDeviceImageFormatInfo2 {
 pub type PhysicalDeviceImageFormatInfo2KHR = PhysicalDeviceImageFormatInfo2;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkQueueFamilyProperties2.html>
+#[doc(alias = "VkQueueFamilyProperties2")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct QueueFamilyProperties2 {
@@ -1699,6 +1832,7 @@ pub struct QueueFamilyProperties2 {
 pub type QueueFamilyProperties2KHR = QueueFamilyProperties2;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMemoryProperties2.html>
+#[doc(alias = "VkPhysicalDeviceMemoryProperties2")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceMemoryProperties2 {
@@ -1709,6 +1843,7 @@ pub struct PhysicalDeviceMemoryProperties2 {
 pub type PhysicalDeviceMemoryProperties2KHR = PhysicalDeviceMemoryProperties2;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSparseImageFormatProperties2.html>
+#[doc(alias = "VkSparseImageFormatProperties2")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SparseImageFormatProperties2 {
@@ -1719,6 +1854,7 @@ pub struct SparseImageFormatProperties2 {
 pub type SparseImageFormatProperties2KHR = SparseImageFormatProperties2;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSparseImageFormatInfo2.html>
+#[doc(alias = "VkPhysicalDeviceSparseImageFormatInfo2")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceSparseImageFormatInfo2 {
@@ -1733,6 +1869,7 @@ pub struct PhysicalDeviceSparseImageFormatInfo2 {
 pub type PhysicalDeviceSparseImageFormatInfo2KHR = PhysicalDeviceSparseImageFormatInfo2;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageViewUsageCreateInfo.html>
+#[doc(alias = "VkImageViewUsageCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageViewUsageCreateInfo {
@@ -1743,6 +1880,7 @@ pub struct ImageViewUsageCreateInfo {
 pub type ImageViewUsageCreateInfoKHR = ImageViewUsageCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceProtectedMemoryFeatures.html>
+#[doc(alias = "VkPhysicalDeviceProtectedMemoryFeatures")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceProtectedMemoryFeatures {
@@ -1752,6 +1890,7 @@ pub struct PhysicalDeviceProtectedMemoryFeatures {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceProtectedMemoryProperties.html>
+#[doc(alias = "VkPhysicalDeviceProtectedMemoryProperties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceProtectedMemoryProperties {
@@ -1761,6 +1900,7 @@ pub struct PhysicalDeviceProtectedMemoryProperties {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceQueueInfo2.html>
+#[doc(alias = "VkDeviceQueueInfo2")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DeviceQueueInfo2 {
@@ -1772,6 +1912,7 @@ pub struct DeviceQueueInfo2 {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkProtectedSubmitInfo.html>
+#[doc(alias = "VkProtectedSubmitInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ProtectedSubmitInfo {
@@ -1781,6 +1922,7 @@ pub struct ProtectedSubmitInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBindImagePlaneMemoryInfo.html>
+#[doc(alias = "VkBindImagePlaneMemoryInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BindImagePlaneMemoryInfo {
@@ -1791,6 +1933,7 @@ pub struct BindImagePlaneMemoryInfo {
 pub type BindImagePlaneMemoryInfoKHR = BindImagePlaneMemoryInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImagePlaneMemoryRequirementsInfo.html>
+#[doc(alias = "VkImagePlaneMemoryRequirementsInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImagePlaneMemoryRequirementsInfo {
@@ -1801,6 +1944,7 @@ pub struct ImagePlaneMemoryRequirementsInfo {
 pub type ImagePlaneMemoryRequirementsInfoKHR = ImagePlaneMemoryRequirementsInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalMemoryProperties.html>
+#[doc(alias = "VkExternalMemoryProperties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ExternalMemoryProperties {
@@ -1811,6 +1955,7 @@ pub struct ExternalMemoryProperties {
 pub type ExternalMemoryPropertiesKHR = ExternalMemoryProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceExternalImageFormatInfo.html>
+#[doc(alias = "VkPhysicalDeviceExternalImageFormatInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceExternalImageFormatInfo {
@@ -1821,6 +1966,7 @@ pub struct PhysicalDeviceExternalImageFormatInfo {
 pub type PhysicalDeviceExternalImageFormatInfoKHR = PhysicalDeviceExternalImageFormatInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalImageFormatProperties.html>
+#[doc(alias = "VkExternalImageFormatProperties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ExternalImageFormatProperties {
@@ -1831,6 +1977,7 @@ pub struct ExternalImageFormatProperties {
 pub type ExternalImageFormatPropertiesKHR = ExternalImageFormatProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceExternalBufferInfo.html>
+#[doc(alias = "VkPhysicalDeviceExternalBufferInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceExternalBufferInfo {
@@ -1843,6 +1990,7 @@ pub struct PhysicalDeviceExternalBufferInfo {
 pub type PhysicalDeviceExternalBufferInfoKHR = PhysicalDeviceExternalBufferInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalBufferProperties.html>
+#[doc(alias = "VkExternalBufferProperties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ExternalBufferProperties {
@@ -1853,6 +2001,7 @@ pub struct ExternalBufferProperties {
 pub type ExternalBufferPropertiesKHR = ExternalBufferProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceIDProperties.html>
+#[doc(alias = "VkPhysicalDeviceIDProperties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceIDProperties {
@@ -1867,6 +2016,7 @@ pub struct PhysicalDeviceIDProperties {
 pub type PhysicalDeviceIDPropertiesKHR = PhysicalDeviceIDProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalMemoryImageCreateInfo.html>
+#[doc(alias = "VkExternalMemoryImageCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ExternalMemoryImageCreateInfo {
@@ -1877,6 +2027,7 @@ pub struct ExternalMemoryImageCreateInfo {
 pub type ExternalMemoryImageCreateInfoKHR = ExternalMemoryImageCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalMemoryBufferCreateInfo.html>
+#[doc(alias = "VkExternalMemoryBufferCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ExternalMemoryBufferCreateInfo {
@@ -1887,6 +2038,7 @@ pub struct ExternalMemoryBufferCreateInfo {
 pub type ExternalMemoryBufferCreateInfoKHR = ExternalMemoryBufferCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExportMemoryAllocateInfo.html>
+#[doc(alias = "VkExportMemoryAllocateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ExportMemoryAllocateInfo {
@@ -1897,6 +2049,7 @@ pub struct ExportMemoryAllocateInfo {
 pub type ExportMemoryAllocateInfoKHR = ExportMemoryAllocateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceExternalFenceInfo.html>
+#[doc(alias = "VkPhysicalDeviceExternalFenceInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceExternalFenceInfo {
@@ -1907,6 +2060,7 @@ pub struct PhysicalDeviceExternalFenceInfo {
 pub type PhysicalDeviceExternalFenceInfoKHR = PhysicalDeviceExternalFenceInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalFenceProperties.html>
+#[doc(alias = "VkExternalFenceProperties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ExternalFenceProperties {
@@ -1919,6 +2073,7 @@ pub struct ExternalFenceProperties {
 pub type ExternalFencePropertiesKHR = ExternalFenceProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExportFenceCreateInfo.html>
+#[doc(alias = "VkExportFenceCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ExportFenceCreateInfo {
@@ -1929,6 +2084,7 @@ pub struct ExportFenceCreateInfo {
 pub type ExportFenceCreateInfoKHR = ExportFenceCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExportSemaphoreCreateInfo.html>
+#[doc(alias = "VkExportSemaphoreCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ExportSemaphoreCreateInfo {
@@ -1939,6 +2095,7 @@ pub struct ExportSemaphoreCreateInfo {
 pub type ExportSemaphoreCreateInfoKHR = ExportSemaphoreCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceExternalSemaphoreInfo.html>
+#[doc(alias = "VkPhysicalDeviceExternalSemaphoreInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceExternalSemaphoreInfo {
@@ -1949,6 +2106,7 @@ pub struct PhysicalDeviceExternalSemaphoreInfo {
 pub type PhysicalDeviceExternalSemaphoreInfoKHR = PhysicalDeviceExternalSemaphoreInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalSemaphoreProperties.html>
+#[doc(alias = "VkExternalSemaphoreProperties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ExternalSemaphoreProperties {
@@ -1961,6 +2119,7 @@ pub struct ExternalSemaphoreProperties {
 pub type ExternalSemaphorePropertiesKHR = ExternalSemaphoreProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSubgroupProperties.html>
+#[doc(alias = "VkPhysicalDeviceSubgroupProperties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceSubgroupProperties {
@@ -1973,6 +2132,7 @@ pub struct PhysicalDeviceSubgroupProperties {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevice16BitStorageFeatures.html>
+#[doc(alias = "VkPhysicalDevice16BitStorageFeatures")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDevice16BitStorageFeatures {
@@ -1986,6 +2146,7 @@ pub struct PhysicalDevice16BitStorageFeatures {
 pub type PhysicalDevice16BitStorageFeaturesKHR = PhysicalDevice16BitStorageFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVariablePointersFeatures.html>
+#[doc(alias = "VkPhysicalDeviceVariablePointersFeatures")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceVariablePointersFeatures {
@@ -1999,6 +2160,7 @@ pub type PhysicalDeviceVariablePointerFeaturesKHR = PhysicalDeviceVariablePointe
 pub type PhysicalDeviceVariablePointersFeaturesKHR = PhysicalDeviceVariablePointersFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorUpdateTemplateEntry.html>
+#[doc(alias = "VkDescriptorUpdateTemplateEntry")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DescriptorUpdateTemplateEntry {
@@ -2012,6 +2174,7 @@ pub struct DescriptorUpdateTemplateEntry {
 pub type DescriptorUpdateTemplateEntryKHR = DescriptorUpdateTemplateEntry;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorUpdateTemplateCreateInfo.html>
+#[doc(alias = "VkDescriptorUpdateTemplateCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DescriptorUpdateTemplateCreateInfo {
@@ -2029,6 +2192,7 @@ pub struct DescriptorUpdateTemplateCreateInfo {
 pub type DescriptorUpdateTemplateCreateInfoKHR = DescriptorUpdateTemplateCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMaintenance3Properties.html>
+#[doc(alias = "VkPhysicalDeviceMaintenance3Properties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceMaintenance3Properties {
@@ -2040,6 +2204,7 @@ pub struct PhysicalDeviceMaintenance3Properties {
 pub type PhysicalDeviceMaintenance3PropertiesKHR = PhysicalDeviceMaintenance3Properties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorSetLayoutSupport.html>
+#[doc(alias = "VkDescriptorSetLayoutSupport")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DescriptorSetLayoutSupport {
@@ -2050,6 +2215,7 @@ pub struct DescriptorSetLayoutSupport {
 pub type DescriptorSetLayoutSupportKHR = DescriptorSetLayoutSupport;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerYcbcrConversionCreateInfo.html>
+#[doc(alias = "VkSamplerYcbcrConversionCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SamplerYcbcrConversionCreateInfo {
@@ -2067,6 +2233,7 @@ pub struct SamplerYcbcrConversionCreateInfo {
 pub type SamplerYcbcrConversionCreateInfoKHR = SamplerYcbcrConversionCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerYcbcrConversionInfo.html>
+#[doc(alias = "VkSamplerYcbcrConversionInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SamplerYcbcrConversionInfo {
@@ -2077,6 +2244,7 @@ pub struct SamplerYcbcrConversionInfo {
 pub type SamplerYcbcrConversionInfoKHR = SamplerYcbcrConversionInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSamplerYcbcrConversionFeatures.html>
+#[doc(alias = "VkPhysicalDeviceSamplerYcbcrConversionFeatures")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceSamplerYcbcrConversionFeatures {
@@ -2088,6 +2256,7 @@ pub type PhysicalDeviceSamplerYcbcrConversionFeaturesKHR =
     PhysicalDeviceSamplerYcbcrConversionFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerYcbcrConversionImageFormatProperties.html>
+#[doc(alias = "VkSamplerYcbcrConversionImageFormatProperties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SamplerYcbcrConversionImageFormatProperties {
@@ -2099,6 +2268,7 @@ pub type SamplerYcbcrConversionImageFormatPropertiesKHR =
     SamplerYcbcrConversionImageFormatProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceGroupRenderPassBeginInfo.html>
+#[doc(alias = "VkDeviceGroupRenderPassBeginInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DeviceGroupRenderPassBeginInfo {
@@ -2111,6 +2281,7 @@ pub struct DeviceGroupRenderPassBeginInfo {
 pub type DeviceGroupRenderPassBeginInfoKHR = DeviceGroupRenderPassBeginInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePointClippingProperties.html>
+#[doc(alias = "VkPhysicalDevicePointClippingProperties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDevicePointClippingProperties {
@@ -2121,6 +2292,7 @@ pub struct PhysicalDevicePointClippingProperties {
 pub type PhysicalDevicePointClippingPropertiesKHR = PhysicalDevicePointClippingProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkInputAttachmentAspectReference.html>
+#[doc(alias = "VkInputAttachmentAspectReference")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct InputAttachmentAspectReference {
@@ -2131,6 +2303,7 @@ pub struct InputAttachmentAspectReference {
 pub type InputAttachmentAspectReferenceKHR = InputAttachmentAspectReference;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPassInputAttachmentAspectCreateInfo.html>
+#[doc(alias = "VkRenderPassInputAttachmentAspectCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct RenderPassInputAttachmentAspectCreateInfo {
@@ -2142,6 +2315,7 @@ pub struct RenderPassInputAttachmentAspectCreateInfo {
 pub type RenderPassInputAttachmentAspectCreateInfoKHR = RenderPassInputAttachmentAspectCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineTessellationDomainOriginStateCreateInfo.html>
+#[doc(alias = "VkPipelineTessellationDomainOriginStateCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineTessellationDomainOriginStateCreateInfo {
@@ -2153,6 +2327,7 @@ pub type PipelineTessellationDomainOriginStateCreateInfoKHR =
     PipelineTessellationDomainOriginStateCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPassMultiviewCreateInfo.html>
+#[doc(alias = "VkRenderPassMultiviewCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct RenderPassMultiviewCreateInfo {
@@ -2168,6 +2343,7 @@ pub struct RenderPassMultiviewCreateInfo {
 pub type RenderPassMultiviewCreateInfoKHR = RenderPassMultiviewCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMultiviewFeatures.html>
+#[doc(alias = "VkPhysicalDeviceMultiviewFeatures")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceMultiviewFeatures {
@@ -2180,6 +2356,7 @@ pub struct PhysicalDeviceMultiviewFeatures {
 pub type PhysicalDeviceMultiviewFeaturesKHR = PhysicalDeviceMultiviewFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMultiviewProperties.html>
+#[doc(alias = "VkPhysicalDeviceMultiviewProperties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceMultiviewProperties {
@@ -2191,6 +2368,7 @@ pub struct PhysicalDeviceMultiviewProperties {
 pub type PhysicalDeviceMultiviewPropertiesKHR = PhysicalDeviceMultiviewProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderDrawParametersFeatures.html>
+#[doc(alias = "VkPhysicalDeviceShaderDrawParametersFeatures")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderDrawParametersFeatures {
@@ -2201,6 +2379,7 @@ pub struct PhysicalDeviceShaderDrawParametersFeatures {
 pub type PhysicalDeviceShaderDrawParameterFeatures = PhysicalDeviceShaderDrawParametersFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkConformanceVersion.html>
+#[doc(alias = "VkConformanceVersion")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ConformanceVersion {
@@ -2212,6 +2391,7 @@ pub struct ConformanceVersion {
 pub type ConformanceVersionKHR = ConformanceVersion;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDriverProperties.html>
+#[doc(alias = "VkPhysicalDeviceDriverProperties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceDriverProperties {
@@ -2225,6 +2405,7 @@ pub struct PhysicalDeviceDriverProperties {
 pub type PhysicalDeviceDriverPropertiesKHR = PhysicalDeviceDriverProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVulkan11Features.html>
+#[doc(alias = "VkPhysicalDeviceVulkan11Features")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceVulkan11Features {
@@ -2245,6 +2426,7 @@ pub struct PhysicalDeviceVulkan11Features {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVulkan11Properties.html>
+#[doc(alias = "VkPhysicalDeviceVulkan11Properties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceVulkan11Properties {
@@ -2268,6 +2450,7 @@ pub struct PhysicalDeviceVulkan11Properties {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVulkan12Features.html>
+#[doc(alias = "VkPhysicalDeviceVulkan12Features")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceVulkan12Features {
@@ -2323,6 +2506,7 @@ pub struct PhysicalDeviceVulkan12Features {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVulkan12Properties.html>
+#[doc(alias = "VkPhysicalDeviceVulkan12Properties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceVulkan12Properties {
@@ -2383,6 +2567,7 @@ pub struct PhysicalDeviceVulkan12Properties {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageFormatListCreateInfo.html>
+#[doc(alias = "VkImageFormatListCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageFormatListCreateInfo {
@@ -2394,6 +2579,7 @@ pub struct ImageFormatListCreateInfo {
 pub type ImageFormatListCreateInfoKHR = ImageFormatListCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVulkanMemoryModelFeatures.html>
+#[doc(alias = "VkPhysicalDeviceVulkanMemoryModelFeatures")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceVulkanMemoryModelFeatures {
@@ -2406,6 +2592,7 @@ pub struct PhysicalDeviceVulkanMemoryModelFeatures {
 pub type PhysicalDeviceVulkanMemoryModelFeaturesKHR = PhysicalDeviceVulkanMemoryModelFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceHostQueryResetFeatures.html>
+#[doc(alias = "VkPhysicalDeviceHostQueryResetFeatures")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceHostQueryResetFeatures {
@@ -2416,6 +2603,7 @@ pub struct PhysicalDeviceHostQueryResetFeatures {
 pub type PhysicalDeviceHostQueryResetFeaturesEXT = PhysicalDeviceHostQueryResetFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceTimelineSemaphoreFeatures.html>
+#[doc(alias = "VkPhysicalDeviceTimelineSemaphoreFeatures")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceTimelineSemaphoreFeatures {
@@ -2426,6 +2614,7 @@ pub struct PhysicalDeviceTimelineSemaphoreFeatures {
 pub type PhysicalDeviceTimelineSemaphoreFeaturesKHR = PhysicalDeviceTimelineSemaphoreFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceTimelineSemaphoreProperties.html>
+#[doc(alias = "VkPhysicalDeviceTimelineSemaphoreProperties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceTimelineSemaphoreProperties {
@@ -2436,6 +2625,7 @@ pub struct PhysicalDeviceTimelineSemaphoreProperties {
 pub type PhysicalDeviceTimelineSemaphorePropertiesKHR = PhysicalDeviceTimelineSemaphoreProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSemaphoreTypeCreateInfo.html>
+#[doc(alias = "VkSemaphoreTypeCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SemaphoreTypeCreateInfo {
@@ -2447,6 +2637,7 @@ pub struct SemaphoreTypeCreateInfo {
 pub type SemaphoreTypeCreateInfoKHR = SemaphoreTypeCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTimelineSemaphoreSubmitInfo.html>
+#[doc(alias = "VkTimelineSemaphoreSubmitInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct TimelineSemaphoreSubmitInfo {
@@ -2460,6 +2651,7 @@ pub struct TimelineSemaphoreSubmitInfo {
 pub type TimelineSemaphoreSubmitInfoKHR = TimelineSemaphoreSubmitInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSemaphoreWaitInfo.html>
+#[doc(alias = "VkSemaphoreWaitInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SemaphoreWaitInfo {
@@ -2473,6 +2665,7 @@ pub struct SemaphoreWaitInfo {
 pub type SemaphoreWaitInfoKHR = SemaphoreWaitInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSemaphoreSignalInfo.html>
+#[doc(alias = "VkSemaphoreSignalInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SemaphoreSignalInfo {
@@ -2484,6 +2677,7 @@ pub struct SemaphoreSignalInfo {
 pub type SemaphoreSignalInfoKHR = SemaphoreSignalInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceBufferDeviceAddressFeatures.html>
+#[doc(alias = "VkPhysicalDeviceBufferDeviceAddressFeatures")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceBufferDeviceAddressFeatures {
@@ -2496,6 +2690,7 @@ pub struct PhysicalDeviceBufferDeviceAddressFeatures {
 pub type PhysicalDeviceBufferDeviceAddressFeaturesKHR = PhysicalDeviceBufferDeviceAddressFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferDeviceAddressInfo.html>
+#[doc(alias = "VkBufferDeviceAddressInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BufferDeviceAddressInfo {
@@ -2507,6 +2702,7 @@ pub type BufferDeviceAddressInfoKHR = BufferDeviceAddressInfo;
 pub type BufferDeviceAddressInfoEXT = BufferDeviceAddressInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferOpaqueCaptureAddressCreateInfo.html>
+#[doc(alias = "VkBufferOpaqueCaptureAddressCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BufferOpaqueCaptureAddressCreateInfo {
@@ -2517,6 +2713,7 @@ pub struct BufferOpaqueCaptureAddressCreateInfo {
 pub type BufferOpaqueCaptureAddressCreateInfoKHR = BufferOpaqueCaptureAddressCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryOpaqueCaptureAddressAllocateInfo.html>
+#[doc(alias = "VkMemoryOpaqueCaptureAddressAllocateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MemoryOpaqueCaptureAddressAllocateInfo {
@@ -2527,6 +2724,7 @@ pub struct MemoryOpaqueCaptureAddressAllocateInfo {
 pub type MemoryOpaqueCaptureAddressAllocateInfoKHR = MemoryOpaqueCaptureAddressAllocateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceMemoryOpaqueCaptureAddressInfo.html>
+#[doc(alias = "VkDeviceMemoryOpaqueCaptureAddressInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DeviceMemoryOpaqueCaptureAddressInfo {
@@ -2537,6 +2735,7 @@ pub struct DeviceMemoryOpaqueCaptureAddressInfo {
 pub type DeviceMemoryOpaqueCaptureAddressInfoKHR = DeviceMemoryOpaqueCaptureAddressInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevice8BitStorageFeatures.html>
+#[doc(alias = "VkPhysicalDevice8BitStorageFeatures")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDevice8BitStorageFeatures {
@@ -2549,6 +2748,7 @@ pub struct PhysicalDevice8BitStorageFeatures {
 pub type PhysicalDevice8BitStorageFeaturesKHR = PhysicalDevice8BitStorageFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderAtomicInt64Features.html>
+#[doc(alias = "VkPhysicalDeviceShaderAtomicInt64Features")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderAtomicInt64Features {
@@ -2560,6 +2760,7 @@ pub struct PhysicalDeviceShaderAtomicInt64Features {
 pub type PhysicalDeviceShaderAtomicInt64FeaturesKHR = PhysicalDeviceShaderAtomicInt64Features;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderFloat16Int8Features.html>
+#[doc(alias = "VkPhysicalDeviceShaderFloat16Int8Features")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderFloat16Int8Features {
@@ -2572,6 +2773,7 @@ pub type PhysicalDeviceShaderFloat16Int8FeaturesKHR = PhysicalDeviceShaderFloat1
 pub type PhysicalDeviceFloat16Int8FeaturesKHR = PhysicalDeviceShaderFloat16Int8Features;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFloatControlsProperties.html>
+#[doc(alias = "VkPhysicalDeviceFloatControlsProperties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceFloatControlsProperties {
@@ -2598,6 +2800,7 @@ pub struct PhysicalDeviceFloatControlsProperties {
 pub type PhysicalDeviceFloatControlsPropertiesKHR = PhysicalDeviceFloatControlsProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorSetLayoutBindingFlagsCreateInfo.html>
+#[doc(alias = "VkDescriptorSetLayoutBindingFlagsCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DescriptorSetLayoutBindingFlagsCreateInfo {
@@ -2609,6 +2812,7 @@ pub struct DescriptorSetLayoutBindingFlagsCreateInfo {
 pub type DescriptorSetLayoutBindingFlagsCreateInfoEXT = DescriptorSetLayoutBindingFlagsCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDescriptorIndexingFeatures.html>
+#[doc(alias = "VkPhysicalDeviceDescriptorIndexingFeatures")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceDescriptorIndexingFeatures {
@@ -2638,6 +2842,7 @@ pub struct PhysicalDeviceDescriptorIndexingFeatures {
 pub type PhysicalDeviceDescriptorIndexingFeaturesEXT = PhysicalDeviceDescriptorIndexingFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDescriptorIndexingProperties.html>
+#[doc(alias = "VkPhysicalDeviceDescriptorIndexingProperties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceDescriptorIndexingProperties {
@@ -2670,6 +2875,7 @@ pub struct PhysicalDeviceDescriptorIndexingProperties {
 pub type PhysicalDeviceDescriptorIndexingPropertiesEXT = PhysicalDeviceDescriptorIndexingProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorSetVariableDescriptorCountAllocateInfo.html>
+#[doc(alias = "VkDescriptorSetVariableDescriptorCountAllocateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DescriptorSetVariableDescriptorCountAllocateInfo {
@@ -2682,6 +2888,7 @@ pub type DescriptorSetVariableDescriptorCountAllocateInfoEXT =
     DescriptorSetVariableDescriptorCountAllocateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorSetVariableDescriptorCountLayoutSupport.html>
+#[doc(alias = "VkDescriptorSetVariableDescriptorCountLayoutSupport")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DescriptorSetVariableDescriptorCountLayoutSupport {
@@ -2693,6 +2900,7 @@ pub type DescriptorSetVariableDescriptorCountLayoutSupportEXT =
     DescriptorSetVariableDescriptorCountLayoutSupport;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceScalarBlockLayoutFeatures.html>
+#[doc(alias = "VkPhysicalDeviceScalarBlockLayoutFeatures")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceScalarBlockLayoutFeatures {
@@ -2703,6 +2911,7 @@ pub struct PhysicalDeviceScalarBlockLayoutFeatures {
 pub type PhysicalDeviceScalarBlockLayoutFeaturesEXT = PhysicalDeviceScalarBlockLayoutFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerReductionModeCreateInfo.html>
+#[doc(alias = "VkSamplerReductionModeCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SamplerReductionModeCreateInfo {
@@ -2713,6 +2922,7 @@ pub struct SamplerReductionModeCreateInfo {
 pub type SamplerReductionModeCreateInfoEXT = SamplerReductionModeCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSamplerFilterMinmaxProperties.html>
+#[doc(alias = "VkPhysicalDeviceSamplerFilterMinmaxProperties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceSamplerFilterMinmaxProperties {
@@ -2725,6 +2935,7 @@ pub type PhysicalDeviceSamplerFilterMinmaxPropertiesEXT =
     PhysicalDeviceSamplerFilterMinmaxProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceUniformBufferStandardLayoutFeatures.html>
+#[doc(alias = "VkPhysicalDeviceUniformBufferStandardLayoutFeatures")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceUniformBufferStandardLayoutFeatures {
@@ -2736,6 +2947,7 @@ pub type PhysicalDeviceUniformBufferStandardLayoutFeaturesKHR =
     PhysicalDeviceUniformBufferStandardLayoutFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderSubgroupExtendedTypesFeatures.html>
+#[doc(alias = "VkPhysicalDeviceShaderSubgroupExtendedTypesFeatures")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderSubgroupExtendedTypesFeatures {
@@ -2747,6 +2959,7 @@ pub type PhysicalDeviceShaderSubgroupExtendedTypesFeaturesKHR =
     PhysicalDeviceShaderSubgroupExtendedTypesFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAttachmentDescription2.html>
+#[doc(alias = "VkAttachmentDescription2")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AttachmentDescription2 {
@@ -2765,6 +2978,7 @@ pub struct AttachmentDescription2 {
 pub type AttachmentDescription2KHR = AttachmentDescription2;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAttachmentReference2.html>
+#[doc(alias = "VkAttachmentReference2")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AttachmentReference2 {
@@ -2777,6 +2991,7 @@ pub struct AttachmentReference2 {
 pub type AttachmentReference2KHR = AttachmentReference2;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSubpassDescription2.html>
+#[doc(alias = "VkSubpassDescription2")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SubpassDescription2 {
@@ -2797,6 +3012,7 @@ pub struct SubpassDescription2 {
 pub type SubpassDescription2KHR = SubpassDescription2;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSubpassDependency2.html>
+#[doc(alias = "VkSubpassDependency2")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SubpassDependency2 {
@@ -2814,6 +3030,7 @@ pub struct SubpassDependency2 {
 pub type SubpassDependency2KHR = SubpassDependency2;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSubpassBeginInfo.html>
+#[doc(alias = "VkSubpassBeginInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SubpassBeginInfo {
@@ -2824,6 +3041,7 @@ pub struct SubpassBeginInfo {
 pub type SubpassBeginInfoKHR = SubpassBeginInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSubpassEndInfo.html>
+#[doc(alias = "VkSubpassEndInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SubpassEndInfo {
@@ -2833,6 +3051,7 @@ pub struct SubpassEndInfo {
 pub type SubpassEndInfoKHR = SubpassEndInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPassCreateInfo2.html>
+#[doc(alias = "VkRenderPassCreateInfo2")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct RenderPassCreateInfo2 {
@@ -2851,6 +3070,7 @@ pub struct RenderPassCreateInfo2 {
 pub type RenderPassCreateInfo2KHR = RenderPassCreateInfo2;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSubpassDescriptionDepthStencilResolve.html>
+#[doc(alias = "VkSubpassDescriptionDepthStencilResolve")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SubpassDescriptionDepthStencilResolve {
@@ -2863,6 +3083,7 @@ pub struct SubpassDescriptionDepthStencilResolve {
 pub type SubpassDescriptionDepthStencilResolveKHR = SubpassDescriptionDepthStencilResolve;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDepthStencilResolveProperties.html>
+#[doc(alias = "VkPhysicalDeviceDepthStencilResolveProperties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceDepthStencilResolveProperties {
@@ -2877,6 +3098,7 @@ pub type PhysicalDeviceDepthStencilResolvePropertiesKHR =
     PhysicalDeviceDepthStencilResolveProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageStencilUsageCreateInfo.html>
+#[doc(alias = "VkImageStencilUsageCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageStencilUsageCreateInfo {
@@ -2887,6 +3109,7 @@ pub struct ImageStencilUsageCreateInfo {
 pub type ImageStencilUsageCreateInfoEXT = ImageStencilUsageCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceImagelessFramebufferFeatures.html>
+#[doc(alias = "VkPhysicalDeviceImagelessFramebufferFeatures")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceImagelessFramebufferFeatures {
@@ -2897,6 +3120,7 @@ pub struct PhysicalDeviceImagelessFramebufferFeatures {
 pub type PhysicalDeviceImagelessFramebufferFeaturesKHR = PhysicalDeviceImagelessFramebufferFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFramebufferAttachmentImageInfo.html>
+#[doc(alias = "VkFramebufferAttachmentImageInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct FramebufferAttachmentImageInfo {
@@ -2913,6 +3137,7 @@ pub struct FramebufferAttachmentImageInfo {
 pub type FramebufferAttachmentImageInfoKHR = FramebufferAttachmentImageInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPassAttachmentBeginInfo.html>
+#[doc(alias = "VkRenderPassAttachmentBeginInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct RenderPassAttachmentBeginInfo {
@@ -2924,6 +3149,7 @@ pub struct RenderPassAttachmentBeginInfo {
 pub type RenderPassAttachmentBeginInfoKHR = RenderPassAttachmentBeginInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFramebufferAttachmentsCreateInfo.html>
+#[doc(alias = "VkFramebufferAttachmentsCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct FramebufferAttachmentsCreateInfo {
@@ -2935,6 +3161,7 @@ pub struct FramebufferAttachmentsCreateInfo {
 pub type FramebufferAttachmentsCreateInfoKHR = FramebufferAttachmentsCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures.html>
+#[doc(alias = "VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceSeparateDepthStencilLayoutsFeatures {
@@ -2946,6 +3173,7 @@ pub type PhysicalDeviceSeparateDepthStencilLayoutsFeaturesKHR =
     PhysicalDeviceSeparateDepthStencilLayoutsFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAttachmentReferenceStencilLayout.html>
+#[doc(alias = "VkAttachmentReferenceStencilLayout")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AttachmentReferenceStencilLayout {
@@ -2956,6 +3184,7 @@ pub struct AttachmentReferenceStencilLayout {
 pub type AttachmentReferenceStencilLayoutKHR = AttachmentReferenceStencilLayout;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAttachmentDescriptionStencilLayout.html>
+#[doc(alias = "VkAttachmentDescriptionStencilLayout")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AttachmentDescriptionStencilLayout {
@@ -2967,6 +3196,7 @@ pub struct AttachmentDescriptionStencilLayout {
 pub type AttachmentDescriptionStencilLayoutKHR = AttachmentDescriptionStencilLayout;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVulkan13Features.html>
+#[doc(alias = "VkPhysicalDeviceVulkan13Features")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceVulkan13Features {
@@ -2990,6 +3220,7 @@ pub struct PhysicalDeviceVulkan13Features {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVulkan13Properties.html>
+#[doc(alias = "VkPhysicalDeviceVulkan13Properties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceVulkan13Properties {
@@ -3044,6 +3275,7 @@ pub struct PhysicalDeviceVulkan13Properties {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceToolProperties.html>
+#[doc(alias = "VkPhysicalDeviceToolProperties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceToolProperties {
@@ -3058,6 +3290,7 @@ pub struct PhysicalDeviceToolProperties {
 pub type PhysicalDeviceToolPropertiesEXT = PhysicalDeviceToolProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePrivateDataFeatures.html>
+#[doc(alias = "VkPhysicalDevicePrivateDataFeatures")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDevicePrivateDataFeatures {
@@ -3068,6 +3301,7 @@ pub struct PhysicalDevicePrivateDataFeatures {
 pub type PhysicalDevicePrivateDataFeaturesEXT = PhysicalDevicePrivateDataFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDevicePrivateDataCreateInfo.html>
+#[doc(alias = "VkDevicePrivateDataCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DevicePrivateDataCreateInfo {
@@ -3078,6 +3312,7 @@ pub struct DevicePrivateDataCreateInfo {
 pub type DevicePrivateDataCreateInfoEXT = DevicePrivateDataCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPrivateDataSlotCreateInfo.html>
+#[doc(alias = "VkPrivateDataSlotCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PrivateDataSlotCreateInfo {
@@ -3088,6 +3323,7 @@ pub struct PrivateDataSlotCreateInfo {
 pub type PrivateDataSlotCreateInfoEXT = PrivateDataSlotCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryBarrier2.html>
+#[doc(alias = "VkMemoryBarrier2")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MemoryBarrier2 {
@@ -3101,6 +3337,7 @@ pub struct MemoryBarrier2 {
 pub type MemoryBarrier2KHR = MemoryBarrier2;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferMemoryBarrier2.html>
+#[doc(alias = "VkBufferMemoryBarrier2")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BufferMemoryBarrier2 {
@@ -3119,6 +3356,7 @@ pub struct BufferMemoryBarrier2 {
 pub type BufferMemoryBarrier2KHR = BufferMemoryBarrier2;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageMemoryBarrier2.html>
+#[doc(alias = "VkImageMemoryBarrier2")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageMemoryBarrier2 {
@@ -3138,6 +3376,7 @@ pub struct ImageMemoryBarrier2 {
 pub type ImageMemoryBarrier2KHR = ImageMemoryBarrier2;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDependencyInfo.html>
+#[doc(alias = "VkDependencyInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DependencyInfo {
@@ -3154,6 +3393,7 @@ pub struct DependencyInfo {
 pub type DependencyInfoKHR = DependencyInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSemaphoreSubmitInfo.html>
+#[doc(alias = "VkSemaphoreSubmitInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SemaphoreSubmitInfo {
@@ -3167,6 +3407,7 @@ pub struct SemaphoreSubmitInfo {
 pub type SemaphoreSubmitInfoKHR = SemaphoreSubmitInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandBufferSubmitInfo.html>
+#[doc(alias = "VkCommandBufferSubmitInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CommandBufferSubmitInfo {
@@ -3178,6 +3419,7 @@ pub struct CommandBufferSubmitInfo {
 pub type CommandBufferSubmitInfoKHR = CommandBufferSubmitInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSubmitInfo2.html>
+#[doc(alias = "VkSubmitInfo2")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SubmitInfo2 {
@@ -3194,6 +3436,7 @@ pub struct SubmitInfo2 {
 pub type SubmitInfo2KHR = SubmitInfo2;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSynchronization2Features.html>
+#[doc(alias = "VkPhysicalDeviceSynchronization2Features")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceSynchronization2Features {
@@ -3204,6 +3447,7 @@ pub struct PhysicalDeviceSynchronization2Features {
 pub type PhysicalDeviceSynchronization2FeaturesKHR = PhysicalDeviceSynchronization2Features;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferCopy2.html>
+#[doc(alias = "VkBufferCopy2")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BufferCopy2 {
@@ -3216,6 +3460,7 @@ pub struct BufferCopy2 {
 pub type BufferCopy2KHR = BufferCopy2;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyBufferInfo2.html>
+#[doc(alias = "VkCopyBufferInfo2")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CopyBufferInfo2 {
@@ -3229,6 +3474,7 @@ pub struct CopyBufferInfo2 {
 pub type CopyBufferInfo2KHR = CopyBufferInfo2;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageCopy2.html>
+#[doc(alias = "VkImageCopy2")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageCopy2 {
@@ -3243,6 +3489,7 @@ pub struct ImageCopy2 {
 pub type ImageCopy2KHR = ImageCopy2;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyImageInfo2.html>
+#[doc(alias = "VkCopyImageInfo2")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CopyImageInfo2 {
@@ -3258,6 +3505,7 @@ pub struct CopyImageInfo2 {
 pub type CopyImageInfo2KHR = CopyImageInfo2;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferImageCopy2.html>
+#[doc(alias = "VkBufferImageCopy2")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BufferImageCopy2 {
@@ -3273,6 +3521,7 @@ pub struct BufferImageCopy2 {
 pub type BufferImageCopy2KHR = BufferImageCopy2;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyBufferToImageInfo2.html>
+#[doc(alias = "VkCopyBufferToImageInfo2")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CopyBufferToImageInfo2 {
@@ -3287,6 +3536,7 @@ pub struct CopyBufferToImageInfo2 {
 pub type CopyBufferToImageInfo2KHR = CopyBufferToImageInfo2;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyImageToBufferInfo2.html>
+#[doc(alias = "VkCopyImageToBufferInfo2")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CopyImageToBufferInfo2 {
@@ -3301,6 +3551,7 @@ pub struct CopyImageToBufferInfo2 {
 pub type CopyImageToBufferInfo2KHR = CopyImageToBufferInfo2;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceTextureCompressionASTCHDRFeatures.html>
+#[doc(alias = "VkPhysicalDeviceTextureCompressionASTCHDRFeatures")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceTextureCompressionASTCHDRFeatures {
@@ -3312,6 +3563,7 @@ pub type PhysicalDeviceTextureCompressionASTCHDRFeaturesEXT =
     PhysicalDeviceTextureCompressionASTCHDRFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFormatProperties3.html>
+#[doc(alias = "VkFormatProperties3")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct FormatProperties3 {
@@ -3324,6 +3576,7 @@ pub struct FormatProperties3 {
 pub type FormatProperties3KHR = FormatProperties3;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMaintenance4Features.html>
+#[doc(alias = "VkPhysicalDeviceMaintenance4Features")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceMaintenance4Features {
@@ -3334,6 +3587,7 @@ pub struct PhysicalDeviceMaintenance4Features {
 pub type PhysicalDeviceMaintenance4FeaturesKHR = PhysicalDeviceMaintenance4Features;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMaintenance4Properties.html>
+#[doc(alias = "VkPhysicalDeviceMaintenance4Properties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceMaintenance4Properties {
@@ -3344,6 +3598,7 @@ pub struct PhysicalDeviceMaintenance4Properties {
 pub type PhysicalDeviceMaintenance4PropertiesKHR = PhysicalDeviceMaintenance4Properties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceBufferMemoryRequirements.html>
+#[doc(alias = "VkDeviceBufferMemoryRequirements")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DeviceBufferMemoryRequirements {
@@ -3354,6 +3609,7 @@ pub struct DeviceBufferMemoryRequirements {
 pub type DeviceBufferMemoryRequirementsKHR = DeviceBufferMemoryRequirements;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceImageMemoryRequirements.html>
+#[doc(alias = "VkDeviceImageMemoryRequirements")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DeviceImageMemoryRequirements {
@@ -3365,6 +3621,7 @@ pub struct DeviceImageMemoryRequirements {
 pub type DeviceImageMemoryRequirementsKHR = DeviceImageMemoryRequirements;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCreationFeedback.html>
+#[doc(alias = "VkPipelineCreationFeedback")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineCreationFeedback {
@@ -3374,6 +3631,7 @@ pub struct PipelineCreationFeedback {
 pub type PipelineCreationFeedbackEXT = PipelineCreationFeedback;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCreationFeedbackCreateInfo.html>
+#[doc(alias = "VkPipelineCreationFeedbackCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineCreationFeedbackCreateInfo {
@@ -3386,6 +3644,7 @@ pub struct PipelineCreationFeedbackCreateInfo {
 pub type PipelineCreationFeedbackCreateInfoEXT = PipelineCreationFeedbackCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderTerminateInvocationFeatures.html>
+#[doc(alias = "VkPhysicalDeviceShaderTerminateInvocationFeatures")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderTerminateInvocationFeatures {
@@ -3397,6 +3656,7 @@ pub type PhysicalDeviceShaderTerminateInvocationFeaturesKHR =
     PhysicalDeviceShaderTerminateInvocationFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderDemoteToHelperInvocationFeatures.html>
+#[doc(alias = "VkPhysicalDeviceShaderDemoteToHelperInvocationFeatures")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderDemoteToHelperInvocationFeatures {
@@ -3408,6 +3668,7 @@ pub type PhysicalDeviceShaderDemoteToHelperInvocationFeaturesEXT =
     PhysicalDeviceShaderDemoteToHelperInvocationFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePipelineCreationCacheControlFeatures.html>
+#[doc(alias = "VkPhysicalDevicePipelineCreationCacheControlFeatures")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDevicePipelineCreationCacheControlFeatures {
@@ -3419,6 +3680,7 @@ pub type PhysicalDevicePipelineCreationCacheControlFeaturesEXT =
     PhysicalDevicePipelineCreationCacheControlFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeatures.html>
+#[doc(alias = "VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeatures")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceZeroInitializeWorkgroupMemoryFeatures {
@@ -3430,6 +3692,7 @@ pub type PhysicalDeviceZeroInitializeWorkgroupMemoryFeaturesKHR =
     PhysicalDeviceZeroInitializeWorkgroupMemoryFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceImageRobustnessFeatures.html>
+#[doc(alias = "VkPhysicalDeviceImageRobustnessFeatures")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceImageRobustnessFeatures {
@@ -3440,6 +3703,7 @@ pub struct PhysicalDeviceImageRobustnessFeatures {
 pub type PhysicalDeviceImageRobustnessFeaturesEXT = PhysicalDeviceImageRobustnessFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSubgroupSizeControlFeatures.html>
+#[doc(alias = "VkPhysicalDeviceSubgroupSizeControlFeatures")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceSubgroupSizeControlFeatures {
@@ -3451,6 +3715,7 @@ pub struct PhysicalDeviceSubgroupSizeControlFeatures {
 pub type PhysicalDeviceSubgroupSizeControlFeaturesEXT = PhysicalDeviceSubgroupSizeControlFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSubgroupSizeControlProperties.html>
+#[doc(alias = "VkPhysicalDeviceSubgroupSizeControlProperties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceSubgroupSizeControlProperties {
@@ -3465,6 +3730,7 @@ pub type PhysicalDeviceSubgroupSizeControlPropertiesEXT =
     PhysicalDeviceSubgroupSizeControlProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineShaderStageRequiredSubgroupSizeCreateInfo.html>
+#[doc(alias = "VkPipelineShaderStageRequiredSubgroupSizeCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineShaderStageRequiredSubgroupSizeCreateInfo {
@@ -3478,6 +3744,7 @@ pub type ShaderRequiredSubgroupSizeCreateInfoEXT =
     PipelineShaderStageRequiredSubgroupSizeCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceInlineUniformBlockFeatures.html>
+#[doc(alias = "VkPhysicalDeviceInlineUniformBlockFeatures")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceInlineUniformBlockFeatures {
@@ -3489,6 +3756,7 @@ pub struct PhysicalDeviceInlineUniformBlockFeatures {
 pub type PhysicalDeviceInlineUniformBlockFeaturesEXT = PhysicalDeviceInlineUniformBlockFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceInlineUniformBlockProperties.html>
+#[doc(alias = "VkPhysicalDeviceInlineUniformBlockProperties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceInlineUniformBlockProperties {
@@ -3503,6 +3771,7 @@ pub struct PhysicalDeviceInlineUniformBlockProperties {
 pub type PhysicalDeviceInlineUniformBlockPropertiesEXT = PhysicalDeviceInlineUniformBlockProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkWriteDescriptorSetInlineUniformBlock.html>
+#[doc(alias = "VkWriteDescriptorSetInlineUniformBlock")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct WriteDescriptorSetInlineUniformBlock {
@@ -3514,6 +3783,7 @@ pub struct WriteDescriptorSetInlineUniformBlock {
 pub type WriteDescriptorSetInlineUniformBlockEXT = WriteDescriptorSetInlineUniformBlock;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorPoolInlineUniformBlockCreateInfo.html>
+#[doc(alias = "VkDescriptorPoolInlineUniformBlockCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DescriptorPoolInlineUniformBlockCreateInfo {
@@ -3524,6 +3794,7 @@ pub struct DescriptorPoolInlineUniformBlockCreateInfo {
 pub type DescriptorPoolInlineUniformBlockCreateInfoEXT = DescriptorPoolInlineUniformBlockCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderIntegerDotProductFeatures.html>
+#[doc(alias = "VkPhysicalDeviceShaderIntegerDotProductFeatures")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderIntegerDotProductFeatures {
@@ -3535,6 +3806,7 @@ pub type PhysicalDeviceShaderIntegerDotProductFeaturesKHR =
     PhysicalDeviceShaderIntegerDotProductFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderIntegerDotProductProperties.html>
+#[doc(alias = "VkPhysicalDeviceShaderIntegerDotProductProperties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderIntegerDotProductProperties {
@@ -3576,6 +3848,7 @@ pub type PhysicalDeviceShaderIntegerDotProductPropertiesKHR =
     PhysicalDeviceShaderIntegerDotProductProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceTexelBufferAlignmentProperties.html>
+#[doc(alias = "VkPhysicalDeviceTexelBufferAlignmentProperties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceTexelBufferAlignmentProperties {
@@ -3590,6 +3863,7 @@ pub type PhysicalDeviceTexelBufferAlignmentPropertiesEXT =
     PhysicalDeviceTexelBufferAlignmentProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageBlit2.html>
+#[doc(alias = "VkImageBlit2")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageBlit2 {
@@ -3603,6 +3877,7 @@ pub struct ImageBlit2 {
 pub type ImageBlit2KHR = ImageBlit2;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBlitImageInfo2.html>
+#[doc(alias = "VkBlitImageInfo2")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BlitImageInfo2 {
@@ -3619,6 +3894,7 @@ pub struct BlitImageInfo2 {
 pub type BlitImageInfo2KHR = BlitImageInfo2;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageResolve2.html>
+#[doc(alias = "VkImageResolve2")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageResolve2 {
@@ -3633,6 +3909,7 @@ pub struct ImageResolve2 {
 pub type ImageResolve2KHR = ImageResolve2;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkResolveImageInfo2.html>
+#[doc(alias = "VkResolveImageInfo2")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ResolveImageInfo2 {
@@ -3648,6 +3925,7 @@ pub struct ResolveImageInfo2 {
 pub type ResolveImageInfo2KHR = ResolveImageInfo2;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderingAttachmentInfo.html>
+#[doc(alias = "VkRenderingAttachmentInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct RenderingAttachmentInfo {
@@ -3665,6 +3943,7 @@ pub struct RenderingAttachmentInfo {
 pub type RenderingAttachmentInfoKHR = RenderingAttachmentInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderingInfo.html>
+#[doc(alias = "VkRenderingInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct RenderingInfo {
@@ -3682,6 +3961,7 @@ pub struct RenderingInfo {
 pub type RenderingInfoKHR = RenderingInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineRenderingCreateInfo.html>
+#[doc(alias = "VkPipelineRenderingCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineRenderingCreateInfo {
@@ -3696,6 +3976,7 @@ pub struct PipelineRenderingCreateInfo {
 pub type PipelineRenderingCreateInfoKHR = PipelineRenderingCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDynamicRenderingFeatures.html>
+#[doc(alias = "VkPhysicalDeviceDynamicRenderingFeatures")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceDynamicRenderingFeatures {
@@ -3706,6 +3987,7 @@ pub struct PhysicalDeviceDynamicRenderingFeatures {
 pub type PhysicalDeviceDynamicRenderingFeaturesKHR = PhysicalDeviceDynamicRenderingFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandBufferInheritanceRenderingInfo.html>
+#[doc(alias = "VkCommandBufferInheritanceRenderingInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CommandBufferInheritanceRenderingInfo {
@@ -3722,6 +4004,7 @@ pub struct CommandBufferInheritanceRenderingInfo {
 pub type CommandBufferInheritanceRenderingInfoKHR = CommandBufferInheritanceRenderingInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVulkan14Features.html>
+#[doc(alias = "VkPhysicalDeviceVulkan14Features")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceVulkan14Features {
@@ -3751,6 +4034,7 @@ pub struct PhysicalDeviceVulkan14Features {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVulkan14Properties.html>
+#[doc(alias = "VkPhysicalDeviceVulkan14Properties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceVulkan14Properties {
@@ -3784,6 +4068,7 @@ pub struct PhysicalDeviceVulkan14Properties {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceQueueGlobalPriorityCreateInfo.html>
+#[doc(alias = "VkDeviceQueueGlobalPriorityCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DeviceQueueGlobalPriorityCreateInfo {
@@ -3795,6 +4080,7 @@ pub type DeviceQueueGlobalPriorityCreateInfoKHR = DeviceQueueGlobalPriorityCreat
 pub type DeviceQueueGlobalPriorityCreateInfoEXT = DeviceQueueGlobalPriorityCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceGlobalPriorityQueryFeatures.html>
+#[doc(alias = "VkPhysicalDeviceGlobalPriorityQueryFeatures")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceGlobalPriorityQueryFeatures {
@@ -3806,6 +4092,7 @@ pub type PhysicalDeviceGlobalPriorityQueryFeaturesKHR = PhysicalDeviceGlobalPrio
 pub type PhysicalDeviceGlobalPriorityQueryFeaturesEXT = PhysicalDeviceGlobalPriorityQueryFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkQueueFamilyGlobalPriorityProperties.html>
+#[doc(alias = "VkQueueFamilyGlobalPriorityProperties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct QueueFamilyGlobalPriorityProperties {
@@ -3818,6 +4105,7 @@ pub type QueueFamilyGlobalPriorityPropertiesKHR = QueueFamilyGlobalPriorityPrope
 pub type QueueFamilyGlobalPriorityPropertiesEXT = QueueFamilyGlobalPriorityProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceIndexTypeUint8Features.html>
+#[doc(alias = "VkPhysicalDeviceIndexTypeUint8Features")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceIndexTypeUint8Features {
@@ -3829,6 +4117,7 @@ pub type PhysicalDeviceIndexTypeUint8FeaturesKHR = PhysicalDeviceIndexTypeUint8F
 pub type PhysicalDeviceIndexTypeUint8FeaturesEXT = PhysicalDeviceIndexTypeUint8Features;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryMapInfo.html>
+#[doc(alias = "VkMemoryMapInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MemoryMapInfo {
@@ -3842,6 +4131,7 @@ pub struct MemoryMapInfo {
 pub type MemoryMapInfoKHR = MemoryMapInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryUnmapInfo.html>
+#[doc(alias = "VkMemoryUnmapInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MemoryUnmapInfo {
@@ -3853,6 +4143,7 @@ pub struct MemoryUnmapInfo {
 pub type MemoryUnmapInfoKHR = MemoryUnmapInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMaintenance5Features.html>
+#[doc(alias = "VkPhysicalDeviceMaintenance5Features")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceMaintenance5Features {
@@ -3863,6 +4154,7 @@ pub struct PhysicalDeviceMaintenance5Features {
 pub type PhysicalDeviceMaintenance5FeaturesKHR = PhysicalDeviceMaintenance5Features;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMaintenance5Properties.html>
+#[doc(alias = "VkPhysicalDeviceMaintenance5Properties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceMaintenance5Properties {
@@ -3878,6 +4170,7 @@ pub struct PhysicalDeviceMaintenance5Properties {
 pub type PhysicalDeviceMaintenance5PropertiesKHR = PhysicalDeviceMaintenance5Properties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSubresourceLayout2.html>
+#[doc(alias = "VkSubresourceLayout2")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SubresourceLayout2 {
@@ -3889,6 +4182,7 @@ pub type SubresourceLayout2KHR = SubresourceLayout2;
 pub type SubresourceLayout2EXT = SubresourceLayout2;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageSubresource2.html>
+#[doc(alias = "VkImageSubresource2")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageSubresource2 {
@@ -3900,6 +4194,7 @@ pub type ImageSubresource2KHR = ImageSubresource2;
 pub type ImageSubresource2EXT = ImageSubresource2;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceImageSubresourceInfo.html>
+#[doc(alias = "VkDeviceImageSubresourceInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DeviceImageSubresourceInfo {
@@ -3911,6 +4206,7 @@ pub struct DeviceImageSubresourceInfo {
 pub type DeviceImageSubresourceInfoKHR = DeviceImageSubresourceInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferUsageFlags2CreateInfo.html>
+#[doc(alias = "VkBufferUsageFlags2CreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BufferUsageFlags2CreateInfo {
@@ -3921,6 +4217,7 @@ pub struct BufferUsageFlags2CreateInfo {
 pub type BufferUsageFlags2CreateInfoKHR = BufferUsageFlags2CreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMaintenance6Features.html>
+#[doc(alias = "VkPhysicalDeviceMaintenance6Features")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceMaintenance6Features {
@@ -3931,6 +4228,7 @@ pub struct PhysicalDeviceMaintenance6Features {
 pub type PhysicalDeviceMaintenance6FeaturesKHR = PhysicalDeviceMaintenance6Features;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMaintenance6Properties.html>
+#[doc(alias = "VkPhysicalDeviceMaintenance6Properties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceMaintenance6Properties {
@@ -3943,6 +4241,7 @@ pub struct PhysicalDeviceMaintenance6Properties {
 pub type PhysicalDeviceMaintenance6PropertiesKHR = PhysicalDeviceMaintenance6Properties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBindMemoryStatus.html>
+#[doc(alias = "VkBindMemoryStatus")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BindMemoryStatus {
@@ -3953,6 +4252,7 @@ pub struct BindMemoryStatus {
 pub type BindMemoryStatusKHR = BindMemoryStatus;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceHostImageCopyFeatures.html>
+#[doc(alias = "VkPhysicalDeviceHostImageCopyFeatures")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceHostImageCopyFeatures {
@@ -3963,6 +4263,7 @@ pub struct PhysicalDeviceHostImageCopyFeatures {
 pub type PhysicalDeviceHostImageCopyFeaturesEXT = PhysicalDeviceHostImageCopyFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceHostImageCopyProperties.html>
+#[doc(alias = "VkPhysicalDeviceHostImageCopyProperties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceHostImageCopyProperties {
@@ -3978,6 +4279,7 @@ pub struct PhysicalDeviceHostImageCopyProperties {
 pub type PhysicalDeviceHostImageCopyPropertiesEXT = PhysicalDeviceHostImageCopyProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryToImageCopy.html>
+#[doc(alias = "VkMemoryToImageCopy")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MemoryToImageCopy {
@@ -3993,6 +4295,7 @@ pub struct MemoryToImageCopy {
 pub type MemoryToImageCopyEXT = MemoryToImageCopy;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageToMemoryCopy.html>
+#[doc(alias = "VkImageToMemoryCopy")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageToMemoryCopy {
@@ -4008,6 +4311,7 @@ pub struct ImageToMemoryCopy {
 pub type ImageToMemoryCopyEXT = ImageToMemoryCopy;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyMemoryToImageInfo.html>
+#[doc(alias = "VkCopyMemoryToImageInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CopyMemoryToImageInfo {
@@ -4022,6 +4326,7 @@ pub struct CopyMemoryToImageInfo {
 pub type CopyMemoryToImageInfoEXT = CopyMemoryToImageInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyImageToMemoryInfo.html>
+#[doc(alias = "VkCopyImageToMemoryInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CopyImageToMemoryInfo {
@@ -4036,6 +4341,7 @@ pub struct CopyImageToMemoryInfo {
 pub type CopyImageToMemoryInfoEXT = CopyImageToMemoryInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyImageToImageInfo.html>
+#[doc(alias = "VkCopyImageToImageInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CopyImageToImageInfo {
@@ -4052,6 +4358,7 @@ pub struct CopyImageToImageInfo {
 pub type CopyImageToImageInfoEXT = CopyImageToImageInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkHostImageLayoutTransitionInfo.html>
+#[doc(alias = "VkHostImageLayoutTransitionInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct HostImageLayoutTransitionInfo {
@@ -4065,6 +4372,7 @@ pub struct HostImageLayoutTransitionInfo {
 pub type HostImageLayoutTransitionInfoEXT = HostImageLayoutTransitionInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSubresourceHostMemcpySize.html>
+#[doc(alias = "VkSubresourceHostMemcpySize")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SubresourceHostMemcpySize {
@@ -4075,6 +4383,7 @@ pub struct SubresourceHostMemcpySize {
 pub type SubresourceHostMemcpySizeEXT = SubresourceHostMemcpySize;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkHostImageCopyDevicePerformanceQuery.html>
+#[doc(alias = "VkHostImageCopyDevicePerformanceQuery")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct HostImageCopyDevicePerformanceQuery {
@@ -4086,6 +4395,7 @@ pub struct HostImageCopyDevicePerformanceQuery {
 pub type HostImageCopyDevicePerformanceQueryEXT = HostImageCopyDevicePerformanceQuery;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderSubgroupRotateFeatures.html>
+#[doc(alias = "VkPhysicalDeviceShaderSubgroupRotateFeatures")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderSubgroupRotateFeatures {
@@ -4097,6 +4407,7 @@ pub struct PhysicalDeviceShaderSubgroupRotateFeatures {
 pub type PhysicalDeviceShaderSubgroupRotateFeaturesKHR = PhysicalDeviceShaderSubgroupRotateFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderFloatControls2Features.html>
+#[doc(alias = "VkPhysicalDeviceShaderFloatControls2Features")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderFloatControls2Features {
@@ -4107,6 +4418,7 @@ pub struct PhysicalDeviceShaderFloatControls2Features {
 pub type PhysicalDeviceShaderFloatControls2FeaturesKHR = PhysicalDeviceShaderFloatControls2Features;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderExpectAssumeFeatures.html>
+#[doc(alias = "VkPhysicalDeviceShaderExpectAssumeFeatures")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderExpectAssumeFeatures {
@@ -4117,6 +4429,7 @@ pub struct PhysicalDeviceShaderExpectAssumeFeatures {
 pub type PhysicalDeviceShaderExpectAssumeFeaturesKHR = PhysicalDeviceShaderExpectAssumeFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCreateFlags2CreateInfo.html>
+#[doc(alias = "VkPipelineCreateFlags2CreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineCreateFlags2CreateInfo {
@@ -4127,6 +4440,7 @@ pub struct PipelineCreateFlags2CreateInfo {
 pub type PipelineCreateFlags2CreateInfoKHR = PipelineCreateFlags2CreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePushDescriptorProperties.html>
+#[doc(alias = "VkPhysicalDevicePushDescriptorProperties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDevicePushDescriptorProperties {
@@ -4137,6 +4451,7 @@ pub struct PhysicalDevicePushDescriptorProperties {
 pub type PhysicalDevicePushDescriptorPropertiesKHR = PhysicalDevicePushDescriptorProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBindDescriptorSetsInfo.html>
+#[doc(alias = "VkBindDescriptorSetsInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BindDescriptorSetsInfo {
@@ -4153,6 +4468,7 @@ pub struct BindDescriptorSetsInfo {
 pub type BindDescriptorSetsInfoKHR = BindDescriptorSetsInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPushConstantsInfo.html>
+#[doc(alias = "VkPushConstantsInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PushConstantsInfo {
@@ -4167,6 +4483,7 @@ pub struct PushConstantsInfo {
 pub type PushConstantsInfoKHR = PushConstantsInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPushDescriptorSetInfo.html>
+#[doc(alias = "VkPushDescriptorSetInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PushDescriptorSetInfo {
@@ -4181,6 +4498,7 @@ pub struct PushDescriptorSetInfo {
 pub type PushDescriptorSetInfoKHR = PushDescriptorSetInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPushDescriptorSetWithTemplateInfo.html>
+#[doc(alias = "VkPushDescriptorSetWithTemplateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PushDescriptorSetWithTemplateInfo {
@@ -4194,6 +4512,7 @@ pub struct PushDescriptorSetWithTemplateInfo {
 pub type PushDescriptorSetWithTemplateInfoKHR = PushDescriptorSetWithTemplateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePipelineProtectedAccessFeatures.html>
+#[doc(alias = "VkPhysicalDevicePipelineProtectedAccessFeatures")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDevicePipelineProtectedAccessFeatures {
@@ -4205,6 +4524,7 @@ pub type PhysicalDevicePipelineProtectedAccessFeaturesEXT =
     PhysicalDevicePipelineProtectedAccessFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePipelineRobustnessFeatures.html>
+#[doc(alias = "VkPhysicalDevicePipelineRobustnessFeatures")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDevicePipelineRobustnessFeatures {
@@ -4215,6 +4535,7 @@ pub struct PhysicalDevicePipelineRobustnessFeatures {
 pub type PhysicalDevicePipelineRobustnessFeaturesEXT = PhysicalDevicePipelineRobustnessFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePipelineRobustnessProperties.html>
+#[doc(alias = "VkPhysicalDevicePipelineRobustnessProperties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDevicePipelineRobustnessProperties {
@@ -4228,6 +4549,7 @@ pub struct PhysicalDevicePipelineRobustnessProperties {
 pub type PhysicalDevicePipelineRobustnessPropertiesEXT = PhysicalDevicePipelineRobustnessProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineRobustnessCreateInfo.html>
+#[doc(alias = "VkPipelineRobustnessCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineRobustnessCreateInfo {
@@ -4241,6 +4563,7 @@ pub struct PipelineRobustnessCreateInfo {
 pub type PipelineRobustnessCreateInfoEXT = PipelineRobustnessCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceLineRasterizationFeatures.html>
+#[doc(alias = "VkPhysicalDeviceLineRasterizationFeatures")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceLineRasterizationFeatures {
@@ -4257,6 +4580,7 @@ pub type PhysicalDeviceLineRasterizationFeaturesKHR = PhysicalDeviceLineRasteriz
 pub type PhysicalDeviceLineRasterizationFeaturesEXT = PhysicalDeviceLineRasterizationFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceLineRasterizationProperties.html>
+#[doc(alias = "VkPhysicalDeviceLineRasterizationProperties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceLineRasterizationProperties {
@@ -4268,6 +4592,7 @@ pub type PhysicalDeviceLineRasterizationPropertiesKHR = PhysicalDeviceLineRaster
 pub type PhysicalDeviceLineRasterizationPropertiesEXT = PhysicalDeviceLineRasterizationProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineRasterizationLineStateCreateInfo.html>
+#[doc(alias = "VkPipelineRasterizationLineStateCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineRasterizationLineStateCreateInfo {
@@ -4282,6 +4607,7 @@ pub type PipelineRasterizationLineStateCreateInfoKHR = PipelineRasterizationLine
 pub type PipelineRasterizationLineStateCreateInfoEXT = PipelineRasterizationLineStateCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVertexAttributeDivisorProperties.html>
+#[doc(alias = "VkPhysicalDeviceVertexAttributeDivisorProperties")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceVertexAttributeDivisorProperties {
@@ -4294,6 +4620,7 @@ pub type PhysicalDeviceVertexAttributeDivisorPropertiesKHR =
     PhysicalDeviceVertexAttributeDivisorProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVertexInputBindingDivisorDescription.html>
+#[doc(alias = "VkVertexInputBindingDivisorDescription")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VertexInputBindingDivisorDescription {
@@ -4304,6 +4631,7 @@ pub type VertexInputBindingDivisorDescriptionKHR = VertexInputBindingDivisorDesc
 pub type VertexInputBindingDivisorDescriptionEXT = VertexInputBindingDivisorDescription;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineVertexInputDivisorStateCreateInfo.html>
+#[doc(alias = "VkPipelineVertexInputDivisorStateCreateInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineVertexInputDivisorStateCreateInfo {
@@ -4316,6 +4644,7 @@ pub type PipelineVertexInputDivisorStateCreateInfoKHR = PipelineVertexInputDivis
 pub type PipelineVertexInputDivisorStateCreateInfoEXT = PipelineVertexInputDivisorStateCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVertexAttributeDivisorFeatures.html>
+#[doc(alias = "VkPhysicalDeviceVertexAttributeDivisorFeatures")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceVertexAttributeDivisorFeatures {
@@ -4330,6 +4659,7 @@ pub type PhysicalDeviceVertexAttributeDivisorFeaturesEXT =
     PhysicalDeviceVertexAttributeDivisorFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderingAreaInfo.html>
+#[doc(alias = "VkRenderingAreaInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct RenderingAreaInfo {
@@ -4344,6 +4674,7 @@ pub struct RenderingAreaInfo {
 pub type RenderingAreaInfoKHR = RenderingAreaInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDynamicRenderingLocalReadFeatures.html>
+#[doc(alias = "VkPhysicalDeviceDynamicRenderingLocalReadFeatures")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceDynamicRenderingLocalReadFeatures {
@@ -4355,6 +4686,7 @@ pub type PhysicalDeviceDynamicRenderingLocalReadFeaturesKHR =
     PhysicalDeviceDynamicRenderingLocalReadFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderingAttachmentLocationInfo.html>
+#[doc(alias = "VkRenderingAttachmentLocationInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct RenderingAttachmentLocationInfo {
@@ -4366,6 +4698,7 @@ pub struct RenderingAttachmentLocationInfo {
 pub type RenderingAttachmentLocationInfoKHR = RenderingAttachmentLocationInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderingInputAttachmentIndexInfo.html>
+#[doc(alias = "VkRenderingInputAttachmentIndexInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct RenderingInputAttachmentIndexInfo {
@@ -4379,6 +4712,7 @@ pub struct RenderingInputAttachmentIndexInfo {
 pub type RenderingInputAttachmentIndexInfoKHR = RenderingInputAttachmentIndexInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfaceCapabilitiesKHR.html>
+#[doc(alias = "VkSurfaceCapabilitiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SurfaceCapabilitiesKHR {
@@ -4395,6 +4729,7 @@ pub struct SurfaceCapabilitiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfaceFormatKHR.html>
+#[doc(alias = "VkSurfaceFormatKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SurfaceFormatKHR {
@@ -4403,6 +4738,7 @@ pub struct SurfaceFormatKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSwapchainCreateInfoKHR.html>
+#[doc(alias = "VkSwapchainCreateInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SwapchainCreateInfoKHR {
@@ -4427,6 +4763,7 @@ pub struct SwapchainCreateInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPresentInfoKHR.html>
+#[doc(alias = "VkPresentInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PresentInfoKHR {
@@ -4441,6 +4778,7 @@ pub struct PresentInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageSwapchainCreateInfoKHR.html>
+#[doc(alias = "VkImageSwapchainCreateInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageSwapchainCreateInfoKHR {
@@ -4450,6 +4788,7 @@ pub struct ImageSwapchainCreateInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBindImageMemorySwapchainInfoKHR.html>
+#[doc(alias = "VkBindImageMemorySwapchainInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BindImageMemorySwapchainInfoKHR {
@@ -4460,6 +4799,7 @@ pub struct BindImageMemorySwapchainInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAcquireNextImageInfoKHR.html>
+#[doc(alias = "VkAcquireNextImageInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AcquireNextImageInfoKHR {
@@ -4473,6 +4813,7 @@ pub struct AcquireNextImageInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceGroupPresentCapabilitiesKHR.html>
+#[doc(alias = "VkDeviceGroupPresentCapabilitiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DeviceGroupPresentCapabilitiesKHR {
@@ -4483,6 +4824,7 @@ pub struct DeviceGroupPresentCapabilitiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceGroupPresentInfoKHR.html>
+#[doc(alias = "VkDeviceGroupPresentInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DeviceGroupPresentInfoKHR {
@@ -4494,6 +4836,7 @@ pub struct DeviceGroupPresentInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceGroupSwapchainCreateInfoKHR.html>
+#[doc(alias = "VkDeviceGroupSwapchainCreateInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DeviceGroupSwapchainCreateInfoKHR {
@@ -4503,6 +4846,7 @@ pub struct DeviceGroupSwapchainCreateInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplayModeParametersKHR.html>
+#[doc(alias = "VkDisplayModeParametersKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DisplayModeParametersKHR {
@@ -4511,6 +4855,7 @@ pub struct DisplayModeParametersKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplayModeCreateInfoKHR.html>
+#[doc(alias = "VkDisplayModeCreateInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DisplayModeCreateInfoKHR {
@@ -4521,6 +4866,7 @@ pub struct DisplayModeCreateInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplayModePropertiesKHR.html>
+#[doc(alias = "VkDisplayModePropertiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DisplayModePropertiesKHR {
@@ -4529,6 +4875,7 @@ pub struct DisplayModePropertiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplayPlaneCapabilitiesKHR.html>
+#[doc(alias = "VkDisplayPlaneCapabilitiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DisplayPlaneCapabilitiesKHR {
@@ -4544,6 +4891,7 @@ pub struct DisplayPlaneCapabilitiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplayPlanePropertiesKHR.html>
+#[doc(alias = "VkDisplayPlanePropertiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DisplayPlanePropertiesKHR {
@@ -4552,6 +4900,7 @@ pub struct DisplayPlanePropertiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplayPropertiesKHR.html>
+#[doc(alias = "VkDisplayPropertiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DisplayPropertiesKHR {
@@ -4565,6 +4914,7 @@ pub struct DisplayPropertiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplaySurfaceCreateInfoKHR.html>
+#[doc(alias = "VkDisplaySurfaceCreateInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DisplaySurfaceCreateInfoKHR {
@@ -4581,6 +4931,7 @@ pub struct DisplaySurfaceCreateInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplayPresentInfoKHR.html>
+#[doc(alias = "VkDisplayPresentInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DisplayPresentInfoKHR {
@@ -4592,6 +4943,7 @@ pub struct DisplayPresentInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkXlibSurfaceCreateInfoKHR.html>
+#[doc(alias = "VkXlibSurfaceCreateInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct XlibSurfaceCreateInfoKHR {
@@ -4603,6 +4955,7 @@ pub struct XlibSurfaceCreateInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkXcbSurfaceCreateInfoKHR.html>
+#[doc(alias = "VkXcbSurfaceCreateInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct XcbSurfaceCreateInfoKHR {
@@ -4614,6 +4967,7 @@ pub struct XcbSurfaceCreateInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkWaylandSurfaceCreateInfoKHR.html>
+#[doc(alias = "VkWaylandSurfaceCreateInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct WaylandSurfaceCreateInfoKHR {
@@ -4625,6 +4979,7 @@ pub struct WaylandSurfaceCreateInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAndroidSurfaceCreateInfoKHR.html>
+#[doc(alias = "VkAndroidSurfaceCreateInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AndroidSurfaceCreateInfoKHR {
@@ -4635,6 +4990,7 @@ pub struct AndroidSurfaceCreateInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkWin32SurfaceCreateInfoKHR.html>
+#[doc(alias = "VkWin32SurfaceCreateInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct Win32SurfaceCreateInfoKHR {
@@ -4646,6 +5002,7 @@ pub struct Win32SurfaceCreateInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkQueueFamilyQueryResultStatusPropertiesKHR.html>
+#[doc(alias = "VkQueueFamilyQueryResultStatusPropertiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct QueueFamilyQueryResultStatusPropertiesKHR {
@@ -4655,6 +5012,7 @@ pub struct QueueFamilyQueryResultStatusPropertiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkQueueFamilyVideoPropertiesKHR.html>
+#[doc(alias = "VkQueueFamilyVideoPropertiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct QueueFamilyVideoPropertiesKHR {
@@ -4664,6 +5022,7 @@ pub struct QueueFamilyVideoPropertiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoProfileInfoKHR.html>
+#[doc(alias = "VkVideoProfileInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoProfileInfoKHR {
@@ -4676,6 +5035,7 @@ pub struct VideoProfileInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoProfileListInfoKHR.html>
+#[doc(alias = "VkVideoProfileListInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoProfileListInfoKHR {
@@ -4686,6 +5046,7 @@ pub struct VideoProfileListInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoCapabilitiesKHR.html>
+#[doc(alias = "VkVideoCapabilitiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoCapabilitiesKHR {
@@ -4703,6 +5064,7 @@ pub struct VideoCapabilitiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVideoFormatInfoKHR.html>
+#[doc(alias = "VkPhysicalDeviceVideoFormatInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceVideoFormatInfoKHR {
@@ -4712,6 +5074,7 @@ pub struct PhysicalDeviceVideoFormatInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoFormatPropertiesKHR.html>
+#[doc(alias = "VkVideoFormatPropertiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoFormatPropertiesKHR {
@@ -4726,6 +5089,7 @@ pub struct VideoFormatPropertiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoPictureResourceInfoKHR.html>
+#[doc(alias = "VkVideoPictureResourceInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoPictureResourceInfoKHR {
@@ -4738,6 +5102,7 @@ pub struct VideoPictureResourceInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoReferenceSlotInfoKHR.html>
+#[doc(alias = "VkVideoReferenceSlotInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoReferenceSlotInfoKHR {
@@ -4748,6 +5113,7 @@ pub struct VideoReferenceSlotInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoSessionMemoryRequirementsKHR.html>
+#[doc(alias = "VkVideoSessionMemoryRequirementsKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoSessionMemoryRequirementsKHR {
@@ -4758,6 +5124,7 @@ pub struct VideoSessionMemoryRequirementsKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBindVideoSessionMemoryInfoKHR.html>
+#[doc(alias = "VkBindVideoSessionMemoryInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BindVideoSessionMemoryInfoKHR {
@@ -4770,6 +5137,7 @@ pub struct BindVideoSessionMemoryInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoSessionCreateInfoKHR.html>
+#[doc(alias = "VkVideoSessionCreateInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoSessionCreateInfoKHR {
@@ -4787,6 +5155,7 @@ pub struct VideoSessionCreateInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoSessionParametersCreateInfoKHR.html>
+#[doc(alias = "VkVideoSessionParametersCreateInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoSessionParametersCreateInfoKHR {
@@ -4798,6 +5167,7 @@ pub struct VideoSessionParametersCreateInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoSessionParametersUpdateInfoKHR.html>
+#[doc(alias = "VkVideoSessionParametersUpdateInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoSessionParametersUpdateInfoKHR {
@@ -4807,6 +5177,7 @@ pub struct VideoSessionParametersUpdateInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoBeginCodingInfoKHR.html>
+#[doc(alias = "VkVideoBeginCodingInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoBeginCodingInfoKHR {
@@ -4820,6 +5191,7 @@ pub struct VideoBeginCodingInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEndCodingInfoKHR.html>
+#[doc(alias = "VkVideoEndCodingInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEndCodingInfoKHR {
@@ -4829,6 +5201,7 @@ pub struct VideoEndCodingInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoCodingControlInfoKHR.html>
+#[doc(alias = "VkVideoCodingControlInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoCodingControlInfoKHR {
@@ -4838,6 +5211,7 @@ pub struct VideoCodingControlInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeCapabilitiesKHR.html>
+#[doc(alias = "VkVideoDecodeCapabilitiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoDecodeCapabilitiesKHR {
@@ -4847,6 +5221,7 @@ pub struct VideoDecodeCapabilitiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeUsageInfoKHR.html>
+#[doc(alias = "VkVideoDecodeUsageInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoDecodeUsageInfoKHR {
@@ -4856,6 +5231,7 @@ pub struct VideoDecodeUsageInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeInfoKHR.html>
+#[doc(alias = "VkVideoDecodeInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoDecodeInfoKHR {
@@ -4872,13 +5248,14 @@ pub struct VideoDecodeInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH264CapabilitiesKHR.html>
+#[doc(alias = "VkVideoEncodeH264CapabilitiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeH264CapabilitiesKHR {
     pub s_type: StructureType,
     pub p_next: *mut c_void,
     pub flags: VideoEncodeH264CapabilityFlagsKHR,
-    pub max_level_idc: StdVideoH264LevelIdc,
+    pub max_level_idc: H264LevelIdc,
     pub max_slice_count: u32,
     pub max_p_picture_l_0_reference_count: u32,
     pub max_b_picture_l_0_reference_count: u32,
@@ -4893,6 +5270,7 @@ pub struct VideoEncodeH264CapabilitiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH264QpKHR.html>
+#[doc(alias = "VkVideoEncodeH264QpKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeH264QpKHR {
@@ -4902,6 +5280,7 @@ pub struct VideoEncodeH264QpKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH264QualityLevelPropertiesKHR.html>
+#[doc(alias = "VkVideoEncodeH264QualityLevelPropertiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeH264QualityLevelPropertiesKHR {
@@ -4919,28 +5298,31 @@ pub struct VideoEncodeH264QualityLevelPropertiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH264SessionCreateInfoKHR.html>
+#[doc(alias = "VkVideoEncodeH264SessionCreateInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeH264SessionCreateInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
     pub use_max_level_idc: Bool32,
-    pub max_level_idc: StdVideoH264LevelIdc,
+    pub max_level_idc: H264LevelIdc,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH264SessionParametersAddInfoKHR.html>
+#[doc(alias = "VkVideoEncodeH264SessionParametersAddInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeH264SessionParametersAddInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
     pub std_sps_count: u32,
-    pub p_std_sp_ss: *const StdVideoH264SequenceParameterSet,
+    pub p_std_sp_ss: *const H264SequenceParameterSet,
     pub std_pps_count: u32,
-    pub p_std_pp_ss: *const StdVideoH264PictureParameterSet,
+    pub p_std_pp_ss: *const H264PictureParameterSet,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH264SessionParametersCreateInfoKHR.html>
+#[doc(alias = "VkVideoEncodeH264SessionParametersCreateInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeH264SessionParametersCreateInfoKHR {
@@ -4952,6 +5334,7 @@ pub struct VideoEncodeH264SessionParametersCreateInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH264SessionParametersGetInfoKHR.html>
+#[doc(alias = "VkVideoEncodeH264SessionParametersGetInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeH264SessionParametersGetInfoKHR {
@@ -4964,6 +5347,7 @@ pub struct VideoEncodeH264SessionParametersGetInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH264SessionParametersFeedbackInfoKHR.html>
+#[doc(alias = "VkVideoEncodeH264SessionParametersFeedbackInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeH264SessionParametersFeedbackInfoKHR {
@@ -4974,16 +5358,18 @@ pub struct VideoEncodeH264SessionParametersFeedbackInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH264NaluSliceInfoKHR.html>
+#[doc(alias = "VkVideoEncodeH264NaluSliceInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeH264NaluSliceInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
     pub constant_qp: i32,
-    pub p_std_slice_header: *const StdVideoEncodeH264SliceHeader,
+    pub p_std_slice_header: *const EncodeH264SliceHeader,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH264PictureInfoKHR.html>
+#[doc(alias = "VkVideoEncodeH264PictureInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeH264PictureInfoKHR {
@@ -4991,29 +5377,32 @@ pub struct VideoEncodeH264PictureInfoKHR {
     pub p_next: *const c_void,
     pub nalu_slice_entry_count: u32,
     pub p_nalu_slice_entries: *const VideoEncodeH264NaluSliceInfoKHR,
-    pub p_std_picture_info: *const StdVideoEncodeH264PictureInfo,
+    pub p_std_picture_info: *const EncodeH264PictureInfo,
     pub generate_prefix_nalu: Bool32,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH264DpbSlotInfoKHR.html>
+#[doc(alias = "VkVideoEncodeH264DpbSlotInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeH264DpbSlotInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
-    pub p_std_reference_info: *const StdVideoEncodeH264ReferenceInfo,
+    pub p_std_reference_info: *const EncodeH264ReferenceInfo,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH264ProfileInfoKHR.html>
+#[doc(alias = "VkVideoEncodeH264ProfileInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeH264ProfileInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
-    pub std_profile_idc: StdVideoH264ProfileIdc,
+    pub std_profile_idc: H264ProfileIdc,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH264RateControlInfoKHR.html>
+#[doc(alias = "VkVideoEncodeH264RateControlInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeH264RateControlInfoKHR {
@@ -5027,6 +5416,7 @@ pub struct VideoEncodeH264RateControlInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH264FrameSizeKHR.html>
+#[doc(alias = "VkVideoEncodeH264FrameSizeKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeH264FrameSizeKHR {
@@ -5036,6 +5426,7 @@ pub struct VideoEncodeH264FrameSizeKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH264RateControlLayerInfoKHR.html>
+#[doc(alias = "VkVideoEncodeH264RateControlLayerInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeH264RateControlLayerInfoKHR {
@@ -5050,6 +5441,7 @@ pub struct VideoEncodeH264RateControlLayerInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH264GopRemainingFrameInfoKHR.html>
+#[doc(alias = "VkVideoEncodeH264GopRemainingFrameInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeH264GopRemainingFrameInfoKHR {
@@ -5062,13 +5454,14 @@ pub struct VideoEncodeH264GopRemainingFrameInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265CapabilitiesKHR.html>
+#[doc(alias = "VkVideoEncodeH265CapabilitiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeH265CapabilitiesKHR {
     pub s_type: StructureType,
     pub p_next: *mut c_void,
     pub flags: VideoEncodeH265CapabilityFlagsKHR,
-    pub max_level_idc: StdVideoH265LevelIdc,
+    pub max_level_idc: H265LevelIdc,
     pub max_slice_segment_count: u32,
     pub max_tiles: Extent2D,
     pub ctb_sizes: VideoEncodeH265CtbSizeFlagsKHR,
@@ -5086,16 +5479,18 @@ pub struct VideoEncodeH265CapabilitiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265SessionCreateInfoKHR.html>
+#[doc(alias = "VkVideoEncodeH265SessionCreateInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeH265SessionCreateInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
     pub use_max_level_idc: Bool32,
-    pub max_level_idc: StdVideoH265LevelIdc,
+    pub max_level_idc: H265LevelIdc,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265QpKHR.html>
+#[doc(alias = "VkVideoEncodeH265QpKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeH265QpKHR {
@@ -5105,6 +5500,7 @@ pub struct VideoEncodeH265QpKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265QualityLevelPropertiesKHR.html>
+#[doc(alias = "VkVideoEncodeH265QualityLevelPropertiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeH265QualityLevelPropertiesKHR {
@@ -5121,20 +5517,22 @@ pub struct VideoEncodeH265QualityLevelPropertiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265SessionParametersAddInfoKHR.html>
+#[doc(alias = "VkVideoEncodeH265SessionParametersAddInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeH265SessionParametersAddInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
     pub std_vps_count: u32,
-    pub p_std_vp_ss: *const StdVideoH265VideoParameterSet,
+    pub p_std_vp_ss: *const H265VideoParameterSet,
     pub std_sps_count: u32,
-    pub p_std_sp_ss: *const StdVideoH265SequenceParameterSet,
+    pub p_std_sp_ss: *const H265SequenceParameterSet,
     pub std_pps_count: u32,
-    pub p_std_pp_ss: *const StdVideoH265PictureParameterSet,
+    pub p_std_pp_ss: *const H265PictureParameterSet,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265SessionParametersCreateInfoKHR.html>
+#[doc(alias = "VkVideoEncodeH265SessionParametersCreateInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeH265SessionParametersCreateInfoKHR {
@@ -5147,6 +5545,7 @@ pub struct VideoEncodeH265SessionParametersCreateInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265SessionParametersGetInfoKHR.html>
+#[doc(alias = "VkVideoEncodeH265SessionParametersGetInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeH265SessionParametersGetInfoKHR {
@@ -5161,6 +5560,7 @@ pub struct VideoEncodeH265SessionParametersGetInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265SessionParametersFeedbackInfoKHR.html>
+#[doc(alias = "VkVideoEncodeH265SessionParametersFeedbackInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeH265SessionParametersFeedbackInfoKHR {
@@ -5172,16 +5572,18 @@ pub struct VideoEncodeH265SessionParametersFeedbackInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265NaluSliceSegmentInfoKHR.html>
+#[doc(alias = "VkVideoEncodeH265NaluSliceSegmentInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeH265NaluSliceSegmentInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
     pub constant_qp: i32,
-    pub p_std_slice_segment_header: *const StdVideoEncodeH265SliceSegmentHeader,
+    pub p_std_slice_segment_header: *const EncodeH265SliceSegmentHeader,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265PictureInfoKHR.html>
+#[doc(alias = "VkVideoEncodeH265PictureInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeH265PictureInfoKHR {
@@ -5189,28 +5591,31 @@ pub struct VideoEncodeH265PictureInfoKHR {
     pub p_next: *const c_void,
     pub nalu_slice_segment_entry_count: u32,
     pub p_nalu_slice_segment_entries: *const VideoEncodeH265NaluSliceSegmentInfoKHR,
-    pub p_std_picture_info: *const StdVideoEncodeH265PictureInfo,
+    pub p_std_picture_info: *const EncodeH265PictureInfo,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265DpbSlotInfoKHR.html>
+#[doc(alias = "VkVideoEncodeH265DpbSlotInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeH265DpbSlotInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
-    pub p_std_reference_info: *const StdVideoEncodeH265ReferenceInfo,
+    pub p_std_reference_info: *const EncodeH265ReferenceInfo,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265ProfileInfoKHR.html>
+#[doc(alias = "VkVideoEncodeH265ProfileInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeH265ProfileInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
-    pub std_profile_idc: StdVideoH265ProfileIdc,
+    pub std_profile_idc: H265ProfileIdc,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265RateControlInfoKHR.html>
+#[doc(alias = "VkVideoEncodeH265RateControlInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeH265RateControlInfoKHR {
@@ -5224,6 +5629,7 @@ pub struct VideoEncodeH265RateControlInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265FrameSizeKHR.html>
+#[doc(alias = "VkVideoEncodeH265FrameSizeKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeH265FrameSizeKHR {
@@ -5233,6 +5639,7 @@ pub struct VideoEncodeH265FrameSizeKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265RateControlLayerInfoKHR.html>
+#[doc(alias = "VkVideoEncodeH265RateControlLayerInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeH265RateControlLayerInfoKHR {
@@ -5247,6 +5654,7 @@ pub struct VideoEncodeH265RateControlLayerInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265GopRemainingFrameInfoKHR.html>
+#[doc(alias = "VkVideoEncodeH265GopRemainingFrameInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeH265GopRemainingFrameInfoKHR {
@@ -5259,38 +5667,42 @@ pub struct VideoEncodeH265GopRemainingFrameInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeH264ProfileInfoKHR.html>
+#[doc(alias = "VkVideoDecodeH264ProfileInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoDecodeH264ProfileInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
-    pub std_profile_idc: StdVideoH264ProfileIdc,
+    pub std_profile_idc: H264ProfileIdc,
     pub picture_layout: VideoDecodeH264PictureLayoutFlagsKHR,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeH264CapabilitiesKHR.html>
+#[doc(alias = "VkVideoDecodeH264CapabilitiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoDecodeH264CapabilitiesKHR {
     pub s_type: StructureType,
     pub p_next: *mut c_void,
-    pub max_level_idc: StdVideoH264LevelIdc,
+    pub max_level_idc: H264LevelIdc,
     pub field_offset_granularity: Offset2D,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeH264SessionParametersAddInfoKHR.html>
+#[doc(alias = "VkVideoDecodeH264SessionParametersAddInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoDecodeH264SessionParametersAddInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
     pub std_sps_count: u32,
-    pub p_std_sp_ss: *const StdVideoH264SequenceParameterSet,
+    pub p_std_sp_ss: *const H264SequenceParameterSet,
     pub std_pps_count: u32,
-    pub p_std_pp_ss: *const StdVideoH264PictureParameterSet,
+    pub p_std_pp_ss: *const H264PictureParameterSet,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeH264SessionParametersCreateInfoKHR.html>
+#[doc(alias = "VkVideoDecodeH264SessionParametersCreateInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoDecodeH264SessionParametersCreateInfoKHR {
@@ -5302,26 +5714,29 @@ pub struct VideoDecodeH264SessionParametersCreateInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeH264PictureInfoKHR.html>
+#[doc(alias = "VkVideoDecodeH264PictureInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoDecodeH264PictureInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
-    pub p_std_picture_info: *const StdVideoDecodeH264PictureInfo,
+    pub p_std_picture_info: *const DecodeH264PictureInfo,
     pub slice_count: u32,
     pub p_slice_offsets: *const u32,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeH264DpbSlotInfoKHR.html>
+#[doc(alias = "VkVideoDecodeH264DpbSlotInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoDecodeH264DpbSlotInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
-    pub p_std_reference_info: *const StdVideoDecodeH264ReferenceInfo,
+    pub p_std_reference_info: *const DecodeH264ReferenceInfo,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImportMemoryWin32HandleInfoKHR.html>
+#[doc(alias = "VkImportMemoryWin32HandleInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImportMemoryWin32HandleInfoKHR {
@@ -5333,6 +5748,7 @@ pub struct ImportMemoryWin32HandleInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExportMemoryWin32HandleInfoKHR.html>
+#[doc(alias = "VkExportMemoryWin32HandleInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ExportMemoryWin32HandleInfoKHR {
@@ -5344,6 +5760,7 @@ pub struct ExportMemoryWin32HandleInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryWin32HandlePropertiesKHR.html>
+#[doc(alias = "VkMemoryWin32HandlePropertiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MemoryWin32HandlePropertiesKHR {
@@ -5353,6 +5770,7 @@ pub struct MemoryWin32HandlePropertiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryGetWin32HandleInfoKHR.html>
+#[doc(alias = "VkMemoryGetWin32HandleInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MemoryGetWin32HandleInfoKHR {
@@ -5363,6 +5781,7 @@ pub struct MemoryGetWin32HandleInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImportMemoryFdInfoKHR.html>
+#[doc(alias = "VkImportMemoryFdInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImportMemoryFdInfoKHR {
@@ -5373,6 +5792,7 @@ pub struct ImportMemoryFdInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryFdPropertiesKHR.html>
+#[doc(alias = "VkMemoryFdPropertiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MemoryFdPropertiesKHR {
@@ -5382,6 +5802,7 @@ pub struct MemoryFdPropertiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryGetFdInfoKHR.html>
+#[doc(alias = "VkMemoryGetFdInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MemoryGetFdInfoKHR {
@@ -5392,6 +5813,7 @@ pub struct MemoryGetFdInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkWin32KeyedMutexAcquireReleaseInfoKHR.html>
+#[doc(alias = "VkWin32KeyedMutexAcquireReleaseInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct Win32KeyedMutexAcquireReleaseInfoKHR {
@@ -5407,6 +5829,7 @@ pub struct Win32KeyedMutexAcquireReleaseInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImportSemaphoreWin32HandleInfoKHR.html>
+#[doc(alias = "VkImportSemaphoreWin32HandleInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImportSemaphoreWin32HandleInfoKHR {
@@ -5420,6 +5843,7 @@ pub struct ImportSemaphoreWin32HandleInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExportSemaphoreWin32HandleInfoKHR.html>
+#[doc(alias = "VkExportSemaphoreWin32HandleInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ExportSemaphoreWin32HandleInfoKHR {
@@ -5431,6 +5855,7 @@ pub struct ExportSemaphoreWin32HandleInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkD3D12FenceSubmitInfoKHR.html>
+#[doc(alias = "VkD3D12FenceSubmitInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct D3D12FenceSubmitInfoKHR {
@@ -5443,6 +5868,7 @@ pub struct D3D12FenceSubmitInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSemaphoreGetWin32HandleInfoKHR.html>
+#[doc(alias = "VkSemaphoreGetWin32HandleInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SemaphoreGetWin32HandleInfoKHR {
@@ -5453,6 +5879,7 @@ pub struct SemaphoreGetWin32HandleInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImportSemaphoreFdInfoKHR.html>
+#[doc(alias = "VkImportSemaphoreFdInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImportSemaphoreFdInfoKHR {
@@ -5465,6 +5892,7 @@ pub struct ImportSemaphoreFdInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSemaphoreGetFdInfoKHR.html>
+#[doc(alias = "VkSemaphoreGetFdInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SemaphoreGetFdInfoKHR {
@@ -5475,6 +5903,7 @@ pub struct SemaphoreGetFdInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRectLayerKHR.html>
+#[doc(alias = "VkRectLayerKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct RectLayerKHR {
@@ -5484,6 +5913,7 @@ pub struct RectLayerKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPresentRegionKHR.html>
+#[doc(alias = "VkPresentRegionKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PresentRegionKHR {
@@ -5492,6 +5922,7 @@ pub struct PresentRegionKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPresentRegionsKHR.html>
+#[doc(alias = "VkPresentRegionsKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PresentRegionsKHR {
@@ -5502,6 +5933,7 @@ pub struct PresentRegionsKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSharedPresentSurfaceCapabilitiesKHR.html>
+#[doc(alias = "VkSharedPresentSurfaceCapabilitiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SharedPresentSurfaceCapabilitiesKHR {
@@ -5511,6 +5943,7 @@ pub struct SharedPresentSurfaceCapabilitiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImportFenceWin32HandleInfoKHR.html>
+#[doc(alias = "VkImportFenceWin32HandleInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImportFenceWin32HandleInfoKHR {
@@ -5524,6 +5957,7 @@ pub struct ImportFenceWin32HandleInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExportFenceWin32HandleInfoKHR.html>
+#[doc(alias = "VkExportFenceWin32HandleInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ExportFenceWin32HandleInfoKHR {
@@ -5535,6 +5969,7 @@ pub struct ExportFenceWin32HandleInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFenceGetWin32HandleInfoKHR.html>
+#[doc(alias = "VkFenceGetWin32HandleInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct FenceGetWin32HandleInfoKHR {
@@ -5545,6 +5980,7 @@ pub struct FenceGetWin32HandleInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImportFenceFdInfoKHR.html>
+#[doc(alias = "VkImportFenceFdInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImportFenceFdInfoKHR {
@@ -5557,6 +5993,7 @@ pub struct ImportFenceFdInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFenceGetFdInfoKHR.html>
+#[doc(alias = "VkFenceGetFdInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct FenceGetFdInfoKHR {
@@ -5567,6 +6004,7 @@ pub struct FenceGetFdInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePerformanceQueryFeaturesKHR.html>
+#[doc(alias = "VkPhysicalDevicePerformanceQueryFeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDevicePerformanceQueryFeaturesKHR {
@@ -5577,6 +6015,7 @@ pub struct PhysicalDevicePerformanceQueryFeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePerformanceQueryPropertiesKHR.html>
+#[doc(alias = "VkPhysicalDevicePerformanceQueryPropertiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDevicePerformanceQueryPropertiesKHR {
@@ -5586,6 +6025,7 @@ pub struct PhysicalDevicePerformanceQueryPropertiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceCounterKHR.html>
+#[doc(alias = "VkPerformanceCounterKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PerformanceCounterKHR {
@@ -5598,6 +6038,7 @@ pub struct PerformanceCounterKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceCounterDescriptionKHR.html>
+#[doc(alias = "VkPerformanceCounterDescriptionKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PerformanceCounterDescriptionKHR {
@@ -5610,6 +6051,7 @@ pub struct PerformanceCounterDescriptionKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkQueryPoolPerformanceCreateInfoKHR.html>
+#[doc(alias = "VkQueryPoolPerformanceCreateInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct QueryPoolPerformanceCreateInfoKHR {
@@ -5621,6 +6063,7 @@ pub struct QueryPoolPerformanceCreateInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceCounterResultKHR.html>
+#[doc(alias = "VkPerformanceCounterResultKHR")]
 #[derive(Clone, Copy)]
 #[repr(C)]
 pub struct PerformanceCounterResultKHR {
@@ -5638,6 +6081,7 @@ impl std::fmt::Debug for PerformanceCounterResultKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAcquireProfilingLockInfoKHR.html>
+#[doc(alias = "VkAcquireProfilingLockInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AcquireProfilingLockInfoKHR {
@@ -5648,6 +6092,7 @@ pub struct AcquireProfilingLockInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceQuerySubmitInfoKHR.html>
+#[doc(alias = "VkPerformanceQuerySubmitInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PerformanceQuerySubmitInfoKHR {
@@ -5657,6 +6102,7 @@ pub struct PerformanceQuerySubmitInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSurfaceInfo2KHR.html>
+#[doc(alias = "VkPhysicalDeviceSurfaceInfo2KHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceSurfaceInfo2KHR {
@@ -5666,6 +6112,7 @@ pub struct PhysicalDeviceSurfaceInfo2KHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfaceCapabilities2KHR.html>
+#[doc(alias = "VkSurfaceCapabilities2KHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SurfaceCapabilities2KHR {
@@ -5675,6 +6122,7 @@ pub struct SurfaceCapabilities2KHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfaceFormat2KHR.html>
+#[doc(alias = "VkSurfaceFormat2KHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SurfaceFormat2KHR {
@@ -5684,6 +6132,7 @@ pub struct SurfaceFormat2KHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplayProperties2KHR.html>
+#[doc(alias = "VkDisplayProperties2KHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DisplayProperties2KHR {
@@ -5693,6 +6142,7 @@ pub struct DisplayProperties2KHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplayPlaneProperties2KHR.html>
+#[doc(alias = "VkDisplayPlaneProperties2KHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DisplayPlaneProperties2KHR {
@@ -5702,6 +6152,7 @@ pub struct DisplayPlaneProperties2KHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplayModeProperties2KHR.html>
+#[doc(alias = "VkDisplayModeProperties2KHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DisplayModeProperties2KHR {
@@ -5711,6 +6162,7 @@ pub struct DisplayModeProperties2KHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplayPlaneInfo2KHR.html>
+#[doc(alias = "VkDisplayPlaneInfo2KHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DisplayPlaneInfo2KHR {
@@ -5721,6 +6173,7 @@ pub struct DisplayPlaneInfo2KHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplayPlaneCapabilities2KHR.html>
+#[doc(alias = "VkDisplayPlaneCapabilities2KHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DisplayPlaneCapabilities2KHR {
@@ -5730,6 +6183,7 @@ pub struct DisplayPlaneCapabilities2KHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderBfloat16FeaturesKHR.html>
+#[doc(alias = "VkPhysicalDeviceShaderBfloat16FeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderBfloat16FeaturesKHR {
@@ -5741,6 +6195,7 @@ pub struct PhysicalDeviceShaderBfloat16FeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePortabilitySubsetFeaturesKHR.html>
+#[doc(alias = "VkPhysicalDevicePortabilitySubsetFeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDevicePortabilitySubsetFeaturesKHR {
@@ -5764,6 +6219,7 @@ pub struct PhysicalDevicePortabilitySubsetFeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePortabilitySubsetPropertiesKHR.html>
+#[doc(alias = "VkPhysicalDevicePortabilitySubsetPropertiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDevicePortabilitySubsetPropertiesKHR {
@@ -5773,6 +6229,7 @@ pub struct PhysicalDevicePortabilitySubsetPropertiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderClockFeaturesKHR.html>
+#[doc(alias = "VkPhysicalDeviceShaderClockFeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderClockFeaturesKHR {
@@ -5783,38 +6240,42 @@ pub struct PhysicalDeviceShaderClockFeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeH265ProfileInfoKHR.html>
+#[doc(alias = "VkVideoDecodeH265ProfileInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoDecodeH265ProfileInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
-    pub std_profile_idc: StdVideoH265ProfileIdc,
+    pub std_profile_idc: H265ProfileIdc,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeH265CapabilitiesKHR.html>
+#[doc(alias = "VkVideoDecodeH265CapabilitiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoDecodeH265CapabilitiesKHR {
     pub s_type: StructureType,
     pub p_next: *mut c_void,
-    pub max_level_idc: StdVideoH265LevelIdc,
+    pub max_level_idc: H265LevelIdc,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeH265SessionParametersAddInfoKHR.html>
+#[doc(alias = "VkVideoDecodeH265SessionParametersAddInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoDecodeH265SessionParametersAddInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
     pub std_vps_count: u32,
-    pub p_std_vp_ss: *const StdVideoH265VideoParameterSet,
+    pub p_std_vp_ss: *const H265VideoParameterSet,
     pub std_sps_count: u32,
-    pub p_std_sp_ss: *const StdVideoH265SequenceParameterSet,
+    pub p_std_sp_ss: *const H265SequenceParameterSet,
     pub std_pps_count: u32,
-    pub p_std_pp_ss: *const StdVideoH265PictureParameterSet,
+    pub p_std_pp_ss: *const H265PictureParameterSet,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeH265SessionParametersCreateInfoKHR.html>
+#[doc(alias = "VkVideoDecodeH265SessionParametersCreateInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoDecodeH265SessionParametersCreateInfoKHR {
@@ -5827,26 +6288,29 @@ pub struct VideoDecodeH265SessionParametersCreateInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeH265PictureInfoKHR.html>
+#[doc(alias = "VkVideoDecodeH265PictureInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoDecodeH265PictureInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
-    pub p_std_picture_info: *const StdVideoDecodeH265PictureInfo,
+    pub p_std_picture_info: *const DecodeH265PictureInfo,
     pub slice_segment_count: u32,
     pub p_slice_segment_offsets: *const u32,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeH265DpbSlotInfoKHR.html>
+#[doc(alias = "VkVideoDecodeH265DpbSlotInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoDecodeH265DpbSlotInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
-    pub p_std_reference_info: *const StdVideoDecodeH265ReferenceInfo,
+    pub p_std_reference_info: *const DecodeH265ReferenceInfo,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFragmentShadingRateAttachmentInfoKHR.html>
+#[doc(alias = "VkFragmentShadingRateAttachmentInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct FragmentShadingRateAttachmentInfoKHR {
@@ -5857,6 +6321,7 @@ pub struct FragmentShadingRateAttachmentInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineFragmentShadingRateStateCreateInfoKHR.html>
+#[doc(alias = "VkPipelineFragmentShadingRateStateCreateInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineFragmentShadingRateStateCreateInfoKHR {
@@ -5867,6 +6332,7 @@ pub struct PipelineFragmentShadingRateStateCreateInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFragmentShadingRateFeaturesKHR.html>
+#[doc(alias = "VkPhysicalDeviceFragmentShadingRateFeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceFragmentShadingRateFeaturesKHR {
@@ -5878,6 +6344,7 @@ pub struct PhysicalDeviceFragmentShadingRateFeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFragmentShadingRatePropertiesKHR.html>
+#[doc(alias = "VkPhysicalDeviceFragmentShadingRatePropertiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceFragmentShadingRatePropertiesKHR {
@@ -5903,6 +6370,7 @@ pub struct PhysicalDeviceFragmentShadingRatePropertiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFragmentShadingRateKHR.html>
+#[doc(alias = "VkPhysicalDeviceFragmentShadingRateKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceFragmentShadingRateKHR {
@@ -5913,6 +6381,7 @@ pub struct PhysicalDeviceFragmentShadingRateKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderingFragmentShadingRateAttachmentInfoKHR.html>
+#[doc(alias = "VkRenderingFragmentShadingRateAttachmentInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct RenderingFragmentShadingRateAttachmentInfoKHR {
@@ -5924,6 +6393,7 @@ pub struct RenderingFragmentShadingRateAttachmentInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderConstantDataFeaturesKHR.html>
+#[doc(alias = "VkPhysicalDeviceShaderConstantDataFeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderConstantDataFeaturesKHR {
@@ -5933,6 +6403,7 @@ pub struct PhysicalDeviceShaderConstantDataFeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderAbortFeaturesKHR.html>
+#[doc(alias = "VkPhysicalDeviceShaderAbortFeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderAbortFeaturesKHR {
@@ -5942,6 +6413,7 @@ pub struct PhysicalDeviceShaderAbortFeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceFaultShaderAbortMessageInfoKHR.html>
+#[doc(alias = "VkDeviceFaultShaderAbortMessageInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DeviceFaultShaderAbortMessageInfoKHR {
@@ -5952,6 +6424,7 @@ pub struct DeviceFaultShaderAbortMessageInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderAbortPropertiesKHR.html>
+#[doc(alias = "VkPhysicalDeviceShaderAbortPropertiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderAbortPropertiesKHR {
@@ -5961,6 +6434,7 @@ pub struct PhysicalDeviceShaderAbortPropertiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderQuadControlFeaturesKHR.html>
+#[doc(alias = "VkPhysicalDeviceShaderQuadControlFeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderQuadControlFeaturesKHR {
@@ -5970,6 +6444,7 @@ pub struct PhysicalDeviceShaderQuadControlFeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfaceProtectedCapabilitiesKHR.html>
+#[doc(alias = "VkSurfaceProtectedCapabilitiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SurfaceProtectedCapabilitiesKHR {
@@ -5979,6 +6454,7 @@ pub struct SurfaceProtectedCapabilitiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePresentWaitFeaturesKHR.html>
+#[doc(alias = "VkPhysicalDevicePresentWaitFeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDevicePresentWaitFeaturesKHR {
@@ -5988,6 +6464,7 @@ pub struct PhysicalDevicePresentWaitFeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePipelineExecutablePropertiesFeaturesKHR.html>
+#[doc(alias = "VkPhysicalDevicePipelineExecutablePropertiesFeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDevicePipelineExecutablePropertiesFeaturesKHR {
@@ -5997,6 +6474,7 @@ pub struct PhysicalDevicePipelineExecutablePropertiesFeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineInfoKHR.html>
+#[doc(alias = "VkPipelineInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineInfoKHR {
@@ -6007,6 +6485,7 @@ pub struct PipelineInfoKHR {
 pub type PipelineInfoEXT = PipelineInfoKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineExecutablePropertiesKHR.html>
+#[doc(alias = "VkPipelineExecutablePropertiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineExecutablePropertiesKHR {
@@ -6019,6 +6498,7 @@ pub struct PipelineExecutablePropertiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineExecutableInfoKHR.html>
+#[doc(alias = "VkPipelineExecutableInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineExecutableInfoKHR {
@@ -6029,6 +6509,7 @@ pub struct PipelineExecutableInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineExecutableStatisticValueKHR.html>
+#[doc(alias = "VkPipelineExecutableStatisticValueKHR")]
 #[derive(Clone, Copy)]
 #[repr(C)]
 pub struct PipelineExecutableStatisticValueKHR {
@@ -6044,6 +6525,7 @@ impl std::fmt::Debug for PipelineExecutableStatisticValueKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineExecutableStatisticKHR.html>
+#[doc(alias = "VkPipelineExecutableStatisticKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineExecutableStatisticKHR {
@@ -6056,6 +6538,7 @@ pub struct PipelineExecutableStatisticKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineExecutableInternalRepresentationKHR.html>
+#[doc(alias = "VkPipelineExecutableInternalRepresentationKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineExecutableInternalRepresentationKHR {
@@ -6069,6 +6552,7 @@ pub struct PipelineExecutableInternalRepresentationKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineLibraryCreateInfoKHR.html>
+#[doc(alias = "VkPipelineLibraryCreateInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineLibraryCreateInfoKHR {
@@ -6079,6 +6563,7 @@ pub struct PipelineLibraryCreateInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPresentIdKHR.html>
+#[doc(alias = "VkPresentIdKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PresentIdKHR {
@@ -6089,6 +6574,7 @@ pub struct PresentIdKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePresentIdFeaturesKHR.html>
+#[doc(alias = "VkPhysicalDevicePresentIdFeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDevicePresentIdFeaturesKHR {
@@ -6098,6 +6584,7 @@ pub struct PhysicalDevicePresentIdFeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeInfoKHR.html>
+#[doc(alias = "VkVideoEncodeInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeInfoKHR {
@@ -6115,6 +6602,7 @@ pub struct VideoEncodeInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeCapabilitiesKHR.html>
+#[doc(alias = "VkVideoEncodeCapabilitiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeCapabilitiesKHR {
@@ -6130,6 +6618,7 @@ pub struct VideoEncodeCapabilitiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkQueryPoolVideoEncodeFeedbackCreateInfoKHR.html>
+#[doc(alias = "VkQueryPoolVideoEncodeFeedbackCreateInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct QueryPoolVideoEncodeFeedbackCreateInfoKHR {
@@ -6139,6 +6628,7 @@ pub struct QueryPoolVideoEncodeFeedbackCreateInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeUsageInfoKHR.html>
+#[doc(alias = "VkVideoEncodeUsageInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeUsageInfoKHR {
@@ -6150,6 +6640,7 @@ pub struct VideoEncodeUsageInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeRateControlLayerInfoKHR.html>
+#[doc(alias = "VkVideoEncodeRateControlLayerInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeRateControlLayerInfoKHR {
@@ -6162,6 +6653,7 @@ pub struct VideoEncodeRateControlLayerInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeRateControlInfoKHR.html>
+#[doc(alias = "VkVideoEncodeRateControlInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeRateControlInfoKHR {
@@ -6176,6 +6668,7 @@ pub struct VideoEncodeRateControlInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVideoEncodeQualityLevelInfoKHR.html>
+#[doc(alias = "VkPhysicalDeviceVideoEncodeQualityLevelInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceVideoEncodeQualityLevelInfoKHR {
@@ -6186,6 +6679,7 @@ pub struct PhysicalDeviceVideoEncodeQualityLevelInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeQualityLevelPropertiesKHR.html>
+#[doc(alias = "VkVideoEncodeQualityLevelPropertiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeQualityLevelPropertiesKHR {
@@ -6196,6 +6690,7 @@ pub struct VideoEncodeQualityLevelPropertiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeQualityLevelInfoKHR.html>
+#[doc(alias = "VkVideoEncodeQualityLevelInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeQualityLevelInfoKHR {
@@ -6205,6 +6700,7 @@ pub struct VideoEncodeQualityLevelInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeSessionParametersGetInfoKHR.html>
+#[doc(alias = "VkVideoEncodeSessionParametersGetInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeSessionParametersGetInfoKHR {
@@ -6214,6 +6710,7 @@ pub struct VideoEncodeSessionParametersGetInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeSessionParametersFeedbackInfoKHR.html>
+#[doc(alias = "VkVideoEncodeSessionParametersFeedbackInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeSessionParametersFeedbackInfoKHR {
@@ -6223,6 +6720,7 @@ pub struct VideoEncodeSessionParametersFeedbackInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceAddressRangeKHR.html>
+#[doc(alias = "VkDeviceAddressRangeKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DeviceAddressRangeKHR {
@@ -6232,6 +6730,7 @@ pub struct DeviceAddressRangeKHR {
 pub type DeviceAddressRangeEXT = DeviceAddressRangeKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkStridedDeviceAddressRangeKHR.html>
+#[doc(alias = "VkStridedDeviceAddressRangeKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct StridedDeviceAddressRangeKHR {
@@ -6241,6 +6740,7 @@ pub struct StridedDeviceAddressRangeKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceMemoryCopyKHR.html>
+#[doc(alias = "VkDeviceMemoryCopyKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DeviceMemoryCopyKHR {
@@ -6253,6 +6753,7 @@ pub struct DeviceMemoryCopyKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyDeviceMemoryInfoKHR.html>
+#[doc(alias = "VkCopyDeviceMemoryInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CopyDeviceMemoryInfoKHR {
@@ -6263,6 +6764,7 @@ pub struct CopyDeviceMemoryInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceMemoryImageCopyKHR.html>
+#[doc(alias = "VkDeviceMemoryImageCopyKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DeviceMemoryImageCopyKHR {
@@ -6279,6 +6781,7 @@ pub struct DeviceMemoryImageCopyKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyDeviceMemoryImageInfoKHR.html>
+#[doc(alias = "VkCopyDeviceMemoryImageInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CopyDeviceMemoryImageInfoKHR {
@@ -6290,6 +6793,7 @@ pub struct CopyDeviceMemoryImageInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryRangeBarrierKHR.html>
+#[doc(alias = "VkMemoryRangeBarrierKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MemoryRangeBarrierKHR {
@@ -6306,6 +6810,7 @@ pub struct MemoryRangeBarrierKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryRangeBarriersInfoKHR.html>
+#[doc(alias = "VkMemoryRangeBarriersInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MemoryRangeBarriersInfoKHR {
@@ -6316,6 +6821,7 @@ pub struct MemoryRangeBarriersInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDeviceAddressCommandsFeaturesKHR.html>
+#[doc(alias = "VkPhysicalDeviceDeviceAddressCommandsFeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceDeviceAddressCommandsFeaturesKHR {
@@ -6325,6 +6831,7 @@ pub struct PhysicalDeviceDeviceAddressCommandsFeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBindIndexBuffer3InfoKHR.html>
+#[doc(alias = "VkBindIndexBuffer3InfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BindIndexBuffer3InfoKHR {
@@ -6336,6 +6843,7 @@ pub struct BindIndexBuffer3InfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBindVertexBuffer3InfoKHR.html>
+#[doc(alias = "VkBindVertexBuffer3InfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BindVertexBuffer3InfoKHR {
@@ -6347,6 +6855,7 @@ pub struct BindVertexBuffer3InfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDrawIndirect2InfoKHR.html>
+#[doc(alias = "VkDrawIndirect2InfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DrawIndirect2InfoKHR {
@@ -6358,6 +6867,7 @@ pub struct DrawIndirect2InfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDrawIndirectCount2InfoKHR.html>
+#[doc(alias = "VkDrawIndirectCount2InfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DrawIndirectCount2InfoKHR {
@@ -6371,6 +6881,7 @@ pub struct DrawIndirectCount2InfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDispatchIndirect2InfoKHR.html>
+#[doc(alias = "VkDispatchIndirect2InfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DispatchIndirect2InfoKHR {
@@ -6381,6 +6892,7 @@ pub struct DispatchIndirect2InfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkConditionalRenderingBeginInfo2EXT.html>
+#[doc(alias = "VkConditionalRenderingBeginInfo2EXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ConditionalRenderingBeginInfo2EXT {
@@ -6392,6 +6904,7 @@ pub struct ConditionalRenderingBeginInfo2EXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBindTransformFeedbackBuffer2InfoEXT.html>
+#[doc(alias = "VkBindTransformFeedbackBuffer2InfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BindTransformFeedbackBuffer2InfoEXT {
@@ -6402,6 +6915,7 @@ pub struct BindTransformFeedbackBuffer2InfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryMarkerInfoAMD.html>
+#[doc(alias = "VkMemoryMarkerInfoAMD")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MemoryMarkerInfoAMD {
@@ -6414,6 +6928,7 @@ pub struct MemoryMarkerInfoAMD {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureCreateInfo2KHR.html>
+#[doc(alias = "VkAccelerationStructureCreateInfo2KHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AccelerationStructureCreateInfo2KHR {
@@ -6426,6 +6941,7 @@ pub struct AccelerationStructureCreateInfo2KHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFragmentShaderBarycentricFeaturesKHR.html>
+#[doc(alias = "VkPhysicalDeviceFragmentShaderBarycentricFeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceFragmentShaderBarycentricFeaturesKHR {
@@ -6437,6 +6953,7 @@ pub type PhysicalDeviceFragmentShaderBarycentricFeaturesNV =
     PhysicalDeviceFragmentShaderBarycentricFeaturesKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR.html>
+#[doc(alias = "VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceFragmentShaderBarycentricPropertiesKHR {
@@ -6446,6 +6963,7 @@ pub struct PhysicalDeviceFragmentShaderBarycentricPropertiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR.html>
+#[doc(alias = "VkPhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR {
@@ -6455,6 +6973,7 @@ pub struct PhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR.html>
+#[doc(alias = "VkPhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR {
@@ -6467,6 +6986,7 @@ pub struct PhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceRayTracingMaintenance1FeaturesKHR.html>
+#[doc(alias = "VkPhysicalDeviceRayTracingMaintenance1FeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceRayTracingMaintenance1FeaturesKHR {
@@ -6477,6 +6997,7 @@ pub struct PhysicalDeviceRayTracingMaintenance1FeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTraceRaysIndirectCommand2KHR.html>
+#[doc(alias = "VkTraceRaysIndirectCommand2KHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct TraceRaysIndirectCommand2KHR {
@@ -6497,6 +7018,7 @@ pub struct TraceRaysIndirectCommand2KHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderUntypedPointersFeaturesKHR.html>
+#[doc(alias = "VkPhysicalDeviceShaderUntypedPointersFeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderUntypedPointersFeaturesKHR {
@@ -6506,6 +7028,7 @@ pub struct PhysicalDeviceShaderUntypedPointersFeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderMaximalReconvergenceFeaturesKHR.html>
+#[doc(alias = "VkPhysicalDeviceShaderMaximalReconvergenceFeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderMaximalReconvergenceFeaturesKHR {
@@ -6515,6 +7038,7 @@ pub struct PhysicalDeviceShaderMaximalReconvergenceFeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfaceCapabilitiesPresentId2KHR.html>
+#[doc(alias = "VkSurfaceCapabilitiesPresentId2KHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SurfaceCapabilitiesPresentId2KHR {
@@ -6524,6 +7048,7 @@ pub struct SurfaceCapabilitiesPresentId2KHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPresentId2KHR.html>
+#[doc(alias = "VkPresentId2KHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PresentId2KHR {
@@ -6534,6 +7059,7 @@ pub struct PresentId2KHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePresentId2FeaturesKHR.html>
+#[doc(alias = "VkPhysicalDevicePresentId2FeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDevicePresentId2FeaturesKHR {
@@ -6543,6 +7069,7 @@ pub struct PhysicalDevicePresentId2FeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfaceCapabilitiesPresentWait2KHR.html>
+#[doc(alias = "VkSurfaceCapabilitiesPresentWait2KHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SurfaceCapabilitiesPresentWait2KHR {
@@ -6552,6 +7079,7 @@ pub struct SurfaceCapabilitiesPresentWait2KHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePresentWait2FeaturesKHR.html>
+#[doc(alias = "VkPhysicalDevicePresentWait2FeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDevicePresentWait2FeaturesKHR {
@@ -6561,6 +7089,7 @@ pub struct PhysicalDevicePresentWait2FeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPresentWait2InfoKHR.html>
+#[doc(alias = "VkPresentWait2InfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PresentWait2InfoKHR {
@@ -6571,6 +7100,7 @@ pub struct PresentWait2InfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceRayTracingPositionFetchFeaturesKHR.html>
+#[doc(alias = "VkPhysicalDeviceRayTracingPositionFetchFeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceRayTracingPositionFetchFeaturesKHR {
@@ -6580,6 +7110,7 @@ pub struct PhysicalDeviceRayTracingPositionFetchFeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePipelineBinaryFeaturesKHR.html>
+#[doc(alias = "VkPhysicalDevicePipelineBinaryFeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDevicePipelineBinaryFeaturesKHR {
@@ -6589,6 +7120,7 @@ pub struct PhysicalDevicePipelineBinaryFeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePipelineBinaryPropertiesKHR.html>
+#[doc(alias = "VkPhysicalDevicePipelineBinaryPropertiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDevicePipelineBinaryPropertiesKHR {
@@ -6602,6 +7134,7 @@ pub struct PhysicalDevicePipelineBinaryPropertiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDevicePipelineBinaryInternalCacheControlKHR.html>
+#[doc(alias = "VkDevicePipelineBinaryInternalCacheControlKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DevicePipelineBinaryInternalCacheControlKHR {
@@ -6611,6 +7144,7 @@ pub struct DevicePipelineBinaryInternalCacheControlKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineBinaryKeyKHR.html>
+#[doc(alias = "VkPipelineBinaryKeyKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineBinaryKeyKHR {
@@ -6621,6 +7155,7 @@ pub struct PipelineBinaryKeyKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineBinaryDataKHR.html>
+#[doc(alias = "VkPipelineBinaryDataKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineBinaryDataKHR {
@@ -6629,6 +7164,7 @@ pub struct PipelineBinaryDataKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineBinaryKeysAndDataKHR.html>
+#[doc(alias = "VkPipelineBinaryKeysAndDataKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineBinaryKeysAndDataKHR {
@@ -6638,6 +7174,7 @@ pub struct PipelineBinaryKeysAndDataKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCreateInfoKHR.html>
+#[doc(alias = "VkPipelineCreateInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineCreateInfoKHR {
@@ -6646,6 +7183,7 @@ pub struct PipelineCreateInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineBinaryCreateInfoKHR.html>
+#[doc(alias = "VkPipelineBinaryCreateInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineBinaryCreateInfoKHR {
@@ -6657,6 +7195,7 @@ pub struct PipelineBinaryCreateInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineBinaryInfoKHR.html>
+#[doc(alias = "VkPipelineBinaryInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineBinaryInfoKHR {
@@ -6667,6 +7206,7 @@ pub struct PipelineBinaryInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkReleaseCapturedPipelineDataInfoKHR.html>
+#[doc(alias = "VkReleaseCapturedPipelineDataInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ReleaseCapturedPipelineDataInfoKHR {
@@ -6676,6 +7216,7 @@ pub struct ReleaseCapturedPipelineDataInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineBinaryDataInfoKHR.html>
+#[doc(alias = "VkPipelineBinaryDataInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineBinaryDataInfoKHR {
@@ -6685,6 +7226,7 @@ pub struct PipelineBinaryDataInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineBinaryHandlesInfoKHR.html>
+#[doc(alias = "VkPipelineBinaryHandlesInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineBinaryHandlesInfoKHR {
@@ -6695,6 +7237,7 @@ pub struct PipelineBinaryHandlesInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfacePresentModeKHR.html>
+#[doc(alias = "VkSurfacePresentModeKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SurfacePresentModeKHR {
@@ -6705,6 +7248,7 @@ pub struct SurfacePresentModeKHR {
 pub type SurfacePresentModeEXT = SurfacePresentModeKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfacePresentScalingCapabilitiesKHR.html>
+#[doc(alias = "VkSurfacePresentScalingCapabilitiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SurfacePresentScalingCapabilitiesKHR {
@@ -6719,6 +7263,7 @@ pub struct SurfacePresentScalingCapabilitiesKHR {
 pub type SurfacePresentScalingCapabilitiesEXT = SurfacePresentScalingCapabilitiesKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfacePresentModeCompatibilityKHR.html>
+#[doc(alias = "VkSurfacePresentModeCompatibilityKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SurfacePresentModeCompatibilityKHR {
@@ -6730,6 +7275,7 @@ pub struct SurfacePresentModeCompatibilityKHR {
 pub type SurfacePresentModeCompatibilityEXT = SurfacePresentModeCompatibilityKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSwapchainMaintenance1FeaturesKHR.html>
+#[doc(alias = "VkPhysicalDeviceSwapchainMaintenance1FeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceSwapchainMaintenance1FeaturesKHR {
@@ -6741,6 +7287,7 @@ pub type PhysicalDeviceSwapchainMaintenance1FeaturesEXT =
     PhysicalDeviceSwapchainMaintenance1FeaturesKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSwapchainPresentFenceInfoKHR.html>
+#[doc(alias = "VkSwapchainPresentFenceInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SwapchainPresentFenceInfoKHR {
@@ -6752,6 +7299,7 @@ pub struct SwapchainPresentFenceInfoKHR {
 pub type SwapchainPresentFenceInfoEXT = SwapchainPresentFenceInfoKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSwapchainPresentModesCreateInfoKHR.html>
+#[doc(alias = "VkSwapchainPresentModesCreateInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SwapchainPresentModesCreateInfoKHR {
@@ -6763,6 +7311,7 @@ pub struct SwapchainPresentModesCreateInfoKHR {
 pub type SwapchainPresentModesCreateInfoEXT = SwapchainPresentModesCreateInfoKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSwapchainPresentModeInfoKHR.html>
+#[doc(alias = "VkSwapchainPresentModeInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SwapchainPresentModeInfoKHR {
@@ -6774,6 +7323,7 @@ pub struct SwapchainPresentModeInfoKHR {
 pub type SwapchainPresentModeInfoEXT = SwapchainPresentModeInfoKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSwapchainPresentScalingCreateInfoKHR.html>
+#[doc(alias = "VkSwapchainPresentScalingCreateInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SwapchainPresentScalingCreateInfoKHR {
@@ -6786,6 +7336,7 @@ pub struct SwapchainPresentScalingCreateInfoKHR {
 pub type SwapchainPresentScalingCreateInfoEXT = SwapchainPresentScalingCreateInfoKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkReleaseSwapchainImagesInfoKHR.html>
+#[doc(alias = "VkReleaseSwapchainImagesInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ReleaseSwapchainImagesInfoKHR {
@@ -6798,6 +7349,7 @@ pub struct ReleaseSwapchainImagesInfoKHR {
 pub type ReleaseSwapchainImagesInfoEXT = ReleaseSwapchainImagesInfoKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceInternallySynchronizedQueuesFeaturesKHR.html>
+#[doc(alias = "VkPhysicalDeviceInternallySynchronizedQueuesFeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceInternallySynchronizedQueuesFeaturesKHR {
@@ -6807,6 +7359,7 @@ pub struct PhysicalDeviceInternallySynchronizedQueuesFeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCooperativeMatrixPropertiesKHR.html>
+#[doc(alias = "VkCooperativeMatrixPropertiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CooperativeMatrixPropertiesKHR {
@@ -6824,6 +7377,7 @@ pub struct CooperativeMatrixPropertiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCooperativeMatrixFeaturesKHR.html>
+#[doc(alias = "VkPhysicalDeviceCooperativeMatrixFeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceCooperativeMatrixFeaturesKHR {
@@ -6834,6 +7388,7 @@ pub struct PhysicalDeviceCooperativeMatrixFeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCooperativeMatrixPropertiesKHR.html>
+#[doc(alias = "VkPhysicalDeviceCooperativeMatrixPropertiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceCooperativeMatrixPropertiesKHR {
@@ -6843,6 +7398,7 @@ pub struct PhysicalDeviceCooperativeMatrixPropertiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceComputeShaderDerivativesFeaturesKHR.html>
+#[doc(alias = "VkPhysicalDeviceComputeShaderDerivativesFeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceComputeShaderDerivativesFeaturesKHR {
@@ -6855,6 +7411,7 @@ pub type PhysicalDeviceComputeShaderDerivativesFeaturesNV =
     PhysicalDeviceComputeShaderDerivativesFeaturesKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceComputeShaderDerivativesPropertiesKHR.html>
+#[doc(alias = "VkPhysicalDeviceComputeShaderDerivativesPropertiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceComputeShaderDerivativesPropertiesKHR {
@@ -6864,40 +7421,44 @@ pub struct PhysicalDeviceComputeShaderDerivativesPropertiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeAV1ProfileInfoKHR.html>
+#[doc(alias = "VkVideoDecodeAV1ProfileInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoDecodeAV1ProfileInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
-    pub std_profile: StdVideoAV1Profile,
+    pub std_profile: AV1Profile,
     pub film_grain_support: Bool32,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeAV1CapabilitiesKHR.html>
+#[doc(alias = "VkVideoDecodeAV1CapabilitiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoDecodeAV1CapabilitiesKHR {
     pub s_type: StructureType,
     pub p_next: *mut c_void,
-    pub max_level: StdVideoAV1Level,
+    pub max_level: AV1Level,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeAV1SessionParametersCreateInfoKHR.html>
+#[doc(alias = "VkVideoDecodeAV1SessionParametersCreateInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoDecodeAV1SessionParametersCreateInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
-    pub p_std_sequence_header: *const StdVideoAV1SequenceHeader,
+    pub p_std_sequence_header: *const AV1SequenceHeader,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeAV1PictureInfoKHR.html>
+#[doc(alias = "VkVideoDecodeAV1PictureInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoDecodeAV1PictureInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
-    pub p_std_picture_info: *const StdVideoDecodeAV1PictureInfo,
+    pub p_std_picture_info: *const DecodeAV1PictureInfo,
     pub reference_name_slot_indices: [i32; 7],
     pub frame_header_offset: u32,
     pub tile_count: u32,
@@ -6906,15 +7467,17 @@ pub struct VideoDecodeAV1PictureInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeAV1DpbSlotInfoKHR.html>
+#[doc(alias = "VkVideoDecodeAV1DpbSlotInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoDecodeAV1DpbSlotInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
-    pub p_std_reference_info: *const StdVideoDecodeAV1ReferenceInfo,
+    pub p_std_reference_info: *const DecodeAV1ReferenceInfo,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVideoEncodeAV1FeaturesKHR.html>
+#[doc(alias = "VkPhysicalDeviceVideoEncodeAV1FeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceVideoEncodeAV1FeaturesKHR {
@@ -6924,13 +7487,14 @@ pub struct PhysicalDeviceVideoEncodeAV1FeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeAV1CapabilitiesKHR.html>
+#[doc(alias = "VkVideoEncodeAV1CapabilitiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeAV1CapabilitiesKHR {
     pub s_type: StructureType,
     pub p_next: *mut c_void,
     pub flags: VideoEncodeAV1CapabilityFlagsKHR,
-    pub max_level: StdVideoAV1Level,
+    pub max_level: AV1Level,
     pub coded_picture_alignment: Extent2D,
     pub max_tiles: Extent2D,
     pub min_tile_size: Extent2D,
@@ -6956,6 +7520,7 @@ pub struct VideoEncodeAV1CapabilitiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeAV1QIndexKHR.html>
+#[doc(alias = "VkVideoEncodeAV1QIndexKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeAV1QIndexKHR {
@@ -6965,6 +7530,7 @@ pub struct VideoEncodeAV1QIndexKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeAV1QualityLevelPropertiesKHR.html>
+#[doc(alias = "VkVideoEncodeAV1QualityLevelPropertiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeAV1QualityLevelPropertiesKHR {
@@ -6988,28 +7554,31 @@ pub struct VideoEncodeAV1QualityLevelPropertiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeAV1SessionCreateInfoKHR.html>
+#[doc(alias = "VkVideoEncodeAV1SessionCreateInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeAV1SessionCreateInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
     pub use_max_level: Bool32,
-    pub max_level: StdVideoAV1Level,
+    pub max_level: AV1Level,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeAV1SessionParametersCreateInfoKHR.html>
+#[doc(alias = "VkVideoEncodeAV1SessionParametersCreateInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeAV1SessionParametersCreateInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
-    pub p_std_sequence_header: *const StdVideoAV1SequenceHeader,
-    pub p_std_decoder_model_info: *const StdVideoEncodeAV1DecoderModelInfo,
+    pub p_std_sequence_header: *const AV1SequenceHeader,
+    pub p_std_decoder_model_info: *const EncodeAV1DecoderModelInfo,
     pub std_operating_point_count: u32,
-    pub p_std_operating_points: *const StdVideoEncodeAV1OperatingPointInfo,
+    pub p_std_operating_points: *const EncodeAV1OperatingPointInfo,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeAV1PictureInfoKHR.html>
+#[doc(alias = "VkVideoEncodeAV1PictureInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeAV1PictureInfoKHR {
@@ -7018,31 +7587,34 @@ pub struct VideoEncodeAV1PictureInfoKHR {
     pub prediction_mode: VideoEncodeAV1PredictionModeKHR,
     pub rate_control_group: VideoEncodeAV1RateControlGroupKHR,
     pub constant_q_index: u32,
-    pub p_std_picture_info: *const StdVideoEncodeAV1PictureInfo,
+    pub p_std_picture_info: *const EncodeAV1PictureInfo,
     pub reference_name_slot_indices: [i32; 7],
     pub primary_reference_cdf_only: Bool32,
     pub generate_obu_extension_header: Bool32,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeAV1DpbSlotInfoKHR.html>
+#[doc(alias = "VkVideoEncodeAV1DpbSlotInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeAV1DpbSlotInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
-    pub p_std_reference_info: *const StdVideoEncodeAV1ReferenceInfo,
+    pub p_std_reference_info: *const EncodeAV1ReferenceInfo,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeAV1ProfileInfoKHR.html>
+#[doc(alias = "VkVideoEncodeAV1ProfileInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeAV1ProfileInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
-    pub std_profile: StdVideoAV1Profile,
+    pub std_profile: AV1Profile,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeAV1FrameSizeKHR.html>
+#[doc(alias = "VkVideoEncodeAV1FrameSizeKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeAV1FrameSizeKHR {
@@ -7052,6 +7624,7 @@ pub struct VideoEncodeAV1FrameSizeKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeAV1GopRemainingFrameInfoKHR.html>
+#[doc(alias = "VkVideoEncodeAV1GopRemainingFrameInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeAV1GopRemainingFrameInfoKHR {
@@ -7064,6 +7637,7 @@ pub struct VideoEncodeAV1GopRemainingFrameInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeAV1RateControlInfoKHR.html>
+#[doc(alias = "VkVideoEncodeAV1RateControlInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeAV1RateControlInfoKHR {
@@ -7077,6 +7651,7 @@ pub struct VideoEncodeAV1RateControlInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeAV1RateControlLayerInfoKHR.html>
+#[doc(alias = "VkVideoEncodeAV1RateControlLayerInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeAV1RateControlLayerInfoKHR {
@@ -7091,6 +7666,7 @@ pub struct VideoEncodeAV1RateControlLayerInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVideoDecodeVP9FeaturesKHR.html>
+#[doc(alias = "VkPhysicalDeviceVideoDecodeVP9FeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceVideoDecodeVP9FeaturesKHR {
@@ -7100,30 +7676,33 @@ pub struct PhysicalDeviceVideoDecodeVP9FeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeVP9ProfileInfoKHR.html>
+#[doc(alias = "VkVideoDecodeVP9ProfileInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoDecodeVP9ProfileInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
-    pub std_profile: StdVideoVP9Profile,
+    pub std_profile: VP9Profile,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeVP9CapabilitiesKHR.html>
+#[doc(alias = "VkVideoDecodeVP9CapabilitiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoDecodeVP9CapabilitiesKHR {
     pub s_type: StructureType,
     pub p_next: *mut c_void,
-    pub max_level: StdVideoVP9Level,
+    pub max_level: VP9Level,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeVP9PictureInfoKHR.html>
+#[doc(alias = "VkVideoDecodeVP9PictureInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoDecodeVP9PictureInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
-    pub p_std_picture_info: *const StdVideoDecodeVP9PictureInfo,
+    pub p_std_picture_info: *const DecodeVP9PictureInfo,
     pub reference_name_slot_indices: [i32; 3],
     pub uncompressed_header_offset: u32,
     pub compressed_header_offset: u32,
@@ -7131,6 +7710,7 @@ pub struct VideoDecodeVP9PictureInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVideoMaintenance1FeaturesKHR.html>
+#[doc(alias = "VkPhysicalDeviceVideoMaintenance1FeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceVideoMaintenance1FeaturesKHR {
@@ -7140,6 +7720,7 @@ pub struct PhysicalDeviceVideoMaintenance1FeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoInlineQueryInfoKHR.html>
+#[doc(alias = "VkVideoInlineQueryInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoInlineQueryInfoKHR {
@@ -7151,6 +7732,7 @@ pub struct VideoInlineQueryInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceUnifiedImageLayoutsFeaturesKHR.html>
+#[doc(alias = "VkPhysicalDeviceUnifiedImageLayoutsFeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceUnifiedImageLayoutsFeaturesKHR {
@@ -7161,6 +7743,7 @@ pub struct PhysicalDeviceUnifiedImageLayoutsFeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAttachmentFeedbackLoopInfoEXT.html>
+#[doc(alias = "VkAttachmentFeedbackLoopInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AttachmentFeedbackLoopInfoEXT {
@@ -7170,6 +7753,7 @@ pub struct AttachmentFeedbackLoopInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCalibratedTimestampInfoKHR.html>
+#[doc(alias = "VkCalibratedTimestampInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CalibratedTimestampInfoKHR {
@@ -7180,6 +7764,7 @@ pub struct CalibratedTimestampInfoKHR {
 pub type CalibratedTimestampInfoEXT = CalibratedTimestampInfoKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSetDescriptorBufferOffsetsInfoEXT.html>
+#[doc(alias = "VkSetDescriptorBufferOffsetsInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SetDescriptorBufferOffsetsInfoEXT {
@@ -7194,6 +7779,7 @@ pub struct SetDescriptorBufferOffsetsInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBindDescriptorBufferEmbeddedSamplersInfoEXT.html>
+#[doc(alias = "VkBindDescriptorBufferEmbeddedSamplersInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BindDescriptorBufferEmbeddedSamplersInfoEXT {
@@ -7205,6 +7791,7 @@ pub struct BindDescriptorBufferEmbeddedSamplersInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyMemoryIndirectCommandKHR.html>
+#[doc(alias = "VkCopyMemoryIndirectCommandKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CopyMemoryIndirectCommandKHR {
@@ -7215,6 +7802,7 @@ pub struct CopyMemoryIndirectCommandKHR {
 pub type CopyMemoryIndirectCommandNV = CopyMemoryIndirectCommandKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyMemoryIndirectInfoKHR.html>
+#[doc(alias = "VkCopyMemoryIndirectInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CopyMemoryIndirectInfoKHR {
@@ -7227,6 +7815,7 @@ pub struct CopyMemoryIndirectInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyMemoryToImageIndirectCommandKHR.html>
+#[doc(alias = "VkCopyMemoryToImageIndirectCommandKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CopyMemoryToImageIndirectCommandKHR {
@@ -7240,6 +7829,7 @@ pub struct CopyMemoryToImageIndirectCommandKHR {
 pub type CopyMemoryToImageIndirectCommandNV = CopyMemoryToImageIndirectCommandKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyMemoryToImageIndirectInfoKHR.html>
+#[doc(alias = "VkCopyMemoryToImageIndirectInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CopyMemoryToImageIndirectInfoKHR {
@@ -7254,6 +7844,7 @@ pub struct CopyMemoryToImageIndirectInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCopyMemoryIndirectFeaturesKHR.html>
+#[doc(alias = "VkPhysicalDeviceCopyMemoryIndirectFeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceCopyMemoryIndirectFeaturesKHR {
@@ -7264,6 +7855,7 @@ pub struct PhysicalDeviceCopyMemoryIndirectFeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCopyMemoryIndirectPropertiesKHR.html>
+#[doc(alias = "VkPhysicalDeviceCopyMemoryIndirectPropertiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceCopyMemoryIndirectPropertiesKHR {
@@ -7275,6 +7867,7 @@ pub type PhysicalDeviceCopyMemoryIndirectPropertiesNV =
     PhysicalDeviceCopyMemoryIndirectPropertiesKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeIntraRefreshCapabilitiesKHR.html>
+#[doc(alias = "VkVideoEncodeIntraRefreshCapabilitiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeIntraRefreshCapabilitiesKHR {
@@ -7288,6 +7881,7 @@ pub struct VideoEncodeIntraRefreshCapabilitiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeSessionIntraRefreshCreateInfoKHR.html>
+#[doc(alias = "VkVideoEncodeSessionIntraRefreshCreateInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeSessionIntraRefreshCreateInfoKHR {
@@ -7297,6 +7891,7 @@ pub struct VideoEncodeSessionIntraRefreshCreateInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeIntraRefreshInfoKHR.html>
+#[doc(alias = "VkVideoEncodeIntraRefreshInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeIntraRefreshInfoKHR {
@@ -7307,6 +7902,7 @@ pub struct VideoEncodeIntraRefreshInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoReferenceIntraRefreshInfoKHR.html>
+#[doc(alias = "VkVideoReferenceIntraRefreshInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoReferenceIntraRefreshInfoKHR {
@@ -7316,6 +7912,7 @@ pub struct VideoReferenceIntraRefreshInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVideoEncodeIntraRefreshFeaturesKHR.html>
+#[doc(alias = "VkPhysicalDeviceVideoEncodeIntraRefreshFeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceVideoEncodeIntraRefreshFeaturesKHR {
@@ -7325,6 +7922,7 @@ pub struct PhysicalDeviceVideoEncodeIntraRefreshFeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeQuantizationMapCapabilitiesKHR.html>
+#[doc(alias = "VkVideoEncodeQuantizationMapCapabilitiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeQuantizationMapCapabilitiesKHR {
@@ -7334,6 +7932,7 @@ pub struct VideoEncodeQuantizationMapCapabilitiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoFormatQuantizationMapPropertiesKHR.html>
+#[doc(alias = "VkVideoFormatQuantizationMapPropertiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoFormatQuantizationMapPropertiesKHR {
@@ -7343,6 +7942,7 @@ pub struct VideoFormatQuantizationMapPropertiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeQuantizationMapInfoKHR.html>
+#[doc(alias = "VkVideoEncodeQuantizationMapInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeQuantizationMapInfoKHR {
@@ -7353,6 +7953,7 @@ pub struct VideoEncodeQuantizationMapInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeQuantizationMapSessionParametersCreateInfoKHR.html>
+#[doc(alias = "VkVideoEncodeQuantizationMapSessionParametersCreateInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeQuantizationMapSessionParametersCreateInfoKHR {
@@ -7362,6 +7963,7 @@ pub struct VideoEncodeQuantizationMapSessionParametersCreateInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVideoEncodeQuantizationMapFeaturesKHR.html>
+#[doc(alias = "VkPhysicalDeviceVideoEncodeQuantizationMapFeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceVideoEncodeQuantizationMapFeaturesKHR {
@@ -7371,6 +7973,7 @@ pub struct PhysicalDeviceVideoEncodeQuantizationMapFeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH264QuantizationMapCapabilitiesKHR.html>
+#[doc(alias = "VkVideoEncodeH264QuantizationMapCapabilitiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeH264QuantizationMapCapabilitiesKHR {
@@ -7381,6 +7984,7 @@ pub struct VideoEncodeH264QuantizationMapCapabilitiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265QuantizationMapCapabilitiesKHR.html>
+#[doc(alias = "VkVideoEncodeH265QuantizationMapCapabilitiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeH265QuantizationMapCapabilitiesKHR {
@@ -7391,6 +7995,7 @@ pub struct VideoEncodeH265QuantizationMapCapabilitiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoFormatH265QuantizationMapPropertiesKHR.html>
+#[doc(alias = "VkVideoFormatH265QuantizationMapPropertiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoFormatH265QuantizationMapPropertiesKHR {
@@ -7400,6 +8005,7 @@ pub struct VideoFormatH265QuantizationMapPropertiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeAV1QuantizationMapCapabilitiesKHR.html>
+#[doc(alias = "VkVideoEncodeAV1QuantizationMapCapabilitiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeAV1QuantizationMapCapabilitiesKHR {
@@ -7410,6 +8016,7 @@ pub struct VideoEncodeAV1QuantizationMapCapabilitiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoFormatAV1QuantizationMapPropertiesKHR.html>
+#[doc(alias = "VkVideoFormatAV1QuantizationMapPropertiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoFormatAV1QuantizationMapPropertiesKHR {
@@ -7419,6 +8026,7 @@ pub struct VideoFormatAV1QuantizationMapPropertiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderRelaxedExtendedInstructionFeaturesKHR.html>
+#[doc(alias = "VkPhysicalDeviceShaderRelaxedExtendedInstructionFeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderRelaxedExtendedInstructionFeaturesKHR {
@@ -7428,6 +8036,7 @@ pub struct PhysicalDeviceShaderRelaxedExtendedInstructionFeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMaintenance7FeaturesKHR.html>
+#[doc(alias = "VkPhysicalDeviceMaintenance7FeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceMaintenance7FeaturesKHR {
@@ -7437,6 +8046,7 @@ pub struct PhysicalDeviceMaintenance7FeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMaintenance7PropertiesKHR.html>
+#[doc(alias = "VkPhysicalDeviceMaintenance7PropertiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceMaintenance7PropertiesKHR {
@@ -7453,6 +8063,7 @@ pub struct PhysicalDeviceMaintenance7PropertiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceLayeredApiPropertiesKHR.html>
+#[doc(alias = "VkPhysicalDeviceLayeredApiPropertiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceLayeredApiPropertiesKHR {
@@ -7465,6 +8076,7 @@ pub struct PhysicalDeviceLayeredApiPropertiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceLayeredApiPropertiesListKHR.html>
+#[doc(alias = "VkPhysicalDeviceLayeredApiPropertiesListKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceLayeredApiPropertiesListKHR {
@@ -7475,6 +8087,7 @@ pub struct PhysicalDeviceLayeredApiPropertiesListKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceLayeredApiVulkanPropertiesKHR.html>
+#[doc(alias = "VkPhysicalDeviceLayeredApiVulkanPropertiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceLayeredApiVulkanPropertiesKHR {
@@ -7484,6 +8097,7 @@ pub struct PhysicalDeviceLayeredApiVulkanPropertiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFaultFeaturesKHR.html>
+#[doc(alias = "VkPhysicalDeviceFaultFeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceFaultFeaturesKHR {
@@ -7496,6 +8110,7 @@ pub struct PhysicalDeviceFaultFeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFaultPropertiesKHR.html>
+#[doc(alias = "VkPhysicalDeviceFaultPropertiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceFaultPropertiesKHR {
@@ -7505,6 +8120,7 @@ pub struct PhysicalDeviceFaultPropertiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceFaultAddressInfoKHR.html>
+#[doc(alias = "VkDeviceFaultAddressInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DeviceFaultAddressInfoKHR {
@@ -7515,6 +8131,7 @@ pub struct DeviceFaultAddressInfoKHR {
 pub type DeviceFaultAddressInfoEXT = DeviceFaultAddressInfoKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceFaultVendorInfoKHR.html>
+#[doc(alias = "VkDeviceFaultVendorInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DeviceFaultVendorInfoKHR {
@@ -7525,6 +8142,7 @@ pub struct DeviceFaultVendorInfoKHR {
 pub type DeviceFaultVendorInfoEXT = DeviceFaultVendorInfoKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceFaultInfoKHR.html>
+#[doc(alias = "VkDeviceFaultInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DeviceFaultInfoKHR {
@@ -7539,6 +8157,7 @@ pub struct DeviceFaultInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceFaultDebugInfoKHR.html>
+#[doc(alias = "VkDeviceFaultDebugInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DeviceFaultDebugInfoKHR {
@@ -7549,6 +8168,7 @@ pub struct DeviceFaultDebugInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceFaultVendorBinaryHeaderVersionOneKHR.html>
+#[doc(alias = "VkDeviceFaultVendorBinaryHeaderVersionOneKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DeviceFaultVendorBinaryHeaderVersionOneKHR {
@@ -7567,6 +8187,7 @@ pub struct DeviceFaultVendorBinaryHeaderVersionOneKHR {
 pub type DeviceFaultVendorBinaryHeaderVersionOneEXT = DeviceFaultVendorBinaryHeaderVersionOneKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryBarrierAccessFlags3KHR.html>
+#[doc(alias = "VkMemoryBarrierAccessFlags3KHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MemoryBarrierAccessFlags3KHR {
@@ -7577,6 +8198,7 @@ pub struct MemoryBarrierAccessFlags3KHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMaintenance8FeaturesKHR.html>
+#[doc(alias = "VkPhysicalDeviceMaintenance8FeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceMaintenance8FeaturesKHR {
@@ -7586,6 +8208,7 @@ pub struct PhysicalDeviceMaintenance8FeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderFmaFeaturesKHR.html>
+#[doc(alias = "VkPhysicalDeviceShaderFmaFeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderFmaFeaturesKHR {
@@ -7597,6 +8220,7 @@ pub struct PhysicalDeviceShaderFmaFeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMaintenance9FeaturesKHR.html>
+#[doc(alias = "VkPhysicalDeviceMaintenance9FeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceMaintenance9FeaturesKHR {
@@ -7606,6 +8230,7 @@ pub struct PhysicalDeviceMaintenance9FeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMaintenance9PropertiesKHR.html>
+#[doc(alias = "VkPhysicalDeviceMaintenance9PropertiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceMaintenance9PropertiesKHR {
@@ -7616,6 +8241,7 @@ pub struct PhysicalDeviceMaintenance9PropertiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkQueueFamilyOwnershipTransferPropertiesKHR.html>
+#[doc(alias = "VkQueueFamilyOwnershipTransferPropertiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct QueueFamilyOwnershipTransferPropertiesKHR {
@@ -7625,6 +8251,7 @@ pub struct QueueFamilyOwnershipTransferPropertiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVideoMaintenance2FeaturesKHR.html>
+#[doc(alias = "VkPhysicalDeviceVideoMaintenance2FeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceVideoMaintenance2FeaturesKHR {
@@ -7634,36 +8261,40 @@ pub struct PhysicalDeviceVideoMaintenance2FeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeH264InlineSessionParametersInfoKHR.html>
+#[doc(alias = "VkVideoDecodeH264InlineSessionParametersInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoDecodeH264InlineSessionParametersInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
-    pub p_std_sps: *const StdVideoH264SequenceParameterSet,
-    pub p_std_pps: *const StdVideoH264PictureParameterSet,
+    pub p_std_sps: *const H264SequenceParameterSet,
+    pub p_std_pps: *const H264PictureParameterSet,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeH265InlineSessionParametersInfoKHR.html>
+#[doc(alias = "VkVideoDecodeH265InlineSessionParametersInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoDecodeH265InlineSessionParametersInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
-    pub p_std_vps: *const StdVideoH265VideoParameterSet,
-    pub p_std_sps: *const StdVideoH265SequenceParameterSet,
-    pub p_std_pps: *const StdVideoH265PictureParameterSet,
+    pub p_std_vps: *const H265VideoParameterSet,
+    pub p_std_sps: *const H265SequenceParameterSet,
+    pub p_std_pps: *const H265PictureParameterSet,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeAV1InlineSessionParametersInfoKHR.html>
+#[doc(alias = "VkVideoDecodeAV1InlineSessionParametersInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoDecodeAV1InlineSessionParametersInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
-    pub p_std_sequence_header: *const StdVideoAV1SequenceHeader,
+    pub p_std_sequence_header: *const AV1SequenceHeader,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVideoEncodeFeedback2FeaturesKHR.html>
+#[doc(alias = "VkPhysicalDeviceVideoEncodeFeedback2FeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceVideoEncodeFeedback2FeaturesKHR {
@@ -7673,6 +8304,7 @@ pub struct PhysicalDeviceVideoEncodeFeedback2FeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeFeedback2CapabilitiesKHR.html>
+#[doc(alias = "VkVideoEncodeFeedback2CapabilitiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeFeedback2CapabilitiesKHR {
@@ -7683,6 +8315,7 @@ pub struct VideoEncodeFeedback2CapabilitiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkQueryPoolVideoEncodePerPartitionFeedbackCreateInfoKHR.html>
+#[doc(alias = "VkQueryPoolVideoEncodePerPartitionFeedbackCreateInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct QueryPoolVideoEncodePerPartitionFeedbackCreateInfoKHR {
@@ -7693,6 +8326,7 @@ pub struct QueryPoolVideoEncodePerPartitionFeedbackCreateInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDepthClampZeroOneFeaturesKHR.html>
+#[doc(alias = "VkPhysicalDeviceDepthClampZeroOneFeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceDepthClampZeroOneFeaturesKHR {
@@ -7703,6 +8337,7 @@ pub struct PhysicalDeviceDepthClampZeroOneFeaturesKHR {
 pub type PhysicalDeviceDepthClampZeroOneFeaturesEXT = PhysicalDeviceDepthClampZeroOneFeaturesKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceRobustness2FeaturesKHR.html>
+#[doc(alias = "VkPhysicalDeviceRobustness2FeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceRobustness2FeaturesKHR {
@@ -7715,6 +8350,7 @@ pub struct PhysicalDeviceRobustness2FeaturesKHR {
 pub type PhysicalDeviceRobustness2FeaturesEXT = PhysicalDeviceRobustness2FeaturesKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceRobustness2PropertiesKHR.html>
+#[doc(alias = "VkPhysicalDeviceRobustness2PropertiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceRobustness2PropertiesKHR {
@@ -7726,6 +8362,7 @@ pub struct PhysicalDeviceRobustness2PropertiesKHR {
 pub type PhysicalDeviceRobustness2PropertiesEXT = PhysicalDeviceRobustness2PropertiesKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePresentModeFifoLatestReadyFeaturesKHR.html>
+#[doc(alias = "VkPhysicalDevicePresentModeFifoLatestReadyFeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDevicePresentModeFifoLatestReadyFeaturesKHR {
@@ -7737,6 +8374,7 @@ pub type PhysicalDevicePresentModeFifoLatestReadyFeaturesEXT =
     PhysicalDevicePresentModeFifoLatestReadyFeaturesKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMicromapUsageKHR.html>
+#[doc(alias = "VkMicromapUsageKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MicromapUsageKHR {
@@ -7746,6 +8384,7 @@ pub struct MicromapUsageKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureGeometryMicromapDataKHR.html>
+#[doc(alias = "VkAccelerationStructureGeometryMicromapDataKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AccelerationStructureGeometryMicromapDataKHR {
@@ -7760,6 +8399,7 @@ pub struct AccelerationStructureGeometryMicromapDataKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceOpacityMicromapFeaturesKHR.html>
+#[doc(alias = "VkPhysicalDeviceOpacityMicromapFeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceOpacityMicromapFeaturesKHR {
@@ -7769,6 +8409,7 @@ pub struct PhysicalDeviceOpacityMicromapFeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceOpacityMicromapPropertiesKHR.html>
+#[doc(alias = "VkPhysicalDeviceOpacityMicromapPropertiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceOpacityMicromapPropertiesKHR {
@@ -7781,6 +8422,7 @@ pub struct PhysicalDeviceOpacityMicromapPropertiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMicromapTriangleKHR.html>
+#[doc(alias = "VkMicromapTriangleKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MicromapTriangleKHR {
@@ -7791,6 +8433,7 @@ pub struct MicromapTriangleKHR {
 pub type MicromapTriangleEXT = MicromapTriangleKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureTrianglesOpacityMicromapKHR.html>
+#[doc(alias = "VkAccelerationStructureTrianglesOpacityMicromapKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AccelerationStructureTrianglesOpacityMicromapKHR {
@@ -7804,6 +8447,7 @@ pub struct AccelerationStructureTrianglesOpacityMicromapKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMaintenance10FeaturesKHR.html>
+#[doc(alias = "VkPhysicalDeviceMaintenance10FeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceMaintenance10FeaturesKHR {
@@ -7813,6 +8457,7 @@ pub struct PhysicalDeviceMaintenance10FeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMaintenance10PropertiesKHR.html>
+#[doc(alias = "VkPhysicalDeviceMaintenance10PropertiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceMaintenance10PropertiesKHR {
@@ -7824,6 +8469,7 @@ pub struct PhysicalDeviceMaintenance10PropertiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderingEndInfoKHR.html>
+#[doc(alias = "VkRenderingEndInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct RenderingEndInfoKHR {
@@ -7833,6 +8479,7 @@ pub struct RenderingEndInfoKHR {
 pub type RenderingEndInfoEXT = RenderingEndInfoKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderingAttachmentFlagsInfoKHR.html>
+#[doc(alias = "VkRenderingAttachmentFlagsInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct RenderingAttachmentFlagsInfoKHR {
@@ -7842,6 +8489,7 @@ pub struct RenderingAttachmentFlagsInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkResolveImageModeInfoKHR.html>
+#[doc(alias = "VkResolveImageModeInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ResolveImageModeInfoKHR {
@@ -7853,6 +8501,7 @@ pub struct ResolveImageModeInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesKHR.html>
+#[doc(alias = "VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDevicePipelineLibraryGroupHandlesFeaturesKHR {
@@ -7864,6 +8513,7 @@ pub type PhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT =
     PhysicalDevicePipelineLibraryGroupHandlesFeaturesKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMaintenance11FeaturesKHR.html>
+#[doc(alias = "VkPhysicalDeviceMaintenance11FeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceMaintenance11FeaturesKHR {
@@ -7873,6 +8523,7 @@ pub struct PhysicalDeviceMaintenance11FeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkQueueFamilyOptimalImageTransferGranularityPropertiesKHR.html>
+#[doc(alias = "VkQueueFamilyOptimalImageTransferGranularityPropertiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct QueueFamilyOptimalImageTransferGranularityPropertiesKHR {
@@ -7882,6 +8533,7 @@ pub struct QueueFamilyOptimalImageTransferGranularityPropertiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFormatProperties4KHR.html>
+#[doc(alias = "VkFormatProperties4KHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct FormatProperties4KHR {
@@ -7893,6 +8545,7 @@ pub struct FormatProperties4KHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageUsageFlags2CreateInfoKHR.html>
+#[doc(alias = "VkImageUsageFlags2CreateInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageUsageFlags2CreateInfoKHR {
@@ -7902,6 +8555,7 @@ pub struct ImageUsageFlags2CreateInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageCreateFlags2CreateInfoKHR.html>
+#[doc(alias = "VkImageCreateFlags2CreateInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageCreateFlags2CreateInfoKHR {
@@ -7911,6 +8565,7 @@ pub struct ImageCreateFlags2CreateInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageViewUsage2CreateInfoKHR.html>
+#[doc(alias = "VkImageViewUsage2CreateInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageViewUsage2CreateInfoKHR {
@@ -7920,6 +8575,7 @@ pub struct ImageViewUsage2CreateInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceExtendedFlagsFeaturesKHR.html>
+#[doc(alias = "VkPhysicalDeviceExtendedFlagsFeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceExtendedFlagsFeaturesKHR {
@@ -7929,6 +8585,7 @@ pub struct PhysicalDeviceExtendedFlagsFeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageStencilUsage2CreateInfoKHR.html>
+#[doc(alias = "VkImageStencilUsage2CreateInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageStencilUsage2CreateInfoKHR {
@@ -7938,6 +8595,7 @@ pub struct ImageStencilUsage2CreateInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSharedPresentSurfaceCapabilities2KHR.html>
+#[doc(alias = "VkSharedPresentSurfaceCapabilities2KHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SharedPresentSurfaceCapabilities2KHR {
@@ -7947,6 +8605,7 @@ pub struct SharedPresentSurfaceCapabilities2KHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDebugReportCallbackCreateInfoEXT.html>
+#[doc(alias = "VkDebugReportCallbackCreateInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DebugReportCallbackCreateInfoEXT {
@@ -7958,6 +8617,7 @@ pub struct DebugReportCallbackCreateInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineRasterizationStateRasterizationOrderAMD.html>
+#[doc(alias = "VkPipelineRasterizationStateRasterizationOrderAMD")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineRasterizationStateRasterizationOrderAMD {
@@ -7967,6 +8627,7 @@ pub struct PipelineRasterizationStateRasterizationOrderAMD {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDebugMarkerObjectNameInfoEXT.html>
+#[doc(alias = "VkDebugMarkerObjectNameInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DebugMarkerObjectNameInfoEXT {
@@ -7978,6 +8639,7 @@ pub struct DebugMarkerObjectNameInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDebugMarkerObjectTagInfoEXT.html>
+#[doc(alias = "VkDebugMarkerObjectTagInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DebugMarkerObjectTagInfoEXT {
@@ -7991,6 +8653,7 @@ pub struct DebugMarkerObjectTagInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDebugMarkerMarkerInfoEXT.html>
+#[doc(alias = "VkDebugMarkerMarkerInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DebugMarkerMarkerInfoEXT {
@@ -8001,6 +8664,7 @@ pub struct DebugMarkerMarkerInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDedicatedAllocationImageCreateInfoNV.html>
+#[doc(alias = "VkDedicatedAllocationImageCreateInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DedicatedAllocationImageCreateInfoNV {
@@ -8010,6 +8674,7 @@ pub struct DedicatedAllocationImageCreateInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDedicatedAllocationBufferCreateInfoNV.html>
+#[doc(alias = "VkDedicatedAllocationBufferCreateInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DedicatedAllocationBufferCreateInfoNV {
@@ -8019,6 +8684,7 @@ pub struct DedicatedAllocationBufferCreateInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDedicatedAllocationMemoryAllocateInfoNV.html>
+#[doc(alias = "VkDedicatedAllocationMemoryAllocateInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DedicatedAllocationMemoryAllocateInfoNV {
@@ -8029,6 +8695,7 @@ pub struct DedicatedAllocationMemoryAllocateInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceTransformFeedbackFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceTransformFeedbackFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceTransformFeedbackFeaturesEXT {
@@ -8039,6 +8706,7 @@ pub struct PhysicalDeviceTransformFeedbackFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceTransformFeedbackPropertiesEXT.html>
+#[doc(alias = "VkPhysicalDeviceTransformFeedbackPropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceTransformFeedbackPropertiesEXT {
@@ -8057,6 +8725,7 @@ pub struct PhysicalDeviceTransformFeedbackPropertiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineRasterizationStateStreamCreateInfoEXT.html>
+#[doc(alias = "VkPipelineRasterizationStateStreamCreateInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineRasterizationStateStreamCreateInfoEXT {
@@ -8067,6 +8736,7 @@ pub struct PipelineRasterizationStateStreamCreateInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCuModuleCreateInfoNVX.html>
+#[doc(alias = "VkCuModuleCreateInfoNVX")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CuModuleCreateInfoNVX {
@@ -8077,6 +8747,7 @@ pub struct CuModuleCreateInfoNVX {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCuModuleTexturingModeCreateInfoNVX.html>
+#[doc(alias = "VkCuModuleTexturingModeCreateInfoNVX")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CuModuleTexturingModeCreateInfoNVX {
@@ -8086,6 +8757,7 @@ pub struct CuModuleTexturingModeCreateInfoNVX {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCuFunctionCreateInfoNVX.html>
+#[doc(alias = "VkCuFunctionCreateInfoNVX")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CuFunctionCreateInfoNVX {
@@ -8096,6 +8768,7 @@ pub struct CuFunctionCreateInfoNVX {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCuLaunchInfoNVX.html>
+#[doc(alias = "VkCuLaunchInfoNVX")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CuLaunchInfoNVX {
@@ -8116,6 +8789,7 @@ pub struct CuLaunchInfoNVX {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageViewHandleInfoNVX.html>
+#[doc(alias = "VkImageViewHandleInfoNVX")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageViewHandleInfoNVX {
@@ -8127,6 +8801,7 @@ pub struct ImageViewHandleInfoNVX {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageViewAddressPropertiesNVX.html>
+#[doc(alias = "VkImageViewAddressPropertiesNVX")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageViewAddressPropertiesNVX {
@@ -8137,6 +8812,7 @@ pub struct ImageViewAddressPropertiesNVX {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTextureLODGatherFormatPropertiesAMD.html>
+#[doc(alias = "VkTextureLODGatherFormatPropertiesAMD")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct TextureLODGatherFormatPropertiesAMD {
@@ -8146,6 +8822,7 @@ pub struct TextureLODGatherFormatPropertiesAMD {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderResourceUsageAMD.html>
+#[doc(alias = "VkShaderResourceUsageAMD")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ShaderResourceUsageAMD {
@@ -8157,6 +8834,7 @@ pub struct ShaderResourceUsageAMD {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderStatisticsInfoAMD.html>
+#[doc(alias = "VkShaderStatisticsInfoAMD")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ShaderStatisticsInfoAMD {
@@ -8170,6 +8848,7 @@ pub struct ShaderStatisticsInfoAMD {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkStreamDescriptorSurfaceCreateInfoGGP.html>
+#[doc(alias = "VkStreamDescriptorSurfaceCreateInfoGGP")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct StreamDescriptorSurfaceCreateInfoGGP {
@@ -8180,6 +8859,7 @@ pub struct StreamDescriptorSurfaceCreateInfoGGP {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCornerSampledImageFeaturesNV.html>
+#[doc(alias = "VkPhysicalDeviceCornerSampledImageFeaturesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceCornerSampledImageFeaturesNV {
@@ -8189,6 +8869,7 @@ pub struct PhysicalDeviceCornerSampledImageFeaturesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalImageFormatPropertiesNV.html>
+#[doc(alias = "VkExternalImageFormatPropertiesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ExternalImageFormatPropertiesNV {
@@ -8199,6 +8880,7 @@ pub struct ExternalImageFormatPropertiesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalMemoryImageCreateInfoNV.html>
+#[doc(alias = "VkExternalMemoryImageCreateInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ExternalMemoryImageCreateInfoNV {
@@ -8208,6 +8890,7 @@ pub struct ExternalMemoryImageCreateInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExportMemoryAllocateInfoNV.html>
+#[doc(alias = "VkExportMemoryAllocateInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ExportMemoryAllocateInfoNV {
@@ -8217,6 +8900,7 @@ pub struct ExportMemoryAllocateInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImportMemoryWin32HandleInfoNV.html>
+#[doc(alias = "VkImportMemoryWin32HandleInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImportMemoryWin32HandleInfoNV {
@@ -8227,6 +8911,7 @@ pub struct ImportMemoryWin32HandleInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExportMemoryWin32HandleInfoNV.html>
+#[doc(alias = "VkExportMemoryWin32HandleInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ExportMemoryWin32HandleInfoNV {
@@ -8237,6 +8922,7 @@ pub struct ExportMemoryWin32HandleInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkWin32KeyedMutexAcquireReleaseInfoNV.html>
+#[doc(alias = "VkWin32KeyedMutexAcquireReleaseInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct Win32KeyedMutexAcquireReleaseInfoNV {
@@ -8252,6 +8938,7 @@ pub struct Win32KeyedMutexAcquireReleaseInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkValidationFlagsEXT.html>
+#[doc(alias = "VkValidationFlagsEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ValidationFlagsEXT {
@@ -8262,6 +8949,7 @@ pub struct ValidationFlagsEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkViSurfaceCreateInfoNN.html>
+#[doc(alias = "VkViSurfaceCreateInfoNN")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ViSurfaceCreateInfoNN {
@@ -8272,6 +8960,7 @@ pub struct ViSurfaceCreateInfoNN {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageViewASTCDecodeModeEXT.html>
+#[doc(alias = "VkImageViewASTCDecodeModeEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageViewASTCDecodeModeEXT {
@@ -8281,6 +8970,7 @@ pub struct ImageViewASTCDecodeModeEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceASTCDecodeFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceASTCDecodeFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceASTCDecodeFeaturesEXT {
@@ -8290,6 +8980,7 @@ pub struct PhysicalDeviceASTCDecodeFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkConditionalRenderingBeginInfoEXT.html>
+#[doc(alias = "VkConditionalRenderingBeginInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ConditionalRenderingBeginInfoEXT {
@@ -8301,6 +8992,7 @@ pub struct ConditionalRenderingBeginInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceConditionalRenderingFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceConditionalRenderingFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceConditionalRenderingFeaturesEXT {
@@ -8311,6 +9003,7 @@ pub struct PhysicalDeviceConditionalRenderingFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandBufferInheritanceConditionalRenderingInfoEXT.html>
+#[doc(alias = "VkCommandBufferInheritanceConditionalRenderingInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CommandBufferInheritanceConditionalRenderingInfoEXT {
@@ -8320,6 +9013,7 @@ pub struct CommandBufferInheritanceConditionalRenderingInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkViewportWScalingNV.html>
+#[doc(alias = "VkViewportWScalingNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ViewportWScalingNV {
@@ -8328,6 +9022,7 @@ pub struct ViewportWScalingNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineViewportWScalingStateCreateInfoNV.html>
+#[doc(alias = "VkPipelineViewportWScalingStateCreateInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineViewportWScalingStateCreateInfoNV {
@@ -8339,6 +9034,7 @@ pub struct PipelineViewportWScalingStateCreateInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfaceCapabilities2EXT.html>
+#[doc(alias = "VkSurfaceCapabilities2EXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SurfaceCapabilities2EXT {
@@ -8358,6 +9054,7 @@ pub struct SurfaceCapabilities2EXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplayPowerInfoEXT.html>
+#[doc(alias = "VkDisplayPowerInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DisplayPowerInfoEXT {
@@ -8367,6 +9064,7 @@ pub struct DisplayPowerInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceEventInfoEXT.html>
+#[doc(alias = "VkDeviceEventInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DeviceEventInfoEXT {
@@ -8376,6 +9074,7 @@ pub struct DeviceEventInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplayEventInfoEXT.html>
+#[doc(alias = "VkDisplayEventInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DisplayEventInfoEXT {
@@ -8385,6 +9084,7 @@ pub struct DisplayEventInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSwapchainCounterCreateInfoEXT.html>
+#[doc(alias = "VkSwapchainCounterCreateInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SwapchainCounterCreateInfoEXT {
@@ -8394,6 +9094,7 @@ pub struct SwapchainCounterCreateInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRefreshCycleDurationGOOGLE.html>
+#[doc(alias = "VkRefreshCycleDurationGOOGLE")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct RefreshCycleDurationGOOGLE {
@@ -8401,6 +9102,7 @@ pub struct RefreshCycleDurationGOOGLE {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPastPresentationTimingGOOGLE.html>
+#[doc(alias = "VkPastPresentationTimingGOOGLE")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PastPresentationTimingGOOGLE {
@@ -8412,6 +9114,7 @@ pub struct PastPresentationTimingGOOGLE {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPresentTimeGOOGLE.html>
+#[doc(alias = "VkPresentTimeGOOGLE")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PresentTimeGOOGLE {
@@ -8420,6 +9123,7 @@ pub struct PresentTimeGOOGLE {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPresentTimesInfoGOOGLE.html>
+#[doc(alias = "VkPresentTimesInfoGOOGLE")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PresentTimesInfoGOOGLE {
@@ -8430,6 +9134,7 @@ pub struct PresentTimesInfoGOOGLE {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX.html>
+#[doc(alias = "VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceMultiviewPerViewAttributesPropertiesNVX {
@@ -8439,6 +9144,7 @@ pub struct PhysicalDeviceMultiviewPerViewAttributesPropertiesNVX {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMultiviewPerViewAttributesInfoNVX.html>
+#[doc(alias = "VkMultiviewPerViewAttributesInfoNVX")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MultiviewPerViewAttributesInfoNVX {
@@ -8449,6 +9155,7 @@ pub struct MultiviewPerViewAttributesInfoNVX {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkViewportSwizzleNV.html>
+#[doc(alias = "VkViewportSwizzleNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ViewportSwizzleNV {
@@ -8459,6 +9166,7 @@ pub struct ViewportSwizzleNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineViewportSwizzleStateCreateInfoNV.html>
+#[doc(alias = "VkPipelineViewportSwizzleStateCreateInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineViewportSwizzleStateCreateInfoNV {
@@ -8470,6 +9178,7 @@ pub struct PipelineViewportSwizzleStateCreateInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDiscardRectanglePropertiesEXT.html>
+#[doc(alias = "VkPhysicalDeviceDiscardRectanglePropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceDiscardRectanglePropertiesEXT {
@@ -8479,6 +9188,7 @@ pub struct PhysicalDeviceDiscardRectanglePropertiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineDiscardRectangleStateCreateInfoEXT.html>
+#[doc(alias = "VkPipelineDiscardRectangleStateCreateInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineDiscardRectangleStateCreateInfoEXT {
@@ -8491,6 +9201,7 @@ pub struct PipelineDiscardRectangleStateCreateInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceConservativeRasterizationPropertiesEXT.html>
+#[doc(alias = "VkPhysicalDeviceConservativeRasterizationPropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceConservativeRasterizationPropertiesEXT {
@@ -8508,6 +9219,7 @@ pub struct PhysicalDeviceConservativeRasterizationPropertiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineRasterizationConservativeStateCreateInfoEXT.html>
+#[doc(alias = "VkPipelineRasterizationConservativeStateCreateInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineRasterizationConservativeStateCreateInfoEXT {
@@ -8519,6 +9231,7 @@ pub struct PipelineRasterizationConservativeStateCreateInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDepthClipEnableFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceDepthClipEnableFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceDepthClipEnableFeaturesEXT {
@@ -8528,6 +9241,7 @@ pub struct PhysicalDeviceDepthClipEnableFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineRasterizationDepthClipStateCreateInfoEXT.html>
+#[doc(alias = "VkPipelineRasterizationDepthClipStateCreateInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineRasterizationDepthClipStateCreateInfoEXT {
@@ -8538,6 +9252,7 @@ pub struct PipelineRasterizationDepthClipStateCreateInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkXYColorEXT.html>
+#[doc(alias = "VkXYColorEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct XYColorEXT {
@@ -8546,6 +9261,7 @@ pub struct XYColorEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkHdrMetadataEXT.html>
+#[doc(alias = "VkHdrMetadataEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct HdrMetadataEXT {
@@ -8562,6 +9278,7 @@ pub struct HdrMetadataEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceRelaxedLineRasterizationFeaturesIMG.html>
+#[doc(alias = "VkPhysicalDeviceRelaxedLineRasterizationFeaturesIMG")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceRelaxedLineRasterizationFeaturesIMG {
@@ -8571,6 +9288,7 @@ pub struct PhysicalDeviceRelaxedLineRasterizationFeaturesIMG {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkIOSSurfaceCreateInfoMVK.html>
+#[doc(alias = "VkIOSSurfaceCreateInfoMVK")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct IOSSurfaceCreateInfoMVK {
@@ -8581,6 +9299,7 @@ pub struct IOSSurfaceCreateInfoMVK {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMacOSSurfaceCreateInfoMVK.html>
+#[doc(alias = "VkMacOSSurfaceCreateInfoMVK")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MacOSSurfaceCreateInfoMVK {
@@ -8591,6 +9310,7 @@ pub struct MacOSSurfaceCreateInfoMVK {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDebugUtilsLabelEXT.html>
+#[doc(alias = "VkDebugUtilsLabelEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DebugUtilsLabelEXT {
@@ -8601,6 +9321,7 @@ pub struct DebugUtilsLabelEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDebugUtilsObjectNameInfoEXT.html>
+#[doc(alias = "VkDebugUtilsObjectNameInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DebugUtilsObjectNameInfoEXT {
@@ -8612,6 +9333,7 @@ pub struct DebugUtilsObjectNameInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDebugUtilsMessengerCallbackDataEXT.html>
+#[doc(alias = "VkDebugUtilsMessengerCallbackDataEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DebugUtilsMessengerCallbackDataEXT {
@@ -8630,6 +9352,7 @@ pub struct DebugUtilsMessengerCallbackDataEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDebugUtilsMessengerCreateInfoEXT.html>
+#[doc(alias = "VkDebugUtilsMessengerCreateInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DebugUtilsMessengerCreateInfoEXT {
@@ -8643,6 +9366,7 @@ pub struct DebugUtilsMessengerCreateInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDebugUtilsObjectTagInfoEXT.html>
+#[doc(alias = "VkDebugUtilsObjectTagInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DebugUtilsObjectTagInfoEXT {
@@ -8656,6 +9380,7 @@ pub struct DebugUtilsObjectTagInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAndroidHardwareBufferUsageANDROID.html>
+#[doc(alias = "VkAndroidHardwareBufferUsageANDROID")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AndroidHardwareBufferUsageANDROID {
@@ -8665,6 +9390,7 @@ pub struct AndroidHardwareBufferUsageANDROID {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAndroidHardwareBufferPropertiesANDROID.html>
+#[doc(alias = "VkAndroidHardwareBufferPropertiesANDROID")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AndroidHardwareBufferPropertiesANDROID {
@@ -8675,6 +9401,7 @@ pub struct AndroidHardwareBufferPropertiesANDROID {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAndroidHardwareBufferFormatPropertiesANDROID.html>
+#[doc(alias = "VkAndroidHardwareBufferFormatPropertiesANDROID")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AndroidHardwareBufferFormatPropertiesANDROID {
@@ -8691,6 +9418,7 @@ pub struct AndroidHardwareBufferFormatPropertiesANDROID {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImportAndroidHardwareBufferInfoANDROID.html>
+#[doc(alias = "VkImportAndroidHardwareBufferInfoANDROID")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImportAndroidHardwareBufferInfoANDROID {
@@ -8700,6 +9428,7 @@ pub struct ImportAndroidHardwareBufferInfoANDROID {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryGetAndroidHardwareBufferInfoANDROID.html>
+#[doc(alias = "VkMemoryGetAndroidHardwareBufferInfoANDROID")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MemoryGetAndroidHardwareBufferInfoANDROID {
@@ -8709,6 +9438,7 @@ pub struct MemoryGetAndroidHardwareBufferInfoANDROID {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalFormatANDROID.html>
+#[doc(alias = "VkExternalFormatANDROID")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ExternalFormatANDROID {
@@ -8718,6 +9448,7 @@ pub struct ExternalFormatANDROID {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAndroidHardwareBufferFormatProperties2ANDROID.html>
+#[doc(alias = "VkAndroidHardwareBufferFormatProperties2ANDROID")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AndroidHardwareBufferFormatProperties2ANDROID {
@@ -8734,6 +9465,7 @@ pub struct AndroidHardwareBufferFormatProperties2ANDROID {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkGpaPerfBlockPropertiesAMD.html>
+#[doc(alias = "VkGpaPerfBlockPropertiesAMD")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct GpaPerfBlockPropertiesAMD {
@@ -8747,6 +9479,7 @@ pub struct GpaPerfBlockPropertiesAMD {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceGpaFeaturesAMD.html>
+#[doc(alias = "VkPhysicalDeviceGpaFeaturesAMD")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceGpaFeaturesAMD {
@@ -8759,6 +9492,7 @@ pub struct PhysicalDeviceGpaFeaturesAMD {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceGpaPropertiesAMD.html>
+#[doc(alias = "VkPhysicalDeviceGpaPropertiesAMD")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceGpaPropertiesAMD {
@@ -8772,6 +9506,7 @@ pub struct PhysicalDeviceGpaPropertiesAMD {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceGpaProperties2AMD.html>
+#[doc(alias = "VkPhysicalDeviceGpaProperties2AMD")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceGpaProperties2AMD {
@@ -8781,6 +9516,7 @@ pub struct PhysicalDeviceGpaProperties2AMD {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkGpaPerfCounterAMD.html>
+#[doc(alias = "VkGpaPerfCounterAMD")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct GpaPerfCounterAMD {
@@ -8790,6 +9526,7 @@ pub struct GpaPerfCounterAMD {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkGpaSampleBeginInfoAMD.html>
+#[doc(alias = "VkGpaSampleBeginInfoAMD")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct GpaSampleBeginInfoAMD {
@@ -8812,6 +9549,7 @@ pub struct GpaSampleBeginInfoAMD {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkGpaDeviceClockModeInfoAMD.html>
+#[doc(alias = "VkGpaDeviceClockModeInfoAMD")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct GpaDeviceClockModeInfoAMD {
@@ -8823,6 +9561,7 @@ pub struct GpaDeviceClockModeInfoAMD {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkGpaDeviceGetClockInfoAMD.html>
+#[doc(alias = "VkGpaDeviceGetClockInfoAMD")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct GpaDeviceGetClockInfoAMD {
@@ -8835,6 +9574,7 @@ pub struct GpaDeviceGetClockInfoAMD {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkGpaSessionCreateInfoAMD.html>
+#[doc(alias = "VkGpaSessionCreateInfoAMD")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct GpaSessionCreateInfoAMD {
@@ -8844,6 +9584,7 @@ pub struct GpaSessionCreateInfoAMD {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderEnqueueFeaturesAMDX.html>
+#[doc(alias = "VkPhysicalDeviceShaderEnqueueFeaturesAMDX")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderEnqueueFeaturesAMDX {
@@ -8854,6 +9595,7 @@ pub struct PhysicalDeviceShaderEnqueueFeaturesAMDX {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderEnqueuePropertiesAMDX.html>
+#[doc(alias = "VkPhysicalDeviceShaderEnqueuePropertiesAMDX")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderEnqueuePropertiesAMDX {
@@ -8869,6 +9611,7 @@ pub struct PhysicalDeviceShaderEnqueuePropertiesAMDX {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExecutionGraphPipelineScratchSizeAMDX.html>
+#[doc(alias = "VkExecutionGraphPipelineScratchSizeAMDX")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ExecutionGraphPipelineScratchSizeAMDX {
@@ -8880,6 +9623,7 @@ pub struct ExecutionGraphPipelineScratchSizeAMDX {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExecutionGraphPipelineCreateInfoAMDX.html>
+#[doc(alias = "VkExecutionGraphPipelineCreateInfoAMDX")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ExecutionGraphPipelineCreateInfoAMDX {
@@ -8895,6 +9639,7 @@ pub struct ExecutionGraphPipelineCreateInfoAMDX {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceOrHostAddressConstAMDX.html>
+#[doc(alias = "VkDeviceOrHostAddressConstAMDX")]
 #[derive(Clone, Copy)]
 #[repr(C)]
 pub struct DeviceOrHostAddressConstAMDX {
@@ -8908,6 +9653,7 @@ impl std::fmt::Debug for DeviceOrHostAddressConstAMDX {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDispatchGraphInfoAMDX.html>
+#[doc(alias = "VkDispatchGraphInfoAMDX")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DispatchGraphInfoAMDX {
@@ -8918,6 +9664,7 @@ pub struct DispatchGraphInfoAMDX {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDispatchGraphCountInfoAMDX.html>
+#[doc(alias = "VkDispatchGraphCountInfoAMDX")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DispatchGraphCountInfoAMDX {
@@ -8927,6 +9674,7 @@ pub struct DispatchGraphCountInfoAMDX {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineShaderStageNodeCreateInfoAMDX.html>
+#[doc(alias = "VkPipelineShaderStageNodeCreateInfoAMDX")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineShaderStageNodeCreateInfoAMDX {
@@ -8937,6 +9685,7 @@ pub struct PipelineShaderStageNodeCreateInfoAMDX {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkHostAddressRangeEXT.html>
+#[doc(alias = "VkHostAddressRangeEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct HostAddressRangeEXT {
@@ -8945,6 +9694,7 @@ pub struct HostAddressRangeEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkHostAddressRangeConstEXT.html>
+#[doc(alias = "VkHostAddressRangeConstEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct HostAddressRangeConstEXT {
@@ -8953,6 +9703,7 @@ pub struct HostAddressRangeConstEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTexelBufferDescriptorInfoEXT.html>
+#[doc(alias = "VkTexelBufferDescriptorInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct TexelBufferDescriptorInfoEXT {
@@ -8963,6 +9714,7 @@ pub struct TexelBufferDescriptorInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageDescriptorInfoEXT.html>
+#[doc(alias = "VkImageDescriptorInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageDescriptorInfoEXT {
@@ -8973,6 +9725,7 @@ pub struct ImageDescriptorInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTensorViewCreateInfoARM.html>
+#[doc(alias = "VkTensorViewCreateInfoARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct TensorViewCreateInfoARM {
@@ -8984,6 +9737,7 @@ pub struct TensorViewCreateInfoARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkResourceDescriptorDataEXT.html>
+#[doc(alias = "VkResourceDescriptorDataEXT")]
 #[derive(Clone, Copy)]
 #[repr(C)]
 pub struct ResourceDescriptorDataEXT {
@@ -8999,6 +9753,7 @@ impl std::fmt::Debug for ResourceDescriptorDataEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkResourceDescriptorInfoEXT.html>
+#[doc(alias = "VkResourceDescriptorInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ResourceDescriptorInfoEXT {
@@ -9009,6 +9764,7 @@ pub struct ResourceDescriptorInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBindHeapInfoEXT.html>
+#[doc(alias = "VkBindHeapInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BindHeapInfoEXT {
@@ -9020,6 +9776,7 @@ pub struct BindHeapInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPushDataInfoEXT.html>
+#[doc(alias = "VkPushDataInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PushDataInfoEXT {
@@ -9030,6 +9787,7 @@ pub struct PushDataInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorMappingSourceConstantOffsetEXT.html>
+#[doc(alias = "VkDescriptorMappingSourceConstantOffsetEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DescriptorMappingSourceConstantOffsetEXT {
@@ -9041,6 +9799,7 @@ pub struct DescriptorMappingSourceConstantOffsetEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorMappingSourcePushIndexEXT.html>
+#[doc(alias = "VkDescriptorMappingSourcePushIndexEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DescriptorMappingSourcePushIndexEXT {
@@ -9057,6 +9816,7 @@ pub struct DescriptorMappingSourcePushIndexEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorMappingSourceIndirectIndexEXT.html>
+#[doc(alias = "VkDescriptorMappingSourceIndirectIndexEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DescriptorMappingSourceIndirectIndexEXT {
@@ -9075,6 +9835,7 @@ pub struct DescriptorMappingSourceIndirectIndexEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorMappingSourceHeapDataEXT.html>
+#[doc(alias = "VkDescriptorMappingSourceHeapDataEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DescriptorMappingSourceHeapDataEXT {
@@ -9083,6 +9844,7 @@ pub struct DescriptorMappingSourceHeapDataEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorMappingSourceIndirectAddressEXT.html>
+#[doc(alias = "VkDescriptorMappingSourceIndirectAddressEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DescriptorMappingSourceIndirectAddressEXT {
@@ -9091,6 +9853,7 @@ pub struct DescriptorMappingSourceIndirectAddressEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorMappingSourceShaderRecordIndexEXT.html>
+#[doc(alias = "VkDescriptorMappingSourceShaderRecordIndexEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DescriptorMappingSourceShaderRecordIndexEXT {
@@ -9107,6 +9870,7 @@ pub struct DescriptorMappingSourceShaderRecordIndexEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorMappingSourceIndirectIndexArrayEXT.html>
+#[doc(alias = "VkDescriptorMappingSourceIndirectIndexArrayEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DescriptorMappingSourceIndirectIndexArrayEXT {
@@ -9123,6 +9887,7 @@ pub struct DescriptorMappingSourceIndirectIndexArrayEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorMappingSourceDataEXT.html>
+#[doc(alias = "VkDescriptorMappingSourceDataEXT")]
 #[derive(Clone, Copy)]
 #[repr(C)]
 pub struct DescriptorMappingSourceDataEXT {
@@ -9145,6 +9910,7 @@ impl std::fmt::Debug for DescriptorMappingSourceDataEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorSetAndBindingMappingEXT.html>
+#[doc(alias = "VkDescriptorSetAndBindingMappingEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DescriptorSetAndBindingMappingEXT {
@@ -9159,6 +9925,7 @@ pub struct DescriptorSetAndBindingMappingEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderDescriptorSetAndBindingMappingInfoEXT.html>
+#[doc(alias = "VkShaderDescriptorSetAndBindingMappingInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ShaderDescriptorSetAndBindingMappingInfoEXT {
@@ -9169,6 +9936,7 @@ pub struct ShaderDescriptorSetAndBindingMappingInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkOpaqueCaptureDataCreateInfoEXT.html>
+#[doc(alias = "VkOpaqueCaptureDataCreateInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct OpaqueCaptureDataCreateInfoEXT {
@@ -9178,6 +9946,7 @@ pub struct OpaqueCaptureDataCreateInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDescriptorHeapFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceDescriptorHeapFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceDescriptorHeapFeaturesEXT {
@@ -9188,6 +9957,7 @@ pub struct PhysicalDeviceDescriptorHeapFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDescriptorHeapPropertiesEXT.html>
+#[doc(alias = "VkPhysicalDeviceDescriptorHeapPropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceDescriptorHeapPropertiesEXT {
@@ -9215,6 +9985,7 @@ pub struct PhysicalDeviceDescriptorHeapPropertiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandBufferInheritanceDescriptorHeapInfoEXT.html>
+#[doc(alias = "VkCommandBufferInheritanceDescriptorHeapInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CommandBufferInheritanceDescriptorHeapInfoEXT {
@@ -9225,6 +9996,7 @@ pub struct CommandBufferInheritanceDescriptorHeapInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerCustomBorderColorIndexCreateInfoEXT.html>
+#[doc(alias = "VkSamplerCustomBorderColorIndexCreateInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SamplerCustomBorderColorIndexCreateInfoEXT {
@@ -9234,6 +10006,7 @@ pub struct SamplerCustomBorderColorIndexCreateInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerCustomBorderColorCreateInfoEXT.html>
+#[doc(alias = "VkSamplerCustomBorderColorCreateInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SamplerCustomBorderColorCreateInfoEXT {
@@ -9244,6 +10017,7 @@ pub struct SamplerCustomBorderColorCreateInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectCommandsLayoutPushDataTokenNV.html>
+#[doc(alias = "VkIndirectCommandsLayoutPushDataTokenNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct IndirectCommandsLayoutPushDataTokenNV {
@@ -9254,6 +10028,7 @@ pub struct IndirectCommandsLayoutPushDataTokenNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSubsampledImageFormatPropertiesEXT.html>
+#[doc(alias = "VkSubsampledImageFormatPropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SubsampledImageFormatPropertiesEXT {
@@ -9263,6 +10038,7 @@ pub struct SubsampledImageFormatPropertiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDescriptorHeapTensorPropertiesARM.html>
+#[doc(alias = "VkPhysicalDeviceDescriptorHeapTensorPropertiesARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceDescriptorHeapTensorPropertiesARM {
@@ -9274,6 +10050,7 @@ pub struct PhysicalDeviceDescriptorHeapTensorPropertiesARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAttachmentSampleCountInfoAMD.html>
+#[doc(alias = "VkAttachmentSampleCountInfoAMD")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AttachmentSampleCountInfoAMD {
@@ -9286,6 +10063,7 @@ pub struct AttachmentSampleCountInfoAMD {
 pub type AttachmentSampleCountInfoNV = AttachmentSampleCountInfoAMD;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSampleLocationEXT.html>
+#[doc(alias = "VkSampleLocationEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SampleLocationEXT {
@@ -9294,6 +10072,7 @@ pub struct SampleLocationEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSampleLocationsInfoEXT.html>
+#[doc(alias = "VkSampleLocationsInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SampleLocationsInfoEXT {
@@ -9306,6 +10085,7 @@ pub struct SampleLocationsInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAttachmentSampleLocationsEXT.html>
+#[doc(alias = "VkAttachmentSampleLocationsEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AttachmentSampleLocationsEXT {
@@ -9314,6 +10094,7 @@ pub struct AttachmentSampleLocationsEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSubpassSampleLocationsEXT.html>
+#[doc(alias = "VkSubpassSampleLocationsEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SubpassSampleLocationsEXT {
@@ -9322,6 +10103,7 @@ pub struct SubpassSampleLocationsEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPassSampleLocationsBeginInfoEXT.html>
+#[doc(alias = "VkRenderPassSampleLocationsBeginInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct RenderPassSampleLocationsBeginInfoEXT {
@@ -9334,6 +10116,7 @@ pub struct RenderPassSampleLocationsBeginInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineSampleLocationsStateCreateInfoEXT.html>
+#[doc(alias = "VkPipelineSampleLocationsStateCreateInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineSampleLocationsStateCreateInfoEXT {
@@ -9344,6 +10127,7 @@ pub struct PipelineSampleLocationsStateCreateInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSampleLocationsPropertiesEXT.html>
+#[doc(alias = "VkPhysicalDeviceSampleLocationsPropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceSampleLocationsPropertiesEXT {
@@ -9357,6 +10141,7 @@ pub struct PhysicalDeviceSampleLocationsPropertiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMultisamplePropertiesEXT.html>
+#[doc(alias = "VkMultisamplePropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MultisamplePropertiesEXT {
@@ -9366,6 +10151,7 @@ pub struct MultisamplePropertiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceBlendOperationAdvancedFeaturesEXT {
@@ -9375,6 +10161,7 @@ pub struct PhysicalDeviceBlendOperationAdvancedFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT.html>
+#[doc(alias = "VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceBlendOperationAdvancedPropertiesEXT {
@@ -9389,6 +10176,7 @@ pub struct PhysicalDeviceBlendOperationAdvancedPropertiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineColorBlendAdvancedStateCreateInfoEXT.html>
+#[doc(alias = "VkPipelineColorBlendAdvancedStateCreateInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineColorBlendAdvancedStateCreateInfoEXT {
@@ -9400,6 +10188,7 @@ pub struct PipelineColorBlendAdvancedStateCreateInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCoverageToColorStateCreateInfoNV.html>
+#[doc(alias = "VkPipelineCoverageToColorStateCreateInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineCoverageToColorStateCreateInfoNV {
@@ -9411,6 +10200,7 @@ pub struct PipelineCoverageToColorStateCreateInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCoverageModulationStateCreateInfoNV.html>
+#[doc(alias = "VkPipelineCoverageModulationStateCreateInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineCoverageModulationStateCreateInfoNV {
@@ -9424,6 +10214,7 @@ pub struct PipelineCoverageModulationStateCreateInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderSMBuiltinsPropertiesNV.html>
+#[doc(alias = "VkPhysicalDeviceShaderSMBuiltinsPropertiesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderSMBuiltinsPropertiesNV {
@@ -9434,6 +10225,7 @@ pub struct PhysicalDeviceShaderSMBuiltinsPropertiesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderSMBuiltinsFeaturesNV.html>
+#[doc(alias = "VkPhysicalDeviceShaderSMBuiltinsFeaturesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderSMBuiltinsFeaturesNV {
@@ -9443,6 +10235,7 @@ pub struct PhysicalDeviceShaderSMBuiltinsFeaturesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDrmFormatModifierPropertiesEXT.html>
+#[doc(alias = "VkDrmFormatModifierPropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DrmFormatModifierPropertiesEXT {
@@ -9452,6 +10245,7 @@ pub struct DrmFormatModifierPropertiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDrmFormatModifierPropertiesListEXT.html>
+#[doc(alias = "VkDrmFormatModifierPropertiesListEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DrmFormatModifierPropertiesListEXT {
@@ -9462,6 +10256,7 @@ pub struct DrmFormatModifierPropertiesListEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceImageDrmFormatModifierInfoEXT.html>
+#[doc(alias = "VkPhysicalDeviceImageDrmFormatModifierInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceImageDrmFormatModifierInfoEXT {
@@ -9474,6 +10269,7 @@ pub struct PhysicalDeviceImageDrmFormatModifierInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageDrmFormatModifierListCreateInfoEXT.html>
+#[doc(alias = "VkImageDrmFormatModifierListCreateInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageDrmFormatModifierListCreateInfoEXT {
@@ -9484,6 +10280,7 @@ pub struct ImageDrmFormatModifierListCreateInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageDrmFormatModifierExplicitCreateInfoEXT.html>
+#[doc(alias = "VkImageDrmFormatModifierExplicitCreateInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageDrmFormatModifierExplicitCreateInfoEXT {
@@ -9495,6 +10292,7 @@ pub struct ImageDrmFormatModifierExplicitCreateInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageDrmFormatModifierPropertiesEXT.html>
+#[doc(alias = "VkImageDrmFormatModifierPropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageDrmFormatModifierPropertiesEXT {
@@ -9504,6 +10302,7 @@ pub struct ImageDrmFormatModifierPropertiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDrmFormatModifierProperties2EXT.html>
+#[doc(alias = "VkDrmFormatModifierProperties2EXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DrmFormatModifierProperties2EXT {
@@ -9513,6 +10312,7 @@ pub struct DrmFormatModifierProperties2EXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDrmFormatModifierPropertiesList2EXT.html>
+#[doc(alias = "VkDrmFormatModifierPropertiesList2EXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DrmFormatModifierPropertiesList2EXT {
@@ -9523,6 +10323,7 @@ pub struct DrmFormatModifierPropertiesList2EXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkValidationCacheCreateInfoEXT.html>
+#[doc(alias = "VkValidationCacheCreateInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ValidationCacheCreateInfoEXT {
@@ -9534,6 +10335,7 @@ pub struct ValidationCacheCreateInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderModuleValidationCacheCreateInfoEXT.html>
+#[doc(alias = "VkShaderModuleValidationCacheCreateInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ShaderModuleValidationCacheCreateInfoEXT {
@@ -9543,6 +10345,7 @@ pub struct ShaderModuleValidationCacheCreateInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkShadingRatePaletteNV.html>
+#[doc(alias = "VkShadingRatePaletteNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ShadingRatePaletteNV {
@@ -9551,6 +10354,7 @@ pub struct ShadingRatePaletteNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineViewportShadingRateImageStateCreateInfoNV.html>
+#[doc(alias = "VkPipelineViewportShadingRateImageStateCreateInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineViewportShadingRateImageStateCreateInfoNV {
@@ -9562,6 +10366,7 @@ pub struct PipelineViewportShadingRateImageStateCreateInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShadingRateImageFeaturesNV.html>
+#[doc(alias = "VkPhysicalDeviceShadingRateImageFeaturesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShadingRateImageFeaturesNV {
@@ -9572,6 +10377,7 @@ pub struct PhysicalDeviceShadingRateImageFeaturesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShadingRateImagePropertiesNV.html>
+#[doc(alias = "VkPhysicalDeviceShadingRateImagePropertiesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShadingRateImagePropertiesNV {
@@ -9583,6 +10389,7 @@ pub struct PhysicalDeviceShadingRateImagePropertiesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCoarseSampleLocationNV.html>
+#[doc(alias = "VkCoarseSampleLocationNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CoarseSampleLocationNV {
@@ -9592,6 +10399,7 @@ pub struct CoarseSampleLocationNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCoarseSampleOrderCustomNV.html>
+#[doc(alias = "VkCoarseSampleOrderCustomNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CoarseSampleOrderCustomNV {
@@ -9602,6 +10410,7 @@ pub struct CoarseSampleOrderCustomNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineViewportCoarseSampleOrderStateCreateInfoNV.html>
+#[doc(alias = "VkPipelineViewportCoarseSampleOrderStateCreateInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineViewportCoarseSampleOrderStateCreateInfoNV {
@@ -9613,6 +10422,7 @@ pub struct PipelineViewportCoarseSampleOrderStateCreateInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRayTracingShaderGroupCreateInfoNV.html>
+#[doc(alias = "VkRayTracingShaderGroupCreateInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct RayTracingShaderGroupCreateInfoNV {
@@ -9626,6 +10436,7 @@ pub struct RayTracingShaderGroupCreateInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRayTracingPipelineCreateInfoNV.html>
+#[doc(alias = "VkRayTracingPipelineCreateInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct RayTracingPipelineCreateInfoNV {
@@ -9643,6 +10454,7 @@ pub struct RayTracingPipelineCreateInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkGeometryTrianglesNV.html>
+#[doc(alias = "VkGeometryTrianglesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct GeometryTrianglesNV {
@@ -9662,6 +10474,7 @@ pub struct GeometryTrianglesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkGeometryAABBNV.html>
+#[doc(alias = "VkGeometryAABBNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct GeometryAABBNV {
@@ -9674,6 +10487,7 @@ pub struct GeometryAABBNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkGeometryDataNV.html>
+#[doc(alias = "VkGeometryDataNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct GeometryDataNV {
@@ -9682,6 +10496,7 @@ pub struct GeometryDataNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkGeometryNV.html>
+#[doc(alias = "VkGeometryNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct GeometryNV {
@@ -9693,6 +10508,7 @@ pub struct GeometryNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureInfoNV.html>
+#[doc(alias = "VkAccelerationStructureInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AccelerationStructureInfoNV {
@@ -9706,6 +10522,7 @@ pub struct AccelerationStructureInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureCreateInfoNV.html>
+#[doc(alias = "VkAccelerationStructureCreateInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AccelerationStructureCreateInfoNV {
@@ -9716,6 +10533,7 @@ pub struct AccelerationStructureCreateInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBindAccelerationStructureMemoryInfoNV.html>
+#[doc(alias = "VkBindAccelerationStructureMemoryInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BindAccelerationStructureMemoryInfoNV {
@@ -9729,6 +10547,7 @@ pub struct BindAccelerationStructureMemoryInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkWriteDescriptorSetAccelerationStructureNV.html>
+#[doc(alias = "VkWriteDescriptorSetAccelerationStructureNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct WriteDescriptorSetAccelerationStructureNV {
@@ -9739,6 +10558,7 @@ pub struct WriteDescriptorSetAccelerationStructureNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureMemoryRequirementsInfoNV.html>
+#[doc(alias = "VkAccelerationStructureMemoryRequirementsInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AccelerationStructureMemoryRequirementsInfoNV {
@@ -9749,6 +10569,7 @@ pub struct AccelerationStructureMemoryRequirementsInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceRayTracingPropertiesNV.html>
+#[doc(alias = "VkPhysicalDeviceRayTracingPropertiesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceRayTracingPropertiesNV {
@@ -9765,6 +10586,7 @@ pub struct PhysicalDeviceRayTracingPropertiesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTransformMatrixKHR.html>
+#[doc(alias = "VkTransformMatrixKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct TransformMatrixKHR {
@@ -9773,6 +10595,7 @@ pub struct TransformMatrixKHR {
 pub type TransformMatrixNV = TransformMatrixKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAabbPositionsKHR.html>
+#[doc(alias = "VkAabbPositionsKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AabbPositionsKHR {
@@ -9786,6 +10609,7 @@ pub struct AabbPositionsKHR {
 pub type AabbPositionsNV = AabbPositionsKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureInstanceKHR.html>
+#[doc(alias = "VkAccelerationStructureInstanceKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AccelerationStructureInstanceKHR {
@@ -9799,6 +10623,7 @@ pub struct AccelerationStructureInstanceKHR {
 pub type AccelerationStructureInstanceNV = AccelerationStructureInstanceKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceRepresentativeFragmentTestFeaturesNV.html>
+#[doc(alias = "VkPhysicalDeviceRepresentativeFragmentTestFeaturesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceRepresentativeFragmentTestFeaturesNV {
@@ -9808,6 +10633,7 @@ pub struct PhysicalDeviceRepresentativeFragmentTestFeaturesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineRepresentativeFragmentTestStateCreateInfoNV.html>
+#[doc(alias = "VkPipelineRepresentativeFragmentTestStateCreateInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineRepresentativeFragmentTestStateCreateInfoNV {
@@ -9817,6 +10643,7 @@ pub struct PipelineRepresentativeFragmentTestStateCreateInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceImageViewImageFormatInfoEXT.html>
+#[doc(alias = "VkPhysicalDeviceImageViewImageFormatInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceImageViewImageFormatInfoEXT {
@@ -9826,6 +10653,7 @@ pub struct PhysicalDeviceImageViewImageFormatInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFilterCubicImageViewImageFormatPropertiesEXT.html>
+#[doc(alias = "VkFilterCubicImageViewImageFormatPropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct FilterCubicImageViewImageFormatPropertiesEXT {
@@ -9836,6 +10664,7 @@ pub struct FilterCubicImageViewImageFormatPropertiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCooperativeMatrixConversionFeaturesQCOM.html>
+#[doc(alias = "VkPhysicalDeviceCooperativeMatrixConversionFeaturesQCOM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceCooperativeMatrixConversionFeaturesQCOM {
@@ -9845,6 +10674,7 @@ pub struct PhysicalDeviceCooperativeMatrixConversionFeaturesQCOM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceElapsedTimerQueryFeaturesQCOM.html>
+#[doc(alias = "VkPhysicalDeviceElapsedTimerQueryFeaturesQCOM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceElapsedTimerQueryFeaturesQCOM {
@@ -9854,6 +10684,7 @@ pub struct PhysicalDeviceElapsedTimerQueryFeaturesQCOM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImportMemoryHostPointerInfoEXT.html>
+#[doc(alias = "VkImportMemoryHostPointerInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImportMemoryHostPointerInfoEXT {
@@ -9864,6 +10695,7 @@ pub struct ImportMemoryHostPointerInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryHostPointerPropertiesEXT.html>
+#[doc(alias = "VkMemoryHostPointerPropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MemoryHostPointerPropertiesEXT {
@@ -9873,6 +10705,7 @@ pub struct MemoryHostPointerPropertiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceExternalMemoryHostPropertiesEXT.html>
+#[doc(alias = "VkPhysicalDeviceExternalMemoryHostPropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceExternalMemoryHostPropertiesEXT {
@@ -9882,6 +10715,7 @@ pub struct PhysicalDeviceExternalMemoryHostPropertiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCompilerControlCreateInfoAMD.html>
+#[doc(alias = "VkPipelineCompilerControlCreateInfoAMD")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineCompilerControlCreateInfoAMD {
@@ -9891,6 +10725,7 @@ pub struct PipelineCompilerControlCreateInfoAMD {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderCorePropertiesAMD.html>
+#[doc(alias = "VkPhysicalDeviceShaderCorePropertiesAMD")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderCorePropertiesAMD {
@@ -9913,6 +10748,7 @@ pub struct PhysicalDeviceShaderCorePropertiesAMD {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceMemoryOverallocationCreateInfoAMD.html>
+#[doc(alias = "VkDeviceMemoryOverallocationCreateInfoAMD")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DeviceMemoryOverallocationCreateInfoAMD {
@@ -9922,6 +10758,7 @@ pub struct DeviceMemoryOverallocationCreateInfoAMD {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT.html>
+#[doc(alias = "VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceVertexAttributeDivisorPropertiesEXT {
@@ -9931,6 +10768,7 @@ pub struct PhysicalDeviceVertexAttributeDivisorPropertiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPresentFrameTokenGGP.html>
+#[doc(alias = "VkPresentFrameTokenGGP")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PresentFrameTokenGGP {
@@ -9940,6 +10778,7 @@ pub struct PresentFrameTokenGGP {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMeshShaderFeaturesNV.html>
+#[doc(alias = "VkPhysicalDeviceMeshShaderFeaturesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceMeshShaderFeaturesNV {
@@ -9950,6 +10789,7 @@ pub struct PhysicalDeviceMeshShaderFeaturesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMeshShaderPropertiesNV.html>
+#[doc(alias = "VkPhysicalDeviceMeshShaderPropertiesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceMeshShaderPropertiesNV {
@@ -9971,6 +10811,7 @@ pub struct PhysicalDeviceMeshShaderPropertiesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDrawMeshTasksIndirectCommandNV.html>
+#[doc(alias = "VkDrawMeshTasksIndirectCommandNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DrawMeshTasksIndirectCommandNV {
@@ -9979,6 +10820,7 @@ pub struct DrawMeshTasksIndirectCommandNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderImageFootprintFeaturesNV.html>
+#[doc(alias = "VkPhysicalDeviceShaderImageFootprintFeaturesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderImageFootprintFeaturesNV {
@@ -9988,6 +10830,7 @@ pub struct PhysicalDeviceShaderImageFootprintFeaturesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineViewportExclusiveScissorStateCreateInfoNV.html>
+#[doc(alias = "VkPipelineViewportExclusiveScissorStateCreateInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineViewportExclusiveScissorStateCreateInfoNV {
@@ -9998,6 +10841,7 @@ pub struct PipelineViewportExclusiveScissorStateCreateInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceExclusiveScissorFeaturesNV.html>
+#[doc(alias = "VkPhysicalDeviceExclusiveScissorFeaturesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceExclusiveScissorFeaturesNV {
@@ -10007,6 +10851,7 @@ pub struct PhysicalDeviceExclusiveScissorFeaturesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkQueueFamilyCheckpointPropertiesNV.html>
+#[doc(alias = "VkQueueFamilyCheckpointPropertiesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct QueueFamilyCheckpointPropertiesNV {
@@ -10016,6 +10861,7 @@ pub struct QueueFamilyCheckpointPropertiesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCheckpointDataNV.html>
+#[doc(alias = "VkCheckpointDataNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CheckpointDataNV {
@@ -10026,6 +10872,7 @@ pub struct CheckpointDataNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkQueueFamilyCheckpointProperties2NV.html>
+#[doc(alias = "VkQueueFamilyCheckpointProperties2NV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct QueueFamilyCheckpointProperties2NV {
@@ -10035,6 +10882,7 @@ pub struct QueueFamilyCheckpointProperties2NV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCheckpointData2NV.html>
+#[doc(alias = "VkCheckpointData2NV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CheckpointData2NV {
@@ -10045,6 +10893,7 @@ pub struct CheckpointData2NV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePresentTimingFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDevicePresentTimingFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDevicePresentTimingFeaturesEXT {
@@ -10056,6 +10905,7 @@ pub struct PhysicalDevicePresentTimingFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPresentTimingSurfaceCapabilitiesEXT.html>
+#[doc(alias = "VkPresentTimingSurfaceCapabilitiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PresentTimingSurfaceCapabilitiesEXT {
@@ -10068,6 +10918,7 @@ pub struct PresentTimingSurfaceCapabilitiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSwapchainCalibratedTimestampInfoEXT.html>
+#[doc(alias = "VkSwapchainCalibratedTimestampInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SwapchainCalibratedTimestampInfoEXT {
@@ -10079,6 +10930,7 @@ pub struct SwapchainCalibratedTimestampInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSwapchainTimingPropertiesEXT.html>
+#[doc(alias = "VkSwapchainTimingPropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SwapchainTimingPropertiesEXT {
@@ -10089,6 +10941,7 @@ pub struct SwapchainTimingPropertiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSwapchainTimeDomainPropertiesEXT.html>
+#[doc(alias = "VkSwapchainTimeDomainPropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SwapchainTimeDomainPropertiesEXT {
@@ -10100,6 +10953,7 @@ pub struct SwapchainTimeDomainPropertiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPastPresentationTimingInfoEXT.html>
+#[doc(alias = "VkPastPresentationTimingInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PastPresentationTimingInfoEXT {
@@ -10110,6 +10964,7 @@ pub struct PastPresentationTimingInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPresentStageTimeEXT.html>
+#[doc(alias = "VkPresentStageTimeEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PresentStageTimeEXT {
@@ -10118,6 +10973,7 @@ pub struct PresentStageTimeEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPastPresentationTimingEXT.html>
+#[doc(alias = "VkPastPresentationTimingEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PastPresentationTimingEXT {
@@ -10133,6 +10989,7 @@ pub struct PastPresentationTimingEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPastPresentationTimingPropertiesEXT.html>
+#[doc(alias = "VkPastPresentationTimingPropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PastPresentationTimingPropertiesEXT {
@@ -10145,6 +11002,7 @@ pub struct PastPresentationTimingPropertiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPresentTimingInfoEXT.html>
+#[doc(alias = "VkPresentTimingInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PresentTimingInfoEXT {
@@ -10158,6 +11016,7 @@ pub struct PresentTimingInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPresentTimingsInfoEXT.html>
+#[doc(alias = "VkPresentTimingsInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PresentTimingsInfoEXT {
@@ -10168,6 +11027,7 @@ pub struct PresentTimingsInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderIntegerFunctions2FeaturesINTEL.html>
+#[doc(alias = "VkPhysicalDeviceShaderIntegerFunctions2FeaturesINTEL")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderIntegerFunctions2FeaturesINTEL {
@@ -10177,6 +11037,7 @@ pub struct PhysicalDeviceShaderIntegerFunctions2FeaturesINTEL {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceValueDataINTEL.html>
+#[doc(alias = "VkPerformanceValueDataINTEL")]
 #[derive(Clone, Copy)]
 #[repr(C)]
 pub struct PerformanceValueDataINTEL {
@@ -10193,6 +11054,7 @@ impl std::fmt::Debug for PerformanceValueDataINTEL {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceValueINTEL.html>
+#[doc(alias = "VkPerformanceValueINTEL")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PerformanceValueINTEL {
@@ -10201,6 +11063,7 @@ pub struct PerformanceValueINTEL {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkInitializePerformanceApiInfoINTEL.html>
+#[doc(alias = "VkInitializePerformanceApiInfoINTEL")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct InitializePerformanceApiInfoINTEL {
@@ -10210,6 +11073,7 @@ pub struct InitializePerformanceApiInfoINTEL {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkQueryPoolPerformanceQueryCreateInfoINTEL.html>
+#[doc(alias = "VkQueryPoolPerformanceQueryCreateInfoINTEL")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct QueryPoolPerformanceQueryCreateInfoINTEL {
@@ -10220,6 +11084,7 @@ pub struct QueryPoolPerformanceQueryCreateInfoINTEL {
 pub type QueryPoolCreateInfoINTEL = QueryPoolPerformanceQueryCreateInfoINTEL;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceMarkerInfoINTEL.html>
+#[doc(alias = "VkPerformanceMarkerInfoINTEL")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PerformanceMarkerInfoINTEL {
@@ -10229,6 +11094,7 @@ pub struct PerformanceMarkerInfoINTEL {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceStreamMarkerInfoINTEL.html>
+#[doc(alias = "VkPerformanceStreamMarkerInfoINTEL")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PerformanceStreamMarkerInfoINTEL {
@@ -10238,6 +11104,7 @@ pub struct PerformanceStreamMarkerInfoINTEL {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceOverrideInfoINTEL.html>
+#[doc(alias = "VkPerformanceOverrideInfoINTEL")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PerformanceOverrideInfoINTEL {
@@ -10249,6 +11116,7 @@ pub struct PerformanceOverrideInfoINTEL {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceConfigurationAcquireInfoINTEL.html>
+#[doc(alias = "VkPerformanceConfigurationAcquireInfoINTEL")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PerformanceConfigurationAcquireInfoINTEL {
@@ -10258,6 +11126,7 @@ pub struct PerformanceConfigurationAcquireInfoINTEL {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePCIBusInfoPropertiesEXT.html>
+#[doc(alias = "VkPhysicalDevicePCIBusInfoPropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDevicePCIBusInfoPropertiesEXT {
@@ -10270,6 +11139,7 @@ pub struct PhysicalDevicePCIBusInfoPropertiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplayNativeHdrSurfaceCapabilitiesAMD.html>
+#[doc(alias = "VkDisplayNativeHdrSurfaceCapabilitiesAMD")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DisplayNativeHdrSurfaceCapabilitiesAMD {
@@ -10279,6 +11149,7 @@ pub struct DisplayNativeHdrSurfaceCapabilitiesAMD {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSwapchainDisplayNativeHdrCreateInfoAMD.html>
+#[doc(alias = "VkSwapchainDisplayNativeHdrCreateInfoAMD")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SwapchainDisplayNativeHdrCreateInfoAMD {
@@ -10288,6 +11159,7 @@ pub struct SwapchainDisplayNativeHdrCreateInfoAMD {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImagePipeSurfaceCreateInfoFUCHSIA.html>
+#[doc(alias = "VkImagePipeSurfaceCreateInfoFUCHSIA")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImagePipeSurfaceCreateInfoFUCHSIA {
@@ -10298,6 +11170,7 @@ pub struct ImagePipeSurfaceCreateInfoFUCHSIA {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMetalSurfaceCreateInfoEXT.html>
+#[doc(alias = "VkMetalSurfaceCreateInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MetalSurfaceCreateInfoEXT {
@@ -10308,6 +11181,7 @@ pub struct MetalSurfaceCreateInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFragmentDensityMapFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceFragmentDensityMapFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceFragmentDensityMapFeaturesEXT {
@@ -10319,6 +11193,7 @@ pub struct PhysicalDeviceFragmentDensityMapFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFragmentDensityMapPropertiesEXT.html>
+#[doc(alias = "VkPhysicalDeviceFragmentDensityMapPropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceFragmentDensityMapPropertiesEXT {
@@ -10330,6 +11205,7 @@ pub struct PhysicalDeviceFragmentDensityMapPropertiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPassFragmentDensityMapCreateInfoEXT.html>
+#[doc(alias = "VkRenderPassFragmentDensityMapCreateInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct RenderPassFragmentDensityMapCreateInfoEXT {
@@ -10339,6 +11215,7 @@ pub struct RenderPassFragmentDensityMapCreateInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderingFragmentDensityMapAttachmentInfoEXT.html>
+#[doc(alias = "VkRenderingFragmentDensityMapAttachmentInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct RenderingFragmentDensityMapAttachmentInfoEXT {
@@ -10349,6 +11226,7 @@ pub struct RenderingFragmentDensityMapAttachmentInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderCoreProperties2AMD.html>
+#[doc(alias = "VkPhysicalDeviceShaderCoreProperties2AMD")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderCoreProperties2AMD {
@@ -10359,6 +11237,7 @@ pub struct PhysicalDeviceShaderCoreProperties2AMD {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCoherentMemoryFeaturesAMD.html>
+#[doc(alias = "VkPhysicalDeviceCoherentMemoryFeaturesAMD")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceCoherentMemoryFeaturesAMD {
@@ -10368,6 +11247,7 @@ pub struct PhysicalDeviceCoherentMemoryFeaturesAMD {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderImageAtomicInt64FeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceShaderImageAtomicInt64FeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderImageAtomicInt64FeaturesEXT {
@@ -10378,6 +11258,7 @@ pub struct PhysicalDeviceShaderImageAtomicInt64FeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMemoryBudgetPropertiesEXT.html>
+#[doc(alias = "VkPhysicalDeviceMemoryBudgetPropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceMemoryBudgetPropertiesEXT {
@@ -10388,6 +11269,7 @@ pub struct PhysicalDeviceMemoryBudgetPropertiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMemoryPriorityFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceMemoryPriorityFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceMemoryPriorityFeaturesEXT {
@@ -10397,6 +11279,7 @@ pub struct PhysicalDeviceMemoryPriorityFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryPriorityAllocateInfoEXT.html>
+#[doc(alias = "VkMemoryPriorityAllocateInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MemoryPriorityAllocateInfoEXT {
@@ -10406,6 +11289,7 @@ pub struct MemoryPriorityAllocateInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV.html>
+#[doc(alias = "VkPhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV {
@@ -10415,6 +11299,7 @@ pub struct PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceBufferDeviceAddressFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceBufferDeviceAddressFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceBufferDeviceAddressFeaturesEXT {
@@ -10427,6 +11312,7 @@ pub struct PhysicalDeviceBufferDeviceAddressFeaturesEXT {
 pub type PhysicalDeviceBufferAddressFeaturesEXT = PhysicalDeviceBufferDeviceAddressFeaturesEXT;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferDeviceAddressCreateInfoEXT.html>
+#[doc(alias = "VkBufferDeviceAddressCreateInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BufferDeviceAddressCreateInfoEXT {
@@ -10436,6 +11322,7 @@ pub struct BufferDeviceAddressCreateInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkValidationFeaturesEXT.html>
+#[doc(alias = "VkValidationFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ValidationFeaturesEXT {
@@ -10448,6 +11335,7 @@ pub struct ValidationFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCooperativeMatrixPropertiesNV.html>
+#[doc(alias = "VkCooperativeMatrixPropertiesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CooperativeMatrixPropertiesNV {
@@ -10464,6 +11352,7 @@ pub struct CooperativeMatrixPropertiesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCooperativeMatrixFeaturesNV.html>
+#[doc(alias = "VkPhysicalDeviceCooperativeMatrixFeaturesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceCooperativeMatrixFeaturesNV {
@@ -10474,6 +11363,7 @@ pub struct PhysicalDeviceCooperativeMatrixFeaturesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCooperativeMatrixPropertiesNV.html>
+#[doc(alias = "VkPhysicalDeviceCooperativeMatrixPropertiesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceCooperativeMatrixPropertiesNV {
@@ -10483,6 +11373,7 @@ pub struct PhysicalDeviceCooperativeMatrixPropertiesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCoverageReductionModeFeaturesNV.html>
+#[doc(alias = "VkPhysicalDeviceCoverageReductionModeFeaturesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceCoverageReductionModeFeaturesNV {
@@ -10492,6 +11383,7 @@ pub struct PhysicalDeviceCoverageReductionModeFeaturesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCoverageReductionStateCreateInfoNV.html>
+#[doc(alias = "VkPipelineCoverageReductionStateCreateInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineCoverageReductionStateCreateInfoNV {
@@ -10502,6 +11394,7 @@ pub struct PipelineCoverageReductionStateCreateInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFramebufferMixedSamplesCombinationNV.html>
+#[doc(alias = "VkFramebufferMixedSamplesCombinationNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct FramebufferMixedSamplesCombinationNV {
@@ -10514,6 +11407,7 @@ pub struct FramebufferMixedSamplesCombinationNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFragmentShaderInterlockFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceFragmentShaderInterlockFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceFragmentShaderInterlockFeaturesEXT {
@@ -10525,6 +11419,7 @@ pub struct PhysicalDeviceFragmentShaderInterlockFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceYcbcrImageArraysFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceYcbcrImageArraysFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceYcbcrImageArraysFeaturesEXT {
@@ -10534,6 +11429,7 @@ pub struct PhysicalDeviceYcbcrImageArraysFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceProvokingVertexFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceProvokingVertexFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceProvokingVertexFeaturesEXT {
@@ -10544,6 +11440,7 @@ pub struct PhysicalDeviceProvokingVertexFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceProvokingVertexPropertiesEXT.html>
+#[doc(alias = "VkPhysicalDeviceProvokingVertexPropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceProvokingVertexPropertiesEXT {
@@ -10554,6 +11451,7 @@ pub struct PhysicalDeviceProvokingVertexPropertiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineRasterizationProvokingVertexStateCreateInfoEXT.html>
+#[doc(alias = "VkPipelineRasterizationProvokingVertexStateCreateInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineRasterizationProvokingVertexStateCreateInfoEXT {
@@ -10563,6 +11461,7 @@ pub struct PipelineRasterizationProvokingVertexStateCreateInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfaceFullScreenExclusiveInfoEXT.html>
+#[doc(alias = "VkSurfaceFullScreenExclusiveInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SurfaceFullScreenExclusiveInfoEXT {
@@ -10572,6 +11471,7 @@ pub struct SurfaceFullScreenExclusiveInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfaceCapabilitiesFullScreenExclusiveEXT.html>
+#[doc(alias = "VkSurfaceCapabilitiesFullScreenExclusiveEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SurfaceCapabilitiesFullScreenExclusiveEXT {
@@ -10581,6 +11481,7 @@ pub struct SurfaceCapabilitiesFullScreenExclusiveEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfaceFullScreenExclusiveWin32InfoEXT.html>
+#[doc(alias = "VkSurfaceFullScreenExclusiveWin32InfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SurfaceFullScreenExclusiveWin32InfoEXT {
@@ -10590,6 +11491,7 @@ pub struct SurfaceFullScreenExclusiveWin32InfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkHeadlessSurfaceCreateInfoEXT.html>
+#[doc(alias = "VkHeadlessSurfaceCreateInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct HeadlessSurfaceCreateInfoEXT {
@@ -10599,6 +11501,7 @@ pub struct HeadlessSurfaceCreateInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderAtomicFloatFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceShaderAtomicFloatFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderAtomicFloatFeaturesEXT {
@@ -10619,6 +11522,7 @@ pub struct PhysicalDeviceShaderAtomicFloatFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceExtendedDynamicStateFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceExtendedDynamicStateFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceExtendedDynamicStateFeaturesEXT {
@@ -10628,6 +11532,7 @@ pub struct PhysicalDeviceExtendedDynamicStateFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMapMemoryPlacedFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceMapMemoryPlacedFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceMapMemoryPlacedFeaturesEXT {
@@ -10639,6 +11544,7 @@ pub struct PhysicalDeviceMapMemoryPlacedFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMapMemoryPlacedPropertiesEXT.html>
+#[doc(alias = "VkPhysicalDeviceMapMemoryPlacedPropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceMapMemoryPlacedPropertiesEXT {
@@ -10648,6 +11554,7 @@ pub struct PhysicalDeviceMapMemoryPlacedPropertiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryMapPlacedInfoEXT.html>
+#[doc(alias = "VkMemoryMapPlacedInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MemoryMapPlacedInfoEXT {
@@ -10657,6 +11564,7 @@ pub struct MemoryMapPlacedInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderAtomicFloat2FeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceShaderAtomicFloat2FeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderAtomicFloat2FeaturesEXT {
@@ -10677,6 +11585,7 @@ pub struct PhysicalDeviceShaderAtomicFloat2FeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDeviceGeneratedCommandsPropertiesNV.html>
+#[doc(alias = "VkPhysicalDeviceDeviceGeneratedCommandsPropertiesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceDeviceGeneratedCommandsPropertiesNV {
@@ -10694,6 +11603,7 @@ pub struct PhysicalDeviceDeviceGeneratedCommandsPropertiesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDeviceGeneratedCommandsFeaturesNV.html>
+#[doc(alias = "VkPhysicalDeviceDeviceGeneratedCommandsFeaturesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceDeviceGeneratedCommandsFeaturesNV {
@@ -10703,6 +11613,7 @@ pub struct PhysicalDeviceDeviceGeneratedCommandsFeaturesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkGraphicsShaderGroupCreateInfoNV.html>
+#[doc(alias = "VkGraphicsShaderGroupCreateInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct GraphicsShaderGroupCreateInfoNV {
@@ -10715,6 +11626,7 @@ pub struct GraphicsShaderGroupCreateInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkGraphicsPipelineShaderGroupsCreateInfoNV.html>
+#[doc(alias = "VkGraphicsPipelineShaderGroupsCreateInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct GraphicsPipelineShaderGroupsCreateInfoNV {
@@ -10727,6 +11639,7 @@ pub struct GraphicsPipelineShaderGroupsCreateInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBindShaderGroupIndirectCommandNV.html>
+#[doc(alias = "VkBindShaderGroupIndirectCommandNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BindShaderGroupIndirectCommandNV {
@@ -10734,6 +11647,7 @@ pub struct BindShaderGroupIndirectCommandNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBindIndexBufferIndirectCommandNV.html>
+#[doc(alias = "VkBindIndexBufferIndirectCommandNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BindIndexBufferIndirectCommandNV {
@@ -10743,6 +11657,7 @@ pub struct BindIndexBufferIndirectCommandNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBindVertexBufferIndirectCommandNV.html>
+#[doc(alias = "VkBindVertexBufferIndirectCommandNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BindVertexBufferIndirectCommandNV {
@@ -10752,6 +11667,7 @@ pub struct BindVertexBufferIndirectCommandNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSetStateFlagsIndirectCommandNV.html>
+#[doc(alias = "VkSetStateFlagsIndirectCommandNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SetStateFlagsIndirectCommandNV {
@@ -10759,6 +11675,7 @@ pub struct SetStateFlagsIndirectCommandNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectCommandsStreamNV.html>
+#[doc(alias = "VkIndirectCommandsStreamNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct IndirectCommandsStreamNV {
@@ -10767,6 +11684,7 @@ pub struct IndirectCommandsStreamNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectCommandsLayoutTokenNV.html>
+#[doc(alias = "VkIndirectCommandsLayoutTokenNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct IndirectCommandsLayoutTokenNV {
@@ -10788,6 +11706,7 @@ pub struct IndirectCommandsLayoutTokenNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectCommandsLayoutCreateInfoNV.html>
+#[doc(alias = "VkIndirectCommandsLayoutCreateInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct IndirectCommandsLayoutCreateInfoNV {
@@ -10802,6 +11721,7 @@ pub struct IndirectCommandsLayoutCreateInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkGeneratedCommandsInfoNV.html>
+#[doc(alias = "VkGeneratedCommandsInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct GeneratedCommandsInfoNV {
@@ -10823,6 +11743,7 @@ pub struct GeneratedCommandsInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkGeneratedCommandsMemoryRequirementsInfoNV.html>
+#[doc(alias = "VkGeneratedCommandsMemoryRequirementsInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct GeneratedCommandsMemoryRequirementsInfoNV {
@@ -10835,6 +11756,7 @@ pub struct GeneratedCommandsMemoryRequirementsInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceInheritedViewportScissorFeaturesNV.html>
+#[doc(alias = "VkPhysicalDeviceInheritedViewportScissorFeaturesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceInheritedViewportScissorFeaturesNV {
@@ -10844,6 +11766,7 @@ pub struct PhysicalDeviceInheritedViewportScissorFeaturesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandBufferInheritanceViewportScissorInfoNV.html>
+#[doc(alias = "VkCommandBufferInheritanceViewportScissorInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CommandBufferInheritanceViewportScissorInfoNV {
@@ -10855,6 +11778,7 @@ pub struct CommandBufferInheritanceViewportScissorInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceTexelBufferAlignmentFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceTexelBufferAlignmentFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceTexelBufferAlignmentFeaturesEXT {
@@ -10864,6 +11788,7 @@ pub struct PhysicalDeviceTexelBufferAlignmentFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPassTransformBeginInfoQCOM.html>
+#[doc(alias = "VkRenderPassTransformBeginInfoQCOM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct RenderPassTransformBeginInfoQCOM {
@@ -10873,6 +11798,7 @@ pub struct RenderPassTransformBeginInfoQCOM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandBufferInheritanceRenderPassTransformInfoQCOM.html>
+#[doc(alias = "VkCommandBufferInheritanceRenderPassTransformInfoQCOM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CommandBufferInheritanceRenderPassTransformInfoQCOM {
@@ -10883,6 +11809,7 @@ pub struct CommandBufferInheritanceRenderPassTransformInfoQCOM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDepthBiasControlFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceDepthBiasControlFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceDepthBiasControlFeaturesEXT {
@@ -10895,6 +11822,7 @@ pub struct PhysicalDeviceDepthBiasControlFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDepthBiasInfoEXT.html>
+#[doc(alias = "VkDepthBiasInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DepthBiasInfoEXT {
@@ -10906,6 +11834,7 @@ pub struct DepthBiasInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDepthBiasRepresentationInfoEXT.html>
+#[doc(alias = "VkDepthBiasRepresentationInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DepthBiasRepresentationInfoEXT {
@@ -10916,6 +11845,7 @@ pub struct DepthBiasRepresentationInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDeviceMemoryReportFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceDeviceMemoryReportFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceDeviceMemoryReportFeaturesEXT {
@@ -10925,6 +11855,7 @@ pub struct PhysicalDeviceDeviceMemoryReportFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceMemoryReportCallbackDataEXT.html>
+#[doc(alias = "VkDeviceMemoryReportCallbackDataEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DeviceMemoryReportCallbackDataEXT {
@@ -10940,6 +11871,7 @@ pub struct DeviceMemoryReportCallbackDataEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceDeviceMemoryReportCreateInfoEXT.html>
+#[doc(alias = "VkDeviceDeviceMemoryReportCreateInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DeviceDeviceMemoryReportCreateInfoEXT {
@@ -10951,6 +11883,7 @@ pub struct DeviceDeviceMemoryReportCreateInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCustomBorderColorPropertiesEXT.html>
+#[doc(alias = "VkPhysicalDeviceCustomBorderColorPropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceCustomBorderColorPropertiesEXT {
@@ -10960,6 +11893,7 @@ pub struct PhysicalDeviceCustomBorderColorPropertiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCustomBorderColorFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceCustomBorderColorFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceCustomBorderColorFeaturesEXT {
@@ -10970,6 +11904,7 @@ pub struct PhysicalDeviceCustomBorderColorFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceTextureCompressionASTC3DFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceTextureCompressionASTC3DFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceTextureCompressionASTC3DFeaturesEXT {
@@ -10979,6 +11914,7 @@ pub struct PhysicalDeviceTextureCompressionASTC3DFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePresentBarrierFeaturesNV.html>
+#[doc(alias = "VkPhysicalDevicePresentBarrierFeaturesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDevicePresentBarrierFeaturesNV {
@@ -10988,6 +11924,7 @@ pub struct PhysicalDevicePresentBarrierFeaturesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfaceCapabilitiesPresentBarrierNV.html>
+#[doc(alias = "VkSurfaceCapabilitiesPresentBarrierNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SurfaceCapabilitiesPresentBarrierNV {
@@ -10997,6 +11934,7 @@ pub struct SurfaceCapabilitiesPresentBarrierNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSwapchainPresentBarrierCreateInfoNV.html>
+#[doc(alias = "VkSwapchainPresentBarrierCreateInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SwapchainPresentBarrierCreateInfoNV {
@@ -11006,6 +11944,7 @@ pub struct SwapchainPresentBarrierCreateInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDiagnosticsConfigFeaturesNV.html>
+#[doc(alias = "VkPhysicalDeviceDiagnosticsConfigFeaturesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceDiagnosticsConfigFeaturesNV {
@@ -11015,6 +11954,7 @@ pub struct PhysicalDeviceDiagnosticsConfigFeaturesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceDiagnosticsConfigCreateInfoNV.html>
+#[doc(alias = "VkDeviceDiagnosticsConfigCreateInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DeviceDiagnosticsConfigCreateInfoNV {
@@ -11024,6 +11964,7 @@ pub struct DeviceDiagnosticsConfigCreateInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPerfHintInfoQCOM.html>
+#[doc(alias = "VkPerfHintInfoQCOM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PerfHintInfoQCOM {
@@ -11034,6 +11975,7 @@ pub struct PerfHintInfoQCOM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceQueuePerfHintFeaturesQCOM.html>
+#[doc(alias = "VkPhysicalDeviceQueuePerfHintFeaturesQCOM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceQueuePerfHintFeaturesQCOM {
@@ -11043,6 +11985,7 @@ pub struct PhysicalDeviceQueuePerfHintFeaturesQCOM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceQueuePerfHintPropertiesQCOM.html>
+#[doc(alias = "VkPhysicalDeviceQueuePerfHintPropertiesQCOM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceQueuePerfHintPropertiesQCOM {
@@ -11052,6 +11995,7 @@ pub struct PhysicalDeviceQueuePerfHintPropertiesQCOM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceImageProcessing3FeaturesQCOM.html>
+#[doc(alias = "VkPhysicalDeviceImageProcessing3FeaturesQCOM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceImageProcessing3FeaturesQCOM {
@@ -11063,6 +12007,7 @@ pub struct PhysicalDeviceImageProcessing3FeaturesQCOM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderMultipleWaitQueuesFeaturesQCOM.html>
+#[doc(alias = "VkPhysicalDeviceShaderMultipleWaitQueuesFeaturesQCOM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderMultipleWaitQueuesFeaturesQCOM {
@@ -11072,6 +12017,7 @@ pub struct PhysicalDeviceShaderMultipleWaitQueuesFeaturesQCOM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderMultipleWaitQueuesPropertiesQCOM.html>
+#[doc(alias = "VkPhysicalDeviceShaderMultipleWaitQueuesPropertiesQCOM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderMultipleWaitQueuesPropertiesQCOM {
@@ -11081,6 +12027,7 @@ pub struct PhysicalDeviceShaderMultipleWaitQueuesPropertiesQCOM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderSplitBarrierFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceShaderSplitBarrierFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderSplitBarrierFeaturesEXT {
@@ -11090,6 +12037,7 @@ pub struct PhysicalDeviceShaderSplitBarrierFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderSplitBarrierPropertiesEXT.html>
+#[doc(alias = "VkPhysicalDeviceShaderSplitBarrierPropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderSplitBarrierPropertiesEXT {
@@ -11099,6 +12047,7 @@ pub struct PhysicalDeviceShaderSplitBarrierPropertiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCudaModuleCreateInfoNV.html>
+#[doc(alias = "VkCudaModuleCreateInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CudaModuleCreateInfoNV {
@@ -11109,6 +12058,7 @@ pub struct CudaModuleCreateInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCudaFunctionCreateInfoNV.html>
+#[doc(alias = "VkCudaFunctionCreateInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CudaFunctionCreateInfoNV {
@@ -11119,6 +12069,7 @@ pub struct CudaFunctionCreateInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCudaLaunchInfoNV.html>
+#[doc(alias = "VkCudaLaunchInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CudaLaunchInfoNV {
@@ -11139,6 +12090,7 @@ pub struct CudaLaunchInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCudaKernelLaunchFeaturesNV.html>
+#[doc(alias = "VkPhysicalDeviceCudaKernelLaunchFeaturesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceCudaKernelLaunchFeaturesNV {
@@ -11148,6 +12100,7 @@ pub struct PhysicalDeviceCudaKernelLaunchFeaturesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCudaKernelLaunchPropertiesNV.html>
+#[doc(alias = "VkPhysicalDeviceCudaKernelLaunchPropertiesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceCudaKernelLaunchPropertiesNV {
@@ -11158,6 +12111,7 @@ pub struct PhysicalDeviceCudaKernelLaunchPropertiesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceTileShadingFeaturesQCOM.html>
+#[doc(alias = "VkPhysicalDeviceTileShadingFeaturesQCOM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceTileShadingFeaturesQCOM {
@@ -11180,6 +12134,7 @@ pub struct PhysicalDeviceTileShadingFeaturesQCOM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceTileShadingPropertiesQCOM.html>
+#[doc(alias = "VkPhysicalDeviceTileShadingPropertiesQCOM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceTileShadingPropertiesQCOM {
@@ -11192,6 +12147,7 @@ pub struct PhysicalDeviceTileShadingPropertiesQCOM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPassTileShadingCreateInfoQCOM.html>
+#[doc(alias = "VkRenderPassTileShadingCreateInfoQCOM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct RenderPassTileShadingCreateInfoQCOM {
@@ -11202,6 +12158,7 @@ pub struct RenderPassTileShadingCreateInfoQCOM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPerTileBeginInfoQCOM.html>
+#[doc(alias = "VkPerTileBeginInfoQCOM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PerTileBeginInfoQCOM {
@@ -11210,6 +12167,7 @@ pub struct PerTileBeginInfoQCOM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPerTileEndInfoQCOM.html>
+#[doc(alias = "VkPerTileEndInfoQCOM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PerTileEndInfoQCOM {
@@ -11218,6 +12176,7 @@ pub struct PerTileEndInfoQCOM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDispatchTileInfoQCOM.html>
+#[doc(alias = "VkDispatchTileInfoQCOM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DispatchTileInfoQCOM {
@@ -11226,6 +12185,7 @@ pub struct DispatchTileInfoQCOM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkQueryLowLatencySupportNV.html>
+#[doc(alias = "VkQueryLowLatencySupportNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct QueryLowLatencySupportNV {
@@ -11235,6 +12195,7 @@ pub struct QueryLowLatencySupportNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExportMetalObjectCreateInfoEXT.html>
+#[doc(alias = "VkExportMetalObjectCreateInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ExportMetalObjectCreateInfoEXT {
@@ -11244,6 +12205,7 @@ pub struct ExportMetalObjectCreateInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExportMetalObjectsInfoEXT.html>
+#[doc(alias = "VkExportMetalObjectsInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ExportMetalObjectsInfoEXT {
@@ -11252,6 +12214,7 @@ pub struct ExportMetalObjectsInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExportMetalDeviceInfoEXT.html>
+#[doc(alias = "VkExportMetalDeviceInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ExportMetalDeviceInfoEXT {
@@ -11261,6 +12224,7 @@ pub struct ExportMetalDeviceInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExportMetalCommandQueueInfoEXT.html>
+#[doc(alias = "VkExportMetalCommandQueueInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ExportMetalCommandQueueInfoEXT {
@@ -11271,6 +12235,7 @@ pub struct ExportMetalCommandQueueInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExportMetalBufferInfoEXT.html>
+#[doc(alias = "VkExportMetalBufferInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ExportMetalBufferInfoEXT {
@@ -11281,6 +12246,7 @@ pub struct ExportMetalBufferInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImportMetalBufferInfoEXT.html>
+#[doc(alias = "VkImportMetalBufferInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImportMetalBufferInfoEXT {
@@ -11290,6 +12256,7 @@ pub struct ImportMetalBufferInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExportMetalTextureInfoEXT.html>
+#[doc(alias = "VkExportMetalTextureInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ExportMetalTextureInfoEXT {
@@ -11303,6 +12270,7 @@ pub struct ExportMetalTextureInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImportMetalTextureInfoEXT.html>
+#[doc(alias = "VkImportMetalTextureInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImportMetalTextureInfoEXT {
@@ -11313,6 +12281,7 @@ pub struct ImportMetalTextureInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExportMetalIOSurfaceInfoEXT.html>
+#[doc(alias = "VkExportMetalIOSurfaceInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ExportMetalIOSurfaceInfoEXT {
@@ -11323,6 +12292,7 @@ pub struct ExportMetalIOSurfaceInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImportMetalIOSurfaceInfoEXT.html>
+#[doc(alias = "VkImportMetalIOSurfaceInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImportMetalIOSurfaceInfoEXT {
@@ -11332,6 +12302,7 @@ pub struct ImportMetalIOSurfaceInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExportMetalSharedEventInfoEXT.html>
+#[doc(alias = "VkExportMetalSharedEventInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ExportMetalSharedEventInfoEXT {
@@ -11343,6 +12314,7 @@ pub struct ExportMetalSharedEventInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImportMetalSharedEventInfoEXT.html>
+#[doc(alias = "VkImportMetalSharedEventInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImportMetalSharedEventInfoEXT {
@@ -11352,6 +12324,7 @@ pub struct ImportMetalSharedEventInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDescriptorBufferPropertiesEXT.html>
+#[doc(alias = "VkPhysicalDeviceDescriptorBufferPropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceDescriptorBufferPropertiesEXT {
@@ -11393,6 +12366,7 @@ pub struct PhysicalDeviceDescriptorBufferPropertiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDescriptorBufferFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceDescriptorBufferFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceDescriptorBufferFeaturesEXT {
@@ -11405,6 +12379,7 @@ pub struct PhysicalDeviceDescriptorBufferFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorAddressInfoEXT.html>
+#[doc(alias = "VkDescriptorAddressInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DescriptorAddressInfoEXT {
@@ -11416,6 +12391,7 @@ pub struct DescriptorAddressInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorBufferBindingInfoEXT.html>
+#[doc(alias = "VkDescriptorBufferBindingInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DescriptorBufferBindingInfoEXT {
@@ -11426,6 +12402,7 @@ pub struct DescriptorBufferBindingInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorBufferBindingPushDescriptorBufferHandleEXT.html>
+#[doc(alias = "VkDescriptorBufferBindingPushDescriptorBufferHandleEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DescriptorBufferBindingPushDescriptorBufferHandleEXT {
@@ -11435,6 +12412,7 @@ pub struct DescriptorBufferBindingPushDescriptorBufferHandleEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorDataEXT.html>
+#[doc(alias = "VkDescriptorDataEXT")]
 #[derive(Clone, Copy)]
 #[repr(C)]
 pub struct DescriptorDataEXT {
@@ -11456,6 +12434,7 @@ impl std::fmt::Debug for DescriptorDataEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorGetInfoEXT.html>
+#[doc(alias = "VkDescriptorGetInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DescriptorGetInfoEXT {
@@ -11466,6 +12445,7 @@ pub struct DescriptorGetInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferCaptureDescriptorDataInfoEXT.html>
+#[doc(alias = "VkBufferCaptureDescriptorDataInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BufferCaptureDescriptorDataInfoEXT {
@@ -11475,6 +12455,7 @@ pub struct BufferCaptureDescriptorDataInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageCaptureDescriptorDataInfoEXT.html>
+#[doc(alias = "VkImageCaptureDescriptorDataInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageCaptureDescriptorDataInfoEXT {
@@ -11484,6 +12465,7 @@ pub struct ImageCaptureDescriptorDataInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageViewCaptureDescriptorDataInfoEXT.html>
+#[doc(alias = "VkImageViewCaptureDescriptorDataInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageViewCaptureDescriptorDataInfoEXT {
@@ -11493,6 +12475,7 @@ pub struct ImageViewCaptureDescriptorDataInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerCaptureDescriptorDataInfoEXT.html>
+#[doc(alias = "VkSamplerCaptureDescriptorDataInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SamplerCaptureDescriptorDataInfoEXT {
@@ -11502,6 +12485,7 @@ pub struct SamplerCaptureDescriptorDataInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkOpaqueCaptureDescriptorDataCreateInfoEXT.html>
+#[doc(alias = "VkOpaqueCaptureDescriptorDataCreateInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct OpaqueCaptureDescriptorDataCreateInfoEXT {
@@ -11511,6 +12495,7 @@ pub struct OpaqueCaptureDescriptorDataCreateInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureCaptureDescriptorDataInfoEXT.html>
+#[doc(alias = "VkAccelerationStructureCaptureDescriptorDataInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AccelerationStructureCaptureDescriptorDataInfoEXT {
@@ -11521,6 +12506,7 @@ pub struct AccelerationStructureCaptureDescriptorDataInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT.html>
+#[doc(alias = "VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceDescriptorBufferDensityMapPropertiesEXT {
@@ -11530,6 +12516,7 @@ pub struct PhysicalDeviceDescriptorBufferDensityMapPropertiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceGraphicsPipelineLibraryFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceGraphicsPipelineLibraryFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceGraphicsPipelineLibraryFeaturesEXT {
@@ -11539,6 +12526,7 @@ pub struct PhysicalDeviceGraphicsPipelineLibraryFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceGraphicsPipelineLibraryPropertiesEXT.html>
+#[doc(alias = "VkPhysicalDeviceGraphicsPipelineLibraryPropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceGraphicsPipelineLibraryPropertiesEXT {
@@ -11549,6 +12537,7 @@ pub struct PhysicalDeviceGraphicsPipelineLibraryPropertiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkGraphicsPipelineLibraryCreateInfoEXT.html>
+#[doc(alias = "VkGraphicsPipelineLibraryCreateInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct GraphicsPipelineLibraryCreateInfoEXT {
@@ -11558,6 +12547,7 @@ pub struct GraphicsPipelineLibraryCreateInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD.html>
+#[doc(alias = "VkPhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD {
@@ -11567,6 +12557,7 @@ pub struct PhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFragmentShadingRateEnumsFeaturesNV.html>
+#[doc(alias = "VkPhysicalDeviceFragmentShadingRateEnumsFeaturesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceFragmentShadingRateEnumsFeaturesNV {
@@ -11578,6 +12569,7 @@ pub struct PhysicalDeviceFragmentShadingRateEnumsFeaturesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV.html>
+#[doc(alias = "VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceFragmentShadingRateEnumsPropertiesNV {
@@ -11587,6 +12579,7 @@ pub struct PhysicalDeviceFragmentShadingRateEnumsPropertiesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineFragmentShadingRateEnumStateCreateInfoNV.html>
+#[doc(alias = "VkPipelineFragmentShadingRateEnumStateCreateInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineFragmentShadingRateEnumStateCreateInfoNV {
@@ -11598,6 +12591,7 @@ pub struct PipelineFragmentShadingRateEnumStateCreateInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceOrHostAddressConstKHR.html>
+#[doc(alias = "VkDeviceOrHostAddressConstKHR")]
 #[derive(Clone, Copy)]
 #[repr(C)]
 pub struct DeviceOrHostAddressConstKHR {
@@ -11611,6 +12605,7 @@ impl std::fmt::Debug for DeviceOrHostAddressConstKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureGeometryMotionTrianglesDataNV.html>
+#[doc(alias = "VkAccelerationStructureGeometryMotionTrianglesDataNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AccelerationStructureGeometryMotionTrianglesDataNV {
@@ -11620,6 +12615,7 @@ pub struct AccelerationStructureGeometryMotionTrianglesDataNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureMotionInfoNV.html>
+#[doc(alias = "VkAccelerationStructureMotionInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AccelerationStructureMotionInfoNV {
@@ -11630,6 +12626,7 @@ pub struct AccelerationStructureMotionInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureMatrixMotionInstanceNV.html>
+#[doc(alias = "VkAccelerationStructureMatrixMotionInstanceNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AccelerationStructureMatrixMotionInstanceNV {
@@ -11643,6 +12640,7 @@ pub struct AccelerationStructureMatrixMotionInstanceNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSRTDataNV.html>
+#[doc(alias = "VkSRTDataNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SRTDataNV {
@@ -11665,6 +12663,7 @@ pub struct SRTDataNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureSRTMotionInstanceNV.html>
+#[doc(alias = "VkAccelerationStructureSRTMotionInstanceNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AccelerationStructureSRTMotionInstanceNV {
@@ -11678,6 +12677,7 @@ pub struct AccelerationStructureSRTMotionInstanceNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureMotionInstanceDataNV.html>
+#[doc(alias = "VkAccelerationStructureMotionInstanceDataNV")]
 #[derive(Clone, Copy)]
 #[repr(C)]
 pub struct AccelerationStructureMotionInstanceDataNV {
@@ -11692,6 +12692,7 @@ impl std::fmt::Debug for AccelerationStructureMotionInstanceDataNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureMotionInstanceNV.html>
+#[doc(alias = "VkAccelerationStructureMotionInstanceNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AccelerationStructureMotionInstanceNV {
@@ -11701,6 +12702,7 @@ pub struct AccelerationStructureMotionInstanceNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceRayTracingMotionBlurFeaturesNV.html>
+#[doc(alias = "VkPhysicalDeviceRayTracingMotionBlurFeaturesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceRayTracingMotionBlurFeaturesNV {
@@ -11711,6 +12713,7 @@ pub struct PhysicalDeviceRayTracingMotionBlurFeaturesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT {
@@ -11720,6 +12723,7 @@ pub struct PhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFragmentDensityMap2FeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceFragmentDensityMap2FeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceFragmentDensityMap2FeaturesEXT {
@@ -11729,6 +12733,7 @@ pub struct PhysicalDeviceFragmentDensityMap2FeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFragmentDensityMap2PropertiesEXT.html>
+#[doc(alias = "VkPhysicalDeviceFragmentDensityMap2PropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceFragmentDensityMap2PropertiesEXT {
@@ -11741,6 +12746,7 @@ pub struct PhysicalDeviceFragmentDensityMap2PropertiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyCommandTransformInfoQCOM.html>
+#[doc(alias = "VkCopyCommandTransformInfoQCOM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CopyCommandTransformInfoQCOM {
@@ -11750,6 +12756,7 @@ pub struct CopyCommandTransformInfoQCOM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceImageCompressionControlFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceImageCompressionControlFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceImageCompressionControlFeaturesEXT {
@@ -11759,6 +12766,7 @@ pub struct PhysicalDeviceImageCompressionControlFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageCompressionControlEXT.html>
+#[doc(alias = "VkImageCompressionControlEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageCompressionControlEXT {
@@ -11770,6 +12778,7 @@ pub struct ImageCompressionControlEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageCompressionPropertiesEXT.html>
+#[doc(alias = "VkImageCompressionPropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageCompressionPropertiesEXT {
@@ -11780,6 +12789,7 @@ pub struct ImageCompressionPropertiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT {
@@ -11789,6 +12799,7 @@ pub struct PhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevice4444FormatsFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDevice4444FormatsFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDevice4444FormatsFeaturesEXT {
@@ -11799,6 +12810,7 @@ pub struct PhysicalDevice4444FormatsFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFaultFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceFaultFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceFaultFeaturesEXT {
@@ -11809,6 +12821,7 @@ pub struct PhysicalDeviceFaultFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceFaultCountsEXT.html>
+#[doc(alias = "VkDeviceFaultCountsEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DeviceFaultCountsEXT {
@@ -11820,6 +12833,7 @@ pub struct DeviceFaultCountsEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceFaultInfoEXT.html>
+#[doc(alias = "VkDeviceFaultInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DeviceFaultInfoEXT {
@@ -11832,6 +12846,7 @@ pub struct DeviceFaultInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT {
@@ -11845,6 +12860,7 @@ pub type PhysicalDeviceRasterizationOrderAttachmentAccessFeaturesARM =
     PhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceRGBA10X6FormatsFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceRGBA10X6FormatsFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceRGBA10X6FormatsFeaturesEXT {
@@ -11854,6 +12870,7 @@ pub struct PhysicalDeviceRGBA10X6FormatsFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDirectFBSurfaceCreateInfoEXT.html>
+#[doc(alias = "VkDirectFBSurfaceCreateInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DirectFBSurfaceCreateInfoEXT {
@@ -11865,6 +12882,7 @@ pub struct DirectFBSurfaceCreateInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMutableDescriptorTypeFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceMutableDescriptorTypeFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceMutableDescriptorTypeFeaturesEXT {
@@ -11876,6 +12894,7 @@ pub type PhysicalDeviceMutableDescriptorTypeFeaturesVALVE =
     PhysicalDeviceMutableDescriptorTypeFeaturesEXT;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMutableDescriptorTypeListEXT.html>
+#[doc(alias = "VkMutableDescriptorTypeListEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MutableDescriptorTypeListEXT {
@@ -11885,6 +12904,7 @@ pub struct MutableDescriptorTypeListEXT {
 pub type MutableDescriptorTypeListVALVE = MutableDescriptorTypeListEXT;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMutableDescriptorTypeCreateInfoEXT.html>
+#[doc(alias = "VkMutableDescriptorTypeCreateInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MutableDescriptorTypeCreateInfoEXT {
@@ -11896,6 +12916,7 @@ pub struct MutableDescriptorTypeCreateInfoEXT {
 pub type MutableDescriptorTypeCreateInfoVALVE = MutableDescriptorTypeCreateInfoEXT;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVertexInputDynamicStateFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceVertexInputDynamicStateFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceVertexInputDynamicStateFeaturesEXT {
@@ -11905,6 +12926,7 @@ pub struct PhysicalDeviceVertexInputDynamicStateFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVertexInputBindingDescription2EXT.html>
+#[doc(alias = "VkVertexInputBindingDescription2EXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VertexInputBindingDescription2EXT {
@@ -11917,6 +12939,7 @@ pub struct VertexInputBindingDescription2EXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVertexInputAttributeDescription2EXT.html>
+#[doc(alias = "VkVertexInputAttributeDescription2EXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VertexInputAttributeDescription2EXT {
@@ -11929,6 +12952,7 @@ pub struct VertexInputAttributeDescription2EXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDrmPropertiesEXT.html>
+#[doc(alias = "VkPhysicalDeviceDrmPropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceDrmPropertiesEXT {
@@ -11943,6 +12967,7 @@ pub struct PhysicalDeviceDrmPropertiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceAddressBindingReportFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceAddressBindingReportFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceAddressBindingReportFeaturesEXT {
@@ -11952,6 +12977,7 @@ pub struct PhysicalDeviceAddressBindingReportFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceAddressBindingCallbackDataEXT.html>
+#[doc(alias = "VkDeviceAddressBindingCallbackDataEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DeviceAddressBindingCallbackDataEXT {
@@ -11964,6 +12990,7 @@ pub struct DeviceAddressBindingCallbackDataEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDepthClipControlFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceDepthClipControlFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceDepthClipControlFeaturesEXT {
@@ -11973,6 +13000,7 @@ pub struct PhysicalDeviceDepthClipControlFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineViewportDepthClipControlCreateInfoEXT.html>
+#[doc(alias = "VkPipelineViewportDepthClipControlCreateInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineViewportDepthClipControlCreateInfoEXT {
@@ -11982,6 +13010,7 @@ pub struct PipelineViewportDepthClipControlCreateInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDevicePrimitiveTopologyListRestartFeaturesEXT {
@@ -11992,6 +13021,7 @@ pub struct PhysicalDevicePrimitiveTopologyListRestartFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImportMemoryZirconHandleInfoFUCHSIA.html>
+#[doc(alias = "VkImportMemoryZirconHandleInfoFUCHSIA")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImportMemoryZirconHandleInfoFUCHSIA {
@@ -12002,6 +13032,7 @@ pub struct ImportMemoryZirconHandleInfoFUCHSIA {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryZirconHandlePropertiesFUCHSIA.html>
+#[doc(alias = "VkMemoryZirconHandlePropertiesFUCHSIA")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MemoryZirconHandlePropertiesFUCHSIA {
@@ -12011,6 +13042,7 @@ pub struct MemoryZirconHandlePropertiesFUCHSIA {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryGetZirconHandleInfoFUCHSIA.html>
+#[doc(alias = "VkMemoryGetZirconHandleInfoFUCHSIA")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MemoryGetZirconHandleInfoFUCHSIA {
@@ -12021,6 +13053,7 @@ pub struct MemoryGetZirconHandleInfoFUCHSIA {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImportSemaphoreZirconHandleInfoFUCHSIA.html>
+#[doc(alias = "VkImportSemaphoreZirconHandleInfoFUCHSIA")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImportSemaphoreZirconHandleInfoFUCHSIA {
@@ -12033,6 +13066,7 @@ pub struct ImportSemaphoreZirconHandleInfoFUCHSIA {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSemaphoreGetZirconHandleInfoFUCHSIA.html>
+#[doc(alias = "VkSemaphoreGetZirconHandleInfoFUCHSIA")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SemaphoreGetZirconHandleInfoFUCHSIA {
@@ -12043,6 +13077,7 @@ pub struct SemaphoreGetZirconHandleInfoFUCHSIA {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferCollectionCreateInfoFUCHSIA.html>
+#[doc(alias = "VkBufferCollectionCreateInfoFUCHSIA")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BufferCollectionCreateInfoFUCHSIA {
@@ -12052,6 +13087,7 @@ pub struct BufferCollectionCreateInfoFUCHSIA {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImportMemoryBufferCollectionFUCHSIA.html>
+#[doc(alias = "VkImportMemoryBufferCollectionFUCHSIA")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImportMemoryBufferCollectionFUCHSIA {
@@ -12062,6 +13098,7 @@ pub struct ImportMemoryBufferCollectionFUCHSIA {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferCollectionImageCreateInfoFUCHSIA.html>
+#[doc(alias = "VkBufferCollectionImageCreateInfoFUCHSIA")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BufferCollectionImageCreateInfoFUCHSIA {
@@ -12072,6 +13109,7 @@ pub struct BufferCollectionImageCreateInfoFUCHSIA {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferCollectionConstraintsInfoFUCHSIA.html>
+#[doc(alias = "VkBufferCollectionConstraintsInfoFUCHSIA")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BufferCollectionConstraintsInfoFUCHSIA {
@@ -12085,6 +13123,7 @@ pub struct BufferCollectionConstraintsInfoFUCHSIA {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferConstraintsInfoFUCHSIA.html>
+#[doc(alias = "VkBufferConstraintsInfoFUCHSIA")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BufferConstraintsInfoFUCHSIA {
@@ -12096,6 +13135,7 @@ pub struct BufferConstraintsInfoFUCHSIA {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferCollectionBufferCreateInfoFUCHSIA.html>
+#[doc(alias = "VkBufferCollectionBufferCreateInfoFUCHSIA")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BufferCollectionBufferCreateInfoFUCHSIA {
@@ -12106,6 +13146,7 @@ pub struct BufferCollectionBufferCreateInfoFUCHSIA {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSysmemColorSpaceFUCHSIA.html>
+#[doc(alias = "VkSysmemColorSpaceFUCHSIA")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SysmemColorSpaceFUCHSIA {
@@ -12115,6 +13156,7 @@ pub struct SysmemColorSpaceFUCHSIA {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferCollectionPropertiesFUCHSIA.html>
+#[doc(alias = "VkBufferCollectionPropertiesFUCHSIA")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BufferCollectionPropertiesFUCHSIA {
@@ -12134,6 +13176,7 @@ pub struct BufferCollectionPropertiesFUCHSIA {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageFormatConstraintsInfoFUCHSIA.html>
+#[doc(alias = "VkImageFormatConstraintsInfoFUCHSIA")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageFormatConstraintsInfoFUCHSIA {
@@ -12148,6 +13191,7 @@ pub struct ImageFormatConstraintsInfoFUCHSIA {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageConstraintsInfoFUCHSIA.html>
+#[doc(alias = "VkImageConstraintsInfoFUCHSIA")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageConstraintsInfoFUCHSIA {
@@ -12160,6 +13204,7 @@ pub struct ImageConstraintsInfoFUCHSIA {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSubpassShadingPipelineCreateInfoHUAWEI.html>
+#[doc(alias = "VkSubpassShadingPipelineCreateInfoHUAWEI")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SubpassShadingPipelineCreateInfoHUAWEI {
@@ -12170,6 +13215,7 @@ pub struct SubpassShadingPipelineCreateInfoHUAWEI {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSubpassShadingFeaturesHUAWEI.html>
+#[doc(alias = "VkPhysicalDeviceSubpassShadingFeaturesHUAWEI")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceSubpassShadingFeaturesHUAWEI {
@@ -12179,6 +13225,7 @@ pub struct PhysicalDeviceSubpassShadingFeaturesHUAWEI {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSubpassShadingPropertiesHUAWEI.html>
+#[doc(alias = "VkPhysicalDeviceSubpassShadingPropertiesHUAWEI")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceSubpassShadingPropertiesHUAWEI {
@@ -12188,6 +13235,7 @@ pub struct PhysicalDeviceSubpassShadingPropertiesHUAWEI {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceInvocationMaskFeaturesHUAWEI.html>
+#[doc(alias = "VkPhysicalDeviceInvocationMaskFeaturesHUAWEI")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceInvocationMaskFeaturesHUAWEI {
@@ -12197,6 +13245,7 @@ pub struct PhysicalDeviceInvocationMaskFeaturesHUAWEI {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryGetRemoteAddressInfoNV.html>
+#[doc(alias = "VkMemoryGetRemoteAddressInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MemoryGetRemoteAddressInfoNV {
@@ -12207,6 +13256,7 @@ pub struct MemoryGetRemoteAddressInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceExternalMemoryRDMAFeaturesNV.html>
+#[doc(alias = "VkPhysicalDeviceExternalMemoryRDMAFeaturesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceExternalMemoryRDMAFeaturesNV {
@@ -12216,6 +13266,7 @@ pub struct PhysicalDeviceExternalMemoryRDMAFeaturesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelinePropertiesIdentifierEXT.html>
+#[doc(alias = "VkPipelinePropertiesIdentifierEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelinePropertiesIdentifierEXT {
@@ -12225,6 +13276,7 @@ pub struct PipelinePropertiesIdentifierEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePipelinePropertiesFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDevicePipelinePropertiesFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDevicePipelinePropertiesFeaturesEXT {
@@ -12234,6 +13286,7 @@ pub struct PhysicalDevicePipelinePropertiesFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFrameBoundaryFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceFrameBoundaryFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceFrameBoundaryFeaturesEXT {
@@ -12243,6 +13296,7 @@ pub struct PhysicalDeviceFrameBoundaryFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFrameBoundaryEXT.html>
+#[doc(alias = "VkFrameBoundaryEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct FrameBoundaryEXT {
@@ -12260,6 +13314,7 @@ pub struct FrameBoundaryEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT {
@@ -12269,6 +13324,7 @@ pub struct PhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSubpassResolvePerformanceQueryEXT.html>
+#[doc(alias = "VkSubpassResolvePerformanceQueryEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SubpassResolvePerformanceQueryEXT {
@@ -12278,6 +13334,7 @@ pub struct SubpassResolvePerformanceQueryEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMultisampledRenderToSingleSampledInfoEXT.html>
+#[doc(alias = "VkMultisampledRenderToSingleSampledInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MultisampledRenderToSingleSampledInfoEXT {
@@ -12288,6 +13345,7 @@ pub struct MultisampledRenderToSingleSampledInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceExtendedDynamicState2FeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceExtendedDynamicState2FeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceExtendedDynamicState2FeaturesEXT {
@@ -12299,6 +13357,7 @@ pub struct PhysicalDeviceExtendedDynamicState2FeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkScreenSurfaceCreateInfoQNX.html>
+#[doc(alias = "VkScreenSurfaceCreateInfoQNX")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ScreenSurfaceCreateInfoQNX {
@@ -12310,6 +13369,7 @@ pub struct ScreenSurfaceCreateInfoQNX {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceColorWriteEnableFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceColorWriteEnableFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceColorWriteEnableFeaturesEXT {
@@ -12319,6 +13379,7 @@ pub struct PhysicalDeviceColorWriteEnableFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineColorWriteCreateInfoEXT.html>
+#[doc(alias = "VkPipelineColorWriteCreateInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineColorWriteCreateInfoEXT {
@@ -12329,6 +13390,7 @@ pub struct PipelineColorWriteCreateInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePrimitivesGeneratedQueryFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDevicePrimitivesGeneratedQueryFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDevicePrimitivesGeneratedQueryFeaturesEXT {
@@ -12340,6 +13402,7 @@ pub struct PhysicalDevicePrimitivesGeneratedQueryFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVideoEncodeRgbConversionFeaturesVALVE.html>
+#[doc(alias = "VkPhysicalDeviceVideoEncodeRgbConversionFeaturesVALVE")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceVideoEncodeRgbConversionFeaturesVALVE {
@@ -12349,6 +13412,7 @@ pub struct PhysicalDeviceVideoEncodeRgbConversionFeaturesVALVE {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeRgbConversionCapabilitiesVALVE.html>
+#[doc(alias = "VkVideoEncodeRgbConversionCapabilitiesVALVE")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeRgbConversionCapabilitiesVALVE {
@@ -12361,6 +13425,7 @@ pub struct VideoEncodeRgbConversionCapabilitiesVALVE {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeProfileRgbConversionInfoVALVE.html>
+#[doc(alias = "VkVideoEncodeProfileRgbConversionInfoVALVE")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeProfileRgbConversionInfoVALVE {
@@ -12370,6 +13435,7 @@ pub struct VideoEncodeProfileRgbConversionInfoVALVE {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeSessionRgbConversionCreateInfoVALVE.html>
+#[doc(alias = "VkVideoEncodeSessionRgbConversionCreateInfoVALVE")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct VideoEncodeSessionRgbConversionCreateInfoVALVE {
@@ -12382,6 +13448,7 @@ pub struct VideoEncodeSessionRgbConversionCreateInfoVALVE {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceImageViewMinLodFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceImageViewMinLodFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceImageViewMinLodFeaturesEXT {
@@ -12391,6 +13458,7 @@ pub struct PhysicalDeviceImageViewMinLodFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageViewMinLodCreateInfoEXT.html>
+#[doc(alias = "VkImageViewMinLodCreateInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageViewMinLodCreateInfoEXT {
@@ -12400,6 +13468,7 @@ pub struct ImageViewMinLodCreateInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMultiDrawFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceMultiDrawFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceMultiDrawFeaturesEXT {
@@ -12409,6 +13478,7 @@ pub struct PhysicalDeviceMultiDrawFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMultiDrawPropertiesEXT.html>
+#[doc(alias = "VkPhysicalDeviceMultiDrawPropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceMultiDrawPropertiesEXT {
@@ -12418,6 +13488,7 @@ pub struct PhysicalDeviceMultiDrawPropertiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMultiDrawInfoEXT.html>
+#[doc(alias = "VkMultiDrawInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MultiDrawInfoEXT {
@@ -12426,6 +13497,7 @@ pub struct MultiDrawInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMultiDrawIndexedInfoEXT.html>
+#[doc(alias = "VkMultiDrawIndexedInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MultiDrawIndexedInfoEXT {
@@ -12435,6 +13507,7 @@ pub struct MultiDrawIndexedInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceImage2DViewOf3DFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceImage2DViewOf3DFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceImage2DViewOf3DFeaturesEXT {
@@ -12445,6 +13518,7 @@ pub struct PhysicalDeviceImage2DViewOf3DFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderTileImageFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceShaderTileImageFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderTileImageFeaturesEXT {
@@ -12456,6 +13530,7 @@ pub struct PhysicalDeviceShaderTileImageFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderTileImagePropertiesEXT.html>
+#[doc(alias = "VkPhysicalDeviceShaderTileImagePropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderTileImagePropertiesEXT {
@@ -12467,6 +13542,7 @@ pub struct PhysicalDeviceShaderTileImagePropertiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMicromapUsageEXT.html>
+#[doc(alias = "VkMicromapUsageEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MicromapUsageEXT {
@@ -12476,6 +13552,7 @@ pub struct MicromapUsageEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceOrHostAddressKHR.html>
+#[doc(alias = "VkDeviceOrHostAddressKHR")]
 #[derive(Clone, Copy)]
 #[repr(C)]
 pub struct DeviceOrHostAddressKHR {
@@ -12489,6 +13566,7 @@ impl std::fmt::Debug for DeviceOrHostAddressKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMicromapBuildInfoEXT.html>
+#[doc(alias = "VkMicromapBuildInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MicromapBuildInfoEXT {
@@ -12508,6 +13586,7 @@ pub struct MicromapBuildInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMicromapCreateInfoEXT.html>
+#[doc(alias = "VkMicromapCreateInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MicromapCreateInfoEXT {
@@ -12522,6 +13601,7 @@ pub struct MicromapCreateInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceOpacityMicromapFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceOpacityMicromapFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceOpacityMicromapFeaturesEXT {
@@ -12533,6 +13613,7 @@ pub struct PhysicalDeviceOpacityMicromapFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceOpacityMicromapPropertiesEXT.html>
+#[doc(alias = "VkPhysicalDeviceOpacityMicromapPropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceOpacityMicromapPropertiesEXT {
@@ -12543,6 +13624,7 @@ pub struct PhysicalDeviceOpacityMicromapPropertiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMicromapVersionInfoEXT.html>
+#[doc(alias = "VkMicromapVersionInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MicromapVersionInfoEXT {
@@ -12552,6 +13634,7 @@ pub struct MicromapVersionInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyMicromapToMemoryInfoEXT.html>
+#[doc(alias = "VkCopyMicromapToMemoryInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CopyMicromapToMemoryInfoEXT {
@@ -12563,6 +13646,7 @@ pub struct CopyMicromapToMemoryInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyMemoryToMicromapInfoEXT.html>
+#[doc(alias = "VkCopyMemoryToMicromapInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CopyMemoryToMicromapInfoEXT {
@@ -12574,6 +13658,7 @@ pub struct CopyMemoryToMicromapInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyMicromapInfoEXT.html>
+#[doc(alias = "VkCopyMicromapInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CopyMicromapInfoEXT {
@@ -12585,6 +13670,7 @@ pub struct CopyMicromapInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMicromapBuildSizesInfoEXT.html>
+#[doc(alias = "VkMicromapBuildSizesInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MicromapBuildSizesInfoEXT {
@@ -12596,6 +13682,7 @@ pub struct MicromapBuildSizesInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureTrianglesOpacityMicromapEXT.html>
+#[doc(alias = "VkAccelerationStructureTrianglesOpacityMicromapEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AccelerationStructureTrianglesOpacityMicromapEXT {
@@ -12612,6 +13699,7 @@ pub struct AccelerationStructureTrianglesOpacityMicromapEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDisplacementMicromapFeaturesNV.html>
+#[doc(alias = "VkPhysicalDeviceDisplacementMicromapFeaturesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceDisplacementMicromapFeaturesNV {
@@ -12621,6 +13709,7 @@ pub struct PhysicalDeviceDisplacementMicromapFeaturesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDisplacementMicromapPropertiesNV.html>
+#[doc(alias = "VkPhysicalDeviceDisplacementMicromapPropertiesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceDisplacementMicromapPropertiesNV {
@@ -12630,6 +13719,7 @@ pub struct PhysicalDeviceDisplacementMicromapPropertiesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureTrianglesDisplacementMicromapNV.html>
+#[doc(alias = "VkAccelerationStructureTrianglesDisplacementMicromapNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AccelerationStructureTrianglesDisplacementMicromapNV {
@@ -12654,6 +13744,7 @@ pub struct AccelerationStructureTrianglesDisplacementMicromapNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI.html>
+#[doc(alias = "VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceClusterCullingShaderFeaturesHUAWEI {
@@ -12664,6 +13755,7 @@ pub struct PhysicalDeviceClusterCullingShaderFeaturesHUAWEI {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI.html>
+#[doc(alias = "VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceClusterCullingShaderPropertiesHUAWEI {
@@ -12676,6 +13768,7 @@ pub struct PhysicalDeviceClusterCullingShaderPropertiesHUAWEI {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEI.html>
+#[doc(alias = "VkPhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEI")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEI {
@@ -12685,6 +13778,7 @@ pub struct PhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEI {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceBorderColorSwizzleFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceBorderColorSwizzleFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceBorderColorSwizzleFeaturesEXT {
@@ -12695,6 +13789,7 @@ pub struct PhysicalDeviceBorderColorSwizzleFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerBorderColorComponentMappingCreateInfoEXT.html>
+#[doc(alias = "VkSamplerBorderColorComponentMappingCreateInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SamplerBorderColorComponentMappingCreateInfoEXT {
@@ -12705,6 +13800,7 @@ pub struct SamplerBorderColorComponentMappingCreateInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePageableDeviceLocalMemoryFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDevicePageableDeviceLocalMemoryFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDevicePageableDeviceLocalMemoryFeaturesEXT {
@@ -12714,6 +13810,7 @@ pub struct PhysicalDevicePageableDeviceLocalMemoryFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderCorePropertiesARM.html>
+#[doc(alias = "VkPhysicalDeviceShaderCorePropertiesARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderCorePropertiesARM {
@@ -12725,6 +13822,7 @@ pub struct PhysicalDeviceShaderCorePropertiesARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceQueueShaderCoreControlCreateInfoARM.html>
+#[doc(alias = "VkDeviceQueueShaderCoreControlCreateInfoARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DeviceQueueShaderCoreControlCreateInfoARM {
@@ -12734,6 +13832,7 @@ pub struct DeviceQueueShaderCoreControlCreateInfoARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSchedulingControlsFeaturesARM.html>
+#[doc(alias = "VkPhysicalDeviceSchedulingControlsFeaturesARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceSchedulingControlsFeaturesARM {
@@ -12743,6 +13842,7 @@ pub struct PhysicalDeviceSchedulingControlsFeaturesARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSchedulingControlsPropertiesARM.html>
+#[doc(alias = "VkPhysicalDeviceSchedulingControlsPropertiesARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceSchedulingControlsPropertiesARM {
@@ -12752,6 +13852,7 @@ pub struct PhysicalDeviceSchedulingControlsPropertiesARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDispatchParametersARM.html>
+#[doc(alias = "VkDispatchParametersARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DispatchParametersARM {
@@ -12763,6 +13864,7 @@ pub struct DispatchParametersARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSchedulingControlsDispatchParametersPropertiesARM.html>
+#[doc(alias = "VkPhysicalDeviceSchedulingControlsDispatchParametersPropertiesARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceSchedulingControlsDispatchParametersPropertiesARM {
@@ -12774,6 +13876,7 @@ pub struct PhysicalDeviceSchedulingControlsDispatchParametersPropertiesARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceImageSlicedViewOf3DFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceImageSlicedViewOf3DFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceImageSlicedViewOf3DFeaturesEXT {
@@ -12783,6 +13886,7 @@ pub struct PhysicalDeviceImageSlicedViewOf3DFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageViewSlicedCreateInfoEXT.html>
+#[doc(alias = "VkImageViewSlicedCreateInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageViewSlicedCreateInfoEXT {
@@ -12793,6 +13897,7 @@ pub struct ImageViewSlicedCreateInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDescriptorSetHostMappingFeaturesVALVE.html>
+#[doc(alias = "VkPhysicalDeviceDescriptorSetHostMappingFeaturesVALVE")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceDescriptorSetHostMappingFeaturesVALVE {
@@ -12802,6 +13907,7 @@ pub struct PhysicalDeviceDescriptorSetHostMappingFeaturesVALVE {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorSetBindingReferenceVALVE.html>
+#[doc(alias = "VkDescriptorSetBindingReferenceVALVE")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DescriptorSetBindingReferenceVALVE {
@@ -12812,6 +13918,7 @@ pub struct DescriptorSetBindingReferenceVALVE {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorSetLayoutHostMappingInfoVALVE.html>
+#[doc(alias = "VkDescriptorSetLayoutHostMappingInfoVALVE")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DescriptorSetLayoutHostMappingInfoVALVE {
@@ -12822,6 +13929,7 @@ pub struct DescriptorSetLayoutHostMappingInfoVALVE {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceNonSeamlessCubeMapFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceNonSeamlessCubeMapFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceNonSeamlessCubeMapFeaturesEXT {
@@ -12831,6 +13939,7 @@ pub struct PhysicalDeviceNonSeamlessCubeMapFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceRenderPassStripedFeaturesARM.html>
+#[doc(alias = "VkPhysicalDeviceRenderPassStripedFeaturesARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceRenderPassStripedFeaturesARM {
@@ -12840,6 +13949,7 @@ pub struct PhysicalDeviceRenderPassStripedFeaturesARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceRenderPassStripedPropertiesARM.html>
+#[doc(alias = "VkPhysicalDeviceRenderPassStripedPropertiesARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceRenderPassStripedPropertiesARM {
@@ -12850,6 +13960,7 @@ pub struct PhysicalDeviceRenderPassStripedPropertiesARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPassStripeInfoARM.html>
+#[doc(alias = "VkRenderPassStripeInfoARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct RenderPassStripeInfoARM {
@@ -12859,6 +13970,7 @@ pub struct RenderPassStripeInfoARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPassStripeBeginInfoARM.html>
+#[doc(alias = "VkRenderPassStripeBeginInfoARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct RenderPassStripeBeginInfoARM {
@@ -12869,6 +13981,7 @@ pub struct RenderPassStripeBeginInfoARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPassStripeSubmitInfoARM.html>
+#[doc(alias = "VkRenderPassStripeSubmitInfoARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct RenderPassStripeSubmitInfoARM {
@@ -12879,6 +13992,7 @@ pub struct RenderPassStripeSubmitInfoARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFragmentDensityMapOffsetFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceFragmentDensityMapOffsetFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceFragmentDensityMapOffsetFeaturesEXT {
@@ -12890,6 +14004,7 @@ pub type PhysicalDeviceFragmentDensityMapOffsetFeaturesQCOM =
     PhysicalDeviceFragmentDensityMapOffsetFeaturesEXT;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFragmentDensityMapOffsetPropertiesEXT.html>
+#[doc(alias = "VkPhysicalDeviceFragmentDensityMapOffsetPropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceFragmentDensityMapOffsetPropertiesEXT {
@@ -12901,6 +14016,7 @@ pub type PhysicalDeviceFragmentDensityMapOffsetPropertiesQCOM =
     PhysicalDeviceFragmentDensityMapOffsetPropertiesEXT;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPassFragmentDensityMapOffsetEndInfoEXT.html>
+#[doc(alias = "VkRenderPassFragmentDensityMapOffsetEndInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct RenderPassFragmentDensityMapOffsetEndInfoEXT {
@@ -12912,6 +14028,7 @@ pub struct RenderPassFragmentDensityMapOffsetEndInfoEXT {
 pub type SubpassFragmentDensityMapOffsetEndInfoQCOM = RenderPassFragmentDensityMapOffsetEndInfoEXT;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCopyMemoryIndirectFeaturesNV.html>
+#[doc(alias = "VkPhysicalDeviceCopyMemoryIndirectFeaturesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceCopyMemoryIndirectFeaturesNV {
@@ -12921,6 +14038,7 @@ pub struct PhysicalDeviceCopyMemoryIndirectFeaturesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDecompressMemoryRegionNV.html>
+#[doc(alias = "VkDecompressMemoryRegionNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DecompressMemoryRegionNV {
@@ -12932,6 +14050,7 @@ pub struct DecompressMemoryRegionNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMemoryDecompressionFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceMemoryDecompressionFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceMemoryDecompressionFeaturesEXT {
@@ -12942,6 +14061,7 @@ pub struct PhysicalDeviceMemoryDecompressionFeaturesEXT {
 pub type PhysicalDeviceMemoryDecompressionFeaturesNV = PhysicalDeviceMemoryDecompressionFeaturesEXT;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMemoryDecompressionPropertiesEXT.html>
+#[doc(alias = "VkPhysicalDeviceMemoryDecompressionPropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceMemoryDecompressionPropertiesEXT {
@@ -12954,6 +14074,7 @@ pub type PhysicalDeviceMemoryDecompressionPropertiesNV =
     PhysicalDeviceMemoryDecompressionPropertiesEXT;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV.html>
+#[doc(alias = "VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV {
@@ -12965,6 +14086,7 @@ pub struct PhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkComputePipelineIndirectBufferInfoNV.html>
+#[doc(alias = "VkComputePipelineIndirectBufferInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ComputePipelineIndirectBufferInfoNV {
@@ -12976,6 +14098,7 @@ pub struct ComputePipelineIndirectBufferInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineIndirectDeviceAddressInfoNV.html>
+#[doc(alias = "VkPipelineIndirectDeviceAddressInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineIndirectDeviceAddressInfoNV {
@@ -12986,6 +14109,7 @@ pub struct PipelineIndirectDeviceAddressInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBindPipelineIndirectCommandNV.html>
+#[doc(alias = "VkBindPipelineIndirectCommandNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BindPipelineIndirectCommandNV {
@@ -12993,6 +14117,7 @@ pub struct BindPipelineIndirectCommandNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceRayTracingLinearSweptSpheresFeaturesNV.html>
+#[doc(alias = "VkPhysicalDeviceRayTracingLinearSweptSpheresFeaturesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceRayTracingLinearSweptSpheresFeaturesNV {
@@ -13003,6 +14128,7 @@ pub struct PhysicalDeviceRayTracingLinearSweptSpheresFeaturesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureGeometryLinearSweptSpheresDataNV.html>
+#[doc(alias = "VkAccelerationStructureGeometryLinearSweptSpheresDataNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AccelerationStructureGeometryLinearSweptSpheresDataNV {
@@ -13022,6 +14148,7 @@ pub struct AccelerationStructureGeometryLinearSweptSpheresDataNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureGeometrySpheresDataNV.html>
+#[doc(alias = "VkAccelerationStructureGeometrySpheresDataNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AccelerationStructureGeometrySpheresDataNV {
@@ -13039,6 +14166,7 @@ pub struct AccelerationStructureGeometrySpheresDataNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceLinearColorAttachmentFeaturesNV.html>
+#[doc(alias = "VkPhysicalDeviceLinearColorAttachmentFeaturesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceLinearColorAttachmentFeaturesNV {
@@ -13048,6 +14176,7 @@ pub struct PhysicalDeviceLinearColorAttachmentFeaturesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceImageCompressionControlSwapchainFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceImageCompressionControlSwapchainFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceImageCompressionControlSwapchainFeaturesEXT {
@@ -13057,6 +14186,7 @@ pub struct PhysicalDeviceImageCompressionControlSwapchainFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageViewSampleWeightCreateInfoQCOM.html>
+#[doc(alias = "VkImageViewSampleWeightCreateInfoQCOM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageViewSampleWeightCreateInfoQCOM {
@@ -13068,6 +14198,7 @@ pub struct ImageViewSampleWeightCreateInfoQCOM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceImageProcessingFeaturesQCOM.html>
+#[doc(alias = "VkPhysicalDeviceImageProcessingFeaturesQCOM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceImageProcessingFeaturesQCOM {
@@ -13079,6 +14210,7 @@ pub struct PhysicalDeviceImageProcessingFeaturesQCOM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceImageProcessingPropertiesQCOM.html>
+#[doc(alias = "VkPhysicalDeviceImageProcessingPropertiesQCOM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceImageProcessingPropertiesQCOM {
@@ -13091,6 +14223,7 @@ pub struct PhysicalDeviceImageProcessingPropertiesQCOM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceNestedCommandBufferFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceNestedCommandBufferFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceNestedCommandBufferFeaturesEXT {
@@ -13102,6 +14235,7 @@ pub struct PhysicalDeviceNestedCommandBufferFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceNestedCommandBufferPropertiesEXT.html>
+#[doc(alias = "VkPhysicalDeviceNestedCommandBufferPropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceNestedCommandBufferPropertiesEXT {
@@ -13111,6 +14245,7 @@ pub struct PhysicalDeviceNestedCommandBufferPropertiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkNativeBufferUsageOHOS.html>
+#[doc(alias = "VkNativeBufferUsageOHOS")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct NativeBufferUsageOHOS {
@@ -13120,6 +14255,7 @@ pub struct NativeBufferUsageOHOS {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkNativeBufferPropertiesOHOS.html>
+#[doc(alias = "VkNativeBufferPropertiesOHOS")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct NativeBufferPropertiesOHOS {
@@ -13130,6 +14266,7 @@ pub struct NativeBufferPropertiesOHOS {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkNativeBufferFormatPropertiesOHOS.html>
+#[doc(alias = "VkNativeBufferFormatPropertiesOHOS")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct NativeBufferFormatPropertiesOHOS {
@@ -13146,6 +14283,7 @@ pub struct NativeBufferFormatPropertiesOHOS {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImportNativeBufferInfoOHOS.html>
+#[doc(alias = "VkImportNativeBufferInfoOHOS")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImportNativeBufferInfoOHOS {
@@ -13155,6 +14293,7 @@ pub struct ImportNativeBufferInfoOHOS {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryGetNativeBufferInfoOHOS.html>
+#[doc(alias = "VkMemoryGetNativeBufferInfoOHOS")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MemoryGetNativeBufferInfoOHOS {
@@ -13164,6 +14303,7 @@ pub struct MemoryGetNativeBufferInfoOHOS {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalFormatOHOS.html>
+#[doc(alias = "VkExternalFormatOHOS")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ExternalFormatOHOS {
@@ -13173,6 +14313,7 @@ pub struct ExternalFormatOHOS {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalMemoryAcquireUnmodifiedEXT.html>
+#[doc(alias = "VkExternalMemoryAcquireUnmodifiedEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ExternalMemoryAcquireUnmodifiedEXT {
@@ -13182,6 +14323,7 @@ pub struct ExternalMemoryAcquireUnmodifiedEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceExtendedDynamicState3FeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceExtendedDynamicState3FeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceExtendedDynamicState3FeaturesEXT {
@@ -13221,6 +14363,7 @@ pub struct PhysicalDeviceExtendedDynamicState3FeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceExtendedDynamicState3PropertiesEXT.html>
+#[doc(alias = "VkPhysicalDeviceExtendedDynamicState3PropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceExtendedDynamicState3PropertiesEXT {
@@ -13230,6 +14373,7 @@ pub struct PhysicalDeviceExtendedDynamicState3PropertiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkColorBlendEquationEXT.html>
+#[doc(alias = "VkColorBlendEquationEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ColorBlendEquationEXT {
@@ -13242,6 +14386,7 @@ pub struct ColorBlendEquationEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkColorBlendAdvancedEXT.html>
+#[doc(alias = "VkColorBlendAdvancedEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ColorBlendAdvancedEXT {
@@ -13253,6 +14398,7 @@ pub struct ColorBlendAdvancedEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSubpassMergeFeedbackFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceSubpassMergeFeedbackFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceSubpassMergeFeedbackFeaturesEXT {
@@ -13262,6 +14408,7 @@ pub struct PhysicalDeviceSubpassMergeFeedbackFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPassCreationControlEXT.html>
+#[doc(alias = "VkRenderPassCreationControlEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct RenderPassCreationControlEXT {
@@ -13271,6 +14418,7 @@ pub struct RenderPassCreationControlEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPassCreationFeedbackInfoEXT.html>
+#[doc(alias = "VkRenderPassCreationFeedbackInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct RenderPassCreationFeedbackInfoEXT {
@@ -13278,6 +14426,7 @@ pub struct RenderPassCreationFeedbackInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPassCreationFeedbackCreateInfoEXT.html>
+#[doc(alias = "VkRenderPassCreationFeedbackCreateInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct RenderPassCreationFeedbackCreateInfoEXT {
@@ -13287,6 +14436,7 @@ pub struct RenderPassCreationFeedbackCreateInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPassSubpassFeedbackInfoEXT.html>
+#[doc(alias = "VkRenderPassSubpassFeedbackInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct RenderPassSubpassFeedbackInfoEXT {
@@ -13296,6 +14446,7 @@ pub struct RenderPassSubpassFeedbackInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPassSubpassFeedbackCreateInfoEXT.html>
+#[doc(alias = "VkRenderPassSubpassFeedbackCreateInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct RenderPassSubpassFeedbackCreateInfoEXT {
@@ -13305,6 +14456,7 @@ pub struct RenderPassSubpassFeedbackCreateInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDirectDriverLoadingInfoLUNARG.html>
+#[doc(alias = "VkDirectDriverLoadingInfoLUNARG")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DirectDriverLoadingInfoLUNARG {
@@ -13315,6 +14467,7 @@ pub struct DirectDriverLoadingInfoLUNARG {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDirectDriverLoadingListLUNARG.html>
+#[doc(alias = "VkDirectDriverLoadingListLUNARG")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DirectDriverLoadingListLUNARG {
@@ -13326,6 +14479,7 @@ pub struct DirectDriverLoadingListLUNARG {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTensorDescriptionARM.html>
+#[doc(alias = "VkTensorDescriptionARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct TensorDescriptionARM {
@@ -13340,6 +14494,7 @@ pub struct TensorDescriptionARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTensorCreateInfoARM.html>
+#[doc(alias = "VkTensorCreateInfoARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct TensorCreateInfoARM {
@@ -13353,6 +14508,7 @@ pub struct TensorCreateInfoARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTensorMemoryRequirementsInfoARM.html>
+#[doc(alias = "VkTensorMemoryRequirementsInfoARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct TensorMemoryRequirementsInfoARM {
@@ -13362,6 +14518,7 @@ pub struct TensorMemoryRequirementsInfoARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBindTensorMemoryInfoARM.html>
+#[doc(alias = "VkBindTensorMemoryInfoARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BindTensorMemoryInfoARM {
@@ -13373,6 +14530,7 @@ pub struct BindTensorMemoryInfoARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkWriteDescriptorSetTensorARM.html>
+#[doc(alias = "VkWriteDescriptorSetTensorARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct WriteDescriptorSetTensorARM {
@@ -13383,6 +14541,7 @@ pub struct WriteDescriptorSetTensorARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTensorFormatPropertiesARM.html>
+#[doc(alias = "VkTensorFormatPropertiesARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct TensorFormatPropertiesARM {
@@ -13393,6 +14552,7 @@ pub struct TensorFormatPropertiesARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceTensorPropertiesARM.html>
+#[doc(alias = "VkPhysicalDeviceTensorPropertiesARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceTensorPropertiesARM {
@@ -13414,6 +14574,7 @@ pub struct PhysicalDeviceTensorPropertiesARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTensorMemoryBarrierARM.html>
+#[doc(alias = "VkTensorMemoryBarrierARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct TensorMemoryBarrierARM {
@@ -13429,6 +14590,7 @@ pub struct TensorMemoryBarrierARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTensorDependencyInfoARM.html>
+#[doc(alias = "VkTensorDependencyInfoARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct TensorDependencyInfoARM {
@@ -13439,6 +14601,7 @@ pub struct TensorDependencyInfoARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceTensorFeaturesARM.html>
+#[doc(alias = "VkPhysicalDeviceTensorFeaturesARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceTensorFeaturesARM {
@@ -13453,6 +14616,7 @@ pub struct PhysicalDeviceTensorFeaturesARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceTensorMemoryRequirementsARM.html>
+#[doc(alias = "VkDeviceTensorMemoryRequirementsARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DeviceTensorMemoryRequirementsARM {
@@ -13462,6 +14626,7 @@ pub struct DeviceTensorMemoryRequirementsARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTensorCopyARM.html>
+#[doc(alias = "VkTensorCopyARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct TensorCopyARM {
@@ -13474,6 +14639,7 @@ pub struct TensorCopyARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyTensorInfoARM.html>
+#[doc(alias = "VkCopyTensorInfoARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CopyTensorInfoARM {
@@ -13486,6 +14652,7 @@ pub struct CopyTensorInfoARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryDedicatedAllocateInfoTensorARM.html>
+#[doc(alias = "VkMemoryDedicatedAllocateInfoTensorARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MemoryDedicatedAllocateInfoTensorARM {
@@ -13495,6 +14662,7 @@ pub struct MemoryDedicatedAllocateInfoTensorARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceExternalTensorInfoARM.html>
+#[doc(alias = "VkPhysicalDeviceExternalTensorInfoARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceExternalTensorInfoARM {
@@ -13506,6 +14674,7 @@ pub struct PhysicalDeviceExternalTensorInfoARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalTensorPropertiesARM.html>
+#[doc(alias = "VkExternalTensorPropertiesARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ExternalTensorPropertiesARM {
@@ -13515,6 +14684,7 @@ pub struct ExternalTensorPropertiesARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalMemoryTensorCreateInfoARM.html>
+#[doc(alias = "VkExternalMemoryTensorCreateInfoARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ExternalMemoryTensorCreateInfoARM {
@@ -13524,6 +14694,7 @@ pub struct ExternalMemoryTensorCreateInfoARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDescriptorBufferTensorFeaturesARM.html>
+#[doc(alias = "VkPhysicalDeviceDescriptorBufferTensorFeaturesARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceDescriptorBufferTensorFeaturesARM {
@@ -13533,6 +14704,7 @@ pub struct PhysicalDeviceDescriptorBufferTensorFeaturesARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDescriptorBufferTensorPropertiesARM.html>
+#[doc(alias = "VkPhysicalDeviceDescriptorBufferTensorPropertiesARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceDescriptorBufferTensorPropertiesARM {
@@ -13544,6 +14716,7 @@ pub struct PhysicalDeviceDescriptorBufferTensorPropertiesARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorGetTensorInfoARM.html>
+#[doc(alias = "VkDescriptorGetTensorInfoARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DescriptorGetTensorInfoARM {
@@ -13553,6 +14726,7 @@ pub struct DescriptorGetTensorInfoARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTensorCaptureDescriptorDataInfoARM.html>
+#[doc(alias = "VkTensorCaptureDescriptorDataInfoARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct TensorCaptureDescriptorDataInfoARM {
@@ -13562,6 +14736,7 @@ pub struct TensorCaptureDescriptorDataInfoARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTensorViewCaptureDescriptorDataInfoARM.html>
+#[doc(alias = "VkTensorViewCaptureDescriptorDataInfoARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct TensorViewCaptureDescriptorDataInfoARM {
@@ -13571,6 +14746,7 @@ pub struct TensorViewCaptureDescriptorDataInfoARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFrameBoundaryTensorsARM.html>
+#[doc(alias = "VkFrameBoundaryTensorsARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct FrameBoundaryTensorsARM {
@@ -13581,6 +14757,7 @@ pub struct FrameBoundaryTensorsARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderModuleIdentifierFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceShaderModuleIdentifierFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderModuleIdentifierFeaturesEXT {
@@ -13590,6 +14767,7 @@ pub struct PhysicalDeviceShaderModuleIdentifierFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderModuleIdentifierPropertiesEXT.html>
+#[doc(alias = "VkPhysicalDeviceShaderModuleIdentifierPropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderModuleIdentifierPropertiesEXT {
@@ -13599,6 +14777,7 @@ pub struct PhysicalDeviceShaderModuleIdentifierPropertiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineShaderStageModuleIdentifierCreateInfoEXT.html>
+#[doc(alias = "VkPipelineShaderStageModuleIdentifierCreateInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineShaderStageModuleIdentifierCreateInfoEXT {
@@ -13609,6 +14788,7 @@ pub struct PipelineShaderStageModuleIdentifierCreateInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderModuleIdentifierEXT.html>
+#[doc(alias = "VkShaderModuleIdentifierEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ShaderModuleIdentifierEXT {
@@ -13619,6 +14799,7 @@ pub struct ShaderModuleIdentifierEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceOpticalFlowFeaturesNV.html>
+#[doc(alias = "VkPhysicalDeviceOpticalFlowFeaturesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceOpticalFlowFeaturesNV {
@@ -13628,6 +14809,7 @@ pub struct PhysicalDeviceOpticalFlowFeaturesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceOpticalFlowPropertiesNV.html>
+#[doc(alias = "VkPhysicalDeviceOpticalFlowPropertiesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceOpticalFlowPropertiesNV {
@@ -13647,6 +14829,7 @@ pub struct PhysicalDeviceOpticalFlowPropertiesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkOpticalFlowImageFormatInfoNV.html>
+#[doc(alias = "VkOpticalFlowImageFormatInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct OpticalFlowImageFormatInfoNV {
@@ -13656,6 +14839,7 @@ pub struct OpticalFlowImageFormatInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkOpticalFlowImageFormatPropertiesNV.html>
+#[doc(alias = "VkOpticalFlowImageFormatPropertiesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct OpticalFlowImageFormatPropertiesNV {
@@ -13665,6 +14849,7 @@ pub struct OpticalFlowImageFormatPropertiesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkOpticalFlowSessionCreateInfoNV.html>
+#[doc(alias = "VkOpticalFlowSessionCreateInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct OpticalFlowSessionCreateInfoNV {
@@ -13682,6 +14867,7 @@ pub struct OpticalFlowSessionCreateInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkOpticalFlowSessionCreatePrivateDataInfoNV.html>
+#[doc(alias = "VkOpticalFlowSessionCreatePrivateDataInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct OpticalFlowSessionCreatePrivateDataInfoNV {
@@ -13693,6 +14879,7 @@ pub struct OpticalFlowSessionCreatePrivateDataInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkOpticalFlowExecuteInfoNV.html>
+#[doc(alias = "VkOpticalFlowExecuteInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct OpticalFlowExecuteInfoNV {
@@ -13704,6 +14891,7 @@ pub struct OpticalFlowExecuteInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceLegacyDitheringFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceLegacyDitheringFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceLegacyDitheringFeaturesEXT {
@@ -13713,6 +14901,7 @@ pub struct PhysicalDeviceLegacyDitheringFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceExternalFormatResolveFeaturesANDROID.html>
+#[doc(alias = "VkPhysicalDeviceExternalFormatResolveFeaturesANDROID")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceExternalFormatResolveFeaturesANDROID {
@@ -13722,6 +14911,7 @@ pub struct PhysicalDeviceExternalFormatResolveFeaturesANDROID {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceExternalFormatResolvePropertiesANDROID.html>
+#[doc(alias = "VkPhysicalDeviceExternalFormatResolvePropertiesANDROID")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceExternalFormatResolvePropertiesANDROID {
@@ -13733,6 +14923,7 @@ pub struct PhysicalDeviceExternalFormatResolvePropertiesANDROID {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAndroidHardwareBufferFormatResolvePropertiesANDROID.html>
+#[doc(alias = "VkAndroidHardwareBufferFormatResolvePropertiesANDROID")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AndroidHardwareBufferFormatResolvePropertiesANDROID {
@@ -13742,6 +14933,7 @@ pub struct AndroidHardwareBufferFormatResolvePropertiesANDROID {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceAntiLagFeaturesAMD.html>
+#[doc(alias = "VkPhysicalDeviceAntiLagFeaturesAMD")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceAntiLagFeaturesAMD {
@@ -13751,6 +14943,7 @@ pub struct PhysicalDeviceAntiLagFeaturesAMD {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAntiLagPresentationInfoAMD.html>
+#[doc(alias = "VkAntiLagPresentationInfoAMD")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AntiLagPresentationInfoAMD {
@@ -13761,6 +14954,7 @@ pub struct AntiLagPresentationInfoAMD {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAntiLagDataAMD.html>
+#[doc(alias = "VkAntiLagDataAMD")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AntiLagDataAMD {
@@ -13772,6 +14966,7 @@ pub struct AntiLagDataAMD {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDenseGeometryFormatFeaturesAMDX.html>
+#[doc(alias = "VkPhysicalDeviceDenseGeometryFormatFeaturesAMDX")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceDenseGeometryFormatFeaturesAMDX {
@@ -13781,6 +14976,7 @@ pub struct PhysicalDeviceDenseGeometryFormatFeaturesAMDX {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX.html>
+#[doc(alias = "VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AccelerationStructureDenseGeometryFormatTrianglesDataAMDX {
@@ -13796,6 +14992,7 @@ pub struct AccelerationStructureDenseGeometryFormatTrianglesDataAMDX {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderObjectFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceShaderObjectFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderObjectFeaturesEXT {
@@ -13805,6 +15002,7 @@ pub struct PhysicalDeviceShaderObjectFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderObjectPropertiesEXT.html>
+#[doc(alias = "VkPhysicalDeviceShaderObjectPropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderObjectPropertiesEXT {
@@ -13815,6 +15013,7 @@ pub struct PhysicalDeviceShaderObjectPropertiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderCreateInfoEXT.html>
+#[doc(alias = "VkShaderCreateInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ShaderCreateInfoEXT {
@@ -13835,6 +15034,7 @@ pub struct ShaderCreateInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDepthClampRangeEXT.html>
+#[doc(alias = "VkDepthClampRangeEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DepthClampRangeEXT {
@@ -13843,6 +15043,7 @@ pub struct DepthClampRangeEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceTilePropertiesFeaturesQCOM.html>
+#[doc(alias = "VkPhysicalDeviceTilePropertiesFeaturesQCOM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceTilePropertiesFeaturesQCOM {
@@ -13852,6 +15053,7 @@ pub struct PhysicalDeviceTilePropertiesFeaturesQCOM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTilePropertiesQCOM.html>
+#[doc(alias = "VkTilePropertiesQCOM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct TilePropertiesQCOM {
@@ -13863,6 +15065,7 @@ pub struct TilePropertiesQCOM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceAmigoProfilingFeaturesSEC.html>
+#[doc(alias = "VkPhysicalDeviceAmigoProfilingFeaturesSEC")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceAmigoProfilingFeaturesSEC {
@@ -13872,6 +15075,7 @@ pub struct PhysicalDeviceAmigoProfilingFeaturesSEC {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAmigoProfilingSubmitInfoSEC.html>
+#[doc(alias = "VkAmigoProfilingSubmitInfoSEC")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AmigoProfilingSubmitInfoSEC {
@@ -13882,6 +15086,7 @@ pub struct AmigoProfilingSubmitInfoSEC {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM.html>
+#[doc(alias = "VkPhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM {
@@ -13891,6 +15096,7 @@ pub struct PhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceRayTracingInvocationReorderPropertiesNV.html>
+#[doc(alias = "VkPhysicalDeviceRayTracingInvocationReorderPropertiesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceRayTracingInvocationReorderPropertiesNV {
@@ -13900,6 +15106,7 @@ pub struct PhysicalDeviceRayTracingInvocationReorderPropertiesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceRayTracingInvocationReorderFeaturesNV.html>
+#[doc(alias = "VkPhysicalDeviceRayTracingInvocationReorderFeaturesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceRayTracingInvocationReorderFeaturesNV {
@@ -13909,6 +15116,7 @@ pub struct PhysicalDeviceRayTracingInvocationReorderFeaturesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCooperativeVectorPropertiesNV.html>
+#[doc(alias = "VkPhysicalDeviceCooperativeVectorPropertiesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceCooperativeVectorPropertiesNV {
@@ -13921,6 +15129,7 @@ pub struct PhysicalDeviceCooperativeVectorPropertiesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCooperativeVectorFeaturesNV.html>
+#[doc(alias = "VkPhysicalDeviceCooperativeVectorFeaturesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceCooperativeVectorFeaturesNV {
@@ -13931,6 +15140,7 @@ pub struct PhysicalDeviceCooperativeVectorFeaturesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCooperativeVectorPropertiesNV.html>
+#[doc(alias = "VkCooperativeVectorPropertiesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CooperativeVectorPropertiesNV {
@@ -13945,6 +15155,7 @@ pub struct CooperativeVectorPropertiesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkConvertCooperativeVectorMatrixInfoNV.html>
+#[doc(alias = "VkConvertCooperativeVectorMatrixInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ConvertCooperativeVectorMatrixInfoNV {
@@ -13965,6 +15176,7 @@ pub struct ConvertCooperativeVectorMatrixInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceExtendedSparseAddressSpaceFeaturesNV.html>
+#[doc(alias = "VkPhysicalDeviceExtendedSparseAddressSpaceFeaturesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceExtendedSparseAddressSpaceFeaturesNV {
@@ -13974,6 +15186,7 @@ pub struct PhysicalDeviceExtendedSparseAddressSpaceFeaturesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceExtendedSparseAddressSpacePropertiesNV.html>
+#[doc(alias = "VkPhysicalDeviceExtendedSparseAddressSpacePropertiesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceExtendedSparseAddressSpacePropertiesNV {
@@ -13985,6 +15198,7 @@ pub struct PhysicalDeviceExtendedSparseAddressSpacePropertiesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceLegacyVertexAttributesFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceLegacyVertexAttributesFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceLegacyVertexAttributesFeaturesEXT {
@@ -13994,6 +15208,7 @@ pub struct PhysicalDeviceLegacyVertexAttributesFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceLegacyVertexAttributesPropertiesEXT.html>
+#[doc(alias = "VkPhysicalDeviceLegacyVertexAttributesPropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceLegacyVertexAttributesPropertiesEXT {
@@ -14003,6 +15218,7 @@ pub struct PhysicalDeviceLegacyVertexAttributesPropertiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkLayerSettingEXT.html>
+#[doc(alias = "VkLayerSettingEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct LayerSettingEXT {
@@ -14014,6 +15230,7 @@ pub struct LayerSettingEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkLayerSettingsCreateInfoEXT.html>
+#[doc(alias = "VkLayerSettingsCreateInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct LayerSettingsCreateInfoEXT {
@@ -14024,6 +15241,7 @@ pub struct LayerSettingsCreateInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderCoreBuiltinsFeaturesARM.html>
+#[doc(alias = "VkPhysicalDeviceShaderCoreBuiltinsFeaturesARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderCoreBuiltinsFeaturesARM {
@@ -14033,6 +15251,7 @@ pub struct PhysicalDeviceShaderCoreBuiltinsFeaturesARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM.html>
+#[doc(alias = "VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderCoreBuiltinsPropertiesARM {
@@ -14044,6 +15263,7 @@ pub struct PhysicalDeviceShaderCoreBuiltinsPropertiesARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT {
@@ -14053,6 +15273,7 @@ pub struct PhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkLatencySleepModeInfoNV.html>
+#[doc(alias = "VkLatencySleepModeInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct LatencySleepModeInfoNV {
@@ -14064,6 +15285,7 @@ pub struct LatencySleepModeInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkLatencySleepInfoNV.html>
+#[doc(alias = "VkLatencySleepInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct LatencySleepInfoNV {
@@ -14074,6 +15296,7 @@ pub struct LatencySleepInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSetLatencyMarkerInfoNV.html>
+#[doc(alias = "VkSetLatencyMarkerInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SetLatencyMarkerInfoNV {
@@ -14084,6 +15307,7 @@ pub struct SetLatencyMarkerInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkLatencyTimingsFrameReportNV.html>
+#[doc(alias = "VkLatencyTimingsFrameReportNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct LatencyTimingsFrameReportNV {
@@ -14106,6 +15330,7 @@ pub struct LatencyTimingsFrameReportNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkGetLatencyMarkerInfoNV.html>
+#[doc(alias = "VkGetLatencyMarkerInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct GetLatencyMarkerInfoNV {
@@ -14116,6 +15341,7 @@ pub struct GetLatencyMarkerInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkLatencySubmissionPresentIdNV.html>
+#[doc(alias = "VkLatencySubmissionPresentIdNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct LatencySubmissionPresentIdNV {
@@ -14125,6 +15351,7 @@ pub struct LatencySubmissionPresentIdNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSwapchainLatencyCreateInfoNV.html>
+#[doc(alias = "VkSwapchainLatencyCreateInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SwapchainLatencyCreateInfoNV {
@@ -14134,6 +15361,7 @@ pub struct SwapchainLatencyCreateInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkOutOfBandQueueTypeInfoNV.html>
+#[doc(alias = "VkOutOfBandQueueTypeInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct OutOfBandQueueTypeInfoNV {
@@ -14143,6 +15371,7 @@ pub struct OutOfBandQueueTypeInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkLatencySurfaceCapabilitiesNV.html>
+#[doc(alias = "VkLatencySurfaceCapabilitiesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct LatencySurfaceCapabilitiesNV {
@@ -14153,6 +15382,7 @@ pub struct LatencySurfaceCapabilitiesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDataGraphFeaturesARM.html>
+#[doc(alias = "VkPhysicalDeviceDataGraphFeaturesARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceDataGraphFeaturesARM {
@@ -14166,6 +15396,7 @@ pub struct PhysicalDeviceDataGraphFeaturesARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineConstantARM.html>
+#[doc(alias = "VkDataGraphPipelineConstantARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DataGraphPipelineConstantARM {
@@ -14176,6 +15407,7 @@ pub struct DataGraphPipelineConstantARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineResourceInfoARM.html>
+#[doc(alias = "VkDataGraphPipelineResourceInfoARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DataGraphPipelineResourceInfoARM {
@@ -14187,6 +15419,7 @@ pub struct DataGraphPipelineResourceInfoARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineCompilerControlCreateInfoARM.html>
+#[doc(alias = "VkDataGraphPipelineCompilerControlCreateInfoARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DataGraphPipelineCompilerControlCreateInfoARM {
@@ -14196,6 +15429,7 @@ pub struct DataGraphPipelineCompilerControlCreateInfoARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineCreateInfoARM.html>
+#[doc(alias = "VkDataGraphPipelineCreateInfoARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DataGraphPipelineCreateInfoARM {
@@ -14208,6 +15442,7 @@ pub struct DataGraphPipelineCreateInfoARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineShaderModuleCreateInfoARM.html>
+#[doc(alias = "VkDataGraphPipelineShaderModuleCreateInfoARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DataGraphPipelineShaderModuleCreateInfoARM {
@@ -14221,6 +15456,7 @@ pub struct DataGraphPipelineShaderModuleCreateInfoARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineSessionCreateInfoARM.html>
+#[doc(alias = "VkDataGraphPipelineSessionCreateInfoARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DataGraphPipelineSessionCreateInfoARM {
@@ -14231,6 +15467,7 @@ pub struct DataGraphPipelineSessionCreateInfoARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineSessionBindPointRequirementsInfoARM.html>
+#[doc(alias = "VkDataGraphPipelineSessionBindPointRequirementsInfoARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DataGraphPipelineSessionBindPointRequirementsInfoARM {
@@ -14240,6 +15477,7 @@ pub struct DataGraphPipelineSessionBindPointRequirementsInfoARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineSessionBindPointRequirementARM.html>
+#[doc(alias = "VkDataGraphPipelineSessionBindPointRequirementARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DataGraphPipelineSessionBindPointRequirementARM {
@@ -14251,6 +15489,7 @@ pub struct DataGraphPipelineSessionBindPointRequirementARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineSessionMemoryRequirementsInfoARM.html>
+#[doc(alias = "VkDataGraphPipelineSessionMemoryRequirementsInfoARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DataGraphPipelineSessionMemoryRequirementsInfoARM {
@@ -14262,6 +15501,7 @@ pub struct DataGraphPipelineSessionMemoryRequirementsInfoARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBindDataGraphPipelineSessionMemoryInfoARM.html>
+#[doc(alias = "VkBindDataGraphPipelineSessionMemoryInfoARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BindDataGraphPipelineSessionMemoryInfoARM {
@@ -14275,6 +15515,7 @@ pub struct BindDataGraphPipelineSessionMemoryInfoARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineInfoARM.html>
+#[doc(alias = "VkDataGraphPipelineInfoARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DataGraphPipelineInfoARM {
@@ -14284,6 +15525,7 @@ pub struct DataGraphPipelineInfoARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelinePropertyQueryResultARM.html>
+#[doc(alias = "VkDataGraphPipelinePropertyQueryResultARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DataGraphPipelinePropertyQueryResultARM {
@@ -14296,6 +15538,7 @@ pub struct DataGraphPipelinePropertyQueryResultARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineIdentifierCreateInfoARM.html>
+#[doc(alias = "VkDataGraphPipelineIdentifierCreateInfoARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DataGraphPipelineIdentifierCreateInfoARM {
@@ -14306,6 +15549,7 @@ pub struct DataGraphPipelineIdentifierCreateInfoARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineDispatchInfoARM.html>
+#[doc(alias = "VkDataGraphPipelineDispatchInfoARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DataGraphPipelineDispatchInfoARM {
@@ -14315,6 +15559,7 @@ pub struct DataGraphPipelineDispatchInfoARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDataGraphProcessingEngineARM.html>
+#[doc(alias = "VkPhysicalDeviceDataGraphProcessingEngineARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceDataGraphProcessingEngineARM {
@@ -14323,6 +15568,7 @@ pub struct PhysicalDeviceDataGraphProcessingEngineARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDataGraphOperationSupportARM.html>
+#[doc(alias = "VkPhysicalDeviceDataGraphOperationSupportARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceDataGraphOperationSupportARM {
@@ -14332,6 +15578,7 @@ pub struct PhysicalDeviceDataGraphOperationSupportARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkQueueFamilyDataGraphPropertiesARM.html>
+#[doc(alias = "VkQueueFamilyDataGraphPropertiesARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct QueueFamilyDataGraphPropertiesARM {
@@ -14342,6 +15589,7 @@ pub struct QueueFamilyDataGraphPropertiesARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphProcessingEngineCreateInfoARM.html>
+#[doc(alias = "VkDataGraphProcessingEngineCreateInfoARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DataGraphProcessingEngineCreateInfoARM {
@@ -14352,6 +15600,7 @@ pub struct DataGraphProcessingEngineCreateInfoARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceQueueFamilyDataGraphProcessingEngineInfoARM.html>
+#[doc(alias = "VkPhysicalDeviceQueueFamilyDataGraphProcessingEngineInfoARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceQueueFamilyDataGraphProcessingEngineInfoARM {
@@ -14362,6 +15611,7 @@ pub struct PhysicalDeviceQueueFamilyDataGraphProcessingEngineInfoARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkQueueFamilyDataGraphProcessingEnginePropertiesARM.html>
+#[doc(alias = "VkQueueFamilyDataGraphProcessingEnginePropertiesARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct QueueFamilyDataGraphProcessingEnginePropertiesARM {
@@ -14372,6 +15622,7 @@ pub struct QueueFamilyDataGraphProcessingEnginePropertiesARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineConstantTensorSemiStructuredSparsityInfoARM.html>
+#[doc(alias = "VkDataGraphPipelineConstantTensorSemiStructuredSparsityInfoARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DataGraphPipelineConstantTensorSemiStructuredSparsityInfoARM {
@@ -14383,6 +15634,7 @@ pub struct DataGraphPipelineConstantTensorSemiStructuredSparsityInfoARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphTOSANameQualityARM.html>
+#[doc(alias = "VkDataGraphTOSANameQualityARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DataGraphTOSANameQualityARM {
@@ -14391,6 +15643,7 @@ pub struct DataGraphTOSANameQualityARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkQueueFamilyDataGraphTOSAPropertiesARM.html>
+#[doc(alias = "VkQueueFamilyDataGraphTOSAPropertiesARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct QueueFamilyDataGraphTOSAPropertiesARM {
@@ -14404,6 +15657,7 @@ pub struct QueueFamilyDataGraphTOSAPropertiesARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM.html>
+#[doc(alias = "VkPhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM {
@@ -14413,6 +15667,7 @@ pub struct PhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM.html>
+#[doc(alias = "VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MultiviewPerViewRenderAreasRenderPassBeginInfoQCOM {
@@ -14423,6 +15678,7 @@ pub struct MultiviewPerViewRenderAreasRenderPassBeginInfoQCOM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePerStageDescriptorSetFeaturesNV.html>
+#[doc(alias = "VkPhysicalDevicePerStageDescriptorSetFeaturesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDevicePerStageDescriptorSetFeaturesNV {
@@ -14433,6 +15689,7 @@ pub struct PhysicalDevicePerStageDescriptorSetFeaturesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceImageProcessing2FeaturesQCOM.html>
+#[doc(alias = "VkPhysicalDeviceImageProcessing2FeaturesQCOM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceImageProcessing2FeaturesQCOM {
@@ -14442,6 +15699,7 @@ pub struct PhysicalDeviceImageProcessing2FeaturesQCOM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceImageProcessing2PropertiesQCOM.html>
+#[doc(alias = "VkPhysicalDeviceImageProcessing2PropertiesQCOM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceImageProcessing2PropertiesQCOM {
@@ -14451,6 +15709,7 @@ pub struct PhysicalDeviceImageProcessing2PropertiesQCOM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerBlockMatchWindowCreateInfoQCOM.html>
+#[doc(alias = "VkSamplerBlockMatchWindowCreateInfoQCOM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SamplerBlockMatchWindowCreateInfoQCOM {
@@ -14461,6 +15720,7 @@ pub struct SamplerBlockMatchWindowCreateInfoQCOM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCubicWeightsFeaturesQCOM.html>
+#[doc(alias = "VkPhysicalDeviceCubicWeightsFeaturesQCOM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceCubicWeightsFeaturesQCOM {
@@ -14470,6 +15730,7 @@ pub struct PhysicalDeviceCubicWeightsFeaturesQCOM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerCubicWeightsCreateInfoQCOM.html>
+#[doc(alias = "VkSamplerCubicWeightsCreateInfoQCOM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SamplerCubicWeightsCreateInfoQCOM {
@@ -14479,6 +15740,7 @@ pub struct SamplerCubicWeightsCreateInfoQCOM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBlitImageCubicWeightsInfoQCOM.html>
+#[doc(alias = "VkBlitImageCubicWeightsInfoQCOM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BlitImageCubicWeightsInfoQCOM {
@@ -14488,6 +15750,7 @@ pub struct BlitImageCubicWeightsInfoQCOM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceYcbcrDegammaFeaturesQCOM.html>
+#[doc(alias = "VkPhysicalDeviceYcbcrDegammaFeaturesQCOM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceYcbcrDegammaFeaturesQCOM {
@@ -14497,6 +15760,7 @@ pub struct PhysicalDeviceYcbcrDegammaFeaturesQCOM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM.html>
+#[doc(alias = "VkSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM {
@@ -14507,6 +15771,7 @@ pub struct SamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCubicClampFeaturesQCOM.html>
+#[doc(alias = "VkPhysicalDeviceCubicClampFeaturesQCOM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceCubicClampFeaturesQCOM {
@@ -14516,6 +15781,7 @@ pub struct PhysicalDeviceCubicClampFeaturesQCOM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT {
@@ -14525,6 +15791,7 @@ pub struct PhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkScreenBufferPropertiesQNX.html>
+#[doc(alias = "VkScreenBufferPropertiesQNX")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ScreenBufferPropertiesQNX {
@@ -14535,6 +15802,7 @@ pub struct ScreenBufferPropertiesQNX {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkScreenBufferFormatPropertiesQNX.html>
+#[doc(alias = "VkScreenBufferFormatPropertiesQNX")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ScreenBufferFormatPropertiesQNX {
@@ -14552,6 +15820,7 @@ pub struct ScreenBufferFormatPropertiesQNX {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImportScreenBufferInfoQNX.html>
+#[doc(alias = "VkImportScreenBufferInfoQNX")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImportScreenBufferInfoQNX {
@@ -14561,6 +15830,7 @@ pub struct ImportScreenBufferInfoQNX {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalFormatQNX.html>
+#[doc(alias = "VkExternalFormatQNX")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ExternalFormatQNX {
@@ -14570,6 +15840,7 @@ pub struct ExternalFormatQNX {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceExternalMemoryScreenBufferFeaturesQNX.html>
+#[doc(alias = "VkPhysicalDeviceExternalMemoryScreenBufferFeaturesQNX")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceExternalMemoryScreenBufferFeaturesQNX {
@@ -14579,6 +15850,7 @@ pub struct PhysicalDeviceExternalMemoryScreenBufferFeaturesQNX {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceLayeredDriverPropertiesMSFT.html>
+#[doc(alias = "VkPhysicalDeviceLayeredDriverPropertiesMSFT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceLayeredDriverPropertiesMSFT {
@@ -14588,6 +15860,7 @@ pub struct PhysicalDeviceLayeredDriverPropertiesMSFT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDescriptorPoolOverallocationFeaturesNV.html>
+#[doc(alias = "VkPhysicalDeviceDescriptorPoolOverallocationFeaturesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceDescriptorPoolOverallocationFeaturesNV {
@@ -14597,6 +15870,7 @@ pub struct PhysicalDeviceDescriptorPoolOverallocationFeaturesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceTileMemoryHeapFeaturesQCOM.html>
+#[doc(alias = "VkPhysicalDeviceTileMemoryHeapFeaturesQCOM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceTileMemoryHeapFeaturesQCOM {
@@ -14606,6 +15880,7 @@ pub struct PhysicalDeviceTileMemoryHeapFeaturesQCOM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceTileMemoryHeapPropertiesQCOM.html>
+#[doc(alias = "VkPhysicalDeviceTileMemoryHeapPropertiesQCOM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceTileMemoryHeapPropertiesQCOM {
@@ -14616,6 +15891,7 @@ pub struct PhysicalDeviceTileMemoryHeapPropertiesQCOM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTileMemoryRequirementsQCOM.html>
+#[doc(alias = "VkTileMemoryRequirementsQCOM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct TileMemoryRequirementsQCOM {
@@ -14626,6 +15902,7 @@ pub struct TileMemoryRequirementsQCOM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTileMemoryBindInfoQCOM.html>
+#[doc(alias = "VkTileMemoryBindInfoQCOM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct TileMemoryBindInfoQCOM {
@@ -14635,6 +15912,7 @@ pub struct TileMemoryBindInfoQCOM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTileMemorySizeInfoQCOM.html>
+#[doc(alias = "VkTileMemorySizeInfoQCOM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct TileMemorySizeInfoQCOM {
@@ -14644,6 +15922,7 @@ pub struct TileMemorySizeInfoQCOM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDecompressMemoryRegionEXT.html>
+#[doc(alias = "VkDecompressMemoryRegionEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DecompressMemoryRegionEXT {
@@ -14654,6 +15933,7 @@ pub struct DecompressMemoryRegionEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDecompressMemoryInfoEXT.html>
+#[doc(alias = "VkDecompressMemoryInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DecompressMemoryInfoEXT {
@@ -14665,6 +15945,7 @@ pub struct DecompressMemoryInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplaySurfaceStereoCreateInfoNV.html>
+#[doc(alias = "VkDisplaySurfaceStereoCreateInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DisplaySurfaceStereoCreateInfoNV {
@@ -14674,6 +15955,7 @@ pub struct DisplaySurfaceStereoCreateInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplayModeStereoPropertiesNV.html>
+#[doc(alias = "VkDisplayModeStereoPropertiesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DisplayModeStereoPropertiesNV {
@@ -14683,6 +15965,7 @@ pub struct DisplayModeStereoPropertiesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceRawAccessChainsFeaturesNV.html>
+#[doc(alias = "VkPhysicalDeviceRawAccessChainsFeaturesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceRawAccessChainsFeaturesNV {
@@ -14692,6 +15975,7 @@ pub struct PhysicalDeviceRawAccessChainsFeaturesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalComputeQueueDeviceCreateInfoNV.html>
+#[doc(alias = "VkExternalComputeQueueDeviceCreateInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ExternalComputeQueueDeviceCreateInfoNV {
@@ -14701,6 +15985,7 @@ pub struct ExternalComputeQueueDeviceCreateInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalComputeQueueCreateInfoNV.html>
+#[doc(alias = "VkExternalComputeQueueCreateInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ExternalComputeQueueCreateInfoNV {
@@ -14710,6 +15995,7 @@ pub struct ExternalComputeQueueCreateInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalComputeQueueDataParamsNV.html>
+#[doc(alias = "VkExternalComputeQueueDataParamsNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ExternalComputeQueueDataParamsNV {
@@ -14719,6 +16005,7 @@ pub struct ExternalComputeQueueDataParamsNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceExternalComputeQueuePropertiesNV.html>
+#[doc(alias = "VkPhysicalDeviceExternalComputeQueuePropertiesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceExternalComputeQueuePropertiesNV {
@@ -14729,6 +16016,7 @@ pub struct PhysicalDeviceExternalComputeQueuePropertiesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCommandBufferInheritanceFeaturesNV.html>
+#[doc(alias = "VkPhysicalDeviceCommandBufferInheritanceFeaturesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceCommandBufferInheritanceFeaturesNV {
@@ -14738,6 +16026,7 @@ pub struct PhysicalDeviceCommandBufferInheritanceFeaturesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderAtomicFloat16VectorFeaturesNV.html>
+#[doc(alias = "VkPhysicalDeviceShaderAtomicFloat16VectorFeaturesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderAtomicFloat16VectorFeaturesNV {
@@ -14747,6 +16036,7 @@ pub struct PhysicalDeviceShaderAtomicFloat16VectorFeaturesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderReplicatedCompositesFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceShaderReplicatedCompositesFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderReplicatedCompositesFeaturesEXT {
@@ -14756,6 +16046,7 @@ pub struct PhysicalDeviceShaderReplicatedCompositesFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTensorRollingBackingCreateInfoARM.html>
+#[doc(alias = "VkTensorRollingBackingCreateInfoARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct TensorRollingBackingCreateInfoARM {
@@ -14765,6 +16056,7 @@ pub struct TensorRollingBackingCreateInfoARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTensorExplicitTilingFormatPropertiesARM.html>
+#[doc(alias = "VkTensorExplicitTilingFormatPropertiesARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct TensorExplicitTilingFormatPropertiesARM {
@@ -14778,6 +16070,7 @@ pub struct TensorExplicitTilingFormatPropertiesARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderFloat8FeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceShaderFloat8FeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderFloat8FeaturesEXT {
@@ -14788,6 +16081,7 @@ pub struct PhysicalDeviceShaderFloat8FeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceRayTracingValidationFeaturesNV.html>
+#[doc(alias = "VkPhysicalDeviceRayTracingValidationFeaturesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceRayTracingValidationFeaturesNV {
@@ -14797,6 +16091,7 @@ pub struct PhysicalDeviceRayTracingValidationFeaturesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceClusterAccelerationStructureFeaturesNV.html>
+#[doc(alias = "VkPhysicalDeviceClusterAccelerationStructureFeaturesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceClusterAccelerationStructureFeaturesNV {
@@ -14806,6 +16101,7 @@ pub struct PhysicalDeviceClusterAccelerationStructureFeaturesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceClusterAccelerationStructurePropertiesNV.html>
+#[doc(alias = "VkPhysicalDeviceClusterAccelerationStructurePropertiesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceClusterAccelerationStructurePropertiesNV {
@@ -14822,6 +16118,7 @@ pub struct PhysicalDeviceClusterAccelerationStructurePropertiesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkClusterAccelerationStructureClustersBottomLevelInputNV.html>
+#[doc(alias = "VkClusterAccelerationStructureClustersBottomLevelInputNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ClusterAccelerationStructureClustersBottomLevelInputNV {
@@ -14832,6 +16129,7 @@ pub struct ClusterAccelerationStructureClustersBottomLevelInputNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkClusterAccelerationStructureTriangleClusterInputNV.html>
+#[doc(alias = "VkClusterAccelerationStructureTriangleClusterInputNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ClusterAccelerationStructureTriangleClusterInputNV {
@@ -14848,6 +16146,7 @@ pub struct ClusterAccelerationStructureTriangleClusterInputNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkClusterAccelerationStructureMoveObjectsInputNV.html>
+#[doc(alias = "VkClusterAccelerationStructureMoveObjectsInputNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ClusterAccelerationStructureMoveObjectsInputNV {
@@ -14859,6 +16158,7 @@ pub struct ClusterAccelerationStructureMoveObjectsInputNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkClusterAccelerationStructureOpInputNV.html>
+#[doc(alias = "VkClusterAccelerationStructureOpInputNV")]
 #[derive(Clone, Copy)]
 #[repr(C)]
 pub struct ClusterAccelerationStructureOpInputNV {
@@ -14873,6 +16173,7 @@ impl std::fmt::Debug for ClusterAccelerationStructureOpInputNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkClusterAccelerationStructureInputInfoNV.html>
+#[doc(alias = "VkClusterAccelerationStructureInputInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ClusterAccelerationStructureInputInfoNV {
@@ -14886,6 +16187,7 @@ pub struct ClusterAccelerationStructureInputInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkStridedDeviceAddressRegionKHR.html>
+#[doc(alias = "VkStridedDeviceAddressRegionKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct StridedDeviceAddressRegionKHR {
@@ -14895,6 +16197,7 @@ pub struct StridedDeviceAddressRegionKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkClusterAccelerationStructureCommandsInfoNV.html>
+#[doc(alias = "VkClusterAccelerationStructureCommandsInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ClusterAccelerationStructureCommandsInfoNV {
@@ -14911,6 +16214,7 @@ pub struct ClusterAccelerationStructureCommandsInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkStridedDeviceAddressNV.html>
+#[doc(alias = "VkStridedDeviceAddressNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct StridedDeviceAddressNV {
@@ -14919,6 +16223,7 @@ pub struct StridedDeviceAddressNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkClusterAccelerationStructureGeometryIndexAndGeometryFlagsNV.html>
+#[doc(alias = "VkClusterAccelerationStructureGeometryIndexAndGeometryFlagsNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ClusterAccelerationStructureGeometryIndexAndGeometryFlagsNV {
@@ -14928,6 +16233,7 @@ pub struct ClusterAccelerationStructureGeometryIndexAndGeometryFlagsNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkClusterAccelerationStructureMoveObjectsInfoNV.html>
+#[doc(alias = "VkClusterAccelerationStructureMoveObjectsInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ClusterAccelerationStructureMoveObjectsInfoNV {
@@ -14935,6 +16241,7 @@ pub struct ClusterAccelerationStructureMoveObjectsInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkClusterAccelerationStructureBuildClustersBottomLevelInfoNV.html>
+#[doc(alias = "VkClusterAccelerationStructureBuildClustersBottomLevelInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ClusterAccelerationStructureBuildClustersBottomLevelInfoNV {
@@ -14944,6 +16251,7 @@ pub struct ClusterAccelerationStructureBuildClustersBottomLevelInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkClusterAccelerationStructureBuildTriangleClusterInfoNV.html>
+#[doc(alias = "VkClusterAccelerationStructureBuildTriangleClusterInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ClusterAccelerationStructureBuildTriangleClusterInfoNV {
@@ -14968,6 +16276,7 @@ pub struct ClusterAccelerationStructureBuildTriangleClusterInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkClusterAccelerationStructureBuildTriangleClusterTemplateInfoNV.html>
+#[doc(alias = "VkClusterAccelerationStructureBuildTriangleClusterTemplateInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ClusterAccelerationStructureBuildTriangleClusterTemplateInfoNV {
@@ -14993,6 +16302,7 @@ pub struct ClusterAccelerationStructureBuildTriangleClusterTemplateInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkClusterAccelerationStructureInstantiateClusterInfoNV.html>
+#[doc(alias = "VkClusterAccelerationStructureInstantiateClusterInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ClusterAccelerationStructureInstantiateClusterInfoNV {
@@ -15004,6 +16314,7 @@ pub struct ClusterAccelerationStructureInstantiateClusterInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkClusterAccelerationStructureGetTemplateIndicesInfoNV.html>
+#[doc(alias = "VkClusterAccelerationStructureGetTemplateIndicesInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ClusterAccelerationStructureGetTemplateIndicesInfoNV {
@@ -15011,6 +16322,7 @@ pub struct ClusterAccelerationStructureGetTemplateIndicesInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureBuildSizesInfoKHR.html>
+#[doc(alias = "VkAccelerationStructureBuildSizesInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AccelerationStructureBuildSizesInfoKHR {
@@ -15022,6 +16334,7 @@ pub struct AccelerationStructureBuildSizesInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRayTracingPipelineClusterAccelerationStructureCreateInfoNV.html>
+#[doc(alias = "VkRayTracingPipelineClusterAccelerationStructureCreateInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct RayTracingPipelineClusterAccelerationStructureCreateInfoNV {
@@ -15031,6 +16344,7 @@ pub struct RayTracingPipelineClusterAccelerationStructureCreateInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePartitionedAccelerationStructureFeaturesNV.html>
+#[doc(alias = "VkPhysicalDevicePartitionedAccelerationStructureFeaturesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDevicePartitionedAccelerationStructureFeaturesNV {
@@ -15040,6 +16354,7 @@ pub struct PhysicalDevicePartitionedAccelerationStructureFeaturesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePartitionedAccelerationStructurePropertiesNV.html>
+#[doc(alias = "VkPhysicalDevicePartitionedAccelerationStructurePropertiesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDevicePartitionedAccelerationStructurePropertiesNV {
@@ -15049,6 +16364,7 @@ pub struct PhysicalDevicePartitionedAccelerationStructurePropertiesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPartitionedAccelerationStructureFlagsNV.html>
+#[doc(alias = "VkPartitionedAccelerationStructureFlagsNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PartitionedAccelerationStructureFlagsNV {
@@ -15058,6 +16374,7 @@ pub struct PartitionedAccelerationStructureFlagsNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBuildPartitionedAccelerationStructureIndirectCommandNV.html>
+#[doc(alias = "VkBuildPartitionedAccelerationStructureIndirectCommandNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BuildPartitionedAccelerationStructureIndirectCommandNV {
@@ -15067,6 +16384,7 @@ pub struct BuildPartitionedAccelerationStructureIndirectCommandNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPartitionedAccelerationStructureWriteInstanceDataNV.html>
+#[doc(alias = "VkPartitionedAccelerationStructureWriteInstanceDataNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PartitionedAccelerationStructureWriteInstanceDataNV {
@@ -15082,6 +16400,7 @@ pub struct PartitionedAccelerationStructureWriteInstanceDataNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPartitionedAccelerationStructureUpdateInstanceDataNV.html>
+#[doc(alias = "VkPartitionedAccelerationStructureUpdateInstanceDataNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PartitionedAccelerationStructureUpdateInstanceDataNV {
@@ -15091,6 +16410,7 @@ pub struct PartitionedAccelerationStructureUpdateInstanceDataNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPartitionedAccelerationStructureWritePartitionTranslationDataNV.html>
+#[doc(alias = "VkPartitionedAccelerationStructureWritePartitionTranslationDataNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PartitionedAccelerationStructureWritePartitionTranslationDataNV {
@@ -15099,6 +16419,7 @@ pub struct PartitionedAccelerationStructureWritePartitionTranslationDataNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkWriteDescriptorSetPartitionedAccelerationStructureNV.html>
+#[doc(alias = "VkWriteDescriptorSetPartitionedAccelerationStructureNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct WriteDescriptorSetPartitionedAccelerationStructureNV {
@@ -15109,6 +16430,7 @@ pub struct WriteDescriptorSetPartitionedAccelerationStructureNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPartitionedAccelerationStructureInstancesInputNV.html>
+#[doc(alias = "VkPartitionedAccelerationStructureInstancesInputNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PartitionedAccelerationStructureInstancesInputNV {
@@ -15122,6 +16444,7 @@ pub struct PartitionedAccelerationStructureInstancesInputNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBuildPartitionedAccelerationStructureInfoNV.html>
+#[doc(alias = "VkBuildPartitionedAccelerationStructureInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BuildPartitionedAccelerationStructureInfoNV {
@@ -15136,6 +16459,7 @@ pub struct BuildPartitionedAccelerationStructureInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDeviceGeneratedCommandsFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceDeviceGeneratedCommandsFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceDeviceGeneratedCommandsFeaturesEXT {
@@ -15146,6 +16470,7 @@ pub struct PhysicalDeviceDeviceGeneratedCommandsFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDeviceGeneratedCommandsPropertiesEXT.html>
+#[doc(alias = "VkPhysicalDeviceDeviceGeneratedCommandsPropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceDeviceGeneratedCommandsPropertiesEXT {
@@ -15166,6 +16491,7 @@ pub struct PhysicalDeviceDeviceGeneratedCommandsPropertiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkGeneratedCommandsMemoryRequirementsInfoEXT.html>
+#[doc(alias = "VkGeneratedCommandsMemoryRequirementsInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct GeneratedCommandsMemoryRequirementsInfoEXT {
@@ -15178,6 +16504,7 @@ pub struct GeneratedCommandsMemoryRequirementsInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectExecutionSetPipelineInfoEXT.html>
+#[doc(alias = "VkIndirectExecutionSetPipelineInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct IndirectExecutionSetPipelineInfoEXT {
@@ -15188,6 +16515,7 @@ pub struct IndirectExecutionSetPipelineInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectExecutionSetShaderLayoutInfoEXT.html>
+#[doc(alias = "VkIndirectExecutionSetShaderLayoutInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct IndirectExecutionSetShaderLayoutInfoEXT {
@@ -15198,6 +16526,7 @@ pub struct IndirectExecutionSetShaderLayoutInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectExecutionSetShaderInfoEXT.html>
+#[doc(alias = "VkIndirectExecutionSetShaderInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct IndirectExecutionSetShaderInfoEXT {
@@ -15212,6 +16541,7 @@ pub struct IndirectExecutionSetShaderInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectExecutionSetInfoEXT.html>
+#[doc(alias = "VkIndirectExecutionSetInfoEXT")]
 #[derive(Clone, Copy)]
 #[repr(C)]
 pub struct IndirectExecutionSetInfoEXT {
@@ -15225,6 +16555,7 @@ impl std::fmt::Debug for IndirectExecutionSetInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectExecutionSetCreateInfoEXT.html>
+#[doc(alias = "VkIndirectExecutionSetCreateInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct IndirectExecutionSetCreateInfoEXT {
@@ -15235,6 +16566,7 @@ pub struct IndirectExecutionSetCreateInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkGeneratedCommandsInfoEXT.html>
+#[doc(alias = "VkGeneratedCommandsInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct GeneratedCommandsInfoEXT {
@@ -15253,6 +16585,7 @@ pub struct GeneratedCommandsInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkWriteIndirectExecutionSetPipelineEXT.html>
+#[doc(alias = "VkWriteIndirectExecutionSetPipelineEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct WriteIndirectExecutionSetPipelineEXT {
@@ -15263,6 +16596,7 @@ pub struct WriteIndirectExecutionSetPipelineEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectCommandsPushConstantTokenEXT.html>
+#[doc(alias = "VkIndirectCommandsPushConstantTokenEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct IndirectCommandsPushConstantTokenEXT {
@@ -15270,6 +16604,7 @@ pub struct IndirectCommandsPushConstantTokenEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectCommandsVertexBufferTokenEXT.html>
+#[doc(alias = "VkIndirectCommandsVertexBufferTokenEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct IndirectCommandsVertexBufferTokenEXT {
@@ -15277,6 +16612,7 @@ pub struct IndirectCommandsVertexBufferTokenEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectCommandsIndexBufferTokenEXT.html>
+#[doc(alias = "VkIndirectCommandsIndexBufferTokenEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct IndirectCommandsIndexBufferTokenEXT {
@@ -15284,6 +16620,7 @@ pub struct IndirectCommandsIndexBufferTokenEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectCommandsExecutionSetTokenEXT.html>
+#[doc(alias = "VkIndirectCommandsExecutionSetTokenEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct IndirectCommandsExecutionSetTokenEXT {
@@ -15292,6 +16629,7 @@ pub struct IndirectCommandsExecutionSetTokenEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectCommandsTokenDataEXT.html>
+#[doc(alias = "VkIndirectCommandsTokenDataEXT")]
 #[derive(Clone, Copy)]
 #[repr(C)]
 pub struct IndirectCommandsTokenDataEXT {
@@ -15307,6 +16645,7 @@ impl std::fmt::Debug for IndirectCommandsTokenDataEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectCommandsLayoutTokenEXT.html>
+#[doc(alias = "VkIndirectCommandsLayoutTokenEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct IndirectCommandsLayoutTokenEXT {
@@ -15318,6 +16657,7 @@ pub struct IndirectCommandsLayoutTokenEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectCommandsLayoutCreateInfoEXT.html>
+#[doc(alias = "VkIndirectCommandsLayoutCreateInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct IndirectCommandsLayoutCreateInfoEXT {
@@ -15332,6 +16672,7 @@ pub struct IndirectCommandsLayoutCreateInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDrawIndirectCountIndirectCommandEXT.html>
+#[doc(alias = "VkDrawIndirectCountIndirectCommandEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DrawIndirectCountIndirectCommandEXT {
@@ -15341,6 +16682,7 @@ pub struct DrawIndirectCountIndirectCommandEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBindVertexBufferIndirectCommandEXT.html>
+#[doc(alias = "VkBindVertexBufferIndirectCommandEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BindVertexBufferIndirectCommandEXT {
@@ -15350,6 +16692,7 @@ pub struct BindVertexBufferIndirectCommandEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBindIndexBufferIndirectCommandEXT.html>
+#[doc(alias = "VkBindIndexBufferIndirectCommandEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BindIndexBufferIndirectCommandEXT {
@@ -15359,6 +16702,7 @@ pub struct BindIndexBufferIndirectCommandEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkGeneratedCommandsPipelineInfoEXT.html>
+#[doc(alias = "VkGeneratedCommandsPipelineInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct GeneratedCommandsPipelineInfoEXT {
@@ -15368,6 +16712,7 @@ pub struct GeneratedCommandsPipelineInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkGeneratedCommandsShaderInfoEXT.html>
+#[doc(alias = "VkGeneratedCommandsShaderInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct GeneratedCommandsShaderInfoEXT {
@@ -15378,6 +16723,7 @@ pub struct GeneratedCommandsShaderInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkWriteIndirectExecutionSetShaderEXT.html>
+#[doc(alias = "VkWriteIndirectExecutionSetShaderEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct WriteIndirectExecutionSetShaderEXT {
@@ -15388,6 +16734,7 @@ pub struct WriteIndirectExecutionSetShaderEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceImageAlignmentControlFeaturesMESA.html>
+#[doc(alias = "VkPhysicalDeviceImageAlignmentControlFeaturesMESA")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceImageAlignmentControlFeaturesMESA {
@@ -15397,6 +16744,7 @@ pub struct PhysicalDeviceImageAlignmentControlFeaturesMESA {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceImageAlignmentControlPropertiesMESA.html>
+#[doc(alias = "VkPhysicalDeviceImageAlignmentControlPropertiesMESA")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceImageAlignmentControlPropertiesMESA {
@@ -15406,6 +16754,7 @@ pub struct PhysicalDeviceImageAlignmentControlPropertiesMESA {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageAlignmentControlCreateInfoMESA.html>
+#[doc(alias = "VkImageAlignmentControlCreateInfoMESA")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageAlignmentControlCreateInfoMESA {
@@ -15415,6 +16764,7 @@ pub struct ImageAlignmentControlCreateInfoMESA {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPushConstantBankInfoNV.html>
+#[doc(alias = "VkPushConstantBankInfoNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PushConstantBankInfoNV {
@@ -15424,6 +16774,7 @@ pub struct PushConstantBankInfoNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePushConstantBankFeaturesNV.html>
+#[doc(alias = "VkPhysicalDevicePushConstantBankFeaturesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDevicePushConstantBankFeaturesNV {
@@ -15433,6 +16784,7 @@ pub struct PhysicalDevicePushConstantBankFeaturesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePushConstantBankPropertiesNV.html>
+#[doc(alias = "VkPhysicalDevicePushConstantBankPropertiesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDevicePushConstantBankPropertiesNV {
@@ -15445,6 +16797,7 @@ pub struct PhysicalDevicePushConstantBankPropertiesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceRayTracingInvocationReorderPropertiesEXT.html>
+#[doc(alias = "VkPhysicalDeviceRayTracingInvocationReorderPropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceRayTracingInvocationReorderPropertiesEXT {
@@ -15455,6 +16808,7 @@ pub struct PhysicalDeviceRayTracingInvocationReorderPropertiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceRayTracingInvocationReorderFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceRayTracingInvocationReorderFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceRayTracingInvocationReorderFeaturesEXT {
@@ -15464,6 +16818,7 @@ pub struct PhysicalDeviceRayTracingInvocationReorderFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDepthClampControlFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceDepthClampControlFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceDepthClampControlFeaturesEXT {
@@ -15473,6 +16828,7 @@ pub struct PhysicalDeviceDepthClampControlFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineViewportDepthClampControlCreateInfoEXT.html>
+#[doc(alias = "VkPipelineViewportDepthClampControlCreateInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineViewportDepthClampControlCreateInfoEXT {
@@ -15483,6 +16839,7 @@ pub struct PipelineViewportDepthClampControlCreateInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfaceCreateInfoOHOS.html>
+#[doc(alias = "VkSurfaceCreateInfoOHOS")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SurfaceCreateInfoOHOS {
@@ -15493,6 +16850,7 @@ pub struct SurfaceCreateInfoOHOS {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceHdrVividFeaturesHUAWEI.html>
+#[doc(alias = "VkPhysicalDeviceHdrVividFeaturesHUAWEI")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceHdrVividFeaturesHUAWEI {
@@ -15502,6 +16860,7 @@ pub struct PhysicalDeviceHdrVividFeaturesHUAWEI {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkHdrVividDynamicMetadataHUAWEI.html>
+#[doc(alias = "VkHdrVividDynamicMetadataHUAWEI")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct HdrVividDynamicMetadataHUAWEI {
@@ -15512,6 +16871,7 @@ pub struct HdrVividDynamicMetadataHUAWEI {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCooperativeMatrixFlexibleDimensionsPropertiesNV.html>
+#[doc(alias = "VkCooperativeMatrixFlexibleDimensionsPropertiesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CooperativeMatrixFlexibleDimensionsPropertiesNV {
@@ -15530,6 +16890,7 @@ pub struct CooperativeMatrixFlexibleDimensionsPropertiesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCooperativeMatrix2FeaturesNV.html>
+#[doc(alias = "VkPhysicalDeviceCooperativeMatrix2FeaturesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceCooperativeMatrix2FeaturesNV {
@@ -15545,6 +16906,7 @@ pub struct PhysicalDeviceCooperativeMatrix2FeaturesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCooperativeMatrix2PropertiesNV.html>
+#[doc(alias = "VkPhysicalDeviceCooperativeMatrix2PropertiesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceCooperativeMatrix2PropertiesNV {
@@ -15556,6 +16918,7 @@ pub struct PhysicalDeviceCooperativeMatrix2PropertiesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePipelineOpacityMicromapFeaturesARM.html>
+#[doc(alias = "VkPhysicalDevicePipelineOpacityMicromapFeaturesARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDevicePipelineOpacityMicromapFeaturesARM {
@@ -15565,6 +16928,7 @@ pub struct PhysicalDevicePipelineOpacityMicromapFeaturesARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImportMemoryMetalHandleInfoEXT.html>
+#[doc(alias = "VkImportMemoryMetalHandleInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImportMemoryMetalHandleInfoEXT {
@@ -15575,6 +16939,7 @@ pub struct ImportMemoryMetalHandleInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryMetalHandlePropertiesEXT.html>
+#[doc(alias = "VkMemoryMetalHandlePropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MemoryMetalHandlePropertiesEXT {
@@ -15584,6 +16949,7 @@ pub struct MemoryMetalHandlePropertiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryGetMetalHandleInfoEXT.html>
+#[doc(alias = "VkMemoryGetMetalHandleInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct MemoryGetMetalHandleInfoEXT {
@@ -15594,6 +16960,7 @@ pub struct MemoryGetMetalHandleInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePerformanceCountersByRegionFeaturesARM.html>
+#[doc(alias = "VkPhysicalDevicePerformanceCountersByRegionFeaturesARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDevicePerformanceCountersByRegionFeaturesARM {
@@ -15603,6 +16970,7 @@ pub struct PhysicalDevicePerformanceCountersByRegionFeaturesARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePerformanceCountersByRegionPropertiesARM.html>
+#[doc(alias = "VkPhysicalDevicePerformanceCountersByRegionPropertiesARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDevicePerformanceCountersByRegionPropertiesARM {
@@ -15616,6 +16984,7 @@ pub struct PhysicalDevicePerformanceCountersByRegionPropertiesARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceCounterARM.html>
+#[doc(alias = "VkPerformanceCounterARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PerformanceCounterARM {
@@ -15625,6 +16994,7 @@ pub struct PerformanceCounterARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceCounterDescriptionARM.html>
+#[doc(alias = "VkPerformanceCounterDescriptionARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PerformanceCounterDescriptionARM {
@@ -15635,6 +17005,7 @@ pub struct PerformanceCounterDescriptionARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPassPerformanceCountersByRegionBeginInfoARM.html>
+#[doc(alias = "VkRenderPassPerformanceCountersByRegionBeginInfoARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct RenderPassPerformanceCountersByRegionBeginInfoARM {
@@ -15648,6 +17019,7 @@ pub struct RenderPassPerformanceCountersByRegionBeginInfoARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderInstrumentationFeaturesARM.html>
+#[doc(alias = "VkPhysicalDeviceShaderInstrumentationFeaturesARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderInstrumentationFeaturesARM {
@@ -15657,6 +17029,7 @@ pub struct PhysicalDeviceShaderInstrumentationFeaturesARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderInstrumentationPropertiesARM.html>
+#[doc(alias = "VkPhysicalDeviceShaderInstrumentationPropertiesARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderInstrumentationPropertiesARM {
@@ -15667,6 +17040,7 @@ pub struct PhysicalDeviceShaderInstrumentationPropertiesARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderInstrumentationCreateInfoARM.html>
+#[doc(alias = "VkShaderInstrumentationCreateInfoARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ShaderInstrumentationCreateInfoARM {
@@ -15675,6 +17049,7 @@ pub struct ShaderInstrumentationCreateInfoARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderInstrumentationMetricDescriptionARM.html>
+#[doc(alias = "VkShaderInstrumentationMetricDescriptionARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ShaderInstrumentationMetricDescriptionARM {
@@ -15685,6 +17060,7 @@ pub struct ShaderInstrumentationMetricDescriptionARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderInstrumentationMetricDataHeaderARM.html>
+#[doc(alias = "VkShaderInstrumentationMetricDataHeaderARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ShaderInstrumentationMetricDataHeaderARM {
@@ -15695,6 +17071,7 @@ pub struct ShaderInstrumentationMetricDataHeaderARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVertexAttributeRobustnessFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceVertexAttributeRobustnessFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceVertexAttributeRobustnessFeaturesEXT {
@@ -15704,6 +17081,7 @@ pub struct PhysicalDeviceVertexAttributeRobustnessFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFormatPackFeaturesARM.html>
+#[doc(alias = "VkPhysicalDeviceFormatPackFeaturesARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceFormatPackFeaturesARM {
@@ -15713,6 +17091,7 @@ pub struct PhysicalDeviceFormatPackFeaturesARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFragmentDensityMapLayeredFeaturesVALVE.html>
+#[doc(alias = "VkPhysicalDeviceFragmentDensityMapLayeredFeaturesVALVE")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceFragmentDensityMapLayeredFeaturesVALVE {
@@ -15722,6 +17101,7 @@ pub struct PhysicalDeviceFragmentDensityMapLayeredFeaturesVALVE {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFragmentDensityMapLayeredPropertiesVALVE.html>
+#[doc(alias = "VkPhysicalDeviceFragmentDensityMapLayeredPropertiesVALVE")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceFragmentDensityMapLayeredPropertiesVALVE {
@@ -15731,6 +17111,7 @@ pub struct PhysicalDeviceFragmentDensityMapLayeredPropertiesVALVE {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineFragmentDensityMapLayeredCreateInfoVALVE.html>
+#[doc(alias = "VkPipelineFragmentDensityMapLayeredCreateInfoVALVE")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineFragmentDensityMapLayeredCreateInfoVALVE {
@@ -15740,6 +17121,7 @@ pub struct PipelineFragmentDensityMapLayeredCreateInfoVALVE {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSetPresentConfigNV.html>
+#[doc(alias = "VkSetPresentConfigNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SetPresentConfigNV {
@@ -15750,6 +17132,7 @@ pub struct SetPresentConfigNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePresentMeteringFeaturesNV.html>
+#[doc(alias = "VkPhysicalDevicePresentMeteringFeaturesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDevicePresentMeteringFeaturesNV {
@@ -15759,6 +17142,7 @@ pub struct PhysicalDevicePresentMeteringFeaturesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMultisampledRenderToSwapchainFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceMultisampledRenderToSwapchainFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceMultisampledRenderToSwapchainFeaturesEXT {
@@ -15768,6 +17152,7 @@ pub struct PhysicalDeviceMultisampledRenderToSwapchainFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSwapchainFlagsSurfaceCapabilitiesEXT.html>
+#[doc(alias = "VkSwapchainFlagsSurfaceCapabilitiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct SwapchainFlagsSurfaceCapabilitiesEXT {
@@ -15777,6 +17162,7 @@ pub struct SwapchainFlagsSurfaceCapabilitiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXT {
@@ -15786,6 +17172,7 @@ pub struct PhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShader64BitIndexingFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceShader64BitIndexingFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShader64BitIndexingFeaturesEXT {
@@ -15795,6 +17182,7 @@ pub struct PhysicalDeviceShader64BitIndexingFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCustomResolveFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceCustomResolveFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceCustomResolveFeaturesEXT {
@@ -15804,6 +17192,7 @@ pub struct PhysicalDeviceCustomResolveFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBeginCustomResolveInfoEXT.html>
+#[doc(alias = "VkBeginCustomResolveInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BeginCustomResolveInfoEXT {
@@ -15812,6 +17201,7 @@ pub struct BeginCustomResolveInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCustomResolveCreateInfoEXT.html>
+#[doc(alias = "VkCustomResolveCreateInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CustomResolveCreateInfoEXT {
@@ -15825,6 +17215,7 @@ pub struct CustomResolveCreateInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCacheHeaderVersionDataGraphQCOM.html>
+#[doc(alias = "VkPipelineCacheHeaderVersionDataGraphQCOM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PipelineCacheHeaderVersionDataGraphQCOM {
@@ -15836,6 +17227,7 @@ pub struct PipelineCacheHeaderVersionDataGraphQCOM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineBuiltinModelCreateInfoQCOM.html>
+#[doc(alias = "VkDataGraphPipelineBuiltinModelCreateInfoQCOM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DataGraphPipelineBuiltinModelCreateInfoQCOM {
@@ -15845,6 +17237,7 @@ pub struct DataGraphPipelineBuiltinModelCreateInfoQCOM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDataGraphModelFeaturesQCOM.html>
+#[doc(alias = "VkPhysicalDeviceDataGraphModelFeaturesQCOM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceDataGraphModelFeaturesQCOM {
@@ -15854,6 +17247,7 @@ pub struct PhysicalDeviceDataGraphModelFeaturesQCOM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDataGraphOpticalFlowFeaturesARM.html>
+#[doc(alias = "VkPhysicalDeviceDataGraphOpticalFlowFeaturesARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceDataGraphOpticalFlowFeaturesARM {
@@ -15863,6 +17257,7 @@ pub struct PhysicalDeviceDataGraphOpticalFlowFeaturesARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkQueueFamilyDataGraphOpticalFlowPropertiesARM.html>
+#[doc(alias = "VkQueueFamilyDataGraphOpticalFlowPropertiesARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct QueueFamilyDataGraphOpticalFlowPropertiesARM {
@@ -15879,6 +17274,7 @@ pub struct QueueFamilyDataGraphOpticalFlowPropertiesARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineOpticalFlowCreateInfoARM.html>
+#[doc(alias = "VkDataGraphPipelineOpticalFlowCreateInfoARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DataGraphPipelineOpticalFlowCreateInfoARM {
@@ -15896,6 +17292,7 @@ pub struct DataGraphPipelineOpticalFlowCreateInfoARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphOpticalFlowImageFormatPropertiesARM.html>
+#[doc(alias = "VkDataGraphOpticalFlowImageFormatPropertiesARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DataGraphOpticalFlowImageFormatPropertiesARM {
@@ -15905,6 +17302,7 @@ pub struct DataGraphOpticalFlowImageFormatPropertiesARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphOpticalFlowImageFormatInfoARM.html>
+#[doc(alias = "VkDataGraphOpticalFlowImageFormatInfoARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DataGraphOpticalFlowImageFormatInfoARM {
@@ -15914,6 +17312,7 @@ pub struct DataGraphOpticalFlowImageFormatInfoARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineOpticalFlowDispatchInfoARM.html>
+#[doc(alias = "VkDataGraphPipelineOpticalFlowDispatchInfoARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DataGraphPipelineOpticalFlowDispatchInfoARM {
@@ -15924,6 +17323,7 @@ pub struct DataGraphPipelineOpticalFlowDispatchInfoARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineResourceInfoImageLayoutARM.html>
+#[doc(alias = "VkDataGraphPipelineResourceInfoImageLayoutARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DataGraphPipelineResourceInfoImageLayoutARM {
@@ -15933,6 +17333,7 @@ pub struct DataGraphPipelineResourceInfoImageLayoutARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineSingleNodeConnectionARM.html>
+#[doc(alias = "VkDataGraphPipelineSingleNodeConnectionARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DataGraphPipelineSingleNodeConnectionARM {
@@ -15944,6 +17345,7 @@ pub struct DataGraphPipelineSingleNodeConnectionARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineSingleNodeCreateInfoARM.html>
+#[doc(alias = "VkDataGraphPipelineSingleNodeCreateInfoARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DataGraphPipelineSingleNodeCreateInfoARM {
@@ -15955,6 +17357,7 @@ pub struct DataGraphPipelineSingleNodeCreateInfoARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderLongVectorFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceShaderLongVectorFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderLongVectorFeaturesEXT {
@@ -15964,6 +17367,7 @@ pub struct PhysicalDeviceShaderLongVectorFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderLongVectorPropertiesEXT.html>
+#[doc(alias = "VkPhysicalDeviceShaderLongVectorPropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderLongVectorPropertiesEXT {
@@ -15973,6 +17377,7 @@ pub struct PhysicalDeviceShaderLongVectorPropertiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePipelineCacheIncrementalModeFeaturesSEC.html>
+#[doc(alias = "VkPhysicalDevicePipelineCacheIncrementalModeFeaturesSEC")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDevicePipelineCacheIncrementalModeFeaturesSEC {
@@ -15982,6 +17387,7 @@ pub struct PhysicalDevicePipelineCacheIncrementalModeFeaturesSEC {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderUniformBufferUnsizedArrayFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceShaderUniformBufferUnsizedArrayFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderUniformBufferUnsizedArrayFeaturesEXT {
@@ -15991,6 +17397,7 @@ pub struct PhysicalDeviceShaderUniformBufferUnsizedArrayFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkComputeOccupancyPriorityParametersNV.html>
+#[doc(alias = "VkComputeOccupancyPriorityParametersNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ComputeOccupancyPriorityParametersNV {
@@ -16001,6 +17408,7 @@ pub struct ComputeOccupancyPriorityParametersNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceComputeOccupancyPriorityFeaturesNV.html>
+#[doc(alias = "VkPhysicalDeviceComputeOccupancyPriorityFeaturesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceComputeOccupancyPriorityFeaturesNV {
@@ -16010,6 +17418,7 @@ pub struct PhysicalDeviceComputeOccupancyPriorityFeaturesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCooperativeMatrixProperties2EXT.html>
+#[doc(alias = "VkCooperativeMatrixProperties2EXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CooperativeMatrixProperties2EXT {
@@ -16025,6 +17434,7 @@ pub struct CooperativeMatrixProperties2EXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCooperativeMatrixInfo2EXT.html>
+#[doc(alias = "VkPhysicalDeviceCooperativeMatrixInfo2EXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceCooperativeMatrixInfo2EXT {
@@ -16037,6 +17447,7 @@ pub struct PhysicalDeviceCooperativeMatrixInfo2EXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCooperativeMatrixMaintenance1FeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceCooperativeMatrixMaintenance1FeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceCooperativeMatrixMaintenance1FeaturesEXT {
@@ -16050,6 +17461,7 @@ pub struct PhysicalDeviceCooperativeMatrixMaintenance1FeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderSubgroupPartitionedFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceShaderSubgroupPartitionedFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderSubgroupPartitionedFeaturesEXT {
@@ -16059,6 +17471,7 @@ pub struct PhysicalDeviceShaderSubgroupPartitionedFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkUbmSurfaceCreateInfoSEC.html>
+#[doc(alias = "VkUbmSurfaceCreateInfoSEC")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct UbmSurfaceCreateInfoSEC {
@@ -16070,6 +17483,7 @@ pub struct UbmSurfaceCreateInfoSEC {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT {
@@ -16082,6 +17496,7 @@ pub struct PhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderMixedFloatDotProductFeaturesVALVE.html>
+#[doc(alias = "VkPhysicalDeviceShaderMixedFloatDotProductFeaturesVALVE")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceShaderMixedFloatDotProductFeaturesVALVE {
@@ -16094,6 +17509,7 @@ pub struct PhysicalDeviceShaderMixedFloatDotProductFeaturesVALVE {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkThrottleHintSubmitInfoSEC.html>
+#[doc(alias = "VkThrottleHintSubmitInfoSEC")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ThrottleHintSubmitInfoSEC {
@@ -16103,6 +17519,7 @@ pub struct ThrottleHintSubmitInfoSEC {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceThrottleHintFeaturesSEC.html>
+#[doc(alias = "VkPhysicalDeviceThrottleHintFeaturesSEC")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceThrottleHintFeaturesSEC {
@@ -16112,6 +17529,7 @@ pub struct PhysicalDeviceThrottleHintFeaturesSEC {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDataGraphNeuralAcceleratorStatisticsFeaturesARM.html>
+#[doc(alias = "VkPhysicalDeviceDataGraphNeuralAcceleratorStatisticsFeaturesARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceDataGraphNeuralAcceleratorStatisticsFeaturesARM {
@@ -16121,6 +17539,7 @@ pub struct PhysicalDeviceDataGraphNeuralAcceleratorStatisticsFeaturesARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineNeuralStatisticsCreateInfoARM.html>
+#[doc(alias = "VkDataGraphPipelineNeuralStatisticsCreateInfoARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DataGraphPipelineNeuralStatisticsCreateInfoARM {
@@ -16130,6 +17549,7 @@ pub struct DataGraphPipelineNeuralStatisticsCreateInfoARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineSessionNeuralStatisticsCreateInfoARM.html>
+#[doc(alias = "VkDataGraphPipelineSessionNeuralStatisticsCreateInfoARM")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DataGraphPipelineSessionNeuralStatisticsCreateInfoARM {
@@ -16139,6 +17559,7 @@ pub struct DataGraphPipelineSessionNeuralStatisticsCreateInfoARM {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePrimitiveRestartIndexFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDevicePrimitiveRestartIndexFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDevicePrimitiveRestartIndexFeaturesEXT {
@@ -16148,6 +17569,7 @@ pub struct PhysicalDevicePrimitiveRestartIndexFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceImageTilingControlFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceImageTilingControlFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceImageTilingControlFeaturesEXT {
@@ -16157,6 +17579,7 @@ pub struct PhysicalDeviceImageTilingControlFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageTilingControlCreateInfoEXT.html>
+#[doc(alias = "VkImageTilingControlCreateInfoEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct ImageTilingControlCreateInfoEXT {
@@ -16166,6 +17589,7 @@ pub struct ImageTilingControlCreateInfoEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCooperativeMatrixDecodeVectorFeaturesNV.html>
+#[doc(alias = "VkPhysicalDeviceCooperativeMatrixDecodeVectorFeaturesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceCooperativeMatrixDecodeVectorFeaturesNV {
@@ -16175,6 +17599,7 @@ pub struct PhysicalDeviceCooperativeMatrixDecodeVectorFeaturesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePrivateDataBaseHandleFeaturesNV.html>
+#[doc(alias = "VkPhysicalDevicePrivateDataBaseHandleFeaturesNV")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDevicePrivateDataBaseHandleFeaturesNV {
@@ -16184,6 +17609,7 @@ pub struct PhysicalDevicePrivateDataBaseHandleFeaturesNV {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceBufferDeviceAddressAllocationAlignmentFeaturesVALVE.html>
+#[doc(alias = "VkPhysicalDeviceBufferDeviceAddressAllocationAlignmentFeaturesVALVE")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceBufferDeviceAddressAllocationAlignmentFeaturesVALVE {
@@ -16193,6 +17619,7 @@ pub struct PhysicalDeviceBufferDeviceAddressAllocationAlignmentFeaturesVALVE {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceBufferDeviceAddressAllocationAlignmentPropertiesVALVE.html>
+#[doc(alias = "VkPhysicalDeviceBufferDeviceAddressAllocationAlignmentPropertiesVALVE")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceBufferDeviceAddressAllocationAlignmentPropertiesVALVE {
@@ -16202,6 +17629,7 @@ pub struct PhysicalDeviceBufferDeviceAddressAllocationAlignmentPropertiesVALVE {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferDeviceAddressAlignmentAllocateInfoVALVE.html>
+#[doc(alias = "VkBufferDeviceAddressAlignmentAllocateInfoVALVE")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct BufferDeviceAddressAlignmentAllocateInfoVALVE {
@@ -16211,6 +17639,7 @@ pub struct BufferDeviceAddressAlignmentAllocateInfoVALVE {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureBuildRangeInfoKHR.html>
+#[doc(alias = "VkAccelerationStructureBuildRangeInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AccelerationStructureBuildRangeInfoKHR {
@@ -16221,6 +17650,7 @@ pub struct AccelerationStructureBuildRangeInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureGeometryTrianglesDataKHR.html>
+#[doc(alias = "VkAccelerationStructureGeometryTrianglesDataKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AccelerationStructureGeometryTrianglesDataKHR {
@@ -16236,6 +17666,7 @@ pub struct AccelerationStructureGeometryTrianglesDataKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureGeometryAabbsDataKHR.html>
+#[doc(alias = "VkAccelerationStructureGeometryAabbsDataKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AccelerationStructureGeometryAabbsDataKHR {
@@ -16246,6 +17677,7 @@ pub struct AccelerationStructureGeometryAabbsDataKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureGeometryInstancesDataKHR.html>
+#[doc(alias = "VkAccelerationStructureGeometryInstancesDataKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AccelerationStructureGeometryInstancesDataKHR {
@@ -16256,6 +17688,7 @@ pub struct AccelerationStructureGeometryInstancesDataKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureGeometryDataKHR.html>
+#[doc(alias = "VkAccelerationStructureGeometryDataKHR")]
 #[derive(Clone, Copy)]
 #[repr(C)]
 pub struct AccelerationStructureGeometryDataKHR {
@@ -16270,6 +17703,7 @@ impl std::fmt::Debug for AccelerationStructureGeometryDataKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureGeometryKHR.html>
+#[doc(alias = "VkAccelerationStructureGeometryKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AccelerationStructureGeometryKHR {
@@ -16281,6 +17715,7 @@ pub struct AccelerationStructureGeometryKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureBuildGeometryInfoKHR.html>
+#[doc(alias = "VkAccelerationStructureBuildGeometryInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AccelerationStructureBuildGeometryInfoKHR {
@@ -16298,6 +17733,7 @@ pub struct AccelerationStructureBuildGeometryInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureCreateInfoKHR.html>
+#[doc(alias = "VkAccelerationStructureCreateInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AccelerationStructureCreateInfoKHR {
@@ -16312,6 +17748,7 @@ pub struct AccelerationStructureCreateInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkWriteDescriptorSetAccelerationStructureKHR.html>
+#[doc(alias = "VkWriteDescriptorSetAccelerationStructureKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct WriteDescriptorSetAccelerationStructureKHR {
@@ -16322,6 +17759,7 @@ pub struct WriteDescriptorSetAccelerationStructureKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceAccelerationStructureFeaturesKHR.html>
+#[doc(alias = "VkPhysicalDeviceAccelerationStructureFeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceAccelerationStructureFeaturesKHR {
@@ -16335,6 +17773,7 @@ pub struct PhysicalDeviceAccelerationStructureFeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceAccelerationStructurePropertiesKHR.html>
+#[doc(alias = "VkPhysicalDeviceAccelerationStructurePropertiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceAccelerationStructurePropertiesKHR {
@@ -16351,6 +17790,7 @@ pub struct PhysicalDeviceAccelerationStructurePropertiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureDeviceAddressInfoKHR.html>
+#[doc(alias = "VkAccelerationStructureDeviceAddressInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AccelerationStructureDeviceAddressInfoKHR {
@@ -16360,6 +17800,7 @@ pub struct AccelerationStructureDeviceAddressInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureVersionInfoKHR.html>
+#[doc(alias = "VkAccelerationStructureVersionInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct AccelerationStructureVersionInfoKHR {
@@ -16369,6 +17810,7 @@ pub struct AccelerationStructureVersionInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyAccelerationStructureToMemoryInfoKHR.html>
+#[doc(alias = "VkCopyAccelerationStructureToMemoryInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CopyAccelerationStructureToMemoryInfoKHR {
@@ -16380,6 +17822,7 @@ pub struct CopyAccelerationStructureToMemoryInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyMemoryToAccelerationStructureInfoKHR.html>
+#[doc(alias = "VkCopyMemoryToAccelerationStructureInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CopyMemoryToAccelerationStructureInfoKHR {
@@ -16391,6 +17834,7 @@ pub struct CopyMemoryToAccelerationStructureInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyAccelerationStructureInfoKHR.html>
+#[doc(alias = "VkCopyAccelerationStructureInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct CopyAccelerationStructureInfoKHR {
@@ -16402,6 +17846,7 @@ pub struct CopyAccelerationStructureInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRayTracingShaderGroupCreateInfoKHR.html>
+#[doc(alias = "VkRayTracingShaderGroupCreateInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct RayTracingShaderGroupCreateInfoKHR {
@@ -16416,6 +17861,7 @@ pub struct RayTracingShaderGroupCreateInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRayTracingPipelineInterfaceCreateInfoKHR.html>
+#[doc(alias = "VkRayTracingPipelineInterfaceCreateInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct RayTracingPipelineInterfaceCreateInfoKHR {
@@ -16426,6 +17872,7 @@ pub struct RayTracingPipelineInterfaceCreateInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRayTracingPipelineCreateInfoKHR.html>
+#[doc(alias = "VkRayTracingPipelineCreateInfoKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct RayTracingPipelineCreateInfoKHR {
@@ -16446,6 +17893,7 @@ pub struct RayTracingPipelineCreateInfoKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceRayTracingPipelineFeaturesKHR.html>
+#[doc(alias = "VkPhysicalDeviceRayTracingPipelineFeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceRayTracingPipelineFeaturesKHR {
@@ -16459,6 +17907,7 @@ pub struct PhysicalDeviceRayTracingPipelineFeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceRayTracingPipelinePropertiesKHR.html>
+#[doc(alias = "VkPhysicalDeviceRayTracingPipelinePropertiesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceRayTracingPipelinePropertiesKHR {
@@ -16475,6 +17924,7 @@ pub struct PhysicalDeviceRayTracingPipelinePropertiesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTraceRaysIndirectCommandKHR.html>
+#[doc(alias = "VkTraceRaysIndirectCommandKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct TraceRaysIndirectCommandKHR {
@@ -16484,6 +17934,7 @@ pub struct TraceRaysIndirectCommandKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceRayQueryFeaturesKHR.html>
+#[doc(alias = "VkPhysicalDeviceRayQueryFeaturesKHR")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceRayQueryFeaturesKHR {
@@ -16493,6 +17944,7 @@ pub struct PhysicalDeviceRayQueryFeaturesKHR {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMeshShaderFeaturesEXT.html>
+#[doc(alias = "VkPhysicalDeviceMeshShaderFeaturesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceMeshShaderFeaturesEXT {
@@ -16506,6 +17958,7 @@ pub struct PhysicalDeviceMeshShaderFeaturesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMeshShaderPropertiesEXT.html>
+#[doc(alias = "VkPhysicalDeviceMeshShaderPropertiesEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct PhysicalDeviceMeshShaderPropertiesEXT {
@@ -16542,6 +17995,7 @@ pub struct PhysicalDeviceMeshShaderPropertiesEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDrawMeshTasksIndirectCommandEXT.html>
+#[doc(alias = "VkDrawMeshTasksIndirectCommandEXT")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct DrawMeshTasksIndirectCommandEXT {
@@ -16551,9 +18005,10 @@ pub struct DrawMeshTasksIndirectCommandEXT {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264SpsVuiFlags.html>
+#[doc(alias = "StdVideoH264SpsVuiFlags")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoH264SpsVuiFlags {
+pub struct H264SpsVuiFlags {
     pub aspect_ratio_info_present_flag: u32,
     pub overscan_info_present_flag: u32,
     pub overscan_appropriate_flag: u32,
@@ -16569,9 +18024,10 @@ pub struct StdVideoH264SpsVuiFlags {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264HrdParameters.html>
+#[doc(alias = "StdVideoH264HrdParameters")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoH264HrdParameters {
+pub struct H264HrdParameters {
     pub cpb_cnt_minus_1: u8,
     pub bit_rate_scale: u8,
     pub cpb_size_scale: u8,
@@ -16586,11 +18042,12 @@ pub struct StdVideoH264HrdParameters {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264SequenceParameterSetVui.html>
+#[doc(alias = "StdVideoH264SequenceParameterSetVui")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoH264SequenceParameterSetVui {
-    pub flags: StdVideoH264SpsVuiFlags,
-    pub aspect_ratio_idc: StdVideoH264AspectRatioIdc,
+pub struct H264SequenceParameterSetVui {
+    pub flags: H264SpsVuiFlags,
+    pub aspect_ratio_idc: H264AspectRatioIdc,
     pub sar_width: u16,
     pub sar_height: u16,
     pub video_format: u8,
@@ -16604,13 +18061,14 @@ pub struct StdVideoH264SequenceParameterSetVui {
     pub chroma_sample_loc_type_top_field: u8,
     pub chroma_sample_loc_type_bottom_field: u8,
     pub reserved_1: u32,
-    pub p_hrd_parameters: *const StdVideoH264HrdParameters,
+    pub p_hrd_parameters: *const H264HrdParameters,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264SpsFlags.html>
+#[doc(alias = "StdVideoH264SpsFlags")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoH264SpsFlags {
+pub struct H264SpsFlags {
     pub constraint_set_0_flag: u32,
     pub constraint_set_1_flag: u32,
     pub constraint_set_2_flag: u32,
@@ -16630,9 +18088,10 @@ pub struct StdVideoH264SpsFlags {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264ScalingLists.html>
+#[doc(alias = "StdVideoH264ScalingLists")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoH264ScalingLists {
+pub struct H264ScalingLists {
     pub scaling_list_present_mask: u16,
     pub use_default_scaling_matrix_mask: u16,
     pub scaling_list_4_x_4: [[u8; 6]; 16],
@@ -16640,18 +18099,19 @@ pub struct StdVideoH264ScalingLists {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264SequenceParameterSet.html>
+#[doc(alias = "StdVideoH264SequenceParameterSet")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoH264SequenceParameterSet {
-    pub flags: StdVideoH264SpsFlags,
-    pub profile_idc: StdVideoH264ProfileIdc,
-    pub level_idc: StdVideoH264LevelIdc,
-    pub chroma_format_idc: StdVideoH264ChromaFormatIdc,
+pub struct H264SequenceParameterSet {
+    pub flags: H264SpsFlags,
+    pub profile_idc: H264ProfileIdc,
+    pub level_idc: H264LevelIdc,
+    pub chroma_format_idc: H264ChromaFormatIdc,
     pub seq_parameter_set_id: u8,
     pub bit_depth_luma_minus_8: u8,
     pub bit_depth_chroma_minus_8: u8,
     pub log_2_max_frame_num_minus_4: u8,
-    pub pic_order_cnt_type: StdVideoH264PocType,
+    pub pic_order_cnt_type: H264PocType,
     pub offset_for_non_ref_pic: i32,
     pub offset_for_top_to_bottom_field: i32,
     pub log_2_max_pic_order_cnt_lsb_minus_4: u8,
@@ -16666,14 +18126,15 @@ pub struct StdVideoH264SequenceParameterSet {
     pub frame_crop_bottom_offset: u32,
     pub reserved_2: u32,
     pub p_offset_for_ref_frame: *const i32,
-    pub p_scaling_lists: *const StdVideoH264ScalingLists,
-    pub p_sequence_parameter_set_vui: *const StdVideoH264SequenceParameterSetVui,
+    pub p_scaling_lists: *const H264ScalingLists,
+    pub p_sequence_parameter_set_vui: *const H264SequenceParameterSetVui,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264PpsFlags.html>
+#[doc(alias = "StdVideoH264PpsFlags")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoH264PpsFlags {
+pub struct H264PpsFlags {
     pub transform_8_x_8_mode_flag: u32,
     pub redundant_pic_cnt_present_flag: u32,
     pub constrained_intra_pred_flag: u32,
@@ -16685,26 +18146,28 @@ pub struct StdVideoH264PpsFlags {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264PictureParameterSet.html>
+#[doc(alias = "StdVideoH264PictureParameterSet")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoH264PictureParameterSet {
-    pub flags: StdVideoH264PpsFlags,
+pub struct H264PictureParameterSet {
+    pub flags: H264PpsFlags,
     pub seq_parameter_set_id: u8,
     pub pic_parameter_set_id: u8,
     pub num_ref_idx_l_0_default_active_minus_1: u8,
     pub num_ref_idx_l_1_default_active_minus_1: u8,
-    pub weighted_bipred_idc: StdVideoH264WeightedBipredIdc,
+    pub weighted_bipred_idc: H264WeightedBipredIdc,
     pub pic_init_qp_minus_26: i8,
     pub pic_init_qs_minus_26: i8,
     pub chroma_qp_index_offset: i8,
     pub second_chroma_qp_index_offset: i8,
-    pub p_scaling_lists: *const StdVideoH264ScalingLists,
+    pub p_scaling_lists: *const H264ScalingLists,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeH264PictureInfoFlags.html>
+#[doc(alias = "StdVideoDecodeH264PictureInfoFlags")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoDecodeH264PictureInfoFlags {
+pub struct DecodeH264PictureInfoFlags {
     pub field_pic_flag: u32,
     pub is_intra: u32,
     pub idr_pic_flag: u32,
@@ -16714,10 +18177,11 @@ pub struct StdVideoDecodeH264PictureInfoFlags {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeH264PictureInfo.html>
+#[doc(alias = "StdVideoDecodeH264PictureInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoDecodeH264PictureInfo {
-    pub flags: StdVideoDecodeH264PictureInfoFlags,
+pub struct DecodeH264PictureInfo {
+    pub flags: DecodeH264PictureInfoFlags,
     pub seq_parameter_set_id: u8,
     pub pic_parameter_set_id: u8,
     pub reserved_1: u8,
@@ -16728,9 +18192,10 @@ pub struct StdVideoDecodeH264PictureInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeH264ReferenceInfoFlags.html>
+#[doc(alias = "StdVideoDecodeH264ReferenceInfoFlags")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoDecodeH264ReferenceInfoFlags {
+pub struct DecodeH264ReferenceInfoFlags {
     pub top_field_flag: u32,
     pub bottom_field_flag: u32,
     pub used_for_long_term_reference: u32,
@@ -16738,19 +18203,21 @@ pub struct StdVideoDecodeH264ReferenceInfoFlags {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeH264ReferenceInfo.html>
+#[doc(alias = "StdVideoDecodeH264ReferenceInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoDecodeH264ReferenceInfo {
-    pub flags: StdVideoDecodeH264ReferenceInfoFlags,
+pub struct DecodeH264ReferenceInfo {
+    pub flags: DecodeH264ReferenceInfoFlags,
     pub frame_num: u16,
     pub reserved: u16,
     pub pic_order_cnt: [i32; 2],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH264WeightTableFlags.html>
+#[doc(alias = "StdVideoEncodeH264WeightTableFlags")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoEncodeH264WeightTableFlags {
+pub struct EncodeH264WeightTableFlags {
     pub luma_weight_l_0_flag: u32,
     pub chroma_weight_l_0_flag: u32,
     pub luma_weight_l_1_flag: u32,
@@ -16758,10 +18225,11 @@ pub struct StdVideoEncodeH264WeightTableFlags {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH264WeightTable.html>
+#[doc(alias = "StdVideoEncodeH264WeightTable")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoEncodeH264WeightTable {
-    pub flags: StdVideoEncodeH264WeightTableFlags,
+pub struct EncodeH264WeightTable {
+    pub flags: EncodeH264WeightTableFlags,
     pub luma_log_2_weight_denom: u8,
     pub chroma_log_2_weight_denom: u8,
     pub luma_weight_l_0: [i8; 32],
@@ -16775,18 +18243,20 @@ pub struct StdVideoEncodeH264WeightTable {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH264SliceHeaderFlags.html>
+#[doc(alias = "StdVideoEncodeH264SliceHeaderFlags")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoEncodeH264SliceHeaderFlags {
+pub struct EncodeH264SliceHeaderFlags {
     pub direct_spatial_mv_pred_flag: u32,
     pub num_ref_idx_active_override_flag: u32,
     pub reserved: u32,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH264PictureInfoFlags.html>
+#[doc(alias = "StdVideoEncodeH264PictureInfoFlags")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoEncodeH264PictureInfoFlags {
+pub struct EncodeH264PictureInfoFlags {
     pub idr_pic_flag: u32,
     pub is_reference: u32,
     pub no_output_of_prior_pics_flag: u32,
@@ -16796,36 +18266,40 @@ pub struct StdVideoEncodeH264PictureInfoFlags {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH264ReferenceInfoFlags.html>
+#[doc(alias = "StdVideoEncodeH264ReferenceInfoFlags")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoEncodeH264ReferenceInfoFlags {
+pub struct EncodeH264ReferenceInfoFlags {
     pub used_for_long_term_reference: u32,
     pub reserved: u32,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH264ReferenceListsInfoFlags.html>
+#[doc(alias = "StdVideoEncodeH264ReferenceListsInfoFlags")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoEncodeH264ReferenceListsInfoFlags {
+pub struct EncodeH264ReferenceListsInfoFlags {
     pub ref_pic_list_modification_flag_l_0: u32,
     pub ref_pic_list_modification_flag_l_1: u32,
     pub reserved: u32,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH264RefListModEntry.html>
+#[doc(alias = "StdVideoEncodeH264RefListModEntry")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoEncodeH264RefListModEntry {
-    pub modification_of_pic_nums_idc: StdVideoH264ModificationOfPicNumsIdc,
+pub struct EncodeH264RefListModEntry {
+    pub modification_of_pic_nums_idc: H264ModificationOfPicNumsIdc,
     pub abs_diff_pic_num_minus_1: u16,
     pub long_term_pic_num: u16,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH264RefPicMarkingEntry.html>
+#[doc(alias = "StdVideoEncodeH264RefPicMarkingEntry")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoEncodeH264RefPicMarkingEntry {
-    pub memory_management_control_operation: StdVideoH264MemMgmtControlOp,
+pub struct EncodeH264RefPicMarkingEntry {
+    pub memory_management_control_operation: H264MemMgmtControlOp,
     pub difference_of_pic_nums_minus_1: u16,
     pub long_term_pic_num: u16,
     pub long_term_frame_idx: u16,
@@ -16833,10 +18307,11 @@ pub struct StdVideoEncodeH264RefPicMarkingEntry {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH264ReferenceListsInfo.html>
+#[doc(alias = "StdVideoEncodeH264ReferenceListsInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoEncodeH264ReferenceListsInfo {
-    pub flags: StdVideoEncodeH264ReferenceListsInfoFlags,
+pub struct EncodeH264ReferenceListsInfo {
+    pub flags: EncodeH264ReferenceListsInfoFlags,
     pub num_ref_idx_l_0_active_minus_1: u8,
     pub num_ref_idx_l_1_active_minus_1: u8,
     pub ref_pic_list_0: [u8; 32],
@@ -16845,33 +18320,35 @@ pub struct StdVideoEncodeH264ReferenceListsInfo {
     pub ref_list_1_mod_op_count: u8,
     pub ref_pic_marking_op_count: u8,
     pub reserved_1: [u8; 7],
-    pub p_ref_list_0_mod_operations: *const StdVideoEncodeH264RefListModEntry,
-    pub p_ref_list_1_mod_operations: *const StdVideoEncodeH264RefListModEntry,
-    pub p_ref_pic_marking_operations: *const StdVideoEncodeH264RefPicMarkingEntry,
+    pub p_ref_list_0_mod_operations: *const EncodeH264RefListModEntry,
+    pub p_ref_list_1_mod_operations: *const EncodeH264RefListModEntry,
+    pub p_ref_pic_marking_operations: *const EncodeH264RefPicMarkingEntry,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH264PictureInfo.html>
+#[doc(alias = "StdVideoEncodeH264PictureInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoEncodeH264PictureInfo {
-    pub flags: StdVideoEncodeH264PictureInfoFlags,
+pub struct EncodeH264PictureInfo {
+    pub flags: EncodeH264PictureInfoFlags,
     pub seq_parameter_set_id: u8,
     pub pic_parameter_set_id: u8,
     pub idr_pic_id: u16,
-    pub primary_pic_type: StdVideoH264PictureType,
+    pub primary_pic_type: H264PictureType,
     pub frame_num: u32,
     pub pic_order_cnt: i32,
     pub temporal_id: u8,
     pub reserved_1: [u8; 3],
-    pub p_ref_lists: *const StdVideoEncodeH264ReferenceListsInfo,
+    pub p_ref_lists: *const EncodeH264ReferenceListsInfo,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH264ReferenceInfo.html>
+#[doc(alias = "StdVideoEncodeH264ReferenceInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoEncodeH264ReferenceInfo {
-    pub flags: StdVideoEncodeH264ReferenceInfoFlags,
-    pub primary_pic_type: StdVideoH264PictureType,
+pub struct EncodeH264ReferenceInfo {
+    pub flags: EncodeH264ReferenceInfoFlags,
+    pub primary_pic_type: H264PictureType,
     pub frame_num: u32,
     pub pic_order_cnt: i32,
     pub long_term_pic_num: u16,
@@ -16880,34 +18357,37 @@ pub struct StdVideoEncodeH264ReferenceInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH264SliceHeader.html>
+#[doc(alias = "StdVideoEncodeH264SliceHeader")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoEncodeH264SliceHeader {
-    pub flags: StdVideoEncodeH264SliceHeaderFlags,
+pub struct EncodeH264SliceHeader {
+    pub flags: EncodeH264SliceHeaderFlags,
     pub first_mb_in_slice: u32,
-    pub slice_type: StdVideoH264SliceType,
+    pub slice_type: H264SliceType,
     pub slice_alpha_c_0_offset_div_2: i8,
     pub slice_beta_offset_div_2: i8,
     pub slice_qp_delta: i8,
     pub reserved_1: u8,
-    pub cabac_init_idc: StdVideoH264CabacInitIdc,
-    pub disable_deblocking_filter_idc: StdVideoH264DisableDeblockingFilterIdc,
-    pub p_weight_table: *const StdVideoEncodeH264WeightTable,
+    pub cabac_init_idc: H264CabacInitIdc,
+    pub disable_deblocking_filter_idc: H264DisableDeblockingFilterIdc,
+    pub p_weight_table: *const EncodeH264WeightTable,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265DecPicBufMgr.html>
+#[doc(alias = "StdVideoH265DecPicBufMgr")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoH265DecPicBufMgr {
+pub struct H265DecPicBufMgr {
     pub max_latency_increase_plus_1: [u32; 7],
     pub max_dec_pic_buffering_minus_1: [u8; 7],
     pub max_num_reorder_pics: [u8; 7],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265SubLayerHrdParameters.html>
+#[doc(alias = "StdVideoH265SubLayerHrdParameters")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoH265SubLayerHrdParameters {
+pub struct H265SubLayerHrdParameters {
     pub bit_rate_value_minus_1: [u32; 32],
     pub cpb_size_value_minus_1: [u32; 32],
     pub cpb_size_du_value_minus_1: [u32; 32],
@@ -16916,9 +18396,10 @@ pub struct StdVideoH265SubLayerHrdParameters {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265HrdFlags.html>
+#[doc(alias = "StdVideoH265HrdFlags")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoH265HrdFlags {
+pub struct H265HrdFlags {
     pub nal_hrd_parameters_present_flag: u32,
     pub vcl_hrd_parameters_present_flag: u32,
     pub sub_pic_hrd_params_present_flag: u32,
@@ -16929,10 +18410,11 @@ pub struct StdVideoH265HrdFlags {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265HrdParameters.html>
+#[doc(alias = "StdVideoH265HrdParameters")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoH265HrdParameters {
-    pub flags: StdVideoH265HrdFlags,
+pub struct H265HrdParameters {
+    pub flags: H265HrdFlags,
     pub tick_divisor_minus_2: u8,
     pub du_cpb_removal_delay_increment_length_minus_1: u8,
     pub dpb_output_delay_du_length_minus_1: u8,
@@ -16945,14 +18427,15 @@ pub struct StdVideoH265HrdParameters {
     pub cpb_cnt_minus_1: [u8; 7],
     pub elemental_duration_in_tc_minus_1: [u16; 7],
     pub reserved: [u16; 3],
-    pub p_sub_layer_hrd_parameters_nal: *const StdVideoH265SubLayerHrdParameters,
-    pub p_sub_layer_hrd_parameters_vcl: *const StdVideoH265SubLayerHrdParameters,
+    pub p_sub_layer_hrd_parameters_nal: *const H265SubLayerHrdParameters,
+    pub p_sub_layer_hrd_parameters_vcl: *const H265SubLayerHrdParameters,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265VpsFlags.html>
+#[doc(alias = "StdVideoH265VpsFlags")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoH265VpsFlags {
+pub struct H265VpsFlags {
     pub vps_temporal_id_nesting_flag: u32,
     pub vps_sub_layer_ordering_info_present_flag: u32,
     pub vps_timing_info_present_flag: u32,
@@ -16960,9 +18443,10 @@ pub struct StdVideoH265VpsFlags {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265ProfileTierLevelFlags.html>
+#[doc(alias = "StdVideoH265ProfileTierLevelFlags")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoH265ProfileTierLevelFlags {
+pub struct H265ProfileTierLevelFlags {
     pub general_tier_flag: u32,
     pub general_progressive_source_flag: u32,
     pub general_interlaced_source_flag: u32,
@@ -16971,19 +18455,21 @@ pub struct StdVideoH265ProfileTierLevelFlags {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265ProfileTierLevel.html>
+#[doc(alias = "StdVideoH265ProfileTierLevel")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoH265ProfileTierLevel {
-    pub flags: StdVideoH265ProfileTierLevelFlags,
-    pub general_profile_idc: StdVideoH265ProfileIdc,
-    pub general_level_idc: StdVideoH265LevelIdc,
+pub struct H265ProfileTierLevel {
+    pub flags: H265ProfileTierLevelFlags,
+    pub general_profile_idc: H265ProfileIdc,
+    pub general_level_idc: H265LevelIdc,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265VideoParameterSet.html>
+#[doc(alias = "StdVideoH265VideoParameterSet")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoH265VideoParameterSet {
-    pub flags: StdVideoH265VpsFlags,
+pub struct H265VideoParameterSet {
+    pub flags: H265VpsFlags,
     pub vps_video_parameter_set_id: u8,
     pub vps_max_sub_layers_minus_1: u8,
     pub reserved_1: u8,
@@ -16992,15 +18478,16 @@ pub struct StdVideoH265VideoParameterSet {
     pub vps_time_scale: u32,
     pub vps_num_ticks_poc_diff_one_minus_1: u32,
     pub reserved_3: u32,
-    pub p_dec_pic_buf_mgr: *const StdVideoH265DecPicBufMgr,
-    pub p_hrd_parameters: *const StdVideoH265HrdParameters,
-    pub p_profile_tier_level: *const StdVideoH265ProfileTierLevel,
+    pub p_dec_pic_buf_mgr: *const H265DecPicBufMgr,
+    pub p_hrd_parameters: *const H265HrdParameters,
+    pub p_profile_tier_level: *const H265ProfileTierLevel,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265ScalingLists.html>
+#[doc(alias = "StdVideoH265ScalingLists")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoH265ScalingLists {
+pub struct H265ScalingLists {
     pub scaling_list_4_x_4: [[u8; 6]; 16],
     pub scaling_list_8_x_8: [[u8; 6]; 64],
     pub scaling_list_16_x_16: [[u8; 6]; 64],
@@ -17010,9 +18497,10 @@ pub struct StdVideoH265ScalingLists {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265SpsVuiFlags.html>
+#[doc(alias = "StdVideoH265SpsVuiFlags")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoH265SpsVuiFlags {
+pub struct H265SpsVuiFlags {
     pub aspect_ratio_info_present_flag: u32,
     pub overscan_info_present_flag: u32,
     pub overscan_appropriate_flag: u32,
@@ -17034,11 +18522,12 @@ pub struct StdVideoH265SpsVuiFlags {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265SequenceParameterSetVui.html>
+#[doc(alias = "StdVideoH265SequenceParameterSetVui")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoH265SequenceParameterSetVui {
-    pub flags: StdVideoH265SpsVuiFlags,
-    pub aspect_ratio_idc: StdVideoH265AspectRatioIdc,
+pub struct H265SequenceParameterSetVui {
+    pub flags: H265SpsVuiFlags,
+    pub aspect_ratio_idc: H265AspectRatioIdc,
     pub sar_width: u16,
     pub sar_height: u16,
     pub video_format: u8,
@@ -17062,20 +18551,22 @@ pub struct StdVideoH265SequenceParameterSetVui {
     pub max_bits_per_min_cu_denom: u8,
     pub log_2_max_mv_length_horizontal: u8,
     pub log_2_max_mv_length_vertical: u8,
-    pub p_hrd_parameters: *const StdVideoH265HrdParameters,
+    pub p_hrd_parameters: *const H265HrdParameters,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265PredictorPaletteEntries.html>
+#[doc(alias = "StdVideoH265PredictorPaletteEntries")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoH265PredictorPaletteEntries {
+pub struct H265PredictorPaletteEntries {
     pub predictor_palette_entries: [[u16; 3]; 128],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265SpsFlags.html>
+#[doc(alias = "StdVideoH265SpsFlags")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoH265SpsFlags {
+pub struct H265SpsFlags {
     pub sps_temporal_id_nesting_flag: u32,
     pub separate_colour_plane_flag: u32,
     pub conformance_window_flag: u32,
@@ -17109,18 +18600,20 @@ pub struct StdVideoH265SpsFlags {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265ShortTermRefPicSetFlags.html>
+#[doc(alias = "StdVideoH265ShortTermRefPicSetFlags")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoH265ShortTermRefPicSetFlags {
+pub struct H265ShortTermRefPicSetFlags {
     pub inter_ref_pic_set_prediction_flag: u32,
     pub delta_rps_sign: u32,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265ShortTermRefPicSet.html>
+#[doc(alias = "StdVideoH265ShortTermRefPicSet")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoH265ShortTermRefPicSet {
-    pub flags: StdVideoH265ShortTermRefPicSetFlags,
+pub struct H265ShortTermRefPicSet {
+    pub flags: H265ShortTermRefPicSetFlags,
     pub delta_idx_minus_1: u32,
     pub use_delta_flag: u16,
     pub abs_delta_rps_minus_1: u16,
@@ -17137,19 +18630,21 @@ pub struct StdVideoH265ShortTermRefPicSet {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265LongTermRefPicsSps.html>
+#[doc(alias = "StdVideoH265LongTermRefPicsSps")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoH265LongTermRefPicsSps {
+pub struct H265LongTermRefPicsSps {
     pub used_by_curr_pic_lt_sps_flag: u32,
     pub lt_ref_pic_poc_lsb_sps: [u32; 32],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265SequenceParameterSet.html>
+#[doc(alias = "StdVideoH265SequenceParameterSet")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoH265SequenceParameterSet {
-    pub flags: StdVideoH265SpsFlags,
-    pub chroma_format_idc: StdVideoH265ChromaFormatIdc,
+pub struct H265SequenceParameterSet {
+    pub flags: H265SpsFlags,
+    pub chroma_format_idc: H265ChromaFormatIdc,
     pub pic_width_in_luma_samples: u32,
     pub pic_height_in_luma_samples: u32,
     pub sps_video_parameter_set_id: u8,
@@ -17180,19 +18675,20 @@ pub struct StdVideoH265SequenceParameterSet {
     pub conf_win_right_offset: u32,
     pub conf_win_top_offset: u32,
     pub conf_win_bottom_offset: u32,
-    pub p_profile_tier_level: *const StdVideoH265ProfileTierLevel,
-    pub p_dec_pic_buf_mgr: *const StdVideoH265DecPicBufMgr,
-    pub p_scaling_lists: *const StdVideoH265ScalingLists,
-    pub p_short_term_ref_pic_set: *const StdVideoH265ShortTermRefPicSet,
-    pub p_long_term_ref_pics_sps: *const StdVideoH265LongTermRefPicsSps,
-    pub p_sequence_parameter_set_vui: *const StdVideoH265SequenceParameterSetVui,
-    pub p_predictor_palette_entries: *const StdVideoH265PredictorPaletteEntries,
+    pub p_profile_tier_level: *const H265ProfileTierLevel,
+    pub p_dec_pic_buf_mgr: *const H265DecPicBufMgr,
+    pub p_scaling_lists: *const H265ScalingLists,
+    pub p_short_term_ref_pic_set: *const H265ShortTermRefPicSet,
+    pub p_long_term_ref_pics_sps: *const H265LongTermRefPicsSps,
+    pub p_sequence_parameter_set_vui: *const H265SequenceParameterSetVui,
+    pub p_predictor_palette_entries: *const H265PredictorPaletteEntries,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265PpsFlags.html>
+#[doc(alias = "StdVideoH265PpsFlags")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoH265PpsFlags {
+pub struct H265PpsFlags {
     pub dependent_slice_segments_enabled_flag: u32,
     pub output_flag_present_flag: u32,
     pub sign_data_hiding_enabled_flag: u32,
@@ -17227,10 +18723,11 @@ pub struct StdVideoH265PpsFlags {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265PictureParameterSet.html>
+#[doc(alias = "StdVideoH265PictureParameterSet")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoH265PictureParameterSet {
-    pub flags: StdVideoH265PpsFlags,
+pub struct H265PictureParameterSet {
+    pub flags: H265PpsFlags,
     pub pps_pic_parameter_set_id: u8,
     pub pps_seq_parameter_set_id: u8,
     pub sps_video_parameter_set_id: u8,
@@ -17264,14 +18761,15 @@ pub struct StdVideoH265PictureParameterSet {
     pub column_width_minus_1: [u16; 19],
     pub row_height_minus_1: [u16; 21],
     pub reserved_3: u32,
-    pub p_scaling_lists: *const StdVideoH265ScalingLists,
-    pub p_predictor_palette_entries: *const StdVideoH265PredictorPaletteEntries,
+    pub p_scaling_lists: *const H265ScalingLists,
+    pub p_predictor_palette_entries: *const H265PredictorPaletteEntries,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeH265PictureInfoFlags.html>
+#[doc(alias = "StdVideoDecodeH265PictureInfoFlags")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoDecodeH265PictureInfoFlags {
+pub struct DecodeH265PictureInfoFlags {
     pub irap_pic_flag: u32,
     pub idr_pic_flag: u32,
     pub is_reference: u32,
@@ -17279,10 +18777,11 @@ pub struct StdVideoDecodeH265PictureInfoFlags {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeH265PictureInfo.html>
+#[doc(alias = "StdVideoDecodeH265PictureInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoDecodeH265PictureInfo {
-    pub flags: StdVideoDecodeH265PictureInfoFlags,
+pub struct DecodeH265PictureInfo {
+    pub flags: DecodeH265PictureInfoFlags,
     pub sps_video_parameter_set_id: u8,
     pub pps_seq_parameter_set_id: u8,
     pub pps_pic_parameter_set_id: u8,
@@ -17296,25 +18795,28 @@ pub struct StdVideoDecodeH265PictureInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeH265ReferenceInfoFlags.html>
+#[doc(alias = "StdVideoDecodeH265ReferenceInfoFlags")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoDecodeH265ReferenceInfoFlags {
+pub struct DecodeH265ReferenceInfoFlags {
     pub used_for_long_term_reference: u32,
     pub unused_for_reference: u32,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeH265ReferenceInfo.html>
+#[doc(alias = "StdVideoDecodeH265ReferenceInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoDecodeH265ReferenceInfo {
-    pub flags: StdVideoDecodeH265ReferenceInfoFlags,
+pub struct DecodeH265ReferenceInfo {
+    pub flags: DecodeH265ReferenceInfoFlags,
     pub pic_order_cnt_val: i32,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH265WeightTableFlags.html>
+#[doc(alias = "StdVideoEncodeH265WeightTableFlags")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoEncodeH265WeightTableFlags {
+pub struct EncodeH265WeightTableFlags {
     pub luma_weight_l_0_flag: u16,
     pub chroma_weight_l_0_flag: u16,
     pub luma_weight_l_1_flag: u16,
@@ -17322,10 +18824,11 @@ pub struct StdVideoEncodeH265WeightTableFlags {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH265WeightTable.html>
+#[doc(alias = "StdVideoEncodeH265WeightTable")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoEncodeH265WeightTable {
-    pub flags: StdVideoEncodeH265WeightTableFlags,
+pub struct EncodeH265WeightTable {
+    pub flags: EncodeH265WeightTableFlags,
     pub luma_log_2_weight_denom: u8,
     pub delta_chroma_log_2_weight_denom: i8,
     pub delta_luma_weight_l_0: [i8; 15],
@@ -17339,9 +18842,10 @@ pub struct StdVideoEncodeH265WeightTable {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH265SliceSegmentHeaderFlags.html>
+#[doc(alias = "StdVideoEncodeH265SliceSegmentHeaderFlags")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoEncodeH265SliceSegmentHeaderFlags {
+pub struct EncodeH265SliceSegmentHeaderFlags {
     pub first_slice_segment_in_pic_flag: u32,
     pub dependent_slice_segment_flag: u32,
     pub slice_sao_luma_flag: u32,
@@ -17358,11 +18862,12 @@ pub struct StdVideoEncodeH265SliceSegmentHeaderFlags {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH265SliceSegmentHeader.html>
+#[doc(alias = "StdVideoEncodeH265SliceSegmentHeader")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoEncodeH265SliceSegmentHeader {
-    pub flags: StdVideoEncodeH265SliceSegmentHeaderFlags,
-    pub slice_type: StdVideoH265SliceType,
+pub struct EncodeH265SliceSegmentHeader {
+    pub flags: EncodeH265SliceSegmentHeaderFlags,
+    pub slice_type: H265SliceType,
     pub slice_segment_address: u32,
     pub collocated_ref_idx: u8,
     pub max_num_merge_cand: u8,
@@ -17375,23 +18880,25 @@ pub struct StdVideoEncodeH265SliceSegmentHeader {
     pub slice_act_cr_qp_offset: i8,
     pub slice_qp_delta: i8,
     pub reserved_1: u16,
-    pub p_weight_table: *const StdVideoEncodeH265WeightTable,
+    pub p_weight_table: *const EncodeH265WeightTable,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH265ReferenceListsInfoFlags.html>
+#[doc(alias = "StdVideoEncodeH265ReferenceListsInfoFlags")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoEncodeH265ReferenceListsInfoFlags {
+pub struct EncodeH265ReferenceListsInfoFlags {
     pub ref_pic_list_modification_flag_l_0: u32,
     pub ref_pic_list_modification_flag_l_1: u32,
     pub reserved: u32,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH265ReferenceListsInfo.html>
+#[doc(alias = "StdVideoEncodeH265ReferenceListsInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoEncodeH265ReferenceListsInfo {
-    pub flags: StdVideoEncodeH265ReferenceListsInfoFlags,
+pub struct EncodeH265ReferenceListsInfo {
+    pub flags: EncodeH265ReferenceListsInfoFlags,
     pub num_ref_idx_l_0_active_minus_1: u8,
     pub num_ref_idx_l_1_active_minus_1: u8,
     pub ref_pic_list_0: [u8; 15],
@@ -17401,9 +18908,10 @@ pub struct StdVideoEncodeH265ReferenceListsInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH265PictureInfoFlags.html>
+#[doc(alias = "StdVideoEncodeH265PictureInfoFlags")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoEncodeH265PictureInfoFlags {
+pub struct EncodeH265PictureInfoFlags {
     pub is_reference: u32,
     pub irap_pic_flag: u32,
     pub used_for_long_term_reference: u32,
@@ -17417,9 +18925,10 @@ pub struct StdVideoEncodeH265PictureInfoFlags {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH265LongTermRefPics.html>
+#[doc(alias = "StdVideoEncodeH265LongTermRefPics")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoEncodeH265LongTermRefPics {
+pub struct EncodeH265LongTermRefPics {
     pub num_long_term_sps: u8,
     pub num_long_term_pics: u8,
     pub lt_idx_sps: [u8; 32],
@@ -17430,11 +18939,12 @@ pub struct StdVideoEncodeH265LongTermRefPics {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH265PictureInfo.html>
+#[doc(alias = "StdVideoEncodeH265PictureInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoEncodeH265PictureInfo {
-    pub flags: StdVideoEncodeH265PictureInfoFlags,
-    pub pic_type: StdVideoH265PictureType,
+pub struct EncodeH265PictureInfo {
+    pub flags: EncodeH265PictureInfoFlags,
+    pub pic_type: H265PictureType,
     pub sps_video_parameter_set_id: u8,
     pub pps_seq_parameter_set_id: u8,
     pub pps_pic_parameter_set_id: u8,
@@ -17442,34 +18952,37 @@ pub struct StdVideoEncodeH265PictureInfo {
     pub pic_order_cnt_val: i32,
     pub temporal_id: u8,
     pub reserved_1: [u8; 7],
-    pub p_ref_lists: *const StdVideoEncodeH265ReferenceListsInfo,
-    pub p_short_term_ref_pic_set: *const StdVideoH265ShortTermRefPicSet,
-    pub p_long_term_ref_pics: *const StdVideoEncodeH265LongTermRefPics,
+    pub p_ref_lists: *const EncodeH265ReferenceListsInfo,
+    pub p_short_term_ref_pic_set: *const H265ShortTermRefPicSet,
+    pub p_long_term_ref_pics: *const EncodeH265LongTermRefPics,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH265ReferenceInfoFlags.html>
+#[doc(alias = "StdVideoEncodeH265ReferenceInfoFlags")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoEncodeH265ReferenceInfoFlags {
+pub struct EncodeH265ReferenceInfoFlags {
     pub used_for_long_term_reference: u32,
     pub unused_for_reference: u32,
     pub reserved: u32,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH265ReferenceInfo.html>
+#[doc(alias = "StdVideoEncodeH265ReferenceInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoEncodeH265ReferenceInfo {
-    pub flags: StdVideoEncodeH265ReferenceInfoFlags,
-    pub pic_type: StdVideoH265PictureType,
+pub struct EncodeH265ReferenceInfo {
+    pub flags: EncodeH265ReferenceInfoFlags,
+    pub pic_type: H265PictureType,
     pub pic_order_cnt_val: i32,
     pub temporal_id: u8,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1ColorConfigFlags.html>
+#[doc(alias = "StdVideoAV1ColorConfigFlags")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoAV1ColorConfigFlags {
+pub struct AV1ColorConfigFlags {
     pub mono_chrome: u32,
     pub color_range: u32,
     pub separate_uv_delta_q: u32,
@@ -17478,52 +18991,57 @@ pub struct StdVideoAV1ColorConfigFlags {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1ColorConfig.html>
+#[doc(alias = "StdVideoAV1ColorConfig")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoAV1ColorConfig {
-    pub flags: StdVideoAV1ColorConfigFlags,
+pub struct AV1ColorConfig {
+    pub flags: AV1ColorConfigFlags,
     pub bit_depth: u8,
     pub subsampling_x: u8,
     pub subsampling_y: u8,
     pub reserved_1: u8,
-    pub color_primaries: StdVideoAV1ColorPrimaries,
-    pub transfer_characteristics: StdVideoAV1TransferCharacteristics,
-    pub matrix_coefficients: StdVideoAV1MatrixCoefficients,
-    pub chroma_sample_position: StdVideoAV1ChromaSamplePosition,
+    pub color_primaries: AV1ColorPrimaries,
+    pub transfer_characteristics: AV1TransferCharacteristics,
+    pub matrix_coefficients: AV1MatrixCoefficients,
+    pub chroma_sample_position: AV1ChromaSamplePosition,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1TimingInfoFlags.html>
+#[doc(alias = "StdVideoAV1TimingInfoFlags")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoAV1TimingInfoFlags {
+pub struct AV1TimingInfoFlags {
     pub equal_picture_interval: u32,
     pub reserved: u32,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1TimingInfo.html>
+#[doc(alias = "StdVideoAV1TimingInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoAV1TimingInfo {
-    pub flags: StdVideoAV1TimingInfoFlags,
+pub struct AV1TimingInfo {
+    pub flags: AV1TimingInfoFlags,
     pub num_units_in_display_tick: u32,
     pub time_scale: u32,
     pub num_ticks_per_picture_minus_1: u32,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1LoopFilterFlags.html>
+#[doc(alias = "StdVideoAV1LoopFilterFlags")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoAV1LoopFilterFlags {
+pub struct AV1LoopFilterFlags {
     pub loop_filter_delta_enabled: u32,
     pub loop_filter_delta_update: u32,
     pub reserved: u32,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1LoopFilter.html>
+#[doc(alias = "StdVideoAV1LoopFilter")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoAV1LoopFilter {
-    pub flags: StdVideoAV1LoopFilterFlags,
+pub struct AV1LoopFilter {
+    pub flags: AV1LoopFilterFlags,
     pub loop_filter_level: [u8; 4],
     pub loop_filter_sharpness: u8,
     pub update_ref_delta: u8,
@@ -17533,19 +19051,21 @@ pub struct StdVideoAV1LoopFilter {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1QuantizationFlags.html>
+#[doc(alias = "StdVideoAV1QuantizationFlags")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoAV1QuantizationFlags {
+pub struct AV1QuantizationFlags {
     pub using_qmatrix: u32,
     pub diff_uv_delta: u32,
     pub reserved: u32,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1Quantization.html>
+#[doc(alias = "StdVideoAV1Quantization")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoAV1Quantization {
-    pub flags: StdVideoAV1QuantizationFlags,
+pub struct AV1Quantization {
+    pub flags: AV1QuantizationFlags,
     pub base_q_idx: u8,
     pub delta_qy_dc: i8,
     pub delta_qu_dc: i8,
@@ -17558,26 +19078,29 @@ pub struct StdVideoAV1Quantization {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1Segmentation.html>
+#[doc(alias = "StdVideoAV1Segmentation")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoAV1Segmentation {
+pub struct AV1Segmentation {
     pub feature_enabled: [u8; 8],
     pub feature_data: [[i16; 8]; 8],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1TileInfoFlags.html>
+#[doc(alias = "StdVideoAV1TileInfoFlags")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoAV1TileInfoFlags {
+pub struct AV1TileInfoFlags {
     pub uniform_tile_spacing_flag: u32,
     pub reserved: u32,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1TileInfo.html>
+#[doc(alias = "StdVideoAV1TileInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoAV1TileInfo {
-    pub flags: StdVideoAV1TileInfoFlags,
+pub struct AV1TileInfo {
+    pub flags: AV1TileInfoFlags,
     pub tile_cols: u8,
     pub tile_rows: u8,
     pub context_update_tile_id: u16,
@@ -17590,9 +19113,10 @@ pub struct StdVideoAV1TileInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1CDEF.html>
+#[doc(alias = "StdVideoAV1CDEF")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoAV1CDEF {
+pub struct AV1CDEF {
     pub cdef_damping_minus_3: u8,
     pub cdef_bits: u8,
     pub cdef_y_pri_strength: [u8; 8],
@@ -17602,25 +19126,28 @@ pub struct StdVideoAV1CDEF {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1LoopRestoration.html>
+#[doc(alias = "StdVideoAV1LoopRestoration")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoAV1LoopRestoration {
-    pub frame_restoration_type: [StdVideoAV1FrameRestorationType; 3],
+pub struct AV1LoopRestoration {
+    pub frame_restoration_type: [AV1FrameRestorationType; 3],
     pub loop_restoration_size: [u16; 3],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1GlobalMotion.html>
+#[doc(alias = "StdVideoAV1GlobalMotion")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoAV1GlobalMotion {
+pub struct AV1GlobalMotion {
     pub gm_type: [u8; 8],
     pub gm_params: [[i32; 8]; 6],
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1FilmGrainFlags.html>
+#[doc(alias = "StdVideoAV1FilmGrainFlags")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoAV1FilmGrainFlags {
+pub struct AV1FilmGrainFlags {
     pub chroma_scaling_from_luma: u32,
     pub overlap_flag: u32,
     pub clip_to_restricted_range: u32,
@@ -17629,10 +19156,11 @@ pub struct StdVideoAV1FilmGrainFlags {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1FilmGrain.html>
+#[doc(alias = "StdVideoAV1FilmGrain")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoAV1FilmGrain {
-    pub flags: StdVideoAV1FilmGrainFlags,
+pub struct AV1FilmGrain {
+    pub flags: AV1FilmGrainFlags,
     pub grain_scaling_minus_8: u8,
     pub ar_coeff_lag: u8,
     pub ar_coeff_shift_minus_6: u8,
@@ -17660,9 +19188,10 @@ pub struct StdVideoAV1FilmGrain {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1SequenceHeaderFlags.html>
+#[doc(alias = "StdVideoAV1SequenceHeaderFlags")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoAV1SequenceHeaderFlags {
+pub struct AV1SequenceHeaderFlags {
     pub still_picture: u32,
     pub reduced_still_picture_header: u32,
     pub use_128_x_128_superblock: u32,
@@ -17686,11 +19215,12 @@ pub struct StdVideoAV1SequenceHeaderFlags {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1SequenceHeader.html>
+#[doc(alias = "StdVideoAV1SequenceHeader")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoAV1SequenceHeader {
-    pub flags: StdVideoAV1SequenceHeaderFlags,
-    pub seq_profile: StdVideoAV1Profile,
+pub struct AV1SequenceHeader {
+    pub flags: AV1SequenceHeaderFlags,
+    pub seq_profile: AV1Profile,
     pub frame_width_bits_minus_1: u8,
     pub frame_height_bits_minus_1: u8,
     pub max_frame_width_minus_1: u16,
@@ -17701,14 +19231,15 @@ pub struct StdVideoAV1SequenceHeader {
     pub seq_force_integer_mv: u8,
     pub seq_force_screen_content_tools: u8,
     pub reserved_1: [u8; 5],
-    pub p_color_config: *const StdVideoAV1ColorConfig,
-    pub p_timing_info: *const StdVideoAV1TimingInfo,
+    pub p_color_config: *const AV1ColorConfig,
+    pub p_timing_info: *const AV1TimingInfo,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeAV1PictureInfoFlags.html>
+#[doc(alias = "StdVideoDecodeAV1PictureInfoFlags")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoDecodeAV1PictureInfoFlags {
+pub struct DecodeAV1PictureInfoFlags {
     pub error_resilient_mode: u32,
     pub disable_cdf_update: u32,
     pub use_superres: u32,
@@ -17742,18 +19273,19 @@ pub struct StdVideoDecodeAV1PictureInfoFlags {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeAV1PictureInfo.html>
+#[doc(alias = "StdVideoDecodeAV1PictureInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoDecodeAV1PictureInfo {
-    pub flags: StdVideoDecodeAV1PictureInfoFlags,
-    pub frame_type: StdVideoAV1FrameType,
+pub struct DecodeAV1PictureInfo {
+    pub flags: DecodeAV1PictureInfoFlags,
+    pub frame_type: AV1FrameType,
     pub current_frame_id: u32,
     pub order_hint: u8,
     pub primary_ref_frame: u8,
     pub refresh_frame_flags: u8,
     pub reserved_1: u8,
-    pub interpolation_filter: StdVideoAV1InterpolationFilter,
-    pub tx_mode: StdVideoAV1TxMode,
+    pub interpolation_filter: AV1InterpolationFilter,
+    pub tx_mode: AV1TxMode,
     pub delta_q_res: u8,
     pub delta_lf_res: u8,
     pub skip_mode_frame: [u8; 2],
@@ -17761,30 +19293,32 @@ pub struct StdVideoDecodeAV1PictureInfo {
     pub reserved_2: [u8; 3],
     pub order_hints: [u8; 8],
     pub expected_frame_id: [u32; 8],
-    pub p_tile_info: *const StdVideoAV1TileInfo,
-    pub p_quantization: *const StdVideoAV1Quantization,
-    pub p_segmentation: *const StdVideoAV1Segmentation,
-    pub p_loop_filter: *const StdVideoAV1LoopFilter,
-    pub p_cdef: *const StdVideoAV1CDEF,
-    pub p_loop_restoration: *const StdVideoAV1LoopRestoration,
-    pub p_global_motion: *const StdVideoAV1GlobalMotion,
-    pub p_film_grain: *const StdVideoAV1FilmGrain,
+    pub p_tile_info: *const AV1TileInfo,
+    pub p_quantization: *const AV1Quantization,
+    pub p_segmentation: *const AV1Segmentation,
+    pub p_loop_filter: *const AV1LoopFilter,
+    pub p_cdef: *const AV1CDEF,
+    pub p_loop_restoration: *const AV1LoopRestoration,
+    pub p_global_motion: *const AV1GlobalMotion,
+    pub p_film_grain: *const AV1FilmGrain,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeAV1ReferenceInfoFlags.html>
+#[doc(alias = "StdVideoDecodeAV1ReferenceInfoFlags")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoDecodeAV1ReferenceInfoFlags {
+pub struct DecodeAV1ReferenceInfoFlags {
     pub disable_frame_end_update_cdf: u32,
     pub segmentation_enabled: u32,
     pub reserved: u32,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeAV1ReferenceInfo.html>
+#[doc(alias = "StdVideoDecodeAV1ReferenceInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoDecodeAV1ReferenceInfo {
-    pub flags: StdVideoDecodeAV1ReferenceInfoFlags,
+pub struct DecodeAV1ReferenceInfo {
+    pub flags: DecodeAV1ReferenceInfoFlags,
     pub frame_type: u8,
     pub ref_frame_sign_bias: u8,
     pub order_hint: u8,
@@ -17792,9 +19326,10 @@ pub struct StdVideoDecodeAV1ReferenceInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeAV1DecoderModelInfo.html>
+#[doc(alias = "StdVideoEncodeAV1DecoderModelInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoEncodeAV1DecoderModelInfo {
+pub struct EncodeAV1DecoderModelInfo {
     pub buffer_delay_length_minus_1: u8,
     pub buffer_removal_time_length_minus_1: u8,
     pub frame_presentation_time_length_minus_1: u8,
@@ -17803,17 +19338,19 @@ pub struct StdVideoEncodeAV1DecoderModelInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeAV1ExtensionHeader.html>
+#[doc(alias = "StdVideoEncodeAV1ExtensionHeader")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoEncodeAV1ExtensionHeader {
+pub struct EncodeAV1ExtensionHeader {
     pub temporal_id: u8,
     pub spatial_id: u8,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeAV1OperatingPointInfoFlags.html>
+#[doc(alias = "StdVideoEncodeAV1OperatingPointInfoFlags")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoEncodeAV1OperatingPointInfoFlags {
+pub struct EncodeAV1OperatingPointInfoFlags {
     pub decoder_model_present_for_this_op: u32,
     pub low_delay_mode_flag: u32,
     pub initial_display_delay_present_for_this_op: u32,
@@ -17821,10 +19358,11 @@ pub struct StdVideoEncodeAV1OperatingPointInfoFlags {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeAV1OperatingPointInfo.html>
+#[doc(alias = "StdVideoEncodeAV1OperatingPointInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoEncodeAV1OperatingPointInfo {
-    pub flags: StdVideoEncodeAV1OperatingPointInfoFlags,
+pub struct EncodeAV1OperatingPointInfo {
+    pub flags: EncodeAV1OperatingPointInfoFlags,
     pub operating_point_idc: u16,
     pub seq_level_idx: u8,
     pub seq_tier: u8,
@@ -17834,9 +19372,10 @@ pub struct StdVideoEncodeAV1OperatingPointInfo {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeAV1PictureInfoFlags.html>
+#[doc(alias = "StdVideoEncodeAV1PictureInfoFlags")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoEncodeAV1PictureInfoFlags {
+pub struct EncodeAV1PictureInfoFlags {
     pub error_resilient_mode: u32,
     pub disable_cdf_update: u32,
     pub use_superres: u32,
@@ -17870,11 +19409,12 @@ pub struct StdVideoEncodeAV1PictureInfoFlags {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeAV1PictureInfo.html>
+#[doc(alias = "StdVideoEncodeAV1PictureInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoEncodeAV1PictureInfo {
-    pub flags: StdVideoEncodeAV1PictureInfoFlags,
-    pub frame_type: StdVideoAV1FrameType,
+pub struct EncodeAV1PictureInfo {
+    pub flags: EncodeAV1PictureInfoFlags,
+    pub frame_type: AV1FrameType,
     pub frame_presentation_time: u32,
     pub current_frame_id: u32,
     pub order_hint: u8,
@@ -17883,80 +19423,86 @@ pub struct StdVideoEncodeAV1PictureInfo {
     pub coded_denom: u8,
     pub render_width_minus_1: u16,
     pub render_height_minus_1: u16,
-    pub interpolation_filter: StdVideoAV1InterpolationFilter,
-    pub tx_mode: StdVideoAV1TxMode,
+    pub interpolation_filter: AV1InterpolationFilter,
+    pub tx_mode: AV1TxMode,
     pub delta_q_res: u8,
     pub delta_lf_res: u8,
     pub ref_order_hint: [u8; 8],
     pub ref_frame_idx: [i8; 7],
     pub reserved_1: [u8; 3],
     pub delta_frame_id_minus_1: [u32; 7],
-    pub p_tile_info: *const StdVideoAV1TileInfo,
-    pub p_quantization: *const StdVideoAV1Quantization,
-    pub p_segmentation: *const StdVideoAV1Segmentation,
-    pub p_loop_filter: *const StdVideoAV1LoopFilter,
-    pub p_cdef: *const StdVideoAV1CDEF,
-    pub p_loop_restoration: *const StdVideoAV1LoopRestoration,
-    pub p_global_motion: *const StdVideoAV1GlobalMotion,
-    pub p_extension_header: *const StdVideoEncodeAV1ExtensionHeader,
+    pub p_tile_info: *const AV1TileInfo,
+    pub p_quantization: *const AV1Quantization,
+    pub p_segmentation: *const AV1Segmentation,
+    pub p_loop_filter: *const AV1LoopFilter,
+    pub p_cdef: *const AV1CDEF,
+    pub p_loop_restoration: *const AV1LoopRestoration,
+    pub p_global_motion: *const AV1GlobalMotion,
+    pub p_extension_header: *const EncodeAV1ExtensionHeader,
     pub p_buffer_removal_times: *const u32,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeAV1ReferenceInfoFlags.html>
+#[doc(alias = "StdVideoEncodeAV1ReferenceInfoFlags")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoEncodeAV1ReferenceInfoFlags {
+pub struct EncodeAV1ReferenceInfoFlags {
     pub disable_frame_end_update_cdf: u32,
     pub segmentation_enabled: u32,
     pub reserved: u32,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeAV1ReferenceInfo.html>
+#[doc(alias = "StdVideoEncodeAV1ReferenceInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoEncodeAV1ReferenceInfo {
-    pub flags: StdVideoEncodeAV1ReferenceInfoFlags,
+pub struct EncodeAV1ReferenceInfo {
+    pub flags: EncodeAV1ReferenceInfoFlags,
     pub ref_frame_id: u32,
-    pub frame_type: StdVideoAV1FrameType,
+    pub frame_type: AV1FrameType,
     pub order_hint: u8,
     pub reserved_1: [u8; 3],
-    pub p_extension_header: *const StdVideoEncodeAV1ExtensionHeader,
+    pub p_extension_header: *const EncodeAV1ExtensionHeader,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoVP9ColorConfigFlags.html>
+#[doc(alias = "StdVideoVP9ColorConfigFlags")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoVP9ColorConfigFlags {
+pub struct VP9ColorConfigFlags {
     pub color_range: u32,
     pub reserved: u32,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoVP9ColorConfig.html>
+#[doc(alias = "StdVideoVP9ColorConfig")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoVP9ColorConfig {
-    pub flags: StdVideoVP9ColorConfigFlags,
+pub struct VP9ColorConfig {
+    pub flags: VP9ColorConfigFlags,
     pub bit_depth: u8,
     pub subsampling_x: u8,
     pub subsampling_y: u8,
     pub reserved_1: u8,
-    pub color_space: StdVideoVP9ColorSpace,
+    pub color_space: VP9ColorSpace,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoVP9LoopFilterFlags.html>
+#[doc(alias = "StdVideoVP9LoopFilterFlags")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoVP9LoopFilterFlags {
+pub struct VP9LoopFilterFlags {
     pub loop_filter_delta_enabled: u32,
     pub loop_filter_delta_update: u32,
     pub reserved: u32,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoVP9LoopFilter.html>
+#[doc(alias = "StdVideoVP9LoopFilter")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoVP9LoopFilter {
-    pub flags: StdVideoVP9LoopFilterFlags,
+pub struct VP9LoopFilter {
+    pub flags: VP9LoopFilterFlags,
     pub loop_filter_level: u8,
     pub loop_filter_sharpness: u8,
     pub update_ref_delta: u8,
@@ -17966,9 +19512,10 @@ pub struct StdVideoVP9LoopFilter {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoVP9SegmentationFlags.html>
+#[doc(alias = "StdVideoVP9SegmentationFlags")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoVP9SegmentationFlags {
+pub struct VP9SegmentationFlags {
     pub segmentation_update_map: u32,
     pub segmentation_temporal_update: u32,
     pub segmentation_update_data: u32,
@@ -17977,10 +19524,11 @@ pub struct StdVideoVP9SegmentationFlags {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoVP9Segmentation.html>
+#[doc(alias = "StdVideoVP9Segmentation")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoVP9Segmentation {
-    pub flags: StdVideoVP9SegmentationFlags,
+pub struct VP9Segmentation {
+    pub flags: VP9SegmentationFlags,
     pub segmentation_tree_probs: [u8; 7],
     pub segmentation_pred_prob: [u8; 3],
     pub feature_enabled: [u8; 8],
@@ -17988,9 +19536,10 @@ pub struct StdVideoVP9Segmentation {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeVP9PictureInfoFlags.html>
+#[doc(alias = "StdVideoDecodeVP9PictureInfoFlags")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoDecodeVP9PictureInfoFlags {
+pub struct DecodeVP9PictureInfoFlags {
     pub error_resilient_mode: u32,
     pub intra_only: u32,
     pub allow_high_precision_mv: u32,
@@ -18003,17 +19552,18 @@ pub struct StdVideoDecodeVP9PictureInfoFlags {
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeVP9PictureInfo.html>
+#[doc(alias = "StdVideoDecodeVP9PictureInfo")]
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct StdVideoDecodeVP9PictureInfo {
-    pub flags: StdVideoDecodeVP9PictureInfoFlags,
-    pub profile: StdVideoVP9Profile,
-    pub frame_type: StdVideoVP9FrameType,
+pub struct DecodeVP9PictureInfo {
+    pub flags: DecodeVP9PictureInfoFlags,
+    pub profile: VP9Profile,
+    pub frame_type: VP9FrameType,
     pub frame_context_idx: u8,
     pub reset_frame_context: u8,
     pub refresh_frame_flags: u8,
     pub ref_frame_sign_bias_mask: u8,
-    pub interpolation_filter: StdVideoVP9InterpolationFilter,
+    pub interpolation_filter: VP9InterpolationFilter,
     pub base_q_idx: u8,
     pub delta_q_y_dc: i8,
     pub delta_q_uv_dc: i8,
@@ -18021,7 +19571,7 @@ pub struct StdVideoDecodeVP9PictureInfo {
     pub tile_cols_log_2: u8,
     pub tile_rows_log_2: u8,
     pub reserved_1: [u16; 3],
-    pub p_color_config: *const StdVideoVP9ColorConfig,
-    pub p_loop_filter: *const StdVideoVP9LoopFilter,
-    pub p_segmentation: *const StdVideoVP9Segmentation,
+    pub p_color_config: *const VP9ColorConfig,
+    pub p_loop_filter: *const VP9LoopFilter,
+    pub p_segmentation: *const VP9Segmentation,
 }

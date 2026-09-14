@@ -91,18 +91,19 @@ class Context:
         self.root = root
 
     # Generates a struct (or union) definition from a vulkan struct.
-    def generate_struct(self, s: vkobj.Struct) -> Generated[vkobj.Struct]:
+    def generate_struct(self, x: vkobj.Struct) -> Generated[vkobj.Struct]:
         assert self.vk.videoStd is not None
         out = CodeWriter()
 
-        type_name = s.name.removeprefix("Vk")
+        type_name = x.name.removeprefix("Vk").removeprefix("StdVideo")
 
         # definition
         out.writeln(
-            f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{s.name}.html>"
+            f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{x.name}.html>"
         )
+        out.writeln(f"#[doc(alias = \"{x.name}\")]")
 
-        if s.union:
+        if x.union:
             out.writeln("#[derive(Clone, Copy)]")
         else:
             out.writeln("#[derive(Debug, Clone, Copy)]")
@@ -111,7 +112,7 @@ class Context:
         out.writeln(f"pub struct {type_name} {'{'}")
         out.indent()
 
-        for member in s.members:
+        for member in x.members:
             field_name = textcase.snake(member.name)
             if field_name == "type":
                 field_name = "type_"
@@ -132,7 +133,7 @@ class Context:
         out.writeln("}")
 
         # debug impl
-        if s.union:
+        if x.union:
             out.writeln(f"impl std::fmt::Debug for {type_name} {{")
             out.indent()
             out.writeln(
@@ -146,75 +147,98 @@ class Context:
             out.writeln("}")
 
         # aliases
-        for alias in s.aliases:
+        for alias in x.aliases:
             alias = alias.removeprefix("Vk")
             out.writeln(f"pub type {alias} = {type_name};")
 
-        return Generated(type_name, out.content, s)
+        return Generated(type_name, out.content, x)
 
-    def generate_handle(self, h: vkobj.Handle) -> Generated[vkobj.Handle]:
+    def generate_handle(self, x: vkobj.Handle) -> Generated[vkobj.Handle]:
         out = CodeWriter()
 
         out.writeln(
-            f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{h.name}.html>"
+            f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{x.name}.html>"
         )
+        out.writeln(f"#[doc(alias = \"{x.name}\")]")
         out.writeln("#[derive(Debug, Clone, Copy, PartialEq, Eq)]")
         out.writeln("#[repr(transparent)]")
 
-        type_name = h.name.removeprefix("Vk")
-        if h.dispatchable:
+        type_name = x.name.removeprefix("Vk")
+        if x.dispatchable:
             out.writeln(f"pub struct {type_name}(usize);")
         else:
             out.writeln(f"pub struct {type_name}(u64);")
 
         # aliases
-        for alias in h.aliases:
+        for alias in x.aliases:
             alias = alias.removeprefix("Vk")
             out.writeln(f"pub type {alias} = {type_name};")
 
-        return Generated(type_name, out.content, h)
+        return Generated(type_name, out.content, x)
 
-    def generate_enum(self, e: vkobj.Enum) -> Generated[vkobj.Enum]:
+    def generate_enum(self, x: vkobj.Enum) -> Generated[vkobj.Enum]:
         out = CodeWriter()
 
-        type_name = e.name.removeprefix("Vk")
+        type_name = x.name.removeprefix("Vk")
         type_name_snake = textcase.snake(type_name).upper()
-        repr_type = "i32" if e.bitWidth == 32 else "i64"
+        repr_type = "i32" if x.bitWidth == 32 else "i64"
 
         # hacks for video variants
         if type_name_snake.startswith("STD_VIDEO"):
+            type_name = type_name.removeprefix("StdVideo")
             type_name_snake = type_name_snake.replace("_H_264", "_H264")
             type_name_snake = type_name_snake.replace("_H_265", "_H265")
             type_name_snake = type_name_snake.replace("_AV_1", "_AV1")
             type_name_snake = type_name_snake.replace("_VP_9", "_VP9")
 
+
         if type_name == "Result":
             type_name = "ResultCode"
 
         out.writeln(
-            f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{e.name}.html>"
+            f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{x.name}.html>"
         )
+        out.writeln(f"#[doc(alias = \"{x.name}\")]")
         out.writeln("#[derive(Debug, Clone, Copy, PartialEq, Eq)]")
+        out.writeln("#[non_exhaustive]")
         out.writeln(f"#[repr({repr_type})]")
         out.writeln(f"pub enum {type_name} {{")
         out.indent()
 
-        for field in e.fields:
+        field_aliases: list[tuple[str, str]] = []
+        for field in x.fields:
             name = field.name.removeprefix("VK_").removeprefix(f"{type_name_snake}_")
             if name[0].isdigit():
                 name = f"_{name}"
 
+            for alias in field.aliases:
+                field_aliases.append((name, alias))
+
+            out.writeln(f"#[doc(alias = \"{field.name}\")]")
             out.writeln(f"{name} = {field.value},")
 
         out.deindent()
         out.writeln("}")
 
         # aliases
-        for alias in e.aliases:
+        for alias in x.aliases:
             alias = alias.removeprefix("Vk")
             out.writeln(f"pub type {alias} = {type_name};")
 
-        return Generated(type_name, out.content, e)
+        if len(field_aliases) > 0:
+            out.writeln(f"impl {type_name} {{")
+            out.indent()
+            for variant, alias in field_aliases:
+                name = alias.removeprefix("VK_").removeprefix(f"{type_name_snake}_")
+                if name[0].isdigit():
+                    name = f"_{name}"
+
+                out.writeln(f"#[doc(alias = \"{alias}\")]")
+                out.writeln(f"pub const {name}: Self = Self::{variant};")
+            out.deindent()
+            out.writeln("}")
+
+        return Generated(type_name, out.content, x)
 
     def remove_vendor_tag(self, name: str) -> str:
         last = name[-3:]
@@ -223,30 +247,36 @@ class Context:
         else:
             return name
 
-    def generate_bitmasks(self, m: vkobj.Bitmask) -> Generated[vkobj.Bitmask]:
+    def generate_bitmasks(self, x: vkobj.Bitmask) -> Generated[vkobj.Bitmask]:
         out = CodeWriter()
 
-        type_name = m.name.removeprefix("Vk").replace("FlagBits", "Flags")
+        type_name = x.name.removeprefix("Vk").replace("FlagBits", "Flags")
         type_name_snake = textcase.snake(
-            self.remove_vendor_tag(m.name.removeprefix("Vk").replace("FlagBits", ""))
+            self.remove_vendor_tag(x.name.removeprefix("Vk").replace("FlagBits", ""))
         ).upper()
-        repr_type = "u32" if m.bitWidth == 32 else "u64"
+        repr_type = "u32" if x.bitWidth == 32 else "u64"
 
         out.writeln("bitflags::bitflags! {")
         out.indent()
         out.writeln(
-            f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{m.name}.html>"
+            f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{x.name}.html>"
         )
+        out.writeln(f"#[doc(alias = \"{x.name}\")]")
         out.writeln("#[derive(Debug, Clone, Copy, PartialEq, Eq)]")
         out.writeln("#[repr(transparent)]")
         out.writeln(f"pub struct {type_name}: {repr_type} {{")
         out.indent()
 
-        for flag in m.flags:
+        flag_aliases: list[tuple[str, str]] = []
+        for flag in x.flags:
             name = flag.name.removeprefix("VK_").removeprefix(f"{type_name_snake}_")
             if name[0].isdigit():
                 name = f"_{name}"
 
+            for alias in flag.aliases:
+                flag_aliases.append((name, alias))
+
+            out.writeln(f"#[doc(alias = \"{flag.name}\")]")
             out.writeln(f"const {name} = {flag.value};")
 
         out.deindent()
@@ -255,50 +285,65 @@ class Context:
         out.writeln("}")
 
         # aliases
-        for alias in m.aliases:
+        for alias in x.aliases:
             alias = alias.removeprefix("Vk").replace("FlagBits", "Flags")
             out.writeln(f"pub type {alias} = {type_name};")
 
-        return Generated(type_name, out.content, m)
+        if len(flag_aliases) > 0:
+            out.writeln(f"impl {type_name} {{")
+            out.indent()
+            for variant, alias in flag_aliases:
+                name = alias.removeprefix("VK_").removeprefix(f"{type_name_snake}_")
+                if name[0].isdigit():
+                    name = f"_{name}"
 
-    def generate_flags(self, f: vkobj.Flags) -> Generated[vkobj.Flags]:
+                out.writeln(f"#[doc(alias = \"{alias}\")]")
+                out.writeln(f"pub const {name}: Self = Self::{variant};")
+            out.deindent()
+            out.writeln("}")
+
+        return Generated(type_name, out.content, x)
+
+    def generate_flags(self, x: vkobj.Flags) -> Generated[vkobj.Flags]:
         out = CodeWriter()
 
-        type_name = f.name.removeprefix("Vk")
-        repr_type = "u32" if f.bitWidth == 32 else "u64"
+        type_name = x.name.removeprefix("Vk")
+        repr_type = "u32" if x.bitWidth == 32 else "u64"
 
         out.writeln(
-            f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{f.name}.html>"
+            f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{x.name}.html>"
         )
+        out.writeln(f"#[doc(alias = \"{x.name}\")]")
         out.writeln(f"pub type {type_name} = {repr_type};")
 
         # aliases
-        for alias in f.aliases:
+        for alias in x.aliases:
             alias = alias.removeprefix("Vk")
             out.writeln(f"pub type {alias} = {type_name};")
 
-        return Generated(type_name, out.content, f)
+        return Generated(type_name, out.content, x)
 
-    def generate_fnptr(self, f: vkobj.FuncPointer) -> Generated[vkobj.FuncPointer]:
+    def generate_fnptr(self, x: vkobj.FuncPointer) -> Generated[vkobj.FuncPointer]:
         out = CodeWriter()
 
-        type_name = f.name.removeprefix("PFN_")
+        type_name = x.name.removeprefix("PFN_")
 
         out.writeln(
-            f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{f.name}.html>"
+            f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{x.name}.html>"
         )
+        out.writeln(f"#[doc(alias = \"{x.name}\")]")
 
         params: list[str] = []
-        for param in f.params:
+        for param in x.params:
             params.append(str(RustType.parse(param.fullType)))
 
         return_ty = (
-            "" if f.returnType == "void" else f"-> {RustType.parse(f.returnType)}"
+            "" if x.returnType == "void" else f"-> {RustType.parse(x.returnType)}"
         )
         signature = f'unsafe extern "C" fn({",".join(params)}) {return_ty}'
         out.writeln(f"pub type {type_name} = {signature};")
 
-        return Generated(type_name, out.content, f)
+        return Generated(type_name, out.content, x)
 
     def fill_registry(self):
         assert self.vk.videoStd is not None

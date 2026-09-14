@@ -52,6 +52,7 @@ class RustType:
             rust = (
                 type.removeprefix("struct ")
                 .removeprefix("Vk")
+                .removeprefix("StdVideo")
                 .removeprefix("PFN_")
                 .replace("FlagBits", "Flags")
             )
