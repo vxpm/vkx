@@ -3665,3 +3665,533 @@ pub enum ShaderGroupShaderKHR {
     SHADER_GROUP_SHADER_ANY_HIT_KHR = 2,
     SHADER_GROUP_SHADER_INTERSECTION_KHR = 3,
 }
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264ChromaFormatIdc.html>
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[repr(i32)]
+pub enum StdVideoH264ChromaFormatIdc {
+    MONOCHROME = 0,
+    _420 = 1,
+    _422 = 2,
+    _444 = 3,
+    INVALID = 2147483647,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264ProfileIdc.html>
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[repr(i32)]
+pub enum StdVideoH264ProfileIdc {
+    BASELINE = 66,
+    MAIN = 77,
+    HIGH = 100,
+    HIGH_10 = 110,
+    HIGH_422 = 122,
+    HIGH_444_PREDICTIVE = 244,
+    INVALID = 2147483647,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264LevelIdc.html>
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[repr(i32)]
+pub enum StdVideoH264LevelIdc {
+    _1_0 = 0,
+    _1_1 = 1,
+    _1_2 = 2,
+    _1_3 = 3,
+    _2_0 = 4,
+    _2_1 = 5,
+    _2_2 = 6,
+    _3_0 = 7,
+    _3_1 = 8,
+    _3_2 = 9,
+    _4_0 = 10,
+    _4_1 = 11,
+    _4_2 = 12,
+    _5_0 = 13,
+    _5_1 = 14,
+    _5_2 = 15,
+    _6_0 = 16,
+    _6_1 = 17,
+    _6_2 = 18,
+    INVALID = 2147483647,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264PocType.html>
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[repr(i32)]
+pub enum StdVideoH264PocType {
+    _0 = 0,
+    _1 = 1,
+    _2 = 2,
+    INVALID = 2147483647,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264AspectRatioIdc.html>
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[repr(i32)]
+pub enum StdVideoH264AspectRatioIdc {
+    UNSPECIFIED = 0,
+    SQUARE = 1,
+    _12_11 = 2,
+    _10_11 = 3,
+    _16_11 = 4,
+    _40_33 = 5,
+    _24_11 = 6,
+    _20_11 = 7,
+    _32_11 = 8,
+    _80_33 = 9,
+    _18_11 = 10,
+    _15_11 = 11,
+    _64_33 = 12,
+    _160_99 = 13,
+    _4_3 = 14,
+    _3_2 = 15,
+    _2_1 = 16,
+    EXTENDED_SAR = 255,
+    INVALID = 2147483647,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264WeightedBipredIdc.html>
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[repr(i32)]
+pub enum StdVideoH264WeightedBipredIdc {
+    DEFAULT = 0,
+    EXPLICIT = 1,
+    IMPLICIT = 2,
+    INVALID = 2147483647,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264ModificationOfPicNumsIdc.html>
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[repr(i32)]
+pub enum StdVideoH264ModificationOfPicNumsIdc {
+    SHORT_TERM_SUBTRACT = 0,
+    SHORT_TERM_ADD = 1,
+    LONG_TERM = 2,
+    END = 3,
+    INVALID = 2147483647,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264MemMgmtControlOp.html>
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[repr(i32)]
+pub enum StdVideoH264MemMgmtControlOp {
+    END = 0,
+    UNMARK_SHORT_TERM = 1,
+    UNMARK_LONG_TERM = 2,
+    MARK_LONG_TERM = 3,
+    SET_MAX_LONG_TERM_INDEX = 4,
+    UNMARK_ALL = 5,
+    MARK_CURRENT_AS_LONG_TERM = 6,
+    INVALID = 2147483647,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264CabacInitIdc.html>
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[repr(i32)]
+pub enum StdVideoH264CabacInitIdc {
+    _0 = 0,
+    _1 = 1,
+    _2 = 2,
+    INVALID = 2147483647,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264DisableDeblockingFilterIdc.html>
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[repr(i32)]
+pub enum StdVideoH264DisableDeblockingFilterIdc {
+    DISABLED = 0,
+    ENABLED = 1,
+    PARTIAL = 2,
+    INVALID = 2147483647,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264SliceType.html>
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[repr(i32)]
+pub enum StdVideoH264SliceType {
+    P = 0,
+    B = 1,
+    I = 2,
+    INVALID = 2147483647,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264PictureType.html>
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[repr(i32)]
+pub enum StdVideoH264PictureType {
+    P = 0,
+    B = 1,
+    I = 2,
+    IDR = 5,
+    INVALID = 2147483647,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264NonVclNaluType.html>
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[repr(i32)]
+pub enum StdVideoH264NonVclNaluType {
+    SPS = 0,
+    PPS = 1,
+    AUD = 2,
+    PREFIX = 3,
+    END_OF_SEQUENCE = 4,
+    END_OF_STREAM = 5,
+    PRECODED = 6,
+    INVALID = 2147483647,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeH264FieldOrderCount.html>
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[repr(i32)]
+pub enum StdVideoDecodeH264FieldOrderCount {
+    TOP = 0,
+    BOTTOM = 1,
+    INVALID = 2147483647,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265ChromaFormatIdc.html>
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[repr(i32)]
+pub enum StdVideoH265ChromaFormatIdc {
+    MONOCHROME = 0,
+    _420 = 1,
+    _422 = 2,
+    _444 = 3,
+    INVALID = 2147483647,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265ProfileIdc.html>
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[repr(i32)]
+pub enum StdVideoH265ProfileIdc {
+    MAIN = 1,
+    MAIN_10 = 2,
+    MAIN_STILL_PICTURE = 3,
+    FORMAT_RANGE_EXTENSIONS = 4,
+    SCC_EXTENSIONS = 9,
+    INVALID = 2147483647,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265LevelIdc.html>
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[repr(i32)]
+pub enum StdVideoH265LevelIdc {
+    _1_0 = 0,
+    _2_0 = 1,
+    _2_1 = 2,
+    _3_0 = 3,
+    _3_1 = 4,
+    _4_0 = 5,
+    _4_1 = 6,
+    _5_0 = 7,
+    _5_1 = 8,
+    _5_2 = 9,
+    _6_0 = 10,
+    _6_1 = 11,
+    _6_2 = 12,
+    INVALID = 2147483647,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265SliceType.html>
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[repr(i32)]
+pub enum StdVideoH265SliceType {
+    B = 0,
+    P = 1,
+    I = 2,
+    INVALID = 2147483647,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265PictureType.html>
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[repr(i32)]
+pub enum StdVideoH265PictureType {
+    P = 0,
+    B = 1,
+    I = 2,
+    IDR = 3,
+    INVALID = 2147483647,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265AspectRatioIdc.html>
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[repr(i32)]
+pub enum StdVideoH265AspectRatioIdc {
+    UNSPECIFIED = 0,
+    SQUARE = 1,
+    _12_11 = 2,
+    _10_11 = 3,
+    _16_11 = 4,
+    _40_33 = 5,
+    _24_11 = 6,
+    _20_11 = 7,
+    _32_11 = 8,
+    _80_33 = 9,
+    _18_11 = 10,
+    _15_11 = 11,
+    _64_33 = 12,
+    _160_99 = 13,
+    _4_3 = 14,
+    _3_2 = 15,
+    _2_1 = 16,
+    EXTENDED_SAR = 255,
+    INVALID = 2147483647,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1Profile.html>
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[repr(i32)]
+pub enum StdVideoAV1Profile {
+    MAIN = 0,
+    HIGH = 1,
+    PROFESSIONAL = 2,
+    INVALID = 2147483647,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1Level.html>
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[repr(i32)]
+pub enum StdVideoAV1Level {
+    _2_0 = 0,
+    _2_1 = 1,
+    _2_2 = 2,
+    _2_3 = 3,
+    _3_0 = 4,
+    _3_1 = 5,
+    _3_2 = 6,
+    _3_3 = 7,
+    _4_0 = 8,
+    _4_1 = 9,
+    _4_2 = 10,
+    _4_3 = 11,
+    _5_0 = 12,
+    _5_1 = 13,
+    _5_2 = 14,
+    _5_3 = 15,
+    _6_0 = 16,
+    _6_1 = 17,
+    _6_2 = 18,
+    _6_3 = 19,
+    _7_0 = 20,
+    _7_1 = 21,
+    _7_2 = 22,
+    _7_3 = 23,
+    INVALID = 2147483647,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1FrameType.html>
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[repr(i32)]
+pub enum StdVideoAV1FrameType {
+    KEY = 0,
+    INTER = 1,
+    INTRA_ONLY = 2,
+    SWITCH = 3,
+    INVALID = 2147483647,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1ReferenceName.html>
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[repr(i32)]
+pub enum StdVideoAV1ReferenceName {
+    INTRA_FRAME = 0,
+    LAST_FRAME = 1,
+    LAST2_FRAME = 2,
+    LAST3_FRAME = 3,
+    GOLDEN_FRAME = 4,
+    BWDREF_FRAME = 5,
+    ALTREF2_FRAME = 6,
+    ALTREF_FRAME = 7,
+    INVALID = 2147483647,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1InterpolationFilter.html>
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[repr(i32)]
+pub enum StdVideoAV1InterpolationFilter {
+    EIGHTTAP = 0,
+    EIGHTTAP_SMOOTH = 1,
+    EIGHTTAP_SHARP = 2,
+    BILINEAR = 3,
+    SWITCHABLE = 4,
+    INVALID = 2147483647,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1TxMode.html>
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[repr(i32)]
+pub enum StdVideoAV1TxMode {
+    ONLY_4X4 = 0,
+    LARGEST = 1,
+    SELECT = 2,
+    INVALID = 2147483647,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1FrameRestorationType.html>
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[repr(i32)]
+pub enum StdVideoAV1FrameRestorationType {
+    NONE = 0,
+    WIENER = 1,
+    SGRPROJ = 2,
+    SWITCHABLE = 3,
+    INVALID = 2147483647,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1ColorPrimaries.html>
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[repr(i32)]
+pub enum StdVideoAV1ColorPrimaries {
+    BT_709 = 1,
+    UNSPECIFIED = 2,
+    BT_470_M = 4,
+    BT_470_B_G = 5,
+    BT_601 = 6,
+    SMPTE_240 = 7,
+    GENERIC_FILM = 8,
+    BT_2020 = 9,
+    XYZ = 10,
+    SMPTE_431 = 11,
+    SMPTE_432 = 12,
+    EBU_3213 = 22,
+    INVALID = 2147483647,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1TransferCharacteristics.html>
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[repr(i32)]
+pub enum StdVideoAV1TransferCharacteristics {
+    RESERVED_0 = 0,
+    BT_709 = 1,
+    UNSPECIFIED = 2,
+    RESERVED_3 = 3,
+    BT_470_M = 4,
+    BT_470_B_G = 5,
+    BT_601 = 6,
+    SMPTE_240 = 7,
+    LINEAR = 8,
+    LOG_100 = 9,
+    LOG_100_SQRT10 = 10,
+    IEC_61966 = 11,
+    BT_1361 = 12,
+    SRGB = 13,
+    BT_2020_10_BIT = 14,
+    BT_2020_12_BIT = 15,
+    SMPTE_2084 = 16,
+    SMPTE_428 = 17,
+    HLG = 18,
+    INVALID = 2147483647,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1MatrixCoefficients.html>
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[repr(i32)]
+pub enum StdVideoAV1MatrixCoefficients {
+    IDENTITY = 0,
+    BT_709 = 1,
+    UNSPECIFIED = 2,
+    RESERVED_3 = 3,
+    FCC = 4,
+    BT_470_B_G = 5,
+    BT_601 = 6,
+    SMPTE_240 = 7,
+    SMPTE_YCGCO = 8,
+    BT_2020_NCL = 9,
+    BT_2020_CL = 10,
+    SMPTE_2085 = 11,
+    CHROMAT_NCL = 12,
+    CHROMAT_CL = 13,
+    ICTCP = 14,
+    INVALID = 2147483647,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1ChromaSamplePosition.html>
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[repr(i32)]
+pub enum StdVideoAV1ChromaSamplePosition {
+    UNKNOWN = 0,
+    VERTICAL = 1,
+    COLOCATED = 2,
+    RESERVED = 3,
+    INVALID = 2147483647,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoVP9Profile.html>
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[repr(i32)]
+pub enum StdVideoVP9Profile {
+    _0 = 0,
+    _1 = 1,
+    _2 = 2,
+    _3 = 3,
+    INVALID = 2147483647,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoVP9Level.html>
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[repr(i32)]
+pub enum StdVideoVP9Level {
+    _1_0 = 0,
+    _1_1 = 1,
+    _2_0 = 2,
+    _2_1 = 3,
+    _3_0 = 4,
+    _3_1 = 5,
+    _4_0 = 6,
+    _4_1 = 7,
+    _5_0 = 8,
+    _5_1 = 9,
+    _5_2 = 10,
+    _6_0 = 11,
+    _6_1 = 12,
+    _6_2 = 13,
+    INVALID = 2147483647,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoVP9FrameType.html>
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[repr(i32)]
+pub enum StdVideoVP9FrameType {
+    KEY = 0,
+    NON_KEY = 1,
+    INVALID = 2147483647,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoVP9ReferenceName.html>
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[repr(i32)]
+pub enum StdVideoVP9ReferenceName {
+    INTRA_FRAME = 0,
+    LAST_FRAME = 1,
+    GOLDEN_FRAME = 2,
+    ALTREF_FRAME = 3,
+    INVALID = 2147483647,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoVP9InterpolationFilter.html>
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[repr(i32)]
+pub enum StdVideoVP9InterpolationFilter {
+    EIGHTTAP = 0,
+    EIGHTTAP_SMOOTH = 1,
+    EIGHTTAP_SHARP = 2,
+    BILINEAR = 3,
+    SWITCHABLE = 4,
+    INVALID = 2147483647,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoVP9ColorSpace.html>
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[repr(i32)]
+pub enum StdVideoVP9ColorSpace {
+    UNKNOWN = 0,
+    BT_601 = 1,
+    BT_709 = 2,
+    SMPTE_170 = 3,
+    SMPTE_240 = 4,
+    BT_2020 = 5,
+    RESERVED = 6,
+    RGB = 7,
+    INVALID = 2147483647,
+}

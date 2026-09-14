@@ -1,5 +1,6 @@
 //! Platform specific types.
 #![allow(nonstandard_style)]
+#![allow(clippy::upper_case_acronyms)]
 
 use std::ffi::{c_ulong, c_void};
 
@@ -13,7 +14,6 @@ pub type Window = c_ulong;
 // Xcb
 pub type xcb_connection_t = c_void;
 pub type xcb_window_t = u32;
-pub type xcb_visualid_t = u32;
 
 // Windows
 pub type DWORD = c_ulong;

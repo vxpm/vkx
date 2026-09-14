@@ -54,6 +54,7 @@ class Context:
 
     # Generates a struct (or union) definition from a vulkan struct.
     def generate_struct(self, s: vkobj.Struct) -> str:
+        assert self.vk.videoStd is not None
         out = CodeWriter()
 
         type_name = s.name.removeprefix("Vk")
@@ -79,7 +80,10 @@ class Context:
 
             type = RustType.parse(member.fullType)
             for size in member.fixedSizeArray:
-                constant = self.vk.constants.get(size)
+                constant = self.vk.constants.get(
+                    size
+                ) or self.vk.videoStd.constants.get(size)
+
                 if constant is None:
                     type = type.array(int(size))
                 else:
@@ -138,6 +142,13 @@ class Context:
         type_name = e.name.removeprefix("Vk")
         type_name_snake = textcase.snake(type_name).upper()
         repr_type = "i32" if e.bitWidth == 32 else "i64"
+
+        # hacks for video variants
+        if type_name_snake.startswith("STD_VIDEO"):
+            type_name_snake = type_name_snake.replace("_H_264", "_H264")
+            type_name_snake = type_name_snake.replace("_H_265", "_H265")
+            type_name_snake = type_name_snake.replace("_AV_1", "_AV1")
+            type_name_snake = type_name_snake.replace("_VP_9", "_VP9")
 
         if type_name == "Result":
             type_name = "ResultCode"
@@ -260,11 +271,16 @@ class Context:
             _ = f.write(content)
 
     def generate(self):
+        assert self.vk.videoStd is not None
         print(f"Generating crate at {self.root}...")
 
         print("01. Generating structs...")
         structs: list[str] = []
+
         for struct in self.vk.structs.values():
+            structs.append(self.generate_struct(struct))
+
+        for struct in self.vk.videoStd.structs.values():
             structs.append(self.generate_struct(struct))
 
         base = """use crate::handles::*;
@@ -284,8 +300,13 @@ class Context:
 
         print("03. Generating enums...")
         enums: list[str] = []
+
         for enum in self.vk.enums.values():
             enums.append(self.generate_enum(enum))
+
+        for enum in self.vk.videoStd.enums.values():
+            enums.append(self.generate_enum(enum))
+
         self.write_module("enums.rs", "\n".join(enums))
 
         print("04. Generating bitmasks...")
@@ -314,6 +335,11 @@ class Context:
 
         """
         self.write_module("fn_pointers.rs", base + "\n".join(fnptrs))
+
+        # print("07. Generating video std headers...")
+        # video_headers: list[str] = []
+        # for fnptr in self.vk.videoStd.values():
+        #     fnptrs.append(self.generate_fnptr(fnptr))
 
         # done
         print("Done!")

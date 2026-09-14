@@ -16549,3 +16549,1479 @@ pub struct DrawMeshTasksIndirectCommandEXT {
     pub group_count_y: u32,
     pub group_count_z: u32,
 }
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264SpsVuiFlags.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoH264SpsVuiFlags {
+    pub aspect_ratio_info_present_flag: u32,
+    pub overscan_info_present_flag: u32,
+    pub overscan_appropriate_flag: u32,
+    pub video_signal_type_present_flag: u32,
+    pub video_full_range_flag: u32,
+    pub color_description_present_flag: u32,
+    pub chroma_loc_info_present_flag: u32,
+    pub timing_info_present_flag: u32,
+    pub fixed_frame_rate_flag: u32,
+    pub bitstream_restriction_flag: u32,
+    pub nal_hrd_parameters_present_flag: u32,
+    pub vcl_hrd_parameters_present_flag: u32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264HrdParameters.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoH264HrdParameters {
+    pub cpb_cnt_minus_1: u8,
+    pub bit_rate_scale: u8,
+    pub cpb_size_scale: u8,
+    pub reserved_1: u8,
+    pub bit_rate_value_minus_1: [u32; 32],
+    pub cpb_size_value_minus_1: [u32; 32],
+    pub cbr_flag: [u8; 32],
+    pub initial_cpb_removal_delay_length_minus_1: u32,
+    pub cpb_removal_delay_length_minus_1: u32,
+    pub dpb_output_delay_length_minus_1: u32,
+    pub time_offset_length: u32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264SequenceParameterSetVui.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoH264SequenceParameterSetVui {
+    pub flags: StdVideoH264SpsVuiFlags,
+    pub aspect_ratio_idc: StdVideoH264AspectRatioIdc,
+    pub sar_width: u16,
+    pub sar_height: u16,
+    pub video_format: u8,
+    pub colour_primaries: u8,
+    pub transfer_characteristics: u8,
+    pub matrix_coefficients: u8,
+    pub num_units_in_tick: u32,
+    pub time_scale: u32,
+    pub max_num_reorder_frames: u8,
+    pub max_dec_frame_buffering: u8,
+    pub chroma_sample_loc_type_top_field: u8,
+    pub chroma_sample_loc_type_bottom_field: u8,
+    pub reserved_1: u32,
+    pub p_hrd_parameters: *const StdVideoH264HrdParameters,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264SpsFlags.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoH264SpsFlags {
+    pub constraint_set_0_flag: u32,
+    pub constraint_set_1_flag: u32,
+    pub constraint_set_2_flag: u32,
+    pub constraint_set_3_flag: u32,
+    pub constraint_set_4_flag: u32,
+    pub constraint_set_5_flag: u32,
+    pub direct_8_x_8_inference_flag: u32,
+    pub mb_adaptive_frame_field_flag: u32,
+    pub frame_mbs_only_flag: u32,
+    pub delta_pic_order_always_zero_flag: u32,
+    pub separate_colour_plane_flag: u32,
+    pub gaps_in_frame_num_value_allowed_flag: u32,
+    pub qpprime_y_zero_transform_bypass_flag: u32,
+    pub frame_cropping_flag: u32,
+    pub seq_scaling_matrix_present_flag: u32,
+    pub vui_parameters_present_flag: u32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264ScalingLists.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoH264ScalingLists {
+    pub scaling_list_present_mask: u16,
+    pub use_default_scaling_matrix_mask: u16,
+    pub scaling_list_4_x_4: [[u8; 6]; 16],
+    pub scaling_list_8_x_8: [[u8; 6]; 64],
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264SequenceParameterSet.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoH264SequenceParameterSet {
+    pub flags: StdVideoH264SpsFlags,
+    pub profile_idc: StdVideoH264ProfileIdc,
+    pub level_idc: StdVideoH264LevelIdc,
+    pub chroma_format_idc: StdVideoH264ChromaFormatIdc,
+    pub seq_parameter_set_id: u8,
+    pub bit_depth_luma_minus_8: u8,
+    pub bit_depth_chroma_minus_8: u8,
+    pub log_2_max_frame_num_minus_4: u8,
+    pub pic_order_cnt_type: StdVideoH264PocType,
+    pub offset_for_non_ref_pic: i32,
+    pub offset_for_top_to_bottom_field: i32,
+    pub log_2_max_pic_order_cnt_lsb_minus_4: u8,
+    pub num_ref_frames_in_pic_order_cnt_cycle: u8,
+    pub max_num_ref_frames: u8,
+    pub reserved_1: u8,
+    pub pic_width_in_mbs_minus_1: u32,
+    pub pic_height_in_map_units_minus_1: u32,
+    pub frame_crop_left_offset: u32,
+    pub frame_crop_right_offset: u32,
+    pub frame_crop_top_offset: u32,
+    pub frame_crop_bottom_offset: u32,
+    pub reserved_2: u32,
+    pub p_offset_for_ref_frame: *const i32,
+    pub p_scaling_lists: *const StdVideoH264ScalingLists,
+    pub p_sequence_parameter_set_vui: *const StdVideoH264SequenceParameterSetVui,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264PpsFlags.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoH264PpsFlags {
+    pub transform_8_x_8_mode_flag: u32,
+    pub redundant_pic_cnt_present_flag: u32,
+    pub constrained_intra_pred_flag: u32,
+    pub deblocking_filter_control_present_flag: u32,
+    pub weighted_pred_flag: u32,
+    pub bottom_field_pic_order_in_frame_present_flag: u32,
+    pub entropy_coding_mode_flag: u32,
+    pub pic_scaling_matrix_present_flag: u32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264PictureParameterSet.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoH264PictureParameterSet {
+    pub flags: StdVideoH264PpsFlags,
+    pub seq_parameter_set_id: u8,
+    pub pic_parameter_set_id: u8,
+    pub num_ref_idx_l_0_default_active_minus_1: u8,
+    pub num_ref_idx_l_1_default_active_minus_1: u8,
+    pub weighted_bipred_idc: StdVideoH264WeightedBipredIdc,
+    pub pic_init_qp_minus_26: i8,
+    pub pic_init_qs_minus_26: i8,
+    pub chroma_qp_index_offset: i8,
+    pub second_chroma_qp_index_offset: i8,
+    pub p_scaling_lists: *const StdVideoH264ScalingLists,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeH264PictureInfoFlags.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoDecodeH264PictureInfoFlags {
+    pub field_pic_flag: u32,
+    pub is_intra: u32,
+    pub idr_pic_flag: u32,
+    pub bottom_field_flag: u32,
+    pub is_reference: u32,
+    pub complementary_field_pair: u32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeH264PictureInfo.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoDecodeH264PictureInfo {
+    pub flags: StdVideoDecodeH264PictureInfoFlags,
+    pub seq_parameter_set_id: u8,
+    pub pic_parameter_set_id: u8,
+    pub reserved_1: u8,
+    pub reserved_2: u8,
+    pub frame_num: u16,
+    pub idr_pic_id: u16,
+    pub pic_order_cnt: [i32; 2],
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeH264ReferenceInfoFlags.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoDecodeH264ReferenceInfoFlags {
+    pub top_field_flag: u32,
+    pub bottom_field_flag: u32,
+    pub used_for_long_term_reference: u32,
+    pub is_non_existing: u32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeH264ReferenceInfo.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoDecodeH264ReferenceInfo {
+    pub flags: StdVideoDecodeH264ReferenceInfoFlags,
+    pub frame_num: u16,
+    pub reserved: u16,
+    pub pic_order_cnt: [i32; 2],
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH264WeightTableFlags.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoEncodeH264WeightTableFlags {
+    pub luma_weight_l_0_flag: u32,
+    pub chroma_weight_l_0_flag: u32,
+    pub luma_weight_l_1_flag: u32,
+    pub chroma_weight_l_1_flag: u32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH264WeightTable.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoEncodeH264WeightTable {
+    pub flags: StdVideoEncodeH264WeightTableFlags,
+    pub luma_log_2_weight_denom: u8,
+    pub chroma_log_2_weight_denom: u8,
+    pub luma_weight_l_0: [i8; 32],
+    pub luma_offset_l_0: [i8; 32],
+    pub chroma_weight_l_0: [[i8; 32]; 2],
+    pub chroma_offset_l_0: [[i8; 32]; 2],
+    pub luma_weight_l_1: [i8; 32],
+    pub luma_offset_l_1: [i8; 32],
+    pub chroma_weight_l_1: [[i8; 32]; 2],
+    pub chroma_offset_l_1: [[i8; 32]; 2],
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH264SliceHeaderFlags.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoEncodeH264SliceHeaderFlags {
+    pub direct_spatial_mv_pred_flag: u32,
+    pub num_ref_idx_active_override_flag: u32,
+    pub reserved: u32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH264PictureInfoFlags.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoEncodeH264PictureInfoFlags {
+    pub idr_pic_flag: u32,
+    pub is_reference: u32,
+    pub no_output_of_prior_pics_flag: u32,
+    pub long_term_reference_flag: u32,
+    pub adaptive_ref_pic_marking_mode_flag: u32,
+    pub reserved: u32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH264ReferenceInfoFlags.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoEncodeH264ReferenceInfoFlags {
+    pub used_for_long_term_reference: u32,
+    pub reserved: u32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH264ReferenceListsInfoFlags.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoEncodeH264ReferenceListsInfoFlags {
+    pub ref_pic_list_modification_flag_l_0: u32,
+    pub ref_pic_list_modification_flag_l_1: u32,
+    pub reserved: u32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH264RefListModEntry.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoEncodeH264RefListModEntry {
+    pub modification_of_pic_nums_idc: StdVideoH264ModificationOfPicNumsIdc,
+    pub abs_diff_pic_num_minus_1: u16,
+    pub long_term_pic_num: u16,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH264RefPicMarkingEntry.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoEncodeH264RefPicMarkingEntry {
+    pub memory_management_control_operation: StdVideoH264MemMgmtControlOp,
+    pub difference_of_pic_nums_minus_1: u16,
+    pub long_term_pic_num: u16,
+    pub long_term_frame_idx: u16,
+    pub max_long_term_frame_idx_plus_1: u16,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH264ReferenceListsInfo.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoEncodeH264ReferenceListsInfo {
+    pub flags: StdVideoEncodeH264ReferenceListsInfoFlags,
+    pub num_ref_idx_l_0_active_minus_1: u8,
+    pub num_ref_idx_l_1_active_minus_1: u8,
+    pub ref_pic_list_0: [u8; 32],
+    pub ref_pic_list_1: [u8; 32],
+    pub ref_list_0_mod_op_count: u8,
+    pub ref_list_1_mod_op_count: u8,
+    pub ref_pic_marking_op_count: u8,
+    pub reserved_1: [u8; 7],
+    pub p_ref_list_0_mod_operations: *const StdVideoEncodeH264RefListModEntry,
+    pub p_ref_list_1_mod_operations: *const StdVideoEncodeH264RefListModEntry,
+    pub p_ref_pic_marking_operations: *const StdVideoEncodeH264RefPicMarkingEntry,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH264PictureInfo.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoEncodeH264PictureInfo {
+    pub flags: StdVideoEncodeH264PictureInfoFlags,
+    pub seq_parameter_set_id: u8,
+    pub pic_parameter_set_id: u8,
+    pub idr_pic_id: u16,
+    pub primary_pic_type: StdVideoH264PictureType,
+    pub frame_num: u32,
+    pub pic_order_cnt: i32,
+    pub temporal_id: u8,
+    pub reserved_1: [u8; 3],
+    pub p_ref_lists: *const StdVideoEncodeH264ReferenceListsInfo,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH264ReferenceInfo.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoEncodeH264ReferenceInfo {
+    pub flags: StdVideoEncodeH264ReferenceInfoFlags,
+    pub primary_pic_type: StdVideoH264PictureType,
+    pub frame_num: u32,
+    pub pic_order_cnt: i32,
+    pub long_term_pic_num: u16,
+    pub long_term_frame_idx: u16,
+    pub temporal_id: u8,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH264SliceHeader.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoEncodeH264SliceHeader {
+    pub flags: StdVideoEncodeH264SliceHeaderFlags,
+    pub first_mb_in_slice: u32,
+    pub slice_type: StdVideoH264SliceType,
+    pub slice_alpha_c_0_offset_div_2: i8,
+    pub slice_beta_offset_div_2: i8,
+    pub slice_qp_delta: i8,
+    pub reserved_1: u8,
+    pub cabac_init_idc: StdVideoH264CabacInitIdc,
+    pub disable_deblocking_filter_idc: StdVideoH264DisableDeblockingFilterIdc,
+    pub p_weight_table: *const StdVideoEncodeH264WeightTable,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265DecPicBufMgr.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoH265DecPicBufMgr {
+    pub max_latency_increase_plus_1: [u32; 7],
+    pub max_dec_pic_buffering_minus_1: [u8; 7],
+    pub max_num_reorder_pics: [u8; 7],
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265SubLayerHrdParameters.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoH265SubLayerHrdParameters {
+    pub bit_rate_value_minus_1: [u32; 32],
+    pub cpb_size_value_minus_1: [u32; 32],
+    pub cpb_size_du_value_minus_1: [u32; 32],
+    pub bit_rate_du_value_minus_1: [u32; 32],
+    pub cbr_flag: u32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265HrdFlags.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoH265HrdFlags {
+    pub nal_hrd_parameters_present_flag: u32,
+    pub vcl_hrd_parameters_present_flag: u32,
+    pub sub_pic_hrd_params_present_flag: u32,
+    pub sub_pic_cpb_params_in_pic_timing_sei_flag: u32,
+    pub fixed_pic_rate_general_flag: u32,
+    pub fixed_pic_rate_within_cvs_flag: u32,
+    pub low_delay_hrd_flag: u32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265HrdParameters.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoH265HrdParameters {
+    pub flags: StdVideoH265HrdFlags,
+    pub tick_divisor_minus_2: u8,
+    pub du_cpb_removal_delay_increment_length_minus_1: u8,
+    pub dpb_output_delay_du_length_minus_1: u8,
+    pub bit_rate_scale: u8,
+    pub cpb_size_scale: u8,
+    pub cpb_size_du_scale: u8,
+    pub initial_cpb_removal_delay_length_minus_1: u8,
+    pub au_cpb_removal_delay_length_minus_1: u8,
+    pub dpb_output_delay_length_minus_1: u8,
+    pub cpb_cnt_minus_1: [u8; 7],
+    pub elemental_duration_in_tc_minus_1: [u16; 7],
+    pub reserved: [u16; 3],
+    pub p_sub_layer_hrd_parameters_nal: *const StdVideoH265SubLayerHrdParameters,
+    pub p_sub_layer_hrd_parameters_vcl: *const StdVideoH265SubLayerHrdParameters,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265VpsFlags.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoH265VpsFlags {
+    pub vps_temporal_id_nesting_flag: u32,
+    pub vps_sub_layer_ordering_info_present_flag: u32,
+    pub vps_timing_info_present_flag: u32,
+    pub vps_poc_proportional_to_timing_flag: u32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265ProfileTierLevelFlags.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoH265ProfileTierLevelFlags {
+    pub general_tier_flag: u32,
+    pub general_progressive_source_flag: u32,
+    pub general_interlaced_source_flag: u32,
+    pub general_non_packed_constraint_flag: u32,
+    pub general_frame_only_constraint_flag: u32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265ProfileTierLevel.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoH265ProfileTierLevel {
+    pub flags: StdVideoH265ProfileTierLevelFlags,
+    pub general_profile_idc: StdVideoH265ProfileIdc,
+    pub general_level_idc: StdVideoH265LevelIdc,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265VideoParameterSet.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoH265VideoParameterSet {
+    pub flags: StdVideoH265VpsFlags,
+    pub vps_video_parameter_set_id: u8,
+    pub vps_max_sub_layers_minus_1: u8,
+    pub reserved_1: u8,
+    pub reserved_2: u8,
+    pub vps_num_units_in_tick: u32,
+    pub vps_time_scale: u32,
+    pub vps_num_ticks_poc_diff_one_minus_1: u32,
+    pub reserved_3: u32,
+    pub p_dec_pic_buf_mgr: *const StdVideoH265DecPicBufMgr,
+    pub p_hrd_parameters: *const StdVideoH265HrdParameters,
+    pub p_profile_tier_level: *const StdVideoH265ProfileTierLevel,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265ScalingLists.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoH265ScalingLists {
+    pub scaling_list_4_x_4: [[u8; 6]; 16],
+    pub scaling_list_8_x_8: [[u8; 6]; 64],
+    pub scaling_list_16_x_16: [[u8; 6]; 64],
+    pub scaling_list_32_x_32: [[u8; 2]; 64],
+    pub scaling_list_dc_coef_16_x_16: [u8; 6],
+    pub scaling_list_dc_coef_32_x_32: [u8; 2],
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265SpsVuiFlags.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoH265SpsVuiFlags {
+    pub aspect_ratio_info_present_flag: u32,
+    pub overscan_info_present_flag: u32,
+    pub overscan_appropriate_flag: u32,
+    pub video_signal_type_present_flag: u32,
+    pub video_full_range_flag: u32,
+    pub colour_description_present_flag: u32,
+    pub chroma_loc_info_present_flag: u32,
+    pub neutral_chroma_indication_flag: u32,
+    pub field_seq_flag: u32,
+    pub frame_field_info_present_flag: u32,
+    pub default_display_window_flag: u32,
+    pub vui_timing_info_present_flag: u32,
+    pub vui_poc_proportional_to_timing_flag: u32,
+    pub vui_hrd_parameters_present_flag: u32,
+    pub bitstream_restriction_flag: u32,
+    pub tiles_fixed_structure_flag: u32,
+    pub motion_vectors_over_pic_boundaries_flag: u32,
+    pub restricted_ref_pic_lists_flag: u32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265SequenceParameterSetVui.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoH265SequenceParameterSetVui {
+    pub flags: StdVideoH265SpsVuiFlags,
+    pub aspect_ratio_idc: StdVideoH265AspectRatioIdc,
+    pub sar_width: u16,
+    pub sar_height: u16,
+    pub video_format: u8,
+    pub colour_primaries: u8,
+    pub transfer_characteristics: u8,
+    pub matrix_coeffs: u8,
+    pub chroma_sample_loc_type_top_field: u8,
+    pub chroma_sample_loc_type_bottom_field: u8,
+    pub reserved_1: u8,
+    pub reserved_2: u8,
+    pub def_disp_win_left_offset: u16,
+    pub def_disp_win_right_offset: u16,
+    pub def_disp_win_top_offset: u16,
+    pub def_disp_win_bottom_offset: u16,
+    pub vui_num_units_in_tick: u32,
+    pub vui_time_scale: u32,
+    pub vui_num_ticks_poc_diff_one_minus_1: u32,
+    pub min_spatial_segmentation_idc: u16,
+    pub reserved_3: u16,
+    pub max_bytes_per_pic_denom: u8,
+    pub max_bits_per_min_cu_denom: u8,
+    pub log_2_max_mv_length_horizontal: u8,
+    pub log_2_max_mv_length_vertical: u8,
+    pub p_hrd_parameters: *const StdVideoH265HrdParameters,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265PredictorPaletteEntries.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoH265PredictorPaletteEntries {
+    pub predictor_palette_entries: [[u16; 3]; 128],
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265SpsFlags.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoH265SpsFlags {
+    pub sps_temporal_id_nesting_flag: u32,
+    pub separate_colour_plane_flag: u32,
+    pub conformance_window_flag: u32,
+    pub sps_sub_layer_ordering_info_present_flag: u32,
+    pub scaling_list_enabled_flag: u32,
+    pub sps_scaling_list_data_present_flag: u32,
+    pub amp_enabled_flag: u32,
+    pub sample_adaptive_offset_enabled_flag: u32,
+    pub pcm_enabled_flag: u32,
+    pub pcm_loop_filter_disabled_flag: u32,
+    pub long_term_ref_pics_present_flag: u32,
+    pub sps_temporal_mvp_enabled_flag: u32,
+    pub strong_intra_smoothing_enabled_flag: u32,
+    pub vui_parameters_present_flag: u32,
+    pub sps_extension_present_flag: u32,
+    pub sps_range_extension_flag: u32,
+    pub transform_skip_rotation_enabled_flag: u32,
+    pub transform_skip_context_enabled_flag: u32,
+    pub implicit_rdpcm_enabled_flag: u32,
+    pub explicit_rdpcm_enabled_flag: u32,
+    pub extended_precision_processing_flag: u32,
+    pub intra_smoothing_disabled_flag: u32,
+    pub high_precision_offsets_enabled_flag: u32,
+    pub persistent_rice_adaptation_enabled_flag: u32,
+    pub cabac_bypass_alignment_enabled_flag: u32,
+    pub sps_scc_extension_flag: u32,
+    pub sps_curr_pic_ref_enabled_flag: u32,
+    pub palette_mode_enabled_flag: u32,
+    pub sps_palette_predictor_initializers_present_flag: u32,
+    pub intra_boundary_filtering_disabled_flag: u32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265ShortTermRefPicSetFlags.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoH265ShortTermRefPicSetFlags {
+    pub inter_ref_pic_set_prediction_flag: u32,
+    pub delta_rps_sign: u32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265ShortTermRefPicSet.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoH265ShortTermRefPicSet {
+    pub flags: StdVideoH265ShortTermRefPicSetFlags,
+    pub delta_idx_minus_1: u32,
+    pub use_delta_flag: u16,
+    pub abs_delta_rps_minus_1: u16,
+    pub used_by_curr_pic_flag: u16,
+    pub used_by_curr_pic_s_0_flag: u16,
+    pub used_by_curr_pic_s_1_flag: u16,
+    pub reserved_1: u16,
+    pub reserved_2: u8,
+    pub reserved_3: u8,
+    pub num_negative_pics: u8,
+    pub num_positive_pics: u8,
+    pub delta_poc_s_0_minus_1: [u16; 16],
+    pub delta_poc_s_1_minus_1: [u16; 16],
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265LongTermRefPicsSps.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoH265LongTermRefPicsSps {
+    pub used_by_curr_pic_lt_sps_flag: u32,
+    pub lt_ref_pic_poc_lsb_sps: [u32; 32],
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265SequenceParameterSet.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoH265SequenceParameterSet {
+    pub flags: StdVideoH265SpsFlags,
+    pub chroma_format_idc: StdVideoH265ChromaFormatIdc,
+    pub pic_width_in_luma_samples: u32,
+    pub pic_height_in_luma_samples: u32,
+    pub sps_video_parameter_set_id: u8,
+    pub sps_max_sub_layers_minus_1: u8,
+    pub sps_seq_parameter_set_id: u8,
+    pub bit_depth_luma_minus_8: u8,
+    pub bit_depth_chroma_minus_8: u8,
+    pub log_2_max_pic_order_cnt_lsb_minus_4: u8,
+    pub log_2_min_luma_coding_block_size_minus_3: u8,
+    pub log_2_diff_max_min_luma_coding_block_size: u8,
+    pub log_2_min_luma_transform_block_size_minus_2: u8,
+    pub log_2_diff_max_min_luma_transform_block_size: u8,
+    pub max_transform_hierarchy_depth_inter: u8,
+    pub max_transform_hierarchy_depth_intra: u8,
+    pub num_short_term_ref_pic_sets: u8,
+    pub num_long_term_ref_pics_sps: u8,
+    pub pcm_sample_bit_depth_luma_minus_1: u8,
+    pub pcm_sample_bit_depth_chroma_minus_1: u8,
+    pub log_2_min_pcm_luma_coding_block_size_minus_3: u8,
+    pub log_2_diff_max_min_pcm_luma_coding_block_size: u8,
+    pub reserved_1: u8,
+    pub reserved_2: u8,
+    pub palette_max_size: u8,
+    pub delta_palette_max_predictor_size: u8,
+    pub motion_vector_resolution_control_idc: u8,
+    pub sps_num_palette_predictor_initializers_minus_1: u8,
+    pub conf_win_left_offset: u32,
+    pub conf_win_right_offset: u32,
+    pub conf_win_top_offset: u32,
+    pub conf_win_bottom_offset: u32,
+    pub p_profile_tier_level: *const StdVideoH265ProfileTierLevel,
+    pub p_dec_pic_buf_mgr: *const StdVideoH265DecPicBufMgr,
+    pub p_scaling_lists: *const StdVideoH265ScalingLists,
+    pub p_short_term_ref_pic_set: *const StdVideoH265ShortTermRefPicSet,
+    pub p_long_term_ref_pics_sps: *const StdVideoH265LongTermRefPicsSps,
+    pub p_sequence_parameter_set_vui: *const StdVideoH265SequenceParameterSetVui,
+    pub p_predictor_palette_entries: *const StdVideoH265PredictorPaletteEntries,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265PpsFlags.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoH265PpsFlags {
+    pub dependent_slice_segments_enabled_flag: u32,
+    pub output_flag_present_flag: u32,
+    pub sign_data_hiding_enabled_flag: u32,
+    pub cabac_init_present_flag: u32,
+    pub constrained_intra_pred_flag: u32,
+    pub transform_skip_enabled_flag: u32,
+    pub cu_qp_delta_enabled_flag: u32,
+    pub pps_slice_chroma_qp_offsets_present_flag: u32,
+    pub weighted_pred_flag: u32,
+    pub weighted_bipred_flag: u32,
+    pub transquant_bypass_enabled_flag: u32,
+    pub tiles_enabled_flag: u32,
+    pub entropy_coding_sync_enabled_flag: u32,
+    pub uniform_spacing_flag: u32,
+    pub loop_filter_across_tiles_enabled_flag: u32,
+    pub pps_loop_filter_across_slices_enabled_flag: u32,
+    pub deblocking_filter_control_present_flag: u32,
+    pub deblocking_filter_override_enabled_flag: u32,
+    pub pps_deblocking_filter_disabled_flag: u32,
+    pub pps_scaling_list_data_present_flag: u32,
+    pub lists_modification_present_flag: u32,
+    pub slice_segment_header_extension_present_flag: u32,
+    pub pps_extension_present_flag: u32,
+    pub cross_component_prediction_enabled_flag: u32,
+    pub chroma_qp_offset_list_enabled_flag: u32,
+    pub pps_curr_pic_ref_enabled_flag: u32,
+    pub residual_adaptive_colour_transform_enabled_flag: u32,
+    pub pps_slice_act_qp_offsets_present_flag: u32,
+    pub pps_palette_predictor_initializers_present_flag: u32,
+    pub monochrome_palette_flag: u32,
+    pub pps_range_extension_flag: u32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265PictureParameterSet.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoH265PictureParameterSet {
+    pub flags: StdVideoH265PpsFlags,
+    pub pps_pic_parameter_set_id: u8,
+    pub pps_seq_parameter_set_id: u8,
+    pub sps_video_parameter_set_id: u8,
+    pub num_extra_slice_header_bits: u8,
+    pub num_ref_idx_l_0_default_active_minus_1: u8,
+    pub num_ref_idx_l_1_default_active_minus_1: u8,
+    pub init_qp_minus_26: i8,
+    pub diff_cu_qp_delta_depth: u8,
+    pub pps_cb_qp_offset: i8,
+    pub pps_cr_qp_offset: i8,
+    pub pps_beta_offset_div_2: i8,
+    pub pps_tc_offset_div_2: i8,
+    pub log_2_parallel_merge_level_minus_2: u8,
+    pub log_2_max_transform_skip_block_size_minus_2: u8,
+    pub diff_cu_chroma_qp_offset_depth: u8,
+    pub chroma_qp_offset_list_len_minus_1: u8,
+    pub cb_qp_offset_list: [i8; 6],
+    pub cr_qp_offset_list: [i8; 6],
+    pub log_2_sao_offset_scale_luma: u8,
+    pub log_2_sao_offset_scale_chroma: u8,
+    pub pps_act_y_qp_offset_plus_5: i8,
+    pub pps_act_cb_qp_offset_plus_5: i8,
+    pub pps_act_cr_qp_offset_plus_3: i8,
+    pub pps_num_palette_predictor_initializers: u8,
+    pub luma_bit_depth_entry_minus_8: u8,
+    pub chroma_bit_depth_entry_minus_8: u8,
+    pub num_tile_columns_minus_1: u8,
+    pub num_tile_rows_minus_1: u8,
+    pub reserved_1: u8,
+    pub reserved_2: u8,
+    pub column_width_minus_1: [u16; 19],
+    pub row_height_minus_1: [u16; 21],
+    pub reserved_3: u32,
+    pub p_scaling_lists: *const StdVideoH265ScalingLists,
+    pub p_predictor_palette_entries: *const StdVideoH265PredictorPaletteEntries,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeH265PictureInfoFlags.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoDecodeH265PictureInfoFlags {
+    pub irap_pic_flag: u32,
+    pub idr_pic_flag: u32,
+    pub is_reference: u32,
+    pub short_term_ref_pic_set_sps_flag: u32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeH265PictureInfo.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoDecodeH265PictureInfo {
+    pub flags: StdVideoDecodeH265PictureInfoFlags,
+    pub sps_video_parameter_set_id: u8,
+    pub pps_seq_parameter_set_id: u8,
+    pub pps_pic_parameter_set_id: u8,
+    pub num_delta_pocs_of_ref_rps_idx: u8,
+    pub pic_order_cnt_val: i32,
+    pub num_bits_for_st_ref_pic_set_in_slice: u16,
+    pub reserved: u16,
+    pub ref_pic_set_st_curr_before: [u8; 8],
+    pub ref_pic_set_st_curr_after: [u8; 8],
+    pub ref_pic_set_lt_curr: [u8; 8],
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeH265ReferenceInfoFlags.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoDecodeH265ReferenceInfoFlags {
+    pub used_for_long_term_reference: u32,
+    pub unused_for_reference: u32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeH265ReferenceInfo.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoDecodeH265ReferenceInfo {
+    pub flags: StdVideoDecodeH265ReferenceInfoFlags,
+    pub pic_order_cnt_val: i32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH265WeightTableFlags.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoEncodeH265WeightTableFlags {
+    pub luma_weight_l_0_flag: u16,
+    pub chroma_weight_l_0_flag: u16,
+    pub luma_weight_l_1_flag: u16,
+    pub chroma_weight_l_1_flag: u16,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH265WeightTable.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoEncodeH265WeightTable {
+    pub flags: StdVideoEncodeH265WeightTableFlags,
+    pub luma_log_2_weight_denom: u8,
+    pub delta_chroma_log_2_weight_denom: i8,
+    pub delta_luma_weight_l_0: [i8; 15],
+    pub luma_offset_l_0: [i8; 15],
+    pub delta_chroma_weight_l_0: [[i8; 15]; 2],
+    pub delta_chroma_offset_l_0: [[i8; 15]; 2],
+    pub delta_luma_weight_l_1: [i8; 15],
+    pub luma_offset_l_1: [i8; 15],
+    pub delta_chroma_weight_l_1: [[i8; 15]; 2],
+    pub delta_chroma_offset_l_1: [[i8; 15]; 2],
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH265SliceSegmentHeaderFlags.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoEncodeH265SliceSegmentHeaderFlags {
+    pub first_slice_segment_in_pic_flag: u32,
+    pub dependent_slice_segment_flag: u32,
+    pub slice_sao_luma_flag: u32,
+    pub slice_sao_chroma_flag: u32,
+    pub num_ref_idx_active_override_flag: u32,
+    pub mvd_l_1_zero_flag: u32,
+    pub cabac_init_flag: u32,
+    pub cu_chroma_qp_offset_enabled_flag: u32,
+    pub deblocking_filter_override_flag: u32,
+    pub slice_deblocking_filter_disabled_flag: u32,
+    pub collocated_from_l_0_flag: u32,
+    pub slice_loop_filter_across_slices_enabled_flag: u32,
+    pub reserved: u32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH265SliceSegmentHeader.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoEncodeH265SliceSegmentHeader {
+    pub flags: StdVideoEncodeH265SliceSegmentHeaderFlags,
+    pub slice_type: StdVideoH265SliceType,
+    pub slice_segment_address: u32,
+    pub collocated_ref_idx: u8,
+    pub max_num_merge_cand: u8,
+    pub slice_cb_qp_offset: i8,
+    pub slice_cr_qp_offset: i8,
+    pub slice_beta_offset_div_2: i8,
+    pub slice_tc_offset_div_2: i8,
+    pub slice_act_y_qp_offset: i8,
+    pub slice_act_cb_qp_offset: i8,
+    pub slice_act_cr_qp_offset: i8,
+    pub slice_qp_delta: i8,
+    pub reserved_1: u16,
+    pub p_weight_table: *const StdVideoEncodeH265WeightTable,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH265ReferenceListsInfoFlags.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoEncodeH265ReferenceListsInfoFlags {
+    pub ref_pic_list_modification_flag_l_0: u32,
+    pub ref_pic_list_modification_flag_l_1: u32,
+    pub reserved: u32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH265ReferenceListsInfo.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoEncodeH265ReferenceListsInfo {
+    pub flags: StdVideoEncodeH265ReferenceListsInfoFlags,
+    pub num_ref_idx_l_0_active_minus_1: u8,
+    pub num_ref_idx_l_1_active_minus_1: u8,
+    pub ref_pic_list_0: [u8; 15],
+    pub ref_pic_list_1: [u8; 15],
+    pub list_entry_l_0: [u8; 15],
+    pub list_entry_l_1: [u8; 15],
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH265PictureInfoFlags.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoEncodeH265PictureInfoFlags {
+    pub is_reference: u32,
+    pub irap_pic_flag: u32,
+    pub used_for_long_term_reference: u32,
+    pub discardable_flag: u32,
+    pub cross_layer_bla_flag: u32,
+    pub pic_output_flag: u32,
+    pub no_output_of_prior_pics_flag: u32,
+    pub short_term_ref_pic_set_sps_flag: u32,
+    pub slice_temporal_mvp_enabled_flag: u32,
+    pub reserved: u32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH265LongTermRefPics.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoEncodeH265LongTermRefPics {
+    pub num_long_term_sps: u8,
+    pub num_long_term_pics: u8,
+    pub lt_idx_sps: [u8; 32],
+    pub poc_lsb_lt: [u8; 16],
+    pub used_by_curr_pic_lt_flag: u16,
+    pub delta_poc_msb_present_flag: [u8; 48],
+    pub delta_poc_msb_cycle_lt: [u8; 48],
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH265PictureInfo.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoEncodeH265PictureInfo {
+    pub flags: StdVideoEncodeH265PictureInfoFlags,
+    pub pic_type: StdVideoH265PictureType,
+    pub sps_video_parameter_set_id: u8,
+    pub pps_seq_parameter_set_id: u8,
+    pub pps_pic_parameter_set_id: u8,
+    pub short_term_ref_pic_set_idx: u8,
+    pub pic_order_cnt_val: i32,
+    pub temporal_id: u8,
+    pub reserved_1: [u8; 7],
+    pub p_ref_lists: *const StdVideoEncodeH265ReferenceListsInfo,
+    pub p_short_term_ref_pic_set: *const StdVideoH265ShortTermRefPicSet,
+    pub p_long_term_ref_pics: *const StdVideoEncodeH265LongTermRefPics,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH265ReferenceInfoFlags.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoEncodeH265ReferenceInfoFlags {
+    pub used_for_long_term_reference: u32,
+    pub unused_for_reference: u32,
+    pub reserved: u32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH265ReferenceInfo.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoEncodeH265ReferenceInfo {
+    pub flags: StdVideoEncodeH265ReferenceInfoFlags,
+    pub pic_type: StdVideoH265PictureType,
+    pub pic_order_cnt_val: i32,
+    pub temporal_id: u8,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1ColorConfigFlags.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoAV1ColorConfigFlags {
+    pub mono_chrome: u32,
+    pub color_range: u32,
+    pub separate_uv_delta_q: u32,
+    pub color_description_present_flag: u32,
+    pub reserved: u32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1ColorConfig.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoAV1ColorConfig {
+    pub flags: StdVideoAV1ColorConfigFlags,
+    pub bit_depth: u8,
+    pub subsampling_x: u8,
+    pub subsampling_y: u8,
+    pub reserved_1: u8,
+    pub color_primaries: StdVideoAV1ColorPrimaries,
+    pub transfer_characteristics: StdVideoAV1TransferCharacteristics,
+    pub matrix_coefficients: StdVideoAV1MatrixCoefficients,
+    pub chroma_sample_position: StdVideoAV1ChromaSamplePosition,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1TimingInfoFlags.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoAV1TimingInfoFlags {
+    pub equal_picture_interval: u32,
+    pub reserved: u32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1TimingInfo.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoAV1TimingInfo {
+    pub flags: StdVideoAV1TimingInfoFlags,
+    pub num_units_in_display_tick: u32,
+    pub time_scale: u32,
+    pub num_ticks_per_picture_minus_1: u32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1LoopFilterFlags.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoAV1LoopFilterFlags {
+    pub loop_filter_delta_enabled: u32,
+    pub loop_filter_delta_update: u32,
+    pub reserved: u32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1LoopFilter.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoAV1LoopFilter {
+    pub flags: StdVideoAV1LoopFilterFlags,
+    pub loop_filter_level: [u8; 4],
+    pub loop_filter_sharpness: u8,
+    pub update_ref_delta: u8,
+    pub loop_filter_ref_deltas: [i8; 8],
+    pub update_mode_delta: u8,
+    pub loop_filter_mode_deltas: [i8; 2],
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1QuantizationFlags.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoAV1QuantizationFlags {
+    pub using_qmatrix: u32,
+    pub diff_uv_delta: u32,
+    pub reserved: u32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1Quantization.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoAV1Quantization {
+    pub flags: StdVideoAV1QuantizationFlags,
+    pub base_q_idx: u8,
+    pub delta_qy_dc: i8,
+    pub delta_qu_dc: i8,
+    pub delta_qu_ac: i8,
+    pub delta_qv_dc: i8,
+    pub delta_qv_ac: i8,
+    pub qm_y: u8,
+    pub qm_u: u8,
+    pub qm_v: u8,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1Segmentation.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoAV1Segmentation {
+    pub feature_enabled: [u8; 8],
+    pub feature_data: [[i16; 8]; 8],
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1TileInfoFlags.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoAV1TileInfoFlags {
+    pub uniform_tile_spacing_flag: u32,
+    pub reserved: u32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1TileInfo.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoAV1TileInfo {
+    pub flags: StdVideoAV1TileInfoFlags,
+    pub tile_cols: u8,
+    pub tile_rows: u8,
+    pub context_update_tile_id: u16,
+    pub tile_size_bytes_minus_1: u8,
+    pub reserved_1: [u8; 7],
+    pub p_mi_col_starts: *const u16,
+    pub p_mi_row_starts: *const u16,
+    pub p_width_in_sbs_minus_1: *const u16,
+    pub p_height_in_sbs_minus_1: *const u16,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1CDEF.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoAV1CDEF {
+    pub cdef_damping_minus_3: u8,
+    pub cdef_bits: u8,
+    pub cdef_y_pri_strength: [u8; 8],
+    pub cdef_y_sec_strength: [u8; 8],
+    pub cdef_uv_pri_strength: [u8; 8],
+    pub cdef_uv_sec_strength: [u8; 8],
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1LoopRestoration.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoAV1LoopRestoration {
+    pub frame_restoration_type: [StdVideoAV1FrameRestorationType; 3],
+    pub loop_restoration_size: [u16; 3],
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1GlobalMotion.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoAV1GlobalMotion {
+    pub gm_type: [u8; 8],
+    pub gm_params: [[i32; 8]; 6],
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1FilmGrainFlags.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoAV1FilmGrainFlags {
+    pub chroma_scaling_from_luma: u32,
+    pub overlap_flag: u32,
+    pub clip_to_restricted_range: u32,
+    pub update_grain: u32,
+    pub reserved: u32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1FilmGrain.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoAV1FilmGrain {
+    pub flags: StdVideoAV1FilmGrainFlags,
+    pub grain_scaling_minus_8: u8,
+    pub ar_coeff_lag: u8,
+    pub ar_coeff_shift_minus_6: u8,
+    pub grain_scale_shift: u8,
+    pub grain_seed: u16,
+    pub film_grain_params_ref_idx: u8,
+    pub num_y_points: u8,
+    pub point_y_value: [u8; 14],
+    pub point_y_scaling: [u8; 14],
+    pub num_cb_points: u8,
+    pub point_cb_value: [u8; 10],
+    pub point_cb_scaling: [u8; 10],
+    pub num_cr_points: u8,
+    pub point_cr_value: [u8; 10],
+    pub point_cr_scaling: [u8; 10],
+    pub ar_coeffs_y_plus_128: [i8; 24],
+    pub ar_coeffs_cb_plus_128: [i8; 25],
+    pub ar_coeffs_cr_plus_128: [i8; 25],
+    pub cb_mult: u8,
+    pub cb_luma_mult: u8,
+    pub cb_offset: u16,
+    pub cr_mult: u8,
+    pub cr_luma_mult: u8,
+    pub cr_offset: u16,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1SequenceHeaderFlags.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoAV1SequenceHeaderFlags {
+    pub still_picture: u32,
+    pub reduced_still_picture_header: u32,
+    pub use_128_x_128_superblock: u32,
+    pub enable_filter_intra: u32,
+    pub enable_intra_edge_filter: u32,
+    pub enable_interintra_compound: u32,
+    pub enable_masked_compound: u32,
+    pub enable_warped_motion: u32,
+    pub enable_dual_filter: u32,
+    pub enable_order_hint: u32,
+    pub enable_jnt_comp: u32,
+    pub enable_ref_frame_mvs: u32,
+    pub frame_id_numbers_present_flag: u32,
+    pub enable_superres: u32,
+    pub enable_cdef: u32,
+    pub enable_restoration: u32,
+    pub film_grain_params_present: u32,
+    pub timing_info_present_flag: u32,
+    pub initial_display_delay_present_flag: u32,
+    pub reserved: u32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1SequenceHeader.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoAV1SequenceHeader {
+    pub flags: StdVideoAV1SequenceHeaderFlags,
+    pub seq_profile: StdVideoAV1Profile,
+    pub frame_width_bits_minus_1: u8,
+    pub frame_height_bits_minus_1: u8,
+    pub max_frame_width_minus_1: u16,
+    pub max_frame_height_minus_1: u16,
+    pub delta_frame_id_length_minus_2: u8,
+    pub additional_frame_id_length_minus_1: u8,
+    pub order_hint_bits_minus_1: u8,
+    pub seq_force_integer_mv: u8,
+    pub seq_force_screen_content_tools: u8,
+    pub reserved_1: [u8; 5],
+    pub p_color_config: *const StdVideoAV1ColorConfig,
+    pub p_timing_info: *const StdVideoAV1TimingInfo,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeAV1PictureInfoFlags.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoDecodeAV1PictureInfoFlags {
+    pub error_resilient_mode: u32,
+    pub disable_cdf_update: u32,
+    pub use_superres: u32,
+    pub render_and_frame_size_different: u32,
+    pub allow_screen_content_tools: u32,
+    pub is_filter_switchable: u32,
+    pub force_integer_mv: u32,
+    pub frame_size_override_flag: u32,
+    pub buffer_removal_time_present_flag: u32,
+    pub allow_intrabc: u32,
+    pub frame_refs_short_signaling: u32,
+    pub allow_high_precision_mv: u32,
+    pub is_motion_mode_switchable: u32,
+    pub use_ref_frame_mvs: u32,
+    pub disable_frame_end_update_cdf: u32,
+    pub allow_warped_motion: u32,
+    pub reduced_tx_set: u32,
+    pub reference_select: u32,
+    pub skip_mode_present: u32,
+    pub delta_q_present: u32,
+    pub delta_lf_present: u32,
+    pub delta_lf_multi: u32,
+    pub segmentation_enabled: u32,
+    pub segmentation_update_map: u32,
+    pub segmentation_temporal_update: u32,
+    pub segmentation_update_data: u32,
+    pub uses_lr: u32,
+    pub uses_chroma_lr: u32,
+    pub apply_grain: u32,
+    pub reserved: u32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeAV1PictureInfo.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoDecodeAV1PictureInfo {
+    pub flags: StdVideoDecodeAV1PictureInfoFlags,
+    pub frame_type: StdVideoAV1FrameType,
+    pub current_frame_id: u32,
+    pub order_hint: u8,
+    pub primary_ref_frame: u8,
+    pub refresh_frame_flags: u8,
+    pub reserved_1: u8,
+    pub interpolation_filter: StdVideoAV1InterpolationFilter,
+    pub tx_mode: StdVideoAV1TxMode,
+    pub delta_q_res: u8,
+    pub delta_lf_res: u8,
+    pub skip_mode_frame: [u8; 2],
+    pub coded_denom: u8,
+    pub reserved_2: [u8; 3],
+    pub order_hints: [u8; 8],
+    pub expected_frame_id: [u32; 8],
+    pub p_tile_info: *const StdVideoAV1TileInfo,
+    pub p_quantization: *const StdVideoAV1Quantization,
+    pub p_segmentation: *const StdVideoAV1Segmentation,
+    pub p_loop_filter: *const StdVideoAV1LoopFilter,
+    pub p_cdef: *const StdVideoAV1CDEF,
+    pub p_loop_restoration: *const StdVideoAV1LoopRestoration,
+    pub p_global_motion: *const StdVideoAV1GlobalMotion,
+    pub p_film_grain: *const StdVideoAV1FilmGrain,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeAV1ReferenceInfoFlags.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoDecodeAV1ReferenceInfoFlags {
+    pub disable_frame_end_update_cdf: u32,
+    pub segmentation_enabled: u32,
+    pub reserved: u32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeAV1ReferenceInfo.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoDecodeAV1ReferenceInfo {
+    pub flags: StdVideoDecodeAV1ReferenceInfoFlags,
+    pub frame_type: u8,
+    pub ref_frame_sign_bias: u8,
+    pub order_hint: u8,
+    pub saved_order_hints: [u8; 8],
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeAV1DecoderModelInfo.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoEncodeAV1DecoderModelInfo {
+    pub buffer_delay_length_minus_1: u8,
+    pub buffer_removal_time_length_minus_1: u8,
+    pub frame_presentation_time_length_minus_1: u8,
+    pub reserved_1: u8,
+    pub num_units_in_decoding_tick: u32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeAV1ExtensionHeader.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoEncodeAV1ExtensionHeader {
+    pub temporal_id: u8,
+    pub spatial_id: u8,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeAV1OperatingPointInfoFlags.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoEncodeAV1OperatingPointInfoFlags {
+    pub decoder_model_present_for_this_op: u32,
+    pub low_delay_mode_flag: u32,
+    pub initial_display_delay_present_for_this_op: u32,
+    pub reserved: u32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeAV1OperatingPointInfo.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoEncodeAV1OperatingPointInfo {
+    pub flags: StdVideoEncodeAV1OperatingPointInfoFlags,
+    pub operating_point_idc: u16,
+    pub seq_level_idx: u8,
+    pub seq_tier: u8,
+    pub decoder_buffer_delay: u32,
+    pub encoder_buffer_delay: u32,
+    pub initial_display_delay_minus_1: u8,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeAV1PictureInfoFlags.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoEncodeAV1PictureInfoFlags {
+    pub error_resilient_mode: u32,
+    pub disable_cdf_update: u32,
+    pub use_superres: u32,
+    pub render_and_frame_size_different: u32,
+    pub allow_screen_content_tools: u32,
+    pub is_filter_switchable: u32,
+    pub force_integer_mv: u32,
+    pub frame_size_override_flag: u32,
+    pub buffer_removal_time_present_flag: u32,
+    pub allow_intrabc: u32,
+    pub frame_refs_short_signaling: u32,
+    pub allow_high_precision_mv: u32,
+    pub is_motion_mode_switchable: u32,
+    pub use_ref_frame_mvs: u32,
+    pub disable_frame_end_update_cdf: u32,
+    pub allow_warped_motion: u32,
+    pub reduced_tx_set: u32,
+    pub skip_mode_present: u32,
+    pub delta_q_present: u32,
+    pub delta_lf_present: u32,
+    pub delta_lf_multi: u32,
+    pub segmentation_enabled: u32,
+    pub segmentation_update_map: u32,
+    pub segmentation_temporal_update: u32,
+    pub segmentation_update_data: u32,
+    pub uses_lr: u32,
+    pub uses_chroma_lr: u32,
+    pub show_frame: u32,
+    pub showable_frame: u32,
+    pub reserved: u32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeAV1PictureInfo.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoEncodeAV1PictureInfo {
+    pub flags: StdVideoEncodeAV1PictureInfoFlags,
+    pub frame_type: StdVideoAV1FrameType,
+    pub frame_presentation_time: u32,
+    pub current_frame_id: u32,
+    pub order_hint: u8,
+    pub primary_ref_frame: u8,
+    pub refresh_frame_flags: u8,
+    pub coded_denom: u8,
+    pub render_width_minus_1: u16,
+    pub render_height_minus_1: u16,
+    pub interpolation_filter: StdVideoAV1InterpolationFilter,
+    pub tx_mode: StdVideoAV1TxMode,
+    pub delta_q_res: u8,
+    pub delta_lf_res: u8,
+    pub ref_order_hint: [u8; 8],
+    pub ref_frame_idx: [i8; 7],
+    pub reserved_1: [u8; 3],
+    pub delta_frame_id_minus_1: [u32; 7],
+    pub p_tile_info: *const StdVideoAV1TileInfo,
+    pub p_quantization: *const StdVideoAV1Quantization,
+    pub p_segmentation: *const StdVideoAV1Segmentation,
+    pub p_loop_filter: *const StdVideoAV1LoopFilter,
+    pub p_cdef: *const StdVideoAV1CDEF,
+    pub p_loop_restoration: *const StdVideoAV1LoopRestoration,
+    pub p_global_motion: *const StdVideoAV1GlobalMotion,
+    pub p_extension_header: *const StdVideoEncodeAV1ExtensionHeader,
+    pub p_buffer_removal_times: *const u32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeAV1ReferenceInfoFlags.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoEncodeAV1ReferenceInfoFlags {
+    pub disable_frame_end_update_cdf: u32,
+    pub segmentation_enabled: u32,
+    pub reserved: u32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeAV1ReferenceInfo.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoEncodeAV1ReferenceInfo {
+    pub flags: StdVideoEncodeAV1ReferenceInfoFlags,
+    pub ref_frame_id: u32,
+    pub frame_type: StdVideoAV1FrameType,
+    pub order_hint: u8,
+    pub reserved_1: [u8; 3],
+    pub p_extension_header: *const StdVideoEncodeAV1ExtensionHeader,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoVP9ColorConfigFlags.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoVP9ColorConfigFlags {
+    pub color_range: u32,
+    pub reserved: u32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoVP9ColorConfig.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoVP9ColorConfig {
+    pub flags: StdVideoVP9ColorConfigFlags,
+    pub bit_depth: u8,
+    pub subsampling_x: u8,
+    pub subsampling_y: u8,
+    pub reserved_1: u8,
+    pub color_space: StdVideoVP9ColorSpace,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoVP9LoopFilterFlags.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoVP9LoopFilterFlags {
+    pub loop_filter_delta_enabled: u32,
+    pub loop_filter_delta_update: u32,
+    pub reserved: u32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoVP9LoopFilter.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoVP9LoopFilter {
+    pub flags: StdVideoVP9LoopFilterFlags,
+    pub loop_filter_level: u8,
+    pub loop_filter_sharpness: u8,
+    pub update_ref_delta: u8,
+    pub loop_filter_ref_deltas: [i8; 4],
+    pub update_mode_delta: u8,
+    pub loop_filter_mode_deltas: [i8; 2],
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoVP9SegmentationFlags.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoVP9SegmentationFlags {
+    pub segmentation_update_map: u32,
+    pub segmentation_temporal_update: u32,
+    pub segmentation_update_data: u32,
+    pub segmentation_abs_or_delta_update: u32,
+    pub reserved: u32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoVP9Segmentation.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoVP9Segmentation {
+    pub flags: StdVideoVP9SegmentationFlags,
+    pub segmentation_tree_probs: [u8; 7],
+    pub segmentation_pred_prob: [u8; 3],
+    pub feature_enabled: [u8; 8],
+    pub feature_data: [[i16; 8]; 4],
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeVP9PictureInfoFlags.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoDecodeVP9PictureInfoFlags {
+    pub error_resilient_mode: u32,
+    pub intra_only: u32,
+    pub allow_high_precision_mv: u32,
+    pub refresh_frame_context: u32,
+    pub frame_parallel_decoding_mode: u32,
+    pub segmentation_enabled: u32,
+    pub show_frame: u32,
+    pub use_prev_frame_mvs: u32,
+    pub reserved: u32,
+}
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeVP9PictureInfo.html>
+#[derive(Debug, Clone, Copy)]
+#[repr(C)]
+pub struct StdVideoDecodeVP9PictureInfo {
+    pub flags: StdVideoDecodeVP9PictureInfoFlags,
+    pub profile: StdVideoVP9Profile,
+    pub frame_type: StdVideoVP9FrameType,
+    pub frame_context_idx: u8,
+    pub reset_frame_context: u8,
+    pub refresh_frame_flags: u8,
+    pub ref_frame_sign_bias_mask: u8,
+    pub interpolation_filter: StdVideoVP9InterpolationFilter,
+    pub base_q_idx: u8,
+    pub delta_q_y_dc: i8,
+    pub delta_q_uv_dc: i8,
+    pub delta_q_uv_ac: i8,
+    pub tile_cols_log_2: u8,
+    pub tile_rows_log_2: u8,
+    pub reserved_1: [u16; 3],
+    pub p_color_config: *const StdVideoVP9ColorConfig,
+    pub p_loop_filter: *const StdVideoVP9LoopFilter,
+    pub p_segmentation: *const StdVideoVP9Segmentation,
+}

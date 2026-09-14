@@ -2,6 +2,7 @@
 ///
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBool32.html>
 #[derive(Debug, Clone, Copy)]
+#[repr(transparent)]
 pub struct Bool32(u32);
 
 impl Bool32 {
@@ -39,12 +40,11 @@ impl std::cmp::PartialEq<Bool32> for bool {
     }
 }
 
-/// A device buffer address.
-///
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceAddress.html>
 pub type DeviceAddress = u64;
 
-/// Device memory size and offsets.
-///
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceAddress.html>
 pub type DeviceSize = u64;
+
+/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSampleMask.html>
+pub type SampleMask = u32;
