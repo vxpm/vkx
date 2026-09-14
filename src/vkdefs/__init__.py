@@ -166,9 +166,9 @@ class Context:
         type_name_snake = textcase.snake(self.remove_vendor_tag(m.name.removeprefix("Vk").replace("FlagBits", ""))).upper()
         repr_type = "u32" if m.bitWidth == 32 else "u64"
 
-        out.writeln(f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{m.name}.html>")
         out.writeln("bitflags::bitflags! {")
         out.indent()
+        out.writeln(f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{m.name}.html>")
         out.writeln(f"#[derive(Debug, Clone, Copy, PartialEq, Eq)]")
         out.writeln(f"#[repr(transparent)]")
         out.writeln(f"pub struct {type_name}: {repr_type} {{")

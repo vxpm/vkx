@@ -4,8 +4,8 @@
 
 use std::ffi::{c_void, c_int, c_uint, c_char};
 use crate::inner::*;
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFormatFeatureFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFormatFeatureFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct FormatFeatureFlags: u32 {
@@ -43,8 +43,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageCreateFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageCreateFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct ImageCreateFlags: u32 {
@@ -72,8 +72,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSampleCountFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSampleCountFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct SampleCountFlags: u32 {
@@ -87,8 +87,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageUsageFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageUsageFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct ImageUsageFlags: u32 {
@@ -120,8 +120,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkInstanceCreateFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkInstanceCreateFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct InstanceCreateFlags: u32 {
@@ -129,8 +129,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryHeapFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryHeapFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct MemoryHeapFlags: u32 {
@@ -140,8 +140,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryPropertyFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryPropertyFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct MemoryPropertyFlags: u32 {
@@ -157,8 +157,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkQueueFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkQueueFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct QueueFlags: u32 {
@@ -174,8 +174,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderStageFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderStageFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct ShaderStageFlags: u32 {
@@ -200,8 +200,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceQueueCreateFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceQueueCreateFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct DeviceQueueCreateFlags: u32 {
@@ -210,8 +210,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineStageFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineStageFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct PipelineStageFlags: u32 {
@@ -245,8 +245,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryMapFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryMapFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct MemoryMapFlags: u32 {
@@ -254,8 +254,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageAspectFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageAspectFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct ImageAspectFlags: u32 {
@@ -274,8 +274,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSparseImageFormatFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSparseImageFormatFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct SparseImageFormatFlags: u32 {
@@ -285,8 +285,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSparseMemoryBindFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSparseMemoryBindFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct SparseMemoryBindFlags: u32 {
@@ -294,8 +294,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFenceCreateFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFenceCreateFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct FenceCreateFlags: u32 {
@@ -303,8 +303,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkQueryPoolCreateFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkQueryPoolCreateFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct QueryPoolCreateFlags: u32 {
@@ -312,8 +312,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkQueryPipelineStatisticFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkQueryPipelineStatisticFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct QueryPipelineStatisticFlags: u32 {
@@ -334,8 +334,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkQueryResultFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkQueryResultFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct QueryResultFlags: u32 {
@@ -347,8 +347,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferCreateFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferCreateFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct BufferCreateFlags: u32 {
@@ -362,8 +362,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferUsageFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferUsageFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct BufferUsageFlags: u32 {
@@ -398,8 +398,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageViewCreateFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageViewCreateFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct ImageViewCreateFlags: u32 {
@@ -409,8 +409,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccessFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccessFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct AccessFlags: u32 {
@@ -446,8 +446,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDependencyFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDependencyFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct DependencyFlags: u32 {
@@ -460,8 +460,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandPoolCreateFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandPoolCreateFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct CommandPoolCreateFlags: u32 {
@@ -471,8 +471,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandPoolResetFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandPoolResetFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct CommandPoolResetFlags: u32 {
@@ -480,8 +480,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkQueryControlFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkQueryControlFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct QueryControlFlags: u32 {
@@ -489,8 +489,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandBufferUsageFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandBufferUsageFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct CommandBufferUsageFlags: u32 {
@@ -500,8 +500,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandBufferResetFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandBufferResetFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct CommandBufferResetFlags: u32 {
@@ -509,8 +509,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkEventCreateFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkEventCreateFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct EventCreateFlags: u32 {
@@ -518,8 +518,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCacheCreateFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCacheCreateFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct PipelineCacheCreateFlags: u32 {
@@ -528,8 +528,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCreateFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCreateFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct PipelineCreateFlags: u32 {
@@ -567,8 +567,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineLayoutCreateFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineLayoutCreateFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct PipelineLayoutCreateFlags: u32 {
@@ -577,8 +577,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineShaderStageCreateFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineShaderStageCreateFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct PipelineShaderStageCreateFlags: u32 {
@@ -587,8 +587,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerCreateFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerCreateFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct SamplerCreateFlags: u32 {
@@ -600,8 +600,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorPoolCreateFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorPoolCreateFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct DescriptorPoolCreateFlags: u32 {
@@ -613,8 +613,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorSetLayoutCreateFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorSetLayoutCreateFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct DescriptorSetLayoutCreateFlags: u32 {
@@ -628,8 +628,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkColorComponentFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkColorComponentFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct ColorComponentFlags: u32 {
@@ -640,8 +640,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCullModeFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCullModeFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct CullModeFlags: u32 {
@@ -652,8 +652,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineColorBlendStateCreateFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineColorBlendStateCreateFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct PipelineColorBlendStateCreateFlags: u32 {
@@ -661,8 +661,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineDepthStencilStateCreateFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineDepthStencilStateCreateFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct PipelineDepthStencilStateCreateFlags: u32 {
@@ -671,8 +671,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAttachmentDescriptionFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAttachmentDescriptionFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct AttachmentDescriptionFlags: u32 {
@@ -682,8 +682,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFramebufferCreateFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFramebufferCreateFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct FramebufferCreateFlags: u32 {
@@ -691,8 +691,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPassCreateFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPassCreateFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct RenderPassCreateFlags: u32 {
@@ -701,8 +701,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSubpassDescriptionFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSubpassDescriptionFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct SubpassDescriptionFlags: u32 {
@@ -718,8 +718,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkStencilFaceFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkStencilFaceFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct StencilFaceFlags: u32 {
@@ -729,8 +729,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSubgroupFeatureFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSubgroupFeatureFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct SubgroupFeatureFlags: u32 {
@@ -748,8 +748,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPeerMemoryFeatureFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPeerMemoryFeatureFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct PeerMemoryFeatureFlags: u32 {
@@ -761,8 +761,8 @@ bitflags::bitflags! {
 }
 pub type PeerMemoryFeatureFlagsKHR = PeerMemoryFeatureFlags;
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryAllocateFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryAllocateFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct MemoryAllocateFlags: u32 {
@@ -774,8 +774,8 @@ bitflags::bitflags! {
 }
 pub type MemoryAllocateFlagsKHR = MemoryAllocateFlags;
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalMemoryHandleTypeFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalMemoryHandleTypeFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct ExternalMemoryHandleTypeFlags: u32 {
@@ -801,8 +801,8 @@ bitflags::bitflags! {
 }
 pub type ExternalMemoryHandleTypeFlagsKHR = ExternalMemoryHandleTypeFlags;
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalMemoryFeatureFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalMemoryFeatureFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct ExternalMemoryFeatureFlags: u32 {
@@ -813,8 +813,8 @@ bitflags::bitflags! {
 }
 pub type ExternalMemoryFeatureFlagsKHR = ExternalMemoryFeatureFlags;
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalFenceHandleTypeFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalFenceHandleTypeFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct ExternalFenceHandleTypeFlags: u32 {
@@ -826,8 +826,8 @@ bitflags::bitflags! {
 }
 pub type ExternalFenceHandleTypeFlagsKHR = ExternalFenceHandleTypeFlags;
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalFenceFeatureFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalFenceFeatureFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct ExternalFenceFeatureFlags: u32 {
@@ -837,8 +837,8 @@ bitflags::bitflags! {
 }
 pub type ExternalFenceFeatureFlagsKHR = ExternalFenceFeatureFlags;
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFenceImportFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFenceImportFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct FenceImportFlags: u32 {
@@ -847,8 +847,8 @@ bitflags::bitflags! {
 }
 pub type FenceImportFlagsKHR = FenceImportFlags;
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSemaphoreImportFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSemaphoreImportFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct SemaphoreImportFlags: u32 {
@@ -857,8 +857,8 @@ bitflags::bitflags! {
 }
 pub type SemaphoreImportFlagsKHR = SemaphoreImportFlags;
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalSemaphoreHandleTypeFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalSemaphoreHandleTypeFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct ExternalSemaphoreHandleTypeFlags: u32 {
@@ -872,8 +872,8 @@ bitflags::bitflags! {
 }
 pub type ExternalSemaphoreHandleTypeFlagsKHR = ExternalSemaphoreHandleTypeFlags;
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalSemaphoreFeatureFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalSemaphoreFeatureFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct ExternalSemaphoreFeatureFlags: u32 {
@@ -883,8 +883,8 @@ bitflags::bitflags! {
 }
 pub type ExternalSemaphoreFeatureFlagsKHR = ExternalSemaphoreFeatureFlags;
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkResolveModeFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkResolveModeFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct ResolveModeFlags: u32 {
@@ -899,8 +899,8 @@ bitflags::bitflags! {
 }
 pub type ResolveModeFlagsKHR = ResolveModeFlags;
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSemaphoreWaitFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSemaphoreWaitFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct SemaphoreWaitFlags: u32 {
@@ -909,8 +909,8 @@ bitflags::bitflags! {
 }
 pub type SemaphoreWaitFlagsKHR = SemaphoreWaitFlags;
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorBindingFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorBindingFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct DescriptorBindingFlags: u32 {
@@ -922,8 +922,8 @@ bitflags::bitflags! {
 }
 pub type DescriptorBindingFlagsEXT = DescriptorBindingFlags;
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkToolPurposeFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkToolPurposeFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct ToolPurposeFlags: u32 {
@@ -938,8 +938,8 @@ bitflags::bitflags! {
 }
 pub type ToolPurposeFlagsEXT = ToolPurposeFlags;
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPrivateDataSlotCreateFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPrivateDataSlotCreateFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct PrivateDataSlotCreateFlags: u32 {
@@ -948,8 +948,8 @@ bitflags::bitflags! {
 }
 pub type PrivateDataSlotCreateFlagsEXT = PrivateDataSlotCreateFlags;
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineStageFlagBits2.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineStageFlagBits2.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct PipelineStageFlags2: u64 {
@@ -1003,8 +1003,8 @@ bitflags::bitflags! {
 }
 pub type PipelineStageFlags2KHR = PipelineStageFlags2;
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccessFlagBits2.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccessFlagBits2.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct AccessFlags2: u64 {
@@ -1063,8 +1063,8 @@ bitflags::bitflags! {
 }
 pub type AccessFlags2KHR = AccessFlags2;
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSubmitFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSubmitFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct SubmitFlags: u32 {
@@ -1073,8 +1073,8 @@ bitflags::bitflags! {
 }
 pub type SubmitFlagsKHR = SubmitFlags;
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFormatFeatureFlagBits2.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFormatFeatureFlagBits2.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct FormatFeatureFlags2: u64 {
@@ -1141,8 +1141,8 @@ bitflags::bitflags! {
 }
 pub type FormatFeatureFlags2KHR = FormatFeatureFlags2;
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCreationFeedbackFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCreationFeedbackFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct PipelineCreationFeedbackFlags: u32 {
@@ -1153,8 +1153,8 @@ bitflags::bitflags! {
 }
 pub type PipelineCreationFeedbackFlagsEXT = PipelineCreationFeedbackFlags;
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderingFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderingFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct RenderingFlags: u32 {
@@ -1171,8 +1171,8 @@ bitflags::bitflags! {
 }
 pub type RenderingFlagsKHR = RenderingFlags;
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryUnmapFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryUnmapFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct MemoryUnmapFlags: u32 {
@@ -1181,8 +1181,8 @@ bitflags::bitflags! {
 }
 pub type MemoryUnmapFlagsKHR = MemoryUnmapFlags;
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferUsageFlagBits2.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferUsageFlagBits2.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct BufferUsageFlags2: u64 {
@@ -1222,8 +1222,8 @@ bitflags::bitflags! {
 }
 pub type BufferUsageFlags2KHR = BufferUsageFlags2;
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkHostImageCopyFlagBits.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkHostImageCopyFlagBits.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct HostImageCopyFlags: u32 {
@@ -1232,8 +1232,8 @@ bitflags::bitflags! {
 }
 pub type HostImageCopyFlagsEXT = HostImageCopyFlags;
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCreateFlagBits2.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCreateFlagBits2.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct PipelineCreateFlags2: u64 {
@@ -1283,8 +1283,8 @@ bitflags::bitflags! {
 }
 pub type PipelineCreateFlags2KHR = PipelineCreateFlags2;
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfaceTransformFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfaceTransformFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct SurfaceTransformFlagsKHR: u32 {
@@ -1300,8 +1300,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCompositeAlphaFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCompositeAlphaFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct CompositeAlphaFlagsKHR: u32 {
@@ -1312,8 +1312,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSwapchainCreateFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSwapchainCreateFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct SwapchainCreateFlagsKHR: u32 {
@@ -1328,8 +1328,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceGroupPresentModeFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceGroupPresentModeFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct DeviceGroupPresentModeFlagsKHR: u32 {
@@ -1340,8 +1340,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplayPlaneAlphaFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplayPlaneAlphaFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct DisplayPlaneAlphaFlagsKHR: u32 {
@@ -1352,8 +1352,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoCodecOperationFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoCodecOperationFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct VideoCodecOperationFlagsKHR: u32 {
@@ -1368,8 +1368,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoChromaSubsamplingFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoChromaSubsamplingFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct VideoChromaSubsamplingFlagsKHR: u32 {
@@ -1381,8 +1381,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoComponentBitDepthFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoComponentBitDepthFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct VideoComponentBitDepthFlagsKHR: u32 {
@@ -1393,8 +1393,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoCapabilityFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoCapabilityFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct VideoCapabilityFlagsKHR: u32 {
@@ -1403,8 +1403,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoSessionCreateFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoSessionCreateFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct VideoSessionCreateFlagsKHR: u32 {
@@ -1417,8 +1417,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoSessionParametersCreateFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoSessionParametersCreateFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct VideoSessionParametersCreateFlagsKHR: u32 {
@@ -1426,8 +1426,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoCodingControlFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoCodingControlFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct VideoCodingControlFlagsKHR: u32 {
@@ -1437,8 +1437,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeCapabilityFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeCapabilityFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct VideoDecodeCapabilityFlagsKHR: u32 {
@@ -1447,8 +1447,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeUsageFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeUsageFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct VideoDecodeUsageFlagsKHR: u32 {
@@ -1459,8 +1459,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH264CapabilityFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH264CapabilityFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct VideoEncodeH264CapabilityFlagsKHR: u32 {
@@ -1478,8 +1478,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH264StdFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH264StdFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct VideoEncodeH264StdFlagsKHR: u32 {
@@ -1506,8 +1506,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH264RateControlFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH264RateControlFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct VideoEncodeH264RateControlFlagsKHR: u32 {
@@ -1519,8 +1519,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265CapabilityFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265CapabilityFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct VideoEncodeH265CapabilityFlagsKHR: u32 {
@@ -1539,8 +1539,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265StdFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265StdFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct VideoEncodeH265StdFlagsKHR: u32 {
@@ -1568,8 +1568,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265CtbSizeFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265CtbSizeFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct VideoEncodeH265CtbSizeFlagsKHR: u32 {
@@ -1579,8 +1579,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265TransformBlockSizeFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265TransformBlockSizeFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct VideoEncodeH265TransformBlockSizeFlagsKHR: u32 {
@@ -1591,8 +1591,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265RateControlFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265RateControlFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct VideoEncodeH265RateControlFlagsKHR: u32 {
@@ -1604,8 +1604,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeH264PictureLayoutFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeH264PictureLayoutFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct VideoDecodeH264PictureLayoutFlagsKHR: u32 {
@@ -1615,8 +1615,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceCounterDescriptionFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceCounterDescriptionFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct PerformanceCounterDescriptionFlagsKHR: u32 {
@@ -1625,16 +1625,16 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAcquireProfilingLockFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAcquireProfilingLockFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct AcquireProfilingLockFlagsKHR: u32 {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct VideoEncodeFlagsKHR: u32 {
@@ -1644,8 +1644,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeCapabilityFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeCapabilityFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct VideoEncodeCapabilityFlagsKHR: u32 {
@@ -1656,8 +1656,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeRateControlModeFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeRateControlModeFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct VideoEncodeRateControlModeFlagsKHR: u32 {
@@ -1668,8 +1668,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeFeedbackFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeFeedbackFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct VideoEncodeFeedbackFlagsKHR: u32 {
@@ -1686,8 +1686,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeUsageFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeUsageFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct VideoEncodeUsageFlagsKHR: u32 {
@@ -1699,8 +1699,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeContentFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeContentFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct VideoEncodeContentFlagsKHR: u32 {
@@ -1711,8 +1711,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAddressCommandFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAddressCommandFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct AddressCommandFlagsKHR: u32 {
@@ -1725,8 +1725,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkConditionalRenderingFlagBitsEXT.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkConditionalRenderingFlagBitsEXT.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct ConditionalRenderingFlagsEXT: u32 {
@@ -1734,8 +1734,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureCreateFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureCreateFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct AccelerationStructureCreateFlagsKHR: u32 {
@@ -1745,8 +1745,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPresentScalingFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPresentScalingFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct PresentScalingFlagsKHR: u32 {
@@ -1757,8 +1757,8 @@ bitflags::bitflags! {
 }
 pub type PresentScalingFlagsEXT = PresentScalingFlagsKHR;
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPresentGravityFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPresentGravityFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct PresentGravityFlagsKHR: u32 {
@@ -1769,8 +1769,8 @@ bitflags::bitflags! {
 }
 pub type PresentGravityFlagsEXT = PresentGravityFlagsKHR;
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeAV1CapabilityFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeAV1CapabilityFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct VideoEncodeAV1CapabilityFlagsKHR: u32 {
@@ -1783,8 +1783,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeAV1StdFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeAV1StdFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct VideoEncodeAV1StdFlagsKHR: u32 {
@@ -1795,8 +1795,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeAV1SuperblockSizeFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeAV1SuperblockSizeFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct VideoEncodeAV1SuperblockSizeFlagsKHR: u32 {
@@ -1805,8 +1805,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeAV1RateControlFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeAV1RateControlFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct VideoEncodeAV1RateControlFlagsKHR: u32 {
@@ -1817,8 +1817,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAddressCopyFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAddressCopyFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct AddressCopyFlagsKHR: u32 {
@@ -1828,8 +1828,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeIntraRefreshModeFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeIntraRefreshModeFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct VideoEncodeIntraRefreshModeFlagsKHR: u32 {
@@ -1841,8 +1841,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceFaultFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceFaultFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct DeviceFaultFlagsKHR: u32 {
@@ -1855,8 +1855,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccessFlagBits3KHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccessFlagBits3KHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct AccessFlags3KHR: u64 {
@@ -1864,8 +1864,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodePerPartitionFeedbackFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodePerPartitionFeedbackFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct VideoEncodePerPartitionFeedbackFlagsKHR: u32 {
@@ -1875,8 +1875,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderingAttachmentFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderingAttachmentFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct RenderingAttachmentFlagsKHR: u32 {
@@ -1886,8 +1886,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkResolveImageFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkResolveImageFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct ResolveImageFlagsKHR: u32 {
@@ -1896,16 +1896,16 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFormatFeatureFlagBits4KHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFormatFeatureFlagBits4KHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct FormatFeatureFlags4KHR: u64 {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageUsageFlagBits2KHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageUsageFlagBits2KHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct ImageUsageFlags2KHR: u64 {
@@ -1937,8 +1937,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageCreateFlagBits2KHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageCreateFlagBits2KHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct ImageCreateFlags2KHR: u64 {
@@ -1966,8 +1966,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDebugReportFlagBitsEXT.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDebugReportFlagBitsEXT.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct DebugReportFlagsEXT: u32 {
@@ -1979,8 +1979,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalMemoryHandleTypeFlagBitsNV.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalMemoryHandleTypeFlagBitsNV.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct ExternalMemoryHandleTypeFlagsNV: u32 {
@@ -1991,8 +1991,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalMemoryFeatureFlagBitsNV.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalMemoryFeatureFlagBitsNV.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct ExternalMemoryFeatureFlagsNV: u32 {
@@ -2002,8 +2002,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfaceCounterFlagBitsEXT.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfaceCounterFlagBitsEXT.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct SurfaceCounterFlagsEXT: u32 {
@@ -2011,8 +2011,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDebugUtilsMessageSeverityFlagBitsEXT.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDebugUtilsMessageSeverityFlagBitsEXT.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct DebugUtilsMessageSeverityFlagsEXT: u32 {
@@ -2023,8 +2023,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDebugUtilsMessageTypeFlagBitsEXT.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDebugUtilsMessageTypeFlagBitsEXT.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct DebugUtilsMessageTypeFlagsEXT: u32 {
@@ -2035,8 +2035,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkGpaSqShaderStageFlagBitsAMD.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkGpaSqShaderStageFlagBitsAMD.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct GpaSqShaderStageFlagsAMD: u32 {
@@ -2050,8 +2050,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTensorViewCreateFlagBitsARM.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTensorViewCreateFlagBitsARM.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct TensorViewCreateFlagsARM: u64 {
@@ -2059,8 +2059,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSpirvResourceTypeFlagBitsEXT.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSpirvResourceTypeFlagBitsEXT.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct SpirvResourceTypeFlagsEXT: u32 {
@@ -2078,8 +2078,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkGeometryFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkGeometryFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct GeometryFlagsKHR: u32 {
@@ -2089,8 +2089,8 @@ bitflags::bitflags! {
 }
 pub type GeometryFlagsNV = GeometryFlagsKHR;
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkGeometryInstanceFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkGeometryInstanceFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct GeometryInstanceFlagsKHR: u32 {
@@ -2104,8 +2104,8 @@ bitflags::bitflags! {
 }
 pub type GeometryInstanceFlagsNV = GeometryInstanceFlagsKHR;
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBuildAccelerationStructureFlagBitsKHR.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBuildAccelerationStructureFlagBitsKHR.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct BuildAccelerationStructureFlagsKHR: u32 {
@@ -2126,16 +2126,16 @@ bitflags::bitflags! {
 }
 pub type BuildAccelerationStructureFlagsNV = BuildAccelerationStructureFlagsKHR;
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCompilerControlFlagBitsAMD.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCompilerControlFlagBitsAMD.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct PipelineCompilerControlFlagsAMD: u32 {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPresentStageFlagBitsEXT.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPresentStageFlagBitsEXT.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct PresentStageFlagsEXT: u32 {
@@ -2146,8 +2146,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPastPresentationTimingFlagBitsEXT.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPastPresentationTimingFlagBitsEXT.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct PastPresentationTimingFlagsEXT: u32 {
@@ -2156,8 +2156,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPresentTimingInfoFlagBitsEXT.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPresentTimingInfoFlagBitsEXT.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct PresentTimingInfoFlagsEXT: u32 {
@@ -2166,16 +2166,16 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderCorePropertiesFlagBitsAMD.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderCorePropertiesFlagBitsAMD.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct ShaderCorePropertiesFlagsAMD: u32 {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectStateFlagBitsNV.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectStateFlagBitsNV.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct IndirectStateFlagsNV: u32 {
@@ -2183,8 +2183,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectCommandsLayoutUsageFlagBitsNV.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectCommandsLayoutUsageFlagBitsNV.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct IndirectCommandsLayoutUsageFlagsNV: u32 {
@@ -2194,8 +2194,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceDiagnosticsConfigFlagBitsNV.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceDiagnosticsConfigFlagBitsNV.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct DeviceDiagnosticsConfigFlagsNV: u32 {
@@ -2206,8 +2206,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTileShadingRenderPassFlagBitsQCOM.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTileShadingRenderPassFlagBitsQCOM.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct TileShadingRenderPassFlagsQCOM: u32 {
@@ -2216,8 +2216,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExportMetalObjectTypeFlagBitsEXT.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExportMetalObjectTypeFlagBitsEXT.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct ExportMetalObjectTypeFlagsEXT: u32 {
@@ -2230,8 +2230,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkGraphicsPipelineLibraryFlagBitsEXT.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkGraphicsPipelineLibraryFlagBitsEXT.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct GraphicsPipelineLibraryFlagsEXT: u32 {
@@ -2242,8 +2242,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageCompressionFlagBitsEXT.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageCompressionFlagBitsEXT.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct ImageCompressionFlagsEXT: u32 {
@@ -2254,8 +2254,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageCompressionFixedRateFlagBitsEXT.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageCompressionFixedRateFlagBitsEXT.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct ImageCompressionFixedRateFlagsEXT: u32 {
@@ -2287,8 +2287,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceAddressBindingFlagBitsEXT.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceAddressBindingFlagBitsEXT.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct DeviceAddressBindingFlagsEXT: u32 {
@@ -2296,8 +2296,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageConstraintsInfoFlagBitsFUCHSIA.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageConstraintsInfoFlagBitsFUCHSIA.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct ImageConstraintsInfoFlagsFUCHSIA: u32 {
@@ -2309,8 +2309,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFrameBoundaryFlagBitsEXT.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFrameBoundaryFlagBitsEXT.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct FrameBoundaryFlagsEXT: u32 {
@@ -2318,8 +2318,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeRgbModelConversionFlagBitsVALVE.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeRgbModelConversionFlagBitsVALVE.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct VideoEncodeRgbModelConversionFlagsVALVE: u32 {
@@ -2331,8 +2331,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeRgbRangeCompressionFlagBitsVALVE.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeRgbRangeCompressionFlagBitsVALVE.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct VideoEncodeRgbRangeCompressionFlagsVALVE: u32 {
@@ -2341,8 +2341,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeRgbChromaOffsetFlagBitsVALVE.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeRgbChromaOffsetFlagBitsVALVE.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct VideoEncodeRgbChromaOffsetFlagsVALVE: u32 {
@@ -2351,8 +2351,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBuildMicromapFlagBitsEXT.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBuildMicromapFlagBitsEXT.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct BuildMicromapFlagsEXT: u32 {
@@ -2362,8 +2362,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMicromapCreateFlagBitsEXT.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMicromapCreateFlagBitsEXT.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct MicromapCreateFlagsEXT: u32 {
@@ -2371,8 +2371,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSchedulingControlsFlagBitsARM.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSchedulingControlsFlagBitsARM.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct PhysicalDeviceSchedulingControlsFlagsARM: u64 {
@@ -2381,8 +2381,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryDecompressionMethodFlagBitsEXT.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryDecompressionMethodFlagBitsEXT.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct MemoryDecompressionMethodFlagsEXT: u64 {
@@ -2391,8 +2391,8 @@ bitflags::bitflags! {
 }
 pub type MemoryDecompressionMethodFlagsNV = MemoryDecompressionMethodFlagsEXT;
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTensorCreateFlagBitsARM.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTensorCreateFlagBitsARM.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct TensorCreateFlagsARM: u64 {
@@ -2403,8 +2403,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTensorUsageFlagBitsARM.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTensorUsageFlagBitsARM.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct TensorUsageFlagsARM: u64 {
@@ -2416,8 +2416,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkOpticalFlowGridSizeFlagBitsNV.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkOpticalFlowGridSizeFlagBitsNV.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct OpticalFlowGridSizeFlagsNV: u32 {
@@ -2429,8 +2429,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkOpticalFlowUsageFlagBitsNV.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkOpticalFlowUsageFlagBitsNV.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct OpticalFlowUsageFlagsNV: u32 {
@@ -2443,8 +2443,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkOpticalFlowSessionCreateFlagBitsNV.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkOpticalFlowSessionCreateFlagBitsNV.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct OpticalFlowSessionCreateFlagsNV: u32 {
@@ -2456,8 +2456,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkOpticalFlowExecuteFlagBitsNV.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkOpticalFlowExecuteFlagBitsNV.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct OpticalFlowExecuteFlagsNV: u32 {
@@ -2465,8 +2465,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderCreateFlagBitsEXT.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderCreateFlagBitsEXT.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct ShaderCreateFlagsEXT: u32 {
@@ -2486,8 +2486,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineSessionCreateFlagBitsARM.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineSessionCreateFlagBitsARM.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct DataGraphPipelineSessionCreateFlagsARM: u64 {
@@ -2496,16 +2496,16 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineDispatchFlagBitsARM.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineDispatchFlagBitsARM.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct DataGraphPipelineDispatchFlagsARM: u64 {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphTOSAQualityFlagBitsARM.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphTOSAQualityFlagBitsARM.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct DataGraphTOSAQualityFlagsARM: u32 {
@@ -2516,8 +2516,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkClusterAccelerationStructureAddressResolutionFlagBitsNV.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkClusterAccelerationStructureAddressResolutionFlagBitsNV.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct ClusterAccelerationStructureAddressResolutionFlagsNV: u32 {
@@ -2531,8 +2531,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkClusterAccelerationStructureClusterFlagBitsNV.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkClusterAccelerationStructureClusterFlagBitsNV.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct ClusterAccelerationStructureClusterFlagsNV: u32 {
@@ -2540,8 +2540,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkClusterAccelerationStructureGeometryFlagBitsNV.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkClusterAccelerationStructureGeometryFlagBitsNV.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct ClusterAccelerationStructureGeometryFlagsNV: u32 {
@@ -2551,8 +2551,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkClusterAccelerationStructureIndexFormatFlagBitsNV.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkClusterAccelerationStructureIndexFormatFlagBitsNV.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct ClusterAccelerationStructureIndexFormatFlagsNV: u32 {
@@ -2562,8 +2562,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPartitionedAccelerationStructureInstanceFlagBitsNV.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPartitionedAccelerationStructureInstanceFlagBitsNV.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct PartitionedAccelerationStructureInstanceFlagsNV: u32 {
@@ -2575,8 +2575,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectCommandsInputModeFlagBitsEXT.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectCommandsInputModeFlagBitsEXT.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct IndirectCommandsInputModeFlagsEXT: u32 {
@@ -2585,8 +2585,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectCommandsLayoutUsageFlagBitsEXT.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectCommandsLayoutUsageFlagBitsEXT.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct IndirectCommandsLayoutUsageFlagsEXT: u32 {
@@ -2595,8 +2595,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphOpticalFlowGridSizeFlagBitsARM.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphOpticalFlowGridSizeFlagBitsARM.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct DataGraphOpticalFlowGridSizeFlagsARM: u32 {
@@ -2608,8 +2608,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphOpticalFlowCreateFlagBitsARM.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphOpticalFlowCreateFlagBitsARM.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct DataGraphOpticalFlowCreateFlagsARM: u32 {
@@ -2619,8 +2619,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphOpticalFlowImageUsageFlagBitsARM.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphOpticalFlowImageUsageFlagBitsARM.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct DataGraphOpticalFlowImageUsageFlagsARM: u32 {
@@ -2632,8 +2632,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphOpticalFlowExecuteFlagBitsARM.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphOpticalFlowExecuteFlagBitsARM.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct DataGraphOpticalFlowExecuteFlagsARM: u32 {
@@ -2645,8 +2645,8 @@ bitflags::bitflags! {
     }
 }
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCooperativeMatrixFlagBitsEXT.html>
 bitflags::bitflags! {
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCooperativeMatrixFlagBitsEXT.html>
     #[derive(Debug, Clone, Copy, PartialEq, Eq)]
     #[repr(transparent)]
     pub struct CooperativeMatrixFlagsEXT: u32 {
