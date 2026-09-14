@@ -8,9 +8,11 @@ from vulkan_object import get_vulkan_object, vulkan_object as vkobj
 from .rust_types import RustType
 
 MODULE_PREFIX: str = """ // WARNING: AUTO GENERATED MODULE
+#![allow(nonstandard_style)]
+#![allow(unused_imports)]
+
 use std::ffi::{c_void, c_int, c_uint, c_char};
 use crate::inner::*;
-
 """
 
 class CodeWriter:
@@ -150,52 +152,83 @@ class Context:
 
         return out.content
 
+    def remove_vendor_tag(self, name: str) -> str:
+        last = name[-3:]
+        if last in self.vk.vendorTags:
+            return name[:-3]
+        else:
+            return name
+
+    def generate_bitmasks(self, m: vkobj.Bitmask) -> str:
+        out = CodeWriter()
+
+        type_name = m.name.removeprefix("Vk").replace("FlagBits", "Flags")
+        type_name_snake = textcase.snake(self.remove_vendor_tag(m.name.removeprefix("Vk").replace("FlagBits", ""))).upper()
+        repr_type = "u32" if m.bitWidth == 32 else "u64"
+
+        out.writeln(f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{m.name}.html>")
+        out.writeln("bitflags::bitflags! {")
+        out.indent()
+        out.writeln(f"#[derive(Debug, Clone, Copy, PartialEq, Eq)]")
+        out.writeln(f"#[repr(transparent)]")
+        out.writeln(f"pub struct {type_name}: {repr_type} {{")
+        out.indent()
+
+        for flag in m.flags:
+            name = flag.name.removeprefix("VK_").removeprefix(f"{type_name_snake}_")
+            if name[0].isdigit():
+                name = f"_{name}"
+
+            out.writeln(f"const {name} = {flag.value};")
+
+        out.deindent()
+        out.writeln("}")
+        out.deindent()
+        out.writeln("}")
+
+        # aliases
+        for alias in m.aliases:
+            alias = alias.removeprefix("Vk").replace("FlagBits", "Flags")
+            out.writeln(f"pub type {alias} = {type_name};")
+
+        return out.content
+
+    def write_module(self, path: str, content: str):
+        path = f"{self.root}/src/{path}"
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(path, 'w+') as f:
+            _ = f.truncate(0)
+            _ = f.write(MODULE_PREFIX)
+            _ = f.write(content)
+
     def generate(self):
         print(f"Generating crate at {self.root}...")
 
-        # 01. generate all structs
         print("01. Generating structs...")
         structs: list[str] = []
         for struct in self.vk.structs.values():
             structs.append(self.generate_struct(struct))
 
-        structs_path = f"{self.root}/src/structs.rs"
-        os.makedirs(os.path.dirname(structs_path), exist_ok=True)
-        with open(structs_path, 'w+') as f:
-            _ = f.truncate(0)
-            _ = f.write(MODULE_PREFIX)
-            _ = f.write("use crate::handles::*;\n")
-            _ = f.write("use crate::enums::*;\n\n")
-            for struct in structs:
-                _ = f.write(struct)
+        base = "use crate::handles::*; use crate::enums::*; use crate::bitmasks::*;\n\n"
+        self.write_module("structs.rs", base + "\n".join(structs))
 
-        # 02. generate all handles
         print("02. Generating handles...")
         handles: list[str] = []
         for handle in self.vk.handles.values():
             handles.append(self.generate_handle(handle))
+        self.write_module("handles.rs", "\n".join(handles))
 
-        handles_path = f"{self.root}/src/handles.rs"
-        os.makedirs(os.path.dirname(handles_path), exist_ok=True)
-        with open(handles_path, 'w+') as f:
-            _ = f.truncate(0)
-            _ = f.write(MODULE_PREFIX)
-            for handle in handles:
-                _ = f.write(handle)
-
-        # 03. generate all enums
         print("03. Generating enums...")
         enums: list[str] = []
         for enum in self.vk.enums.values():
             enums.append(self.generate_enum(enum))
+        self.write_module("enums.rs", "\n".join(enums))
 
-        enums_path = f"{self.root}/src/enums.rs"
-        os.makedirs(os.path.dirname(enums_path), exist_ok=True)
-        with open(enums_path, 'w+') as f:
-            _ = f.truncate(0)
-            _ = f.write(MODULE_PREFIX)
-            for enum in enums:
-                _ = f.write(enum)
+        print("04. Generating bitmasks...")
+        bitmasks: list[str] = []
+        for bitmask in self.vk.bitmasks.values():
+            bitmasks.append(self.generate_bitmasks(bitmask))
+        self.write_module("bitmasks.rs", "\n".join(bitmasks))
 
         # done
         print("Done!")

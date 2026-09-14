@@ -1,7 +1,9 @@
  // WARNING: AUTO GENERATED MODULE
+#![allow(nonstandard_style)]
+#![allow(unused_imports)]
+
 use std::ffi::{c_void, c_int, c_uint, c_char};
 use crate::inner::*;
-
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkResult.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -57,6 +59,7 @@ pub enum Result {
     PIPELINE_BINARY_MISSING_KHR = 1000483000,
     ERROR_NOT_ENOUGH_SPACE_KHR = -1000483000,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkStructureType.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -1321,6 +1324,7 @@ pub enum StructureType {
     PHYSICAL_DEVICE_BUFFER_DEVICE_ADDRESS_ALLOCATION_ALIGNMENT_PROPERTIES_VALVE = 1000709001,
     BUFFER_DEVICE_ADDRESS_ALIGNMENT_ALLOCATE_INFO_VALVE = 1000709002,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkObjectType.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -1386,6 +1390,7 @@ pub enum ObjectType {
     INDIRECT_EXECUTION_SET_EXT = 1000572001,
     SHADER_INSTRUMENTATION_ARM = 1000607000,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVendorId.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -1400,6 +1405,7 @@ pub enum VendorId {
     MOBILEYE = 65543,
     APE = 65544,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSystemAllocationScope.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -1410,12 +1416,14 @@ pub enum SystemAllocationScope {
     DEVICE = 3,
     INSTANCE = 4,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkInternalAllocationType.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
 pub enum InternalAllocationType {
     EXECUTABLE = 0,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFormat.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -1719,6 +1727,7 @@ pub enum Format {
     G14X2_B14X2R14X2_2PLANE_420_UNORM_3PACK16_ARM = 1000609012,
     G14X2_B14X2R14X2_2PLANE_422_UNORM_3PACK16_ARM = 1000609013,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageTiling.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -1727,6 +1736,7 @@ pub enum ImageTiling {
     LINEAR = 1,
     DRM_FORMAT_MODIFIER_EXT = 1000158000,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageType.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -1735,6 +1745,7 @@ pub enum ImageType {
     _2D = 1,
     _3D = 2,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceType.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -1745,6 +1756,7 @@ pub enum PhysicalDeviceType {
     VIRTUAL_GPU = 3,
     CPU = 4,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkQueryType.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -1768,6 +1780,7 @@ pub enum QueryType {
     MICROMAP_SERIALIZATION_SIZE_EXT = 1000396000,
     MICROMAP_COMPACTED_SIZE_EXT = 1000396001,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSharingMode.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -1775,6 +1788,7 @@ pub enum SharingMode {
     EXCLUSIVE = 0,
     CONCURRENT = 1,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageLayout.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -1812,6 +1826,7 @@ pub enum ImageLayout {
     VIDEO_ENCODE_QUANTIZATION_MAP_KHR = 1000553000,
     ZERO_INITIALIZED_EXT = 1000620000,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkComponentSwizzle.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -1824,6 +1839,7 @@ pub enum ComponentSwizzle {
     B = 5,
     A = 6,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageViewType.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -1836,6 +1852,7 @@ pub enum ImageViewType {
     _2D_ARRAY = 5,
     CUBE_ARRAY = 6,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandBufferLevel.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -1843,6 +1860,7 @@ pub enum CommandBufferLevel {
     PRIMARY = 0,
     SECONDARY = 1,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkIndexType.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -1852,6 +1870,7 @@ pub enum IndexType {
     UINT8 = 1000265000,
     NONE_KHR = 1000165000,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCacheHeaderVersion.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -1859,6 +1878,7 @@ pub enum PipelineCacheHeaderVersion {
     ONE = 1,
     DATA_GRAPH_QCOM = 1000629000,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBorderColor.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -1872,6 +1892,7 @@ pub enum BorderColor {
     FLOAT_CUSTOM_EXT = 1000287003,
     INT_CUSTOM_EXT = 1000287004,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFilter.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -1880,6 +1901,7 @@ pub enum Filter {
     LINEAR = 1,
     CUBIC_EXT = 1000015000,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerAddressMode.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -1890,6 +1912,7 @@ pub enum SamplerAddressMode {
     CLAMP_TO_BORDER = 3,
     MIRROR_CLAMP_TO_EDGE = 4,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCompareOp.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -1903,6 +1926,7 @@ pub enum CompareOp {
     GREATER_OR_EQUAL = 6,
     ALWAYS = 7,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerMipmapMode.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -1910,6 +1934,7 @@ pub enum SamplerMipmapMode {
     NEAREST = 0,
     LINEAR = 1,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorType.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -1934,6 +1959,7 @@ pub enum DescriptorType {
     MUTABLE_EXT = 1000351000,
     PARTITIONED_ACCELERATION_STRUCTURE_NV = 1000570000,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineBindPoint.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -1945,6 +1971,7 @@ pub enum PipelineBindPoint {
     SUBPASS_SHADING_HUAWEI = 1000369003,
     DATA_GRAPH_ARM = 1000507000,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBlendFactor.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -1969,6 +1996,7 @@ pub enum BlendFactor {
     SRC1_ALPHA = 17,
     ONE_MINUS_SRC1_ALPHA = 18,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBlendOp.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2025,6 +2053,7 @@ pub enum BlendOp {
     GREEN_EXT = 1000148044,
     BLUE_EXT = 1000148045,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDynamicState.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2103,6 +2132,7 @@ pub enum DynamicState {
     ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT = 1000524000,
     DEPTH_CLAMP_RANGE_EXT = 1000582000,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFrontFace.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2110,6 +2140,7 @@ pub enum FrontFace {
     COUNTER_CLOCKWISE = 0,
     CLOCKWISE = 1,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkLogicOp.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2131,6 +2162,7 @@ pub enum LogicOp {
     NAND = 14,
     SET = 15,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkStencilOp.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2144,6 +2176,7 @@ pub enum StencilOp {
     INCREMENT_AND_WRAP = 6,
     DECREMENT_AND_WRAP = 7,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVertexInputRate.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2151,6 +2184,7 @@ pub enum VertexInputRate {
     VERTEX = 0,
     INSTANCE = 1,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPrimitiveTopology.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2167,6 +2201,7 @@ pub enum PrimitiveTopology {
     TRIANGLE_STRIP_WITH_ADJACENCY = 9,
     PATCH_LIST = 10,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPolygonMode.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2176,6 +2211,7 @@ pub enum PolygonMode {
     POINT = 2,
     FILL_RECTANGLE_NV = 1000153000,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAttachmentLoadOp.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2185,6 +2221,7 @@ pub enum AttachmentLoadOp {
     DONT_CARE = 2,
     NONE = 1000400000,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAttachmentStoreOp.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2193,6 +2230,7 @@ pub enum AttachmentStoreOp {
     DONT_CARE = 1,
     NONE = 1000301000,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSubpassContents.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2201,6 +2239,7 @@ pub enum SubpassContents {
     SECONDARY_COMMAND_BUFFERS = 1,
     INLINE_AND_SECONDARY_COMMAND_BUFFERS_KHR = 1000451000,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPointClippingBehavior.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2209,6 +2248,7 @@ pub enum PointClippingBehavior {
     USER_CLIP_PLANES_ONLY = 1,
 }
 pub type PointClippingBehaviorKHR = PointClippingBehavior;
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorUpdateTemplateType.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2217,6 +2257,7 @@ pub enum DescriptorUpdateTemplateType {
     PUSH_DESCRIPTORS = 1,
 }
 pub type DescriptorUpdateTemplateTypeKHR = DescriptorUpdateTemplateType;
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerYcbcrModelConversion.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2228,6 +2269,7 @@ pub enum SamplerYcbcrModelConversion {
     YCBCR_2020 = 4,
 }
 pub type SamplerYcbcrModelConversionKHR = SamplerYcbcrModelConversion;
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerYcbcrRange.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2236,6 +2278,7 @@ pub enum SamplerYcbcrRange {
     ITU_NARROW = 1,
 }
 pub type SamplerYcbcrRangeKHR = SamplerYcbcrRange;
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkChromaLocation.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2244,6 +2287,7 @@ pub enum ChromaLocation {
     MIDPOINT = 1,
 }
 pub type ChromaLocationKHR = ChromaLocation;
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTessellationDomainOrigin.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2252,6 +2296,7 @@ pub enum TessellationDomainOrigin {
     LOWER_LEFT = 1,
 }
 pub type TessellationDomainOriginKHR = TessellationDomainOrigin;
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDriverId.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2289,6 +2334,7 @@ pub enum DriverId {
     RESERVED_31 = 31,
 }
 pub type DriverIdKHR = DriverId;
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderFloatControlsIndependence.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2298,6 +2344,7 @@ pub enum ShaderFloatControlsIndependence {
     NONE = 2,
 }
 pub type ShaderFloatControlsIndependenceKHR = ShaderFloatControlsIndependence;
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSemaphoreType.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2306,6 +2353,7 @@ pub enum SemaphoreType {
     TIMELINE = 1,
 }
 pub type SemaphoreTypeKHR = SemaphoreType;
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerReductionMode.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2316,6 +2364,7 @@ pub enum SamplerReductionMode {
     WEIGHTED_AVERAGE_RANGECLAMP_QCOM = 1000521000,
 }
 pub type SamplerReductionModeEXT = SamplerReductionMode;
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineRobustnessBufferBehavior.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2326,6 +2375,7 @@ pub enum PipelineRobustnessBufferBehavior {
     ROBUST_BUFFER_ACCESS_2 = 3,
 }
 pub type PipelineRobustnessBufferBehaviorEXT = PipelineRobustnessBufferBehavior;
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineRobustnessImageBehavior.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2336,6 +2386,7 @@ pub enum PipelineRobustnessImageBehavior {
     ROBUST_IMAGE_ACCESS_2 = 3,
 }
 pub type PipelineRobustnessImageBehaviorEXT = PipelineRobustnessImageBehavior;
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkQueueGlobalPriority.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2347,6 +2398,7 @@ pub enum QueueGlobalPriority {
 }
 pub type QueueGlobalPriorityKHR = QueueGlobalPriority;
 pub type QueueGlobalPriorityEXT = QueueGlobalPriority;
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkLineRasterizationMode.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2358,6 +2410,7 @@ pub enum LineRasterizationMode {
 }
 pub type LineRasterizationModeKHR = LineRasterizationMode;
 pub type LineRasterizationModeEXT = LineRasterizationMode;
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPresentModeKHR.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2370,6 +2423,7 @@ pub enum PresentModeKHR {
     PRESENT_MODE_SHARED_CONTINUOUS_REFRESH_KHR = 1000111001,
     PRESENT_MODE_FIFO_LATEST_READY_KHR = 1000361000,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkColorSpaceKHR.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2391,6 +2445,7 @@ pub enum ColorSpaceKHR {
     COLOR_SPACE_EXTENDED_SRGB_NONLINEAR_EXT = 1000104014,
     COLOR_SPACE_DISPLAY_NATIVE_AMD = 1000213000,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkQueryResultStatusKHR.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2400,6 +2455,7 @@ pub enum QueryResultStatusKHR {
     QUERY_RESULT_STATUS_COMPLETE_KHR = 1,
     QUERY_RESULT_STATUS_INSUFFICIENT_BITSTREAM_BUFFER_RANGE_KHR = -1000299000,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceCounterUnitKHR.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2416,6 +2472,7 @@ pub enum PerformanceCounterUnitKHR {
     PERFORMANCE_COUNTER_UNIT_HERTZ_KHR = 9,
     PERFORMANCE_COUNTER_UNIT_CYCLES_KHR = 10,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceCounterScopeKHR.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2424,6 +2481,7 @@ pub enum PerformanceCounterScopeKHR {
     PERFORMANCE_COUNTER_SCOPE_RENDER_PASS_KHR = 1,
     PERFORMANCE_COUNTER_SCOPE_COMMAND_KHR = 2,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceCounterStorageKHR.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2435,6 +2493,7 @@ pub enum PerformanceCounterStorageKHR {
     PERFORMANCE_COUNTER_STORAGE_FLOAT32_KHR = 4,
     PERFORMANCE_COUNTER_STORAGE_FLOAT64_KHR = 5,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFragmentShadingRateCombinerOpKHR.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2445,6 +2504,7 @@ pub enum FragmentShadingRateCombinerOpKHR {
     FRAGMENT_SHADING_RATE_COMBINER_OP_MAX_KHR = 3,
     FRAGMENT_SHADING_RATE_COMBINER_OP_MUL_KHR = 4,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineExecutableStatisticFormatKHR.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2454,6 +2514,7 @@ pub enum PipelineExecutableStatisticFormatKHR {
     PIPELINE_EXECUTABLE_STATISTIC_FORMAT_UINT64_KHR = 2,
     PIPELINE_EXECUTABLE_STATISTIC_FORMAT_FLOAT64_KHR = 3,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeTuningModeKHR.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2464,6 +2525,7 @@ pub enum VideoEncodeTuningModeKHR {
     VIDEO_ENCODE_TUNING_MODE_ULTRA_LOW_LATENCY_KHR = 3,
     VIDEO_ENCODE_TUNING_MODE_LOSSLESS_KHR = 4,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureTypeKHR.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2474,6 +2536,7 @@ pub enum AccelerationStructureTypeKHR {
     ACCELERATION_STRUCTURE_TYPE_OPACITY_MICROMAP_KHR = 1000623000,
 }
 pub type AccelerationStructureTypeNV = AccelerationStructureTypeKHR;
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkComponentTypeKHR.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2501,6 +2564,7 @@ pub enum ComponentTypeKHR {
     COMPONENT_TYPE_MXINT8_EXT = 1000672004,
 }
 pub type ComponentTypeNV = ComponentTypeKHR;
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkScopeKHR.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2511,6 +2575,7 @@ pub enum ScopeKHR {
     SCOPE_QUEUE_FAMILY_KHR = 5,
 }
 pub type ScopeNV = ScopeKHR;
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeAV1PredictionModeKHR.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2520,6 +2585,7 @@ pub enum VideoEncodeAV1PredictionModeKHR {
     VIDEO_ENCODE_AV1_PREDICTION_MODE_UNIDIRECTIONAL_COMPOUND_KHR = 2,
     VIDEO_ENCODE_AV1_PREDICTION_MODE_BIDIRECTIONAL_COMPOUND_KHR = 3,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeAV1RateControlGroupKHR.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2528,6 +2594,7 @@ pub enum VideoEncodeAV1RateControlGroupKHR {
     VIDEO_ENCODE_AV1_RATE_CONTROL_GROUP_PREDICTIVE_KHR = 1,
     VIDEO_ENCODE_AV1_RATE_CONTROL_GROUP_BIPREDICTIVE_KHR = 2,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTimeDomainKHR.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2540,6 +2607,7 @@ pub enum TimeDomainKHR {
     TIME_DOMAIN_SWAPCHAIN_LOCAL_EXT = 1000208001,
 }
 pub type TimeDomainEXT = TimeDomainKHR;
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceLayeredApiKHR.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2550,6 +2618,7 @@ pub enum PhysicalDeviceLayeredApiKHR {
     PHYSICAL_DEVICE_LAYERED_API_OPENGL_KHR = 3,
     PHYSICAL_DEVICE_LAYERED_API_OPENGLES_KHR = 4,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceFaultAddressTypeKHR.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2563,6 +2632,7 @@ pub enum DeviceFaultAddressTypeKHR {
     DEVICE_FAULT_ADDRESS_TYPE_INSTRUCTION_POINTER_FAULT_KHR = 6,
 }
 pub type DeviceFaultAddressTypeEXT = DeviceFaultAddressTypeKHR;
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceFaultVendorBinaryHeaderVersionKHR.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2570,6 +2640,7 @@ pub enum DeviceFaultVendorBinaryHeaderVersionKHR {
     DEVICE_FAULT_VENDOR_BINARY_HEADER_VERSION_ONE_KHR = 1,
 }
 pub type DeviceFaultVendorBinaryHeaderVersionEXT = DeviceFaultVendorBinaryHeaderVersionKHR;
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDefaultVertexAttributeValueKHR.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2577,6 +2648,7 @@ pub enum DefaultVertexAttributeValueKHR {
     DEFAULT_VERTEX_ATTRIBUTE_VALUE_ZERO_ZERO_ZERO_ZERO_KHR = 0,
     DEFAULT_VERTEX_ATTRIBUTE_VALUE_ZERO_ZERO_ZERO_ONE_KHR = 1,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkOpacityMicromapFormatKHR.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2585,6 +2657,7 @@ pub enum OpacityMicromapFormatKHR {
     OPACITY_MICROMAP_FORMAT_4_STATE_KHR = 2,
 }
 pub type OpacityMicromapFormatEXT = OpacityMicromapFormatKHR;
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkOpacityMicromapSpecialIndexKHR.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2596,12 +2669,14 @@ pub enum OpacityMicromapSpecialIndexKHR {
     OPACITY_MICROMAP_SPECIAL_INDEX_CLUSTER_GEOMETRY_DISABLE_OPACITY_MICROMAP_NV = -5,
 }
 pub type OpacityMicromapSpecialIndexEXT = OpacityMicromapSpecialIndexKHR;
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureSerializedBlockTypeKHR.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
 pub enum AccelerationStructureSerializedBlockTypeKHR {
     ACCELERATION_STRUCTURE_SERIALIZED_BLOCK_TYPE_OPACITY_MICROMAP_KHR = 0,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDebugReportObjectTypeEXT.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2648,6 +2723,7 @@ pub enum DebugReportObjectTypeEXT {
     DEBUG_REPORT_OBJECT_TYPE_CUDA_FUNCTION_NV_EXT = 1000307001,
     DEBUG_REPORT_OBJECT_TYPE_BUFFER_COLLECTION_FUCHSIA_EXT = 1000366000,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRasterizationOrderAMD.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2655,6 +2731,7 @@ pub enum RasterizationOrderAMD {
     RASTERIZATION_ORDER_STRICT_AMD = 0,
     RASTERIZATION_ORDER_RELAXED_AMD = 1,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderInfoTypeAMD.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2663,6 +2740,7 @@ pub enum ShaderInfoTypeAMD {
     SHADER_INFO_TYPE_BINARY_AMD = 1,
     SHADER_INFO_TYPE_DISASSEMBLY_AMD = 2,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkValidationCheckEXT.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2670,6 +2748,7 @@ pub enum ValidationCheckEXT {
     VALIDATION_CHECK_ALL_EXT = 0,
     VALIDATION_CHECK_SHADERS_EXT = 1,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplayPowerStateEXT.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2678,18 +2757,21 @@ pub enum DisplayPowerStateEXT {
     DISPLAY_POWER_STATE_SUSPEND_EXT = 1,
     DISPLAY_POWER_STATE_ON_EXT = 2,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceEventTypeEXT.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
 pub enum DeviceEventTypeEXT {
     DEVICE_EVENT_TYPE_DISPLAY_HOTPLUG_EXT = 0,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplayEventTypeEXT.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
 pub enum DisplayEventTypeEXT {
     DISPLAY_EVENT_TYPE_FIRST_PIXEL_OUT_EXT = 0,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkViewportCoordinateSwizzleNV.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2703,6 +2785,7 @@ pub enum ViewportCoordinateSwizzleNV {
     VIEWPORT_COORDINATE_SWIZZLE_POSITIVE_W_NV = 6,
     VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_W_NV = 7,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDiscardRectangleModeEXT.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2710,6 +2793,7 @@ pub enum DiscardRectangleModeEXT {
     DISCARD_RECTANGLE_MODE_INCLUSIVE_EXT = 0,
     DISCARD_RECTANGLE_MODE_EXCLUSIVE_EXT = 1,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkConservativeRasterizationModeEXT.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2718,6 +2802,7 @@ pub enum ConservativeRasterizationModeEXT {
     CONSERVATIVE_RASTERIZATION_MODE_OVERESTIMATE_EXT = 1,
     CONSERVATIVE_RASTERIZATION_MODE_UNDERESTIMATE_EXT = 2,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkGpaPerfBlockAMD.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2780,6 +2865,7 @@ pub enum GpaPerfBlockAMD {
     GPA_PERF_BLOCK_EASE_AMD = 55,
     GPA_PERF_BLOCK_RLCUSER_AMD = 56,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkGpaSampleTypeAMD.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2788,6 +2874,7 @@ pub enum GpaSampleTypeAMD {
     GPA_SAMPLE_TYPE_TRACE_AMD = 1,
     GPA_SAMPLE_TYPE_TIMING_AMD = 2,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkGpaDeviceClockModeAMD.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2799,6 +2886,7 @@ pub enum GpaDeviceClockModeAMD {
     GPA_DEVICE_CLOCK_MODE_MIN_ENGINE_AMD = 4,
     GPA_DEVICE_CLOCK_MODE_PEAK_AMD = 5,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorMappingSourceEXT.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2815,6 +2903,7 @@ pub enum DescriptorMappingSourceEXT {
     DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_DATA_EXT = 9,
     DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_ADDRESS_EXT = 10,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBlendOverlapEXT.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2823,6 +2912,7 @@ pub enum BlendOverlapEXT {
     BLEND_OVERLAP_DISJOINT_EXT = 1,
     BLEND_OVERLAP_CONJOINT_EXT = 2,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCoverageModulationModeNV.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2832,12 +2922,14 @@ pub enum CoverageModulationModeNV {
     COVERAGE_MODULATION_MODE_ALPHA_NV = 2,
     COVERAGE_MODULATION_MODE_RGBA_NV = 3,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkValidationCacheHeaderVersionEXT.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
 pub enum ValidationCacheHeaderVersionEXT {
     VALIDATION_CACHE_HEADER_VERSION_ONE_EXT = 1,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkShadingRatePaletteEntryNV.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2855,6 +2947,7 @@ pub enum ShadingRatePaletteEntryNV {
     SHADING_RATE_PALETTE_ENTRY_1_INVOCATION_PER_2X4_PIXELS_NV = 10,
     SHADING_RATE_PALETTE_ENTRY_1_INVOCATION_PER_4X4_PIXELS_NV = 11,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCoarseSampleOrderTypeNV.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2864,6 +2957,7 @@ pub enum CoarseSampleOrderTypeNV {
     COARSE_SAMPLE_ORDER_TYPE_PIXEL_MAJOR_NV = 2,
     COARSE_SAMPLE_ORDER_TYPE_SAMPLE_MAJOR_NV = 3,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRayTracingShaderGroupTypeKHR.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2873,6 +2967,7 @@ pub enum RayTracingShaderGroupTypeKHR {
     RAY_TRACING_SHADER_GROUP_TYPE_PROCEDURAL_HIT_GROUP_KHR = 2,
 }
 pub type RayTracingShaderGroupTypeNV = RayTracingShaderGroupTypeKHR;
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkGeometryTypeKHR.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2886,6 +2981,7 @@ pub enum GeometryTypeKHR {
     GEOMETRY_TYPE_MICROMAP_KHR = 1000623000,
 }
 pub type GeometryTypeNV = GeometryTypeKHR;
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyAccelerationStructureModeKHR.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2896,6 +2992,7 @@ pub enum CopyAccelerationStructureModeKHR {
     COPY_ACCELERATION_STRUCTURE_MODE_DESERIALIZE_KHR = 3,
 }
 pub type CopyAccelerationStructureModeNV = CopyAccelerationStructureModeKHR;
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureMemoryRequirementsTypeNV.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2904,6 +3001,7 @@ pub enum AccelerationStructureMemoryRequirementsTypeNV {
     ACCELERATION_STRUCTURE_MEMORY_REQUIREMENTS_TYPE_BUILD_SCRATCH_NV = 1,
     ACCELERATION_STRUCTURE_MEMORY_REQUIREMENTS_TYPE_UPDATE_SCRATCH_NV = 2,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryOverallocationBehaviorAMD.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2912,18 +3010,21 @@ pub enum MemoryOverallocationBehaviorAMD {
     MEMORY_OVERALLOCATION_BEHAVIOR_ALLOWED_AMD = 1,
     MEMORY_OVERALLOCATION_BEHAVIOR_DISALLOWED_AMD = 2,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceConfigurationTypeINTEL.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
 pub enum PerformanceConfigurationTypeINTEL {
     PERFORMANCE_CONFIGURATION_TYPE_COMMAND_QUEUE_METRICS_DISCOVERY_ACTIVATED_INTEL = 0,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkQueryPoolSamplingModeINTEL.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
 pub enum QueryPoolSamplingModeINTEL {
     QUERY_POOL_SAMPLING_MODE_MANUAL_INTEL = 0,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceOverrideTypeINTEL.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2931,6 +3032,7 @@ pub enum PerformanceOverrideTypeINTEL {
     PERFORMANCE_OVERRIDE_TYPE_NULL_HARDWARE_INTEL = 0,
     PERFORMANCE_OVERRIDE_TYPE_FLUSH_GPU_CACHES_INTEL = 1,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceParameterTypeINTEL.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2938,6 +3040,7 @@ pub enum PerformanceParameterTypeINTEL {
     PERFORMANCE_PARAMETER_TYPE_HW_COUNTERS_SUPPORTED_INTEL = 0,
     PERFORMANCE_PARAMETER_TYPE_STREAM_MARKER_VALID_BITS_INTEL = 1,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceValueTypeINTEL.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2948,6 +3051,7 @@ pub enum PerformanceValueTypeINTEL {
     PERFORMANCE_VALUE_TYPE_BOOL_INTEL = 3,
     PERFORMANCE_VALUE_TYPE_STRING_INTEL = 4,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkValidationFeatureEnableEXT.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2958,6 +3062,7 @@ pub enum ValidationFeatureEnableEXT {
     VALIDATION_FEATURE_ENABLE_DEBUG_PRINTF_EXT = 3,
     VALIDATION_FEATURE_ENABLE_SYNCHRONIZATION_VALIDATION_EXT = 4,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkValidationFeatureDisableEXT.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2971,6 +3076,7 @@ pub enum ValidationFeatureDisableEXT {
     VALIDATION_FEATURE_DISABLE_UNIQUE_HANDLES_EXT = 6,
     VALIDATION_FEATURE_DISABLE_SHADER_VALIDATION_CACHE_EXT = 7,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCoverageReductionModeNV.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2978,6 +3084,7 @@ pub enum CoverageReductionModeNV {
     COVERAGE_REDUCTION_MODE_MERGE_NV = 0,
     COVERAGE_REDUCTION_MODE_TRUNCATE_NV = 1,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkProvokingVertexModeEXT.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2985,6 +3092,7 @@ pub enum ProvokingVertexModeEXT {
     PROVOKING_VERTEX_MODE_FIRST_VERTEX_EXT = 0,
     PROVOKING_VERTEX_MODE_LAST_VERTEX_EXT = 1,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFullScreenExclusiveEXT.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -2994,6 +3102,7 @@ pub enum FullScreenExclusiveEXT {
     FULL_SCREEN_EXCLUSIVE_DISALLOWED_EXT = 2,
     FULL_SCREEN_EXCLUSIVE_APPLICATION_CONTROLLED_EXT = 3,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectCommandsTokenTypeNV.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3011,6 +3120,7 @@ pub enum IndirectCommandsTokenTypeNV {
     INDIRECT_COMMANDS_TOKEN_TYPE_PIPELINE_NV = 1000428003,
     INDIRECT_COMMANDS_TOKEN_TYPE_DISPATCH_NV = 1000428004,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDepthBiasRepresentationEXT.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3019,6 +3129,7 @@ pub enum DepthBiasRepresentationEXT {
     DEPTH_BIAS_REPRESENTATION_LEAST_REPRESENTABLE_VALUE_FORCE_UNORM_EXT = 1,
     DEPTH_BIAS_REPRESENTATION_FLOAT_EXT = 2,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceMemoryReportEventTypeEXT.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3029,6 +3140,7 @@ pub enum DeviceMemoryReportEventTypeEXT {
     DEVICE_MEMORY_REPORT_EVENT_TYPE_UNIMPORT_EXT = 3,
     DEVICE_MEMORY_REPORT_EVENT_TYPE_ALLOCATION_FAILED_EXT = 4,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPerfHintTypeQCOM.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3038,6 +3150,7 @@ pub enum PerfHintTypeQCOM {
     PERF_HINT_TYPE_FREQUENCY_MAX_QCOM = 2,
     PERF_HINT_TYPE_FREQUENCY_SCALED_QCOM = 3,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFragmentShadingRateTypeNV.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3045,6 +3158,7 @@ pub enum FragmentShadingRateTypeNV {
     FRAGMENT_SHADING_RATE_TYPE_FRAGMENT_SIZE_NV = 0,
     FRAGMENT_SHADING_RATE_TYPE_ENUMS_NV = 1,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFragmentShadingRateNV.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3062,6 +3176,7 @@ pub enum FragmentShadingRateNV {
     FRAGMENT_SHADING_RATE_16_INVOCATIONS_PER_PIXEL_NV = 14,
     FRAGMENT_SHADING_RATE_NO_INVOCATIONS_NV = 15,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureMotionInstanceTypeNV.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3070,6 +3185,7 @@ pub enum AccelerationStructureMotionInstanceTypeNV {
     ACCELERATION_STRUCTURE_MOTION_INSTANCE_TYPE_MATRIX_MOTION_NV = 1,
     ACCELERATION_STRUCTURE_MOTION_INSTANCE_TYPE_SRT_MOTION_NV = 2,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceAddressBindingTypeEXT.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3077,6 +3193,7 @@ pub enum DeviceAddressBindingTypeEXT {
     DEVICE_ADDRESS_BINDING_TYPE_BIND_EXT = 0,
     DEVICE_ADDRESS_BINDING_TYPE_UNBIND_EXT = 1,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMicromapTypeEXT.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3084,12 +3201,14 @@ pub enum MicromapTypeEXT {
     MICROMAP_TYPE_OPACITY_MICROMAP_EXT = 0,
     MICROMAP_TYPE_DISPLACEMENT_MICROMAP_NV = 1000397000,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBuildMicromapModeEXT.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
 pub enum BuildMicromapModeEXT {
     BUILD_MICROMAP_MODE_BUILD_EXT = 0,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyMicromapModeEXT.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3099,6 +3218,7 @@ pub enum CopyMicromapModeEXT {
     COPY_MICROMAP_MODE_DESERIALIZE_EXT = 2,
     COPY_MICROMAP_MODE_COMPACT_EXT = 3,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureCompatibilityKHR.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3106,6 +3226,7 @@ pub enum AccelerationStructureCompatibilityKHR {
     ACCELERATION_STRUCTURE_COMPATIBILITY_COMPATIBLE_KHR = 0,
     ACCELERATION_STRUCTURE_COMPATIBILITY_INCOMPATIBLE_KHR = 1,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureBuildTypeKHR.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3114,6 +3235,7 @@ pub enum AccelerationStructureBuildTypeKHR {
     ACCELERATION_STRUCTURE_BUILD_TYPE_DEVICE_KHR = 1,
     ACCELERATION_STRUCTURE_BUILD_TYPE_HOST_OR_DEVICE_KHR = 2,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplacementMicromapFormatNV.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3122,6 +3244,7 @@ pub enum DisplacementMicromapFormatNV {
     DISPLACEMENT_MICROMAP_FORMAT_256_TRIANGLES_128_BYTES_NV = 2,
     DISPLACEMENT_MICROMAP_FORMAT_1024_TRIANGLES_128_BYTES_NV = 3,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRayTracingLssIndexingModeNV.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3129,6 +3252,7 @@ pub enum RayTracingLssIndexingModeNV {
     RAY_TRACING_LSS_INDEXING_MODE_LIST_NV = 0,
     RAY_TRACING_LSS_INDEXING_MODE_SUCCESSIVE_NV = 1,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRayTracingLssPrimitiveEndCapsModeNV.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3136,6 +3260,7 @@ pub enum RayTracingLssPrimitiveEndCapsModeNV {
     RAY_TRACING_LSS_PRIMITIVE_END_CAPS_MODE_NONE_NV = 0,
     RAY_TRACING_LSS_PRIMITIVE_END_CAPS_MODE_CHAINED_NV = 1,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSubpassMergeStatusEXT.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3155,6 +3280,7 @@ pub enum SubpassMergeStatusEXT {
     SUBPASS_MERGE_STATUS_NOT_MERGED_SINGLE_SUBPASS_EXT = 12,
     SUBPASS_MERGE_STATUS_NOT_MERGED_UNSPECIFIED_EXT = 13,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDirectDriverLoadingModeLUNARG.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3162,6 +3288,7 @@ pub enum DirectDriverLoadingModeLUNARG {
     DIRECT_DRIVER_LOADING_MODE_EXCLUSIVE_LUNARG = 0,
     DIRECT_DRIVER_LOADING_MODE_INCLUSIVE_LUNARG = 1,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTensorTilingARM.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3174,6 +3301,7 @@ pub enum TensorTilingARM {
     TENSOR_TILING_BLOCK_U_INTERLEAVED_ARM = 1000565003,
     TENSOR_TILING_BLOCK_U_INTERLEAVED_64K_ARM = 1000565004,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkOpticalFlowPerformanceLevelNV.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3183,6 +3311,7 @@ pub enum OpticalFlowPerformanceLevelNV {
     OPTICAL_FLOW_PERFORMANCE_LEVEL_MEDIUM_NV = 2,
     OPTICAL_FLOW_PERFORMANCE_LEVEL_FAST_NV = 3,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkOpticalFlowSessionBindingPointNV.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3197,6 +3326,7 @@ pub enum OpticalFlowSessionBindingPointNV {
     OPTICAL_FLOW_SESSION_BINDING_POINT_BACKWARD_COST_NV = 7,
     OPTICAL_FLOW_SESSION_BINDING_POINT_GLOBAL_FLOW_NV = 8,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAntiLagModeAMD.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3205,6 +3335,7 @@ pub enum AntiLagModeAMD {
     ANTI_LAG_MODE_ON_AMD = 1,
     ANTI_LAG_MODE_OFF_AMD = 2,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAntiLagStageAMD.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3212,12 +3343,14 @@ pub enum AntiLagStageAMD {
     ANTI_LAG_STAGE_INPUT_AMD = 0,
     ANTI_LAG_STAGE_PRESENT_AMD = 1,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCompressedTriangleFormatAMDX.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
 pub enum CompressedTriangleFormatAMDX {
     COMPRESSED_TRIANGLE_FORMAT_DGF1_AMDX = 0,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderCodeTypeEXT.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3225,6 +3358,7 @@ pub enum ShaderCodeTypeEXT {
     SHADER_CODE_TYPE_BINARY_EXT = 0,
     SHADER_CODE_TYPE_SPIRV_EXT = 1,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDepthClampModeEXT.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3232,6 +3366,7 @@ pub enum DepthClampModeEXT {
     DEPTH_CLAMP_MODE_VIEWPORT_RANGE_EXT = 0,
     DEPTH_CLAMP_MODE_USER_DEFINED_RANGE_EXT = 1,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRayTracingInvocationReorderModeEXT.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3240,6 +3375,7 @@ pub enum RayTracingInvocationReorderModeEXT {
     RAY_TRACING_INVOCATION_REORDER_MODE_REORDER_EXT = 1,
 }
 pub type RayTracingInvocationReorderModeNV = RayTracingInvocationReorderModeEXT;
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCooperativeVectorMatrixLayoutNV.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3249,6 +3385,7 @@ pub enum CooperativeVectorMatrixLayoutNV {
     COOPERATIVE_VECTOR_MATRIX_LAYOUT_INFERENCING_OPTIMAL_NV = 2,
     COOPERATIVE_VECTOR_MATRIX_LAYOUT_TRAINING_OPTIMAL_NV = 3,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkLayerSettingTypeEXT.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3262,6 +3399,7 @@ pub enum LayerSettingTypeEXT {
     LAYER_SETTING_TYPE_FLOAT64_EXT = 6,
     LAYER_SETTING_TYPE_STRING_EXT = 7,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkLatencyMarkerNV.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3279,6 +3417,7 @@ pub enum LatencyMarkerNV {
     LATENCY_MARKER_OUT_OF_BAND_PRESENT_START_NV = 10,
     LATENCY_MARKER_OUT_OF_BAND_PRESENT_END_NV = 11,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkOutOfBandQueueTypeNV.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3286,6 +3425,7 @@ pub enum OutOfBandQueueTypeNV {
     OUT_OF_BAND_QUEUE_TYPE_RENDER_NV = 0,
     OUT_OF_BAND_QUEUE_TYPE_PRESENT_NV = 1,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineSessionBindPointARM.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3294,12 +3434,14 @@ pub enum DataGraphPipelineSessionBindPointARM {
     DATA_GRAPH_PIPELINE_SESSION_BIND_POINT_OPTICAL_FLOW_CACHE_ARM = 1000631001,
     DATA_GRAPH_PIPELINE_SESSION_BIND_POINT_NEURAL_ACCELERATOR_STATISTICS_ARM = 1000676000,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineSessionBindPointTypeARM.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
 pub enum DataGraphPipelineSessionBindPointTypeARM {
     DATA_GRAPH_PIPELINE_SESSION_BIND_POINT_TYPE_MEMORY_ARM = 0,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelinePropertyARM.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3309,6 +3451,7 @@ pub enum DataGraphPipelinePropertyARM {
     DATA_GRAPH_PIPELINE_PROPERTY_NEURAL_ACCELERATOR_DEBUG_DATABASE_ARM = 1000676000,
     DATA_GRAPH_PIPELINE_PROPERTY_NEURAL_ACCELERATOR_STATISTICS_INFO_ARM = 1000676001,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDataGraphProcessingEngineTypeARM.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3317,6 +3460,7 @@ pub enum PhysicalDeviceDataGraphProcessingEngineTypeARM {
     PHYSICAL_DEVICE_DATA_GRAPH_PROCESSING_ENGINE_TYPE_NEURAL_QCOM = 1000629000,
     PHYSICAL_DEVICE_DATA_GRAPH_PROCESSING_ENGINE_TYPE_COMPUTE_QCOM = 1000629001,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDataGraphOperationTypeARM.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3326,6 +3470,7 @@ pub enum PhysicalDeviceDataGraphOperationTypeARM {
     PHYSICAL_DEVICE_DATA_GRAPH_OPERATION_TYPE_BUILTIN_MODEL_QCOM = 1000629001,
     PHYSICAL_DEVICE_DATA_GRAPH_OPERATION_TYPE_OPTICAL_FLOW_ARM = 1000631000,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphTOSALevelARM.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3333,6 +3478,7 @@ pub enum DataGraphTOSALevelARM {
     DATA_GRAPH_TOSA_LEVEL_NONE_ARM = 0,
     DATA_GRAPH_TOSA_LEVEL_8K_ARM = 1,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBlockMatchWindowCompareModeQCOM.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3340,6 +3486,7 @@ pub enum BlockMatchWindowCompareModeQCOM {
     BLOCK_MATCH_WINDOW_COMPARE_MODE_MIN_QCOM = 0,
     BLOCK_MATCH_WINDOW_COMPARE_MODE_MAX_QCOM = 1,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCubicFilterWeightsQCOM.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3349,6 +3496,7 @@ pub enum CubicFilterWeightsQCOM {
     CUBIC_FILTER_WEIGHTS_B_SPLINE_QCOM = 2,
     CUBIC_FILTER_WEIGHTS_MITCHELL_NETRAVALI_QCOM = 3,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkLayeredDriverUnderlyingApiMSFT.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3356,6 +3504,7 @@ pub enum LayeredDriverUnderlyingApiMSFT {
     LAYERED_DRIVER_UNDERLYING_API_NONE_MSFT = 0,
     LAYERED_DRIVER_UNDERLYING_API_D3D12_MSFT = 1,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplaySurfaceStereoTypeNV.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3365,6 +3514,7 @@ pub enum DisplaySurfaceStereoTypeNV {
     DISPLAY_SURFACE_STEREO_TYPE_HDMI_3D_NV = 2,
     DISPLAY_SURFACE_STEREO_TYPE_INBAND_DISPLAYPORT_NV = 3,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkClusterAccelerationStructureTypeNV.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3373,6 +3523,7 @@ pub enum ClusterAccelerationStructureTypeNV {
     CLUSTER_ACCELERATION_STRUCTURE_TYPE_TRIANGLE_CLUSTER_NV = 1,
     CLUSTER_ACCELERATION_STRUCTURE_TYPE_TRIANGLE_CLUSTER_TEMPLATE_NV = 2,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkClusterAccelerationStructureOpTypeNV.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3384,6 +3535,7 @@ pub enum ClusterAccelerationStructureOpTypeNV {
     CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_INSTANTIATE_TRIANGLE_CLUSTER_NV = 4,
     CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_GET_CLUSTER_TEMPLATE_INDICES_NV = 5,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkClusterAccelerationStructureOpModeNV.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3392,6 +3544,7 @@ pub enum ClusterAccelerationStructureOpModeNV {
     CLUSTER_ACCELERATION_STRUCTURE_OP_MODE_EXPLICIT_DESTINATIONS_NV = 1,
     CLUSTER_ACCELERATION_STRUCTURE_OP_MODE_COMPUTE_SIZES_NV = 2,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPartitionedAccelerationStructureOpTypeNV.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3400,6 +3553,7 @@ pub enum PartitionedAccelerationStructureOpTypeNV {
     PARTITIONED_ACCELERATION_STRUCTURE_OP_TYPE_UPDATE_INSTANCE_NV = 1,
     PARTITIONED_ACCELERATION_STRUCTURE_OP_TYPE_WRITE_PARTITION_TRANSLATION_NV = 2,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectExecutionSetInfoTypeEXT.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3407,6 +3561,7 @@ pub enum IndirectExecutionSetInfoTypeEXT {
     INDIRECT_EXECUTION_SET_INFO_TYPE_PIPELINES_EXT = 0,
     INDIRECT_EXECUTION_SET_INFO_TYPE_SHADER_OBJECTS_EXT = 1,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectCommandsTokenTypeEXT.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3429,12 +3584,14 @@ pub enum IndirectCommandsTokenTypeEXT {
     INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_MESH_TASKS_COUNT_EXT = 1000328001,
     INDIRECT_COMMANDS_TOKEN_TYPE_TRACE_RAYS2_EXT = 1000386004,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphModelCacheTypeQCOM.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
 pub enum DataGraphModelCacheTypeQCOM {
     DATA_GRAPH_MODEL_CACHE_TYPE_GENERIC_BINARY_QCOM = 0,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphOpticalFlowPerformanceLevelARM.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3444,12 +3601,14 @@ pub enum DataGraphOpticalFlowPerformanceLevelARM {
     DATA_GRAPH_OPTICAL_FLOW_PERFORMANCE_LEVEL_MEDIUM_ARM = 2,
     DATA_GRAPH_OPTICAL_FLOW_PERFORMANCE_LEVEL_FAST_ARM = 3,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineNodeTypeARM.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
 pub enum DataGraphPipelineNodeTypeARM {
     DATA_GRAPH_PIPELINE_NODE_TYPE_OPTICAL_FLOW_ARM = 1000631000,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineNodeConnectionTypeARM.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3460,6 +3619,7 @@ pub enum DataGraphPipelineNodeConnectionTypeARM {
     DATA_GRAPH_PIPELINE_NODE_CONNECTION_TYPE_OPTICAL_FLOW_FLOW_VECTOR_ARM = 1000631003,
     DATA_GRAPH_PIPELINE_NODE_CONNECTION_TYPE_OPTICAL_FLOW_COST_ARM = 1000631004,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkThrottleHintTypeSEC.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3468,6 +3628,7 @@ pub enum ThrottleHintTypeSEC {
     THROTTLE_HINT_TYPE_LOW_SEC = 1,
     THROTTLE_HINT_TYPE_HIGH_SEC = 2,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkNeuralAcceleratorStatisticsModeARM.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3476,6 +3637,7 @@ pub enum NeuralAcceleratorStatisticsModeARM {
     NEURAL_ACCELERATOR_STATISTICS_MODE_STATISTICS0_ARM = 1,
     NEURAL_ACCELERATOR_STATISTICS_MODE_STATISTICS1_ARM = 2,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageTilingControlEXT.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3484,6 +3646,7 @@ pub enum ImageTilingControlEXT {
     IMAGE_TILING_CONTROL_MIN_SIZE_EXT = 1,
     IMAGE_TILING_CONTROL_MAX_PERFORMANCE_EXT = 2,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBuildAccelerationStructureModeKHR.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
@@ -3491,6 +3654,7 @@ pub enum BuildAccelerationStructureModeKHR {
     BUILD_ACCELERATION_STRUCTURE_MODE_BUILD_KHR = 0,
     BUILD_ACCELERATION_STRUCTURE_MODE_UPDATE_KHR = 1,
 }
+
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderGroupShaderKHR.html>
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(i32)]
