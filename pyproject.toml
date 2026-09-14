@@ -1,0 +1,16 @@
+[project]
+name = "vkdefs"
+version = "0.1.0"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "textcase>=0.4.5",
+    "vulkan-object>=1.4.362",
+]
+
+[project.scripts]
+vkdefs = "vkdefs:main"
+
+[build-system]
+requires = ["uv_build>=0.12.13,<0.13.0"]
+build-backend = "uv_build"
