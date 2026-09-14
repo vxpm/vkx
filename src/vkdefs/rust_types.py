@@ -52,7 +52,7 @@ class RustType:
 
         rust = mapping.get(type)
         if rust is None:
-            rust = type.removeprefix("struct ").removeprefix("Vk")
+            rust = type.removeprefix("struct ").removeprefix("Vk").replace("FlagBits", "Flags")
 
         return RustBasic(rust)
 

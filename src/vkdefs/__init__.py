@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+from pprint import pprint
 import sys
 
 import textcase
@@ -193,6 +194,22 @@ class Context:
 
         return out.content
 
+    def generate_flags(self, f: vkobj.Flags) -> str:
+        out = CodeWriter()
+
+        type_name = f.name.removeprefix("Vk")
+        repr_type = "u32" if f.bitWidth == 32 else "u64"
+
+        out.writeln(f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{f.name}.html>")
+        out.writeln(f"pub type {type_name} = {repr_type};")
+
+        # aliases
+        for alias in f.aliases:
+            alias = alias.removeprefix("Vk")
+            out.writeln(f"pub type {alias} = {type_name};")
+
+        return out.content
+
     def write_module(self, path: str, content: str):
         path = f"{self.root}/src/{path}"
         os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -209,7 +226,12 @@ class Context:
         for struct in self.vk.structs.values():
             structs.append(self.generate_struct(struct))
 
-        base = "use crate::handles::*; use crate::enums::*; use crate::bitmasks::*;\n\n"
+        base = """use crate::handles::*;
+        use crate::enums::*;
+        use crate::bitmasks::*;
+        use crate::flags::*;
+
+        """
         self.write_module("structs.rs", base + "\n".join(structs))
 
         print("02. Generating handles...")
@@ -229,6 +251,13 @@ class Context:
         for bitmask in self.vk.bitmasks.values():
             bitmasks.append(self.generate_bitmasks(bitmask))
         self.write_module("bitmasks.rs", "\n".join(bitmasks))
+
+        print("05. Generating flags...")
+        flags: list[str] = []
+        for flags_ty in self.vk.flags.values():
+            if flags_ty.bitmaskName is None:
+                flags.append(self.generate_flags(flags_ty))
+        self.write_module("flags.rs", "\n".join(flags))
 
         # done
         print("Done!")

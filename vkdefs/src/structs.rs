@@ -4,9 +4,12 @@
 
 use std::ffi::{c_void, c_int, c_uint, c_char};
 use crate::inner::*;
-use crate::handles::*; use crate::enums::*; use crate::bitmasks::*;
+use crate::handles::*;
+        use crate::enums::*;
+        use crate::bitmasks::*;
+        use crate::flags::*;
 
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExtent2D.html>
+        /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExtent2D.html>
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct Extent2D {
@@ -602,7 +605,7 @@ pub struct ImageCreateInfo {
     pub extent: Extent3D,
     pub mip_levels: u32,
     pub array_layers: u32,
-    pub samples: SampleCountFlagBits,
+    pub samples: SampleCountFlags,
     pub tiling: ImageTiling,
     pub usage: ImageUsageFlags,
     pub sharing_mode: SharingMode,
@@ -875,7 +878,7 @@ pub struct PipelineShaderStageCreateInfo {
     pub s_type: StructureType,
     pub p_next: *const c_void,
     pub flags: PipelineShaderStageCreateFlags,
-    pub stage: ShaderStageFlagBits,
+    pub stage: ShaderStageFlags,
     pub module: ShaderModule,
     pub p_name: *const c_char,
     pub p_specialization_info: *const SpecializationInfo,
@@ -1196,7 +1199,7 @@ pub struct PipelineMultisampleStateCreateInfo {
     pub s_type: StructureType,
     pub p_next: *const c_void,
     pub flags: PipelineMultisampleStateCreateFlags,
-    pub rasterization_samples: SampleCountFlagBits,
+    pub rasterization_samples: SampleCountFlags,
     pub sample_shading_enable: Bool32,
     pub min_sample_shading: f32,
     pub p_sample_mask: *const SampleMask,
@@ -1290,7 +1293,7 @@ pub struct GraphicsPipelineCreateInfo {
 pub struct AttachmentDescription {
     pub flags: AttachmentDescriptionFlags,
     pub format: Format,
-    pub samples: SampleCountFlagBits,
+    pub samples: SampleCountFlags,
     pub load_op: AttachmentLoadOp,
     pub store_op: AttachmentStoreOp,
     pub stencil_load_op: AttachmentLoadOp,
@@ -1721,7 +1724,7 @@ pub struct PhysicalDeviceSparseImageFormatInfo2 {
     pub p_next: *const c_void,
     pub format: Format,
     pub type_: ImageType,
-    pub samples: SampleCountFlagBits,
+    pub samples: SampleCountFlags,
     pub usage: ImageUsageFlags,
     pub tiling: ImageTiling,
 }
@@ -1781,7 +1784,7 @@ pub struct ProtectedSubmitInfo {
 pub struct BindImagePlaneMemoryInfo {
     pub s_type: StructureType,
     pub p_next: *const c_void,
-    pub plane_aspect: ImageAspectFlagBits,
+    pub plane_aspect: ImageAspectFlags,
 }
 pub type BindImagePlaneMemoryInfoKHR = BindImagePlaneMemoryInfo;
 
@@ -1791,7 +1794,7 @@ pub type BindImagePlaneMemoryInfoKHR = BindImagePlaneMemoryInfo;
 pub struct ImagePlaneMemoryRequirementsInfo {
     pub s_type: StructureType,
     pub p_next: *const c_void,
-    pub plane_aspect: ImageAspectFlagBits,
+    pub plane_aspect: ImageAspectFlags,
 }
 pub type ImagePlaneMemoryRequirementsInfoKHR = ImagePlaneMemoryRequirementsInfo;
 
@@ -1811,7 +1814,7 @@ pub type ExternalMemoryPropertiesKHR = ExternalMemoryProperties;
 pub struct PhysicalDeviceExternalImageFormatInfo {
     pub s_type: StructureType,
     pub p_next: *const c_void,
-    pub handle_type: ExternalMemoryHandleTypeFlagBits,
+    pub handle_type: ExternalMemoryHandleTypeFlags,
 }
 pub type PhysicalDeviceExternalImageFormatInfoKHR = PhysicalDeviceExternalImageFormatInfo;
 
@@ -1833,7 +1836,7 @@ pub struct PhysicalDeviceExternalBufferInfo {
     pub p_next: *const c_void,
     pub flags: BufferCreateFlags,
     pub usage: BufferUsageFlags,
-    pub handle_type: ExternalMemoryHandleTypeFlagBits,
+    pub handle_type: ExternalMemoryHandleTypeFlags,
 }
 pub type PhysicalDeviceExternalBufferInfoKHR = PhysicalDeviceExternalBufferInfo;
 
@@ -1897,7 +1900,7 @@ pub type ExportMemoryAllocateInfoKHR = ExportMemoryAllocateInfo;
 pub struct PhysicalDeviceExternalFenceInfo {
     pub s_type: StructureType,
     pub p_next: *const c_void,
-    pub handle_type: ExternalFenceHandleTypeFlagBits,
+    pub handle_type: ExternalFenceHandleTypeFlags,
 }
 pub type PhysicalDeviceExternalFenceInfoKHR = PhysicalDeviceExternalFenceInfo;
 
@@ -1939,7 +1942,7 @@ pub type ExportSemaphoreCreateInfoKHR = ExportSemaphoreCreateInfo;
 pub struct PhysicalDeviceExternalSemaphoreInfo {
     pub s_type: StructureType,
     pub p_next: *const c_void,
-    pub handle_type: ExternalSemaphoreHandleTypeFlagBits,
+    pub handle_type: ExternalSemaphoreHandleTypeFlags,
 }
 pub type PhysicalDeviceExternalSemaphoreInfoKHR = PhysicalDeviceExternalSemaphoreInfo;
 
@@ -2741,7 +2744,7 @@ pub struct AttachmentDescription2 {
     pub p_next: *const c_void,
     pub flags: AttachmentDescriptionFlags,
     pub format: Format,
-    pub samples: SampleCountFlagBits,
+    pub samples: SampleCountFlags,
     pub load_op: AttachmentLoadOp,
     pub store_op: AttachmentStoreOp,
     pub stencil_load_op: AttachmentLoadOp,
@@ -2843,8 +2846,8 @@ pub type RenderPassCreateInfo2KHR = RenderPassCreateInfo2;
 pub struct SubpassDescriptionDepthStencilResolve {
     pub s_type: StructureType,
     pub p_next: *const c_void,
-    pub depth_resolve_mode: ResolveModeFlagBits,
-    pub stencil_resolve_mode: ResolveModeFlagBits,
+    pub depth_resolve_mode: ResolveModeFlags,
+    pub stencil_resolve_mode: ResolveModeFlags,
     pub p_depth_stencil_resolve_attachment: *const AttachmentReference2,
 }
 pub type SubpassDescriptionDepthStencilResolveKHR = SubpassDescriptionDepthStencilResolve;
@@ -3343,7 +3346,7 @@ pub struct DeviceImageMemoryRequirements {
     pub s_type: StructureType,
     pub p_next: *const c_void,
     pub p_create_info: *const ImageCreateInfo,
-    pub plane_aspect: ImageAspectFlagBits,
+    pub plane_aspect: ImageAspectFlags,
 }
 pub type DeviceImageMemoryRequirementsKHR = DeviceImageMemoryRequirements;
 
@@ -3627,7 +3630,7 @@ pub struct RenderingAttachmentInfo {
     pub p_next: *const c_void,
     pub image_view: ImageView,
     pub image_layout: ImageLayout,
-    pub resolve_mode: ResolveModeFlagBits,
+    pub resolve_mode: ResolveModeFlags,
     pub resolve_image_view: ImageView,
     pub resolve_image_layout: ImageLayout,
     pub load_op: AttachmentLoadOp,
@@ -3689,7 +3692,7 @@ pub struct CommandBufferInheritanceRenderingInfo {
     pub p_color_attachment_formats: *const Format,
     pub depth_attachment_format: Format,
     pub stencil_attachment_format: Format,
-    pub rasterization_samples: SampleCountFlagBits,
+    pub rasterization_samples: SampleCountFlags,
 }
 pub type CommandBufferInheritanceRenderingInfoKHR = CommandBufferInheritanceRenderingInfo;
 
@@ -4356,7 +4359,7 @@ pub struct SurfaceCapabilitiesKHR {
     pub max_image_extent: Extent2D,
     pub max_image_array_layers: u32,
     pub supported_transforms: SurfaceTransformFlagsKHR,
-    pub current_transform: SurfaceTransformFlagBitsKHR,
+    pub current_transform: SurfaceTransformFlagsKHR,
     pub supported_composite_alpha: CompositeAlphaFlagsKHR,
     pub supported_usage_flags: ImageUsageFlags,
 }
@@ -4386,8 +4389,8 @@ pub struct SwapchainCreateInfoKHR {
     pub image_sharing_mode: SharingMode,
     pub queue_family_index_count: u32,
     pub p_queue_family_indices: *const u32,
-    pub pre_transform: SurfaceTransformFlagBitsKHR,
-    pub composite_alpha: CompositeAlphaFlagBitsKHR,
+    pub pre_transform: SurfaceTransformFlagsKHR,
+    pub composite_alpha: CompositeAlphaFlagsKHR,
     pub present_mode: PresentModeKHR,
     pub clipped: Bool32,
     pub old_swapchain: SwapchainKHR,
@@ -4457,7 +4460,7 @@ pub struct DeviceGroupPresentInfoKHR {
     pub p_next: *const c_void,
     pub swapchain_count: u32,
     pub p_device_masks: *const u32,
-    pub mode: DeviceGroupPresentModeFlagBitsKHR,
+    pub mode: DeviceGroupPresentModeFlagsKHR,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceGroupSwapchainCreateInfoKHR.html>
@@ -4541,9 +4544,9 @@ pub struct DisplaySurfaceCreateInfoKHR {
     pub display_mode: DisplayModeKHR,
     pub plane_index: u32,
     pub plane_stack_index: u32,
-    pub transform: SurfaceTransformFlagBitsKHR,
+    pub transform: SurfaceTransformFlagsKHR,
     pub global_alpha: f32,
-    pub alpha_mode: DisplayPlaneAlphaFlagBitsKHR,
+    pub alpha_mode: DisplayPlaneAlphaFlagsKHR,
     pub image_extent: Extent2D,
 }
 
@@ -4636,7 +4639,7 @@ pub struct QueueFamilyVideoPropertiesKHR {
 pub struct VideoProfileInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
-    pub video_codec_operation: VideoCodecOperationFlagBitsKHR,
+    pub video_codec_operation: VideoCodecOperationFlagsKHR,
     pub chroma_subsampling: VideoChromaSubsamplingFlagsKHR,
     pub luma_bit_depth: VideoComponentBitDepthFlagsKHR,
     pub chroma_bit_depth: VideoComponentBitDepthFlagsKHR,
@@ -5232,7 +5235,7 @@ pub struct VideoDecodeH264ProfileInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
     pub std_profile_idc: StdVideoH264ProfileIdc,
-    pub picture_layout: VideoDecodeH264PictureLayoutFlagBitsKHR,
+    pub picture_layout: VideoDecodeH264PictureLayoutFlagsKHR,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeH264CapabilitiesKHR.html>
@@ -5294,7 +5297,7 @@ pub struct VideoDecodeH264DpbSlotInfoKHR {
 pub struct ImportMemoryWin32HandleInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
-    pub handle_type: ExternalMemoryHandleTypeFlagBits,
+    pub handle_type: ExternalMemoryHandleTypeFlags,
     pub handle: HANDLE,
     pub name: LPCWSTR,
 }
@@ -5326,7 +5329,7 @@ pub struct MemoryGetWin32HandleInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
     pub memory: DeviceMemory,
-    pub handle_type: ExternalMemoryHandleTypeFlagBits,
+    pub handle_type: ExternalMemoryHandleTypeFlags,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImportMemoryFdInfoKHR.html>
@@ -5335,7 +5338,7 @@ pub struct MemoryGetWin32HandleInfoKHR {
 pub struct ImportMemoryFdInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
-    pub handle_type: ExternalMemoryHandleTypeFlagBits,
+    pub handle_type: ExternalMemoryHandleTypeFlags,
     pub fd: c_int,
 }
 
@@ -5355,7 +5358,7 @@ pub struct MemoryGetFdInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
     pub memory: DeviceMemory,
-    pub handle_type: ExternalMemoryHandleTypeFlagBits,
+    pub handle_type: ExternalMemoryHandleTypeFlags,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkWin32KeyedMutexAcquireReleaseInfoKHR.html>
@@ -5381,7 +5384,7 @@ pub struct ImportSemaphoreWin32HandleInfoKHR {
     pub p_next: *const c_void,
     pub semaphore: Semaphore,
     pub flags: SemaphoreImportFlags,
-    pub handle_type: ExternalSemaphoreHandleTypeFlagBits,
+    pub handle_type: ExternalSemaphoreHandleTypeFlags,
     pub handle: HANDLE,
     pub name: LPCWSTR,
 }
@@ -5416,7 +5419,7 @@ pub struct SemaphoreGetWin32HandleInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
     pub semaphore: Semaphore,
-    pub handle_type: ExternalSemaphoreHandleTypeFlagBits,
+    pub handle_type: ExternalSemaphoreHandleTypeFlags,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImportSemaphoreFdInfoKHR.html>
@@ -5427,7 +5430,7 @@ pub struct ImportSemaphoreFdInfoKHR {
     pub p_next: *const c_void,
     pub semaphore: Semaphore,
     pub flags: SemaphoreImportFlags,
-    pub handle_type: ExternalSemaphoreHandleTypeFlagBits,
+    pub handle_type: ExternalSemaphoreHandleTypeFlags,
     pub fd: c_int,
 }
 
@@ -5438,7 +5441,7 @@ pub struct SemaphoreGetFdInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
     pub semaphore: Semaphore,
-    pub handle_type: ExternalSemaphoreHandleTypeFlagBits,
+    pub handle_type: ExternalSemaphoreHandleTypeFlags,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRectLayerKHR.html>
@@ -5485,7 +5488,7 @@ pub struct ImportFenceWin32HandleInfoKHR {
     pub p_next: *const c_void,
     pub fence: Fence,
     pub flags: FenceImportFlags,
-    pub handle_type: ExternalFenceHandleTypeFlagBits,
+    pub handle_type: ExternalFenceHandleTypeFlags,
     pub handle: HANDLE,
     pub name: LPCWSTR,
 }
@@ -5508,7 +5511,7 @@ pub struct FenceGetWin32HandleInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
     pub fence: Fence,
-    pub handle_type: ExternalFenceHandleTypeFlagBits,
+    pub handle_type: ExternalFenceHandleTypeFlags,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImportFenceFdInfoKHR.html>
@@ -5519,7 +5522,7 @@ pub struct ImportFenceFdInfoKHR {
     pub p_next: *const c_void,
     pub fence: Fence,
     pub flags: FenceImportFlags,
-    pub handle_type: ExternalFenceHandleTypeFlagBits,
+    pub handle_type: ExternalFenceHandleTypeFlags,
     pub fd: c_int,
 }
 
@@ -5530,7 +5533,7 @@ pub struct FenceGetFdInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
     pub fence: Fence,
-    pub handle_type: ExternalFenceHandleTypeFlagBits,
+    pub handle_type: ExternalFenceHandleTypeFlags,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePerformanceQueryFeaturesKHR.html>
@@ -5859,7 +5862,7 @@ pub struct PhysicalDeviceFragmentShadingRatePropertiesKHR {
     pub max_fragment_size: Extent2D,
     pub max_fragment_size_aspect_ratio: u32,
     pub max_fragment_shading_rate_coverage_samples: u32,
-    pub max_fragment_shading_rate_rasterization_samples: SampleCountFlagBits,
+    pub max_fragment_shading_rate_rasterization_samples: SampleCountFlags,
     pub fragment_shading_rate_with_shader_depth_stencil_writes: Bool32,
     pub fragment_shading_rate_with_sample_mask: Bool32,
     pub fragment_shading_rate_with_shader_sample_mask: Bool32,
@@ -6135,7 +6138,7 @@ pub struct VideoEncodeRateControlInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
     pub flags: VideoEncodeRateControlFlagsKHR,
-    pub rate_control_mode: VideoEncodeRateControlModeFlagBitsKHR,
+    pub rate_control_mode: VideoEncodeRateControlModeFlagsKHR,
     pub layer_count: u32,
     pub p_layers: *const VideoEncodeRateControlLayerInfoKHR,
     pub virtual_buffer_size_in_ms: u32,
@@ -6158,7 +6161,7 @@ pub struct PhysicalDeviceVideoEncodeQualityLevelInfoKHR {
 pub struct VideoEncodeQualityLevelPropertiesKHR {
     pub s_type: StructureType,
     pub p_next: *mut c_void,
-    pub preferred_rate_control_mode: VideoEncodeRateControlModeFlagBitsKHR,
+    pub preferred_rate_control_mode: VideoEncodeRateControlModeFlagsKHR,
     pub preferred_rate_control_layer_count: u32,
 }
 
@@ -7256,7 +7259,7 @@ pub struct VideoEncodeIntraRefreshCapabilitiesKHR {
 pub struct VideoEncodeSessionIntraRefreshCreateInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
-    pub intra_refresh_mode: VideoEncodeIntraRefreshModeFlagBitsKHR,
+    pub intra_refresh_mode: VideoEncodeIntraRefreshModeFlagsKHR,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeIntraRefreshInfoKHR.html>
@@ -7810,8 +7813,8 @@ pub struct ResolveImageModeInfoKHR {
     pub s_type: StructureType,
     pub p_next: *const c_void,
     pub flags: ResolveImageFlagsKHR,
-    pub resolve_mode: ResolveModeFlagBits,
-    pub stencil_resolve_mode: ResolveModeFlagBits,
+    pub resolve_mode: ResolveModeFlags,
+    pub stencil_resolve_mode: ResolveModeFlags,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesKHR.html>
@@ -8312,7 +8315,7 @@ pub struct SurfaceCapabilities2EXT {
     pub max_image_extent: Extent2D,
     pub max_image_array_layers: u32,
     pub supported_transforms: SurfaceTransformFlagsKHR,
-    pub current_transform: SurfaceTransformFlagBitsKHR,
+    pub current_transform: SurfaceTransformFlagsKHR,
     pub supported_composite_alpha: CompositeAlphaFlagsKHR,
     pub supported_usage_flags: ImageUsageFlags,
     pub supported_surface_counters: SurfaceCounterFlagsEXT,
@@ -9241,8 +9244,8 @@ pub struct AttachmentSampleCountInfoAMD {
     pub s_type: StructureType,
     pub p_next: *const c_void,
     pub color_attachment_count: u32,
-    pub p_color_attachment_samples: *const SampleCountFlagBits,
-    pub depth_stencil_attachment_samples: SampleCountFlagBits,
+    pub p_color_attachment_samples: *const SampleCountFlags,
+    pub depth_stencil_attachment_samples: SampleCountFlags,
 }
 pub type AttachmentSampleCountInfoNV = AttachmentSampleCountInfoAMD;
 
@@ -9260,7 +9263,7 @@ pub struct SampleLocationEXT {
 pub struct SampleLocationsInfoEXT {
     pub s_type: StructureType,
     pub p_next: *const c_void,
-    pub sample_locations_per_pixel: SampleCountFlagBits,
+    pub sample_locations_per_pixel: SampleCountFlags,
     pub sample_location_grid_size: Extent2D,
     pub sample_locations_count: u32,
     pub p_sample_locations: *const SampleLocationEXT,
@@ -9820,7 +9823,7 @@ pub struct PhysicalDeviceElapsedTimerQueryFeaturesQCOM {
 pub struct ImportMemoryHostPointerInfoEXT {
     pub s_type: StructureType,
     pub p_next: *const c_void,
-    pub handle_type: ExternalMemoryHandleTypeFlagBits,
+    pub handle_type: ExternalMemoryHandleTypeFlags,
     pub p_host_pointer: *mut c_void,
 }
 
@@ -9982,7 +9985,7 @@ pub struct QueueFamilyCheckpointPropertiesNV {
 pub struct CheckpointDataNV {
     pub s_type: StructureType,
     pub p_next: *mut c_void,
-    pub stage: PipelineStageFlagBits,
+    pub stage: PipelineStageFlags,
     pub p_checkpoint_marker: *mut c_void,
 }
 
@@ -10469,7 +10472,7 @@ pub struct FramebufferMixedSamplesCombinationNV {
     pub s_type: StructureType,
     pub p_next: *mut c_void,
     pub coverage_reduction_mode: CoverageReductionModeNV,
-    pub rasterization_samples: SampleCountFlagBits,
+    pub rasterization_samples: SampleCountFlags,
     pub depth_stencil_samples: SampleCountFlags,
     pub color_samples: SampleCountFlags,
 }
@@ -10830,7 +10833,7 @@ pub struct PhysicalDeviceTexelBufferAlignmentFeaturesEXT {
 pub struct RenderPassTransformBeginInfoQCOM {
     pub s_type: StructureType,
     pub p_next: *const c_void,
-    pub transform: SurfaceTransformFlagBitsKHR,
+    pub transform: SurfaceTransformFlagsKHR,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandBufferInheritanceRenderPassTransformInfoQCOM.html>
@@ -10839,7 +10842,7 @@ pub struct RenderPassTransformBeginInfoQCOM {
 pub struct CommandBufferInheritanceRenderPassTransformInfoQCOM {
     pub s_type: StructureType,
     pub p_next: *const c_void,
-    pub transform: SurfaceTransformFlagBitsKHR,
+    pub transform: SurfaceTransformFlagsKHR,
     pub render_area: Rect2D,
 }
 
@@ -11201,7 +11204,7 @@ pub struct QueryLowLatencySupportNV {
 pub struct ExportMetalObjectCreateInfoEXT {
     pub s_type: StructureType,
     pub p_next: *const c_void,
-    pub export_object_type: ExportMetalObjectTypeFlagBitsEXT,
+    pub export_object_type: ExportMetalObjectTypeFlagsEXT,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExportMetalObjectsInfoEXT.html>
@@ -11259,7 +11262,7 @@ pub struct ExportMetalTextureInfoEXT {
     pub image: Image,
     pub image_view: ImageView,
     pub buffer_view: BufferView,
-    pub plane: ImageAspectFlagBits,
+    pub plane: ImageAspectFlags,
     pub mtl_texture: MTLTexture_id,
 }
 
@@ -11269,7 +11272,7 @@ pub struct ExportMetalTextureInfoEXT {
 pub struct ImportMetalTextureInfoEXT {
     pub s_type: StructureType,
     pub p_next: *const c_void,
-    pub plane: ImageAspectFlagBits,
+    pub plane: ImageAspectFlags,
     pub mtl_texture: MTLTexture_id,
 }
 
@@ -11544,7 +11547,7 @@ pub struct PhysicalDeviceFragmentShadingRateEnumsFeaturesNV {
 pub struct PhysicalDeviceFragmentShadingRateEnumsPropertiesNV {
     pub s_type: StructureType,
     pub p_next: *mut c_void,
-    pub max_fragment_shading_rate_invocation_count: SampleCountFlagBits,
+    pub max_fragment_shading_rate_invocation_count: SampleCountFlags,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineFragmentShadingRateEnumStateCreateInfoNV.html>
@@ -11707,7 +11710,7 @@ pub struct PhysicalDeviceFragmentDensityMap2PropertiesEXT {
 pub struct CopyCommandTransformInfoQCOM {
     pub s_type: StructureType,
     pub p_next: *const c_void,
-    pub transform: SurfaceTransformFlagBitsKHR,
+    pub transform: SurfaceTransformFlagsKHR,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceImageCompressionControlFeaturesEXT.html>
@@ -11956,7 +11959,7 @@ pub struct PhysicalDevicePrimitiveTopologyListRestartFeaturesEXT {
 pub struct ImportMemoryZirconHandleInfoFUCHSIA {
     pub s_type: StructureType,
     pub p_next: *const c_void,
-    pub handle_type: ExternalMemoryHandleTypeFlagBits,
+    pub handle_type: ExternalMemoryHandleTypeFlags,
     pub handle: zx_handle_t,
 }
 
@@ -11976,7 +11979,7 @@ pub struct MemoryGetZirconHandleInfoFUCHSIA {
     pub s_type: StructureType,
     pub p_next: *const c_void,
     pub memory: DeviceMemory,
-    pub handle_type: ExternalMemoryHandleTypeFlagBits,
+    pub handle_type: ExternalMemoryHandleTypeFlags,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImportSemaphoreZirconHandleInfoFUCHSIA.html>
@@ -11987,7 +11990,7 @@ pub struct ImportSemaphoreZirconHandleInfoFUCHSIA {
     pub p_next: *const c_void,
     pub semaphore: Semaphore,
     pub flags: SemaphoreImportFlags,
-    pub handle_type: ExternalSemaphoreHandleTypeFlagBits,
+    pub handle_type: ExternalSemaphoreHandleTypeFlags,
     pub zircon_handle: zx_handle_t,
 }
 
@@ -11998,7 +12001,7 @@ pub struct SemaphoreGetZirconHandleInfoFUCHSIA {
     pub s_type: StructureType,
     pub p_next: *const c_void,
     pub semaphore: Semaphore,
-    pub handle_type: ExternalSemaphoreHandleTypeFlagBits,
+    pub handle_type: ExternalSemaphoreHandleTypeFlags,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferCollectionCreateInfoFUCHSIA.html>
@@ -12162,7 +12165,7 @@ pub struct MemoryGetRemoteAddressInfoNV {
     pub s_type: StructureType,
     pub p_next: *const c_void,
     pub memory: DeviceMemory,
-    pub handle_type: ExternalMemoryHandleTypeFlagBits,
+    pub handle_type: ExternalMemoryHandleTypeFlags,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceExternalMemoryRDMAFeaturesNV.html>
@@ -12243,7 +12246,7 @@ pub struct MultisampledRenderToSingleSampledInfoEXT {
     pub s_type: StructureType,
     pub p_next: *const c_void,
     pub multisampled_render_to_single_sampled_enable: Bool32,
-    pub rasterization_samples: SampleCountFlagBits,
+    pub rasterization_samples: SampleCountFlags,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceExtendedDynamicState2FeaturesEXT.html>
@@ -12334,10 +12337,10 @@ pub struct VideoEncodeProfileRgbConversionInfoVALVE {
 pub struct VideoEncodeSessionRgbConversionCreateInfoVALVE {
     pub s_type: StructureType,
     pub p_next: *const c_void,
-    pub rgb_model: VideoEncodeRgbModelConversionFlagBitsVALVE,
-    pub rgb_range: VideoEncodeRgbRangeCompressionFlagBitsVALVE,
-    pub x_chroma_offset: VideoEncodeRgbChromaOffsetFlagBitsVALVE,
-    pub y_chroma_offset: VideoEncodeRgbChromaOffsetFlagBitsVALVE,
+    pub rgb_model: VideoEncodeRgbModelConversionFlagsVALVE,
+    pub rgb_range: VideoEncodeRgbRangeCompressionFlagsVALVE,
+    pub x_chroma_offset: VideoEncodeRgbChromaOffsetFlagsVALVE,
+    pub y_chroma_offset: VideoEncodeRgbChromaOffsetFlagsVALVE,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceImageViewMinLodFeaturesEXT.html>
@@ -13458,7 +13461,7 @@ pub struct PhysicalDeviceExternalTensorInfoARM {
     pub p_next: *const c_void,
     pub flags: TensorCreateFlagsARM,
     pub p_description: *const TensorDescriptionARM,
-    pub handle_type: ExternalMemoryHandleTypeFlagBits,
+    pub handle_type: ExternalMemoryHandleTypeFlags,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalTensorPropertiesARM.html>
@@ -13777,7 +13780,7 @@ pub struct ShaderCreateInfoEXT {
     pub s_type: StructureType,
     pub p_next: *const c_void,
     pub flags: ShaderCreateFlagsEXT,
-    pub stage: ShaderStageFlagBits,
+    pub stage: ShaderStageFlags,
     pub next_stage: ShaderStageFlags,
     pub code_type: ShaderCodeTypeEXT,
     pub code_size: usize,
@@ -15234,7 +15237,7 @@ pub struct IndirectCommandsVertexBufferTokenEXT {
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
 pub struct IndirectCommandsIndexBufferTokenEXT {
-    pub mode: IndirectCommandsInputModeFlagBitsEXT,
+    pub mode: IndirectCommandsInputModeFlagsEXT,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectCommandsExecutionSetTokenEXT.html>
@@ -15524,7 +15527,7 @@ pub struct PhysicalDevicePipelineOpacityMicromapFeaturesARM {
 pub struct ImportMemoryMetalHandleInfoEXT {
     pub s_type: StructureType,
     pub p_next: *const c_void,
-    pub handle_type: ExternalMemoryHandleTypeFlagBits,
+    pub handle_type: ExternalMemoryHandleTypeFlags,
     pub handle: *mut c_void,
 }
 
@@ -15544,7 +15547,7 @@ pub struct MemoryGetMetalHandleInfoEXT {
     pub s_type: StructureType,
     pub p_next: *const c_void,
     pub memory: DeviceMemory,
-    pub handle_type: ExternalMemoryHandleTypeFlagBits,
+    pub handle_type: ExternalMemoryHandleTypeFlags,
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePerformanceCountersByRegionFeaturesARM.html>
