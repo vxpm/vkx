@@ -1,7 +1,9 @@
+from dataclasses import dataclass, field
 import os
 from pathlib import Path
 from pprint import pprint
 import sys
+from typing import Generic, TypeVar
 
 import textcase
 from vulkan_object import get_vulkan_object, vulkan_object as vkobj
@@ -44,16 +46,36 @@ class CodeWriter:
         self.newline = True
 
 
+T = TypeVar("T")
+
+
+@dataclass
+class Generated(Generic[T]):
+    name: str
+    definition: str
+    original: T
+
+
+@dataclass
+class Registry:
+    bitmasks: dict[str, Generated[vkobj.Bitmask]] = field(default_factory=dict)
+    enums: dict[str, Generated[vkobj.Enum]] = field(default_factory=dict)
+    flags: dict[str, Generated[vkobj.Flags]] = field(default_factory=dict)
+    fnptrs: dict[str, Generated[vkobj.FuncPointer]] = field(default_factory=dict)
+    handles: dict[str, Generated[vkobj.Handle]] = field(default_factory=dict)
+    structs: dict[str, Generated[vkobj.Struct]] = field(default_factory=dict)
+
+
 class Context:
     root: Path
     vk: vkobj.VulkanObject = get_vulkan_object(video=True)
-    generated_structs: set[str] = set()
+    reg: Registry = Registry()
 
     def __init__(self, root: Path):
         self.root = root
 
     # Generates a struct (or union) definition from a vulkan struct.
-    def generate_struct(self, s: vkobj.Struct) -> str:
+    def generate_struct(self, s: vkobj.Struct) -> Generated[vkobj.Struct]:
         assert self.vk.videoStd is not None
         out = CodeWriter()
 
@@ -112,9 +134,9 @@ class Context:
             alias = alias.removeprefix("Vk")
             out.writeln(f"pub type {alias} = {type_name};")
 
-        return out.content
+        return Generated(type_name, out.content, s)
 
-    def generate_handle(self, h: vkobj.Handle) -> str:
+    def generate_handle(self, h: vkobj.Handle) -> Generated[vkobj.Handle]:
         out = CodeWriter()
 
         out.writeln(
@@ -134,9 +156,9 @@ class Context:
             alias = alias.removeprefix("Vk")
             out.writeln(f"pub type {alias} = {type_name};")
 
-        return out.content
+        return Generated(type_name, out.content, h)
 
-    def generate_enum(self, e: vkobj.Enum) -> str:
+    def generate_enum(self, e: vkobj.Enum) -> Generated[vkobj.Enum]:
         out = CodeWriter()
 
         type_name = e.name.removeprefix("Vk")
@@ -176,7 +198,7 @@ class Context:
             alias = alias.removeprefix("Vk")
             out.writeln(f"pub type {alias} = {type_name};")
 
-        return out.content
+        return Generated(type_name, out.content, e)
 
     def remove_vendor_tag(self, name: str) -> str:
         last = name[-3:]
@@ -185,7 +207,7 @@ class Context:
         else:
             return name
 
-    def generate_bitmasks(self, m: vkobj.Bitmask) -> str:
+    def generate_bitmasks(self, m: vkobj.Bitmask) -> Generated[vkobj.Bitmask]:
         out = CodeWriter()
 
         type_name = m.name.removeprefix("Vk").replace("FlagBits", "Flags")
@@ -221,9 +243,9 @@ class Context:
             alias = alias.removeprefix("Vk").replace("FlagBits", "Flags")
             out.writeln(f"pub type {alias} = {type_name};")
 
-        return out.content
+        return Generated(type_name, out.content, m)
 
-    def generate_flags(self, f: vkobj.Flags) -> str:
+    def generate_flags(self, f: vkobj.Flags) -> Generated[vkobj.Flags]:
         out = CodeWriter()
 
         type_name = f.name.removeprefix("Vk")
@@ -239,9 +261,9 @@ class Context:
             alias = alias.removeprefix("Vk")
             out.writeln(f"pub type {alias} = {type_name};")
 
-        return out.content
+        return Generated(type_name, out.content, f)
 
-    def generate_fnptr(self, f: vkobj.FuncPointer) -> str:
+    def generate_fnptr(self, f: vkobj.FuncPointer) -> Generated[vkobj.FuncPointer]:
         out = CodeWriter()
 
         type_name = f.name.removeprefix("PFN_")
@@ -260,7 +282,51 @@ class Context:
         signature = f'unsafe extern "C" fn({",".join(params)}) {return_ty}'
         out.writeln(f"pub type {type_name} = {signature};")
 
-        return out.content
+        return Generated(type_name, out.content, f)
+
+    def fill_registry(self):
+        assert self.vk.videoStd is not None
+
+        # structs
+        for struct in self.vk.structs.values():
+            struct = self.generate_struct(struct)
+            self.reg.structs[struct.original.name] = struct
+
+        for struct in self.vk.videoStd.structs.values():
+            struct = self.generate_struct(struct)
+            self.reg.structs[struct.original.name] = struct
+
+        # handles
+        for handle in self.vk.handles.values():
+            handle = self.generate_handle(handle)
+            self.reg.handles[handle.original.name] = handle
+
+        # enums
+        for enum in self.vk.enums.values():
+            enum = self.generate_enum(enum)
+            self.reg.enums[enum.original.name] = enum
+
+        for enum in self.vk.videoStd.enums.values():
+            enum = self.generate_enum(enum)
+            self.reg.enums[enum.original.name] = enum
+
+        # bitmasks
+        for bitmask in self.vk.bitmasks.values():
+            bitmask = self.generate_bitmasks(bitmask)
+            self.reg.bitmasks[bitmask.original.name] = bitmask
+
+        # flags
+        for flags in self.vk.flags.values():
+            if flags.bitmaskName is not None:
+                continue
+
+            flags = self.generate_flags(flags)
+            self.reg.flags[flags.original.name] = flags
+
+        # function pointers
+        for fnptr in self.vk.funcPointers.values():
+            fnptr = self.generate_fnptr(fnptr)
+            self.reg.fnptrs[fnptr.original.name] = fnptr
 
     def write_module(self, path: str, content: str):
         path = f"{self.root}/src/{path}"
@@ -271,78 +337,15 @@ class Context:
             _ = f.write(content)
 
     def generate(self):
-        assert self.vk.videoStd is not None
-        print(f"Generating crate at {self.root}...")
-
-        print("01. Generating structs...")
-        structs: list[str] = []
-
-        for struct in self.vk.structs.values():
-            structs.append(self.generate_struct(struct))
-
-        for struct in self.vk.videoStd.structs.values():
-            structs.append(self.generate_struct(struct))
-
-        base = """use crate::handles::*;
-        use crate::enums::*;
-        use crate::bitmasks::*;
-        use crate::flags::*;
-        use crate::fn_pointers::*;
-
-        """
-        self.write_module("structs.rs", base + "\n".join(structs))
-
-        print("02. Generating handles...")
-        handles: list[str] = []
-        for handle in self.vk.handles.values():
-            handles.append(self.generate_handle(handle))
-        self.write_module("handles.rs", "\n".join(handles))
-
-        print("03. Generating enums...")
-        enums: list[str] = []
-
-        for enum in self.vk.enums.values():
-            enums.append(self.generate_enum(enum))
-
-        for enum in self.vk.videoStd.enums.values():
-            enums.append(self.generate_enum(enum))
-
-        self.write_module("enums.rs", "\n".join(enums))
-
-        print("04. Generating bitmasks...")
-        bitmasks: list[str] = []
-        for bitmask in self.vk.bitmasks.values():
-            bitmasks.append(self.generate_bitmasks(bitmask))
-        self.write_module("bitmasks.rs", "\n".join(bitmasks))
-
-        print("05. Generating flags...")
-        flags: list[str] = []
-        for flags_ty in self.vk.flags.values():
-            if flags_ty.bitmaskName is None:
-                flags.append(self.generate_flags(flags_ty))
-        self.write_module("flags.rs", "\n".join(flags))
-
-        print("06. Generating function pointers...")
-        fnptrs: list[str] = []
-        for fnptr in self.vk.funcPointers.values():
-            fnptrs.append(self.generate_fnptr(fnptr))
-
-        base = """use crate::handles::*;
-        use crate::enums::*;
-        use crate::bitmasks::*;
-        use crate::flags::*;
-        use crate::structs::*;
-
-        """
-        self.write_module("fn_pointers.rs", base + "\n".join(fnptrs))
-
-        # print("07. Generating video std headers...")
-        # video_headers: list[str] = []
-        # for fnptr in self.vk.videoStd.values():
-        #     fnptrs.append(self.generate_fnptr(fnptr))
-
-        # done
+        print("Filling registry...")
+        self.fill_registry()
         print("Done!")
+        print(f"- Bitmasks: {len(self.reg.bitmasks)}")
+        print(f"- Enums: {len(self.reg.enums)}")
+        print(f"- Flags: {len(self.reg.flags)}")
+        print(f"- Function Pointers: {len(self.reg.fnptrs)}")
+        print(f"- Handles: {len(self.reg.handles)}")
+        print(f"- Structs: {len(self.reg.structs)}")
 
 
 def main() -> None:
