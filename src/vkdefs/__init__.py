@@ -7,11 +7,12 @@ from typing import Generic, TypeVar
 import textcase
 from vulkan_object import get_vulkan_object, vulkan_object as vkobj
 
-from .rust_types import RustType
+from .rust_types import RustPointer, RustType
 
 MODULE_PREFIX: str = """ // WARNING: AUTO GENERATED MODULE
 #![allow(nonstandard_style)]
 #![allow(unused_imports)]
+#![allow(unused_variables)]
 
 use std::ffi::{c_void, c_int, c_uint, c_char};
 use crate::manual::*;
@@ -38,6 +39,16 @@ use crate::handles::*;
 
 CONSTS_MODULE_PREFIX: str = """
 use crate::consts_inner::*;
+"""
+
+COMMANDS_MODULE_PREFIX: str = """
+use crate::bitmasks::*;
+use crate::consts_inner::*;
+use crate::enums::*;
+use crate::flags::*;
+use crate::fn_ptrs::*;
+use crate::handles::*;
+use crate::structs::*;
 """
 
 class CodeWriter:
@@ -86,6 +97,7 @@ class Registry:
     fnptrs: dict[str, Generated[vkobj.FuncPointer]] = field(default_factory=dict)
     handles: dict[str, Generated[vkobj.Handle]] = field(default_factory=dict)
     structs: dict[str, Generated[vkobj.Struct]] = field(default_factory=dict)
+    commands: dict[str, Generated[vkobj.Command]] = field(default_factory=dict)
 
 
 class Context:
@@ -263,8 +275,10 @@ class Context:
 
         type_name = x.name.removeprefix("Vk")
         if x.dispatchable:
+            out.writeln(f"/// Dispatchable handle")
             out.writeln(f"pub struct {type_name}(usize);")
         else:
+            out.writeln(f"/// Non-dispatchable handle")
             out.writeln(f"pub struct {type_name}(u64);")
 
         # aliases
@@ -443,7 +457,7 @@ class Context:
         return_ty = (
             "" if x.returnType == "void" else f"-> {RustType.parse(x.returnType)}"
         )
-        signature = f'unsafe extern "C" fn({",".join(params)}) {return_ty}'
+        signature = f'unsafe extern "C" fn({", ".join(params)}) {return_ty}'
         out.writeln(f"pub type {type_name} = {signature};")
 
         return Generated(type_name, out.content, x)
@@ -475,6 +489,76 @@ class Context:
         out.writeln(f"pub const {const_name}: {const_ty} = {x.name};")
 
         return Generated(const_name, out.content, x)
+
+    def generate_command(self, x: vkobj.Command) -> Generated[vkobj.Command]:
+        out = CodeWriter()
+
+        method_name = textcase.snake(x.name.removeprefix("vk"))
+
+        receiver = None
+        allowed_receivers = { "Instance", "PhysicalDevice", "Device", "Queue", "CommandBuffer" }
+
+        params: list[str] = []
+        for param in x.params:
+            name = textcase.snake(param.name)
+
+            if name == "type":
+                name = "type_"
+
+            if len(param.fixedSizeArray) > 0:
+                # it's actually a pointer. amazing
+                is_const = param.fullType.startswith("const ")
+                ty = param.fullType.removeprefix("const ")
+                ty = RustType.parse(ty)
+
+                for size in param.fixedSizeArray:
+                    ty = ty.array(size)
+
+                # make it a pointer
+                ty = RustPointer(is_const, ty)
+            else:
+                ty = RustType.parse(param.fullType)
+
+            if receiver is None and str(ty) in allowed_receivers:
+                receiver = ty
+                continue
+
+            params.append(f"{name}: {ty}")
+
+        return_ty = (
+            "" if x.returnType == "void" else f"-> {RustType.parse(x.returnType)}"
+        )
+
+        if receiver is not None:
+            signature = f'pub unsafe extern "C" fn {method_name}(self, {", ".join(params)}) {return_ty}'
+
+            out.writeln(f"impl {receiver} {{")
+            out.indent()
+            out.writeln(
+                f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{x.name}.html>"
+            )
+            out.writeln(f"#[doc(alias = \"{x.name}\")]")
+            out.writeln(f"{signature} {{")
+            out.indent()
+            out.writeln("todo!()")
+            out.deindent()
+            out.writeln("}")
+            out.deindent()
+            out.writeln("}")
+        else:
+            signature = f'pub unsafe extern "C" fn {method_name}({", ".join(params)}) {return_ty}'
+
+            out.writeln(
+                f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{x.name}.html>"
+            )
+            out.writeln(f"#[doc(alias = \"{x.name}\")]")
+            out.writeln(f"{signature} {{")
+            out.indent()
+            out.writeln("todo!()")
+            out.deindent()
+            out.writeln("}")
+
+        return Generated(method_name, out.content, x)
 
     def fill_registry(self):
         assert self.vk.videoStd is not None
@@ -533,6 +617,11 @@ class Context:
             self.reg.constants_inner[const_inner.original.name] = const_inner
             self.reg.constants[const.original.name] = const
 
+        # commands
+        for command in self.vk.commands.values():
+            command = self.generate_command(command)
+            self.reg.commands[command.original.name] = command
+
     def write_module(self, path: str, content: str):
         path = f"{self.root}/src/{path}"
         os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -555,6 +644,7 @@ class Context:
         self.fill_registry()
         print("Done!")
         print(f"- Bitmasks: {len(self.reg.bitmasks)}")
+        print(f"- Commands: {len(self.reg.commands)}")
         print(f"- Constants: {len(self.reg.constants_inner)}")
         print(f"- Enums: {len(self.reg.enums)}")
         print(f"- Flags: {len(self.reg.flags)}")
@@ -563,6 +653,9 @@ class Context:
         print(f"- Structs: {len(self.reg.structs)}")
         print("Generating source files...")
         self.write_generated_to_module("bitmasks.rs", "", self.reg.bitmasks)
+        self.write_generated_to_module(
+            "commands.rs", COMMANDS_MODULE_PREFIX, self.reg.commands
+        )
         self.write_generated_to_module("consts_inner.rs", "", self.reg.constants_inner)
         self.write_generated_to_module("consts.rs", CONSTS_MODULE_PREFIX, self.reg.constants)
         self.write_generated_to_module("enums.rs", "", self.reg.enums)

@@ -3,6 +3,7 @@ mod platform;
 
 // auto generated
 mod bitmasks;
+mod commands;
 mod consts;
 mod consts_inner;
 mod enums;
@@ -12,6 +13,7 @@ mod handles;
 mod structs;
 
 pub use bitmasks::*;
+pub use commands::*;
 pub use consts::*;
 pub use enums::*;
 pub use flags::*;

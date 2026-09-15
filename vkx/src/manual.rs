@@ -1,3 +1,5 @@
+//! Manually implemented items.
+
 /// Marker trait indicating a vulkan structure extends another.
 #[diagnostic::on_unimplemented(
     message = "Vulkan structure `{Self}` does not extend structure `{T}`",

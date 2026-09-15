@@ -1,8 +1,9 @@
-//! Platform specific types.
+//! Platform specific types. Manually implemented.
+
 #![allow(nonstandard_style)]
 #![allow(clippy::upper_case_acronyms)]
 
-use std::ffi::{c_ulong, c_void};
+use std::ffi::{c_uint, c_ulong, c_void};
 
 pub type IDirectFB = c_void;
 pub type IDirectFBSurface = c_void;
@@ -10,10 +11,13 @@ pub type IDirectFBSurface = c_void;
 // Xlib
 pub type Display = c_void;
 pub type Window = c_ulong;
+pub type VisualID = c_uint;
+pub type RROutput = c_ulong;
 
 // Xcb
 pub type xcb_connection_t = c_void;
 pub type xcb_window_t = u32;
+pub type xcb_visualid_t = u32;
 
 // Windows
 pub type DWORD = c_ulong;
@@ -64,3 +68,6 @@ pub type IOSurfaceRef = *mut c_void;
 // Android
 pub type AHardwareBuffer = c_void;
 pub type ANativeWindow = c_void;
+
+// Nvidia
+pub type RemoteAddressNV = *const c_void;

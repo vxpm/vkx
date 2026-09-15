@@ -1,6 +1,7 @@
 // WARNING: AUTO GENERATED MODULE
 #![allow(nonstandard_style)]
 #![allow(unused_imports)]
+#![allow(unused_variables)]
 
 use crate::manual::*;
 use crate::platform::*;
