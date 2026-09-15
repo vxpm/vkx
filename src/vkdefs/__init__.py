@@ -532,7 +532,7 @@ class Context:
         )
 
         if receiver is not None:
-            signature = f'pub unsafe extern "C" fn {method_name}(self, {", ".join(params)}) {return_ty}'
+            signature = f'pub unsafe fn {method_name}(self, {", ".join(params)}) {return_ty}'
 
             out.writeln(f"impl {receiver} {{")
             out.indent()
@@ -548,7 +548,7 @@ class Context:
             out.deindent()
             out.writeln("}")
         else:
-            signature = f'pub unsafe extern "C" fn {method_name}({", ".join(params)}) {return_ty}'
+            signature = f'pub unsafe fn {method_name}({", ".join(params)}) {return_ty}'
 
             out.writeln(
                 f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{x.name}.html>"
