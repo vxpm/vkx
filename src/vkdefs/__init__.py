@@ -678,7 +678,7 @@ class Context:
             if ext.promotedTo is not None and ext.promotedTo != "":
                 to = ext.promotedTo
                 if to.startswith("VK_VERSION_"):
-                    to = version_number(to)
+                    to = f"core in version {version_number(to)}"
                 else:
                     to = f"[`Self::{extension_name(to)}`]"
 
@@ -692,6 +692,15 @@ class Context:
                     by = f"[`Self::{extension_name(by)}`]"
 
                 out.writeln(f"/// Deprecated by {by}.")
+
+            if len(ext.specialUse) > 0:
+                known_use_cases = {
+                    "glemulation": "OpenGL emulation",
+                    "d3demulation": "Direct3D emulation",
+                    "devtools": "development tooling",
+                }
+                usecases = [known_use_cases.get(i, i) for i in ext.specialUse]
+                out.writeln(f"/// Intended for {', '.join(usecases)}.")
 
             out.writeln(f'#[doc(alias = "{ext.name}")]')
             out.writeln(f"{name},")

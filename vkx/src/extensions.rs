@@ -28,7 +28,7 @@ pub enum Extensions {
     KHR_AndroidSurface,
     #[doc(alias = "VK_KHR_win32_surface")]
     KHR_Win32Surface,
-    /// Promoted to 1.2.
+    /// Promoted to core in version 1.2.
     #[doc(alias = "VK_KHR_sampler_mirror_clamp_to_edge")]
     KHR_SamplerMirrorClampToEdge,
     #[doc(alias = "VK_KHR_video_queue")]
@@ -41,31 +41,31 @@ pub enum Extensions {
     KHR_VideoEncodeH265,
     #[doc(alias = "VK_KHR_video_decode_h264")]
     KHR_VideoDecodeH264,
-    /// Promoted to 1.3.
+    /// Promoted to core in version 1.3.
     #[doc(alias = "VK_KHR_dynamic_rendering")]
     KHR_DynamicRendering,
-    /// Promoted to 1.1.
+    /// Promoted to core in version 1.1.
     #[doc(alias = "VK_KHR_multiview")]
     KHR_Multiview,
-    /// Promoted to 1.1.
+    /// Promoted to core in version 1.1.
     #[doc(alias = "VK_KHR_get_physical_device_properties2")]
     KHR_GetPhysicalDeviceProperties2,
-    /// Promoted to 1.1.
+    /// Promoted to core in version 1.1.
     #[doc(alias = "VK_KHR_device_group")]
     KHR_DeviceGroup,
-    /// Promoted to 1.1.
+    /// Promoted to core in version 1.1.
     #[doc(alias = "VK_KHR_shader_draw_parameters")]
     KHR_ShaderDrawParameters,
-    /// Promoted to 1.1.
+    /// Promoted to core in version 1.1.
     #[doc(alias = "VK_KHR_maintenance1")]
     KHR_Maintenance1,
-    /// Promoted to 1.1.
+    /// Promoted to core in version 1.1.
     #[doc(alias = "VK_KHR_device_group_creation")]
     KHR_DeviceGroupCreation,
-    /// Promoted to 1.1.
+    /// Promoted to core in version 1.1.
     #[doc(alias = "VK_KHR_external_memory_capabilities")]
     KHR_ExternalMemoryCapabilities,
-    /// Promoted to 1.1.
+    /// Promoted to core in version 1.1.
     #[doc(alias = "VK_KHR_external_memory")]
     KHR_ExternalMemory,
     #[doc(alias = "VK_KHR_external_memory_win32")]
@@ -74,174 +74,176 @@ pub enum Extensions {
     KHR_ExternalMemoryFd,
     #[doc(alias = "VK_KHR_win32_keyed_mutex")]
     KHR_Win32KeyedMutex,
-    /// Promoted to 1.1.
+    /// Promoted to core in version 1.1.
     #[doc(alias = "VK_KHR_external_semaphore_capabilities")]
     KHR_ExternalSemaphoreCapabilities,
-    /// Promoted to 1.1.
+    /// Promoted to core in version 1.1.
     #[doc(alias = "VK_KHR_external_semaphore")]
     KHR_ExternalSemaphore,
     #[doc(alias = "VK_KHR_external_semaphore_win32")]
     KHR_ExternalSemaphoreWin32,
     #[doc(alias = "VK_KHR_external_semaphore_fd")]
     KHR_ExternalSemaphoreFd,
-    /// Promoted to 1.4.
+    /// Promoted to core in version 1.4.
     #[doc(alias = "VK_KHR_push_descriptor")]
     KHR_PushDescriptor,
-    /// Promoted to 1.2.
+    /// Promoted to core in version 1.2.
     #[doc(alias = "VK_KHR_shader_float16_int8")]
     KHR_ShaderFloat16Int8,
-    /// Promoted to 1.1.
+    /// Promoted to core in version 1.1.
     #[doc(alias = "VK_KHR_16bit_storage")]
     KHR_16BitStorage,
     #[doc(alias = "VK_KHR_incremental_present")]
     KHR_IncrementalPresent,
-    /// Promoted to 1.1.
+    /// Promoted to core in version 1.1.
     #[doc(alias = "VK_KHR_descriptor_update_template")]
     KHR_DescriptorUpdateTemplate,
-    /// Promoted to 1.2.
+    /// Promoted to core in version 1.2.
     #[doc(alias = "VK_KHR_imageless_framebuffer")]
     KHR_ImagelessFramebuffer,
-    /// Promoted to 1.2.
+    /// Promoted to core in version 1.2.
     #[doc(alias = "VK_KHR_create_renderpass2")]
     KHR_CreateRenderpass2,
     #[doc(alias = "VK_KHR_shared_presentable_image")]
     KHR_SharedPresentableImage,
-    /// Promoted to 1.1.
+    /// Promoted to core in version 1.1.
     #[doc(alias = "VK_KHR_external_fence_capabilities")]
     KHR_ExternalFenceCapabilities,
-    /// Promoted to 1.1.
+    /// Promoted to core in version 1.1.
     #[doc(alias = "VK_KHR_external_fence")]
     KHR_ExternalFence,
     #[doc(alias = "VK_KHR_external_fence_win32")]
     KHR_ExternalFenceWin32,
     #[doc(alias = "VK_KHR_external_fence_fd")]
     KHR_ExternalFenceFd,
+    /// Intended for development tooling.
     #[doc(alias = "VK_KHR_performance_query")]
     KHR_PerformanceQuery,
-    /// Promoted to 1.1.
+    /// Promoted to core in version 1.1.
     #[doc(alias = "VK_KHR_maintenance2")]
     KHR_Maintenance2,
     #[doc(alias = "VK_KHR_get_surface_capabilities2")]
     KHR_GetSurfaceCapabilities2,
-    /// Promoted to 1.1.
+    /// Promoted to core in version 1.1.
     #[doc(alias = "VK_KHR_variable_pointers")]
     KHR_VariablePointers,
     #[doc(alias = "VK_KHR_get_display_properties2")]
     KHR_GetDisplayProperties2,
-    /// Promoted to 1.1.
+    /// Promoted to core in version 1.1.
     #[doc(alias = "VK_KHR_dedicated_allocation")]
     KHR_DedicatedAllocation,
-    /// Promoted to 1.1.
+    /// Promoted to core in version 1.1.
     #[doc(alias = "VK_KHR_storage_buffer_storage_class")]
     KHR_StorageBufferStorageClass,
     #[doc(alias = "VK_KHR_shader_bfloat16")]
     KHR_ShaderBfloat16,
-    /// Promoted to 1.1.
+    /// Promoted to core in version 1.1.
     #[doc(alias = "VK_KHR_relaxed_block_layout")]
     KHR_RelaxedBlockLayout,
-    /// Promoted to 1.1.
+    /// Promoted to core in version 1.1.
     #[doc(alias = "VK_KHR_get_memory_requirements2")]
     KHR_GetMemoryRequirements2,
-    /// Promoted to 1.2.
+    /// Promoted to core in version 1.2.
     #[doc(alias = "VK_KHR_image_format_list")]
     KHR_ImageFormatList,
-    /// Promoted to 1.1.
+    /// Promoted to core in version 1.1.
     #[doc(alias = "VK_KHR_sampler_ycbcr_conversion")]
     KHR_SamplerYcbcrConversion,
-    /// Promoted to 1.1.
+    /// Promoted to core in version 1.1.
     #[doc(alias = "VK_KHR_bind_memory2")]
     KHR_BindMemory2,
     #[doc(alias = "VK_KHR_portability_subset")]
     KHR_PortabilitySubset,
-    /// Promoted to 1.1.
+    /// Promoted to core in version 1.1.
     #[doc(alias = "VK_KHR_maintenance3")]
     KHR_Maintenance3,
-    /// Promoted to 1.2.
+    /// Promoted to core in version 1.2.
     #[doc(alias = "VK_KHR_draw_indirect_count")]
     KHR_DrawIndirectCount,
-    /// Promoted to 1.2.
+    /// Promoted to core in version 1.2.
     #[doc(alias = "VK_KHR_shader_subgroup_extended_types")]
     KHR_ShaderSubgroupExtendedTypes,
-    /// Promoted to 1.2.
+    /// Promoted to core in version 1.2.
     #[doc(alias = "VK_KHR_8bit_storage")]
     KHR_8BitStorage,
-    /// Promoted to 1.2.
+    /// Promoted to core in version 1.2.
     #[doc(alias = "VK_KHR_shader_atomic_int64")]
     KHR_ShaderAtomicInt64,
     #[doc(alias = "VK_KHR_shader_clock")]
     KHR_ShaderClock,
     #[doc(alias = "VK_KHR_video_decode_h265")]
     KHR_VideoDecodeH265,
-    /// Promoted to 1.4.
+    /// Promoted to core in version 1.4.
     #[doc(alias = "VK_KHR_global_priority")]
     KHR_GlobalPriority,
-    /// Promoted to 1.2.
+    /// Promoted to core in version 1.2.
     #[doc(alias = "VK_KHR_driver_properties")]
     KHR_DriverProperties,
-    /// Promoted to 1.2.
+    /// Promoted to core in version 1.2.
     #[doc(alias = "VK_KHR_shader_float_controls")]
     KHR_ShaderFloatControls,
-    /// Promoted to 1.2.
+    /// Promoted to core in version 1.2.
     #[doc(alias = "VK_KHR_depth_stencil_resolve")]
     KHR_DepthStencilResolve,
     #[doc(alias = "VK_KHR_swapchain_mutable_format")]
     KHR_SwapchainMutableFormat,
-    /// Promoted to 1.2.
+    /// Promoted to core in version 1.2.
     #[doc(alias = "VK_KHR_timeline_semaphore")]
     KHR_TimelineSemaphore,
-    /// Promoted to 1.2.
+    /// Promoted to core in version 1.2.
     #[doc(alias = "VK_KHR_vulkan_memory_model")]
     KHR_VulkanMemoryModel,
-    /// Promoted to 1.3.
+    /// Promoted to core in version 1.3.
     #[doc(alias = "VK_KHR_shader_terminate_invocation")]
     KHR_ShaderTerminateInvocation,
     #[doc(alias = "VK_KHR_fragment_shading_rate")]
     KHR_FragmentShadingRate,
     #[doc(alias = "VK_KHR_shader_constant_data")]
     KHR_ShaderConstantData,
-    /// Promoted to 1.4.
+    /// Promoted to core in version 1.4.
     #[doc(alias = "VK_KHR_dynamic_rendering_local_read")]
     KHR_DynamicRenderingLocalRead,
     #[doc(alias = "VK_KHR_shader_abort")]
     KHR_ShaderAbort,
     #[doc(alias = "VK_KHR_shader_quad_control")]
     KHR_ShaderQuadControl,
-    /// Promoted to 1.2.
+    /// Promoted to core in version 1.2.
     #[doc(alias = "VK_KHR_spirv_1_4")]
     KHR_Spirv14,
     #[doc(alias = "VK_KHR_surface_protected_capabilities")]
     KHR_SurfaceProtectedCapabilities,
-    /// Promoted to 1.2.
+    /// Promoted to core in version 1.2.
     #[doc(alias = "VK_KHR_separate_depth_stencil_layouts")]
     KHR_SeparateDepthStencilLayouts,
     #[doc(alias = "VK_KHR_present_wait")]
     KHR_PresentWait,
-    /// Promoted to 1.2.
+    /// Promoted to core in version 1.2.
     #[doc(alias = "VK_KHR_uniform_buffer_standard_layout")]
     KHR_UniformBufferStandardLayout,
-    /// Promoted to 1.2.
+    /// Promoted to core in version 1.2.
     #[doc(alias = "VK_KHR_buffer_device_address")]
     KHR_BufferDeviceAddress,
     #[doc(alias = "VK_KHR_deferred_host_operations")]
     KHR_DeferredHostOperations,
+    /// Intended for development tooling.
     #[doc(alias = "VK_KHR_pipeline_executable_properties")]
     KHR_PipelineExecutableProperties,
-    /// Promoted to 1.4.
+    /// Promoted to core in version 1.4.
     #[doc(alias = "VK_KHR_map_memory2")]
     KHR_MapMemory2,
-    /// Promoted to 1.3.
+    /// Promoted to core in version 1.3.
     #[doc(alias = "VK_KHR_shader_integer_dot_product")]
     KHR_ShaderIntegerDotProduct,
     #[doc(alias = "VK_KHR_pipeline_library")]
     KHR_PipelineLibrary,
-    /// Promoted to 1.3.
+    /// Promoted to core in version 1.3.
     #[doc(alias = "VK_KHR_shader_non_semantic_info")]
     KHR_ShaderNonSemanticInfo,
     #[doc(alias = "VK_KHR_present_id")]
     KHR_PresentId,
     #[doc(alias = "VK_KHR_video_encode_queue")]
     KHR_VideoEncodeQueue,
-    /// Promoted to 1.3.
+    /// Promoted to core in version 1.3.
     #[doc(alias = "VK_KHR_synchronization2")]
     KHR_Synchronization2,
     #[doc(alias = "VK_KHR_device_address_commands")]
@@ -250,15 +252,15 @@ pub enum Extensions {
     KHR_FragmentShaderBarycentric,
     #[doc(alias = "VK_KHR_shader_subgroup_uniform_control_flow")]
     KHR_ShaderSubgroupUniformControlFlow,
-    /// Promoted to 1.3.
+    /// Promoted to core in version 1.3.
     #[doc(alias = "VK_KHR_zero_initialize_workgroup_memory")]
     KHR_ZeroInitializeWorkgroupMemory,
     #[doc(alias = "VK_KHR_workgroup_memory_explicit_layout")]
     KHR_WorkgroupMemoryExplicitLayout,
-    /// Promoted to 1.3.
+    /// Promoted to core in version 1.3.
     #[doc(alias = "VK_KHR_copy_commands2")]
     KHR_CopyCommands2,
-    /// Promoted to 1.3.
+    /// Promoted to core in version 1.3.
     #[doc(alias = "VK_KHR_format_feature_flags2")]
     KHR_FormatFeatureFlags2,
     #[doc(alias = "VK_KHR_ray_tracing_maintenance1")]
@@ -267,15 +269,15 @@ pub enum Extensions {
     KHR_ShaderUntypedPointers,
     #[doc(alias = "VK_KHR_portability_enumeration")]
     KHR_PortabilityEnumeration,
-    /// Promoted to 1.3.
+    /// Promoted to core in version 1.3.
     #[doc(alias = "VK_KHR_maintenance4")]
     KHR_Maintenance4,
-    /// Promoted to 1.4.
+    /// Promoted to core in version 1.4.
     #[doc(alias = "VK_KHR_shader_subgroup_rotate")]
     KHR_ShaderSubgroupRotate,
     #[doc(alias = "VK_KHR_shader_maximal_reconvergence")]
     KHR_ShaderMaximalReconvergence,
-    /// Promoted to 1.4.
+    /// Promoted to core in version 1.4.
     #[doc(alias = "VK_KHR_maintenance5")]
     KHR_Maintenance5,
     #[doc(alias = "VK_KHR_present_id2")]
@@ -304,29 +306,29 @@ pub enum Extensions {
     KHR_VideoDecodeVp9,
     #[doc(alias = "VK_KHR_video_maintenance1")]
     KHR_VideoMaintenance1,
-    /// Promoted to 1.4.
+    /// Promoted to core in version 1.4.
     #[doc(alias = "VK_KHR_vertex_attribute_divisor")]
     KHR_VertexAttributeDivisor,
-    /// Promoted to 1.4.
+    /// Promoted to core in version 1.4.
     #[doc(alias = "VK_KHR_load_store_op_none")]
     KHR_LoadStoreOpNone,
     #[doc(alias = "VK_KHR_unified_image_layouts")]
     KHR_UnifiedImageLayouts,
-    /// Promoted to 1.4.
+    /// Promoted to core in version 1.4.
     #[doc(alias = "VK_KHR_shader_float_controls2")]
     KHR_ShaderFloatControls2,
-    /// Promoted to 1.4.
+    /// Promoted to core in version 1.4.
     #[doc(alias = "VK_KHR_index_type_uint8")]
     KHR_IndexTypeUint8,
-    /// Promoted to 1.4.
+    /// Promoted to core in version 1.4.
     #[doc(alias = "VK_KHR_line_rasterization")]
     KHR_LineRasterization,
     #[doc(alias = "VK_KHR_calibrated_timestamps")]
     KHR_CalibratedTimestamps,
-    /// Promoted to 1.4.
+    /// Promoted to core in version 1.4.
     #[doc(alias = "VK_KHR_shader_expect_assume")]
     KHR_ShaderExpectAssume,
-    /// Promoted to 1.4.
+    /// Promoted to core in version 1.4.
     #[doc(alias = "VK_KHR_maintenance6")]
     KHR_Maintenance6,
     #[doc(alias = "VK_KHR_copy_memory_indirect")]
@@ -368,6 +370,7 @@ pub enum Extensions {
     #[doc(alias = "VK_KHR_extended_flags")]
     KHR_ExtendedFlags,
     /// Deprecated by [`Self::EXT_DebugUtils`].
+    /// Intended for debugging.
     #[doc(alias = "VK_EXT_debug_report")]
     EXT_DebugReport,
     #[doc(alias = "VK_NV_glsl_shader")]
@@ -383,6 +386,7 @@ pub enum Extensions {
     #[doc(alias = "VK_AMD_shader_explicit_vertex_parameter")]
     AMD_ShaderExplicitVertexParameter,
     /// Promoted to [`Self::EXT_DebugUtils`].
+    /// Intended for debugging.
     #[doc(alias = "VK_EXT_debug_marker")]
     EXT_DebugMarker,
     #[doc(alias = "VK_AMD_gcn_shader")]
@@ -390,6 +394,7 @@ pub enum Extensions {
     /// Deprecated by [`Self::KHR_DedicatedAllocation`].
     #[doc(alias = "VK_NV_dedicated_allocation")]
     NV_DedicatedAllocation,
+    /// Intended for OpenGL emulation, Direct3D emulation, development tooling.
     #[doc(alias = "VK_EXT_transform_feedback")]
     EXT_TransformFeedback,
     #[doc(alias = "VK_NVX_binary_import")]
@@ -408,6 +413,7 @@ pub enum Extensions {
     AMD_ShaderBallot,
     #[doc(alias = "VK_AMD_texture_gather_bias_lod")]
     AMD_TextureGatherBiasLod,
+    /// Intended for development tooling.
     #[doc(alias = "VK_AMD_shader_info")]
     AMD_ShaderInfo,
     #[doc(alias = "VK_AMD_shader_image_load_store_lod")]
@@ -431,6 +437,7 @@ pub enum Extensions {
     #[doc(alias = "VK_NV_win32_keyed_mutex")]
     NV_Win32KeyedMutex,
     /// Deprecated by [`Self::EXT_LayerSettings`].
+    /// Intended for debugging.
     #[doc(alias = "VK_EXT_validation_flags")]
     EXT_ValidationFlags,
     #[doc(alias = "VK_NN_vi_surface")]
@@ -441,12 +448,12 @@ pub enum Extensions {
     /// Deprecated by 1.1.
     #[doc(alias = "VK_EXT_shader_subgroup_vote")]
     EXT_ShaderSubgroupVote,
-    /// Promoted to 1.3.
+    /// Promoted to core in version 1.3.
     #[doc(alias = "VK_EXT_texture_compression_astc_hdr")]
     EXT_TextureCompressionAstcHdr,
     #[doc(alias = "VK_EXT_astc_decode_mode")]
     EXT_AstcDecodeMode,
-    /// Promoted to 1.4.
+    /// Promoted to core in version 1.4.
     #[doc(alias = "VK_EXT_pipeline_robustness")]
     EXT_PipelineRobustness,
     #[doc(alias = "VK_EXT_conditional_rendering")]
@@ -477,12 +484,14 @@ pub enum Extensions {
     EXT_DiscardRectangles,
     #[doc(alias = "VK_EXT_conservative_rasterization")]
     EXT_ConservativeRasterization,
+    /// Intended for Direct3D emulation.
     #[doc(alias = "VK_EXT_depth_clip_enable")]
     EXT_DepthClipEnable,
     #[doc(alias = "VK_EXT_swapchain_colorspace")]
     EXT_SwapchainColorspace,
     #[doc(alias = "VK_EXT_hdr_metadata")]
     EXT_HdrMetadata,
+    /// Intended for OpenGL emulation.
     #[doc(alias = "VK_IMG_relaxed_line_rasterization")]
     IMG_RelaxedLineRasterization,
     /// Deprecated by [`Self::EXT_MetalSurface`].
@@ -495,11 +504,12 @@ pub enum Extensions {
     EXT_ExternalMemoryDmaBuf,
     #[doc(alias = "VK_EXT_queue_family_foreign")]
     EXT_QueueFamilyForeign,
+    /// Intended for debugging.
     #[doc(alias = "VK_EXT_debug_utils")]
     EXT_DebugUtils,
     #[doc(alias = "VK_ANDROID_external_memory_android_hardware_buffer")]
     ANDROID_ExternalMemoryAndroidHardwareBuffer,
-    /// Promoted to 1.2.
+    /// Promoted to core in version 1.2.
     #[doc(alias = "VK_EXT_sampler_filter_minmax")]
     EXT_SamplerFilterMinmax,
     /// Deprecated by [`Self::KHR_ShaderFloat16Int8`].
@@ -515,7 +525,7 @@ pub enum Extensions {
     AMD_MixedAttachmentSamples,
     #[doc(alias = "VK_AMD_shader_fragment_mask")]
     AMD_ShaderFragmentMask,
-    /// Promoted to 1.3.
+    /// Promoted to core in version 1.3.
     #[doc(alias = "VK_EXT_inline_uniform_block")]
     EXT_InlineUniformBlock,
     #[doc(alias = "VK_EXT_shader_stencil_export")]
@@ -538,10 +548,10 @@ pub enum Extensions {
     EXT_ImageDrmFormatModifier,
     #[doc(alias = "VK_EXT_validation_cache")]
     EXT_ValidationCache,
-    /// Promoted to 1.2.
+    /// Promoted to core in version 1.2.
     #[doc(alias = "VK_EXT_descriptor_indexing")]
     EXT_DescriptorIndexing,
-    /// Promoted to 1.2.
+    /// Promoted to core in version 1.2.
     #[doc(alias = "VK_EXT_shader_viewport_index_layer")]
     EXT_ShaderViewportIndexLayer,
     #[doc(alias = "VK_NV_shading_rate_image")]
@@ -565,6 +575,7 @@ pub enum Extensions {
     EXT_GlobalPriority,
     #[doc(alias = "VK_EXT_external_memory_host")]
     EXT_ExternalMemoryHost,
+    /// Intended for development tooling.
     #[doc(alias = "VK_AMD_buffer_marker")]
     AMD_BufferMarker,
     #[doc(alias = "VK_AMD_pipeline_compiler_control")]
@@ -581,7 +592,8 @@ pub enum Extensions {
     EXT_VertexAttributeDivisor,
     #[doc(alias = "VK_GGP_frame_token")]
     GGP_FrameToken,
-    /// Promoted to 1.3.
+    /// Promoted to core in version 1.3.
+    /// Intended for development tooling.
     #[doc(alias = "VK_EXT_pipeline_creation_feedback")]
     EXT_PipelineCreationFeedback,
     /// Promoted to [`Self::EXT_ShaderSubgroupPartitioned`].
@@ -605,6 +617,7 @@ pub enum Extensions {
     EXT_PresentTiming,
     #[doc(alias = "VK_INTEL_shader_integer_functions2")]
     INTEL_ShaderIntegerFunctions2,
+    /// Intended for development tooling.
     #[doc(alias = "VK_INTEL_performance_query")]
     INTEL_PerformanceQuery,
     #[doc(alias = "VK_EXT_pci_bus_info")]
@@ -617,14 +630,14 @@ pub enum Extensions {
     EXT_MetalSurface,
     #[doc(alias = "VK_EXT_fragment_density_map")]
     EXT_FragmentDensityMap,
-    /// Promoted to 1.2.
+    /// Promoted to core in version 1.2.
     #[doc(alias = "VK_EXT_scalar_block_layout")]
     EXT_ScalarBlockLayout,
     #[doc(alias = "VK_GOOGLE_hlsl_functionality1")]
     GOOGLE_HlslFunctionality1,
     #[doc(alias = "VK_GOOGLE_decorate_string")]
     GOOGLE_DecorateString,
-    /// Promoted to 1.3.
+    /// Promoted to core in version 1.3.
     #[doc(alias = "VK_EXT_subgroup_size_control")]
     EXT_SubgroupSizeControl,
     #[doc(alias = "VK_AMD_shader_core_properties2")]
@@ -642,13 +655,14 @@ pub enum Extensions {
     /// Deprecated by [`Self::KHR_BufferDeviceAddress`].
     #[doc(alias = "VK_EXT_buffer_device_address")]
     EXT_BufferDeviceAddress,
-    /// Promoted to 1.3.
+    /// Promoted to core in version 1.3.
     #[doc(alias = "VK_EXT_tooling_info")]
     EXT_ToolingInfo,
-    /// Promoted to 1.2.
+    /// Promoted to core in version 1.2.
     #[doc(alias = "VK_EXT_separate_stencil_usage")]
     EXT_SeparateStencilUsage,
     /// Deprecated by [`Self::EXT_LayerSettings`].
+    /// Intended for debugging.
     #[doc(alias = "VK_EXT_validation_features")]
     EXT_ValidationFeatures,
     #[doc(alias = "VK_NV_cooperative_matrix")]
@@ -659,6 +673,7 @@ pub enum Extensions {
     EXT_FragmentShaderInterlock,
     #[doc(alias = "VK_EXT_ycbcr_image_arrays")]
     EXT_YcbcrImageArrays,
+    /// Intended for OpenGL emulation.
     #[doc(alias = "VK_EXT_provoking_vertex")]
     EXT_ProvokingVertex,
     #[doc(alias = "VK_EXT_full_screen_exclusive")]
@@ -666,20 +681,21 @@ pub enum Extensions {
     #[doc(alias = "VK_EXT_headless_surface")]
     EXT_HeadlessSurface,
     /// Promoted to [`Self::KHR_LineRasterization`].
+    /// Intended for cadsupport.
     #[doc(alias = "VK_EXT_line_rasterization")]
     EXT_LineRasterization,
     #[doc(alias = "VK_EXT_shader_atomic_float")]
     EXT_ShaderAtomicFloat,
-    /// Promoted to 1.2.
+    /// Promoted to core in version 1.2.
     #[doc(alias = "VK_EXT_host_query_reset")]
     EXT_HostQueryReset,
     /// Promoted to [`Self::KHR_IndexTypeUint8`].
     #[doc(alias = "VK_EXT_index_type_uint8")]
     EXT_IndexTypeUint8,
-    /// Promoted to 1.3.
+    /// Promoted to core in version 1.3.
     #[doc(alias = "VK_EXT_extended_dynamic_state")]
     EXT_ExtendedDynamicState,
-    /// Promoted to 1.4.
+    /// Promoted to core in version 1.4.
     #[doc(alias = "VK_EXT_host_image_copy")]
     EXT_HostImageCopy,
     #[doc(alias = "VK_EXT_map_memory_placed")]
@@ -692,20 +708,22 @@ pub enum Extensions {
     /// Promoted to [`Self::KHR_SwapchainMaintenance1`].
     #[doc(alias = "VK_EXT_swapchain_maintenance1")]
     EXT_SwapchainMaintenance1,
-    /// Promoted to 1.3.
+    /// Promoted to core in version 1.3.
     #[doc(alias = "VK_EXT_shader_demote_to_helper_invocation")]
     EXT_ShaderDemoteToHelperInvocation,
     #[doc(alias = "VK_NV_device_generated_commands")]
     NV_DeviceGeneratedCommands,
     #[doc(alias = "VK_NV_inherited_viewport_scissor")]
     NV_InheritedViewportScissor,
-    /// Promoted to 1.3.
+    /// Promoted to core in version 1.3.
     #[doc(alias = "VK_EXT_texel_buffer_alignment")]
     EXT_TexelBufferAlignment,
     #[doc(alias = "VK_QCOM_render_pass_transform")]
     QCOM_RenderPassTransform,
+    /// Intended for Direct3D emulation.
     #[doc(alias = "VK_EXT_depth_bias_control")]
     EXT_DepthBiasControl,
+    /// Intended for development tooling.
     #[doc(alias = "VK_EXT_device_memory_report")]
     EXT_DeviceMemoryReport,
     #[doc(alias = "VK_EXT_acquire_drm_display")]
@@ -713,6 +731,7 @@ pub enum Extensions {
     /// Promoted to [`Self::KHR_Robustness2`].
     #[doc(alias = "VK_EXT_robustness2")]
     EXT_Robustness2,
+    /// Intended for OpenGL emulation, Direct3D emulation.
     #[doc(alias = "VK_EXT_custom_border_color")]
     EXT_CustomBorderColor,
     #[doc(alias = "VK_EXT_texture_compression_astc_3d")]
@@ -721,10 +740,10 @@ pub enum Extensions {
     GOOGLE_UserType,
     #[doc(alias = "VK_NV_present_barrier")]
     NV_PresentBarrier,
-    /// Promoted to 1.3.
+    /// Promoted to core in version 1.3.
     #[doc(alias = "VK_EXT_private_data")]
     EXT_PrivateData,
-    /// Promoted to 1.3.
+    /// Promoted to core in version 1.3.
     #[doc(alias = "VK_EXT_pipeline_creation_cache_control")]
     EXT_PipelineCreationCacheControl,
     #[doc(alias = "VK_NV_device_diagnostics_config")]
@@ -759,21 +778,22 @@ pub enum Extensions {
     NV_FragmentShadingRateEnums,
     #[doc(alias = "VK_NV_ray_tracing_motion_blur")]
     NV_RayTracingMotionBlur,
-    /// Promoted to 1.3.
+    /// Promoted to core in version 1.3.
     #[doc(alias = "VK_EXT_ycbcr_2plane_444_formats")]
     EXT_Ycbcr2Plane444Formats,
     #[doc(alias = "VK_EXT_fragment_density_map2")]
     EXT_FragmentDensityMap2,
     #[doc(alias = "VK_QCOM_rotated_copy_commands")]
     QCOM_RotatedCopyCommands,
-    /// Promoted to 1.3.
+    /// Promoted to core in version 1.3.
     #[doc(alias = "VK_EXT_image_robustness")]
     EXT_ImageRobustness,
     #[doc(alias = "VK_EXT_image_compression_control")]
     EXT_ImageCompressionControl,
+    /// Intended for OpenGL emulation, Direct3D emulation.
     #[doc(alias = "VK_EXT_attachment_feedback_loop_layout")]
     EXT_AttachmentFeedbackLoopLayout,
-    /// Promoted to 1.3.
+    /// Promoted to core in version 1.3.
     #[doc(alias = "VK_EXT_4444_formats")]
     EXT_4444Formats,
     /// Promoted to [`Self::KHR_DeviceFault`].
@@ -789,16 +809,20 @@ pub enum Extensions {
     #[doc(alias = "VK_EXT_directfb_surface")]
     EXT_DirectfbSurface,
     /// Promoted to [`Self::EXT_MutableDescriptorType`].
+    /// Intended for Direct3D emulation.
     #[doc(alias = "VK_VALVE_mutable_descriptor_type")]
     VALVE_MutableDescriptorType,
     #[doc(alias = "VK_EXT_vertex_input_dynamic_state")]
     EXT_VertexInputDynamicState,
     #[doc(alias = "VK_EXT_physical_device_drm")]
     EXT_PhysicalDeviceDrm,
+    /// Intended for debugging, development tooling.
     #[doc(alias = "VK_EXT_device_address_binding_report")]
     EXT_DeviceAddressBindingReport,
+    /// Intended for OpenGL emulation.
     #[doc(alias = "VK_EXT_depth_clip_control")]
     EXT_DepthClipControl,
+    /// Intended for OpenGL emulation.
     #[doc(alias = "VK_EXT_primitive_topology_list_restart")]
     EXT_PrimitiveTopologyListRestart,
     /// Promoted to [`Self::KHR_PresentModeFifoLatestReady`].
@@ -822,13 +846,14 @@ pub enum Extensions {
     EXT_FrameBoundary,
     #[doc(alias = "VK_EXT_multisampled_render_to_single_sampled")]
     EXT_MultisampledRenderToSingleSampled,
-    /// Promoted to 1.3.
+    /// Promoted to core in version 1.3.
     #[doc(alias = "VK_EXT_extended_dynamic_state2")]
     EXT_ExtendedDynamicState2,
     #[doc(alias = "VK_QNX_screen_surface")]
     QNX_ScreenSurface,
     #[doc(alias = "VK_EXT_color_write_enable")]
     EXT_ColorWriteEnable,
+    /// Intended for OpenGL emulation.
     #[doc(alias = "VK_EXT_primitives_generated_query")]
     EXT_PrimitivesGeneratedQuery,
     /// Promoted to [`Self::KHR_GlobalPriority`].
@@ -840,6 +865,7 @@ pub enum Extensions {
     EXT_ImageViewMinLod,
     #[doc(alias = "VK_EXT_multi_draw")]
     EXT_MultiDraw,
+    /// Intended for OpenGL emulation.
     #[doc(alias = "VK_EXT_image_2d_view_of_3d")]
     EXT_Image2DViewOf3D,
     #[doc(alias = "VK_EXT_shader_tile_image")]
@@ -855,6 +881,7 @@ pub enum Extensions {
     EXT_LoadStoreOpNone,
     #[doc(alias = "VK_HUAWEI_cluster_culling_shader")]
     HUAWEI_ClusterCullingShader,
+    /// Intended for OpenGL emulation, Direct3D emulation.
     #[doc(alias = "VK_EXT_border_color_swizzle")]
     EXT_BorderColorSwizzle,
     #[doc(alias = "VK_EXT_pageable_device_local_memory")]
@@ -863,13 +890,16 @@ pub enum Extensions {
     ARM_ShaderCoreProperties,
     #[doc(alias = "VK_ARM_scheduling_controls")]
     ARM_SchedulingControls,
+    /// Intended for Direct3D emulation.
     #[doc(alias = "VK_EXT_image_sliced_view_of_3d")]
     EXT_ImageSlicedViewOf3D,
+    /// Intended for Direct3D emulation.
     #[doc(alias = "VK_VALVE_descriptor_set_host_mapping")]
     VALVE_DescriptorSetHostMapping,
     /// Promoted to [`Self::KHR_DepthClampZeroOne`].
     #[doc(alias = "VK_EXT_depth_clamp_zero_one")]
     EXT_DepthClampZeroOne,
+    /// Intended for Direct3D emulation, OpenGL emulation.
     #[doc(alias = "VK_EXT_non_seamless_cube_map")]
     EXT_NonSeamlessCubeMap,
     #[doc(alias = "VK_ARM_render_pass_striped")]
@@ -889,6 +919,7 @@ pub enum Extensions {
     NV_RayTracingLinearSweptSpheres,
     #[doc(alias = "VK_NV_linear_color_attachment")]
     NV_LinearColorAttachment,
+    /// Intended for OpenGL emulation.
     #[doc(alias = "VK_GOOGLE_surfaceless_query")]
     GOOGLE_SurfacelessQuery,
     #[doc(alias = "VK_EXT_image_compression_control_swapchain")]
@@ -915,11 +946,13 @@ pub enum Extensions {
     EXT_RasterizationOrderAttachmentAccess,
     #[doc(alias = "VK_NV_optical_flow")]
     NV_OpticalFlow,
+    /// Intended for OpenGL emulation.
     #[doc(alias = "VK_EXT_legacy_dithering")]
     EXT_LegacyDithering,
-    /// Promoted to 1.4.
+    /// Promoted to core in version 1.4.
     #[doc(alias = "VK_EXT_pipeline_protected_access")]
     EXT_PipelineProtectedAccess,
+    /// Intended for OpenGL emulation.
     #[doc(alias = "VK_ANDROID_external_format_resolve")]
     ANDROID_ExternalFormatResolve,
     #[doc(alias = "VK_AMD_anti_lag")]
@@ -941,8 +974,10 @@ pub enum Extensions {
     NV_CooperativeVector,
     #[doc(alias = "VK_NV_extended_sparse_address_space")]
     NV_ExtendedSparseAddressSpace,
+    /// Intended for Direct3D emulation.
     #[doc(alias = "VK_EXT_mutable_descriptor_type")]
     EXT_MutableDescriptorType,
+    /// Intended for OpenGL emulation.
     #[doc(alias = "VK_EXT_legacy_vertex_attributes")]
     EXT_LegacyVertexAttributes,
     #[doc(alias = "VK_EXT_layer_settings")]
@@ -973,6 +1008,7 @@ pub enum Extensions {
     QCOM_YcbcrDegamma,
     #[doc(alias = "VK_QCOM_filter_cubic_clamp")]
     QCOM_FilterCubicClamp,
+    /// Intended for OpenGL emulation, Direct3D emulation.
     #[doc(alias = "VK_EXT_attachment_feedback_loop_dynamic_state")]
     EXT_AttachmentFeedbackLoopDynamicState,
     #[doc(alias = "VK_QNX_external_memory_screen_buffer")]
@@ -1009,6 +1045,7 @@ pub enum Extensions {
     NV_PartitionedAccelerationStructure,
     #[doc(alias = "VK_EXT_device_generated_commands")]
     EXT_DeviceGeneratedCommands,
+    /// Intended for Direct3D emulation.
     #[doc(alias = "VK_MESA_image_alignment_control")]
     MESA_ImageAlignmentControl,
     #[doc(alias = "VK_NV_push_constant_bank")]
@@ -1029,8 +1066,10 @@ pub enum Extensions {
     IMG_FilterLinear2D,
     #[doc(alias = "VK_EXT_external_memory_metal")]
     EXT_ExternalMemoryMetal,
+    /// Intended for development tooling.
     #[doc(alias = "VK_ARM_performance_counters_by_region")]
     ARM_PerformanceCountersByRegion,
+    /// Intended for development tooling.
     #[doc(alias = "VK_ARM_shader_instrumentation")]
     ARM_ShaderInstrumentation,
     /// Promoted to [`Self::KHR_Maintenance9`].
@@ -1078,6 +1117,7 @@ pub enum Extensions {
     SEC_ThrottleHint,
     #[doc(alias = "VK_ARM_data_graph_neural_accelerator_statistics")]
     ARM_DataGraphNeuralAcceleratorStatistics,
+    /// Intended for OpenGL emulation.
     #[doc(alias = "VK_EXT_primitive_restart_index")]
     EXT_PrimitiveRestartIndex,
     #[doc(alias = "VK_EXT_image_tiling_control")]
@@ -1086,6 +1126,7 @@ pub enum Extensions {
     NV_CooperativeMatrixDecodeVector,
     #[doc(alias = "VK_NV_private_data_base_handle")]
     NV_PrivateDataBaseHandle,
+    /// Intended for Direct3D emulation.
     #[doc(alias = "VK_VALVE_buffer_device_address_allocation_alignment")]
     VALVE_BufferDeviceAddressAllocationAlignment,
     #[doc(alias = "VK_KHR_acceleration_structure")]
