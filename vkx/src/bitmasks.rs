@@ -1090,7 +1090,7 @@ bitflags::bitflags! {
 }
 impl PipelineCreateFlags {
     #[doc(alias = "VK_PIPELINE_CREATE_DISPATCH_BASE")]
-    pub const DISPATCH_BASE: Self = Self::DISPATCH_BASE;
+    pub const ALIAS_DISPATCH_BASE: Self = Self::DISPATCH_BASE;
     #[doc(alias = "VK_PIPELINE_CREATE_DISPATCH_BASE_BIT_KHR")]
     pub const DISPATCH_BASE_BIT_KHR: Self = Self::DISPATCH_BASE;
     #[doc(alias = "VK_PIPELINE_CREATE_DISPATCH_BASE_KHR")]
@@ -2626,7 +2626,7 @@ bitflags::bitflags! {
 pub type HostImageCopyFlagsEXT = HostImageCopyFlags;
 impl HostImageCopyFlags {
     #[doc(alias = "VK_HOST_IMAGE_COPY_MEMCPY")]
-    pub const MEMCPY: Self = Self::MEMCPY;
+    pub const ALIAS_MEMCPY: Self = Self::MEMCPY;
     #[doc(alias = "VK_HOST_IMAGE_COPY_MEMCPY_BIT_EXT")]
     pub const MEMCPY_BIT_EXT: Self = Self::MEMCPY;
     #[doc(alias = "VK_HOST_IMAGE_COPY_MEMCPY_EXT")]

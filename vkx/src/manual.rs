@@ -1,11 +1,20 @@
 //! Manually implemented items.
 
+/// Marker trait indicating a vulkan structure that can be extended.
+#[diagnostic::on_unimplemented(
+    message = "Vulkan structure `{Self}` cannot be extended",
+    note = "It does not have a `next` pointer"
+)]
+pub unsafe trait Extendable: Sized {
+    fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self;
+}
+
 /// Marker trait indicating a vulkan structure extends another.
 #[diagnostic::on_unimplemented(
     message = "Vulkan structure `{Self}` does not extend structure `{T}`",
     note = "Documentation of `{T}` contains a list of all structures extending it"
 )]
-pub trait Extends<T> {}
+pub unsafe trait Extends<T>: Extendable {}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBool32.html>
 #[doc(alias = "VkBool32")]

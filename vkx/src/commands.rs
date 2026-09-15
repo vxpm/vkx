@@ -184,7 +184,7 @@ impl Device {
     /// [`vkGetDeviceProcAddr`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceProcAddr.html)
     ///
     #[doc(alias = "vkGetDeviceProcAddr")]
-    pub unsafe fn get_proc_addr(self, name: *const c_char) -> vkVoidFunction {
+    pub unsafe fn get_device_proc_addr(self, name: *const c_char) -> vkVoidFunction {
         todo!()
     }
 }
@@ -227,7 +227,7 @@ impl Device {
     /// - allocator
     ///
     #[doc(alias = "vkDestroyDevice")]
-    pub unsafe fn destroy(self, allocator: *const AllocationCallbacks) {
+    pub unsafe fn destroy_device(self, allocator: *const AllocationCallbacks) {
         todo!()
     }
 }
@@ -336,7 +336,12 @@ impl Device {
     /// [`vkGetDeviceQueue`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceQueue.html)
     ///
     #[doc(alias = "vkGetDeviceQueue")]
-    pub unsafe fn get_queue(self, queue_family_index: u32, queue_index: u32, queue: *mut Queue) {
+    pub unsafe fn get_device_queue(
+        self,
+        queue_family_index: u32,
+        queue_index: u32,
+        queue: *mut Queue,
+    ) {
         todo!()
     }
 }
@@ -399,7 +404,7 @@ impl Device {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkDeviceWaitIdle")]
-    pub unsafe fn wait_idle(self) -> ResultCode {
+    pub unsafe fn device_wait_idle(self) -> ResultCode {
         todo!()
     }
 }
@@ -527,7 +532,7 @@ impl Device {
     /// [`vkGetDeviceMemoryCommitment`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceMemoryCommitment.html)
     ///
     #[doc(alias = "vkGetDeviceMemoryCommitment")]
-    pub unsafe fn get_memory_commitment(
+    pub unsafe fn get_device_memory_commitment(
         self,
         memory: DeviceMemory,
         committed_memory_in_bytes: *mut DeviceSize,
@@ -3076,7 +3081,7 @@ impl Device {
     /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceGroupPeerMemoryFeatures")]
-    pub unsafe fn get_group_peer_memory_features(
+    pub unsafe fn get_device_group_peer_memory_features(
         self,
         heap_index: u32,
         local_device_index: u32,
@@ -3380,7 +3385,7 @@ impl Device {
     /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceQueue2")]
-    pub unsafe fn get_queue_2(self, queue_info: *const DeviceQueueInfo2, queue: *mut Queue) {
+    pub unsafe fn get_device_queue_2(self, queue_info: *const DeviceQueueInfo2, queue: *mut Queue) {
         todo!()
     }
 }
@@ -3732,7 +3737,10 @@ impl Device {
     /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetBufferDeviceAddress")]
-    pub unsafe fn get_buffer_address(self, info: *const BufferDeviceAddressInfo) -> DeviceAddress {
+    pub unsafe fn get_buffer_device_address(
+        self,
+        info: *const BufferDeviceAddressInfo,
+    ) -> DeviceAddress {
         todo!()
     }
 }
@@ -3765,7 +3773,7 @@ impl Device {
     /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceMemoryOpaqueCaptureAddress")]
-    pub unsafe fn get_memory_opaque_capture_address(
+    pub unsafe fn get_device_memory_opaque_capture_address(
         self,
         info: *const DeviceMemoryOpaqueCaptureAddressInfo,
     ) -> u64 {
@@ -4311,7 +4319,7 @@ impl Device {
     /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceBufferMemoryRequirements")]
-    pub unsafe fn get_buffer_memory_requirements(
+    pub unsafe fn get_device_buffer_memory_requirements(
         self,
         info: *const DeviceBufferMemoryRequirements,
         memory_requirements: *mut MemoryRequirements2,
@@ -4330,7 +4338,7 @@ impl Device {
     /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceImageMemoryRequirements")]
-    pub unsafe fn get_image_memory_requirements(
+    pub unsafe fn get_device_image_memory_requirements(
         self,
         info: *const DeviceImageMemoryRequirements,
         memory_requirements: *mut MemoryRequirements2,
@@ -4352,7 +4360,7 @@ impl Device {
     /// - sparse_memory_requirements
     ///
     #[doc(alias = "vkGetDeviceImageSparseMemoryRequirements")]
-    pub unsafe fn get_image_sparse_memory_requirements(
+    pub unsafe fn get_device_image_sparse_memory_requirements(
         self,
         info: *const DeviceImageMemoryRequirements,
         sparse_memory_requirement_count: *mut u32,
@@ -5017,7 +5025,7 @@ impl Device {
     /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceImageSubresourceLayout")]
-    pub unsafe fn get_image_subresource_layout(
+    pub unsafe fn get_device_image_subresource_layout(
         self,
         info: *const DeviceImageSubresourceInfo,
         layout: *mut SubresourceLayout2,
@@ -5799,7 +5807,7 @@ impl Device {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetDeviceGroupPresentCapabilitiesKHR")]
-    pub unsafe fn get_group_present_capabilities_khr(
+    pub unsafe fn get_device_group_present_capabilities_khr(
         self,
         device_group_present_capabilities: *mut DeviceGroupPresentCapabilitiesKHR,
     ) -> ResultCode {
@@ -5827,7 +5835,7 @@ impl Device {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetDeviceGroupSurfacePresentModesKHR")]
-    pub unsafe fn get_group_surface_present_modes_khr(
+    pub unsafe fn get_device_group_surface_present_modes_khr(
         self,
         surface: SurfaceKHR,
         modes: *mut DeviceGroupPresentModeFlagsKHR,
@@ -6965,7 +6973,7 @@ impl Device {
     /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceGroupPeerMemoryFeaturesKHR")]
-    pub unsafe fn get_group_peer_memory_features_khr(
+    pub unsafe fn get_device_group_peer_memory_features_khr(
         self,
         heap_index: u32,
         local_device_index: u32,
@@ -8528,7 +8536,7 @@ impl Device {
     /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetBufferDeviceAddressKHR")]
-    pub unsafe fn get_buffer_address_khr(
+    pub unsafe fn get_buffer_device_address_khr(
         self,
         info: *const BufferDeviceAddressInfo,
     ) -> DeviceAddress {
@@ -8564,7 +8572,7 @@ impl Device {
     /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceMemoryOpaqueCaptureAddressKHR")]
-    pub unsafe fn get_memory_opaque_capture_address_khr(
+    pub unsafe fn get_device_memory_opaque_capture_address_khr(
         self,
         info: *const DeviceMemoryOpaqueCaptureAddressInfo,
     ) -> u64 {
@@ -9971,7 +9979,7 @@ impl Device {
     /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceBufferMemoryRequirementsKHR")]
-    pub unsafe fn get_buffer_memory_requirements_khr(
+    pub unsafe fn get_device_buffer_memory_requirements_khr(
         self,
         info: *const DeviceBufferMemoryRequirements,
         memory_requirements: *mut MemoryRequirements2,
@@ -9990,7 +9998,7 @@ impl Device {
     /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceImageMemoryRequirementsKHR")]
-    pub unsafe fn get_image_memory_requirements_khr(
+    pub unsafe fn get_device_image_memory_requirements_khr(
         self,
         info: *const DeviceImageMemoryRequirements,
         memory_requirements: *mut MemoryRequirements2,
@@ -10012,7 +10020,7 @@ impl Device {
     /// - sparse_memory_requirements
     ///
     #[doc(alias = "vkGetDeviceImageSparseMemoryRequirementsKHR")]
-    pub unsafe fn get_image_sparse_memory_requirements_khr(
+    pub unsafe fn get_device_image_sparse_memory_requirements_khr(
         self,
         info: *const DeviceImageMemoryRequirements,
         sparse_memory_requirement_count: *mut u32,
@@ -10085,7 +10093,7 @@ impl Device {
     /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceImageSubresourceLayoutKHR")]
-    pub unsafe fn get_image_subresource_layout_khr(
+    pub unsafe fn get_device_image_subresource_layout_khr(
         self,
         info: *const DeviceImageSubresourceInfo,
         layout: *mut SubresourceLayout2,
@@ -10694,7 +10702,7 @@ impl Device {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetDeviceFaultReportsKHR")]
-    pub unsafe fn get_fault_reports_khr(
+    pub unsafe fn get_device_fault_reports_khr(
         self,
         timeout: u64,
         fault_counts: *mut u32,
@@ -10723,7 +10731,7 @@ impl Device {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetDeviceFaultDebugInfoKHR")]
-    pub unsafe fn get_fault_debug_info_khr(
+    pub unsafe fn get_device_fault_debug_info_khr(
         self,
         debug_info: *mut DeviceFaultDebugInfoKHR,
     ) -> ResultCode {
@@ -11382,7 +11390,7 @@ impl Device {
     /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceCombinedImageSamplerIndexNVX")]
-    pub unsafe fn get_combined_image_sampler_index_nvx(
+    pub unsafe fn get_device_combined_image_sampler_index_nvx(
         self,
         image_view_index: u64,
         sampler_index: u64,
@@ -11856,7 +11864,7 @@ impl Device {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkRegisterDeviceEventEXT")]
-    pub unsafe fn register_event_ext(
+    pub unsafe fn register_device_event_ext(
         self,
         device_event_info: *const DeviceEventInfoEXT,
         allocator: *const AllocationCallbacks,
@@ -12541,7 +12549,10 @@ impl Device {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkSetGpaDeviceClockModeAMD")]
-    pub unsafe fn set_gpa_clock_mode_amd(self, info: *mut GpaDeviceClockModeInfoAMD) -> ResultCode {
+    pub unsafe fn set_gpa_device_clock_mode_amd(
+        self,
+        info: *mut GpaDeviceClockModeInfoAMD,
+    ) -> ResultCode {
         todo!()
     }
 }
@@ -12564,7 +12575,10 @@ impl Device {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetGpaDeviceClockInfoAMD")]
-    pub unsafe fn get_gpa_clock_info_amd(self, info: *mut GpaDeviceGetClockInfoAMD) -> ResultCode {
+    pub unsafe fn get_gpa_device_clock_info_amd(
+        self,
+        info: *mut GpaDeviceGetClockInfoAMD,
+    ) -> ResultCode {
         todo!()
     }
 }
@@ -14805,7 +14819,7 @@ impl Device {
     /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetBufferDeviceAddressEXT")]
-    pub unsafe fn get_buffer_address_ext(
+    pub unsafe fn get_buffer_device_address_ext(
         self,
         info: *const BufferDeviceAddressInfo,
     ) -> DeviceAddress {
@@ -15012,7 +15026,7 @@ impl Device {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetDeviceGroupSurfacePresentModes2EXT")]
-    pub unsafe fn get_group_surface_present_modes_2_ext(
+    pub unsafe fn get_device_group_surface_present_modes_2_ext(
         self,
         surface_info: *const PhysicalDeviceSurfaceInfo2KHR,
         modes: *mut DeviceGroupPresentModeFlagsKHR,
@@ -16316,7 +16330,7 @@ impl Device {
     /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkShutdownLatencyDeviceLegacyNV")]
-    pub unsafe fn shutdown_latency_legacy_nv(self) {
+    pub unsafe fn shutdown_latency_device_legacy_nv(self) {
         todo!()
     }
 }
@@ -16680,7 +16694,7 @@ impl Device {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetDeviceFaultInfoEXT")]
-    pub unsafe fn get_fault_info_ext(
+    pub unsafe fn get_device_fault_info_ext(
         self,
         fault_counts: *mut DeviceFaultCountsEXT,
         fault_info: *mut DeviceFaultInfoEXT,
@@ -17090,7 +17104,7 @@ impl Device {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI")]
-    pub unsafe fn get_subpass_shading_max_workgroup_size_huawei(
+    pub unsafe fn get_device_subpass_shading_max_workgroup_size_huawei(
         self,
         renderpass: RenderPass,
         max_workgroup_size: *mut Extent2D,
@@ -17849,7 +17863,7 @@ impl Device {
     /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceMicromapCompatibilityEXT")]
-    pub unsafe fn get_micromap_compatibility_ext(
+    pub unsafe fn get_device_micromap_compatibility_ext(
         self,
         version_info: *const MicromapVersionInfoEXT,
         compatibility: *mut AccelerationStructureCompatibilityKHR,
@@ -17943,7 +17957,7 @@ impl Device {
     /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkSetDeviceMemoryPriorityEXT")]
-    pub unsafe fn set_memory_priority_ext(self, memory: DeviceMemory, priority: f32) {
+    pub unsafe fn set_device_memory_priority_ext(self, memory: DeviceMemory, priority: f32) {
         todo!()
     }
 }
@@ -18202,7 +18216,7 @@ impl Device {
     /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPipelineIndirectDeviceAddressNV")]
-    pub unsafe fn get_pipeline_indirect_address_nv(
+    pub unsafe fn get_pipeline_indirect_device_address_nv(
         self,
         info: *const PipelineIndirectDeviceAddressInfoNV,
     ) -> DeviceAddress {
@@ -19296,7 +19310,7 @@ impl Device {
     /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceTensorMemoryRequirementsARM")]
-    pub unsafe fn get_tensor_memory_requirements_arm(
+    pub unsafe fn get_device_tensor_memory_requirements_arm(
         self,
         info: *const DeviceTensorMemoryRequirementsARM,
         memory_requirements: *mut MemoryRequirements2,
@@ -21834,7 +21848,7 @@ impl Device {
     /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetAccelerationStructureDeviceAddressKHR")]
-    pub unsafe fn get_acceleration_structure_address_khr(
+    pub unsafe fn get_acceleration_structure_device_address_khr(
         self,
         info: *const AccelerationStructureDeviceAddressInfoKHR,
     ) -> DeviceAddress {
@@ -21884,7 +21898,7 @@ impl Device {
     /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceAccelerationStructureCompatibilityKHR")]
-    pub unsafe fn get_acceleration_structure_compatibility_khr(
+    pub unsafe fn get_device_acceleration_structure_compatibility_khr(
         self,
         version_info: *const AccelerationStructureVersionInfoKHR,
         compatibility: *mut AccelerationStructureCompatibilityKHR,

@@ -163,6 +163,14 @@ def requirements_doc_header(
         out.writeln("///")
 
 
+def struct_field_name(name: str) -> str:
+    name = textcase.snake(name)
+    if name == "type":
+        name = "type_"
+
+    return name
+
+
 def command_param_name(name: str) -> str:
     name = textcase.snake(name).removeprefix("pp_").removeprefix("p_")
     if name == "type":
@@ -274,13 +282,12 @@ class Context:
 
         out.indent()
 
+        has_p_next = False
         p_next_const = True
         for member in x.members:
-            field_name = textcase.snake(member.name)
-            if field_name == "type":
-                field_name = "type_"
-
+            field_name = struct_field_name(member.name)
             if field_name == "p_next":
+                has_p_next = True
                 p_next_const = member.const
 
             type = RustType.parse(member.fullType)
@@ -313,10 +320,7 @@ class Context:
 
         # default impl
         if x.union:
-            field_name = textcase.snake(x.members[0].name)
-            if field_name == "type":
-                field_name = "type_"
-
+            field_name = struct_field_name(x.members[0].name)
             out.writeln(f"impl Default for {type_name} {{")
             out.indent()
             out.writeln("fn default() -> Self {")
@@ -336,10 +340,7 @@ class Context:
             out.writeln("Self {")
             out.indent()
             for member in x.members:
-                field_name = textcase.snake(member.name)
-                if field_name == "type":
-                    field_name = "type_"
-
+                field_name = struct_field_name(member.name)
                 if field_name == "s_type" and x.sType is not None:
                     s_type = x.sType.removeprefix("VK_STRUCTURE_TYPE_")
                     out.writeln(f"{field_name}: StructureType::{s_type},")
@@ -365,27 +366,34 @@ class Context:
             out.writeln("}")
 
         # extends
+        if has_p_next:
+            out.writeln(f"unsafe impl Extendable for {type_name} {{")
+            out.indent()
+            out.writeln("fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {")
+            out.indent()
+
+            out.writeln("""
+                unsafe {
+                    let base_next: *mut crate::BaseOutStructure = next.cast();
+                    assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+                    Self { p_next: next as _, ..self }
+                }
+            """)
+
+            out.deindent()
+            out.writeln("}")
+            out.deindent()
+            out.writeln("}")
+
         for parent in x.extends:
+            assert has_p_next
             assert not x.union
             parent_type_name = struct_name(parent)
-            out.writeln(f"impl Extends<{parent_type_name}> for {type_name} {{}}")
+            out.writeln(f"unsafe impl Extends<{parent_type_name}> for {type_name} {{}}")
 
         if x.allowDuplicate:
-            out.writeln(f"impl Extends<{type_name}> for {type_name} {{}}")
-
-        if len(x.extends) > 0 or x.allowDuplicate:
-            out.writeln(f"impl {type_name} {{")
-            out.indent()
-            out.writeln("#[inline(always)]")
-            out.writeln(
-                f"pub fn with_next<T: Extends<Self>>(self, next: *{'const' if p_next_const else 'mut'} T) -> Self {{"
-            )
-            out.indent()
-            out.writeln("Self { p_next: next.cast(), ..self }")
-            out.deindent()
-            out.writeln("}")
-            out.deindent()
-            out.writeln("}")
+            assert has_p_next
+            out.writeln(f"unsafe impl Extends<{type_name}> for {type_name} {{}}")
 
         # aliases
         for alias in x.aliases:
@@ -533,6 +541,9 @@ class Context:
                 if name[0].isdigit():
                     name = f"_{name}"
 
+                if name == variant:
+                    name = f"ALIAS_{name}"
+
                 out.writeln(f'#[doc(alias = "{alias}")]')
                 out.writeln(f"pub const {name}: Self = Self::{variant};")
             out.deindent()
@@ -646,10 +657,11 @@ class Context:
         if receiver is not None:
             receiver_snake = textcase.snake(str(receiver))
 
-            old_method_name = method_name
-            method_name = method_name.replace(f"{receiver_snake}_", "", count=1)
-            if method_name == old_method_name:
-                method_name = method_name.replace(f"_{receiver_snake}", "", count=1)
+            if str(receiver) != "Device":
+                old_method_name = method_name
+                method_name = method_name.replace(f"{receiver_snake}_", "", count=1)
+                if method_name == old_method_name:
+                    method_name = method_name.replace(f"_{receiver_snake}", "", count=1)
 
             signature = (
                 f"pub unsafe fn {method_name}(self, {', '.join(params)}) {return_ty}"
