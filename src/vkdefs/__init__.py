@@ -275,9 +275,11 @@ class Context:
 
         type_name = x.name.removeprefix("Vk")
         if x.dispatchable:
+            out.writeln(f"///")
             out.writeln(f"/// Dispatchable handle")
             out.writeln(f"pub struct {type_name}(usize);")
         else:
+            out.writeln(f"///")
             out.writeln(f"/// Non-dispatchable handle")
             out.writeln(f"pub struct {type_name}(u64);")
 
