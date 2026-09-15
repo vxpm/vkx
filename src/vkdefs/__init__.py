@@ -135,10 +135,14 @@ class Context:
 
         out.indent()
 
+        p_next_const = True
         for member in x.members:
             field_name = textcase.snake(member.name)
             if field_name == "type":
                 field_name = "type_"
+
+            if field_name == "p_next":
+                p_next_const = member.const
 
             type = RustType.parse(member.fullType)
             for size in member.fixedSizeArray:
@@ -227,6 +231,18 @@ class Context:
 
         if x.allowDuplicate:
             out.writeln(f"impl Extends<{type_name}> for {type_name} {{}}")
+
+        if len(x.extends) > 0 or x.allowDuplicate:
+            out.writeln(f"impl {type_name} {{")
+            out.indent()
+            out.writeln("#[inline(always)]")
+            out.writeln(f"pub fn with_next<T: Extends<Self>>(self, next: *{ "const" if p_next_const else "mut" } T) -> Self {{")
+            out.indent()
+            out.writeln("Self { p_next: next.cast(), ..self }")
+            out.deindent()
+            out.writeln("}")
+            out.deindent()
+            out.writeln("}")
 
         # aliases
         for alias in x.aliases:

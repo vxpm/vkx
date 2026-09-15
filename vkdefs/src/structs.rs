@@ -1943,6 +1943,15 @@ impl Default for ShaderModuleCreateInfo {
 }
 impl Extends<PipelineShaderStageCreateInfo> for ShaderModuleCreateInfo {}
 impl Extends<DataGraphPipelineCreateInfoARM> for ShaderModuleCreateInfo {}
+impl ShaderModuleCreateInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCacheCreateInfo.html>
 #[doc(alias = "VkPipelineCacheCreateInfo")]
@@ -2142,6 +2151,15 @@ impl Extends<PushDescriptorSetWithTemplateInfo> for PipelineLayoutCreateInfo {}
 impl Extends<SetDescriptorBufferOffsetsInfoEXT> for PipelineLayoutCreateInfo {}
 impl Extends<BindDescriptorBufferEmbeddedSamplersInfoEXT> for PipelineLayoutCreateInfo {}
 impl Extends<IndirectCommandsLayoutCreateInfoEXT> for PipelineLayoutCreateInfo {}
+impl PipelineLayoutCreateInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerCreateInfo.html>
 ///
@@ -3446,6 +3464,15 @@ impl Default for MemoryDedicatedRequirements {
     }
 }
 impl Extends<MemoryRequirements2> for MemoryDedicatedRequirements {}
+impl MemoryDedicatedRequirements {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type MemoryDedicatedRequirementsKHR = MemoryDedicatedRequirements;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryDedicatedAllocateInfo.html>
@@ -3473,6 +3500,15 @@ impl Default for MemoryDedicatedAllocateInfo {
     }
 }
 impl Extends<MemoryAllocateInfo> for MemoryDedicatedAllocateInfo {}
+impl MemoryDedicatedAllocateInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type MemoryDedicatedAllocateInfoKHR = MemoryDedicatedAllocateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryAllocateFlagsInfo.html>
@@ -3499,6 +3535,15 @@ impl Default for MemoryAllocateFlagsInfo {
     }
 }
 impl Extends<MemoryAllocateInfo> for MemoryAllocateFlagsInfo {}
+impl MemoryAllocateFlagsInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type MemoryAllocateFlagsInfoKHR = MemoryAllocateFlagsInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceGroupCommandBufferBeginInfo.html>
@@ -3522,6 +3567,15 @@ impl Default for DeviceGroupCommandBufferBeginInfo {
     }
 }
 impl Extends<CommandBufferBeginInfo> for DeviceGroupCommandBufferBeginInfo {}
+impl DeviceGroupCommandBufferBeginInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type DeviceGroupCommandBufferBeginInfoKHR = DeviceGroupCommandBufferBeginInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceGroupSubmitInfo.html>
@@ -3560,6 +3614,15 @@ impl Default for DeviceGroupSubmitInfo {
     }
 }
 impl Extends<SubmitInfo> for DeviceGroupSubmitInfo {}
+impl DeviceGroupSubmitInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type DeviceGroupSubmitInfoKHR = DeviceGroupSubmitInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceGroupBindSparseInfo.html>
@@ -3585,6 +3648,15 @@ impl Default for DeviceGroupBindSparseInfo {
     }
 }
 impl Extends<BindSparseInfo> for DeviceGroupBindSparseInfo {}
+impl DeviceGroupBindSparseInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type DeviceGroupBindSparseInfoKHR = DeviceGroupBindSparseInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBindBufferMemoryDeviceGroupInfo.html>
@@ -3611,6 +3683,15 @@ impl Default for BindBufferMemoryDeviceGroupInfo {
     }
 }
 impl Extends<BindBufferMemoryInfo> for BindBufferMemoryDeviceGroupInfo {}
+impl BindBufferMemoryDeviceGroupInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type BindBufferMemoryDeviceGroupInfoKHR = BindBufferMemoryDeviceGroupInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBindImageMemoryDeviceGroupInfo.html>
@@ -3642,6 +3723,15 @@ impl Default for BindImageMemoryDeviceGroupInfo {
     }
 }
 impl Extends<BindImageMemoryInfo> for BindImageMemoryDeviceGroupInfo {}
+impl BindImageMemoryDeviceGroupInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type BindImageMemoryDeviceGroupInfoKHR = BindImageMemoryDeviceGroupInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceGroupProperties.html>
@@ -3694,6 +3784,15 @@ impl Default for DeviceGroupDeviceCreateInfo {
     }
 }
 impl Extends<DeviceCreateInfo> for DeviceGroupDeviceCreateInfo {}
+impl DeviceGroupDeviceCreateInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type DeviceGroupDeviceCreateInfoKHR = DeviceGroupDeviceCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferMemoryRequirementsInfo2.html>
@@ -3833,6 +3932,15 @@ impl Default for PhysicalDeviceFeatures2 {
     }
 }
 impl Extends<DeviceCreateInfo> for PhysicalDeviceFeatures2 {}
+impl PhysicalDeviceFeatures2 {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceFeatures2KHR = PhysicalDeviceFeatures2;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceProperties2.html>
@@ -4063,6 +4171,15 @@ impl Default for ImageViewUsageCreateInfo {
     }
 }
 impl Extends<ImageViewCreateInfo> for ImageViewUsageCreateInfo {}
+impl ImageViewUsageCreateInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type ImageViewUsageCreateInfoKHR = ImageViewUsageCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceProtectedMemoryFeatures.html>
@@ -4087,6 +4204,15 @@ impl Default for PhysicalDeviceProtectedMemoryFeatures {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceProtectedMemoryFeatures {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceProtectedMemoryFeatures {}
+impl PhysicalDeviceProtectedMemoryFeatures {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceProtectedMemoryProperties.html>
 #[doc(alias = "VkPhysicalDeviceProtectedMemoryProperties")]
@@ -4109,6 +4235,15 @@ impl Default for PhysicalDeviceProtectedMemoryProperties {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceProtectedMemoryProperties {}
+impl PhysicalDeviceProtectedMemoryProperties {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceQueueInfo2.html>
 #[doc(alias = "VkDeviceQueueInfo2")]
@@ -4157,6 +4292,15 @@ impl Default for ProtectedSubmitInfo {
     }
 }
 impl Extends<SubmitInfo> for ProtectedSubmitInfo {}
+impl ProtectedSubmitInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBindImagePlaneMemoryInfo.html>
 #[doc(alias = "VkBindImagePlaneMemoryInfo")]
@@ -4179,6 +4323,15 @@ impl Default for BindImagePlaneMemoryInfo {
     }
 }
 impl Extends<BindImageMemoryInfo> for BindImagePlaneMemoryInfo {}
+impl BindImagePlaneMemoryInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type BindImagePlaneMemoryInfoKHR = BindImagePlaneMemoryInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImagePlaneMemoryRequirementsInfo.html>
@@ -4202,6 +4355,15 @@ impl Default for ImagePlaneMemoryRequirementsInfo {
     }
 }
 impl Extends<ImageMemoryRequirementsInfo2> for ImagePlaneMemoryRequirementsInfo {}
+impl ImagePlaneMemoryRequirementsInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type ImagePlaneMemoryRequirementsInfoKHR = ImagePlaneMemoryRequirementsInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalMemoryProperties.html>
@@ -4248,6 +4410,15 @@ impl Default for PhysicalDeviceExternalImageFormatInfo {
     }
 }
 impl Extends<PhysicalDeviceImageFormatInfo2> for PhysicalDeviceExternalImageFormatInfo {}
+impl PhysicalDeviceExternalImageFormatInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceExternalImageFormatInfoKHR = PhysicalDeviceExternalImageFormatInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalImageFormatProperties.html>
@@ -4271,6 +4442,15 @@ impl Default for ExternalImageFormatProperties {
     }
 }
 impl Extends<ImageFormatProperties2> for ExternalImageFormatProperties {}
+impl ExternalImageFormatProperties {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type ExternalImageFormatPropertiesKHR = ExternalImageFormatProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceExternalBufferInfo.html>
@@ -4354,6 +4534,15 @@ impl Default for PhysicalDeviceIDProperties {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceIDProperties {}
+impl PhysicalDeviceIDProperties {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceIDPropertiesKHR = PhysicalDeviceIDProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalMemoryImageCreateInfo.html>
@@ -4378,6 +4567,15 @@ impl Default for ExternalMemoryImageCreateInfo {
     }
 }
 impl Extends<ImageCreateInfo> for ExternalMemoryImageCreateInfo {}
+impl ExternalMemoryImageCreateInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type ExternalMemoryImageCreateInfoKHR = ExternalMemoryImageCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalMemoryBufferCreateInfo.html>
@@ -4402,6 +4600,15 @@ impl Default for ExternalMemoryBufferCreateInfo {
     }
 }
 impl Extends<BufferCreateInfo> for ExternalMemoryBufferCreateInfo {}
+impl ExternalMemoryBufferCreateInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type ExternalMemoryBufferCreateInfoKHR = ExternalMemoryBufferCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExportMemoryAllocateInfo.html>
@@ -4426,6 +4633,15 @@ impl Default for ExportMemoryAllocateInfo {
     }
 }
 impl Extends<MemoryAllocateInfo> for ExportMemoryAllocateInfo {}
+impl ExportMemoryAllocateInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type ExportMemoryAllocateInfoKHR = ExportMemoryAllocateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceExternalFenceInfo.html>
@@ -4499,6 +4715,15 @@ impl Default for ExportFenceCreateInfo {
     }
 }
 impl Extends<FenceCreateInfo> for ExportFenceCreateInfo {}
+impl ExportFenceCreateInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type ExportFenceCreateInfoKHR = ExportFenceCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExportSemaphoreCreateInfo.html>
@@ -4523,6 +4748,15 @@ impl Default for ExportSemaphoreCreateInfo {
     }
 }
 impl Extends<SemaphoreCreateInfo> for ExportSemaphoreCreateInfo {}
+impl ExportSemaphoreCreateInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type ExportSemaphoreCreateInfoKHR = ExportSemaphoreCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceExternalSemaphoreInfo.html>
@@ -4603,6 +4837,15 @@ impl Default for PhysicalDeviceSubgroupProperties {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceSubgroupProperties {}
+impl PhysicalDeviceSubgroupProperties {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevice16BitStorageFeatures.html>
 #[doc(alias = "VkPhysicalDevice16BitStorageFeatures")]
@@ -4632,6 +4875,15 @@ impl Default for PhysicalDevice16BitStorageFeatures {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDevice16BitStorageFeatures {}
 impl Extends<DeviceCreateInfo> for PhysicalDevice16BitStorageFeatures {}
+impl PhysicalDevice16BitStorageFeatures {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDevice16BitStorageFeaturesKHR = PhysicalDevice16BitStorageFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVariablePointersFeatures.html>
@@ -4658,6 +4910,15 @@ impl Default for PhysicalDeviceVariablePointersFeatures {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceVariablePointersFeatures {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceVariablePointersFeatures {}
+impl PhysicalDeviceVariablePointersFeatures {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceVariablePointerFeatures = PhysicalDeviceVariablePointersFeatures;
 pub type PhysicalDeviceVariablePointerFeaturesKHR = PhysicalDeviceVariablePointersFeatures;
 pub type PhysicalDeviceVariablePointersFeaturesKHR = PhysicalDeviceVariablePointersFeatures;
@@ -4749,6 +5010,15 @@ impl Default for PhysicalDeviceMaintenance3Properties {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceMaintenance3Properties {}
+impl PhysicalDeviceMaintenance3Properties {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceMaintenance3PropertiesKHR = PhysicalDeviceMaintenance3Properties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorSetLayoutSupport.html>
@@ -4835,6 +5105,15 @@ impl Default for SamplerYcbcrConversionInfo {
 }
 impl Extends<SamplerCreateInfo> for SamplerYcbcrConversionInfo {}
 impl Extends<ImageViewCreateInfo> for SamplerYcbcrConversionInfo {}
+impl SamplerYcbcrConversionInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type SamplerYcbcrConversionInfoKHR = SamplerYcbcrConversionInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSamplerYcbcrConversionFeatures.html>
@@ -4859,6 +5138,15 @@ impl Default for PhysicalDeviceSamplerYcbcrConversionFeatures {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceSamplerYcbcrConversionFeatures {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceSamplerYcbcrConversionFeatures {}
+impl PhysicalDeviceSamplerYcbcrConversionFeatures {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceSamplerYcbcrConversionFeaturesKHR =
     PhysicalDeviceSamplerYcbcrConversionFeatures;
 
@@ -4883,6 +5171,15 @@ impl Default for SamplerYcbcrConversionImageFormatProperties {
     }
 }
 impl Extends<ImageFormatProperties2> for SamplerYcbcrConversionImageFormatProperties {}
+impl SamplerYcbcrConversionImageFormatProperties {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type SamplerYcbcrConversionImageFormatPropertiesKHR =
     SamplerYcbcrConversionImageFormatProperties;
 
@@ -4913,6 +5210,15 @@ impl Default for DeviceGroupRenderPassBeginInfo {
 }
 impl Extends<RenderPassBeginInfo> for DeviceGroupRenderPassBeginInfo {}
 impl Extends<RenderingInfo> for DeviceGroupRenderPassBeginInfo {}
+impl DeviceGroupRenderPassBeginInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type DeviceGroupRenderPassBeginInfoKHR = DeviceGroupRenderPassBeginInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePointClippingProperties.html>
@@ -4936,6 +5242,15 @@ impl Default for PhysicalDevicePointClippingProperties {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDevicePointClippingProperties {}
+impl PhysicalDevicePointClippingProperties {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDevicePointClippingPropertiesKHR = PhysicalDevicePointClippingProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkInputAttachmentAspectReference.html>
@@ -4982,6 +5297,15 @@ impl Default for RenderPassInputAttachmentAspectCreateInfo {
     }
 }
 impl Extends<RenderPassCreateInfo> for RenderPassInputAttachmentAspectCreateInfo {}
+impl RenderPassInputAttachmentAspectCreateInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type RenderPassInputAttachmentAspectCreateInfoKHR = RenderPassInputAttachmentAspectCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineTessellationDomainOriginStateCreateInfo.html>
@@ -5007,6 +5331,15 @@ impl Default for PipelineTessellationDomainOriginStateCreateInfo {
 impl Extends<PipelineTessellationStateCreateInfo>
     for PipelineTessellationDomainOriginStateCreateInfo
 {
+}
+impl PipelineTessellationDomainOriginStateCreateInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
 }
 pub type PipelineTessellationDomainOriginStateCreateInfoKHR =
     PipelineTessellationDomainOriginStateCreateInfo;
@@ -5045,6 +5378,15 @@ impl Default for RenderPassMultiviewCreateInfo {
     }
 }
 impl Extends<RenderPassCreateInfo> for RenderPassMultiviewCreateInfo {}
+impl RenderPassMultiviewCreateInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type RenderPassMultiviewCreateInfoKHR = RenderPassMultiviewCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMultiviewFeatures.html>
@@ -5073,6 +5415,15 @@ impl Default for PhysicalDeviceMultiviewFeatures {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceMultiviewFeatures {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceMultiviewFeatures {}
+impl PhysicalDeviceMultiviewFeatures {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceMultiviewFeaturesKHR = PhysicalDeviceMultiviewFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMultiviewProperties.html>
@@ -5098,6 +5449,15 @@ impl Default for PhysicalDeviceMultiviewProperties {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceMultiviewProperties {}
+impl PhysicalDeviceMultiviewProperties {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceMultiviewPropertiesKHR = PhysicalDeviceMultiviewProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderDrawParametersFeatures.html>
@@ -5122,6 +5482,15 @@ impl Default for PhysicalDeviceShaderDrawParametersFeatures {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderDrawParametersFeatures {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderDrawParametersFeatures {}
+impl PhysicalDeviceShaderDrawParametersFeatures {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceShaderDrawParameterFeatures = PhysicalDeviceShaderDrawParametersFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkConformanceVersion.html>
@@ -5176,6 +5545,15 @@ impl Default for PhysicalDeviceDriverProperties {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceDriverProperties {}
+impl PhysicalDeviceDriverProperties {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceDriverPropertiesKHR = PhysicalDeviceDriverProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVulkan11Features.html>
@@ -5222,6 +5600,15 @@ impl Default for PhysicalDeviceVulkan11Features {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceVulkan11Features {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceVulkan11Features {}
+impl PhysicalDeviceVulkan11Features {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVulkan11Properties.html>
 #[doc(alias = "VkPhysicalDeviceVulkan11Properties")]
@@ -5272,6 +5659,15 @@ impl Default for PhysicalDeviceVulkan11Properties {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceVulkan11Properties {}
+impl PhysicalDeviceVulkan11Properties {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVulkan12Features.html>
 #[doc(alias = "VkPhysicalDeviceVulkan12Features")]
@@ -5387,6 +5783,15 @@ impl Default for PhysicalDeviceVulkan12Features {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceVulkan12Features {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceVulkan12Features {}
+impl PhysicalDeviceVulkan12Features {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVulkan12Properties.html>
 #[doc(alias = "VkPhysicalDeviceVulkan12Properties")]
@@ -5514,6 +5919,15 @@ impl Default for PhysicalDeviceVulkan12Properties {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceVulkan12Properties {}
+impl PhysicalDeviceVulkan12Properties {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageFormatListCreateInfo.html>
 #[doc(alias = "VkImageFormatListCreateInfo")]
@@ -5541,6 +5955,15 @@ impl Default for ImageFormatListCreateInfo {
 impl Extends<ImageCreateInfo> for ImageFormatListCreateInfo {}
 impl Extends<SwapchainCreateInfoKHR> for ImageFormatListCreateInfo {}
 impl Extends<PhysicalDeviceImageFormatInfo2> for ImageFormatListCreateInfo {}
+impl ImageFormatListCreateInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type ImageFormatListCreateInfoKHR = ImageFormatListCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVulkanMemoryModelFeatures.html>
@@ -5569,6 +5992,15 @@ impl Default for PhysicalDeviceVulkanMemoryModelFeatures {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceVulkanMemoryModelFeatures {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceVulkanMemoryModelFeatures {}
+impl PhysicalDeviceVulkanMemoryModelFeatures {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceVulkanMemoryModelFeaturesKHR = PhysicalDeviceVulkanMemoryModelFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceHostQueryResetFeatures.html>
@@ -5593,6 +6025,15 @@ impl Default for PhysicalDeviceHostQueryResetFeatures {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceHostQueryResetFeatures {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceHostQueryResetFeatures {}
+impl PhysicalDeviceHostQueryResetFeatures {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceHostQueryResetFeaturesEXT = PhysicalDeviceHostQueryResetFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceTimelineSemaphoreFeatures.html>
@@ -5617,6 +6058,15 @@ impl Default for PhysicalDeviceTimelineSemaphoreFeatures {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceTimelineSemaphoreFeatures {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceTimelineSemaphoreFeatures {}
+impl PhysicalDeviceTimelineSemaphoreFeatures {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceTimelineSemaphoreFeaturesKHR = PhysicalDeviceTimelineSemaphoreFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceTimelineSemaphoreProperties.html>
@@ -5640,6 +6090,15 @@ impl Default for PhysicalDeviceTimelineSemaphoreProperties {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceTimelineSemaphoreProperties {}
+impl PhysicalDeviceTimelineSemaphoreProperties {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceTimelineSemaphorePropertiesKHR = PhysicalDeviceTimelineSemaphoreProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSemaphoreTypeCreateInfo.html>
@@ -5666,6 +6125,15 @@ impl Default for SemaphoreTypeCreateInfo {
 }
 impl Extends<SemaphoreCreateInfo> for SemaphoreTypeCreateInfo {}
 impl Extends<PhysicalDeviceExternalSemaphoreInfo> for SemaphoreTypeCreateInfo {}
+impl SemaphoreTypeCreateInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type SemaphoreTypeCreateInfoKHR = SemaphoreTypeCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTimelineSemaphoreSubmitInfo.html>
@@ -5700,6 +6168,15 @@ impl Default for TimelineSemaphoreSubmitInfo {
 }
 impl Extends<SubmitInfo> for TimelineSemaphoreSubmitInfo {}
 impl Extends<BindSparseInfo> for TimelineSemaphoreSubmitInfo {}
+impl TimelineSemaphoreSubmitInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type TimelineSemaphoreSubmitInfoKHR = TimelineSemaphoreSubmitInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSemaphoreWaitInfo.html>
@@ -5781,6 +6258,15 @@ impl Default for PhysicalDeviceBufferDeviceAddressFeatures {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceBufferDeviceAddressFeatures {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceBufferDeviceAddressFeatures {}
+impl PhysicalDeviceBufferDeviceAddressFeatures {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceBufferDeviceAddressFeaturesKHR = PhysicalDeviceBufferDeviceAddressFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferDeviceAddressInfo.html>
@@ -5827,6 +6313,15 @@ impl Default for BufferOpaqueCaptureAddressCreateInfo {
     }
 }
 impl Extends<BufferCreateInfo> for BufferOpaqueCaptureAddressCreateInfo {}
+impl BufferOpaqueCaptureAddressCreateInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type BufferOpaqueCaptureAddressCreateInfoKHR = BufferOpaqueCaptureAddressCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryOpaqueCaptureAddressAllocateInfo.html>
@@ -5850,6 +6345,15 @@ impl Default for MemoryOpaqueCaptureAddressAllocateInfo {
     }
 }
 impl Extends<MemoryAllocateInfo> for MemoryOpaqueCaptureAddressAllocateInfo {}
+impl MemoryOpaqueCaptureAddressAllocateInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type MemoryOpaqueCaptureAddressAllocateInfoKHR = MemoryOpaqueCaptureAddressAllocateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceMemoryOpaqueCaptureAddressInfo.html>
@@ -5900,6 +6404,15 @@ impl Default for PhysicalDevice8BitStorageFeatures {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDevice8BitStorageFeatures {}
 impl Extends<DeviceCreateInfo> for PhysicalDevice8BitStorageFeatures {}
+impl PhysicalDevice8BitStorageFeatures {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDevice8BitStorageFeaturesKHR = PhysicalDevice8BitStorageFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderAtomicInt64Features.html>
@@ -5926,6 +6439,15 @@ impl Default for PhysicalDeviceShaderAtomicInt64Features {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderAtomicInt64Features {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderAtomicInt64Features {}
+impl PhysicalDeviceShaderAtomicInt64Features {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceShaderAtomicInt64FeaturesKHR = PhysicalDeviceShaderAtomicInt64Features;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderFloat16Int8Features.html>
@@ -5952,6 +6474,15 @@ impl Default for PhysicalDeviceShaderFloat16Int8Features {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderFloat16Int8Features {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderFloat16Int8Features {}
+impl PhysicalDeviceShaderFloat16Int8Features {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceShaderFloat16Int8FeaturesKHR = PhysicalDeviceShaderFloat16Int8Features;
 pub type PhysicalDeviceFloat16Int8FeaturesKHR = PhysicalDeviceShaderFloat16Int8Features;
 
@@ -6008,6 +6539,15 @@ impl Default for PhysicalDeviceFloatControlsProperties {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceFloatControlsProperties {}
+impl PhysicalDeviceFloatControlsProperties {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceFloatControlsPropertiesKHR = PhysicalDeviceFloatControlsProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorSetLayoutBindingFlagsCreateInfo.html>
@@ -6034,6 +6574,15 @@ impl Default for DescriptorSetLayoutBindingFlagsCreateInfo {
     }
 }
 impl Extends<DescriptorSetLayoutCreateInfo> for DescriptorSetLayoutBindingFlagsCreateInfo {}
+impl DescriptorSetLayoutBindingFlagsCreateInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type DescriptorSetLayoutBindingFlagsCreateInfoEXT = DescriptorSetLayoutBindingFlagsCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDescriptorIndexingFeatures.html>
@@ -6096,6 +6645,15 @@ impl Default for PhysicalDeviceDescriptorIndexingFeatures {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceDescriptorIndexingFeatures {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceDescriptorIndexingFeatures {}
+impl PhysicalDeviceDescriptorIndexingFeatures {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceDescriptorIndexingFeaturesEXT = PhysicalDeviceDescriptorIndexingFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDescriptorIndexingProperties.html>
@@ -6163,6 +6721,15 @@ impl Default for PhysicalDeviceDescriptorIndexingProperties {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceDescriptorIndexingProperties {}
+impl PhysicalDeviceDescriptorIndexingProperties {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceDescriptorIndexingPropertiesEXT = PhysicalDeviceDescriptorIndexingProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorSetVariableDescriptorCountAllocateInfo.html>
@@ -6189,6 +6756,15 @@ impl Default for DescriptorSetVariableDescriptorCountAllocateInfo {
     }
 }
 impl Extends<DescriptorSetAllocateInfo> for DescriptorSetVariableDescriptorCountAllocateInfo {}
+impl DescriptorSetVariableDescriptorCountAllocateInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type DescriptorSetVariableDescriptorCountAllocateInfoEXT =
     DescriptorSetVariableDescriptorCountAllocateInfo;
 
@@ -6213,6 +6789,15 @@ impl Default for DescriptorSetVariableDescriptorCountLayoutSupport {
     }
 }
 impl Extends<DescriptorSetLayoutSupport> for DescriptorSetVariableDescriptorCountLayoutSupport {}
+impl DescriptorSetVariableDescriptorCountLayoutSupport {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type DescriptorSetVariableDescriptorCountLayoutSupportEXT =
     DescriptorSetVariableDescriptorCountLayoutSupport;
 
@@ -6238,6 +6823,15 @@ impl Default for PhysicalDeviceScalarBlockLayoutFeatures {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceScalarBlockLayoutFeatures {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceScalarBlockLayoutFeatures {}
+impl PhysicalDeviceScalarBlockLayoutFeatures {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceScalarBlockLayoutFeaturesEXT = PhysicalDeviceScalarBlockLayoutFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerReductionModeCreateInfo.html>
@@ -6261,6 +6855,15 @@ impl Default for SamplerReductionModeCreateInfo {
     }
 }
 impl Extends<SamplerCreateInfo> for SamplerReductionModeCreateInfo {}
+impl SamplerReductionModeCreateInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type SamplerReductionModeCreateInfoEXT = SamplerReductionModeCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSamplerFilterMinmaxProperties.html>
@@ -6286,6 +6889,15 @@ impl Default for PhysicalDeviceSamplerFilterMinmaxProperties {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceSamplerFilterMinmaxProperties {}
+impl PhysicalDeviceSamplerFilterMinmaxProperties {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceSamplerFilterMinmaxPropertiesEXT =
     PhysicalDeviceSamplerFilterMinmaxProperties;
 
@@ -6311,6 +6923,15 @@ impl Default for PhysicalDeviceUniformBufferStandardLayoutFeatures {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceUniformBufferStandardLayoutFeatures {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceUniformBufferStandardLayoutFeatures {}
+impl PhysicalDeviceUniformBufferStandardLayoutFeatures {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceUniformBufferStandardLayoutFeaturesKHR =
     PhysicalDeviceUniformBufferStandardLayoutFeatures;
 
@@ -6336,6 +6957,15 @@ impl Default for PhysicalDeviceShaderSubgroupExtendedTypesFeatures {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderSubgroupExtendedTypesFeatures {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderSubgroupExtendedTypesFeatures {}
+impl PhysicalDeviceShaderSubgroupExtendedTypesFeatures {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceShaderSubgroupExtendedTypesFeaturesKHR =
     PhysicalDeviceShaderSubgroupExtendedTypesFeatures;
 
@@ -6617,6 +7247,15 @@ impl Default for SubpassDescriptionDepthStencilResolve {
     }
 }
 impl Extends<SubpassDescription2> for SubpassDescriptionDepthStencilResolve {}
+impl SubpassDescriptionDepthStencilResolve {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type SubpassDescriptionDepthStencilResolveKHR = SubpassDescriptionDepthStencilResolve;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDepthStencilResolveProperties.html>
@@ -6646,6 +7285,15 @@ impl Default for PhysicalDeviceDepthStencilResolveProperties {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceDepthStencilResolveProperties {}
+impl PhysicalDeviceDepthStencilResolveProperties {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceDepthStencilResolvePropertiesKHR =
     PhysicalDeviceDepthStencilResolveProperties;
 
@@ -6671,6 +7319,15 @@ impl Default for ImageStencilUsageCreateInfo {
 }
 impl Extends<ImageCreateInfo> for ImageStencilUsageCreateInfo {}
 impl Extends<PhysicalDeviceImageFormatInfo2> for ImageStencilUsageCreateInfo {}
+impl ImageStencilUsageCreateInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type ImageStencilUsageCreateInfoEXT = ImageStencilUsageCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceImagelessFramebufferFeatures.html>
@@ -6695,6 +7352,15 @@ impl Default for PhysicalDeviceImagelessFramebufferFeatures {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceImagelessFramebufferFeatures {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceImagelessFramebufferFeatures {}
+impl PhysicalDeviceImagelessFramebufferFeatures {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceImagelessFramebufferFeaturesKHR = PhysicalDeviceImagelessFramebufferFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFramebufferAttachmentImageInfo.html>
@@ -6759,6 +7425,15 @@ impl Default for RenderPassAttachmentBeginInfo {
     }
 }
 impl Extends<RenderPassBeginInfo> for RenderPassAttachmentBeginInfo {}
+impl RenderPassAttachmentBeginInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type RenderPassAttachmentBeginInfoKHR = RenderPassAttachmentBeginInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFramebufferAttachmentsCreateInfo.html>
@@ -6785,6 +7460,15 @@ impl Default for FramebufferAttachmentsCreateInfo {
     }
 }
 impl Extends<FramebufferCreateInfo> for FramebufferAttachmentsCreateInfo {}
+impl FramebufferAttachmentsCreateInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type FramebufferAttachmentsCreateInfoKHR = FramebufferAttachmentsCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures.html>
@@ -6809,6 +7493,15 @@ impl Default for PhysicalDeviceSeparateDepthStencilLayoutsFeatures {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceSeparateDepthStencilLayoutsFeatures {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceSeparateDepthStencilLayoutsFeatures {}
+impl PhysicalDeviceSeparateDepthStencilLayoutsFeatures {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceSeparateDepthStencilLayoutsFeaturesKHR =
     PhysicalDeviceSeparateDepthStencilLayoutsFeatures;
 
@@ -6833,6 +7526,15 @@ impl Default for AttachmentReferenceStencilLayout {
     }
 }
 impl Extends<AttachmentReference2> for AttachmentReferenceStencilLayout {}
+impl AttachmentReferenceStencilLayout {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type AttachmentReferenceStencilLayoutKHR = AttachmentReferenceStencilLayout;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAttachmentDescriptionStencilLayout.html>
@@ -6858,6 +7560,15 @@ impl Default for AttachmentDescriptionStencilLayout {
     }
 }
 impl Extends<AttachmentDescription2> for AttachmentDescriptionStencilLayout {}
+impl AttachmentDescriptionStencilLayout {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type AttachmentDescriptionStencilLayoutKHR = AttachmentDescriptionStencilLayout;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVulkan13Features.html>
@@ -6910,6 +7621,15 @@ impl Default for PhysicalDeviceVulkan13Features {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceVulkan13Features {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceVulkan13Features {}
+impl PhysicalDeviceVulkan13Features {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVulkan13Properties.html>
 #[doc(alias = "VkPhysicalDeviceVulkan13Properties")]
@@ -7021,6 +7741,15 @@ impl Default for PhysicalDeviceVulkan13Properties {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceVulkan13Properties {}
+impl PhysicalDeviceVulkan13Properties {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceToolProperties.html>
 #[doc(alias = "VkPhysicalDeviceToolProperties")]
@@ -7078,6 +7807,15 @@ impl Default for PhysicalDevicePrivateDataFeatures {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDevicePrivateDataFeatures {}
 impl Extends<DeviceCreateInfo> for PhysicalDevicePrivateDataFeatures {}
+impl PhysicalDevicePrivateDataFeatures {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDevicePrivateDataFeaturesEXT = PhysicalDevicePrivateDataFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDevicePrivateDataCreateInfo.html>
@@ -7102,6 +7840,15 @@ impl Default for DevicePrivateDataCreateInfo {
 }
 impl Extends<DeviceCreateInfo> for DevicePrivateDataCreateInfo {}
 impl Extends<DevicePrivateDataCreateInfo> for DevicePrivateDataCreateInfo {}
+impl DevicePrivateDataCreateInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type DevicePrivateDataCreateInfoEXT = DevicePrivateDataCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPrivateDataSlotCreateInfo.html>
@@ -7158,6 +7905,15 @@ impl Default for MemoryBarrier2 {
     }
 }
 impl Extends<SubpassDependency2> for MemoryBarrier2 {}
+impl MemoryBarrier2 {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type MemoryBarrier2KHR = MemoryBarrier2;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferMemoryBarrier2.html>
@@ -7407,6 +8163,15 @@ impl Default for PhysicalDeviceSynchronization2Features {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceSynchronization2Features {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceSynchronization2Features {}
+impl PhysicalDeviceSynchronization2Features {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceSynchronization2FeaturesKHR = PhysicalDeviceSynchronization2Features;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferCopy2.html>
@@ -7641,6 +8406,15 @@ impl Default for PhysicalDeviceTextureCompressionASTCHDRFeatures {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceTextureCompressionASTCHDRFeatures {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceTextureCompressionASTCHDRFeatures {}
+impl PhysicalDeviceTextureCompressionASTCHDRFeatures {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceTextureCompressionASTCHDRFeaturesEXT =
     PhysicalDeviceTextureCompressionASTCHDRFeatures;
 
@@ -7672,6 +8446,15 @@ impl Default for FormatProperties3 {
     }
 }
 impl Extends<FormatProperties2> for FormatProperties3 {}
+impl FormatProperties3 {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type FormatProperties3KHR = FormatProperties3;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMaintenance4Features.html>
@@ -7696,6 +8479,15 @@ impl Default for PhysicalDeviceMaintenance4Features {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceMaintenance4Features {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceMaintenance4Features {}
+impl PhysicalDeviceMaintenance4Features {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceMaintenance4FeaturesKHR = PhysicalDeviceMaintenance4Features;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMaintenance4Properties.html>
@@ -7719,6 +8511,15 @@ impl Default for PhysicalDeviceMaintenance4Properties {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceMaintenance4Properties {}
+impl PhysicalDeviceMaintenance4Properties {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceMaintenance4PropertiesKHR = PhysicalDeviceMaintenance4Properties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceBufferMemoryRequirements.html>
@@ -7820,6 +8621,15 @@ impl Extends<RayTracingPipelineCreateInfoNV> for PipelineCreationFeedbackCreateI
 impl Extends<RayTracingPipelineCreateInfoKHR> for PipelineCreationFeedbackCreateInfo {}
 impl Extends<ExecutionGraphPipelineCreateInfoAMDX> for PipelineCreationFeedbackCreateInfo {}
 impl Extends<DataGraphPipelineCreateInfoARM> for PipelineCreationFeedbackCreateInfo {}
+impl PipelineCreationFeedbackCreateInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PipelineCreationFeedbackCreateInfoEXT = PipelineCreationFeedbackCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderTerminateInvocationFeatures.html>
@@ -7844,6 +8654,15 @@ impl Default for PhysicalDeviceShaderTerminateInvocationFeatures {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderTerminateInvocationFeatures {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderTerminateInvocationFeatures {}
+impl PhysicalDeviceShaderTerminateInvocationFeatures {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceShaderTerminateInvocationFeaturesKHR =
     PhysicalDeviceShaderTerminateInvocationFeatures;
 
@@ -7869,6 +8688,15 @@ impl Default for PhysicalDeviceShaderDemoteToHelperInvocationFeatures {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderDemoteToHelperInvocationFeatures {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderDemoteToHelperInvocationFeatures {}
+impl PhysicalDeviceShaderDemoteToHelperInvocationFeatures {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceShaderDemoteToHelperInvocationFeaturesEXT =
     PhysicalDeviceShaderDemoteToHelperInvocationFeatures;
 
@@ -7894,6 +8722,15 @@ impl Default for PhysicalDevicePipelineCreationCacheControlFeatures {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDevicePipelineCreationCacheControlFeatures {}
 impl Extends<DeviceCreateInfo> for PhysicalDevicePipelineCreationCacheControlFeatures {}
+impl PhysicalDevicePipelineCreationCacheControlFeatures {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDevicePipelineCreationCacheControlFeaturesEXT =
     PhysicalDevicePipelineCreationCacheControlFeatures;
 
@@ -7919,6 +8756,15 @@ impl Default for PhysicalDeviceZeroInitializeWorkgroupMemoryFeatures {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceZeroInitializeWorkgroupMemoryFeatures {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceZeroInitializeWorkgroupMemoryFeatures {}
+impl PhysicalDeviceZeroInitializeWorkgroupMemoryFeatures {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceZeroInitializeWorkgroupMemoryFeaturesKHR =
     PhysicalDeviceZeroInitializeWorkgroupMemoryFeatures;
 
@@ -7944,6 +8790,15 @@ impl Default for PhysicalDeviceImageRobustnessFeatures {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceImageRobustnessFeatures {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceImageRobustnessFeatures {}
+impl PhysicalDeviceImageRobustnessFeatures {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceImageRobustnessFeaturesEXT = PhysicalDeviceImageRobustnessFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSubgroupSizeControlFeatures.html>
@@ -7970,6 +8825,15 @@ impl Default for PhysicalDeviceSubgroupSizeControlFeatures {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceSubgroupSizeControlFeatures {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceSubgroupSizeControlFeatures {}
+impl PhysicalDeviceSubgroupSizeControlFeatures {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceSubgroupSizeControlFeaturesEXT = PhysicalDeviceSubgroupSizeControlFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSubgroupSizeControlProperties.html>
@@ -7999,6 +8863,15 @@ impl Default for PhysicalDeviceSubgroupSizeControlProperties {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceSubgroupSizeControlProperties {}
+impl PhysicalDeviceSubgroupSizeControlProperties {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceSubgroupSizeControlPropertiesEXT =
     PhysicalDeviceSubgroupSizeControlProperties;
 
@@ -8024,6 +8897,15 @@ impl Default for PipelineShaderStageRequiredSubgroupSizeCreateInfo {
 }
 impl Extends<PipelineShaderStageCreateInfo> for PipelineShaderStageRequiredSubgroupSizeCreateInfo {}
 impl Extends<ShaderCreateInfoEXT> for PipelineShaderStageRequiredSubgroupSizeCreateInfo {}
+impl PipelineShaderStageRequiredSubgroupSizeCreateInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PipelineShaderStageRequiredSubgroupSizeCreateInfoEXT =
     PipelineShaderStageRequiredSubgroupSizeCreateInfo;
 pub type ShaderRequiredSubgroupSizeCreateInfoEXT =
@@ -8053,6 +8935,15 @@ impl Default for PhysicalDeviceInlineUniformBlockFeatures {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceInlineUniformBlockFeatures {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceInlineUniformBlockFeatures {}
+impl PhysicalDeviceInlineUniformBlockFeatures {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceInlineUniformBlockFeaturesEXT = PhysicalDeviceInlineUniformBlockFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceInlineUniformBlockProperties.html>
@@ -8084,6 +8975,15 @@ impl Default for PhysicalDeviceInlineUniformBlockProperties {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceInlineUniformBlockProperties {}
+impl PhysicalDeviceInlineUniformBlockProperties {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceInlineUniformBlockPropertiesEXT = PhysicalDeviceInlineUniformBlockProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkWriteDescriptorSetInlineUniformBlock.html>
@@ -8109,6 +9009,15 @@ impl Default for WriteDescriptorSetInlineUniformBlock {
     }
 }
 impl Extends<WriteDescriptorSet> for WriteDescriptorSetInlineUniformBlock {}
+impl WriteDescriptorSetInlineUniformBlock {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type WriteDescriptorSetInlineUniformBlockEXT = WriteDescriptorSetInlineUniformBlock;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorPoolInlineUniformBlockCreateInfo.html>
@@ -8132,6 +9041,15 @@ impl Default for DescriptorPoolInlineUniformBlockCreateInfo {
     }
 }
 impl Extends<DescriptorPoolCreateInfo> for DescriptorPoolInlineUniformBlockCreateInfo {}
+impl DescriptorPoolInlineUniformBlockCreateInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type DescriptorPoolInlineUniformBlockCreateInfoEXT = DescriptorPoolInlineUniformBlockCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderIntegerDotProductFeatures.html>
@@ -8156,6 +9074,15 @@ impl Default for PhysicalDeviceShaderIntegerDotProductFeatures {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderIntegerDotProductFeatures {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderIntegerDotProductFeatures {}
+impl PhysicalDeviceShaderIntegerDotProductFeatures {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceShaderIntegerDotProductFeaturesKHR =
     PhysicalDeviceShaderIntegerDotProductFeatures;
 
@@ -8239,6 +9166,15 @@ impl Default for PhysicalDeviceShaderIntegerDotProductProperties {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceShaderIntegerDotProductProperties {}
+impl PhysicalDeviceShaderIntegerDotProductProperties {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceShaderIntegerDotProductPropertiesKHR =
     PhysicalDeviceShaderIntegerDotProductProperties;
 
@@ -8269,6 +9205,15 @@ impl Default for PhysicalDeviceTexelBufferAlignmentProperties {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceTexelBufferAlignmentProperties {}
+impl PhysicalDeviceTexelBufferAlignmentProperties {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceTexelBufferAlignmentPropertiesEXT =
     PhysicalDeviceTexelBufferAlignmentProperties;
 
@@ -8515,6 +9460,15 @@ impl Default for PipelineRenderingCreateInfo {
     }
 }
 impl Extends<GraphicsPipelineCreateInfo> for PipelineRenderingCreateInfo {}
+impl PipelineRenderingCreateInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PipelineRenderingCreateInfoKHR = PipelineRenderingCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDynamicRenderingFeatures.html>
@@ -8539,6 +9493,15 @@ impl Default for PhysicalDeviceDynamicRenderingFeatures {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceDynamicRenderingFeatures {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceDynamicRenderingFeatures {}
+impl PhysicalDeviceDynamicRenderingFeatures {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceDynamicRenderingFeaturesKHR = PhysicalDeviceDynamicRenderingFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandBufferInheritanceRenderingInfo.html>
@@ -8577,6 +9540,15 @@ impl Default for CommandBufferInheritanceRenderingInfo {
     }
 }
 impl Extends<CommandBufferInheritanceInfo> for CommandBufferInheritanceRenderingInfo {}
+impl CommandBufferInheritanceRenderingInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type CommandBufferInheritanceRenderingInfoKHR = CommandBufferInheritanceRenderingInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVulkan14Features.html>
@@ -8641,6 +9613,15 @@ impl Default for PhysicalDeviceVulkan14Features {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceVulkan14Features {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceVulkan14Features {}
+impl PhysicalDeviceVulkan14Features {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVulkan14Properties.html>
 #[doc(alias = "VkPhysicalDeviceVulkan14Properties")]
@@ -8716,6 +9697,15 @@ impl Default for PhysicalDeviceVulkan14Properties {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceVulkan14Properties {}
+impl PhysicalDeviceVulkan14Properties {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceQueueGlobalPriorityCreateInfo.html>
 #[doc(alias = "VkDeviceQueueGlobalPriorityCreateInfo")]
@@ -8738,6 +9728,15 @@ impl Default for DeviceQueueGlobalPriorityCreateInfo {
     }
 }
 impl Extends<DeviceQueueCreateInfo> for DeviceQueueGlobalPriorityCreateInfo {}
+impl DeviceQueueGlobalPriorityCreateInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type DeviceQueueGlobalPriorityCreateInfoKHR = DeviceQueueGlobalPriorityCreateInfo;
 pub type DeviceQueueGlobalPriorityCreateInfoEXT = DeviceQueueGlobalPriorityCreateInfo;
 
@@ -8763,6 +9762,15 @@ impl Default for PhysicalDeviceGlobalPriorityQueryFeatures {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceGlobalPriorityQueryFeatures {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceGlobalPriorityQueryFeatures {}
+impl PhysicalDeviceGlobalPriorityQueryFeatures {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceGlobalPriorityQueryFeaturesKHR = PhysicalDeviceGlobalPriorityQueryFeatures;
 pub type PhysicalDeviceGlobalPriorityQueryFeaturesEXT = PhysicalDeviceGlobalPriorityQueryFeatures;
 
@@ -8789,6 +9797,15 @@ impl Default for QueueFamilyGlobalPriorityProperties {
     }
 }
 impl Extends<QueueFamilyProperties2> for QueueFamilyGlobalPriorityProperties {}
+impl QueueFamilyGlobalPriorityProperties {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type QueueFamilyGlobalPriorityPropertiesKHR = QueueFamilyGlobalPriorityProperties;
 pub type QueueFamilyGlobalPriorityPropertiesEXT = QueueFamilyGlobalPriorityProperties;
 
@@ -8814,6 +9831,15 @@ impl Default for PhysicalDeviceIndexTypeUint8Features {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceIndexTypeUint8Features {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceIndexTypeUint8Features {}
+impl PhysicalDeviceIndexTypeUint8Features {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceIndexTypeUint8FeaturesKHR = PhysicalDeviceIndexTypeUint8Features;
 pub type PhysicalDeviceIndexTypeUint8FeaturesEXT = PhysicalDeviceIndexTypeUint8Features;
 
@@ -8895,6 +9921,15 @@ impl Default for PhysicalDeviceMaintenance5Features {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceMaintenance5Features {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceMaintenance5Features {}
+impl PhysicalDeviceMaintenance5Features {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceMaintenance5FeaturesKHR = PhysicalDeviceMaintenance5Features;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMaintenance5Properties.html>
@@ -8928,6 +9963,15 @@ impl Default for PhysicalDeviceMaintenance5Properties {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceMaintenance5Properties {}
+impl PhysicalDeviceMaintenance5Properties {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceMaintenance5PropertiesKHR = PhysicalDeviceMaintenance5Properties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSubresourceLayout2.html>
@@ -9026,6 +10070,15 @@ impl Extends<BufferViewCreateInfo> for BufferUsageFlags2CreateInfo {}
 impl Extends<BufferCreateInfo> for BufferUsageFlags2CreateInfo {}
 impl Extends<PhysicalDeviceExternalBufferInfo> for BufferUsageFlags2CreateInfo {}
 impl Extends<DescriptorBufferBindingInfoEXT> for BufferUsageFlags2CreateInfo {}
+impl BufferUsageFlags2CreateInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type BufferUsageFlags2CreateInfoKHR = BufferUsageFlags2CreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMaintenance6Features.html>
@@ -9050,6 +10103,15 @@ impl Default for PhysicalDeviceMaintenance6Features {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceMaintenance6Features {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceMaintenance6Features {}
+impl PhysicalDeviceMaintenance6Features {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceMaintenance6FeaturesKHR = PhysicalDeviceMaintenance6Features;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMaintenance6Properties.html>
@@ -9077,6 +10139,15 @@ impl Default for PhysicalDeviceMaintenance6Properties {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceMaintenance6Properties {}
+impl PhysicalDeviceMaintenance6Properties {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceMaintenance6PropertiesKHR = PhysicalDeviceMaintenance6Properties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBindMemoryStatus.html>
@@ -9101,6 +10172,15 @@ impl Default for BindMemoryStatus {
 }
 impl Extends<BindBufferMemoryInfo> for BindMemoryStatus {}
 impl Extends<BindImageMemoryInfo> for BindMemoryStatus {}
+impl BindMemoryStatus {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type BindMemoryStatusKHR = BindMemoryStatus;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceHostImageCopyFeatures.html>
@@ -9125,6 +10205,15 @@ impl Default for PhysicalDeviceHostImageCopyFeatures {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceHostImageCopyFeatures {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceHostImageCopyFeatures {}
+impl PhysicalDeviceHostImageCopyFeatures {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceHostImageCopyFeaturesEXT = PhysicalDeviceHostImageCopyFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceHostImageCopyProperties.html>
@@ -9163,6 +10252,15 @@ impl Default for PhysicalDeviceHostImageCopyProperties {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceHostImageCopyProperties {}
+impl PhysicalDeviceHostImageCopyProperties {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceHostImageCopyPropertiesEXT = PhysicalDeviceHostImageCopyProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryToImageCopy.html>
@@ -9375,6 +10473,15 @@ impl Default for SubresourceHostMemcpySize {
     }
 }
 impl Extends<SubresourceLayout2> for SubresourceHostMemcpySize {}
+impl SubresourceHostMemcpySize {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type SubresourceHostMemcpySizeEXT = SubresourceHostMemcpySize;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkHostImageCopyDevicePerformanceQuery.html>
@@ -9400,6 +10507,15 @@ impl Default for HostImageCopyDevicePerformanceQuery {
     }
 }
 impl Extends<ImageFormatProperties2> for HostImageCopyDevicePerformanceQuery {}
+impl HostImageCopyDevicePerformanceQuery {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type HostImageCopyDevicePerformanceQueryEXT = HostImageCopyDevicePerformanceQuery;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderSubgroupRotateFeatures.html>
@@ -9426,6 +10542,15 @@ impl Default for PhysicalDeviceShaderSubgroupRotateFeatures {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderSubgroupRotateFeatures {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderSubgroupRotateFeatures {}
+impl PhysicalDeviceShaderSubgroupRotateFeatures {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceShaderSubgroupRotateFeaturesKHR = PhysicalDeviceShaderSubgroupRotateFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderFloatControls2Features.html>
@@ -9450,6 +10575,15 @@ impl Default for PhysicalDeviceShaderFloatControls2Features {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderFloatControls2Features {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderFloatControls2Features {}
+impl PhysicalDeviceShaderFloatControls2Features {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceShaderFloatControls2FeaturesKHR = PhysicalDeviceShaderFloatControls2Features;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderExpectAssumeFeatures.html>
@@ -9474,6 +10608,15 @@ impl Default for PhysicalDeviceShaderExpectAssumeFeatures {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderExpectAssumeFeatures {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderExpectAssumeFeatures {}
+impl PhysicalDeviceShaderExpectAssumeFeatures {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceShaderExpectAssumeFeaturesKHR = PhysicalDeviceShaderExpectAssumeFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCreateFlags2CreateInfo.html>
@@ -9501,6 +10644,15 @@ impl Extends<ComputePipelineCreateInfo> for PipelineCreateFlags2CreateInfo {}
 impl Extends<GraphicsPipelineCreateInfo> for PipelineCreateFlags2CreateInfo {}
 impl Extends<RayTracingPipelineCreateInfoNV> for PipelineCreateFlags2CreateInfo {}
 impl Extends<RayTracingPipelineCreateInfoKHR> for PipelineCreateFlags2CreateInfo {}
+impl PipelineCreateFlags2CreateInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PipelineCreateFlags2CreateInfoKHR = PipelineCreateFlags2CreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePushDescriptorProperties.html>
@@ -9524,6 +10676,15 @@ impl Default for PhysicalDevicePushDescriptorProperties {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDevicePushDescriptorProperties {}
+impl PhysicalDevicePushDescriptorProperties {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDevicePushDescriptorPropertiesKHR = PhysicalDevicePushDescriptorProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBindDescriptorSetsInfo.html>
@@ -9688,6 +10849,15 @@ impl Default for PhysicalDevicePipelineProtectedAccessFeatures {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDevicePipelineProtectedAccessFeatures {}
 impl Extends<DeviceCreateInfo> for PhysicalDevicePipelineProtectedAccessFeatures {}
+impl PhysicalDevicePipelineProtectedAccessFeatures {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDevicePipelineProtectedAccessFeaturesEXT =
     PhysicalDevicePipelineProtectedAccessFeatures;
 
@@ -9713,6 +10883,15 @@ impl Default for PhysicalDevicePipelineRobustnessFeatures {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDevicePipelineRobustnessFeatures {}
 impl Extends<DeviceCreateInfo> for PhysicalDevicePipelineRobustnessFeatures {}
+impl PhysicalDevicePipelineRobustnessFeatures {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDevicePipelineRobustnessFeaturesEXT = PhysicalDevicePipelineRobustnessFeatures;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePipelineRobustnessProperties.html>
@@ -9742,6 +10921,15 @@ impl Default for PhysicalDevicePipelineRobustnessProperties {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDevicePipelineRobustnessProperties {}
+impl PhysicalDevicePipelineRobustnessProperties {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDevicePipelineRobustnessPropertiesEXT = PhysicalDevicePipelineRobustnessProperties;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineRobustnessCreateInfo.html>
@@ -9774,6 +10962,15 @@ impl Extends<GraphicsPipelineCreateInfo> for PipelineRobustnessCreateInfo {}
 impl Extends<ComputePipelineCreateInfo> for PipelineRobustnessCreateInfo {}
 impl Extends<PipelineShaderStageCreateInfo> for PipelineRobustnessCreateInfo {}
 impl Extends<RayTracingPipelineCreateInfoKHR> for PipelineRobustnessCreateInfo {}
+impl PipelineRobustnessCreateInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PipelineRobustnessCreateInfoEXT = PipelineRobustnessCreateInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceLineRasterizationFeatures.html>
@@ -9808,6 +11005,15 @@ impl Default for PhysicalDeviceLineRasterizationFeatures {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceLineRasterizationFeatures {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceLineRasterizationFeatures {}
+impl PhysicalDeviceLineRasterizationFeatures {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceLineRasterizationFeaturesKHR = PhysicalDeviceLineRasterizationFeatures;
 pub type PhysicalDeviceLineRasterizationFeaturesEXT = PhysicalDeviceLineRasterizationFeatures;
 
@@ -9832,6 +11038,15 @@ impl Default for PhysicalDeviceLineRasterizationProperties {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceLineRasterizationProperties {}
+impl PhysicalDeviceLineRasterizationProperties {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceLineRasterizationPropertiesKHR = PhysicalDeviceLineRasterizationProperties;
 pub type PhysicalDeviceLineRasterizationPropertiesEXT = PhysicalDeviceLineRasterizationProperties;
 
@@ -9862,6 +11077,15 @@ impl Default for PipelineRasterizationLineStateCreateInfo {
     }
 }
 impl Extends<PipelineRasterizationStateCreateInfo> for PipelineRasterizationLineStateCreateInfo {}
+impl PipelineRasterizationLineStateCreateInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PipelineRasterizationLineStateCreateInfoKHR = PipelineRasterizationLineStateCreateInfo;
 pub type PipelineRasterizationLineStateCreateInfoEXT = PipelineRasterizationLineStateCreateInfo;
 
@@ -9888,6 +11112,15 @@ impl Default for PhysicalDeviceVertexAttributeDivisorProperties {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceVertexAttributeDivisorProperties {}
+impl PhysicalDeviceVertexAttributeDivisorProperties {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceVertexAttributeDivisorPropertiesKHR =
     PhysicalDeviceVertexAttributeDivisorProperties;
 
@@ -9934,6 +11167,15 @@ impl Default for PipelineVertexInputDivisorStateCreateInfo {
     }
 }
 impl Extends<PipelineVertexInputStateCreateInfo> for PipelineVertexInputDivisorStateCreateInfo {}
+impl PipelineVertexInputDivisorStateCreateInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PipelineVertexInputDivisorStateCreateInfoKHR = PipelineVertexInputDivisorStateCreateInfo;
 pub type PipelineVertexInputDivisorStateCreateInfoEXT = PipelineVertexInputDivisorStateCreateInfo;
 
@@ -9961,6 +11203,15 @@ impl Default for PhysicalDeviceVertexAttributeDivisorFeatures {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceVertexAttributeDivisorFeatures {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceVertexAttributeDivisorFeatures {}
+impl PhysicalDeviceVertexAttributeDivisorFeatures {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceVertexAttributeDivisorFeaturesKHR =
     PhysicalDeviceVertexAttributeDivisorFeatures;
 pub type PhysicalDeviceVertexAttributeDivisorFeaturesEXT =
@@ -10019,6 +11270,15 @@ impl Default for PhysicalDeviceDynamicRenderingLocalReadFeatures {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceDynamicRenderingLocalReadFeatures {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceDynamicRenderingLocalReadFeatures {}
+impl PhysicalDeviceDynamicRenderingLocalReadFeatures {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceDynamicRenderingLocalReadFeaturesKHR =
     PhysicalDeviceDynamicRenderingLocalReadFeatures;
 
@@ -10047,6 +11307,15 @@ impl Default for RenderingAttachmentLocationInfo {
 }
 impl Extends<GraphicsPipelineCreateInfo> for RenderingAttachmentLocationInfo {}
 impl Extends<CommandBufferInheritanceInfo> for RenderingAttachmentLocationInfo {}
+impl RenderingAttachmentLocationInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type RenderingAttachmentLocationInfoKHR = RenderingAttachmentLocationInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderingInputAttachmentIndexInfo.html>
@@ -10085,6 +11354,15 @@ impl Default for RenderingInputAttachmentIndexInfo {
 }
 impl Extends<GraphicsPipelineCreateInfo> for RenderingInputAttachmentIndexInfo {}
 impl Extends<CommandBufferInheritanceInfo> for RenderingInputAttachmentIndexInfo {}
+impl RenderingInputAttachmentIndexInfo {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type RenderingInputAttachmentIndexInfoKHR = RenderingInputAttachmentIndexInfo;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfaceCapabilitiesKHR.html>
@@ -10252,6 +11530,15 @@ impl Default for ImageSwapchainCreateInfoKHR {
     }
 }
 impl Extends<ImageCreateInfo> for ImageSwapchainCreateInfoKHR {}
+impl ImageSwapchainCreateInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBindImageMemorySwapchainInfoKHR.html>
 #[doc(alias = "VkBindImageMemorySwapchainInfoKHR")]
@@ -10276,6 +11563,15 @@ impl Default for BindImageMemorySwapchainInfoKHR {
     }
 }
 impl Extends<BindImageMemoryInfo> for BindImageMemorySwapchainInfoKHR {}
+impl BindImageMemorySwapchainInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAcquireNextImageInfoKHR.html>
 #[doc(alias = "VkAcquireNextImageInfoKHR")]
@@ -10357,6 +11653,15 @@ impl Default for DeviceGroupPresentInfoKHR {
     }
 }
 impl Extends<PresentInfoKHR> for DeviceGroupPresentInfoKHR {}
+impl DeviceGroupPresentInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceGroupSwapchainCreateInfoKHR.html>
 #[doc(alias = "VkDeviceGroupSwapchainCreateInfoKHR")]
@@ -10379,6 +11684,15 @@ impl Default for DeviceGroupSwapchainCreateInfoKHR {
     }
 }
 impl Extends<SwapchainCreateInfoKHR> for DeviceGroupSwapchainCreateInfoKHR {}
+impl DeviceGroupSwapchainCreateInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplayModeParametersKHR.html>
 #[doc(alias = "VkDisplayModeParametersKHR")]
@@ -10584,6 +11898,15 @@ impl Default for DisplayPresentInfoKHR {
     }
 }
 impl Extends<PresentInfoKHR> for DisplayPresentInfoKHR {}
+impl DisplayPresentInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkXlibSurfaceCreateInfoKHR.html>
 #[doc(alias = "VkXlibSurfaceCreateInfoKHR")]
@@ -10734,6 +12057,15 @@ impl Default for QueueFamilyQueryResultStatusPropertiesKHR {
     }
 }
 impl Extends<QueueFamilyProperties2> for QueueFamilyQueryResultStatusPropertiesKHR {}
+impl QueueFamilyQueryResultStatusPropertiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkQueueFamilyVideoPropertiesKHR.html>
 #[doc(alias = "VkQueueFamilyVideoPropertiesKHR")]
@@ -10756,6 +12088,15 @@ impl Default for QueueFamilyVideoPropertiesKHR {
     }
 }
 impl Extends<QueueFamilyProperties2> for QueueFamilyVideoPropertiesKHR {}
+impl QueueFamilyVideoPropertiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoProfileInfoKHR.html>
 ///
@@ -10787,6 +12128,15 @@ impl Default for VideoProfileInfoKHR {
     }
 }
 impl Extends<QueryPoolCreateInfo> for VideoProfileInfoKHR {}
+impl VideoProfileInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoProfileListInfoKHR.html>
 #[doc(alias = "VkVideoProfileListInfoKHR")]
@@ -10815,6 +12165,15 @@ impl Extends<PhysicalDeviceImageFormatInfo2> for VideoProfileListInfoKHR {}
 impl Extends<PhysicalDeviceVideoFormatInfoKHR> for VideoProfileListInfoKHR {}
 impl Extends<ImageCreateInfo> for VideoProfileListInfoKHR {}
 impl Extends<BufferCreateInfo> for VideoProfileListInfoKHR {}
+impl VideoProfileListInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoCapabilitiesKHR.html>
 ///
@@ -11206,6 +12565,15 @@ impl Default for VideoDecodeCapabilitiesKHR {
     }
 }
 impl Extends<VideoCapabilitiesKHR> for VideoDecodeCapabilitiesKHR {}
+impl VideoDecodeCapabilitiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeUsageInfoKHR.html>
 #[doc(alias = "VkVideoDecodeUsageInfoKHR")]
@@ -11230,6 +12598,15 @@ impl Default for VideoDecodeUsageInfoKHR {
 }
 impl Extends<VideoProfileInfoKHR> for VideoDecodeUsageInfoKHR {}
 impl Extends<QueryPoolCreateInfo> for VideoDecodeUsageInfoKHR {}
+impl VideoDecodeUsageInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeInfoKHR.html>
 ///
@@ -11316,6 +12693,15 @@ impl Default for VideoEncodeH264CapabilitiesKHR {
     }
 }
 impl Extends<VideoCapabilitiesKHR> for VideoEncodeH264CapabilitiesKHR {}
+impl VideoEncodeH264CapabilitiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH264QpKHR.html>
 #[doc(alias = "VkVideoEncodeH264QpKHR")]
@@ -11374,6 +12760,15 @@ impl Default for VideoEncodeH264QualityLevelPropertiesKHR {
     }
 }
 impl Extends<VideoEncodeQualityLevelPropertiesKHR> for VideoEncodeH264QualityLevelPropertiesKHR {}
+impl VideoEncodeH264QualityLevelPropertiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH264SessionCreateInfoKHR.html>
 #[doc(alias = "VkVideoEncodeH264SessionCreateInfoKHR")]
@@ -11398,6 +12793,15 @@ impl Default for VideoEncodeH264SessionCreateInfoKHR {
     }
 }
 impl Extends<VideoSessionCreateInfoKHR> for VideoEncodeH264SessionCreateInfoKHR {}
+impl VideoEncodeH264SessionCreateInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH264SessionParametersAddInfoKHR.html>
 #[doc(alias = "VkVideoEncodeH264SessionParametersAddInfoKHR")]
@@ -11430,6 +12834,15 @@ impl Default for VideoEncodeH264SessionParametersAddInfoKHR {
     }
 }
 impl Extends<VideoSessionParametersUpdateInfoKHR> for VideoEncodeH264SessionParametersAddInfoKHR {}
+impl VideoEncodeH264SessionParametersAddInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH264SessionParametersCreateInfoKHR.html>
 #[doc(alias = "VkVideoEncodeH264SessionParametersCreateInfoKHR")]
@@ -11459,6 +12872,15 @@ impl Default for VideoEncodeH264SessionParametersCreateInfoKHR {
 impl Extends<VideoSessionParametersCreateInfoKHR>
     for VideoEncodeH264SessionParametersCreateInfoKHR
 {
+}
+impl VideoEncodeH264SessionParametersCreateInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH264SessionParametersGetInfoKHR.html>
@@ -11491,6 +12913,15 @@ impl Extends<VideoEncodeSessionParametersGetInfoKHR>
     for VideoEncodeH264SessionParametersGetInfoKHR
 {
 }
+impl VideoEncodeH264SessionParametersGetInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH264SessionParametersFeedbackInfoKHR.html>
 #[doc(alias = "VkVideoEncodeH264SessionParametersFeedbackInfoKHR")]
@@ -11517,6 +12948,15 @@ impl Default for VideoEncodeH264SessionParametersFeedbackInfoKHR {
 impl Extends<VideoEncodeSessionParametersFeedbackInfoKHR>
     for VideoEncodeH264SessionParametersFeedbackInfoKHR
 {
+}
+impl VideoEncodeH264SessionParametersFeedbackInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH264NaluSliceInfoKHR.html>
@@ -11569,6 +13009,15 @@ impl Default for VideoEncodeH264PictureInfoKHR {
     }
 }
 impl Extends<VideoEncodeInfoKHR> for VideoEncodeH264PictureInfoKHR {}
+impl VideoEncodeH264PictureInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH264DpbSlotInfoKHR.html>
 #[doc(alias = "VkVideoEncodeH264DpbSlotInfoKHR")]
@@ -11591,6 +13040,15 @@ impl Default for VideoEncodeH264DpbSlotInfoKHR {
     }
 }
 impl Extends<VideoReferenceSlotInfoKHR> for VideoEncodeH264DpbSlotInfoKHR {}
+impl VideoEncodeH264DpbSlotInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH264ProfileInfoKHR.html>
 #[doc(alias = "VkVideoEncodeH264ProfileInfoKHR")]
@@ -11614,6 +13072,15 @@ impl Default for VideoEncodeH264ProfileInfoKHR {
 }
 impl Extends<VideoProfileInfoKHR> for VideoEncodeH264ProfileInfoKHR {}
 impl Extends<QueryPoolCreateInfo> for VideoEncodeH264ProfileInfoKHR {}
+impl VideoEncodeH264ProfileInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH264RateControlInfoKHR.html>
 #[doc(alias = "VkVideoEncodeH264RateControlInfoKHR")]
@@ -11646,6 +13113,15 @@ impl Default for VideoEncodeH264RateControlInfoKHR {
 }
 impl Extends<VideoCodingControlInfoKHR> for VideoEncodeH264RateControlInfoKHR {}
 impl Extends<VideoBeginCodingInfoKHR> for VideoEncodeH264RateControlInfoKHR {}
+impl VideoEncodeH264RateControlInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH264FrameSizeKHR.html>
 #[doc(alias = "VkVideoEncodeH264FrameSizeKHR")]
@@ -11698,6 +13174,15 @@ impl Default for VideoEncodeH264RateControlLayerInfoKHR {
     }
 }
 impl Extends<VideoEncodeRateControlLayerInfoKHR> for VideoEncodeH264RateControlLayerInfoKHR {}
+impl VideoEncodeH264RateControlLayerInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH264GopRemainingFrameInfoKHR.html>
 #[doc(alias = "VkVideoEncodeH264GopRemainingFrameInfoKHR")]
@@ -11726,6 +13211,15 @@ impl Default for VideoEncodeH264GopRemainingFrameInfoKHR {
     }
 }
 impl Extends<VideoBeginCodingInfoKHR> for VideoEncodeH264GopRemainingFrameInfoKHR {}
+impl VideoEncodeH264GopRemainingFrameInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265CapabilitiesKHR.html>
 #[doc(alias = "VkVideoEncodeH265CapabilitiesKHR")]
@@ -11778,6 +13272,15 @@ impl Default for VideoEncodeH265CapabilitiesKHR {
     }
 }
 impl Extends<VideoCapabilitiesKHR> for VideoEncodeH265CapabilitiesKHR {}
+impl VideoEncodeH265CapabilitiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265SessionCreateInfoKHR.html>
 #[doc(alias = "VkVideoEncodeH265SessionCreateInfoKHR")]
@@ -11802,6 +13305,15 @@ impl Default for VideoEncodeH265SessionCreateInfoKHR {
     }
 }
 impl Extends<VideoSessionCreateInfoKHR> for VideoEncodeH265SessionCreateInfoKHR {}
+impl VideoEncodeH265SessionCreateInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265QpKHR.html>
 #[doc(alias = "VkVideoEncodeH265QpKHR")]
@@ -11858,6 +13370,15 @@ impl Default for VideoEncodeH265QualityLevelPropertiesKHR {
     }
 }
 impl Extends<VideoEncodeQualityLevelPropertiesKHR> for VideoEncodeH265QualityLevelPropertiesKHR {}
+impl VideoEncodeH265QualityLevelPropertiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265SessionParametersAddInfoKHR.html>
 #[doc(alias = "VkVideoEncodeH265SessionParametersAddInfoKHR")]
@@ -11896,6 +13417,15 @@ impl Default for VideoEncodeH265SessionParametersAddInfoKHR {
     }
 }
 impl Extends<VideoSessionParametersUpdateInfoKHR> for VideoEncodeH265SessionParametersAddInfoKHR {}
+impl VideoEncodeH265SessionParametersAddInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265SessionParametersCreateInfoKHR.html>
 #[doc(alias = "VkVideoEncodeH265SessionParametersCreateInfoKHR")]
@@ -11927,6 +13457,15 @@ impl Default for VideoEncodeH265SessionParametersCreateInfoKHR {
 impl Extends<VideoSessionParametersCreateInfoKHR>
     for VideoEncodeH265SessionParametersCreateInfoKHR
 {
+}
+impl VideoEncodeH265SessionParametersCreateInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265SessionParametersGetInfoKHR.html>
@@ -11963,6 +13502,15 @@ impl Extends<VideoEncodeSessionParametersGetInfoKHR>
     for VideoEncodeH265SessionParametersGetInfoKHR
 {
 }
+impl VideoEncodeH265SessionParametersGetInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265SessionParametersFeedbackInfoKHR.html>
 #[doc(alias = "VkVideoEncodeH265SessionParametersFeedbackInfoKHR")]
@@ -11991,6 +13539,15 @@ impl Default for VideoEncodeH265SessionParametersFeedbackInfoKHR {
 impl Extends<VideoEncodeSessionParametersFeedbackInfoKHR>
     for VideoEncodeH265SessionParametersFeedbackInfoKHR
 {
+}
+impl VideoEncodeH265SessionParametersFeedbackInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265NaluSliceSegmentInfoKHR.html>
@@ -12041,6 +13598,15 @@ impl Default for VideoEncodeH265PictureInfoKHR {
     }
 }
 impl Extends<VideoEncodeInfoKHR> for VideoEncodeH265PictureInfoKHR {}
+impl VideoEncodeH265PictureInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265DpbSlotInfoKHR.html>
 #[doc(alias = "VkVideoEncodeH265DpbSlotInfoKHR")]
@@ -12063,6 +13629,15 @@ impl Default for VideoEncodeH265DpbSlotInfoKHR {
     }
 }
 impl Extends<VideoReferenceSlotInfoKHR> for VideoEncodeH265DpbSlotInfoKHR {}
+impl VideoEncodeH265DpbSlotInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265ProfileInfoKHR.html>
 #[doc(alias = "VkVideoEncodeH265ProfileInfoKHR")]
@@ -12086,6 +13661,15 @@ impl Default for VideoEncodeH265ProfileInfoKHR {
 }
 impl Extends<VideoProfileInfoKHR> for VideoEncodeH265ProfileInfoKHR {}
 impl Extends<QueryPoolCreateInfo> for VideoEncodeH265ProfileInfoKHR {}
+impl VideoEncodeH265ProfileInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265RateControlInfoKHR.html>
 #[doc(alias = "VkVideoEncodeH265RateControlInfoKHR")]
@@ -12118,6 +13702,15 @@ impl Default for VideoEncodeH265RateControlInfoKHR {
 }
 impl Extends<VideoCodingControlInfoKHR> for VideoEncodeH265RateControlInfoKHR {}
 impl Extends<VideoBeginCodingInfoKHR> for VideoEncodeH265RateControlInfoKHR {}
+impl VideoEncodeH265RateControlInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265FrameSizeKHR.html>
 #[doc(alias = "VkVideoEncodeH265FrameSizeKHR")]
@@ -12170,6 +13763,15 @@ impl Default for VideoEncodeH265RateControlLayerInfoKHR {
     }
 }
 impl Extends<VideoEncodeRateControlLayerInfoKHR> for VideoEncodeH265RateControlLayerInfoKHR {}
+impl VideoEncodeH265RateControlLayerInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265GopRemainingFrameInfoKHR.html>
 #[doc(alias = "VkVideoEncodeH265GopRemainingFrameInfoKHR")]
@@ -12198,6 +13800,15 @@ impl Default for VideoEncodeH265GopRemainingFrameInfoKHR {
     }
 }
 impl Extends<VideoBeginCodingInfoKHR> for VideoEncodeH265GopRemainingFrameInfoKHR {}
+impl VideoEncodeH265GopRemainingFrameInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeH264ProfileInfoKHR.html>
 #[doc(alias = "VkVideoDecodeH264ProfileInfoKHR")]
@@ -12224,6 +13835,15 @@ impl Default for VideoDecodeH264ProfileInfoKHR {
 }
 impl Extends<VideoProfileInfoKHR> for VideoDecodeH264ProfileInfoKHR {}
 impl Extends<QueryPoolCreateInfo> for VideoDecodeH264ProfileInfoKHR {}
+impl VideoDecodeH264ProfileInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeH264CapabilitiesKHR.html>
 #[doc(alias = "VkVideoDecodeH264CapabilitiesKHR")]
@@ -12248,6 +13868,15 @@ impl Default for VideoDecodeH264CapabilitiesKHR {
     }
 }
 impl Extends<VideoCapabilitiesKHR> for VideoDecodeH264CapabilitiesKHR {}
+impl VideoDecodeH264CapabilitiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeH264SessionParametersAddInfoKHR.html>
 #[doc(alias = "VkVideoDecodeH264SessionParametersAddInfoKHR")]
@@ -12278,6 +13907,15 @@ impl Default for VideoDecodeH264SessionParametersAddInfoKHR {
     }
 }
 impl Extends<VideoSessionParametersUpdateInfoKHR> for VideoDecodeH264SessionParametersAddInfoKHR {}
+impl VideoDecodeH264SessionParametersAddInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeH264SessionParametersCreateInfoKHR.html>
 #[doc(alias = "VkVideoDecodeH264SessionParametersCreateInfoKHR")]
@@ -12308,6 +13946,15 @@ impl Extends<VideoSessionParametersCreateInfoKHR>
     for VideoDecodeH264SessionParametersCreateInfoKHR
 {
 }
+impl VideoDecodeH264SessionParametersCreateInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeH264PictureInfoKHR.html>
 #[doc(alias = "VkVideoDecodeH264PictureInfoKHR")]
@@ -12334,6 +13981,15 @@ impl Default for VideoDecodeH264PictureInfoKHR {
     }
 }
 impl Extends<VideoDecodeInfoKHR> for VideoDecodeH264PictureInfoKHR {}
+impl VideoDecodeH264PictureInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeH264DpbSlotInfoKHR.html>
 #[doc(alias = "VkVideoDecodeH264DpbSlotInfoKHR")]
@@ -12356,6 +14012,15 @@ impl Default for VideoDecodeH264DpbSlotInfoKHR {
     }
 }
 impl Extends<VideoReferenceSlotInfoKHR> for VideoDecodeH264DpbSlotInfoKHR {}
+impl VideoDecodeH264DpbSlotInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImportMemoryWin32HandleInfoKHR.html>
 #[doc(alias = "VkImportMemoryWin32HandleInfoKHR")]
@@ -12385,6 +14050,15 @@ impl Default for ImportMemoryWin32HandleInfoKHR {
     }
 }
 impl Extends<MemoryAllocateInfo> for ImportMemoryWin32HandleInfoKHR {}
+impl ImportMemoryWin32HandleInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExportMemoryWin32HandleInfoKHR.html>
 #[doc(alias = "VkExportMemoryWin32HandleInfoKHR")]
@@ -12412,6 +14086,15 @@ impl Default for ExportMemoryWin32HandleInfoKHR {
     }
 }
 impl Extends<MemoryAllocateInfo> for ExportMemoryWin32HandleInfoKHR {}
+impl ExportMemoryWin32HandleInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryWin32HandlePropertiesKHR.html>
 #[doc(alias = "VkMemoryWin32HandlePropertiesKHR")]
@@ -12481,6 +14164,15 @@ impl Default for ImportMemoryFdInfoKHR {
     }
 }
 impl Extends<MemoryAllocateInfo> for ImportMemoryFdInfoKHR {}
+impl ImportMemoryFdInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryFdPropertiesKHR.html>
 #[doc(alias = "VkMemoryFdPropertiesKHR")]
@@ -12562,6 +14254,15 @@ impl Default for Win32KeyedMutexAcquireReleaseInfoKHR {
 }
 impl Extends<SubmitInfo> for Win32KeyedMutexAcquireReleaseInfoKHR {}
 impl Extends<SubmitInfo2> for Win32KeyedMutexAcquireReleaseInfoKHR {}
+impl Win32KeyedMutexAcquireReleaseInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImportSemaphoreWin32HandleInfoKHR.html>
 #[doc(alias = "VkImportSemaphoreWin32HandleInfoKHR")]
@@ -12621,6 +14322,15 @@ impl Default for ExportSemaphoreWin32HandleInfoKHR {
     }
 }
 impl Extends<SemaphoreCreateInfo> for ExportSemaphoreWin32HandleInfoKHR {}
+impl ExportSemaphoreWin32HandleInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkD3D12FenceSubmitInfoKHR.html>
 #[doc(alias = "VkD3D12FenceSubmitInfoKHR")]
@@ -12653,6 +14363,15 @@ impl Default for D3D12FenceSubmitInfoKHR {
     }
 }
 impl Extends<SubmitInfo> for D3D12FenceSubmitInfoKHR {}
+impl D3D12FenceSubmitInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSemaphoreGetWin32HandleInfoKHR.html>
 #[doc(alias = "VkSemaphoreGetWin32HandleInfoKHR")]
@@ -12792,6 +14511,15 @@ impl Default for PresentRegionsKHR {
     }
 }
 impl Extends<PresentInfoKHR> for PresentRegionsKHR {}
+impl PresentRegionsKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSharedPresentSurfaceCapabilitiesKHR.html>
 #[doc(alias = "VkSharedPresentSurfaceCapabilitiesKHR")]
@@ -12815,6 +14543,15 @@ impl Default for SharedPresentSurfaceCapabilitiesKHR {
     }
 }
 impl Extends<SurfaceCapabilities2KHR> for SharedPresentSurfaceCapabilitiesKHR {}
+impl SharedPresentSurfaceCapabilitiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImportFenceWin32HandleInfoKHR.html>
 #[doc(alias = "VkImportFenceWin32HandleInfoKHR")]
@@ -12874,6 +14611,15 @@ impl Default for ExportFenceWin32HandleInfoKHR {
     }
 }
 impl Extends<FenceCreateInfo> for ExportFenceWin32HandleInfoKHR {}
+impl ExportFenceWin32HandleInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFenceGetWin32HandleInfoKHR.html>
 #[doc(alias = "VkFenceGetWin32HandleInfoKHR")]
@@ -12973,6 +14719,15 @@ impl Default for PhysicalDevicePerformanceQueryFeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDevicePerformanceQueryFeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDevicePerformanceQueryFeaturesKHR {}
+impl PhysicalDevicePerformanceQueryFeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePerformanceQueryPropertiesKHR.html>
 #[doc(alias = "VkPhysicalDevicePerformanceQueryPropertiesKHR")]
@@ -12995,6 +14750,15 @@ impl Default for PhysicalDevicePerformanceQueryPropertiesKHR {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDevicePerformanceQueryPropertiesKHR {}
+impl PhysicalDevicePerformanceQueryPropertiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceCounterKHR.html>
 #[doc(alias = "VkPerformanceCounterKHR")]
@@ -13079,6 +14843,15 @@ impl Default for QueryPoolPerformanceCreateInfoKHR {
     }
 }
 impl Extends<QueryPoolCreateInfo> for QueryPoolPerformanceCreateInfoKHR {}
+impl QueryPoolPerformanceCreateInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceCounterResultKHR.html>
 #[doc(alias = "VkPerformanceCounterResultKHR")]
@@ -13151,6 +14924,15 @@ impl Default for PerformanceQuerySubmitInfoKHR {
 }
 impl Extends<SubmitInfo> for PerformanceQuerySubmitInfoKHR {}
 impl Extends<SubmitInfo2> for PerformanceQuerySubmitInfoKHR {}
+impl PerformanceQuerySubmitInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSurfaceInfo2KHR.html>
 ///
@@ -13357,6 +15139,15 @@ impl Default for PhysicalDeviceShaderBfloat16FeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderBfloat16FeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderBfloat16FeaturesKHR {}
+impl PhysicalDeviceShaderBfloat16FeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePortabilitySubsetFeaturesKHR.html>
 #[doc(alias = "VkPhysicalDevicePortabilitySubsetFeaturesKHR")]
@@ -13408,6 +15199,15 @@ impl Default for PhysicalDevicePortabilitySubsetFeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDevicePortabilitySubsetFeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDevicePortabilitySubsetFeaturesKHR {}
+impl PhysicalDevicePortabilitySubsetFeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePortabilitySubsetPropertiesKHR.html>
 #[doc(alias = "VkPhysicalDevicePortabilitySubsetPropertiesKHR")]
@@ -13430,6 +15230,15 @@ impl Default for PhysicalDevicePortabilitySubsetPropertiesKHR {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDevicePortabilitySubsetPropertiesKHR {}
+impl PhysicalDevicePortabilitySubsetPropertiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderClockFeaturesKHR.html>
 #[doc(alias = "VkPhysicalDeviceShaderClockFeaturesKHR")]
@@ -13455,6 +15264,15 @@ impl Default for PhysicalDeviceShaderClockFeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderClockFeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderClockFeaturesKHR {}
+impl PhysicalDeviceShaderClockFeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeH265ProfileInfoKHR.html>
 #[doc(alias = "VkVideoDecodeH265ProfileInfoKHR")]
@@ -13478,6 +15296,15 @@ impl Default for VideoDecodeH265ProfileInfoKHR {
 }
 impl Extends<VideoProfileInfoKHR> for VideoDecodeH265ProfileInfoKHR {}
 impl Extends<QueryPoolCreateInfo> for VideoDecodeH265ProfileInfoKHR {}
+impl VideoDecodeH265ProfileInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeH265CapabilitiesKHR.html>
 #[doc(alias = "VkVideoDecodeH265CapabilitiesKHR")]
@@ -13500,6 +15327,15 @@ impl Default for VideoDecodeH265CapabilitiesKHR {
     }
 }
 impl Extends<VideoCapabilitiesKHR> for VideoDecodeH265CapabilitiesKHR {}
+impl VideoDecodeH265CapabilitiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeH265SessionParametersAddInfoKHR.html>
 #[doc(alias = "VkVideoDecodeH265SessionParametersAddInfoKHR")]
@@ -13535,6 +15371,15 @@ impl Default for VideoDecodeH265SessionParametersAddInfoKHR {
     }
 }
 impl Extends<VideoSessionParametersUpdateInfoKHR> for VideoDecodeH265SessionParametersAddInfoKHR {}
+impl VideoDecodeH265SessionParametersAddInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeH265SessionParametersCreateInfoKHR.html>
 #[doc(alias = "VkVideoDecodeH265SessionParametersCreateInfoKHR")]
@@ -13567,6 +15412,15 @@ impl Extends<VideoSessionParametersCreateInfoKHR>
     for VideoDecodeH265SessionParametersCreateInfoKHR
 {
 }
+impl VideoDecodeH265SessionParametersCreateInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeH265PictureInfoKHR.html>
 #[doc(alias = "VkVideoDecodeH265PictureInfoKHR")]
@@ -13593,6 +15447,15 @@ impl Default for VideoDecodeH265PictureInfoKHR {
     }
 }
 impl Extends<VideoDecodeInfoKHR> for VideoDecodeH265PictureInfoKHR {}
+impl VideoDecodeH265PictureInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeH265DpbSlotInfoKHR.html>
 #[doc(alias = "VkVideoDecodeH265DpbSlotInfoKHR")]
@@ -13615,6 +15478,15 @@ impl Default for VideoDecodeH265DpbSlotInfoKHR {
     }
 }
 impl Extends<VideoReferenceSlotInfoKHR> for VideoDecodeH265DpbSlotInfoKHR {}
+impl VideoDecodeH265DpbSlotInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFragmentShadingRateAttachmentInfoKHR.html>
 #[doc(alias = "VkFragmentShadingRateAttachmentInfoKHR")]
@@ -13642,6 +15514,15 @@ impl Default for FragmentShadingRateAttachmentInfoKHR {
     }
 }
 impl Extends<SubpassDescription2> for FragmentShadingRateAttachmentInfoKHR {}
+impl FragmentShadingRateAttachmentInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineFragmentShadingRateStateCreateInfoKHR.html>
 #[doc(alias = "VkPipelineFragmentShadingRateStateCreateInfoKHR")]
@@ -13666,6 +15547,15 @@ impl Default for PipelineFragmentShadingRateStateCreateInfoKHR {
     }
 }
 impl Extends<GraphicsPipelineCreateInfo> for PipelineFragmentShadingRateStateCreateInfoKHR {}
+impl PipelineFragmentShadingRateStateCreateInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFragmentShadingRateFeaturesKHR.html>
 #[doc(alias = "VkPhysicalDeviceFragmentShadingRateFeaturesKHR")]
@@ -13693,6 +15583,15 @@ impl Default for PhysicalDeviceFragmentShadingRateFeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceFragmentShadingRateFeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceFragmentShadingRateFeaturesKHR {}
+impl PhysicalDeviceFragmentShadingRateFeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFragmentShadingRatePropertiesKHR.html>
 #[doc(alias = "VkPhysicalDeviceFragmentShadingRatePropertiesKHR")]
@@ -13747,6 +15646,15 @@ impl Default for PhysicalDeviceFragmentShadingRatePropertiesKHR {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceFragmentShadingRatePropertiesKHR {}
+impl PhysicalDeviceFragmentShadingRatePropertiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFragmentShadingRateKHR.html>
 #[doc(alias = "VkPhysicalDeviceFragmentShadingRateKHR")]
@@ -13797,6 +15705,15 @@ impl Default for RenderingFragmentShadingRateAttachmentInfoKHR {
     }
 }
 impl Extends<RenderingInfo> for RenderingFragmentShadingRateAttachmentInfoKHR {}
+impl RenderingFragmentShadingRateAttachmentInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderConstantDataFeaturesKHR.html>
 #[doc(alias = "VkPhysicalDeviceShaderConstantDataFeaturesKHR")]
@@ -13820,6 +15737,15 @@ impl Default for PhysicalDeviceShaderConstantDataFeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderConstantDataFeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderConstantDataFeaturesKHR {}
+impl PhysicalDeviceShaderConstantDataFeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderAbortFeaturesKHR.html>
 #[doc(alias = "VkPhysicalDeviceShaderAbortFeaturesKHR")]
@@ -13843,6 +15769,15 @@ impl Default for PhysicalDeviceShaderAbortFeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderAbortFeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderAbortFeaturesKHR {}
+impl PhysicalDeviceShaderAbortFeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceFaultShaderAbortMessageInfoKHR.html>
 #[doc(alias = "VkDeviceFaultShaderAbortMessageInfoKHR")]
@@ -13869,6 +15804,15 @@ impl Default for DeviceFaultShaderAbortMessageInfoKHR {
     }
 }
 impl Extends<DeviceFaultDebugInfoKHR> for DeviceFaultShaderAbortMessageInfoKHR {}
+impl DeviceFaultShaderAbortMessageInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderAbortPropertiesKHR.html>
 #[doc(alias = "VkPhysicalDeviceShaderAbortPropertiesKHR")]
@@ -13891,6 +15835,15 @@ impl Default for PhysicalDeviceShaderAbortPropertiesKHR {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceShaderAbortPropertiesKHR {}
+impl PhysicalDeviceShaderAbortPropertiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderQuadControlFeaturesKHR.html>
 #[doc(alias = "VkPhysicalDeviceShaderQuadControlFeaturesKHR")]
@@ -13914,6 +15867,15 @@ impl Default for PhysicalDeviceShaderQuadControlFeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderQuadControlFeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderQuadControlFeaturesKHR {}
+impl PhysicalDeviceShaderQuadControlFeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfaceProtectedCapabilitiesKHR.html>
 #[doc(alias = "VkSurfaceProtectedCapabilitiesKHR")]
@@ -13936,6 +15898,15 @@ impl Default for SurfaceProtectedCapabilitiesKHR {
     }
 }
 impl Extends<SurfaceCapabilities2KHR> for SurfaceProtectedCapabilitiesKHR {}
+impl SurfaceProtectedCapabilitiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePresentWaitFeaturesKHR.html>
 #[doc(alias = "VkPhysicalDevicePresentWaitFeaturesKHR")]
@@ -13959,6 +15930,15 @@ impl Default for PhysicalDevicePresentWaitFeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDevicePresentWaitFeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDevicePresentWaitFeaturesKHR {}
+impl PhysicalDevicePresentWaitFeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePipelineExecutablePropertiesFeaturesKHR.html>
 #[doc(alias = "VkPhysicalDevicePipelineExecutablePropertiesFeaturesKHR")]
@@ -13982,6 +15962,15 @@ impl Default for PhysicalDevicePipelineExecutablePropertiesFeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDevicePipelineExecutablePropertiesFeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDevicePipelineExecutablePropertiesFeaturesKHR {}
+impl PhysicalDevicePipelineExecutablePropertiesFeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineInfoKHR.html>
 #[doc(alias = "VkPipelineInfoKHR")]
@@ -14165,6 +16154,15 @@ impl Default for PipelineLibraryCreateInfoKHR {
     }
 }
 impl Extends<GraphicsPipelineCreateInfo> for PipelineLibraryCreateInfoKHR {}
+impl PipelineLibraryCreateInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPresentIdKHR.html>
 #[doc(alias = "VkPresentIdKHR")]
@@ -14190,6 +16188,15 @@ impl Default for PresentIdKHR {
     }
 }
 impl Extends<PresentInfoKHR> for PresentIdKHR {}
+impl PresentIdKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePresentIdFeaturesKHR.html>
 #[doc(alias = "VkPhysicalDevicePresentIdFeaturesKHR")]
@@ -14213,6 +16220,15 @@ impl Default for PhysicalDevicePresentIdFeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDevicePresentIdFeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDevicePresentIdFeaturesKHR {}
+impl PhysicalDevicePresentIdFeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeInfoKHR.html>
 ///
@@ -14289,6 +16305,15 @@ impl Default for VideoEncodeCapabilitiesKHR {
     }
 }
 impl Extends<VideoCapabilitiesKHR> for VideoEncodeCapabilitiesKHR {}
+impl VideoEncodeCapabilitiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkQueryPoolVideoEncodeFeedbackCreateInfoKHR.html>
 #[doc(alias = "VkQueryPoolVideoEncodeFeedbackCreateInfoKHR")]
@@ -14311,6 +16336,15 @@ impl Default for QueryPoolVideoEncodeFeedbackCreateInfoKHR {
     }
 }
 impl Extends<QueryPoolCreateInfo> for QueryPoolVideoEncodeFeedbackCreateInfoKHR {}
+impl QueryPoolVideoEncodeFeedbackCreateInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeUsageInfoKHR.html>
 #[doc(alias = "VkVideoEncodeUsageInfoKHR")]
@@ -14341,6 +16375,15 @@ impl Default for VideoEncodeUsageInfoKHR {
 }
 impl Extends<VideoProfileInfoKHR> for VideoEncodeUsageInfoKHR {}
 impl Extends<QueryPoolCreateInfo> for VideoEncodeUsageInfoKHR {}
+impl VideoEncodeUsageInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeRateControlLayerInfoKHR.html>
 ///
@@ -14406,6 +16449,15 @@ impl Default for VideoEncodeRateControlInfoKHR {
 }
 impl Extends<VideoCodingControlInfoKHR> for VideoEncodeRateControlInfoKHR {}
 impl Extends<VideoBeginCodingInfoKHR> for VideoEncodeRateControlInfoKHR {}
+impl VideoEncodeRateControlInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVideoEncodeQualityLevelInfoKHR.html>
 #[doc(alias = "VkPhysicalDeviceVideoEncodeQualityLevelInfoKHR")]
@@ -14477,6 +16529,15 @@ impl Default for VideoEncodeQualityLevelInfoKHR {
 }
 impl Extends<VideoCodingControlInfoKHR> for VideoEncodeQualityLevelInfoKHR {}
 impl Extends<VideoSessionParametersCreateInfoKHR> for VideoEncodeQualityLevelInfoKHR {}
+impl VideoEncodeQualityLevelInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeSessionParametersGetInfoKHR.html>
 ///
@@ -14746,6 +16807,15 @@ impl Default for MemoryRangeBarriersInfoKHR {
     }
 }
 impl Extends<DependencyInfo> for MemoryRangeBarriersInfoKHR {}
+impl MemoryRangeBarriersInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDeviceAddressCommandsFeaturesKHR.html>
 #[doc(alias = "VkPhysicalDeviceDeviceAddressCommandsFeaturesKHR")]
@@ -14769,6 +16839,15 @@ impl Default for PhysicalDeviceDeviceAddressCommandsFeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceDeviceAddressCommandsFeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceDeviceAddressCommandsFeaturesKHR {}
+impl PhysicalDeviceDeviceAddressCommandsFeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBindIndexBuffer3InfoKHR.html>
 #[doc(alias = "VkBindIndexBuffer3InfoKHR")]
@@ -15035,6 +17114,15 @@ impl Default for PhysicalDeviceFragmentShaderBarycentricFeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceFragmentShaderBarycentricFeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceFragmentShaderBarycentricFeaturesKHR {}
+impl PhysicalDeviceFragmentShaderBarycentricFeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceFragmentShaderBarycentricFeaturesNV =
     PhysicalDeviceFragmentShaderBarycentricFeaturesKHR;
 
@@ -15059,6 +17147,15 @@ impl Default for PhysicalDeviceFragmentShaderBarycentricPropertiesKHR {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceFragmentShaderBarycentricPropertiesKHR {}
+impl PhysicalDeviceFragmentShaderBarycentricPropertiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR.html>
 #[doc(alias = "VkPhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR")]
@@ -15086,6 +17183,15 @@ impl Extends<PhysicalDeviceFeatures2>
 {
 }
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR {}
+impl PhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR.html>
 #[doc(alias = "VkPhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR")]
@@ -15115,6 +17221,15 @@ impl Default for PhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR {}
+impl PhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceRayTracingMaintenance1FeaturesKHR.html>
 #[doc(alias = "VkPhysicalDeviceRayTracingMaintenance1FeaturesKHR")]
@@ -15140,6 +17255,15 @@ impl Default for PhysicalDeviceRayTracingMaintenance1FeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceRayTracingMaintenance1FeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceRayTracingMaintenance1FeaturesKHR {}
+impl PhysicalDeviceRayTracingMaintenance1FeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTraceRaysIndirectCommand2KHR.html>
 #[doc(alias = "VkTraceRaysIndirectCommand2KHR")]
@@ -15205,6 +17329,15 @@ impl Default for PhysicalDeviceShaderUntypedPointersFeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderUntypedPointersFeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderUntypedPointersFeaturesKHR {}
+impl PhysicalDeviceShaderUntypedPointersFeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderMaximalReconvergenceFeaturesKHR.html>
 #[doc(alias = "VkPhysicalDeviceShaderMaximalReconvergenceFeaturesKHR")]
@@ -15228,6 +17361,15 @@ impl Default for PhysicalDeviceShaderMaximalReconvergenceFeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderMaximalReconvergenceFeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderMaximalReconvergenceFeaturesKHR {}
+impl PhysicalDeviceShaderMaximalReconvergenceFeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfaceCapabilitiesPresentId2KHR.html>
 #[doc(alias = "VkSurfaceCapabilitiesPresentId2KHR")]
@@ -15250,6 +17392,15 @@ impl Default for SurfaceCapabilitiesPresentId2KHR {
     }
 }
 impl Extends<SurfaceCapabilities2KHR> for SurfaceCapabilitiesPresentId2KHR {}
+impl SurfaceCapabilitiesPresentId2KHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPresentId2KHR.html>
 #[doc(alias = "VkPresentId2KHR")]
@@ -15275,6 +17426,15 @@ impl Default for PresentId2KHR {
     }
 }
 impl Extends<PresentInfoKHR> for PresentId2KHR {}
+impl PresentId2KHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePresentId2FeaturesKHR.html>
 #[doc(alias = "VkPhysicalDevicePresentId2FeaturesKHR")]
@@ -15298,6 +17458,15 @@ impl Default for PhysicalDevicePresentId2FeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDevicePresentId2FeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDevicePresentId2FeaturesKHR {}
+impl PhysicalDevicePresentId2FeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfaceCapabilitiesPresentWait2KHR.html>
 #[doc(alias = "VkSurfaceCapabilitiesPresentWait2KHR")]
@@ -15320,6 +17489,15 @@ impl Default for SurfaceCapabilitiesPresentWait2KHR {
     }
 }
 impl Extends<SurfaceCapabilities2KHR> for SurfaceCapabilitiesPresentWait2KHR {}
+impl SurfaceCapabilitiesPresentWait2KHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePresentWait2FeaturesKHR.html>
 #[doc(alias = "VkPhysicalDevicePresentWait2FeaturesKHR")]
@@ -15343,6 +17521,15 @@ impl Default for PhysicalDevicePresentWait2FeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDevicePresentWait2FeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDevicePresentWait2FeaturesKHR {}
+impl PhysicalDevicePresentWait2FeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPresentWait2InfoKHR.html>
 #[doc(alias = "VkPresentWait2InfoKHR")]
@@ -15389,6 +17576,15 @@ impl Default for PhysicalDeviceRayTracingPositionFetchFeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceRayTracingPositionFetchFeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceRayTracingPositionFetchFeaturesKHR {}
+impl PhysicalDeviceRayTracingPositionFetchFeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePipelineBinaryFeaturesKHR.html>
 #[doc(alias = "VkPhysicalDevicePipelineBinaryFeaturesKHR")]
@@ -15412,6 +17608,15 @@ impl Default for PhysicalDevicePipelineBinaryFeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDevicePipelineBinaryFeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDevicePipelineBinaryFeaturesKHR {}
+impl PhysicalDevicePipelineBinaryFeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePipelineBinaryPropertiesKHR.html>
 #[doc(alias = "VkPhysicalDevicePipelineBinaryPropertiesKHR")]
@@ -15442,6 +17647,15 @@ impl Default for PhysicalDevicePipelineBinaryPropertiesKHR {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDevicePipelineBinaryPropertiesKHR {}
+impl PhysicalDevicePipelineBinaryPropertiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDevicePipelineBinaryInternalCacheControlKHR.html>
 #[doc(alias = "VkDevicePipelineBinaryInternalCacheControlKHR")]
@@ -15464,6 +17678,15 @@ impl Default for DevicePipelineBinaryInternalCacheControlKHR {
     }
 }
 impl Extends<DeviceCreateInfo> for DevicePipelineBinaryInternalCacheControlKHR {}
+impl DevicePipelineBinaryInternalCacheControlKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineBinaryKeyKHR.html>
 #[doc(alias = "VkPipelineBinaryKeyKHR")]
@@ -15599,6 +17822,15 @@ impl Default for PipelineBinaryInfoKHR {
 impl Extends<GraphicsPipelineCreateInfo> for PipelineBinaryInfoKHR {}
 impl Extends<ComputePipelineCreateInfo> for PipelineBinaryInfoKHR {}
 impl Extends<RayTracingPipelineCreateInfoKHR> for PipelineBinaryInfoKHR {}
+impl PipelineBinaryInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkReleaseCapturedPipelineDataInfoKHR.html>
 #[doc(alias = "VkReleaseCapturedPipelineDataInfoKHR")]
@@ -15687,6 +17919,15 @@ impl Default for SurfacePresentModeKHR {
     }
 }
 impl Extends<PhysicalDeviceSurfaceInfo2KHR> for SurfacePresentModeKHR {}
+impl SurfacePresentModeKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type SurfacePresentModeEXT = SurfacePresentModeKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfacePresentScalingCapabilitiesKHR.html>
@@ -15723,6 +17964,15 @@ impl Default for SurfacePresentScalingCapabilitiesKHR {
     }
 }
 impl Extends<SurfaceCapabilities2KHR> for SurfacePresentScalingCapabilitiesKHR {}
+impl SurfacePresentScalingCapabilitiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type SurfacePresentScalingCapabilitiesEXT = SurfacePresentScalingCapabilitiesKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfacePresentModeCompatibilityKHR.html>
@@ -15750,6 +18000,15 @@ impl Default for SurfacePresentModeCompatibilityKHR {
     }
 }
 impl Extends<SurfaceCapabilities2KHR> for SurfacePresentModeCompatibilityKHR {}
+impl SurfacePresentModeCompatibilityKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type SurfacePresentModeCompatibilityEXT = SurfacePresentModeCompatibilityKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSwapchainMaintenance1FeaturesKHR.html>
@@ -15774,6 +18033,15 @@ impl Default for PhysicalDeviceSwapchainMaintenance1FeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceSwapchainMaintenance1FeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceSwapchainMaintenance1FeaturesKHR {}
+impl PhysicalDeviceSwapchainMaintenance1FeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceSwapchainMaintenance1FeaturesEXT =
     PhysicalDeviceSwapchainMaintenance1FeaturesKHR;
 
@@ -15800,6 +18068,15 @@ impl Default for SwapchainPresentFenceInfoKHR {
     }
 }
 impl Extends<PresentInfoKHR> for SwapchainPresentFenceInfoKHR {}
+impl SwapchainPresentFenceInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type SwapchainPresentFenceInfoEXT = SwapchainPresentFenceInfoKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSwapchainPresentModesCreateInfoKHR.html>
@@ -15825,6 +18102,15 @@ impl Default for SwapchainPresentModesCreateInfoKHR {
     }
 }
 impl Extends<SwapchainCreateInfoKHR> for SwapchainPresentModesCreateInfoKHR {}
+impl SwapchainPresentModesCreateInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type SwapchainPresentModesCreateInfoEXT = SwapchainPresentModesCreateInfoKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSwapchainPresentModeInfoKHR.html>
@@ -15850,6 +18136,15 @@ impl Default for SwapchainPresentModeInfoKHR {
     }
 }
 impl Extends<PresentInfoKHR> for SwapchainPresentModeInfoKHR {}
+impl SwapchainPresentModeInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type SwapchainPresentModeInfoEXT = SwapchainPresentModeInfoKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSwapchainPresentScalingCreateInfoKHR.html>
@@ -15880,6 +18175,15 @@ impl Default for SwapchainPresentScalingCreateInfoKHR {
     }
 }
 impl Extends<SwapchainCreateInfoKHR> for SwapchainPresentScalingCreateInfoKHR {}
+impl SwapchainPresentScalingCreateInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type SwapchainPresentScalingCreateInfoEXT = SwapchainPresentScalingCreateInfoKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkReleaseSwapchainImagesInfoKHR.html>
@@ -15930,6 +18234,15 @@ impl Default for PhysicalDeviceInternallySynchronizedQueuesFeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceInternallySynchronizedQueuesFeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceInternallySynchronizedQueuesFeaturesKHR {}
+impl PhysicalDeviceInternallySynchronizedQueuesFeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCooperativeMatrixPropertiesKHR.html>
 #[doc(alias = "VkCooperativeMatrixPropertiesKHR")]
@@ -15992,6 +18305,15 @@ impl Default for PhysicalDeviceCooperativeMatrixFeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceCooperativeMatrixFeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceCooperativeMatrixFeaturesKHR {}
+impl PhysicalDeviceCooperativeMatrixFeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCooperativeMatrixPropertiesKHR.html>
 #[doc(alias = "VkPhysicalDeviceCooperativeMatrixPropertiesKHR")]
@@ -16014,6 +18336,15 @@ impl Default for PhysicalDeviceCooperativeMatrixPropertiesKHR {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceCooperativeMatrixPropertiesKHR {}
+impl PhysicalDeviceCooperativeMatrixPropertiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceComputeShaderDerivativesFeaturesKHR.html>
 #[doc(alias = "VkPhysicalDeviceComputeShaderDerivativesFeaturesKHR")]
@@ -16039,6 +18370,15 @@ impl Default for PhysicalDeviceComputeShaderDerivativesFeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceComputeShaderDerivativesFeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceComputeShaderDerivativesFeaturesKHR {}
+impl PhysicalDeviceComputeShaderDerivativesFeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceComputeShaderDerivativesFeaturesNV =
     PhysicalDeviceComputeShaderDerivativesFeaturesKHR;
 
@@ -16063,6 +18403,15 @@ impl Default for PhysicalDeviceComputeShaderDerivativesPropertiesKHR {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceComputeShaderDerivativesPropertiesKHR {}
+impl PhysicalDeviceComputeShaderDerivativesPropertiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeAV1ProfileInfoKHR.html>
 #[doc(alias = "VkVideoDecodeAV1ProfileInfoKHR")]
@@ -16088,6 +18437,15 @@ impl Default for VideoDecodeAV1ProfileInfoKHR {
 }
 impl Extends<VideoProfileInfoKHR> for VideoDecodeAV1ProfileInfoKHR {}
 impl Extends<QueryPoolCreateInfo> for VideoDecodeAV1ProfileInfoKHR {}
+impl VideoDecodeAV1ProfileInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeAV1CapabilitiesKHR.html>
 #[doc(alias = "VkVideoDecodeAV1CapabilitiesKHR")]
@@ -16110,6 +18468,15 @@ impl Default for VideoDecodeAV1CapabilitiesKHR {
     }
 }
 impl Extends<VideoCapabilitiesKHR> for VideoDecodeAV1CapabilitiesKHR {}
+impl VideoDecodeAV1CapabilitiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeAV1SessionParametersCreateInfoKHR.html>
 #[doc(alias = "VkVideoDecodeAV1SessionParametersCreateInfoKHR")]
@@ -16132,6 +18499,15 @@ impl Default for VideoDecodeAV1SessionParametersCreateInfoKHR {
     }
 }
 impl Extends<VideoSessionParametersCreateInfoKHR> for VideoDecodeAV1SessionParametersCreateInfoKHR {}
+impl VideoDecodeAV1SessionParametersCreateInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeAV1PictureInfoKHR.html>
 #[doc(alias = "VkVideoDecodeAV1PictureInfoKHR")]
@@ -16164,6 +18540,15 @@ impl Default for VideoDecodeAV1PictureInfoKHR {
     }
 }
 impl Extends<VideoDecodeInfoKHR> for VideoDecodeAV1PictureInfoKHR {}
+impl VideoDecodeAV1PictureInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeAV1DpbSlotInfoKHR.html>
 #[doc(alias = "VkVideoDecodeAV1DpbSlotInfoKHR")]
@@ -16186,6 +18571,15 @@ impl Default for VideoDecodeAV1DpbSlotInfoKHR {
     }
 }
 impl Extends<VideoReferenceSlotInfoKHR> for VideoDecodeAV1DpbSlotInfoKHR {}
+impl VideoDecodeAV1DpbSlotInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVideoEncodeAV1FeaturesKHR.html>
 #[doc(alias = "VkPhysicalDeviceVideoEncodeAV1FeaturesKHR")]
@@ -16209,6 +18603,15 @@ impl Default for PhysicalDeviceVideoEncodeAV1FeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceVideoEncodeAV1FeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceVideoEncodeAV1FeaturesKHR {}
+impl PhysicalDeviceVideoEncodeAV1FeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeAV1CapabilitiesKHR.html>
 #[doc(alias = "VkVideoEncodeAV1CapabilitiesKHR")]
@@ -16277,6 +18680,15 @@ impl Default for VideoEncodeAV1CapabilitiesKHR {
     }
 }
 impl Extends<VideoCapabilitiesKHR> for VideoEncodeAV1CapabilitiesKHR {}
+impl VideoEncodeAV1CapabilitiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeAV1QIndexKHR.html>
 #[doc(alias = "VkVideoEncodeAV1QIndexKHR")]
@@ -16347,6 +18759,15 @@ impl Default for VideoEncodeAV1QualityLevelPropertiesKHR {
     }
 }
 impl Extends<VideoEncodeQualityLevelPropertiesKHR> for VideoEncodeAV1QualityLevelPropertiesKHR {}
+impl VideoEncodeAV1QualityLevelPropertiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeAV1SessionCreateInfoKHR.html>
 #[doc(alias = "VkVideoEncodeAV1SessionCreateInfoKHR")]
@@ -16371,6 +18792,15 @@ impl Default for VideoEncodeAV1SessionCreateInfoKHR {
     }
 }
 impl Extends<VideoSessionCreateInfoKHR> for VideoEncodeAV1SessionCreateInfoKHR {}
+impl VideoEncodeAV1SessionCreateInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeAV1SessionParametersCreateInfoKHR.html>
 #[doc(alias = "VkVideoEncodeAV1SessionParametersCreateInfoKHR")]
@@ -16402,6 +18832,15 @@ impl Default for VideoEncodeAV1SessionParametersCreateInfoKHR {
     }
 }
 impl Extends<VideoSessionParametersCreateInfoKHR> for VideoEncodeAV1SessionParametersCreateInfoKHR {}
+impl VideoEncodeAV1SessionParametersCreateInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeAV1PictureInfoKHR.html>
 #[doc(alias = "VkVideoEncodeAV1PictureInfoKHR")]
@@ -16436,6 +18875,15 @@ impl Default for VideoEncodeAV1PictureInfoKHR {
     }
 }
 impl Extends<VideoEncodeInfoKHR> for VideoEncodeAV1PictureInfoKHR {}
+impl VideoEncodeAV1PictureInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeAV1DpbSlotInfoKHR.html>
 #[doc(alias = "VkVideoEncodeAV1DpbSlotInfoKHR")]
@@ -16458,6 +18906,15 @@ impl Default for VideoEncodeAV1DpbSlotInfoKHR {
     }
 }
 impl Extends<VideoReferenceSlotInfoKHR> for VideoEncodeAV1DpbSlotInfoKHR {}
+impl VideoEncodeAV1DpbSlotInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeAV1ProfileInfoKHR.html>
 #[doc(alias = "VkVideoEncodeAV1ProfileInfoKHR")]
@@ -16481,6 +18938,15 @@ impl Default for VideoEncodeAV1ProfileInfoKHR {
 }
 impl Extends<VideoProfileInfoKHR> for VideoEncodeAV1ProfileInfoKHR {}
 impl Extends<QueryPoolCreateInfo> for VideoEncodeAV1ProfileInfoKHR {}
+impl VideoEncodeAV1ProfileInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeAV1FrameSizeKHR.html>
 #[doc(alias = "VkVideoEncodeAV1FrameSizeKHR")]
@@ -16529,6 +18995,15 @@ impl Default for VideoEncodeAV1GopRemainingFrameInfoKHR {
     }
 }
 impl Extends<VideoBeginCodingInfoKHR> for VideoEncodeAV1GopRemainingFrameInfoKHR {}
+impl VideoEncodeAV1GopRemainingFrameInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeAV1RateControlInfoKHR.html>
 #[doc(alias = "VkVideoEncodeAV1RateControlInfoKHR")]
@@ -16561,6 +19036,15 @@ impl Default for VideoEncodeAV1RateControlInfoKHR {
 }
 impl Extends<VideoCodingControlInfoKHR> for VideoEncodeAV1RateControlInfoKHR {}
 impl Extends<VideoBeginCodingInfoKHR> for VideoEncodeAV1RateControlInfoKHR {}
+impl VideoEncodeAV1RateControlInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeAV1RateControlLayerInfoKHR.html>
 #[doc(alias = "VkVideoEncodeAV1RateControlLayerInfoKHR")]
@@ -16593,6 +19077,15 @@ impl Default for VideoEncodeAV1RateControlLayerInfoKHR {
     }
 }
 impl Extends<VideoEncodeRateControlLayerInfoKHR> for VideoEncodeAV1RateControlLayerInfoKHR {}
+impl VideoEncodeAV1RateControlLayerInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVideoDecodeVP9FeaturesKHR.html>
 #[doc(alias = "VkPhysicalDeviceVideoDecodeVP9FeaturesKHR")]
@@ -16616,6 +19109,15 @@ impl Default for PhysicalDeviceVideoDecodeVP9FeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceVideoDecodeVP9FeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceVideoDecodeVP9FeaturesKHR {}
+impl PhysicalDeviceVideoDecodeVP9FeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeVP9ProfileInfoKHR.html>
 #[doc(alias = "VkVideoDecodeVP9ProfileInfoKHR")]
@@ -16639,6 +19141,15 @@ impl Default for VideoDecodeVP9ProfileInfoKHR {
 }
 impl Extends<VideoProfileInfoKHR> for VideoDecodeVP9ProfileInfoKHR {}
 impl Extends<QueryPoolCreateInfo> for VideoDecodeVP9ProfileInfoKHR {}
+impl VideoDecodeVP9ProfileInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeVP9CapabilitiesKHR.html>
 #[doc(alias = "VkVideoDecodeVP9CapabilitiesKHR")]
@@ -16661,6 +19172,15 @@ impl Default for VideoDecodeVP9CapabilitiesKHR {
     }
 }
 impl Extends<VideoCapabilitiesKHR> for VideoDecodeVP9CapabilitiesKHR {}
+impl VideoDecodeVP9CapabilitiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeVP9PictureInfoKHR.html>
 #[doc(alias = "VkVideoDecodeVP9PictureInfoKHR")]
@@ -16691,6 +19211,15 @@ impl Default for VideoDecodeVP9PictureInfoKHR {
     }
 }
 impl Extends<VideoDecodeInfoKHR> for VideoDecodeVP9PictureInfoKHR {}
+impl VideoDecodeVP9PictureInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVideoMaintenance1FeaturesKHR.html>
 #[doc(alias = "VkPhysicalDeviceVideoMaintenance1FeaturesKHR")]
@@ -16714,6 +19243,15 @@ impl Default for PhysicalDeviceVideoMaintenance1FeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceVideoMaintenance1FeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceVideoMaintenance1FeaturesKHR {}
+impl PhysicalDeviceVideoMaintenance1FeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoInlineQueryInfoKHR.html>
 #[doc(alias = "VkVideoInlineQueryInfoKHR")]
@@ -16742,6 +19280,15 @@ impl Default for VideoInlineQueryInfoKHR {
 }
 impl Extends<VideoDecodeInfoKHR> for VideoInlineQueryInfoKHR {}
 impl Extends<VideoEncodeInfoKHR> for VideoInlineQueryInfoKHR {}
+impl VideoInlineQueryInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceUnifiedImageLayoutsFeaturesKHR.html>
 #[doc(alias = "VkPhysicalDeviceUnifiedImageLayoutsFeaturesKHR")]
@@ -16767,6 +19314,15 @@ impl Default for PhysicalDeviceUnifiedImageLayoutsFeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceUnifiedImageLayoutsFeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceUnifiedImageLayoutsFeaturesKHR {}
+impl PhysicalDeviceUnifiedImageLayoutsFeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAttachmentFeedbackLoopInfoEXT.html>
 #[doc(alias = "VkAttachmentFeedbackLoopInfoEXT")]
@@ -16789,6 +19345,15 @@ impl Default for AttachmentFeedbackLoopInfoEXT {
     }
 }
 impl Extends<RenderingAttachmentInfo> for AttachmentFeedbackLoopInfoEXT {}
+impl AttachmentFeedbackLoopInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCalibratedTimestampInfoKHR.html>
 ///
@@ -17011,6 +19576,15 @@ impl Default for PhysicalDeviceCopyMemoryIndirectFeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceCopyMemoryIndirectFeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceCopyMemoryIndirectFeaturesKHR {}
+impl PhysicalDeviceCopyMemoryIndirectFeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCopyMemoryIndirectPropertiesKHR.html>
 #[doc(alias = "VkPhysicalDeviceCopyMemoryIndirectPropertiesKHR")]
@@ -17033,6 +19607,15 @@ impl Default for PhysicalDeviceCopyMemoryIndirectPropertiesKHR {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceCopyMemoryIndirectPropertiesKHR {}
+impl PhysicalDeviceCopyMemoryIndirectPropertiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceCopyMemoryIndirectPropertiesNV =
     PhysicalDeviceCopyMemoryIndirectPropertiesKHR;
 
@@ -17066,6 +19649,15 @@ impl Default for VideoEncodeIntraRefreshCapabilitiesKHR {
     }
 }
 impl Extends<VideoCapabilitiesKHR> for VideoEncodeIntraRefreshCapabilitiesKHR {}
+impl VideoEncodeIntraRefreshCapabilitiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeSessionIntraRefreshCreateInfoKHR.html>
 #[doc(alias = "VkVideoEncodeSessionIntraRefreshCreateInfoKHR")]
@@ -17089,6 +19681,15 @@ impl Default for VideoEncodeSessionIntraRefreshCreateInfoKHR {
     }
 }
 impl Extends<VideoSessionCreateInfoKHR> for VideoEncodeSessionIntraRefreshCreateInfoKHR {}
+impl VideoEncodeSessionIntraRefreshCreateInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeIntraRefreshInfoKHR.html>
 #[doc(alias = "VkVideoEncodeIntraRefreshInfoKHR")]
@@ -17113,6 +19714,15 @@ impl Default for VideoEncodeIntraRefreshInfoKHR {
     }
 }
 impl Extends<VideoEncodeInfoKHR> for VideoEncodeIntraRefreshInfoKHR {}
+impl VideoEncodeIntraRefreshInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoReferenceIntraRefreshInfoKHR.html>
 #[doc(alias = "VkVideoReferenceIntraRefreshInfoKHR")]
@@ -17135,6 +19745,15 @@ impl Default for VideoReferenceIntraRefreshInfoKHR {
     }
 }
 impl Extends<VideoReferenceSlotInfoKHR> for VideoReferenceIntraRefreshInfoKHR {}
+impl VideoReferenceIntraRefreshInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVideoEncodeIntraRefreshFeaturesKHR.html>
 #[doc(alias = "VkPhysicalDeviceVideoEncodeIntraRefreshFeaturesKHR")]
@@ -17158,6 +19777,15 @@ impl Default for PhysicalDeviceVideoEncodeIntraRefreshFeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceVideoEncodeIntraRefreshFeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceVideoEncodeIntraRefreshFeaturesKHR {}
+impl PhysicalDeviceVideoEncodeIntraRefreshFeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeQuantizationMapCapabilitiesKHR.html>
 #[doc(alias = "VkVideoEncodeQuantizationMapCapabilitiesKHR")]
@@ -17180,6 +19808,15 @@ impl Default for VideoEncodeQuantizationMapCapabilitiesKHR {
     }
 }
 impl Extends<VideoCapabilitiesKHR> for VideoEncodeQuantizationMapCapabilitiesKHR {}
+impl VideoEncodeQuantizationMapCapabilitiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoFormatQuantizationMapPropertiesKHR.html>
 #[doc(alias = "VkVideoFormatQuantizationMapPropertiesKHR")]
@@ -17202,6 +19839,15 @@ impl Default for VideoFormatQuantizationMapPropertiesKHR {
     }
 }
 impl Extends<VideoFormatPropertiesKHR> for VideoFormatQuantizationMapPropertiesKHR {}
+impl VideoFormatQuantizationMapPropertiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeQuantizationMapInfoKHR.html>
 #[doc(alias = "VkVideoEncodeQuantizationMapInfoKHR")]
@@ -17227,6 +19873,15 @@ impl Default for VideoEncodeQuantizationMapInfoKHR {
     }
 }
 impl Extends<VideoEncodeInfoKHR> for VideoEncodeQuantizationMapInfoKHR {}
+impl VideoEncodeQuantizationMapInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeQuantizationMapSessionParametersCreateInfoKHR.html>
 #[doc(alias = "VkVideoEncodeQuantizationMapSessionParametersCreateInfoKHR")]
@@ -17252,6 +19907,15 @@ impl Extends<VideoSessionParametersCreateInfoKHR>
     for VideoEncodeQuantizationMapSessionParametersCreateInfoKHR
 {
 }
+impl VideoEncodeQuantizationMapSessionParametersCreateInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVideoEncodeQuantizationMapFeaturesKHR.html>
 #[doc(alias = "VkPhysicalDeviceVideoEncodeQuantizationMapFeaturesKHR")]
@@ -17275,6 +19939,15 @@ impl Default for PhysicalDeviceVideoEncodeQuantizationMapFeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceVideoEncodeQuantizationMapFeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceVideoEncodeQuantizationMapFeaturesKHR {}
+impl PhysicalDeviceVideoEncodeQuantizationMapFeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH264QuantizationMapCapabilitiesKHR.html>
 #[doc(alias = "VkVideoEncodeH264QuantizationMapCapabilitiesKHR")]
@@ -17299,6 +19972,15 @@ impl Default for VideoEncodeH264QuantizationMapCapabilitiesKHR {
     }
 }
 impl Extends<VideoCapabilitiesKHR> for VideoEncodeH264QuantizationMapCapabilitiesKHR {}
+impl VideoEncodeH264QuantizationMapCapabilitiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265QuantizationMapCapabilitiesKHR.html>
 #[doc(alias = "VkVideoEncodeH265QuantizationMapCapabilitiesKHR")]
@@ -17323,6 +20005,15 @@ impl Default for VideoEncodeH265QuantizationMapCapabilitiesKHR {
     }
 }
 impl Extends<VideoCapabilitiesKHR> for VideoEncodeH265QuantizationMapCapabilitiesKHR {}
+impl VideoEncodeH265QuantizationMapCapabilitiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoFormatH265QuantizationMapPropertiesKHR.html>
 #[doc(alias = "VkVideoFormatH265QuantizationMapPropertiesKHR")]
@@ -17345,6 +20036,15 @@ impl Default for VideoFormatH265QuantizationMapPropertiesKHR {
     }
 }
 impl Extends<VideoFormatPropertiesKHR> for VideoFormatH265QuantizationMapPropertiesKHR {}
+impl VideoFormatH265QuantizationMapPropertiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeAV1QuantizationMapCapabilitiesKHR.html>
 #[doc(alias = "VkVideoEncodeAV1QuantizationMapCapabilitiesKHR")]
@@ -17369,6 +20069,15 @@ impl Default for VideoEncodeAV1QuantizationMapCapabilitiesKHR {
     }
 }
 impl Extends<VideoCapabilitiesKHR> for VideoEncodeAV1QuantizationMapCapabilitiesKHR {}
+impl VideoEncodeAV1QuantizationMapCapabilitiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoFormatAV1QuantizationMapPropertiesKHR.html>
 #[doc(alias = "VkVideoFormatAV1QuantizationMapPropertiesKHR")]
@@ -17391,6 +20100,15 @@ impl Default for VideoFormatAV1QuantizationMapPropertiesKHR {
     }
 }
 impl Extends<VideoFormatPropertiesKHR> for VideoFormatAV1QuantizationMapPropertiesKHR {}
+impl VideoFormatAV1QuantizationMapPropertiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderRelaxedExtendedInstructionFeaturesKHR.html>
 #[doc(alias = "VkPhysicalDeviceShaderRelaxedExtendedInstructionFeaturesKHR")]
@@ -17417,6 +20135,15 @@ impl Extends<PhysicalDeviceFeatures2>
 {
 }
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderRelaxedExtendedInstructionFeaturesKHR {}
+impl PhysicalDeviceShaderRelaxedExtendedInstructionFeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMaintenance7FeaturesKHR.html>
 #[doc(alias = "VkPhysicalDeviceMaintenance7FeaturesKHR")]
@@ -17440,6 +20167,15 @@ impl Default for PhysicalDeviceMaintenance7FeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceMaintenance7FeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceMaintenance7FeaturesKHR {}
+impl PhysicalDeviceMaintenance7FeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMaintenance7PropertiesKHR.html>
 #[doc(alias = "VkPhysicalDeviceMaintenance7PropertiesKHR")]
@@ -17476,6 +20212,15 @@ impl Default for PhysicalDeviceMaintenance7PropertiesKHR {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceMaintenance7PropertiesKHR {}
+impl PhysicalDeviceMaintenance7PropertiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceLayeredApiPropertiesKHR.html>
 ///
@@ -17531,6 +20276,15 @@ impl Default for PhysicalDeviceLayeredApiPropertiesListKHR {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceLayeredApiPropertiesListKHR {}
+impl PhysicalDeviceLayeredApiPropertiesListKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceLayeredApiVulkanPropertiesKHR.html>
 #[doc(alias = "VkPhysicalDeviceLayeredApiVulkanPropertiesKHR")]
@@ -17555,6 +20309,15 @@ impl Default for PhysicalDeviceLayeredApiVulkanPropertiesKHR {
 impl Extends<PhysicalDeviceLayeredApiPropertiesKHR>
     for PhysicalDeviceLayeredApiVulkanPropertiesKHR
 {
+}
+impl PhysicalDeviceLayeredApiVulkanPropertiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFaultFeaturesKHR.html>
@@ -17585,6 +20348,15 @@ impl Default for PhysicalDeviceFaultFeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceFaultFeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceFaultFeaturesKHR {}
+impl PhysicalDeviceFaultFeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFaultPropertiesKHR.html>
 #[doc(alias = "VkPhysicalDeviceFaultPropertiesKHR")]
@@ -17607,6 +20379,15 @@ impl Default for PhysicalDeviceFaultPropertiesKHR {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceFaultPropertiesKHR {}
+impl PhysicalDeviceFaultPropertiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceFaultAddressInfoKHR.html>
 #[doc(alias = "VkDeviceFaultAddressInfoKHR")]
@@ -17777,6 +20558,15 @@ impl Extends<SubpassDependency2> for MemoryBarrierAccessFlags3KHR {}
 impl Extends<BufferMemoryBarrier2> for MemoryBarrierAccessFlags3KHR {}
 impl Extends<ImageMemoryBarrier2> for MemoryBarrierAccessFlags3KHR {}
 impl Extends<MemoryRangeBarriersInfoKHR> for MemoryBarrierAccessFlags3KHR {}
+impl MemoryBarrierAccessFlags3KHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMaintenance8FeaturesKHR.html>
 #[doc(alias = "VkPhysicalDeviceMaintenance8FeaturesKHR")]
@@ -17800,6 +20590,15 @@ impl Default for PhysicalDeviceMaintenance8FeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceMaintenance8FeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceMaintenance8FeaturesKHR {}
+impl PhysicalDeviceMaintenance8FeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderFmaFeaturesKHR.html>
 #[doc(alias = "VkPhysicalDeviceShaderFmaFeaturesKHR")]
@@ -17827,6 +20626,15 @@ impl Default for PhysicalDeviceShaderFmaFeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderFmaFeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderFmaFeaturesKHR {}
+impl PhysicalDeviceShaderFmaFeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMaintenance9FeaturesKHR.html>
 #[doc(alias = "VkPhysicalDeviceMaintenance9FeaturesKHR")]
@@ -17850,6 +20658,15 @@ impl Default for PhysicalDeviceMaintenance9FeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceMaintenance9FeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceMaintenance9FeaturesKHR {}
+impl PhysicalDeviceMaintenance9FeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMaintenance9PropertiesKHR.html>
 #[doc(alias = "VkPhysicalDeviceMaintenance9PropertiesKHR")]
@@ -17874,6 +20691,15 @@ impl Default for PhysicalDeviceMaintenance9PropertiesKHR {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceMaintenance9PropertiesKHR {}
+impl PhysicalDeviceMaintenance9PropertiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkQueueFamilyOwnershipTransferPropertiesKHR.html>
 #[doc(alias = "VkQueueFamilyOwnershipTransferPropertiesKHR")]
@@ -17896,6 +20722,15 @@ impl Default for QueueFamilyOwnershipTransferPropertiesKHR {
     }
 }
 impl Extends<QueueFamilyProperties2> for QueueFamilyOwnershipTransferPropertiesKHR {}
+impl QueueFamilyOwnershipTransferPropertiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVideoMaintenance2FeaturesKHR.html>
 #[doc(alias = "VkPhysicalDeviceVideoMaintenance2FeaturesKHR")]
@@ -17919,6 +20754,15 @@ impl Default for PhysicalDeviceVideoMaintenance2FeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceVideoMaintenance2FeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceVideoMaintenance2FeaturesKHR {}
+impl PhysicalDeviceVideoMaintenance2FeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeH264InlineSessionParametersInfoKHR.html>
 #[doc(alias = "VkVideoDecodeH264InlineSessionParametersInfoKHR")]
@@ -17945,6 +20789,15 @@ impl Default for VideoDecodeH264InlineSessionParametersInfoKHR {
     }
 }
 impl Extends<VideoDecodeInfoKHR> for VideoDecodeH264InlineSessionParametersInfoKHR {}
+impl VideoDecodeH264InlineSessionParametersInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeH265InlineSessionParametersInfoKHR.html>
 #[doc(alias = "VkVideoDecodeH265InlineSessionParametersInfoKHR")]
@@ -17974,6 +20827,15 @@ impl Default for VideoDecodeH265InlineSessionParametersInfoKHR {
     }
 }
 impl Extends<VideoDecodeInfoKHR> for VideoDecodeH265InlineSessionParametersInfoKHR {}
+impl VideoDecodeH265InlineSessionParametersInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeAV1InlineSessionParametersInfoKHR.html>
 #[doc(alias = "VkVideoDecodeAV1InlineSessionParametersInfoKHR")]
@@ -17997,6 +20859,15 @@ impl Default for VideoDecodeAV1InlineSessionParametersInfoKHR {
     }
 }
 impl Extends<VideoDecodeInfoKHR> for VideoDecodeAV1InlineSessionParametersInfoKHR {}
+impl VideoDecodeAV1InlineSessionParametersInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVideoEncodeFeedback2FeaturesKHR.html>
 #[doc(alias = "VkPhysicalDeviceVideoEncodeFeedback2FeaturesKHR")]
@@ -18020,6 +20891,15 @@ impl Default for PhysicalDeviceVideoEncodeFeedback2FeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceVideoEncodeFeedback2FeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceVideoEncodeFeedback2FeaturesKHR {}
+impl PhysicalDeviceVideoEncodeFeedback2FeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeFeedback2CapabilitiesKHR.html>
 #[doc(alias = "VkVideoEncodeFeedback2CapabilitiesKHR")]
@@ -18044,6 +20924,15 @@ impl Default for VideoEncodeFeedback2CapabilitiesKHR {
     }
 }
 impl Extends<VideoCapabilitiesKHR> for VideoEncodeFeedback2CapabilitiesKHR {}
+impl VideoEncodeFeedback2CapabilitiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkQueryPoolVideoEncodePerPartitionFeedbackCreateInfoKHR.html>
 #[doc(alias = "VkQueryPoolVideoEncodePerPartitionFeedbackCreateInfoKHR")]
@@ -18070,6 +20959,15 @@ impl Default for QueryPoolVideoEncodePerPartitionFeedbackCreateInfoKHR {
     }
 }
 impl Extends<QueryPoolCreateInfo> for QueryPoolVideoEncodePerPartitionFeedbackCreateInfoKHR {}
+impl QueryPoolVideoEncodePerPartitionFeedbackCreateInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDepthClampZeroOneFeaturesKHR.html>
 #[doc(alias = "VkPhysicalDeviceDepthClampZeroOneFeaturesKHR")]
@@ -18093,6 +20991,15 @@ impl Default for PhysicalDeviceDepthClampZeroOneFeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceDepthClampZeroOneFeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceDepthClampZeroOneFeaturesKHR {}
+impl PhysicalDeviceDepthClampZeroOneFeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceDepthClampZeroOneFeaturesEXT = PhysicalDeviceDepthClampZeroOneFeaturesKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceRobustness2FeaturesKHR.html>
@@ -18121,6 +21028,15 @@ impl Default for PhysicalDeviceRobustness2FeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceRobustness2FeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceRobustness2FeaturesKHR {}
+impl PhysicalDeviceRobustness2FeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceRobustness2FeaturesEXT = PhysicalDeviceRobustness2FeaturesKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceRobustness2PropertiesKHR.html>
@@ -18146,6 +21062,15 @@ impl Default for PhysicalDeviceRobustness2PropertiesKHR {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceRobustness2PropertiesKHR {}
+impl PhysicalDeviceRobustness2PropertiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceRobustness2PropertiesEXT = PhysicalDeviceRobustness2PropertiesKHR;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePresentModeFifoLatestReadyFeaturesKHR.html>
@@ -18170,6 +21095,15 @@ impl Default for PhysicalDevicePresentModeFifoLatestReadyFeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDevicePresentModeFifoLatestReadyFeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDevicePresentModeFifoLatestReadyFeaturesKHR {}
+impl PhysicalDevicePresentModeFifoLatestReadyFeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDevicePresentModeFifoLatestReadyFeaturesEXT =
     PhysicalDevicePresentModeFifoLatestReadyFeaturesKHR;
 
@@ -18227,6 +21161,15 @@ impl Default for AccelerationStructureGeometryMicromapDataKHR {
     }
 }
 impl Extends<AccelerationStructureGeometryKHR> for AccelerationStructureGeometryMicromapDataKHR {}
+impl AccelerationStructureGeometryMicromapDataKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceOpacityMicromapFeaturesKHR.html>
 #[doc(alias = "VkPhysicalDeviceOpacityMicromapFeaturesKHR")]
@@ -18250,6 +21193,15 @@ impl Default for PhysicalDeviceOpacityMicromapFeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceOpacityMicromapFeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceOpacityMicromapFeaturesKHR {}
+impl PhysicalDeviceOpacityMicromapFeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceOpacityMicromapPropertiesKHR.html>
 #[doc(alias = "VkPhysicalDeviceOpacityMicromapPropertiesKHR")]
@@ -18278,6 +21230,15 @@ impl Default for PhysicalDeviceOpacityMicromapPropertiesKHR {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceOpacityMicromapPropertiesKHR {}
+impl PhysicalDeviceOpacityMicromapPropertiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMicromapTriangleKHR.html>
 #[doc(alias = "VkMicromapTriangleKHR")]
@@ -18337,6 +21298,15 @@ impl Extends<AccelerationStructureDenseGeometryFormatTrianglesDataAMDX>
     for AccelerationStructureTrianglesOpacityMicromapKHR
 {
 }
+impl AccelerationStructureTrianglesOpacityMicromapKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMaintenance10FeaturesKHR.html>
 #[doc(alias = "VkPhysicalDeviceMaintenance10FeaturesKHR")]
@@ -18360,6 +21330,15 @@ impl Default for PhysicalDeviceMaintenance10FeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceMaintenance10FeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceMaintenance10FeaturesKHR {}
+impl PhysicalDeviceMaintenance10FeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMaintenance10PropertiesKHR.html>
 #[doc(alias = "VkPhysicalDeviceMaintenance10PropertiesKHR")]
@@ -18386,6 +21365,15 @@ impl Default for PhysicalDeviceMaintenance10PropertiesKHR {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceMaintenance10PropertiesKHR {}
+impl PhysicalDeviceMaintenance10PropertiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderingEndInfoKHR.html>
 ///
@@ -18431,6 +21419,15 @@ impl Default for RenderingAttachmentFlagsInfoKHR {
     }
 }
 impl Extends<RenderingAttachmentInfo> for RenderingAttachmentFlagsInfoKHR {}
+impl RenderingAttachmentFlagsInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkResolveImageModeInfoKHR.html>
 #[doc(alias = "VkResolveImageModeInfoKHR")]
@@ -18460,6 +21457,15 @@ impl Default for ResolveImageModeInfoKHR {
     }
 }
 impl Extends<ResolveImageInfo2> for ResolveImageModeInfoKHR {}
+impl ResolveImageModeInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesKHR.html>
 #[doc(alias = "VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesKHR")]
@@ -18483,6 +21489,15 @@ impl Default for PhysicalDevicePipelineLibraryGroupHandlesFeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDevicePipelineLibraryGroupHandlesFeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDevicePipelineLibraryGroupHandlesFeaturesKHR {}
+impl PhysicalDevicePipelineLibraryGroupHandlesFeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT =
     PhysicalDevicePipelineLibraryGroupHandlesFeaturesKHR;
 
@@ -18508,6 +21523,15 @@ impl Default for PhysicalDeviceMaintenance11FeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceMaintenance11FeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceMaintenance11FeaturesKHR {}
+impl PhysicalDeviceMaintenance11FeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkQueueFamilyOptimalImageTransferGranularityPropertiesKHR.html>
 #[doc(alias = "VkQueueFamilyOptimalImageTransferGranularityPropertiesKHR")]
@@ -18530,6 +21554,15 @@ impl Default for QueueFamilyOptimalImageTransferGranularityPropertiesKHR {
     }
 }
 impl Extends<QueueFamilyProperties2> for QueueFamilyOptimalImageTransferGranularityPropertiesKHR {}
+impl QueueFamilyOptimalImageTransferGranularityPropertiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFormatProperties4KHR.html>
 #[doc(alias = "VkFormatProperties4KHR")]
@@ -18559,6 +21592,15 @@ impl Default for FormatProperties4KHR {
     }
 }
 impl Extends<FormatProperties2> for FormatProperties4KHR {}
+impl FormatProperties4KHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageUsageFlags2CreateInfoKHR.html>
 #[doc(alias = "VkImageUsageFlags2CreateInfoKHR")]
@@ -18588,6 +21630,15 @@ impl Extends<PhysicalDeviceVideoFormatInfoKHR> for ImageUsageFlags2CreateInfoKHR
 impl Extends<SurfaceCapabilities2KHR> for ImageUsageFlags2CreateInfoKHR {}
 impl Extends<SwapchainCreateInfoKHR> for ImageUsageFlags2CreateInfoKHR {}
 impl Extends<VideoFormatPropertiesKHR> for ImageUsageFlags2CreateInfoKHR {}
+impl ImageUsageFlags2CreateInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageCreateFlags2CreateInfoKHR.html>
 #[doc(alias = "VkImageCreateFlags2CreateInfoKHR")]
@@ -18613,6 +21664,15 @@ impl Extends<ImageCreateInfo> for ImageCreateFlags2CreateInfoKHR {}
 impl Extends<PhysicalDeviceImageFormatInfo2> for ImageCreateFlags2CreateInfoKHR {}
 impl Extends<FramebufferAttachmentImageInfo> for ImageCreateFlags2CreateInfoKHR {}
 impl Extends<VideoFormatPropertiesKHR> for ImageCreateFlags2CreateInfoKHR {}
+impl ImageCreateFlags2CreateInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageViewUsage2CreateInfoKHR.html>
 #[doc(alias = "VkImageViewUsage2CreateInfoKHR")]
@@ -18635,6 +21695,15 @@ impl Default for ImageViewUsage2CreateInfoKHR {
     }
 }
 impl Extends<ImageViewCreateInfo> for ImageViewUsage2CreateInfoKHR {}
+impl ImageViewUsage2CreateInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceExtendedFlagsFeaturesKHR.html>
 #[doc(alias = "VkPhysicalDeviceExtendedFlagsFeaturesKHR")]
@@ -18658,6 +21727,15 @@ impl Default for PhysicalDeviceExtendedFlagsFeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceExtendedFlagsFeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceExtendedFlagsFeaturesKHR {}
+impl PhysicalDeviceExtendedFlagsFeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageStencilUsage2CreateInfoKHR.html>
 #[doc(alias = "VkImageStencilUsage2CreateInfoKHR")]
@@ -18681,6 +21759,15 @@ impl Default for ImageStencilUsage2CreateInfoKHR {
 }
 impl Extends<ImageCreateInfo> for ImageStencilUsage2CreateInfoKHR {}
 impl Extends<PhysicalDeviceImageFormatInfo2> for ImageStencilUsage2CreateInfoKHR {}
+impl ImageStencilUsage2CreateInfoKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSharedPresentSurfaceCapabilities2KHR.html>
 #[doc(alias = "VkSharedPresentSurfaceCapabilities2KHR")]
@@ -18704,6 +21791,15 @@ impl Default for SharedPresentSurfaceCapabilities2KHR {
     }
 }
 impl Extends<SurfaceCapabilities2KHR> for SharedPresentSurfaceCapabilities2KHR {}
+impl SharedPresentSurfaceCapabilities2KHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDebugReportCallbackCreateInfoEXT.html>
 #[doc(alias = "VkDebugReportCallbackCreateInfoEXT")]
@@ -18732,6 +21828,15 @@ impl Default for DebugReportCallbackCreateInfoEXT {
     }
 }
 impl Extends<InstanceCreateInfo> for DebugReportCallbackCreateInfoEXT {}
+impl DebugReportCallbackCreateInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineRasterizationStateRasterizationOrderAMD.html>
 #[doc(alias = "VkPipelineRasterizationStateRasterizationOrderAMD")]
@@ -18756,6 +21861,15 @@ impl Default for PipelineRasterizationStateRasterizationOrderAMD {
 impl Extends<PipelineRasterizationStateCreateInfo>
     for PipelineRasterizationStateRasterizationOrderAMD
 {
+}
+impl PipelineRasterizationStateRasterizationOrderAMD {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDebugMarkerObjectNameInfoEXT.html>
@@ -18858,6 +21972,15 @@ impl Default for DedicatedAllocationImageCreateInfoNV {
     }
 }
 impl Extends<ImageCreateInfo> for DedicatedAllocationImageCreateInfoNV {}
+impl DedicatedAllocationImageCreateInfoNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDedicatedAllocationBufferCreateInfoNV.html>
 #[doc(alias = "VkDedicatedAllocationBufferCreateInfoNV")]
@@ -18880,6 +22003,15 @@ impl Default for DedicatedAllocationBufferCreateInfoNV {
     }
 }
 impl Extends<BufferCreateInfo> for DedicatedAllocationBufferCreateInfoNV {}
+impl DedicatedAllocationBufferCreateInfoNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDedicatedAllocationMemoryAllocateInfoNV.html>
 #[doc(alias = "VkDedicatedAllocationMemoryAllocateInfoNV")]
@@ -18906,6 +22038,15 @@ impl Default for DedicatedAllocationMemoryAllocateInfoNV {
     }
 }
 impl Extends<MemoryAllocateInfo> for DedicatedAllocationMemoryAllocateInfoNV {}
+impl DedicatedAllocationMemoryAllocateInfoNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceTransformFeedbackFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceTransformFeedbackFeaturesEXT")]
@@ -18931,6 +22072,15 @@ impl Default for PhysicalDeviceTransformFeedbackFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceTransformFeedbackFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceTransformFeedbackFeaturesEXT {}
+impl PhysicalDeviceTransformFeedbackFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceTransformFeedbackPropertiesEXT.html>
 #[doc(alias = "VkPhysicalDeviceTransformFeedbackPropertiesEXT")]
@@ -18971,6 +22121,15 @@ impl Default for PhysicalDeviceTransformFeedbackPropertiesEXT {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceTransformFeedbackPropertiesEXT {}
+impl PhysicalDeviceTransformFeedbackPropertiesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineRasterizationStateStreamCreateInfoEXT.html>
 #[doc(alias = "VkPipelineRasterizationStateStreamCreateInfoEXT")]
@@ -18998,6 +22157,15 @@ impl Default for PipelineRasterizationStateStreamCreateInfoEXT {
 impl Extends<PipelineRasterizationStateCreateInfo>
     for PipelineRasterizationStateStreamCreateInfoEXT
 {
+}
+impl PipelineRasterizationStateStreamCreateInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCuModuleCreateInfoNVX.html>
@@ -19047,6 +22215,15 @@ impl Default for CuModuleTexturingModeCreateInfoNVX {
     }
 }
 impl Extends<CuModuleCreateInfoNVX> for CuModuleTexturingModeCreateInfoNVX {}
+impl CuModuleTexturingModeCreateInfoNVX {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCuFunctionCreateInfoNVX.html>
 #[doc(alias = "VkCuFunctionCreateInfoNVX")]
@@ -19187,6 +22364,15 @@ impl Default for TextureLODGatherFormatPropertiesAMD {
     }
 }
 impl Extends<ImageFormatProperties2> for TextureLODGatherFormatPropertiesAMD {}
+impl TextureLODGatherFormatPropertiesAMD {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderResourceUsageAMD.html>
 #[doc(alias = "VkShaderResourceUsageAMD")]
@@ -19286,6 +22472,15 @@ impl Default for PhysicalDeviceCornerSampledImageFeaturesNV {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceCornerSampledImageFeaturesNV {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceCornerSampledImageFeaturesNV {}
+impl PhysicalDeviceCornerSampledImageFeaturesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalImageFormatPropertiesNV.html>
 #[doc(alias = "VkExternalImageFormatPropertiesNV")]
@@ -19334,6 +22529,15 @@ impl Default for ExternalMemoryImageCreateInfoNV {
     }
 }
 impl Extends<ImageCreateInfo> for ExternalMemoryImageCreateInfoNV {}
+impl ExternalMemoryImageCreateInfoNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExportMemoryAllocateInfoNV.html>
 #[doc(alias = "VkExportMemoryAllocateInfoNV")]
@@ -19357,6 +22561,15 @@ impl Default for ExportMemoryAllocateInfoNV {
     }
 }
 impl Extends<MemoryAllocateInfo> for ExportMemoryAllocateInfoNV {}
+impl ExportMemoryAllocateInfoNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImportMemoryWin32HandleInfoNV.html>
 #[doc(alias = "VkImportMemoryWin32HandleInfoNV")]
@@ -19383,6 +22596,15 @@ impl Default for ImportMemoryWin32HandleInfoNV {
     }
 }
 impl Extends<MemoryAllocateInfo> for ImportMemoryWin32HandleInfoNV {}
+impl ImportMemoryWin32HandleInfoNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExportMemoryWin32HandleInfoNV.html>
 #[doc(alias = "VkExportMemoryWin32HandleInfoNV")]
@@ -19409,6 +22631,15 @@ impl Default for ExportMemoryWin32HandleInfoNV {
     }
 }
 impl Extends<MemoryAllocateInfo> for ExportMemoryWin32HandleInfoNV {}
+impl ExportMemoryWin32HandleInfoNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkWin32KeyedMutexAcquireReleaseInfoNV.html>
 #[doc(alias = "VkWin32KeyedMutexAcquireReleaseInfoNV")]
@@ -19446,6 +22677,15 @@ impl Default for Win32KeyedMutexAcquireReleaseInfoNV {
 }
 impl Extends<SubmitInfo> for Win32KeyedMutexAcquireReleaseInfoNV {}
 impl Extends<SubmitInfo2> for Win32KeyedMutexAcquireReleaseInfoNV {}
+impl Win32KeyedMutexAcquireReleaseInfoNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkValidationFlagsEXT.html>
 #[doc(alias = "VkValidationFlagsEXT")]
@@ -19470,6 +22710,15 @@ impl Default for ValidationFlagsEXT {
     }
 }
 impl Extends<InstanceCreateInfo> for ValidationFlagsEXT {}
+impl ValidationFlagsEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkViSurfaceCreateInfoNN.html>
 #[doc(alias = "VkViSurfaceCreateInfoNN")]
@@ -19516,6 +22765,15 @@ impl Default for ImageViewASTCDecodeModeEXT {
     }
 }
 impl Extends<ImageViewCreateInfo> for ImageViewASTCDecodeModeEXT {}
+impl ImageViewASTCDecodeModeEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceASTCDecodeFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceASTCDecodeFeaturesEXT")]
@@ -19539,6 +22797,15 @@ impl Default for PhysicalDeviceASTCDecodeFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceASTCDecodeFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceASTCDecodeFeaturesEXT {}
+impl PhysicalDeviceASTCDecodeFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkConditionalRenderingBeginInfoEXT.html>
 #[doc(alias = "VkConditionalRenderingBeginInfoEXT")]
@@ -19590,6 +22857,15 @@ impl Default for PhysicalDeviceConditionalRenderingFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceConditionalRenderingFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceConditionalRenderingFeaturesEXT {}
+impl PhysicalDeviceConditionalRenderingFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandBufferInheritanceConditionalRenderingInfoEXT.html>
 #[doc(alias = "VkCommandBufferInheritanceConditionalRenderingInfoEXT")]
@@ -19612,6 +22888,15 @@ impl Default for CommandBufferInheritanceConditionalRenderingInfoEXT {
     }
 }
 impl Extends<CommandBufferInheritanceInfo> for CommandBufferInheritanceConditionalRenderingInfoEXT {}
+impl CommandBufferInheritanceConditionalRenderingInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkViewportWScalingNV.html>
 #[doc(alias = "VkViewportWScalingNV")]
@@ -19657,6 +22942,15 @@ impl Default for PipelineViewportWScalingStateCreateInfoNV {
     }
 }
 impl Extends<PipelineViewportStateCreateInfo> for PipelineViewportWScalingStateCreateInfoNV {}
+impl PipelineViewportWScalingStateCreateInfoNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfaceCapabilities2EXT.html>
 #[doc(alias = "VkSurfaceCapabilities2EXT")]
@@ -19785,6 +23079,15 @@ impl Default for SwapchainCounterCreateInfoEXT {
     }
 }
 impl Extends<SwapchainCreateInfoKHR> for SwapchainCounterCreateInfoEXT {}
+impl SwapchainCounterCreateInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRefreshCycleDurationGOOGLE.html>
 #[doc(alias = "VkRefreshCycleDurationGOOGLE")]
@@ -19868,6 +23171,15 @@ impl Default for PresentTimesInfoGOOGLE {
     }
 }
 impl Extends<PresentInfoKHR> for PresentTimesInfoGOOGLE {}
+impl PresentTimesInfoGOOGLE {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX.html>
 #[doc(alias = "VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX")]
@@ -19890,6 +23202,15 @@ impl Default for PhysicalDeviceMultiviewPerViewAttributesPropertiesNVX {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceMultiviewPerViewAttributesPropertiesNVX {}
+impl PhysicalDeviceMultiviewPerViewAttributesPropertiesNVX {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMultiviewPerViewAttributesInfoNVX.html>
 #[doc(alias = "VkMultiviewPerViewAttributesInfoNVX")]
@@ -19916,6 +23237,15 @@ impl Default for MultiviewPerViewAttributesInfoNVX {
 impl Extends<CommandBufferInheritanceInfo> for MultiviewPerViewAttributesInfoNVX {}
 impl Extends<GraphicsPipelineCreateInfo> for MultiviewPerViewAttributesInfoNVX {}
 impl Extends<RenderingInfo> for MultiviewPerViewAttributesInfoNVX {}
+impl MultiviewPerViewAttributesInfoNVX {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkViewportSwizzleNV.html>
 #[doc(alias = "VkViewportSwizzleNV")]
@@ -19965,6 +23295,15 @@ impl Default for PipelineViewportSwizzleStateCreateInfoNV {
     }
 }
 impl Extends<PipelineViewportStateCreateInfo> for PipelineViewportSwizzleStateCreateInfoNV {}
+impl PipelineViewportSwizzleStateCreateInfoNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDiscardRectanglePropertiesEXT.html>
 #[doc(alias = "VkPhysicalDeviceDiscardRectanglePropertiesEXT")]
@@ -19987,6 +23326,15 @@ impl Default for PhysicalDeviceDiscardRectanglePropertiesEXT {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceDiscardRectanglePropertiesEXT {}
+impl PhysicalDeviceDiscardRectanglePropertiesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineDiscardRectangleStateCreateInfoEXT.html>
 #[doc(alias = "VkPipelineDiscardRectangleStateCreateInfoEXT")]
@@ -20017,6 +23365,15 @@ impl Default for PipelineDiscardRectangleStateCreateInfoEXT {
     }
 }
 impl Extends<GraphicsPipelineCreateInfo> for PipelineDiscardRectangleStateCreateInfoEXT {}
+impl PipelineDiscardRectangleStateCreateInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceConservativeRasterizationPropertiesEXT.html>
 #[doc(alias = "VkPhysicalDeviceConservativeRasterizationPropertiesEXT")]
@@ -20055,6 +23412,15 @@ impl Default for PhysicalDeviceConservativeRasterizationPropertiesEXT {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceConservativeRasterizationPropertiesEXT {}
+impl PhysicalDeviceConservativeRasterizationPropertiesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineRasterizationConservativeStateCreateInfoEXT.html>
 #[doc(alias = "VkPipelineRasterizationConservativeStateCreateInfoEXT")]
@@ -20085,6 +23451,15 @@ impl Extends<PipelineRasterizationStateCreateInfo>
     for PipelineRasterizationConservativeStateCreateInfoEXT
 {
 }
+impl PipelineRasterizationConservativeStateCreateInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDepthClipEnableFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceDepthClipEnableFeaturesEXT")]
@@ -20108,6 +23483,15 @@ impl Default for PhysicalDeviceDepthClipEnableFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceDepthClipEnableFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceDepthClipEnableFeaturesEXT {}
+impl PhysicalDeviceDepthClipEnableFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineRasterizationDepthClipStateCreateInfoEXT.html>
 #[doc(alias = "VkPipelineRasterizationDepthClipStateCreateInfoEXT")]
@@ -20135,6 +23519,15 @@ impl Default for PipelineRasterizationDepthClipStateCreateInfoEXT {
 impl Extends<PipelineRasterizationStateCreateInfo>
     for PipelineRasterizationDepthClipStateCreateInfoEXT
 {
+}
+impl PipelineRasterizationDepthClipStateCreateInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkXYColorEXT.html>
@@ -20214,6 +23607,15 @@ impl Default for PhysicalDeviceRelaxedLineRasterizationFeaturesIMG {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceRelaxedLineRasterizationFeaturesIMG {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceRelaxedLineRasterizationFeaturesIMG {}
+impl PhysicalDeviceRelaxedLineRasterizationFeaturesIMG {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkIOSSurfaceCreateInfoMVK.html>
 #[doc(alias = "VkIOSSurfaceCreateInfoMVK")]
@@ -20316,6 +23718,15 @@ impl Default for DebugUtilsObjectNameInfoEXT {
 impl Extends<PipelineShaderStageCreateInfo> for DebugUtilsObjectNameInfoEXT {}
 impl Extends<ResourceDescriptorInfoEXT> for DebugUtilsObjectNameInfoEXT {}
 impl Extends<SamplerCreateInfo> for DebugUtilsObjectNameInfoEXT {}
+impl DebugUtilsObjectNameInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDebugUtilsMessengerCallbackDataEXT.html>
 ///
@@ -20398,6 +23809,15 @@ impl Default for DebugUtilsMessengerCreateInfoEXT {
 }
 impl Extends<InstanceCreateInfo> for DebugUtilsMessengerCreateInfoEXT {}
 impl Extends<DebugUtilsMessengerCreateInfoEXT> for DebugUtilsMessengerCreateInfoEXT {}
+impl DebugUtilsMessengerCreateInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDebugUtilsObjectTagInfoEXT.html>
 #[doc(alias = "VkDebugUtilsObjectTagInfoEXT")]
@@ -20449,6 +23869,15 @@ impl Default for AndroidHardwareBufferUsageANDROID {
     }
 }
 impl Extends<ImageFormatProperties2> for AndroidHardwareBufferUsageANDROID {}
+impl AndroidHardwareBufferUsageANDROID {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAndroidHardwareBufferPropertiesANDROID.html>
 ///
@@ -20513,6 +23942,15 @@ impl Extends<AndroidHardwareBufferPropertiesANDROID>
     for AndroidHardwareBufferFormatPropertiesANDROID
 {
 }
+impl AndroidHardwareBufferFormatPropertiesANDROID {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImportAndroidHardwareBufferInfoANDROID.html>
 #[doc(alias = "VkImportAndroidHardwareBufferInfoANDROID")]
@@ -20535,6 +23973,15 @@ impl Default for ImportAndroidHardwareBufferInfoANDROID {
     }
 }
 impl Extends<MemoryAllocateInfo> for ImportAndroidHardwareBufferInfoANDROID {}
+impl ImportAndroidHardwareBufferInfoANDROID {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryGetAndroidHardwareBufferInfoANDROID.html>
 #[doc(alias = "VkMemoryGetAndroidHardwareBufferInfoANDROID")]
@@ -20582,6 +24029,15 @@ impl Extends<SamplerYcbcrConversionCreateInfo> for ExternalFormatANDROID {}
 impl Extends<AttachmentDescription2> for ExternalFormatANDROID {}
 impl Extends<GraphicsPipelineCreateInfo> for ExternalFormatANDROID {}
 impl Extends<CommandBufferInheritanceInfo> for ExternalFormatANDROID {}
+impl ExternalFormatANDROID {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAndroidHardwareBufferFormatProperties2ANDROID.html>
 #[doc(alias = "VkAndroidHardwareBufferFormatProperties2ANDROID")]
@@ -20620,6 +24076,15 @@ impl Default for AndroidHardwareBufferFormatProperties2ANDROID {
 impl Extends<AndroidHardwareBufferPropertiesANDROID>
     for AndroidHardwareBufferFormatProperties2ANDROID
 {
+}
+impl AndroidHardwareBufferFormatProperties2ANDROID {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkGpaPerfBlockPropertiesAMD.html>
@@ -20678,6 +24143,15 @@ impl Default for PhysicalDeviceGpaFeaturesAMD {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceGpaFeaturesAMD {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceGpaFeaturesAMD {}
+impl PhysicalDeviceGpaFeaturesAMD {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceGpaPropertiesAMD.html>
 #[doc(alias = "VkPhysicalDeviceGpaPropertiesAMD")]
@@ -20708,6 +24182,15 @@ impl Default for PhysicalDeviceGpaPropertiesAMD {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceGpaPropertiesAMD {}
+impl PhysicalDeviceGpaPropertiesAMD {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceGpaProperties2AMD.html>
 #[doc(alias = "VkPhysicalDeviceGpaProperties2AMD")]
@@ -20730,6 +24213,15 @@ impl Default for PhysicalDeviceGpaProperties2AMD {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceGpaProperties2AMD {}
+impl PhysicalDeviceGpaProperties2AMD {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkGpaPerfCounterAMD.html>
 #[doc(alias = "VkGpaPerfCounterAMD")]
@@ -20899,6 +24391,15 @@ impl Default for PhysicalDeviceShaderEnqueueFeaturesAMDX {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderEnqueueFeaturesAMDX {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderEnqueueFeaturesAMDX {}
+impl PhysicalDeviceShaderEnqueueFeaturesAMDX {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderEnqueuePropertiesAMDX.html>
 #[doc(alias = "VkPhysicalDeviceShaderEnqueuePropertiesAMDX")]
@@ -20933,6 +24434,15 @@ impl Default for PhysicalDeviceShaderEnqueuePropertiesAMDX {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceShaderEnqueuePropertiesAMDX {}
+impl PhysicalDeviceShaderEnqueuePropertiesAMDX {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExecutionGraphPipelineScratchSizeAMDX.html>
 #[doc(alias = "VkExecutionGraphPipelineScratchSizeAMDX")]
@@ -21090,6 +24600,15 @@ impl Default for PipelineShaderStageNodeCreateInfoAMDX {
     }
 }
 impl Extends<PipelineShaderStageCreateInfo> for PipelineShaderStageNodeCreateInfoAMDX {}
+impl PipelineShaderStageNodeCreateInfoAMDX {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkHostAddressRangeEXT.html>
 #[doc(alias = "VkHostAddressRangeEXT")]
@@ -21596,6 +25115,15 @@ impl Default for ShaderDescriptorSetAndBindingMappingInfoEXT {
 }
 impl Extends<PipelineShaderStageCreateInfo> for ShaderDescriptorSetAndBindingMappingInfoEXT {}
 impl Extends<ShaderCreateInfoEXT> for ShaderDescriptorSetAndBindingMappingInfoEXT {}
+impl ShaderDescriptorSetAndBindingMappingInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkOpaqueCaptureDataCreateInfoEXT.html>
 #[doc(alias = "VkOpaqueCaptureDataCreateInfoEXT")]
@@ -21620,6 +25148,15 @@ impl Default for OpaqueCaptureDataCreateInfoEXT {
 }
 impl Extends<ImageCreateInfo> for OpaqueCaptureDataCreateInfoEXT {}
 impl Extends<TensorCreateInfoARM> for OpaqueCaptureDataCreateInfoEXT {}
+impl OpaqueCaptureDataCreateInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDescriptorHeapFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceDescriptorHeapFeaturesEXT")]
@@ -21645,6 +25182,15 @@ impl Default for PhysicalDeviceDescriptorHeapFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceDescriptorHeapFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceDescriptorHeapFeaturesEXT {}
+impl PhysicalDeviceDescriptorHeapFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDescriptorHeapPropertiesEXT.html>
 #[doc(alias = "VkPhysicalDeviceDescriptorHeapPropertiesEXT")]
@@ -21703,6 +25249,15 @@ impl Default for PhysicalDeviceDescriptorHeapPropertiesEXT {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceDescriptorHeapPropertiesEXT {}
+impl PhysicalDeviceDescriptorHeapPropertiesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandBufferInheritanceDescriptorHeapInfoEXT.html>
 #[doc(alias = "VkCommandBufferInheritanceDescriptorHeapInfoEXT")]
@@ -21729,6 +25284,15 @@ impl Default for CommandBufferInheritanceDescriptorHeapInfoEXT {
     }
 }
 impl Extends<CommandBufferInheritanceInfo> for CommandBufferInheritanceDescriptorHeapInfoEXT {}
+impl CommandBufferInheritanceDescriptorHeapInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerCustomBorderColorIndexCreateInfoEXT.html>
 #[doc(alias = "VkSamplerCustomBorderColorIndexCreateInfoEXT")]
@@ -21751,6 +25315,15 @@ impl Default for SamplerCustomBorderColorIndexCreateInfoEXT {
     }
 }
 impl Extends<SamplerCreateInfo> for SamplerCustomBorderColorIndexCreateInfoEXT {}
+impl SamplerCustomBorderColorIndexCreateInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerCustomBorderColorCreateInfoEXT.html>
 #[doc(alias = "VkSamplerCustomBorderColorCreateInfoEXT")]
@@ -21775,6 +25348,15 @@ impl Default for SamplerCustomBorderColorCreateInfoEXT {
     }
 }
 impl Extends<SamplerCreateInfo> for SamplerCustomBorderColorCreateInfoEXT {}
+impl SamplerCustomBorderColorCreateInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectCommandsLayoutPushDataTokenNV.html>
 #[doc(alias = "VkIndirectCommandsLayoutPushDataTokenNV")]
@@ -21799,6 +25381,15 @@ impl Default for IndirectCommandsLayoutPushDataTokenNV {
     }
 }
 impl Extends<IndirectCommandsLayoutTokenNV> for IndirectCommandsLayoutPushDataTokenNV {}
+impl IndirectCommandsLayoutPushDataTokenNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSubsampledImageFormatPropertiesEXT.html>
 #[doc(alias = "VkSubsampledImageFormatPropertiesEXT")]
@@ -21821,6 +25412,15 @@ impl Default for SubsampledImageFormatPropertiesEXT {
     }
 }
 impl Extends<ImageFormatProperties2> for SubsampledImageFormatPropertiesEXT {}
+impl SubsampledImageFormatPropertiesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDescriptorHeapTensorPropertiesARM.html>
 #[doc(alias = "VkPhysicalDeviceDescriptorHeapTensorPropertiesARM")]
@@ -21847,6 +25447,15 @@ impl Default for PhysicalDeviceDescriptorHeapTensorPropertiesARM {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceDescriptorHeapTensorPropertiesARM {}
+impl PhysicalDeviceDescriptorHeapTensorPropertiesARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAttachmentSampleCountInfoAMD.html>
 #[doc(alias = "VkAttachmentSampleCountInfoAMD")]
@@ -21876,6 +25485,15 @@ impl Default for AttachmentSampleCountInfoAMD {
 }
 impl Extends<CommandBufferInheritanceInfo> for AttachmentSampleCountInfoAMD {}
 impl Extends<GraphicsPipelineCreateInfo> for AttachmentSampleCountInfoAMD {}
+impl AttachmentSampleCountInfoAMD {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type AttachmentSampleCountInfoNV = AttachmentSampleCountInfoAMD;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSampleLocationEXT.html>
@@ -21925,6 +25543,15 @@ impl Default for SampleLocationsInfoEXT {
 }
 impl Extends<ImageMemoryBarrier> for SampleLocationsInfoEXT {}
 impl Extends<ImageMemoryBarrier2> for SampleLocationsInfoEXT {}
+impl SampleLocationsInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAttachmentSampleLocationsEXT.html>
 #[doc(alias = "VkAttachmentSampleLocationsEXT")]
@@ -21993,6 +25620,15 @@ impl Default for RenderPassSampleLocationsBeginInfoEXT {
     }
 }
 impl Extends<RenderPassBeginInfo> for RenderPassSampleLocationsBeginInfoEXT {}
+impl RenderPassSampleLocationsBeginInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineSampleLocationsStateCreateInfoEXT.html>
 #[doc(alias = "VkPipelineSampleLocationsStateCreateInfoEXT")]
@@ -22017,6 +25653,15 @@ impl Default for PipelineSampleLocationsStateCreateInfoEXT {
     }
 }
 impl Extends<PipelineMultisampleStateCreateInfo> for PipelineSampleLocationsStateCreateInfoEXT {}
+impl PipelineSampleLocationsStateCreateInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSampleLocationsPropertiesEXT.html>
 #[doc(alias = "VkPhysicalDeviceSampleLocationsPropertiesEXT")]
@@ -22047,6 +25692,15 @@ impl Default for PhysicalDeviceSampleLocationsPropertiesEXT {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceSampleLocationsPropertiesEXT {}
+impl PhysicalDeviceSampleLocationsPropertiesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMultisamplePropertiesEXT.html>
 #[doc(alias = "VkMultisamplePropertiesEXT")]
@@ -22091,6 +25745,15 @@ impl Default for PhysicalDeviceBlendOperationAdvancedFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceBlendOperationAdvancedFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceBlendOperationAdvancedFeaturesEXT {}
+impl PhysicalDeviceBlendOperationAdvancedFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT.html>
 #[doc(alias = "VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT")]
@@ -22123,6 +25786,15 @@ impl Default for PhysicalDeviceBlendOperationAdvancedPropertiesEXT {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceBlendOperationAdvancedPropertiesEXT {}
+impl PhysicalDeviceBlendOperationAdvancedPropertiesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineColorBlendAdvancedStateCreateInfoEXT.html>
 #[doc(alias = "VkPipelineColorBlendAdvancedStateCreateInfoEXT")]
@@ -22149,6 +25821,15 @@ impl Default for PipelineColorBlendAdvancedStateCreateInfoEXT {
     }
 }
 impl Extends<PipelineColorBlendStateCreateInfo> for PipelineColorBlendAdvancedStateCreateInfoEXT {}
+impl PipelineColorBlendAdvancedStateCreateInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCoverageToColorStateCreateInfoNV.html>
 #[doc(alias = "VkPipelineCoverageToColorStateCreateInfoNV")]
@@ -22177,6 +25858,15 @@ impl Default for PipelineCoverageToColorStateCreateInfoNV {
     }
 }
 impl Extends<PipelineMultisampleStateCreateInfo> for PipelineCoverageToColorStateCreateInfoNV {}
+impl PipelineCoverageToColorStateCreateInfoNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCoverageModulationStateCreateInfoNV.html>
 #[doc(alias = "VkPipelineCoverageModulationStateCreateInfoNV")]
@@ -22210,6 +25900,15 @@ impl Default for PipelineCoverageModulationStateCreateInfoNV {
     }
 }
 impl Extends<PipelineMultisampleStateCreateInfo> for PipelineCoverageModulationStateCreateInfoNV {}
+impl PipelineCoverageModulationStateCreateInfoNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderSMBuiltinsPropertiesNV.html>
 #[doc(alias = "VkPhysicalDeviceShaderSMBuiltinsPropertiesNV")]
@@ -22234,6 +25933,15 @@ impl Default for PhysicalDeviceShaderSMBuiltinsPropertiesNV {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceShaderSMBuiltinsPropertiesNV {}
+impl PhysicalDeviceShaderSMBuiltinsPropertiesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderSMBuiltinsFeaturesNV.html>
 #[doc(alias = "VkPhysicalDeviceShaderSMBuiltinsFeaturesNV")]
@@ -22257,6 +25965,15 @@ impl Default for PhysicalDeviceShaderSMBuiltinsFeaturesNV {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderSMBuiltinsFeaturesNV {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderSMBuiltinsFeaturesNV {}
+impl PhysicalDeviceShaderSMBuiltinsFeaturesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDrmFormatModifierPropertiesEXT.html>
 #[doc(alias = "VkDrmFormatModifierPropertiesEXT")]
@@ -22305,6 +26022,15 @@ impl Default for DrmFormatModifierPropertiesListEXT {
     }
 }
 impl Extends<FormatProperties2> for DrmFormatModifierPropertiesListEXT {}
+impl DrmFormatModifierPropertiesListEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceImageDrmFormatModifierInfoEXT.html>
 #[doc(alias = "VkPhysicalDeviceImageDrmFormatModifierInfoEXT")]
@@ -22334,6 +26060,15 @@ impl Default for PhysicalDeviceImageDrmFormatModifierInfoEXT {
     }
 }
 impl Extends<PhysicalDeviceImageFormatInfo2> for PhysicalDeviceImageDrmFormatModifierInfoEXT {}
+impl PhysicalDeviceImageDrmFormatModifierInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageDrmFormatModifierListCreateInfoEXT.html>
 #[doc(alias = "VkImageDrmFormatModifierListCreateInfoEXT")]
@@ -22358,6 +26093,15 @@ impl Default for ImageDrmFormatModifierListCreateInfoEXT {
     }
 }
 impl Extends<ImageCreateInfo> for ImageDrmFormatModifierListCreateInfoEXT {}
+impl ImageDrmFormatModifierListCreateInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageDrmFormatModifierExplicitCreateInfoEXT.html>
 #[doc(alias = "VkImageDrmFormatModifierExplicitCreateInfoEXT")]
@@ -22384,6 +26128,15 @@ impl Default for ImageDrmFormatModifierExplicitCreateInfoEXT {
     }
 }
 impl Extends<ImageCreateInfo> for ImageDrmFormatModifierExplicitCreateInfoEXT {}
+impl ImageDrmFormatModifierExplicitCreateInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageDrmFormatModifierPropertiesEXT.html>
 #[doc(alias = "VkImageDrmFormatModifierPropertiesEXT")]
@@ -22453,6 +26206,15 @@ impl Default for DrmFormatModifierPropertiesList2EXT {
     }
 }
 impl Extends<FormatProperties2> for DrmFormatModifierPropertiesList2EXT {}
+impl DrmFormatModifierPropertiesList2EXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkValidationCacheCreateInfoEXT.html>
 #[doc(alias = "VkValidationCacheCreateInfoEXT")]
@@ -22503,6 +26265,15 @@ impl Default for ShaderModuleValidationCacheCreateInfoEXT {
 }
 impl Extends<ShaderModuleCreateInfo> for ShaderModuleValidationCacheCreateInfoEXT {}
 impl Extends<PipelineShaderStageCreateInfo> for ShaderModuleValidationCacheCreateInfoEXT {}
+impl ShaderModuleValidationCacheCreateInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkShadingRatePaletteNV.html>
 #[doc(alias = "VkShadingRatePaletteNV")]
@@ -22551,6 +26322,15 @@ impl Extends<PipelineViewportStateCreateInfo>
     for PipelineViewportShadingRateImageStateCreateInfoNV
 {
 }
+impl PipelineViewportShadingRateImageStateCreateInfoNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShadingRateImageFeaturesNV.html>
 #[doc(alias = "VkPhysicalDeviceShadingRateImageFeaturesNV")]
@@ -22576,6 +26356,15 @@ impl Default for PhysicalDeviceShadingRateImageFeaturesNV {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShadingRateImageFeaturesNV {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShadingRateImageFeaturesNV {}
+impl PhysicalDeviceShadingRateImageFeaturesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShadingRateImagePropertiesNV.html>
 #[doc(alias = "VkPhysicalDeviceShadingRateImagePropertiesNV")]
@@ -22602,6 +26391,15 @@ impl Default for PhysicalDeviceShadingRateImagePropertiesNV {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceShadingRateImagePropertiesNV {}
+impl PhysicalDeviceShadingRateImagePropertiesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCoarseSampleLocationNV.html>
 #[doc(alias = "VkCoarseSampleLocationNV")]
@@ -22673,6 +26471,15 @@ impl Default for PipelineViewportCoarseSampleOrderStateCreateInfoNV {
 impl Extends<PipelineViewportStateCreateInfo>
     for PipelineViewportCoarseSampleOrderStateCreateInfoNV
 {
+}
+impl PipelineViewportCoarseSampleOrderStateCreateInfoNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRayTracingShaderGroupCreateInfoNV.html>
@@ -22972,6 +26779,15 @@ impl Default for WriteDescriptorSetAccelerationStructureNV {
     }
 }
 impl Extends<WriteDescriptorSet> for WriteDescriptorSetAccelerationStructureNV {}
+impl WriteDescriptorSetAccelerationStructureNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureMemoryRequirementsInfoNV.html>
 #[doc(alias = "VkAccelerationStructureMemoryRequirementsInfoNV")]
@@ -23031,6 +26847,15 @@ impl Default for PhysicalDeviceRayTracingPropertiesNV {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceRayTracingPropertiesNV {}
+impl PhysicalDeviceRayTracingPropertiesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTransformMatrixKHR.html>
 #[doc(alias = "VkTransformMatrixKHR")]
@@ -23126,6 +26951,15 @@ impl Default for PhysicalDeviceRepresentativeFragmentTestFeaturesNV {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceRepresentativeFragmentTestFeaturesNV {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceRepresentativeFragmentTestFeaturesNV {}
+impl PhysicalDeviceRepresentativeFragmentTestFeaturesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineRepresentativeFragmentTestStateCreateInfoNV.html>
 #[doc(alias = "VkPipelineRepresentativeFragmentTestStateCreateInfoNV")]
@@ -23148,6 +26982,15 @@ impl Default for PipelineRepresentativeFragmentTestStateCreateInfoNV {
     }
 }
 impl Extends<GraphicsPipelineCreateInfo> for PipelineRepresentativeFragmentTestStateCreateInfoNV {}
+impl PipelineRepresentativeFragmentTestStateCreateInfoNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceImageViewImageFormatInfoEXT.html>
 #[doc(alias = "VkPhysicalDeviceImageViewImageFormatInfoEXT")]
@@ -23170,6 +27013,15 @@ impl Default for PhysicalDeviceImageViewImageFormatInfoEXT {
     }
 }
 impl Extends<PhysicalDeviceImageFormatInfo2> for PhysicalDeviceImageViewImageFormatInfoEXT {}
+impl PhysicalDeviceImageViewImageFormatInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFilterCubicImageViewImageFormatPropertiesEXT.html>
 #[doc(alias = "VkFilterCubicImageViewImageFormatPropertiesEXT")]
@@ -23194,6 +27046,15 @@ impl Default for FilterCubicImageViewImageFormatPropertiesEXT {
     }
 }
 impl Extends<ImageFormatProperties2> for FilterCubicImageViewImageFormatPropertiesEXT {}
+impl FilterCubicImageViewImageFormatPropertiesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCooperativeMatrixConversionFeaturesQCOM.html>
 #[doc(alias = "VkPhysicalDeviceCooperativeMatrixConversionFeaturesQCOM")]
@@ -23217,6 +27078,15 @@ impl Default for PhysicalDeviceCooperativeMatrixConversionFeaturesQCOM {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceCooperativeMatrixConversionFeaturesQCOM {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceCooperativeMatrixConversionFeaturesQCOM {}
+impl PhysicalDeviceCooperativeMatrixConversionFeaturesQCOM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceElapsedTimerQueryFeaturesQCOM.html>
 #[doc(alias = "VkPhysicalDeviceElapsedTimerQueryFeaturesQCOM")]
@@ -23240,6 +27110,15 @@ impl Default for PhysicalDeviceElapsedTimerQueryFeaturesQCOM {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceElapsedTimerQueryFeaturesQCOM {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceElapsedTimerQueryFeaturesQCOM {}
+impl PhysicalDeviceElapsedTimerQueryFeaturesQCOM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImportMemoryHostPointerInfoEXT.html>
 #[doc(alias = "VkImportMemoryHostPointerInfoEXT")]
@@ -23264,6 +27143,15 @@ impl Default for ImportMemoryHostPointerInfoEXT {
     }
 }
 impl Extends<MemoryAllocateInfo> for ImportMemoryHostPointerInfoEXT {}
+impl ImportMemoryHostPointerInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryHostPointerPropertiesEXT.html>
 #[doc(alias = "VkMemoryHostPointerPropertiesEXT")]
@@ -23307,6 +27195,15 @@ impl Default for PhysicalDeviceExternalMemoryHostPropertiesEXT {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceExternalMemoryHostPropertiesEXT {}
+impl PhysicalDeviceExternalMemoryHostPropertiesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCompilerControlCreateInfoAMD.html>
 #[doc(alias = "VkPipelineCompilerControlCreateInfoAMD")]
@@ -23332,6 +27229,15 @@ impl Default for PipelineCompilerControlCreateInfoAMD {
 impl Extends<GraphicsPipelineCreateInfo> for PipelineCompilerControlCreateInfoAMD {}
 impl Extends<ComputePipelineCreateInfo> for PipelineCompilerControlCreateInfoAMD {}
 impl Extends<ExecutionGraphPipelineCreateInfoAMDX> for PipelineCompilerControlCreateInfoAMD {}
+impl PipelineCompilerControlCreateInfoAMD {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderCorePropertiesAMD.html>
 #[doc(alias = "VkPhysicalDeviceShaderCorePropertiesAMD")]
@@ -23380,6 +27286,15 @@ impl Default for PhysicalDeviceShaderCorePropertiesAMD {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceShaderCorePropertiesAMD {}
+impl PhysicalDeviceShaderCorePropertiesAMD {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceMemoryOverallocationCreateInfoAMD.html>
 #[doc(alias = "VkDeviceMemoryOverallocationCreateInfoAMD")]
@@ -23402,6 +27317,15 @@ impl Default for DeviceMemoryOverallocationCreateInfoAMD {
     }
 }
 impl Extends<DeviceCreateInfo> for DeviceMemoryOverallocationCreateInfoAMD {}
+impl DeviceMemoryOverallocationCreateInfoAMD {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT.html>
 #[doc(alias = "VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT")]
@@ -23424,6 +27348,15 @@ impl Default for PhysicalDeviceVertexAttributeDivisorPropertiesEXT {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceVertexAttributeDivisorPropertiesEXT {}
+impl PhysicalDeviceVertexAttributeDivisorPropertiesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPresentFrameTokenGGP.html>
 #[doc(alias = "VkPresentFrameTokenGGP")]
@@ -23446,6 +27379,15 @@ impl Default for PresentFrameTokenGGP {
     }
 }
 impl Extends<PresentInfoKHR> for PresentFrameTokenGGP {}
+impl PresentFrameTokenGGP {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMeshShaderFeaturesNV.html>
 #[doc(alias = "VkPhysicalDeviceMeshShaderFeaturesNV")]
@@ -23471,6 +27413,15 @@ impl Default for PhysicalDeviceMeshShaderFeaturesNV {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceMeshShaderFeaturesNV {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceMeshShaderFeaturesNV {}
+impl PhysicalDeviceMeshShaderFeaturesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMeshShaderPropertiesNV.html>
 #[doc(alias = "VkPhysicalDeviceMeshShaderPropertiesNV")]
@@ -23517,6 +27468,15 @@ impl Default for PhysicalDeviceMeshShaderPropertiesNV {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceMeshShaderPropertiesNV {}
+impl PhysicalDeviceMeshShaderPropertiesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDrawMeshTasksIndirectCommandNV.html>
 #[doc(alias = "VkDrawMeshTasksIndirectCommandNV")]
@@ -23558,6 +27518,15 @@ impl Default for PhysicalDeviceShaderImageFootprintFeaturesNV {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderImageFootprintFeaturesNV {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderImageFootprintFeaturesNV {}
+impl PhysicalDeviceShaderImageFootprintFeaturesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineViewportExclusiveScissorStateCreateInfoNV.html>
 #[doc(alias = "VkPipelineViewportExclusiveScissorStateCreateInfoNV")]
@@ -23586,6 +27555,15 @@ impl Extends<PipelineViewportStateCreateInfo>
     for PipelineViewportExclusiveScissorStateCreateInfoNV
 {
 }
+impl PipelineViewportExclusiveScissorStateCreateInfoNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceExclusiveScissorFeaturesNV.html>
 #[doc(alias = "VkPhysicalDeviceExclusiveScissorFeaturesNV")]
@@ -23609,6 +27587,15 @@ impl Default for PhysicalDeviceExclusiveScissorFeaturesNV {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceExclusiveScissorFeaturesNV {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceExclusiveScissorFeaturesNV {}
+impl PhysicalDeviceExclusiveScissorFeaturesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkQueueFamilyCheckpointPropertiesNV.html>
 #[doc(alias = "VkQueueFamilyCheckpointPropertiesNV")]
@@ -23631,6 +27618,15 @@ impl Default for QueueFamilyCheckpointPropertiesNV {
     }
 }
 impl Extends<QueueFamilyProperties2> for QueueFamilyCheckpointPropertiesNV {}
+impl QueueFamilyCheckpointPropertiesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCheckpointDataNV.html>
 #[doc(alias = "VkCheckpointDataNV")]
@@ -23676,6 +27672,15 @@ impl Default for QueueFamilyCheckpointProperties2NV {
     }
 }
 impl Extends<QueueFamilyProperties2> for QueueFamilyCheckpointProperties2NV {}
+impl QueueFamilyCheckpointProperties2NV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCheckpointData2NV.html>
 #[doc(alias = "VkCheckpointData2NV")]
@@ -23726,6 +27731,15 @@ impl Default for PhysicalDevicePresentTimingFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDevicePresentTimingFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDevicePresentTimingFeaturesEXT {}
+impl PhysicalDevicePresentTimingFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPresentTimingSurfaceCapabilitiesEXT.html>
 #[doc(alias = "VkPresentTimingSurfaceCapabilitiesEXT")]
@@ -23754,6 +27768,15 @@ impl Default for PresentTimingSurfaceCapabilitiesEXT {
     }
 }
 impl Extends<SurfaceCapabilities2KHR> for PresentTimingSurfaceCapabilitiesEXT {}
+impl PresentTimingSurfaceCapabilitiesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSwapchainCalibratedTimestampInfoEXT.html>
 #[doc(alias = "VkSwapchainCalibratedTimestampInfoEXT")]
@@ -23781,6 +27804,15 @@ impl Default for SwapchainCalibratedTimestampInfoEXT {
     }
 }
 impl Extends<CalibratedTimestampInfoKHR> for SwapchainCalibratedTimestampInfoEXT {}
+impl SwapchainCalibratedTimestampInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSwapchainTimingPropertiesEXT.html>
 #[doc(alias = "VkSwapchainTimingPropertiesEXT")]
@@ -23990,6 +28022,15 @@ impl Default for PresentTimingsInfoEXT {
     }
 }
 impl Extends<PresentInfoKHR> for PresentTimingsInfoEXT {}
+impl PresentTimingsInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderIntegerFunctions2FeaturesINTEL.html>
 #[doc(alias = "VkPhysicalDeviceShaderIntegerFunctions2FeaturesINTEL")]
@@ -24013,6 +28054,15 @@ impl Default for PhysicalDeviceShaderIntegerFunctions2FeaturesINTEL {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderIntegerFunctions2FeaturesINTEL {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderIntegerFunctions2FeaturesINTEL {}
+impl PhysicalDeviceShaderIntegerFunctions2FeaturesINTEL {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceValueDataINTEL.html>
 #[doc(alias = "VkPerformanceValueDataINTEL")]
@@ -24100,6 +28150,15 @@ impl Default for QueryPoolPerformanceQueryCreateInfoINTEL {
     }
 }
 impl Extends<QueryPoolCreateInfo> for QueryPoolPerformanceQueryCreateInfoINTEL {}
+impl QueryPoolPerformanceQueryCreateInfoINTEL {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type QueryPoolCreateInfoINTEL = QueryPoolPerformanceQueryCreateInfoINTEL;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceMarkerInfoINTEL.html>
@@ -24217,6 +28276,15 @@ impl Default for PhysicalDevicePCIBusInfoPropertiesEXT {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDevicePCIBusInfoPropertiesEXT {}
+impl PhysicalDevicePCIBusInfoPropertiesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplayNativeHdrSurfaceCapabilitiesAMD.html>
 #[doc(alias = "VkDisplayNativeHdrSurfaceCapabilitiesAMD")]
@@ -24239,6 +28307,15 @@ impl Default for DisplayNativeHdrSurfaceCapabilitiesAMD {
     }
 }
 impl Extends<SurfaceCapabilities2KHR> for DisplayNativeHdrSurfaceCapabilitiesAMD {}
+impl DisplayNativeHdrSurfaceCapabilitiesAMD {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSwapchainDisplayNativeHdrCreateInfoAMD.html>
 #[doc(alias = "VkSwapchainDisplayNativeHdrCreateInfoAMD")]
@@ -24261,6 +28338,15 @@ impl Default for SwapchainDisplayNativeHdrCreateInfoAMD {
     }
 }
 impl Extends<SwapchainCreateInfoKHR> for SwapchainDisplayNativeHdrCreateInfoAMD {}
+impl SwapchainDisplayNativeHdrCreateInfoAMD {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImagePipeSurfaceCreateInfoFUCHSIA.html>
 #[doc(alias = "VkImagePipeSurfaceCreateInfoFUCHSIA")]
@@ -24336,6 +28422,15 @@ impl Default for PhysicalDeviceFragmentDensityMapFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceFragmentDensityMapFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceFragmentDensityMapFeaturesEXT {}
+impl PhysicalDeviceFragmentDensityMapFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFragmentDensityMapPropertiesEXT.html>
 #[doc(alias = "VkPhysicalDeviceFragmentDensityMapPropertiesEXT")]
@@ -24362,6 +28457,15 @@ impl Default for PhysicalDeviceFragmentDensityMapPropertiesEXT {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceFragmentDensityMapPropertiesEXT {}
+impl PhysicalDeviceFragmentDensityMapPropertiesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPassFragmentDensityMapCreateInfoEXT.html>
 #[doc(alias = "VkRenderPassFragmentDensityMapCreateInfoEXT")]
@@ -24385,6 +28489,15 @@ impl Default for RenderPassFragmentDensityMapCreateInfoEXT {
 }
 impl Extends<RenderPassCreateInfo> for RenderPassFragmentDensityMapCreateInfoEXT {}
 impl Extends<RenderPassCreateInfo2> for RenderPassFragmentDensityMapCreateInfoEXT {}
+impl RenderPassFragmentDensityMapCreateInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderingFragmentDensityMapAttachmentInfoEXT.html>
 #[doc(alias = "VkRenderingFragmentDensityMapAttachmentInfoEXT")]
@@ -24409,6 +28522,15 @@ impl Default for RenderingFragmentDensityMapAttachmentInfoEXT {
     }
 }
 impl Extends<RenderingInfo> for RenderingFragmentDensityMapAttachmentInfoEXT {}
+impl RenderingFragmentDensityMapAttachmentInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderCoreProperties2AMD.html>
 #[doc(alias = "VkPhysicalDeviceShaderCoreProperties2AMD")]
@@ -24433,6 +28555,15 @@ impl Default for PhysicalDeviceShaderCoreProperties2AMD {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceShaderCoreProperties2AMD {}
+impl PhysicalDeviceShaderCoreProperties2AMD {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCoherentMemoryFeaturesAMD.html>
 #[doc(alias = "VkPhysicalDeviceCoherentMemoryFeaturesAMD")]
@@ -24456,6 +28587,15 @@ impl Default for PhysicalDeviceCoherentMemoryFeaturesAMD {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceCoherentMemoryFeaturesAMD {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceCoherentMemoryFeaturesAMD {}
+impl PhysicalDeviceCoherentMemoryFeaturesAMD {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderImageAtomicInt64FeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceShaderImageAtomicInt64FeaturesEXT")]
@@ -24481,6 +28621,15 @@ impl Default for PhysicalDeviceShaderImageAtomicInt64FeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderImageAtomicInt64FeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderImageAtomicInt64FeaturesEXT {}
+impl PhysicalDeviceShaderImageAtomicInt64FeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMemoryBudgetPropertiesEXT.html>
 #[doc(alias = "VkPhysicalDeviceMemoryBudgetPropertiesEXT")]
@@ -24505,6 +28654,15 @@ impl Default for PhysicalDeviceMemoryBudgetPropertiesEXT {
     }
 }
 impl Extends<PhysicalDeviceMemoryProperties2> for PhysicalDeviceMemoryBudgetPropertiesEXT {}
+impl PhysicalDeviceMemoryBudgetPropertiesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMemoryPriorityFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceMemoryPriorityFeaturesEXT")]
@@ -24528,6 +28686,15 @@ impl Default for PhysicalDeviceMemoryPriorityFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceMemoryPriorityFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceMemoryPriorityFeaturesEXT {}
+impl PhysicalDeviceMemoryPriorityFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryPriorityAllocateInfoEXT.html>
 #[doc(alias = "VkMemoryPriorityAllocateInfoEXT")]
@@ -24550,6 +28717,15 @@ impl Default for MemoryPriorityAllocateInfoEXT {
     }
 }
 impl Extends<MemoryAllocateInfo> for MemoryPriorityAllocateInfoEXT {}
+impl MemoryPriorityAllocateInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV.html>
 #[doc(alias = "VkPhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV")]
@@ -24573,6 +28749,15 @@ impl Default for PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV {}
+impl PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceBufferDeviceAddressFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceBufferDeviceAddressFeaturesEXT")]
@@ -24600,6 +28785,15 @@ impl Default for PhysicalDeviceBufferDeviceAddressFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceBufferDeviceAddressFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceBufferDeviceAddressFeaturesEXT {}
+impl PhysicalDeviceBufferDeviceAddressFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceBufferAddressFeaturesEXT = PhysicalDeviceBufferDeviceAddressFeaturesEXT;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferDeviceAddressCreateInfoEXT.html>
@@ -24624,6 +28818,15 @@ impl Default for BufferDeviceAddressCreateInfoEXT {
     }
 }
 impl Extends<BufferCreateInfo> for BufferDeviceAddressCreateInfoEXT {}
+impl BufferDeviceAddressCreateInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkValidationFeaturesEXT.html>
 #[doc(alias = "VkValidationFeaturesEXT")]
@@ -24660,6 +28863,15 @@ impl Extends<PipelineShaderStageCreateInfo> for ValidationFeaturesEXT {}
 impl Extends<GraphicsPipelineCreateInfo> for ValidationFeaturesEXT {}
 impl Extends<ComputePipelineCreateInfo> for ValidationFeaturesEXT {}
 impl Extends<RayTracingPipelineCreateInfoKHR> for ValidationFeaturesEXT {}
+impl ValidationFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCooperativeMatrixPropertiesNV.html>
 #[doc(alias = "VkCooperativeMatrixPropertiesNV")]
@@ -24720,6 +28932,15 @@ impl Default for PhysicalDeviceCooperativeMatrixFeaturesNV {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceCooperativeMatrixFeaturesNV {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceCooperativeMatrixFeaturesNV {}
+impl PhysicalDeviceCooperativeMatrixFeaturesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCooperativeMatrixPropertiesNV.html>
 #[doc(alias = "VkPhysicalDeviceCooperativeMatrixPropertiesNV")]
@@ -24742,6 +28963,15 @@ impl Default for PhysicalDeviceCooperativeMatrixPropertiesNV {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceCooperativeMatrixPropertiesNV {}
+impl PhysicalDeviceCooperativeMatrixPropertiesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCoverageReductionModeFeaturesNV.html>
 #[doc(alias = "VkPhysicalDeviceCoverageReductionModeFeaturesNV")]
@@ -24765,6 +28995,15 @@ impl Default for PhysicalDeviceCoverageReductionModeFeaturesNV {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceCoverageReductionModeFeaturesNV {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceCoverageReductionModeFeaturesNV {}
+impl PhysicalDeviceCoverageReductionModeFeaturesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCoverageReductionStateCreateInfoNV.html>
 #[doc(alias = "VkPipelineCoverageReductionStateCreateInfoNV")]
@@ -24790,6 +29029,15 @@ impl Default for PipelineCoverageReductionStateCreateInfoNV {
     }
 }
 impl Extends<PipelineMultisampleStateCreateInfo> for PipelineCoverageReductionStateCreateInfoNV {}
+impl PipelineCoverageReductionStateCreateInfoNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFramebufferMixedSamplesCombinationNV.html>
 #[doc(alias = "VkFramebufferMixedSamplesCombinationNV")]
@@ -24844,6 +29092,15 @@ impl Default for PhysicalDeviceFragmentShaderInterlockFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceFragmentShaderInterlockFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceFragmentShaderInterlockFeaturesEXT {}
+impl PhysicalDeviceFragmentShaderInterlockFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceYcbcrImageArraysFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceYcbcrImageArraysFeaturesEXT")]
@@ -24867,6 +29124,15 @@ impl Default for PhysicalDeviceYcbcrImageArraysFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceYcbcrImageArraysFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceYcbcrImageArraysFeaturesEXT {}
+impl PhysicalDeviceYcbcrImageArraysFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceProvokingVertexFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceProvokingVertexFeaturesEXT")]
@@ -24892,6 +29158,15 @@ impl Default for PhysicalDeviceProvokingVertexFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceProvokingVertexFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceProvokingVertexFeaturesEXT {}
+impl PhysicalDeviceProvokingVertexFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceProvokingVertexPropertiesEXT.html>
 #[doc(alias = "VkPhysicalDeviceProvokingVertexPropertiesEXT")]
@@ -24916,6 +29191,15 @@ impl Default for PhysicalDeviceProvokingVertexPropertiesEXT {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceProvokingVertexPropertiesEXT {}
+impl PhysicalDeviceProvokingVertexPropertiesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineRasterizationProvokingVertexStateCreateInfoEXT.html>
 #[doc(alias = "VkPipelineRasterizationProvokingVertexStateCreateInfoEXT")]
@@ -24941,6 +29225,15 @@ impl Extends<PipelineRasterizationStateCreateInfo>
     for PipelineRasterizationProvokingVertexStateCreateInfoEXT
 {
 }
+impl PipelineRasterizationProvokingVertexStateCreateInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfaceFullScreenExclusiveInfoEXT.html>
 #[doc(alias = "VkSurfaceFullScreenExclusiveInfoEXT")]
@@ -24964,6 +29257,15 @@ impl Default for SurfaceFullScreenExclusiveInfoEXT {
 }
 impl Extends<PhysicalDeviceSurfaceInfo2KHR> for SurfaceFullScreenExclusiveInfoEXT {}
 impl Extends<SwapchainCreateInfoKHR> for SurfaceFullScreenExclusiveInfoEXT {}
+impl SurfaceFullScreenExclusiveInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfaceCapabilitiesFullScreenExclusiveEXT.html>
 #[doc(alias = "VkSurfaceCapabilitiesFullScreenExclusiveEXT")]
@@ -24986,6 +29288,15 @@ impl Default for SurfaceCapabilitiesFullScreenExclusiveEXT {
     }
 }
 impl Extends<SurfaceCapabilities2KHR> for SurfaceCapabilitiesFullScreenExclusiveEXT {}
+impl SurfaceCapabilitiesFullScreenExclusiveEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfaceFullScreenExclusiveWin32InfoEXT.html>
 #[doc(alias = "VkSurfaceFullScreenExclusiveWin32InfoEXT")]
@@ -25009,6 +29320,15 @@ impl Default for SurfaceFullScreenExclusiveWin32InfoEXT {
 }
 impl Extends<PhysicalDeviceSurfaceInfo2KHR> for SurfaceFullScreenExclusiveWin32InfoEXT {}
 impl Extends<SwapchainCreateInfoKHR> for SurfaceFullScreenExclusiveWin32InfoEXT {}
+impl SurfaceFullScreenExclusiveWin32InfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkHeadlessSurfaceCreateInfoEXT.html>
 #[doc(alias = "VkHeadlessSurfaceCreateInfoEXT")]
@@ -25076,6 +29396,15 @@ impl Default for PhysicalDeviceShaderAtomicFloatFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderAtomicFloatFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderAtomicFloatFeaturesEXT {}
+impl PhysicalDeviceShaderAtomicFloatFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceExtendedDynamicStateFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceExtendedDynamicStateFeaturesEXT")]
@@ -25099,6 +29428,15 @@ impl Default for PhysicalDeviceExtendedDynamicStateFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceExtendedDynamicStateFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceExtendedDynamicStateFeaturesEXT {}
+impl PhysicalDeviceExtendedDynamicStateFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMapMemoryPlacedFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceMapMemoryPlacedFeaturesEXT")]
@@ -25126,6 +29464,15 @@ impl Default for PhysicalDeviceMapMemoryPlacedFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceMapMemoryPlacedFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceMapMemoryPlacedFeaturesEXT {}
+impl PhysicalDeviceMapMemoryPlacedFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMapMemoryPlacedPropertiesEXT.html>
 #[doc(alias = "VkPhysicalDeviceMapMemoryPlacedPropertiesEXT")]
@@ -25148,6 +29495,15 @@ impl Default for PhysicalDeviceMapMemoryPlacedPropertiesEXT {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceMapMemoryPlacedPropertiesEXT {}
+impl PhysicalDeviceMapMemoryPlacedPropertiesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryMapPlacedInfoEXT.html>
 #[doc(alias = "VkMemoryMapPlacedInfoEXT")]
@@ -25170,6 +29526,15 @@ impl Default for MemoryMapPlacedInfoEXT {
     }
 }
 impl Extends<MemoryMapInfo> for MemoryMapPlacedInfoEXT {}
+impl MemoryMapPlacedInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderAtomicFloat2FeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceShaderAtomicFloat2FeaturesEXT")]
@@ -25215,6 +29580,15 @@ impl Default for PhysicalDeviceShaderAtomicFloat2FeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderAtomicFloat2FeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderAtomicFloat2FeaturesEXT {}
+impl PhysicalDeviceShaderAtomicFloat2FeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDeviceGeneratedCommandsPropertiesNV.html>
 #[doc(alias = "VkPhysicalDeviceDeviceGeneratedCommandsPropertiesNV")]
@@ -25253,6 +29627,15 @@ impl Default for PhysicalDeviceDeviceGeneratedCommandsPropertiesNV {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceDeviceGeneratedCommandsPropertiesNV {}
+impl PhysicalDeviceDeviceGeneratedCommandsPropertiesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDeviceGeneratedCommandsFeaturesNV.html>
 #[doc(alias = "VkPhysicalDeviceDeviceGeneratedCommandsFeaturesNV")]
@@ -25276,6 +29659,15 @@ impl Default for PhysicalDeviceDeviceGeneratedCommandsFeaturesNV {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceDeviceGeneratedCommandsFeaturesNV {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceDeviceGeneratedCommandsFeaturesNV {}
+impl PhysicalDeviceDeviceGeneratedCommandsFeaturesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkGraphicsShaderGroupCreateInfoNV.html>
 #[doc(alias = "VkGraphicsShaderGroupCreateInfoNV")]
@@ -25335,6 +29727,15 @@ impl Default for GraphicsPipelineShaderGroupsCreateInfoNV {
     }
 }
 impl Extends<GraphicsPipelineCreateInfo> for GraphicsPipelineShaderGroupsCreateInfoNV {}
+impl GraphicsPipelineShaderGroupsCreateInfoNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBindShaderGroupIndirectCommandNV.html>
 #[doc(alias = "VkBindShaderGroupIndirectCommandNV")]
@@ -25607,6 +30008,15 @@ impl Default for PhysicalDeviceInheritedViewportScissorFeaturesNV {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceInheritedViewportScissorFeaturesNV {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceInheritedViewportScissorFeaturesNV {}
+impl PhysicalDeviceInheritedViewportScissorFeaturesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandBufferInheritanceViewportScissorInfoNV.html>
 #[doc(alias = "VkCommandBufferInheritanceViewportScissorInfoNV")]
@@ -25633,6 +30043,15 @@ impl Default for CommandBufferInheritanceViewportScissorInfoNV {
     }
 }
 impl Extends<CommandBufferInheritanceInfo> for CommandBufferInheritanceViewportScissorInfoNV {}
+impl CommandBufferInheritanceViewportScissorInfoNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceTexelBufferAlignmentFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceTexelBufferAlignmentFeaturesEXT")]
@@ -25656,6 +30075,15 @@ impl Default for PhysicalDeviceTexelBufferAlignmentFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceTexelBufferAlignmentFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceTexelBufferAlignmentFeaturesEXT {}
+impl PhysicalDeviceTexelBufferAlignmentFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPassTransformBeginInfoQCOM.html>
 #[doc(alias = "VkRenderPassTransformBeginInfoQCOM")]
@@ -25678,6 +30106,15 @@ impl Default for RenderPassTransformBeginInfoQCOM {
     }
 }
 impl Extends<RenderPassBeginInfo> for RenderPassTransformBeginInfoQCOM {}
+impl RenderPassTransformBeginInfoQCOM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandBufferInheritanceRenderPassTransformInfoQCOM.html>
 #[doc(alias = "VkCommandBufferInheritanceRenderPassTransformInfoQCOM")]
@@ -25702,6 +30139,15 @@ impl Default for CommandBufferInheritanceRenderPassTransformInfoQCOM {
     }
 }
 impl Extends<CommandBufferInheritanceInfo> for CommandBufferInheritanceRenderPassTransformInfoQCOM {}
+impl CommandBufferInheritanceRenderPassTransformInfoQCOM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDepthBiasControlFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceDepthBiasControlFeaturesEXT")]
@@ -25731,6 +30177,15 @@ impl Default for PhysicalDeviceDepthBiasControlFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceDepthBiasControlFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceDepthBiasControlFeaturesEXT {}
+impl PhysicalDeviceDepthBiasControlFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDepthBiasInfoEXT.html>
 ///
@@ -25783,6 +30238,15 @@ impl Default for DepthBiasRepresentationInfoEXT {
 }
 impl Extends<DepthBiasInfoEXT> for DepthBiasRepresentationInfoEXT {}
 impl Extends<PipelineRasterizationStateCreateInfo> for DepthBiasRepresentationInfoEXT {}
+impl DepthBiasRepresentationInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDeviceMemoryReportFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceDeviceMemoryReportFeaturesEXT")]
@@ -25806,6 +30270,15 @@ impl Default for PhysicalDeviceDeviceMemoryReportFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceDeviceMemoryReportFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceDeviceMemoryReportFeaturesEXT {}
+impl PhysicalDeviceDeviceMemoryReportFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceMemoryReportCallbackDataEXT.html>
 #[doc(alias = "VkDeviceMemoryReportCallbackDataEXT")]
@@ -25867,6 +30340,15 @@ impl Default for DeviceDeviceMemoryReportCreateInfoEXT {
 }
 impl Extends<DeviceCreateInfo> for DeviceDeviceMemoryReportCreateInfoEXT {}
 impl Extends<DeviceDeviceMemoryReportCreateInfoEXT> for DeviceDeviceMemoryReportCreateInfoEXT {}
+impl DeviceDeviceMemoryReportCreateInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCustomBorderColorPropertiesEXT.html>
 #[doc(alias = "VkPhysicalDeviceCustomBorderColorPropertiesEXT")]
@@ -25889,6 +30371,15 @@ impl Default for PhysicalDeviceCustomBorderColorPropertiesEXT {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceCustomBorderColorPropertiesEXT {}
+impl PhysicalDeviceCustomBorderColorPropertiesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCustomBorderColorFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceCustomBorderColorFeaturesEXT")]
@@ -25914,6 +30405,15 @@ impl Default for PhysicalDeviceCustomBorderColorFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceCustomBorderColorFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceCustomBorderColorFeaturesEXT {}
+impl PhysicalDeviceCustomBorderColorFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceTextureCompressionASTC3DFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceTextureCompressionASTC3DFeaturesEXT")]
@@ -25937,6 +30437,15 @@ impl Default for PhysicalDeviceTextureCompressionASTC3DFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceTextureCompressionASTC3DFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceTextureCompressionASTC3DFeaturesEXT {}
+impl PhysicalDeviceTextureCompressionASTC3DFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePresentBarrierFeaturesNV.html>
 #[doc(alias = "VkPhysicalDevicePresentBarrierFeaturesNV")]
@@ -25960,6 +30469,15 @@ impl Default for PhysicalDevicePresentBarrierFeaturesNV {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDevicePresentBarrierFeaturesNV {}
 impl Extends<DeviceCreateInfo> for PhysicalDevicePresentBarrierFeaturesNV {}
+impl PhysicalDevicePresentBarrierFeaturesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfaceCapabilitiesPresentBarrierNV.html>
 #[doc(alias = "VkSurfaceCapabilitiesPresentBarrierNV")]
@@ -25982,6 +30500,15 @@ impl Default for SurfaceCapabilitiesPresentBarrierNV {
     }
 }
 impl Extends<SurfaceCapabilities2KHR> for SurfaceCapabilitiesPresentBarrierNV {}
+impl SurfaceCapabilitiesPresentBarrierNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSwapchainPresentBarrierCreateInfoNV.html>
 #[doc(alias = "VkSwapchainPresentBarrierCreateInfoNV")]
@@ -26004,6 +30531,15 @@ impl Default for SwapchainPresentBarrierCreateInfoNV {
     }
 }
 impl Extends<SwapchainCreateInfoKHR> for SwapchainPresentBarrierCreateInfoNV {}
+impl SwapchainPresentBarrierCreateInfoNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDiagnosticsConfigFeaturesNV.html>
 #[doc(alias = "VkPhysicalDeviceDiagnosticsConfigFeaturesNV")]
@@ -26027,6 +30563,15 @@ impl Default for PhysicalDeviceDiagnosticsConfigFeaturesNV {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceDiagnosticsConfigFeaturesNV {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceDiagnosticsConfigFeaturesNV {}
+impl PhysicalDeviceDiagnosticsConfigFeaturesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceDiagnosticsConfigCreateInfoNV.html>
 #[doc(alias = "VkDeviceDiagnosticsConfigCreateInfoNV")]
@@ -26050,6 +30595,15 @@ impl Default for DeviceDiagnosticsConfigCreateInfoNV {
     }
 }
 impl Extends<DeviceCreateInfo> for DeviceDiagnosticsConfigCreateInfoNV {}
+impl DeviceDiagnosticsConfigCreateInfoNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPerfHintInfoQCOM.html>
 #[doc(alias = "VkPerfHintInfoQCOM")]
@@ -26096,6 +30650,15 @@ impl Default for PhysicalDeviceQueuePerfHintFeaturesQCOM {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceQueuePerfHintFeaturesQCOM {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceQueuePerfHintFeaturesQCOM {}
+impl PhysicalDeviceQueuePerfHintFeaturesQCOM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceQueuePerfHintPropertiesQCOM.html>
 #[doc(alias = "VkPhysicalDeviceQueuePerfHintPropertiesQCOM")]
@@ -26118,6 +30681,15 @@ impl Default for PhysicalDeviceQueuePerfHintPropertiesQCOM {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceQueuePerfHintPropertiesQCOM {}
+impl PhysicalDeviceQueuePerfHintPropertiesQCOM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceImageProcessing3FeaturesQCOM.html>
 #[doc(alias = "VkPhysicalDeviceImageProcessing3FeaturesQCOM")]
@@ -26145,6 +30717,15 @@ impl Default for PhysicalDeviceImageProcessing3FeaturesQCOM {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceImageProcessing3FeaturesQCOM {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceImageProcessing3FeaturesQCOM {}
+impl PhysicalDeviceImageProcessing3FeaturesQCOM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderMultipleWaitQueuesFeaturesQCOM.html>
 #[doc(alias = "VkPhysicalDeviceShaderMultipleWaitQueuesFeaturesQCOM")]
@@ -26168,6 +30749,15 @@ impl Default for PhysicalDeviceShaderMultipleWaitQueuesFeaturesQCOM {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderMultipleWaitQueuesFeaturesQCOM {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderMultipleWaitQueuesFeaturesQCOM {}
+impl PhysicalDeviceShaderMultipleWaitQueuesFeaturesQCOM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderMultipleWaitQueuesPropertiesQCOM.html>
 #[doc(alias = "VkPhysicalDeviceShaderMultipleWaitQueuesPropertiesQCOM")]
@@ -26191,6 +30781,15 @@ impl Default for PhysicalDeviceShaderMultipleWaitQueuesPropertiesQCOM {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceShaderMultipleWaitQueuesPropertiesQCOM {}
+impl PhysicalDeviceShaderMultipleWaitQueuesPropertiesQCOM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderSplitBarrierFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceShaderSplitBarrierFeaturesEXT")]
@@ -26214,6 +30813,15 @@ impl Default for PhysicalDeviceShaderSplitBarrierFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderSplitBarrierFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderSplitBarrierFeaturesEXT {}
+impl PhysicalDeviceShaderSplitBarrierFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderSplitBarrierPropertiesEXT.html>
 #[doc(alias = "VkPhysicalDeviceShaderSplitBarrierPropertiesEXT")]
@@ -26236,6 +30844,15 @@ impl Default for PhysicalDeviceShaderSplitBarrierPropertiesEXT {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceShaderSplitBarrierPropertiesEXT {}
+impl PhysicalDeviceShaderSplitBarrierPropertiesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCudaModuleCreateInfoNV.html>
 #[doc(alias = "VkCudaModuleCreateInfoNV")]
@@ -26351,6 +30968,15 @@ impl Default for PhysicalDeviceCudaKernelLaunchFeaturesNV {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceCudaKernelLaunchFeaturesNV {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceCudaKernelLaunchFeaturesNV {}
+impl PhysicalDeviceCudaKernelLaunchFeaturesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCudaKernelLaunchPropertiesNV.html>
 #[doc(alias = "VkPhysicalDeviceCudaKernelLaunchPropertiesNV")]
@@ -26375,6 +31001,15 @@ impl Default for PhysicalDeviceCudaKernelLaunchPropertiesNV {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceCudaKernelLaunchPropertiesNV {}
+impl PhysicalDeviceCudaKernelLaunchPropertiesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceTileShadingFeaturesQCOM.html>
 #[doc(alias = "VkPhysicalDeviceTileShadingFeaturesQCOM")]
@@ -26424,6 +31059,15 @@ impl Default for PhysicalDeviceTileShadingFeaturesQCOM {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceTileShadingFeaturesQCOM {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceTileShadingFeaturesQCOM {}
+impl PhysicalDeviceTileShadingFeaturesQCOM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceTileShadingPropertiesQCOM.html>
 #[doc(alias = "VkPhysicalDeviceTileShadingPropertiesQCOM")]
@@ -26452,6 +31096,15 @@ impl Default for PhysicalDeviceTileShadingPropertiesQCOM {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceTileShadingPropertiesQCOM {}
+impl PhysicalDeviceTileShadingPropertiesQCOM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPassTileShadingCreateInfoQCOM.html>
 #[doc(alias = "VkRenderPassTileShadingCreateInfoQCOM")]
@@ -26481,6 +31134,15 @@ impl Extends<RenderPassCreateInfo> for RenderPassTileShadingCreateInfoQCOM {}
 impl Extends<RenderPassCreateInfo2> for RenderPassTileShadingCreateInfoQCOM {}
 impl Extends<RenderingInfo> for RenderPassTileShadingCreateInfoQCOM {}
 impl Extends<CommandBufferInheritanceInfo> for RenderPassTileShadingCreateInfoQCOM {}
+impl RenderPassTileShadingCreateInfoQCOM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPerTileBeginInfoQCOM.html>
 #[doc(alias = "VkPerTileBeginInfoQCOM")]
@@ -26560,6 +31222,15 @@ impl Default for QueryLowLatencySupportNV {
     }
 }
 impl Extends<SemaphoreCreateInfo> for QueryLowLatencySupportNV {}
+impl QueryLowLatencySupportNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExportMetalObjectCreateInfoEXT.html>
 #[doc(alias = "VkExportMetalObjectCreateInfoEXT")]
@@ -26590,6 +31261,15 @@ impl Extends<BufferViewCreateInfo> for ExportMetalObjectCreateInfoEXT {}
 impl Extends<SemaphoreCreateInfo> for ExportMetalObjectCreateInfoEXT {}
 impl Extends<EventCreateInfo> for ExportMetalObjectCreateInfoEXT {}
 impl Extends<ExportMetalObjectCreateInfoEXT> for ExportMetalObjectCreateInfoEXT {}
+impl ExportMetalObjectCreateInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExportMetalObjectsInfoEXT.html>
 ///
@@ -26633,6 +31313,15 @@ impl Default for ExportMetalDeviceInfoEXT {
     }
 }
 impl Extends<ExportMetalObjectsInfoEXT> for ExportMetalDeviceInfoEXT {}
+impl ExportMetalDeviceInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExportMetalCommandQueueInfoEXT.html>
 #[doc(alias = "VkExportMetalCommandQueueInfoEXT")]
@@ -26658,6 +31347,15 @@ impl Default for ExportMetalCommandQueueInfoEXT {
 }
 impl Extends<ExportMetalObjectsInfoEXT> for ExportMetalCommandQueueInfoEXT {}
 impl Extends<ExportMetalCommandQueueInfoEXT> for ExportMetalCommandQueueInfoEXT {}
+impl ExportMetalCommandQueueInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExportMetalBufferInfoEXT.html>
 #[doc(alias = "VkExportMetalBufferInfoEXT")]
@@ -26683,6 +31381,15 @@ impl Default for ExportMetalBufferInfoEXT {
 }
 impl Extends<ExportMetalObjectsInfoEXT> for ExportMetalBufferInfoEXT {}
 impl Extends<ExportMetalBufferInfoEXT> for ExportMetalBufferInfoEXT {}
+impl ExportMetalBufferInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImportMetalBufferInfoEXT.html>
 #[doc(alias = "VkImportMetalBufferInfoEXT")]
@@ -26705,6 +31412,15 @@ impl Default for ImportMetalBufferInfoEXT {
     }
 }
 impl Extends<MemoryAllocateInfo> for ImportMetalBufferInfoEXT {}
+impl ImportMetalBufferInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExportMetalTextureInfoEXT.html>
 #[doc(alias = "VkExportMetalTextureInfoEXT")]
@@ -26739,6 +31455,15 @@ impl Default for ExportMetalTextureInfoEXT {
 }
 impl Extends<ExportMetalObjectsInfoEXT> for ExportMetalTextureInfoEXT {}
 impl Extends<ExportMetalTextureInfoEXT> for ExportMetalTextureInfoEXT {}
+impl ExportMetalTextureInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImportMetalTextureInfoEXT.html>
 #[doc(alias = "VkImportMetalTextureInfoEXT")]
@@ -26764,6 +31489,15 @@ impl Default for ImportMetalTextureInfoEXT {
 }
 impl Extends<ImageCreateInfo> for ImportMetalTextureInfoEXT {}
 impl Extends<ImportMetalTextureInfoEXT> for ImportMetalTextureInfoEXT {}
+impl ImportMetalTextureInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExportMetalIOSurfaceInfoEXT.html>
 #[doc(alias = "VkExportMetalIOSurfaceInfoEXT")]
@@ -26789,6 +31523,15 @@ impl Default for ExportMetalIOSurfaceInfoEXT {
 }
 impl Extends<ExportMetalObjectsInfoEXT> for ExportMetalIOSurfaceInfoEXT {}
 impl Extends<ExportMetalIOSurfaceInfoEXT> for ExportMetalIOSurfaceInfoEXT {}
+impl ExportMetalIOSurfaceInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImportMetalIOSurfaceInfoEXT.html>
 #[doc(alias = "VkImportMetalIOSurfaceInfoEXT")]
@@ -26812,6 +31555,15 @@ impl Default for ImportMetalIOSurfaceInfoEXT {
     }
 }
 impl Extends<ImageCreateInfo> for ImportMetalIOSurfaceInfoEXT {}
+impl ImportMetalIOSurfaceInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExportMetalSharedEventInfoEXT.html>
 #[doc(alias = "VkExportMetalSharedEventInfoEXT")]
@@ -26841,6 +31593,15 @@ impl Default for ExportMetalSharedEventInfoEXT {
 }
 impl Extends<ExportMetalObjectsInfoEXT> for ExportMetalSharedEventInfoEXT {}
 impl Extends<ExportMetalSharedEventInfoEXT> for ExportMetalSharedEventInfoEXT {}
+impl ExportMetalSharedEventInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImportMetalSharedEventInfoEXT.html>
 #[doc(alias = "VkImportMetalSharedEventInfoEXT")]
@@ -26864,6 +31625,15 @@ impl Default for ImportMetalSharedEventInfoEXT {
 }
 impl Extends<SemaphoreCreateInfo> for ImportMetalSharedEventInfoEXT {}
 impl Extends<EventCreateInfo> for ImportMetalSharedEventInfoEXT {}
+impl ImportMetalSharedEventInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDescriptorBufferPropertiesEXT.html>
 #[doc(alias = "VkPhysicalDeviceDescriptorBufferPropertiesEXT")]
@@ -26950,6 +31720,15 @@ impl Default for PhysicalDeviceDescriptorBufferPropertiesEXT {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceDescriptorBufferPropertiesEXT {}
+impl PhysicalDeviceDescriptorBufferPropertiesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDescriptorBufferFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceDescriptorBufferFeaturesEXT")]
@@ -26979,6 +31758,15 @@ impl Default for PhysicalDeviceDescriptorBufferFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceDescriptorBufferFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceDescriptorBufferFeaturesEXT {}
+impl PhysicalDeviceDescriptorBufferFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorAddressInfoEXT.html>
 #[doc(alias = "VkDescriptorAddressInfoEXT")]
@@ -27055,6 +31843,15 @@ impl Default for DescriptorBufferBindingPushDescriptorBufferHandleEXT {
 impl Extends<DescriptorBufferBindingInfoEXT>
     for DescriptorBufferBindingPushDescriptorBufferHandleEXT
 {
+}
+impl DescriptorBufferBindingPushDescriptorBufferHandleEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorDataEXT.html>
@@ -27230,6 +32027,15 @@ impl Extends<AccelerationStructureCreateInfoNV> for OpaqueCaptureDescriptorDataC
 impl Extends<TensorCreateInfoARM> for OpaqueCaptureDescriptorDataCreateInfoEXT {}
 impl Extends<TensorViewCreateInfoARM> for OpaqueCaptureDescriptorDataCreateInfoEXT {}
 impl Extends<AccelerationStructureCreateInfo2KHR> for OpaqueCaptureDescriptorDataCreateInfoEXT {}
+impl OpaqueCaptureDescriptorDataCreateInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureCaptureDescriptorDataInfoEXT.html>
 #[doc(alias = "VkAccelerationStructureCaptureDescriptorDataInfoEXT")]
@@ -27277,6 +32083,15 @@ impl Default for PhysicalDeviceDescriptorBufferDensityMapPropertiesEXT {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceDescriptorBufferDensityMapPropertiesEXT {}
+impl PhysicalDeviceDescriptorBufferDensityMapPropertiesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceGraphicsPipelineLibraryFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceGraphicsPipelineLibraryFeaturesEXT")]
@@ -27300,6 +32115,15 @@ impl Default for PhysicalDeviceGraphicsPipelineLibraryFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceGraphicsPipelineLibraryFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceGraphicsPipelineLibraryFeaturesEXT {}
+impl PhysicalDeviceGraphicsPipelineLibraryFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceGraphicsPipelineLibraryPropertiesEXT.html>
 #[doc(alias = "VkPhysicalDeviceGraphicsPipelineLibraryPropertiesEXT")]
@@ -27324,6 +32148,15 @@ impl Default for PhysicalDeviceGraphicsPipelineLibraryPropertiesEXT {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceGraphicsPipelineLibraryPropertiesEXT {}
+impl PhysicalDeviceGraphicsPipelineLibraryPropertiesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkGraphicsPipelineLibraryCreateInfoEXT.html>
 #[doc(alias = "VkGraphicsPipelineLibraryCreateInfoEXT")]
@@ -27346,6 +32179,15 @@ impl Default for GraphicsPipelineLibraryCreateInfoEXT {
     }
 }
 impl Extends<GraphicsPipelineCreateInfo> for GraphicsPipelineLibraryCreateInfoEXT {}
+impl GraphicsPipelineLibraryCreateInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD.html>
 #[doc(alias = "VkPhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD")]
@@ -27370,6 +32212,15 @@ impl Default for PhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD {}
+impl PhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFragmentShadingRateEnumsFeaturesNV.html>
 #[doc(alias = "VkPhysicalDeviceFragmentShadingRateEnumsFeaturesNV")]
@@ -27397,6 +32248,15 @@ impl Default for PhysicalDeviceFragmentShadingRateEnumsFeaturesNV {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceFragmentShadingRateEnumsFeaturesNV {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceFragmentShadingRateEnumsFeaturesNV {}
+impl PhysicalDeviceFragmentShadingRateEnumsFeaturesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV.html>
 #[doc(alias = "VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV")]
@@ -27419,6 +32279,15 @@ impl Default for PhysicalDeviceFragmentShadingRateEnumsPropertiesNV {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceFragmentShadingRateEnumsPropertiesNV {}
+impl PhysicalDeviceFragmentShadingRateEnumsPropertiesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineFragmentShadingRateEnumStateCreateInfoNV.html>
 #[doc(alias = "VkPipelineFragmentShadingRateEnumStateCreateInfoNV")]
@@ -27445,6 +32314,15 @@ impl Default for PipelineFragmentShadingRateEnumStateCreateInfoNV {
     }
 }
 impl Extends<GraphicsPipelineCreateInfo> for PipelineFragmentShadingRateEnumStateCreateInfoNV {}
+impl PipelineFragmentShadingRateEnumStateCreateInfoNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceOrHostAddressConstKHR.html>
 #[doc(alias = "VkDeviceOrHostAddressConstKHR")]
@@ -27491,6 +32369,15 @@ impl Extends<AccelerationStructureGeometryTrianglesDataKHR>
     for AccelerationStructureGeometryMotionTrianglesDataNV
 {
 }
+impl AccelerationStructureGeometryMotionTrianglesDataNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureMotionInfoNV.html>
 #[doc(alias = "VkAccelerationStructureMotionInfoNV")]
@@ -27516,6 +32403,15 @@ impl Default for AccelerationStructureMotionInfoNV {
     }
 }
 impl Extends<AccelerationStructureCreateInfoKHR> for AccelerationStructureMotionInfoNV {}
+impl AccelerationStructureMotionInfoNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureMatrixMotionInstanceNV.html>
 #[doc(alias = "VkAccelerationStructureMatrixMotionInstanceNV")]
@@ -27688,6 +32584,15 @@ impl Default for PhysicalDeviceRayTracingMotionBlurFeaturesNV {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceRayTracingMotionBlurFeaturesNV {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceRayTracingMotionBlurFeaturesNV {}
+impl PhysicalDeviceRayTracingMotionBlurFeaturesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT")]
@@ -27711,6 +32616,15 @@ impl Default for PhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT {}
+impl PhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFragmentDensityMap2FeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceFragmentDensityMap2FeaturesEXT")]
@@ -27734,6 +32648,15 @@ impl Default for PhysicalDeviceFragmentDensityMap2FeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceFragmentDensityMap2FeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceFragmentDensityMap2FeaturesEXT {}
+impl PhysicalDeviceFragmentDensityMap2FeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFragmentDensityMap2PropertiesEXT.html>
 #[doc(alias = "VkPhysicalDeviceFragmentDensityMap2PropertiesEXT")]
@@ -27762,6 +32685,15 @@ impl Default for PhysicalDeviceFragmentDensityMap2PropertiesEXT {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceFragmentDensityMap2PropertiesEXT {}
+impl PhysicalDeviceFragmentDensityMap2PropertiesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyCommandTransformInfoQCOM.html>
 #[doc(alias = "VkCopyCommandTransformInfoQCOM")]
@@ -27786,6 +32718,15 @@ impl Default for CopyCommandTransformInfoQCOM {
 impl Extends<BufferImageCopy2> for CopyCommandTransformInfoQCOM {}
 impl Extends<ImageBlit2> for CopyCommandTransformInfoQCOM {}
 impl Extends<DeviceMemoryImageCopyKHR> for CopyCommandTransformInfoQCOM {}
+impl CopyCommandTransformInfoQCOM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceImageCompressionControlFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceImageCompressionControlFeaturesEXT")]
@@ -27809,6 +32750,15 @@ impl Default for PhysicalDeviceImageCompressionControlFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceImageCompressionControlFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceImageCompressionControlFeaturesEXT {}
+impl PhysicalDeviceImageCompressionControlFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageCompressionControlEXT.html>
 #[doc(alias = "VkImageCompressionControlEXT")]
@@ -27838,6 +32788,15 @@ impl Default for ImageCompressionControlEXT {
 impl Extends<ImageCreateInfo> for ImageCompressionControlEXT {}
 impl Extends<SwapchainCreateInfoKHR> for ImageCompressionControlEXT {}
 impl Extends<PhysicalDeviceImageFormatInfo2> for ImageCompressionControlEXT {}
+impl ImageCompressionControlEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageCompressionPropertiesEXT.html>
 #[doc(alias = "VkImageCompressionPropertiesEXT")]
@@ -27864,6 +32823,15 @@ impl Default for ImageCompressionPropertiesEXT {
 impl Extends<ImageFormatProperties2> for ImageCompressionPropertiesEXT {}
 impl Extends<SurfaceFormat2KHR> for ImageCompressionPropertiesEXT {}
 impl Extends<SubresourceLayout2> for ImageCompressionPropertiesEXT {}
+impl ImageCompressionPropertiesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT")]
@@ -27887,6 +32855,15 @@ impl Default for PhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT {}
+impl PhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevice4444FormatsFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDevice4444FormatsFeaturesEXT")]
@@ -27912,6 +32889,15 @@ impl Default for PhysicalDevice4444FormatsFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDevice4444FormatsFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDevice4444FormatsFeaturesEXT {}
+impl PhysicalDevice4444FormatsFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFaultFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceFaultFeaturesEXT")]
@@ -27937,6 +32923,15 @@ impl Default for PhysicalDeviceFaultFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceFaultFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceFaultFeaturesEXT {}
+impl PhysicalDeviceFaultFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceFaultCountsEXT.html>
 #[doc(alias = "VkDeviceFaultCountsEXT")]
@@ -28027,6 +33022,15 @@ impl Extends<PhysicalDeviceFeatures2>
 {
 }
 impl Extends<DeviceCreateInfo> for PhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT {}
+impl PhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceRasterizationOrderAttachmentAccessFeaturesARM =
     PhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT;
 
@@ -28052,6 +33056,15 @@ impl Default for PhysicalDeviceRGBA10X6FormatsFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceRGBA10X6FormatsFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceRGBA10X6FormatsFeaturesEXT {}
+impl PhysicalDeviceRGBA10X6FormatsFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDirectFBSurfaceCreateInfoEXT.html>
 #[doc(alias = "VkDirectFBSurfaceCreateInfoEXT")]
@@ -28101,6 +33114,15 @@ impl Default for PhysicalDeviceMutableDescriptorTypeFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceMutableDescriptorTypeFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceMutableDescriptorTypeFeaturesEXT {}
+impl PhysicalDeviceMutableDescriptorTypeFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceMutableDescriptorTypeFeaturesVALVE =
     PhysicalDeviceMutableDescriptorTypeFeaturesEXT;
 
@@ -28149,6 +33171,15 @@ impl Default for MutableDescriptorTypeCreateInfoEXT {
 }
 impl Extends<DescriptorSetLayoutCreateInfo> for MutableDescriptorTypeCreateInfoEXT {}
 impl Extends<DescriptorPoolCreateInfo> for MutableDescriptorTypeCreateInfoEXT {}
+impl MutableDescriptorTypeCreateInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type MutableDescriptorTypeCreateInfoVALVE = MutableDescriptorTypeCreateInfoEXT;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVertexInputDynamicStateFeaturesEXT.html>
@@ -28173,6 +33204,15 @@ impl Default for PhysicalDeviceVertexInputDynamicStateFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceVertexInputDynamicStateFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceVertexInputDynamicStateFeaturesEXT {}
+impl PhysicalDeviceVertexInputDynamicStateFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVertexInputBindingDescription2EXT.html>
 #[doc(alias = "VkVertexInputBindingDescription2EXT")]
@@ -28259,6 +33299,15 @@ impl Default for PhysicalDeviceDrmPropertiesEXT {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceDrmPropertiesEXT {}
+impl PhysicalDeviceDrmPropertiesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceAddressBindingReportFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceAddressBindingReportFeaturesEXT")]
@@ -28282,6 +33331,15 @@ impl Default for PhysicalDeviceAddressBindingReportFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceAddressBindingReportFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceAddressBindingReportFeaturesEXT {}
+impl PhysicalDeviceAddressBindingReportFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceAddressBindingCallbackDataEXT.html>
 #[doc(alias = "VkDeviceAddressBindingCallbackDataEXT")]
@@ -28311,6 +33369,15 @@ impl Default for DeviceAddressBindingCallbackDataEXT {
     }
 }
 impl Extends<DebugUtilsMessengerCallbackDataEXT> for DeviceAddressBindingCallbackDataEXT {}
+impl DeviceAddressBindingCallbackDataEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDepthClipControlFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceDepthClipControlFeaturesEXT")]
@@ -28334,6 +33401,15 @@ impl Default for PhysicalDeviceDepthClipControlFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceDepthClipControlFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceDepthClipControlFeaturesEXT {}
+impl PhysicalDeviceDepthClipControlFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineViewportDepthClipControlCreateInfoEXT.html>
 #[doc(alias = "VkPipelineViewportDepthClipControlCreateInfoEXT")]
@@ -28356,6 +33432,15 @@ impl Default for PipelineViewportDepthClipControlCreateInfoEXT {
     }
 }
 impl Extends<PipelineViewportStateCreateInfo> for PipelineViewportDepthClipControlCreateInfoEXT {}
+impl PipelineViewportDepthClipControlCreateInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT")]
@@ -28381,6 +33466,15 @@ impl Default for PhysicalDevicePrimitiveTopologyListRestartFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDevicePrimitiveTopologyListRestartFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDevicePrimitiveTopologyListRestartFeaturesEXT {}
+impl PhysicalDevicePrimitiveTopologyListRestartFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImportMemoryZirconHandleInfoFUCHSIA.html>
 #[doc(alias = "VkImportMemoryZirconHandleInfoFUCHSIA")]
@@ -28407,6 +33501,15 @@ impl Default for ImportMemoryZirconHandleInfoFUCHSIA {
     }
 }
 impl Extends<MemoryAllocateInfo> for ImportMemoryZirconHandleInfoFUCHSIA {}
+impl ImportMemoryZirconHandleInfoFUCHSIA {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryZirconHandlePropertiesFUCHSIA.html>
 #[doc(alias = "VkMemoryZirconHandlePropertiesFUCHSIA")]
@@ -28547,6 +33650,15 @@ impl Default for ImportMemoryBufferCollectionFUCHSIA {
     }
 }
 impl Extends<MemoryAllocateInfo> for ImportMemoryBufferCollectionFUCHSIA {}
+impl ImportMemoryBufferCollectionFUCHSIA {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferCollectionImageCreateInfoFUCHSIA.html>
 #[doc(alias = "VkBufferCollectionImageCreateInfoFUCHSIA")]
@@ -28571,6 +33683,15 @@ impl Default for BufferCollectionImageCreateInfoFUCHSIA {
     }
 }
 impl Extends<ImageCreateInfo> for BufferCollectionImageCreateInfoFUCHSIA {}
+impl BufferCollectionImageCreateInfoFUCHSIA {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferCollectionConstraintsInfoFUCHSIA.html>
 #[doc(alias = "VkBufferCollectionConstraintsInfoFUCHSIA")]
@@ -28650,6 +33771,15 @@ impl Default for BufferCollectionBufferCreateInfoFUCHSIA {
     }
 }
 impl Extends<BufferCreateInfo> for BufferCollectionBufferCreateInfoFUCHSIA {}
+impl BufferCollectionBufferCreateInfoFUCHSIA {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSysmemColorSpaceFUCHSIA.html>
 #[doc(alias = "VkSysmemColorSpaceFUCHSIA")]
@@ -28797,6 +33927,15 @@ impl Default for SubpassShadingPipelineCreateInfoHUAWEI {
     }
 }
 impl Extends<ComputePipelineCreateInfo> for SubpassShadingPipelineCreateInfoHUAWEI {}
+impl SubpassShadingPipelineCreateInfoHUAWEI {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSubpassShadingFeaturesHUAWEI.html>
 #[doc(alias = "VkPhysicalDeviceSubpassShadingFeaturesHUAWEI")]
@@ -28820,6 +33959,15 @@ impl Default for PhysicalDeviceSubpassShadingFeaturesHUAWEI {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceSubpassShadingFeaturesHUAWEI {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceSubpassShadingFeaturesHUAWEI {}
+impl PhysicalDeviceSubpassShadingFeaturesHUAWEI {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSubpassShadingPropertiesHUAWEI.html>
 #[doc(alias = "VkPhysicalDeviceSubpassShadingPropertiesHUAWEI")]
@@ -28842,6 +33990,15 @@ impl Default for PhysicalDeviceSubpassShadingPropertiesHUAWEI {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceSubpassShadingPropertiesHUAWEI {}
+impl PhysicalDeviceSubpassShadingPropertiesHUAWEI {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceInvocationMaskFeaturesHUAWEI.html>
 #[doc(alias = "VkPhysicalDeviceInvocationMaskFeaturesHUAWEI")]
@@ -28865,6 +34022,15 @@ impl Default for PhysicalDeviceInvocationMaskFeaturesHUAWEI {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceInvocationMaskFeaturesHUAWEI {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceInvocationMaskFeaturesHUAWEI {}
+impl PhysicalDeviceInvocationMaskFeaturesHUAWEI {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryGetRemoteAddressInfoNV.html>
 #[doc(alias = "VkMemoryGetRemoteAddressInfoNV")]
@@ -28911,6 +34077,15 @@ impl Default for PhysicalDeviceExternalMemoryRDMAFeaturesNV {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceExternalMemoryRDMAFeaturesNV {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceExternalMemoryRDMAFeaturesNV {}
+impl PhysicalDeviceExternalMemoryRDMAFeaturesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelinePropertiesIdentifierEXT.html>
 #[doc(alias = "VkPipelinePropertiesIdentifierEXT")]
@@ -28955,6 +34130,15 @@ impl Default for PhysicalDevicePipelinePropertiesFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDevicePipelinePropertiesFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDevicePipelinePropertiesFeaturesEXT {}
+impl PhysicalDevicePipelinePropertiesFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFrameBoundaryFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceFrameBoundaryFeaturesEXT")]
@@ -28978,6 +34162,15 @@ impl Default for PhysicalDeviceFrameBoundaryFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceFrameBoundaryFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceFrameBoundaryFeaturesEXT {}
+impl PhysicalDeviceFrameBoundaryFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFrameBoundaryEXT.html>
 #[doc(alias = "VkFrameBoundaryEXT")]
@@ -29027,6 +34220,15 @@ impl Extends<SubmitInfo> for FrameBoundaryEXT {}
 impl Extends<SubmitInfo2> for FrameBoundaryEXT {}
 impl Extends<PresentInfoKHR> for FrameBoundaryEXT {}
 impl Extends<BindSparseInfo> for FrameBoundaryEXT {}
+impl FrameBoundaryEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT")]
@@ -29054,6 +34256,15 @@ impl Extends<PhysicalDeviceFeatures2>
 {
 }
 impl Extends<DeviceCreateInfo> for PhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT {}
+impl PhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSubpassResolvePerformanceQueryEXT.html>
 #[doc(alias = "VkSubpassResolvePerformanceQueryEXT")]
@@ -29076,6 +34287,15 @@ impl Default for SubpassResolvePerformanceQueryEXT {
     }
 }
 impl Extends<FormatProperties2> for SubpassResolvePerformanceQueryEXT {}
+impl SubpassResolvePerformanceQueryEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMultisampledRenderToSingleSampledInfoEXT.html>
 #[doc(alias = "VkMultisampledRenderToSingleSampledInfoEXT")]
@@ -29101,6 +34321,15 @@ impl Default for MultisampledRenderToSingleSampledInfoEXT {
 }
 impl Extends<SubpassDescription2> for MultisampledRenderToSingleSampledInfoEXT {}
 impl Extends<RenderingInfo> for MultisampledRenderToSingleSampledInfoEXT {}
+impl MultisampledRenderToSingleSampledInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceExtendedDynamicState2FeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceExtendedDynamicState2FeaturesEXT")]
@@ -29128,6 +34357,15 @@ impl Default for PhysicalDeviceExtendedDynamicState2FeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceExtendedDynamicState2FeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceExtendedDynamicState2FeaturesEXT {}
+impl PhysicalDeviceExtendedDynamicState2FeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkScreenSurfaceCreateInfoQNX.html>
 #[doc(alias = "VkScreenSurfaceCreateInfoQNX")]
@@ -29177,6 +34415,15 @@ impl Default for PhysicalDeviceColorWriteEnableFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceColorWriteEnableFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceColorWriteEnableFeaturesEXT {}
+impl PhysicalDeviceColorWriteEnableFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineColorWriteCreateInfoEXT.html>
 #[doc(alias = "VkPipelineColorWriteCreateInfoEXT")]
@@ -29202,6 +34449,15 @@ impl Default for PipelineColorWriteCreateInfoEXT {
     }
 }
 impl Extends<PipelineColorBlendStateCreateInfo> for PipelineColorWriteCreateInfoEXT {}
+impl PipelineColorWriteCreateInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePrimitivesGeneratedQueryFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDevicePrimitivesGeneratedQueryFeaturesEXT")]
@@ -29229,6 +34485,15 @@ impl Default for PhysicalDevicePrimitivesGeneratedQueryFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDevicePrimitivesGeneratedQueryFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDevicePrimitivesGeneratedQueryFeaturesEXT {}
+impl PhysicalDevicePrimitivesGeneratedQueryFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVideoEncodeRgbConversionFeaturesVALVE.html>
 #[doc(alias = "VkPhysicalDeviceVideoEncodeRgbConversionFeaturesVALVE")]
@@ -29252,6 +34517,15 @@ impl Default for PhysicalDeviceVideoEncodeRgbConversionFeaturesVALVE {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceVideoEncodeRgbConversionFeaturesVALVE {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceVideoEncodeRgbConversionFeaturesVALVE {}
+impl PhysicalDeviceVideoEncodeRgbConversionFeaturesVALVE {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeRgbConversionCapabilitiesVALVE.html>
 #[doc(alias = "VkVideoEncodeRgbConversionCapabilitiesVALVE")]
@@ -29280,6 +34554,15 @@ impl Default for VideoEncodeRgbConversionCapabilitiesVALVE {
     }
 }
 impl Extends<VideoCapabilitiesKHR> for VideoEncodeRgbConversionCapabilitiesVALVE {}
+impl VideoEncodeRgbConversionCapabilitiesVALVE {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeProfileRgbConversionInfoVALVE.html>
 #[doc(alias = "VkVideoEncodeProfileRgbConversionInfoVALVE")]
@@ -29302,6 +34585,15 @@ impl Default for VideoEncodeProfileRgbConversionInfoVALVE {
     }
 }
 impl Extends<VideoProfileInfoKHR> for VideoEncodeProfileRgbConversionInfoVALVE {}
+impl VideoEncodeProfileRgbConversionInfoVALVE {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeSessionRgbConversionCreateInfoVALVE.html>
 #[doc(alias = "VkVideoEncodeSessionRgbConversionCreateInfoVALVE")]
@@ -29330,6 +34622,15 @@ impl Default for VideoEncodeSessionRgbConversionCreateInfoVALVE {
     }
 }
 impl Extends<VideoSessionCreateInfoKHR> for VideoEncodeSessionRgbConversionCreateInfoVALVE {}
+impl VideoEncodeSessionRgbConversionCreateInfoVALVE {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceImageViewMinLodFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceImageViewMinLodFeaturesEXT")]
@@ -29353,6 +34654,15 @@ impl Default for PhysicalDeviceImageViewMinLodFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceImageViewMinLodFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceImageViewMinLodFeaturesEXT {}
+impl PhysicalDeviceImageViewMinLodFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageViewMinLodCreateInfoEXT.html>
 #[doc(alias = "VkImageViewMinLodCreateInfoEXT")]
@@ -29375,6 +34685,15 @@ impl Default for ImageViewMinLodCreateInfoEXT {
     }
 }
 impl Extends<ImageViewCreateInfo> for ImageViewMinLodCreateInfoEXT {}
+impl ImageViewMinLodCreateInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMultiDrawFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceMultiDrawFeaturesEXT")]
@@ -29398,6 +34717,15 @@ impl Default for PhysicalDeviceMultiDrawFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceMultiDrawFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceMultiDrawFeaturesEXT {}
+impl PhysicalDeviceMultiDrawFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMultiDrawPropertiesEXT.html>
 #[doc(alias = "VkPhysicalDeviceMultiDrawPropertiesEXT")]
@@ -29420,6 +34748,15 @@ impl Default for PhysicalDeviceMultiDrawPropertiesEXT {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceMultiDrawPropertiesEXT {}
+impl PhysicalDeviceMultiDrawPropertiesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMultiDrawInfoEXT.html>
 #[doc(alias = "VkMultiDrawInfoEXT")]
@@ -29483,6 +34820,15 @@ impl Default for PhysicalDeviceImage2DViewOf3DFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceImage2DViewOf3DFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceImage2DViewOf3DFeaturesEXT {}
+impl PhysicalDeviceImage2DViewOf3DFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderTileImageFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceShaderTileImageFeaturesEXT")]
@@ -29510,6 +34856,15 @@ impl Default for PhysicalDeviceShaderTileImageFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderTileImageFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderTileImageFeaturesEXT {}
+impl PhysicalDeviceShaderTileImageFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderTileImagePropertiesEXT.html>
 #[doc(alias = "VkPhysicalDeviceShaderTileImagePropertiesEXT")]
@@ -29536,6 +34891,15 @@ impl Default for PhysicalDeviceShaderTileImagePropertiesEXT {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceShaderTileImagePropertiesEXT {}
+impl PhysicalDeviceShaderTileImagePropertiesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMicromapUsageEXT.html>
 #[doc(alias = "VkMicromapUsageEXT")]
@@ -29683,6 +35047,15 @@ impl Default for PhysicalDeviceOpacityMicromapFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceOpacityMicromapFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceOpacityMicromapFeaturesEXT {}
+impl PhysicalDeviceOpacityMicromapFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceOpacityMicromapPropertiesEXT.html>
 #[doc(alias = "VkPhysicalDeviceOpacityMicromapPropertiesEXT")]
@@ -29707,6 +35080,15 @@ impl Default for PhysicalDeviceOpacityMicromapPropertiesEXT {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceOpacityMicromapPropertiesEXT {}
+impl PhysicalDeviceOpacityMicromapPropertiesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMicromapVersionInfoEXT.html>
 #[doc(alias = "VkMicromapVersionInfoEXT")]
@@ -29875,6 +35257,15 @@ impl Extends<AccelerationStructureDenseGeometryFormatTrianglesDataAMDX>
     for AccelerationStructureTrianglesOpacityMicromapEXT
 {
 }
+impl AccelerationStructureTrianglesOpacityMicromapEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDisplacementMicromapFeaturesNV.html>
 #[doc(alias = "VkPhysicalDeviceDisplacementMicromapFeaturesNV")]
@@ -29898,6 +35289,15 @@ impl Default for PhysicalDeviceDisplacementMicromapFeaturesNV {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceDisplacementMicromapFeaturesNV {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceDisplacementMicromapFeaturesNV {}
+impl PhysicalDeviceDisplacementMicromapFeaturesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDisplacementMicromapPropertiesNV.html>
 #[doc(alias = "VkPhysicalDeviceDisplacementMicromapPropertiesNV")]
@@ -29920,6 +35320,15 @@ impl Default for PhysicalDeviceDisplacementMicromapPropertiesNV {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceDisplacementMicromapPropertiesNV {}
+impl PhysicalDeviceDisplacementMicromapPropertiesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureTrianglesDisplacementMicromapNV.html>
 #[doc(alias = "VkAccelerationStructureTrianglesDisplacementMicromapNV")]
@@ -29979,6 +35388,15 @@ impl Extends<AccelerationStructureGeometryTrianglesDataKHR>
     for AccelerationStructureTrianglesDisplacementMicromapNV
 {
 }
+impl AccelerationStructureTrianglesDisplacementMicromapNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI.html>
 ///
@@ -30006,6 +35424,15 @@ impl Default for PhysicalDeviceClusterCullingShaderFeaturesHUAWEI {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceClusterCullingShaderFeaturesHUAWEI {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceClusterCullingShaderFeaturesHUAWEI {}
+impl PhysicalDeviceClusterCullingShaderFeaturesHUAWEI {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI.html>
 #[doc(alias = "VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI")]
@@ -30034,6 +35461,15 @@ impl Default for PhysicalDeviceClusterCullingShaderPropertiesHUAWEI {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceClusterCullingShaderPropertiesHUAWEI {}
+impl PhysicalDeviceClusterCullingShaderPropertiesHUAWEI {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEI.html>
 #[doc(alias = "VkPhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEI")]
@@ -30058,6 +35494,15 @@ impl Default for PhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEI {
 impl Extends<PhysicalDeviceClusterCullingShaderFeaturesHUAWEI>
     for PhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEI
 {
+}
+impl PhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEI {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceBorderColorSwizzleFeaturesEXT.html>
@@ -30084,6 +35529,15 @@ impl Default for PhysicalDeviceBorderColorSwizzleFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceBorderColorSwizzleFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceBorderColorSwizzleFeaturesEXT {}
+impl PhysicalDeviceBorderColorSwizzleFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerBorderColorComponentMappingCreateInfoEXT.html>
 #[doc(alias = "VkSamplerBorderColorComponentMappingCreateInfoEXT")]
@@ -30108,6 +35562,15 @@ impl Default for SamplerBorderColorComponentMappingCreateInfoEXT {
     }
 }
 impl Extends<SamplerCreateInfo> for SamplerBorderColorComponentMappingCreateInfoEXT {}
+impl SamplerBorderColorComponentMappingCreateInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePageableDeviceLocalMemoryFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDevicePageableDeviceLocalMemoryFeaturesEXT")]
@@ -30131,6 +35594,15 @@ impl Default for PhysicalDevicePageableDeviceLocalMemoryFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDevicePageableDeviceLocalMemoryFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDevicePageableDeviceLocalMemoryFeaturesEXT {}
+impl PhysicalDevicePageableDeviceLocalMemoryFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderCorePropertiesARM.html>
 #[doc(alias = "VkPhysicalDeviceShaderCorePropertiesARM")]
@@ -30157,6 +35629,15 @@ impl Default for PhysicalDeviceShaderCorePropertiesARM {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceShaderCorePropertiesARM {}
+impl PhysicalDeviceShaderCorePropertiesARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceQueueShaderCoreControlCreateInfoARM.html>
 #[doc(alias = "VkDeviceQueueShaderCoreControlCreateInfoARM")]
@@ -30180,6 +35661,15 @@ impl Default for DeviceQueueShaderCoreControlCreateInfoARM {
 }
 impl Extends<DeviceQueueCreateInfo> for DeviceQueueShaderCoreControlCreateInfoARM {}
 impl Extends<DeviceCreateInfo> for DeviceQueueShaderCoreControlCreateInfoARM {}
+impl DeviceQueueShaderCoreControlCreateInfoARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSchedulingControlsFeaturesARM.html>
 #[doc(alias = "VkPhysicalDeviceSchedulingControlsFeaturesARM")]
@@ -30203,6 +35693,15 @@ impl Default for PhysicalDeviceSchedulingControlsFeaturesARM {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceSchedulingControlsFeaturesARM {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceSchedulingControlsFeaturesARM {}
+impl PhysicalDeviceSchedulingControlsFeaturesARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSchedulingControlsPropertiesARM.html>
 #[doc(alias = "VkPhysicalDeviceSchedulingControlsPropertiesARM")]
@@ -30225,6 +35724,15 @@ impl Default for PhysicalDeviceSchedulingControlsPropertiesARM {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceSchedulingControlsPropertiesARM {}
+impl PhysicalDeviceSchedulingControlsPropertiesARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDispatchParametersARM.html>
 #[doc(alias = "VkDispatchParametersARM")]
@@ -30282,6 +35790,15 @@ impl Extends<PhysicalDeviceProperties2>
     for PhysicalDeviceSchedulingControlsDispatchParametersPropertiesARM
 {
 }
+impl PhysicalDeviceSchedulingControlsDispatchParametersPropertiesARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceImageSlicedViewOf3DFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceImageSlicedViewOf3DFeaturesEXT")]
@@ -30305,6 +35822,15 @@ impl Default for PhysicalDeviceImageSlicedViewOf3DFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceImageSlicedViewOf3DFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceImageSlicedViewOf3DFeaturesEXT {}
+impl PhysicalDeviceImageSlicedViewOf3DFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageViewSlicedCreateInfoEXT.html>
 #[doc(alias = "VkImageViewSlicedCreateInfoEXT")]
@@ -30329,6 +35855,15 @@ impl Default for ImageViewSlicedCreateInfoEXT {
     }
 }
 impl Extends<ImageViewCreateInfo> for ImageViewSlicedCreateInfoEXT {}
+impl ImageViewSlicedCreateInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDescriptorSetHostMappingFeaturesVALVE.html>
 #[doc(alias = "VkPhysicalDeviceDescriptorSetHostMappingFeaturesVALVE")]
@@ -30352,6 +35887,15 @@ impl Default for PhysicalDeviceDescriptorSetHostMappingFeaturesVALVE {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceDescriptorSetHostMappingFeaturesVALVE {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceDescriptorSetHostMappingFeaturesVALVE {}
+impl PhysicalDeviceDescriptorSetHostMappingFeaturesVALVE {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorSetBindingReferenceVALVE.html>
 #[doc(alias = "VkDescriptorSetBindingReferenceVALVE")]
@@ -30421,6 +35965,15 @@ impl Default for PhysicalDeviceNonSeamlessCubeMapFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceNonSeamlessCubeMapFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceNonSeamlessCubeMapFeaturesEXT {}
+impl PhysicalDeviceNonSeamlessCubeMapFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceRenderPassStripedFeaturesARM.html>
 #[doc(alias = "VkPhysicalDeviceRenderPassStripedFeaturesARM")]
@@ -30444,6 +35997,15 @@ impl Default for PhysicalDeviceRenderPassStripedFeaturesARM {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceRenderPassStripedFeaturesARM {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceRenderPassStripedFeaturesARM {}
+impl PhysicalDeviceRenderPassStripedFeaturesARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceRenderPassStripedPropertiesARM.html>
 #[doc(alias = "VkPhysicalDeviceRenderPassStripedPropertiesARM")]
@@ -30468,6 +36030,15 @@ impl Default for PhysicalDeviceRenderPassStripedPropertiesARM {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceRenderPassStripedPropertiesARM {}
+impl PhysicalDeviceRenderPassStripedPropertiesARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPassStripeInfoARM.html>
 #[doc(alias = "VkRenderPassStripeInfoARM")]
@@ -30514,6 +36085,15 @@ impl Default for RenderPassStripeBeginInfoARM {
 }
 impl Extends<RenderingInfo> for RenderPassStripeBeginInfoARM {}
 impl Extends<RenderPassBeginInfo> for RenderPassStripeBeginInfoARM {}
+impl RenderPassStripeBeginInfoARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPassStripeSubmitInfoARM.html>
 #[doc(alias = "VkRenderPassStripeSubmitInfoARM")]
@@ -30538,6 +36118,15 @@ impl Default for RenderPassStripeSubmitInfoARM {
     }
 }
 impl Extends<CommandBufferSubmitInfo> for RenderPassStripeSubmitInfoARM {}
+impl RenderPassStripeSubmitInfoARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFragmentDensityMapOffsetFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceFragmentDensityMapOffsetFeaturesEXT")]
@@ -30561,6 +36150,15 @@ impl Default for PhysicalDeviceFragmentDensityMapOffsetFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceFragmentDensityMapOffsetFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceFragmentDensityMapOffsetFeaturesEXT {}
+impl PhysicalDeviceFragmentDensityMapOffsetFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceFragmentDensityMapOffsetFeaturesQCOM =
     PhysicalDeviceFragmentDensityMapOffsetFeaturesEXT;
 
@@ -30585,6 +36183,15 @@ impl Default for PhysicalDeviceFragmentDensityMapOffsetPropertiesEXT {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceFragmentDensityMapOffsetPropertiesEXT {}
+impl PhysicalDeviceFragmentDensityMapOffsetPropertiesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceFragmentDensityMapOffsetPropertiesQCOM =
     PhysicalDeviceFragmentDensityMapOffsetPropertiesEXT;
 
@@ -30613,6 +36220,15 @@ impl Default for RenderPassFragmentDensityMapOffsetEndInfoEXT {
 }
 impl Extends<SubpassEndInfo> for RenderPassFragmentDensityMapOffsetEndInfoEXT {}
 impl Extends<RenderingEndInfoKHR> for RenderPassFragmentDensityMapOffsetEndInfoEXT {}
+impl RenderPassFragmentDensityMapOffsetEndInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type SubpassFragmentDensityMapOffsetEndInfoQCOM = RenderPassFragmentDensityMapOffsetEndInfoEXT;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCopyMemoryIndirectFeaturesNV.html>
@@ -30637,6 +36253,15 @@ impl Default for PhysicalDeviceCopyMemoryIndirectFeaturesNV {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceCopyMemoryIndirectFeaturesNV {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceCopyMemoryIndirectFeaturesNV {}
+impl PhysicalDeviceCopyMemoryIndirectFeaturesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDecompressMemoryRegionNV.html>
 #[doc(alias = "VkDecompressMemoryRegionNV")]
@@ -30684,6 +36309,15 @@ impl Default for PhysicalDeviceMemoryDecompressionFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceMemoryDecompressionFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceMemoryDecompressionFeaturesEXT {}
+impl PhysicalDeviceMemoryDecompressionFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceMemoryDecompressionFeaturesNV = PhysicalDeviceMemoryDecompressionFeaturesEXT;
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMemoryDecompressionPropertiesEXT.html>
@@ -30709,6 +36343,15 @@ impl Default for PhysicalDeviceMemoryDecompressionPropertiesEXT {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceMemoryDecompressionPropertiesEXT {}
+impl PhysicalDeviceMemoryDecompressionPropertiesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 pub type PhysicalDeviceMemoryDecompressionPropertiesNV =
     PhysicalDeviceMemoryDecompressionPropertiesEXT;
 
@@ -30738,6 +36381,15 @@ impl Default for PhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV {}
+impl PhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkComputePipelineIndirectBufferInfoNV.html>
 #[doc(alias = "VkComputePipelineIndirectBufferInfoNV")]
@@ -30765,6 +36417,15 @@ impl Default for ComputePipelineIndirectBufferInfoNV {
     }
 }
 impl Extends<ComputePipelineCreateInfo> for ComputePipelineIndirectBufferInfoNV {}
+impl ComputePipelineIndirectBufferInfoNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineIndirectDeviceAddressInfoNV.html>
 #[doc(alias = "VkPipelineIndirectDeviceAddressInfoNV")]
@@ -30829,6 +36490,15 @@ impl Default for PhysicalDeviceRayTracingLinearSweptSpheresFeaturesNV {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceRayTracingLinearSweptSpheresFeaturesNV {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceRayTracingLinearSweptSpheresFeaturesNV {}
+impl PhysicalDeviceRayTracingLinearSweptSpheresFeaturesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureGeometryLinearSweptSpheresDataNV.html>
 #[doc(alias = "VkAccelerationStructureGeometryLinearSweptSpheresDataNV")]
@@ -30874,6 +36544,15 @@ impl Extends<AccelerationStructureGeometryKHR>
     for AccelerationStructureGeometryLinearSweptSpheresDataNV
 {
 }
+impl AccelerationStructureGeometryLinearSweptSpheresDataNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureGeometrySpheresDataNV.html>
 #[doc(alias = "VkAccelerationStructureGeometrySpheresDataNV")]
@@ -30912,6 +36591,15 @@ impl Default for AccelerationStructureGeometrySpheresDataNV {
     }
 }
 impl Extends<AccelerationStructureGeometryKHR> for AccelerationStructureGeometrySpheresDataNV {}
+impl AccelerationStructureGeometrySpheresDataNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceLinearColorAttachmentFeaturesNV.html>
 #[doc(alias = "VkPhysicalDeviceLinearColorAttachmentFeaturesNV")]
@@ -30935,6 +36623,15 @@ impl Default for PhysicalDeviceLinearColorAttachmentFeaturesNV {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceLinearColorAttachmentFeaturesNV {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceLinearColorAttachmentFeaturesNV {}
+impl PhysicalDeviceLinearColorAttachmentFeaturesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceImageCompressionControlSwapchainFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceImageCompressionControlSwapchainFeaturesEXT")]
@@ -30961,6 +36658,15 @@ impl Extends<PhysicalDeviceFeatures2>
 {
 }
 impl Extends<DeviceCreateInfo> for PhysicalDeviceImageCompressionControlSwapchainFeaturesEXT {}
+impl PhysicalDeviceImageCompressionControlSwapchainFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageViewSampleWeightCreateInfoQCOM.html>
 #[doc(alias = "VkImageViewSampleWeightCreateInfoQCOM")]
@@ -30987,6 +36693,15 @@ impl Default for ImageViewSampleWeightCreateInfoQCOM {
     }
 }
 impl Extends<ImageViewCreateInfo> for ImageViewSampleWeightCreateInfoQCOM {}
+impl ImageViewSampleWeightCreateInfoQCOM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceImageProcessingFeaturesQCOM.html>
 #[doc(alias = "VkPhysicalDeviceImageProcessingFeaturesQCOM")]
@@ -31014,6 +36729,15 @@ impl Default for PhysicalDeviceImageProcessingFeaturesQCOM {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceImageProcessingFeaturesQCOM {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceImageProcessingFeaturesQCOM {}
+impl PhysicalDeviceImageProcessingFeaturesQCOM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceImageProcessingPropertiesQCOM.html>
 #[doc(alias = "VkPhysicalDeviceImageProcessingPropertiesQCOM")]
@@ -31046,6 +36770,15 @@ impl Default for PhysicalDeviceImageProcessingPropertiesQCOM {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceImageProcessingPropertiesQCOM {}
+impl PhysicalDeviceImageProcessingPropertiesQCOM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceNestedCommandBufferFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceNestedCommandBufferFeaturesEXT")]
@@ -31073,6 +36806,15 @@ impl Default for PhysicalDeviceNestedCommandBufferFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceNestedCommandBufferFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceNestedCommandBufferFeaturesEXT {}
+impl PhysicalDeviceNestedCommandBufferFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceNestedCommandBufferPropertiesEXT.html>
 #[doc(alias = "VkPhysicalDeviceNestedCommandBufferPropertiesEXT")]
@@ -31095,6 +36837,15 @@ impl Default for PhysicalDeviceNestedCommandBufferPropertiesEXT {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceNestedCommandBufferPropertiesEXT {}
+impl PhysicalDeviceNestedCommandBufferPropertiesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkNativeBufferUsageOHOS.html>
 #[doc(alias = "VkNativeBufferUsageOHOS")]
@@ -31117,6 +36868,15 @@ impl Default for NativeBufferUsageOHOS {
     }
 }
 impl Extends<ImageFormatProperties2> for NativeBufferUsageOHOS {}
+impl NativeBufferUsageOHOS {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkNativeBufferPropertiesOHOS.html>
 ///
@@ -31178,6 +36938,15 @@ impl Default for NativeBufferFormatPropertiesOHOS {
     }
 }
 impl Extends<NativeBufferPropertiesOHOS> for NativeBufferFormatPropertiesOHOS {}
+impl NativeBufferFormatPropertiesOHOS {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImportNativeBufferInfoOHOS.html>
 #[doc(alias = "VkImportNativeBufferInfoOHOS")]
@@ -31200,6 +36969,15 @@ impl Default for ImportNativeBufferInfoOHOS {
     }
 }
 impl Extends<MemoryAllocateInfo> for ImportNativeBufferInfoOHOS {}
+impl ImportNativeBufferInfoOHOS {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryGetNativeBufferInfoOHOS.html>
 #[doc(alias = "VkMemoryGetNativeBufferInfoOHOS")]
@@ -31247,6 +37025,15 @@ impl Extends<SamplerYcbcrConversionCreateInfo> for ExternalFormatOHOS {}
 impl Extends<AttachmentDescription2> for ExternalFormatOHOS {}
 impl Extends<GraphicsPipelineCreateInfo> for ExternalFormatOHOS {}
 impl Extends<CommandBufferInheritanceInfo> for ExternalFormatOHOS {}
+impl ExternalFormatOHOS {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalMemoryAcquireUnmodifiedEXT.html>
 #[doc(alias = "VkExternalMemoryAcquireUnmodifiedEXT")]
@@ -31272,6 +37059,15 @@ impl Extends<BufferMemoryBarrier> for ExternalMemoryAcquireUnmodifiedEXT {}
 impl Extends<BufferMemoryBarrier2> for ExternalMemoryAcquireUnmodifiedEXT {}
 impl Extends<ImageMemoryBarrier> for ExternalMemoryAcquireUnmodifiedEXT {}
 impl Extends<ImageMemoryBarrier2> for ExternalMemoryAcquireUnmodifiedEXT {}
+impl ExternalMemoryAcquireUnmodifiedEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceExtendedDynamicState3FeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceExtendedDynamicState3FeaturesEXT")]
@@ -31355,6 +37151,15 @@ impl Default for PhysicalDeviceExtendedDynamicState3FeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceExtendedDynamicState3FeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceExtendedDynamicState3FeaturesEXT {}
+impl PhysicalDeviceExtendedDynamicState3FeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceExtendedDynamicState3PropertiesEXT.html>
 #[doc(alias = "VkPhysicalDeviceExtendedDynamicState3PropertiesEXT")]
@@ -31377,6 +37182,15 @@ impl Default for PhysicalDeviceExtendedDynamicState3PropertiesEXT {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceExtendedDynamicState3PropertiesEXT {}
+impl PhysicalDeviceExtendedDynamicState3PropertiesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkColorBlendEquationEXT.html>
 #[doc(alias = "VkColorBlendEquationEXT")]
@@ -31450,6 +37264,15 @@ impl Default for PhysicalDeviceSubpassMergeFeedbackFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceSubpassMergeFeedbackFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceSubpassMergeFeedbackFeaturesEXT {}
+impl PhysicalDeviceSubpassMergeFeedbackFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPassCreationControlEXT.html>
 #[doc(alias = "VkRenderPassCreationControlEXT")]
@@ -31473,6 +37296,15 @@ impl Default for RenderPassCreationControlEXT {
 }
 impl Extends<RenderPassCreateInfo2> for RenderPassCreationControlEXT {}
 impl Extends<SubpassDescription2> for RenderPassCreationControlEXT {}
+impl RenderPassCreationControlEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPassCreationFeedbackInfoEXT.html>
 #[doc(alias = "VkRenderPassCreationFeedbackInfoEXT")]
@@ -31511,6 +37343,15 @@ impl Default for RenderPassCreationFeedbackCreateInfoEXT {
     }
 }
 impl Extends<RenderPassCreateInfo2> for RenderPassCreationFeedbackCreateInfoEXT {}
+impl RenderPassCreationFeedbackCreateInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPassSubpassFeedbackInfoEXT.html>
 #[doc(alias = "VkRenderPassSubpassFeedbackInfoEXT")]
@@ -31554,6 +37395,15 @@ impl Default for RenderPassSubpassFeedbackCreateInfoEXT {
     }
 }
 impl Extends<SubpassDescription2> for RenderPassSubpassFeedbackCreateInfoEXT {}
+impl RenderPassSubpassFeedbackCreateInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDirectDriverLoadingInfoLUNARG.html>
 #[doc(alias = "VkDirectDriverLoadingInfoLUNARG")]
@@ -31603,6 +37453,15 @@ impl Default for DirectDriverLoadingListLUNARG {
     }
 }
 impl Extends<InstanceCreateInfo> for DirectDriverLoadingListLUNARG {}
+impl DirectDriverLoadingListLUNARG {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTensorDescriptionARM.html>
 #[doc(alias = "VkTensorDescriptionARM")]
@@ -31637,6 +37496,15 @@ impl Default for TensorDescriptionARM {
 }
 impl Extends<DataGraphPipelineResourceInfoARM> for TensorDescriptionARM {}
 impl Extends<DataGraphPipelineConstantARM> for TensorDescriptionARM {}
+impl TensorDescriptionARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTensorCreateInfoARM.html>
 ///
@@ -31740,6 +37608,15 @@ impl Default for WriteDescriptorSetTensorARM {
     }
 }
 impl Extends<WriteDescriptorSet> for WriteDescriptorSetTensorARM {}
+impl WriteDescriptorSetTensorARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTensorFormatPropertiesARM.html>
 #[doc(alias = "VkTensorFormatPropertiesARM")]
@@ -31764,6 +37641,15 @@ impl Default for TensorFormatPropertiesARM {
     }
 }
 impl Extends<FormatProperties2> for TensorFormatPropertiesARM {}
+impl TensorFormatPropertiesARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceTensorPropertiesARM.html>
 #[doc(alias = "VkPhysicalDeviceTensorPropertiesARM")]
@@ -31810,6 +37696,15 @@ impl Default for PhysicalDeviceTensorPropertiesARM {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceTensorPropertiesARM {}
+impl PhysicalDeviceTensorPropertiesARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTensorMemoryBarrierARM.html>
 #[doc(alias = "VkTensorMemoryBarrierARM")]
@@ -31848,6 +37743,15 @@ impl Default for TensorMemoryBarrierARM {
     }
 }
 impl Extends<DependencyInfo> for TensorMemoryBarrierARM {}
+impl TensorMemoryBarrierARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTensorDependencyInfoARM.html>
 #[doc(alias = "VkTensorDependencyInfoARM")]
@@ -31872,6 +37776,15 @@ impl Default for TensorDependencyInfoARM {
     }
 }
 impl Extends<DependencyInfo> for TensorDependencyInfoARM {}
+impl TensorDependencyInfoARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceTensorFeaturesARM.html>
 #[doc(alias = "VkPhysicalDeviceTensorFeaturesARM")]
@@ -31905,6 +37818,15 @@ impl Default for PhysicalDeviceTensorFeaturesARM {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceTensorFeaturesARM {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceTensorFeaturesARM {}
+impl PhysicalDeviceTensorFeaturesARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceTensorMemoryRequirementsARM.html>
 #[doc(alias = "VkDeviceTensorMemoryRequirementsARM")]
@@ -32006,6 +37928,15 @@ impl Default for MemoryDedicatedAllocateInfoTensorARM {
     }
 }
 impl Extends<MemoryAllocateInfo> for MemoryDedicatedAllocateInfoTensorARM {}
+impl MemoryDedicatedAllocateInfoTensorARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceExternalTensorInfoARM.html>
 #[doc(alias = "VkPhysicalDeviceExternalTensorInfoARM")]
@@ -32076,6 +38007,15 @@ impl Default for ExternalMemoryTensorCreateInfoARM {
     }
 }
 impl Extends<TensorCreateInfoARM> for ExternalMemoryTensorCreateInfoARM {}
+impl ExternalMemoryTensorCreateInfoARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDescriptorBufferTensorFeaturesARM.html>
 #[doc(alias = "VkPhysicalDeviceDescriptorBufferTensorFeaturesARM")]
@@ -32099,6 +38039,15 @@ impl Default for PhysicalDeviceDescriptorBufferTensorFeaturesARM {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceDescriptorBufferTensorFeaturesARM {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceDescriptorBufferTensorFeaturesARM {}
+impl PhysicalDeviceDescriptorBufferTensorFeaturesARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDescriptorBufferTensorPropertiesARM.html>
 #[doc(alias = "VkPhysicalDeviceDescriptorBufferTensorPropertiesARM")]
@@ -32125,6 +38074,15 @@ impl Default for PhysicalDeviceDescriptorBufferTensorPropertiesARM {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceDescriptorBufferTensorPropertiesARM {}
+impl PhysicalDeviceDescriptorBufferTensorPropertiesARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorGetTensorInfoARM.html>
 #[doc(alias = "VkDescriptorGetTensorInfoARM")]
@@ -32148,6 +38106,15 @@ impl Default for DescriptorGetTensorInfoARM {
     }
 }
 impl Extends<DescriptorGetInfoEXT> for DescriptorGetTensorInfoARM {}
+impl DescriptorGetTensorInfoARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTensorCaptureDescriptorDataInfoARM.html>
 #[doc(alias = "VkTensorCaptureDescriptorDataInfoARM")]
@@ -32217,6 +38184,15 @@ impl Extends<SubmitInfo> for FrameBoundaryTensorsARM {}
 impl Extends<SubmitInfo2> for FrameBoundaryTensorsARM {}
 impl Extends<PresentInfoKHR> for FrameBoundaryTensorsARM {}
 impl Extends<BindSparseInfo> for FrameBoundaryTensorsARM {}
+impl FrameBoundaryTensorsARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderModuleIdentifierFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceShaderModuleIdentifierFeaturesEXT")]
@@ -32240,6 +38216,15 @@ impl Default for PhysicalDeviceShaderModuleIdentifierFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderModuleIdentifierFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderModuleIdentifierFeaturesEXT {}
+impl PhysicalDeviceShaderModuleIdentifierFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderModuleIdentifierPropertiesEXT.html>
 #[doc(alias = "VkPhysicalDeviceShaderModuleIdentifierPropertiesEXT")]
@@ -32262,6 +38247,15 @@ impl Default for PhysicalDeviceShaderModuleIdentifierPropertiesEXT {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceShaderModuleIdentifierPropertiesEXT {}
+impl PhysicalDeviceShaderModuleIdentifierPropertiesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineShaderStageModuleIdentifierCreateInfoEXT.html>
 #[doc(alias = "VkPipelineShaderStageModuleIdentifierCreateInfoEXT")]
@@ -32287,6 +38281,15 @@ impl Default for PipelineShaderStageModuleIdentifierCreateInfoEXT {
     }
 }
 impl Extends<PipelineShaderStageCreateInfo> for PipelineShaderStageModuleIdentifierCreateInfoEXT {}
+impl PipelineShaderStageModuleIdentifierCreateInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderModuleIdentifierEXT.html>
 #[doc(alias = "VkShaderModuleIdentifierEXT")]
@@ -32333,6 +38336,15 @@ impl Default for PhysicalDeviceOpticalFlowFeaturesNV {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceOpticalFlowFeaturesNV {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceOpticalFlowFeaturesNV {}
+impl PhysicalDeviceOpticalFlowFeaturesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceOpticalFlowPropertiesNV.html>
 #[doc(alias = "VkPhysicalDeviceOpticalFlowPropertiesNV")]
@@ -32375,6 +38387,15 @@ impl Default for PhysicalDeviceOpticalFlowPropertiesNV {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceOpticalFlowPropertiesNV {}
+impl PhysicalDeviceOpticalFlowPropertiesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkOpticalFlowImageFormatInfoNV.html>
 #[doc(alias = "VkOpticalFlowImageFormatInfoNV")]
@@ -32398,6 +38419,15 @@ impl Default for OpticalFlowImageFormatInfoNV {
 }
 impl Extends<PhysicalDeviceImageFormatInfo2> for OpticalFlowImageFormatInfoNV {}
 impl Extends<ImageCreateInfo> for OpticalFlowImageFormatInfoNV {}
+impl OpticalFlowImageFormatInfoNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkOpticalFlowImageFormatPropertiesNV.html>
 #[doc(alias = "VkOpticalFlowImageFormatPropertiesNV")]
@@ -32488,6 +38518,15 @@ impl Default for OpticalFlowSessionCreatePrivateDataInfoNV {
     }
 }
 impl Extends<OpticalFlowSessionCreateInfoNV> for OpticalFlowSessionCreatePrivateDataInfoNV {}
+impl OpticalFlowSessionCreatePrivateDataInfoNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkOpticalFlowExecuteInfoNV.html>
 #[doc(alias = "VkOpticalFlowExecuteInfoNV")]
@@ -32538,6 +38577,15 @@ impl Default for PhysicalDeviceLegacyDitheringFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceLegacyDitheringFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceLegacyDitheringFeaturesEXT {}
+impl PhysicalDeviceLegacyDitheringFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceExternalFormatResolveFeaturesANDROID.html>
 #[doc(alias = "VkPhysicalDeviceExternalFormatResolveFeaturesANDROID")]
@@ -32561,6 +38609,15 @@ impl Default for PhysicalDeviceExternalFormatResolveFeaturesANDROID {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceExternalFormatResolveFeaturesANDROID {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceExternalFormatResolveFeaturesANDROID {}
+impl PhysicalDeviceExternalFormatResolveFeaturesANDROID {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceExternalFormatResolvePropertiesANDROID.html>
 #[doc(alias = "VkPhysicalDeviceExternalFormatResolvePropertiesANDROID")]
@@ -32587,6 +38644,15 @@ impl Default for PhysicalDeviceExternalFormatResolvePropertiesANDROID {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceExternalFormatResolvePropertiesANDROID {}
+impl PhysicalDeviceExternalFormatResolvePropertiesANDROID {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAndroidHardwareBufferFormatResolvePropertiesANDROID.html>
 #[doc(alias = "VkAndroidHardwareBufferFormatResolvePropertiesANDROID")]
@@ -32612,6 +38678,15 @@ impl Extends<AndroidHardwareBufferPropertiesANDROID>
     for AndroidHardwareBufferFormatResolvePropertiesANDROID
 {
 }
+impl AndroidHardwareBufferFormatResolvePropertiesANDROID {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceAntiLagFeaturesAMD.html>
 #[doc(alias = "VkPhysicalDeviceAntiLagFeaturesAMD")]
@@ -32635,6 +38710,15 @@ impl Default for PhysicalDeviceAntiLagFeaturesAMD {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceAntiLagFeaturesAMD {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceAntiLagFeaturesAMD {}
+impl PhysicalDeviceAntiLagFeaturesAMD {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAntiLagPresentationInfoAMD.html>
 #[doc(alias = "VkAntiLagPresentationInfoAMD")]
@@ -32707,6 +38791,15 @@ impl Default for PhysicalDeviceDenseGeometryFormatFeaturesAMDX {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceDenseGeometryFormatFeaturesAMDX {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceDenseGeometryFormatFeaturesAMDX {}
+impl PhysicalDeviceDenseGeometryFormatFeaturesAMDX {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX.html>
 ///
@@ -32746,6 +38839,15 @@ impl Extends<AccelerationStructureGeometryKHR>
     for AccelerationStructureDenseGeometryFormatTrianglesDataAMDX
 {
 }
+impl AccelerationStructureDenseGeometryFormatTrianglesDataAMDX {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderObjectFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceShaderObjectFeaturesEXT")]
@@ -32769,6 +38871,15 @@ impl Default for PhysicalDeviceShaderObjectFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderObjectFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderObjectFeaturesEXT {}
+impl PhysicalDeviceShaderObjectFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderObjectPropertiesEXT.html>
 #[doc(alias = "VkPhysicalDeviceShaderObjectPropertiesEXT")]
@@ -32793,6 +38904,15 @@ impl Default for PhysicalDeviceShaderObjectPropertiesEXT {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceShaderObjectPropertiesEXT {}
+impl PhysicalDeviceShaderObjectPropertiesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderCreateInfoEXT.html>
 ///
@@ -32888,6 +39008,15 @@ impl Default for PhysicalDeviceTilePropertiesFeaturesQCOM {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceTilePropertiesFeaturesQCOM {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceTilePropertiesFeaturesQCOM {}
+impl PhysicalDeviceTilePropertiesFeaturesQCOM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTilePropertiesQCOM.html>
 #[doc(alias = "VkTilePropertiesQCOM")]
@@ -32936,6 +39065,15 @@ impl Default for PhysicalDeviceAmigoProfilingFeaturesSEC {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceAmigoProfilingFeaturesSEC {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceAmigoProfilingFeaturesSEC {}
+impl PhysicalDeviceAmigoProfilingFeaturesSEC {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAmigoProfilingSubmitInfoSEC.html>
 #[doc(alias = "VkAmigoProfilingSubmitInfoSEC")]
@@ -32960,6 +39098,15 @@ impl Default for AmigoProfilingSubmitInfoSEC {
     }
 }
 impl Extends<SubmitInfo> for AmigoProfilingSubmitInfoSEC {}
+impl AmigoProfilingSubmitInfoSEC {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM.html>
 #[doc(alias = "VkPhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM")]
@@ -32983,6 +39130,15 @@ impl Default for PhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM {}
+impl PhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceRayTracingInvocationReorderPropertiesNV.html>
 #[doc(alias = "VkPhysicalDeviceRayTracingInvocationReorderPropertiesNV")]
@@ -33005,6 +39161,15 @@ impl Default for PhysicalDeviceRayTracingInvocationReorderPropertiesNV {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceRayTracingInvocationReorderPropertiesNV {}
+impl PhysicalDeviceRayTracingInvocationReorderPropertiesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceRayTracingInvocationReorderFeaturesNV.html>
 #[doc(alias = "VkPhysicalDeviceRayTracingInvocationReorderFeaturesNV")]
@@ -33028,6 +39193,15 @@ impl Default for PhysicalDeviceRayTracingInvocationReorderFeaturesNV {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceRayTracingInvocationReorderFeaturesNV {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceRayTracingInvocationReorderFeaturesNV {}
+impl PhysicalDeviceRayTracingInvocationReorderFeaturesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCooperativeVectorPropertiesNV.html>
 #[doc(alias = "VkPhysicalDeviceCooperativeVectorPropertiesNV")]
@@ -33056,6 +39230,15 @@ impl Default for PhysicalDeviceCooperativeVectorPropertiesNV {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceCooperativeVectorPropertiesNV {}
+impl PhysicalDeviceCooperativeVectorPropertiesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCooperativeVectorFeaturesNV.html>
 #[doc(alias = "VkPhysicalDeviceCooperativeVectorFeaturesNV")]
@@ -33081,6 +39264,15 @@ impl Default for PhysicalDeviceCooperativeVectorFeaturesNV {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceCooperativeVectorFeaturesNV {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceCooperativeVectorFeaturesNV {}
+impl PhysicalDeviceCooperativeVectorFeaturesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCooperativeVectorPropertiesNV.html>
 #[doc(alias = "VkCooperativeVectorPropertiesNV")]
@@ -33178,6 +39370,15 @@ impl Default for PhysicalDeviceExtendedSparseAddressSpaceFeaturesNV {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceExtendedSparseAddressSpaceFeaturesNV {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceExtendedSparseAddressSpaceFeaturesNV {}
+impl PhysicalDeviceExtendedSparseAddressSpaceFeaturesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceExtendedSparseAddressSpacePropertiesNV.html>
 #[doc(alias = "VkPhysicalDeviceExtendedSparseAddressSpacePropertiesNV")]
@@ -33204,6 +39405,15 @@ impl Default for PhysicalDeviceExtendedSparseAddressSpacePropertiesNV {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceExtendedSparseAddressSpacePropertiesNV {}
+impl PhysicalDeviceExtendedSparseAddressSpacePropertiesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceLegacyVertexAttributesFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceLegacyVertexAttributesFeaturesEXT")]
@@ -33227,6 +39437,15 @@ impl Default for PhysicalDeviceLegacyVertexAttributesFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceLegacyVertexAttributesFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceLegacyVertexAttributesFeaturesEXT {}
+impl PhysicalDeviceLegacyVertexAttributesFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceLegacyVertexAttributesPropertiesEXT.html>
 #[doc(alias = "VkPhysicalDeviceLegacyVertexAttributesPropertiesEXT")]
@@ -33249,6 +39468,15 @@ impl Default for PhysicalDeviceLegacyVertexAttributesPropertiesEXT {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceLegacyVertexAttributesPropertiesEXT {}
+impl PhysicalDeviceLegacyVertexAttributesPropertiesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkLayerSettingEXT.html>
 #[doc(alias = "VkLayerSettingEXT")]
@@ -33302,6 +39530,15 @@ impl Default for LayerSettingsCreateInfoEXT {
 }
 impl Extends<InstanceCreateInfo> for LayerSettingsCreateInfoEXT {}
 impl Extends<LayerSettingsCreateInfoEXT> for LayerSettingsCreateInfoEXT {}
+impl LayerSettingsCreateInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderCoreBuiltinsFeaturesARM.html>
 #[doc(alias = "VkPhysicalDeviceShaderCoreBuiltinsFeaturesARM")]
@@ -33325,6 +39562,15 @@ impl Default for PhysicalDeviceShaderCoreBuiltinsFeaturesARM {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderCoreBuiltinsFeaturesARM {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderCoreBuiltinsFeaturesARM {}
+impl PhysicalDeviceShaderCoreBuiltinsFeaturesARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM.html>
 #[doc(alias = "VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM")]
@@ -33351,6 +39597,15 @@ impl Default for PhysicalDeviceShaderCoreBuiltinsPropertiesARM {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceShaderCoreBuiltinsPropertiesARM {}
+impl PhysicalDeviceShaderCoreBuiltinsPropertiesARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT")]
@@ -33378,6 +39633,15 @@ impl Extends<PhysicalDeviceFeatures2>
 {
 }
 impl Extends<DeviceCreateInfo> for PhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT {}
+impl PhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkLatencySleepModeInfoNV.html>
 #[doc(alias = "VkLatencySleepModeInfoNV")]
@@ -33544,6 +39808,15 @@ impl Default for LatencySubmissionPresentIdNV {
 }
 impl Extends<SubmitInfo> for LatencySubmissionPresentIdNV {}
 impl Extends<SubmitInfo2> for LatencySubmissionPresentIdNV {}
+impl LatencySubmissionPresentIdNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSwapchainLatencyCreateInfoNV.html>
 #[doc(alias = "VkSwapchainLatencyCreateInfoNV")]
@@ -33567,6 +39840,15 @@ impl Default for SwapchainLatencyCreateInfoNV {
     }
 }
 impl Extends<SwapchainCreateInfoKHR> for SwapchainLatencyCreateInfoNV {}
+impl SwapchainLatencyCreateInfoNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkOutOfBandQueueTypeInfoNV.html>
 #[doc(alias = "VkOutOfBandQueueTypeInfoNV")]
@@ -33614,6 +39896,15 @@ impl Default for LatencySurfaceCapabilitiesNV {
     }
 }
 impl Extends<SurfaceCapabilities2KHR> for LatencySurfaceCapabilitiesNV {}
+impl LatencySurfaceCapabilitiesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDataGraphFeaturesARM.html>
 #[doc(alias = "VkPhysicalDeviceDataGraphFeaturesARM")]
@@ -33645,6 +39936,15 @@ impl Default for PhysicalDeviceDataGraphFeaturesARM {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceDataGraphFeaturesARM {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceDataGraphFeaturesARM {}
+impl PhysicalDeviceDataGraphFeaturesARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineConstantARM.html>
 ///
@@ -33721,6 +40021,15 @@ impl Default for DataGraphPipelineCompilerControlCreateInfoARM {
     }
 }
 impl Extends<DataGraphPipelineCreateInfoARM> for DataGraphPipelineCompilerControlCreateInfoARM {}
+impl DataGraphPipelineCompilerControlCreateInfoARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineCreateInfoARM.html>
 ///
@@ -33787,6 +40096,15 @@ impl Default for DataGraphPipelineShaderModuleCreateInfoARM {
     }
 }
 impl Extends<DataGraphPipelineCreateInfoARM> for DataGraphPipelineShaderModuleCreateInfoARM {}
+impl DataGraphPipelineShaderModuleCreateInfoARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineSessionCreateInfoARM.html>
 ///
@@ -33987,6 +40305,15 @@ impl Default for DataGraphPipelineIdentifierCreateInfoARM {
     }
 }
 impl Extends<DataGraphPipelineCreateInfoARM> for DataGraphPipelineIdentifierCreateInfoARM {}
+impl DataGraphPipelineIdentifierCreateInfoARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineDispatchInfoARM.html>
 ///
@@ -34099,6 +40426,15 @@ impl Default for DataGraphProcessingEngineCreateInfoARM {
 impl Extends<DataGraphPipelineCreateInfoARM> for DataGraphProcessingEngineCreateInfoARM {}
 impl Extends<DescriptorPoolCreateInfo> for DataGraphProcessingEngineCreateInfoARM {}
 impl Extends<CommandPoolCreateInfo> for DataGraphProcessingEngineCreateInfoARM {}
+impl DataGraphProcessingEngineCreateInfoARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceQueueFamilyDataGraphProcessingEngineInfoARM.html>
 #[doc(alias = "VkPhysicalDeviceQueueFamilyDataGraphProcessingEngineInfoARM")]
@@ -34180,6 +40516,15 @@ impl Extends<DataGraphPipelineConstantTensorSemiStructuredSparsityInfoARM>
     for DataGraphPipelineConstantTensorSemiStructuredSparsityInfoARM
 {
 }
+impl DataGraphPipelineConstantTensorSemiStructuredSparsityInfoARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphTOSANameQualityARM.html>
 #[doc(alias = "VkDataGraphTOSANameQualityARM")]
@@ -34251,6 +40596,15 @@ impl Default for PhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM {}
+impl PhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM.html>
 #[doc(alias = "VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM")]
@@ -34277,6 +40631,15 @@ impl Default for MultiviewPerViewRenderAreasRenderPassBeginInfoQCOM {
 }
 impl Extends<RenderPassBeginInfo> for MultiviewPerViewRenderAreasRenderPassBeginInfoQCOM {}
 impl Extends<RenderingInfo> for MultiviewPerViewRenderAreasRenderPassBeginInfoQCOM {}
+impl MultiviewPerViewRenderAreasRenderPassBeginInfoQCOM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePerStageDescriptorSetFeaturesNV.html>
 #[doc(alias = "VkPhysicalDevicePerStageDescriptorSetFeaturesNV")]
@@ -34302,6 +40665,15 @@ impl Default for PhysicalDevicePerStageDescriptorSetFeaturesNV {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDevicePerStageDescriptorSetFeaturesNV {}
 impl Extends<DeviceCreateInfo> for PhysicalDevicePerStageDescriptorSetFeaturesNV {}
+impl PhysicalDevicePerStageDescriptorSetFeaturesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceImageProcessing2FeaturesQCOM.html>
 #[doc(alias = "VkPhysicalDeviceImageProcessing2FeaturesQCOM")]
@@ -34325,6 +40697,15 @@ impl Default for PhysicalDeviceImageProcessing2FeaturesQCOM {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceImageProcessing2FeaturesQCOM {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceImageProcessing2FeaturesQCOM {}
+impl PhysicalDeviceImageProcessing2FeaturesQCOM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceImageProcessing2PropertiesQCOM.html>
 #[doc(alias = "VkPhysicalDeviceImageProcessing2PropertiesQCOM")]
@@ -34348,6 +40729,15 @@ impl Default for PhysicalDeviceImageProcessing2PropertiesQCOM {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceImageProcessing2PropertiesQCOM {}
+impl PhysicalDeviceImageProcessing2PropertiesQCOM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerBlockMatchWindowCreateInfoQCOM.html>
 #[doc(alias = "VkSamplerBlockMatchWindowCreateInfoQCOM")]
@@ -34372,6 +40762,15 @@ impl Default for SamplerBlockMatchWindowCreateInfoQCOM {
     }
 }
 impl Extends<SamplerCreateInfo> for SamplerBlockMatchWindowCreateInfoQCOM {}
+impl SamplerBlockMatchWindowCreateInfoQCOM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCubicWeightsFeaturesQCOM.html>
 #[doc(alias = "VkPhysicalDeviceCubicWeightsFeaturesQCOM")]
@@ -34395,6 +40794,15 @@ impl Default for PhysicalDeviceCubicWeightsFeaturesQCOM {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceCubicWeightsFeaturesQCOM {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceCubicWeightsFeaturesQCOM {}
+impl PhysicalDeviceCubicWeightsFeaturesQCOM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerCubicWeightsCreateInfoQCOM.html>
 #[doc(alias = "VkSamplerCubicWeightsCreateInfoQCOM")]
@@ -34417,6 +40825,15 @@ impl Default for SamplerCubicWeightsCreateInfoQCOM {
     }
 }
 impl Extends<SamplerCreateInfo> for SamplerCubicWeightsCreateInfoQCOM {}
+impl SamplerCubicWeightsCreateInfoQCOM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBlitImageCubicWeightsInfoQCOM.html>
 #[doc(alias = "VkBlitImageCubicWeightsInfoQCOM")]
@@ -34439,6 +40856,15 @@ impl Default for BlitImageCubicWeightsInfoQCOM {
     }
 }
 impl Extends<BlitImageInfo2> for BlitImageCubicWeightsInfoQCOM {}
+impl BlitImageCubicWeightsInfoQCOM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceYcbcrDegammaFeaturesQCOM.html>
 #[doc(alias = "VkPhysicalDeviceYcbcrDegammaFeaturesQCOM")]
@@ -34462,6 +40888,15 @@ impl Default for PhysicalDeviceYcbcrDegammaFeaturesQCOM {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceYcbcrDegammaFeaturesQCOM {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceYcbcrDegammaFeaturesQCOM {}
+impl PhysicalDeviceYcbcrDegammaFeaturesQCOM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM.html>
 #[doc(alias = "VkSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM")]
@@ -34489,6 +40924,15 @@ impl Extends<SamplerYcbcrConversionCreateInfo>
     for SamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM
 {
 }
+impl SamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCubicClampFeaturesQCOM.html>
 #[doc(alias = "VkPhysicalDeviceCubicClampFeaturesQCOM")]
@@ -34512,6 +40956,15 @@ impl Default for PhysicalDeviceCubicClampFeaturesQCOM {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceCubicClampFeaturesQCOM {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceCubicClampFeaturesQCOM {}
+impl PhysicalDeviceCubicClampFeaturesQCOM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT")]
@@ -34539,6 +40992,15 @@ impl Extends<PhysicalDeviceFeatures2>
 {
 }
 impl Extends<DeviceCreateInfo> for PhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT {}
+impl PhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkScreenBufferPropertiesQNX.html>
 ///
@@ -34602,6 +41064,15 @@ impl Default for ScreenBufferFormatPropertiesQNX {
     }
 }
 impl Extends<ScreenBufferPropertiesQNX> for ScreenBufferFormatPropertiesQNX {}
+impl ScreenBufferFormatPropertiesQNX {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImportScreenBufferInfoQNX.html>
 #[doc(alias = "VkImportScreenBufferInfoQNX")]
@@ -34624,6 +41095,15 @@ impl Default for ImportScreenBufferInfoQNX {
     }
 }
 impl Extends<MemoryAllocateInfo> for ImportScreenBufferInfoQNX {}
+impl ImportScreenBufferInfoQNX {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalFormatQNX.html>
 #[doc(alias = "VkExternalFormatQNX")]
@@ -34647,6 +41127,15 @@ impl Default for ExternalFormatQNX {
 }
 impl Extends<ImageCreateInfo> for ExternalFormatQNX {}
 impl Extends<SamplerYcbcrConversionCreateInfo> for ExternalFormatQNX {}
+impl ExternalFormatQNX {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceExternalMemoryScreenBufferFeaturesQNX.html>
 #[doc(alias = "VkPhysicalDeviceExternalMemoryScreenBufferFeaturesQNX")]
@@ -34670,6 +41159,15 @@ impl Default for PhysicalDeviceExternalMemoryScreenBufferFeaturesQNX {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceExternalMemoryScreenBufferFeaturesQNX {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceExternalMemoryScreenBufferFeaturesQNX {}
+impl PhysicalDeviceExternalMemoryScreenBufferFeaturesQNX {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceLayeredDriverPropertiesMSFT.html>
 #[doc(alias = "VkPhysicalDeviceLayeredDriverPropertiesMSFT")]
@@ -34692,6 +41190,15 @@ impl Default for PhysicalDeviceLayeredDriverPropertiesMSFT {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceLayeredDriverPropertiesMSFT {}
+impl PhysicalDeviceLayeredDriverPropertiesMSFT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDescriptorPoolOverallocationFeaturesNV.html>
 #[doc(alias = "VkPhysicalDeviceDescriptorPoolOverallocationFeaturesNV")]
@@ -34715,6 +41222,15 @@ impl Default for PhysicalDeviceDescriptorPoolOverallocationFeaturesNV {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceDescriptorPoolOverallocationFeaturesNV {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceDescriptorPoolOverallocationFeaturesNV {}
+impl PhysicalDeviceDescriptorPoolOverallocationFeaturesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceTileMemoryHeapFeaturesQCOM.html>
 #[doc(alias = "VkPhysicalDeviceTileMemoryHeapFeaturesQCOM")]
@@ -34738,6 +41254,15 @@ impl Default for PhysicalDeviceTileMemoryHeapFeaturesQCOM {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceTileMemoryHeapFeaturesQCOM {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceTileMemoryHeapFeaturesQCOM {}
+impl PhysicalDeviceTileMemoryHeapFeaturesQCOM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceTileMemoryHeapPropertiesQCOM.html>
 #[doc(alias = "VkPhysicalDeviceTileMemoryHeapPropertiesQCOM")]
@@ -34762,6 +41287,15 @@ impl Default for PhysicalDeviceTileMemoryHeapPropertiesQCOM {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceTileMemoryHeapPropertiesQCOM {}
+impl PhysicalDeviceTileMemoryHeapPropertiesQCOM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTileMemoryRequirementsQCOM.html>
 #[doc(alias = "VkTileMemoryRequirementsQCOM")]
@@ -34786,6 +41320,15 @@ impl Default for TileMemoryRequirementsQCOM {
     }
 }
 impl Extends<MemoryRequirements2> for TileMemoryRequirementsQCOM {}
+impl TileMemoryRequirementsQCOM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTileMemoryBindInfoQCOM.html>
 #[doc(alias = "VkTileMemoryBindInfoQCOM")]
@@ -34808,6 +41351,15 @@ impl Default for TileMemoryBindInfoQCOM {
     }
 }
 impl Extends<CommandBufferInheritanceInfo> for TileMemoryBindInfoQCOM {}
+impl TileMemoryBindInfoQCOM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTileMemorySizeInfoQCOM.html>
 #[doc(alias = "VkTileMemorySizeInfoQCOM")]
@@ -34832,6 +41384,15 @@ impl Default for TileMemorySizeInfoQCOM {
 impl Extends<RenderPassCreateInfo> for TileMemorySizeInfoQCOM {}
 impl Extends<RenderPassCreateInfo2> for TileMemorySizeInfoQCOM {}
 impl Extends<RenderingInfo> for TileMemorySizeInfoQCOM {}
+impl TileMemorySizeInfoQCOM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDecompressMemoryRegionEXT.html>
 #[doc(alias = "VkDecompressMemoryRegionEXT")]
@@ -34901,6 +41462,15 @@ impl Default for DisplaySurfaceStereoCreateInfoNV {
     }
 }
 impl Extends<DisplaySurfaceCreateInfoKHR> for DisplaySurfaceStereoCreateInfoNV {}
+impl DisplaySurfaceStereoCreateInfoNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplayModeStereoPropertiesNV.html>
 #[doc(alias = "VkDisplayModeStereoPropertiesNV")]
@@ -34923,6 +41493,15 @@ impl Default for DisplayModeStereoPropertiesNV {
     }
 }
 impl Extends<DisplayModeProperties2KHR> for DisplayModeStereoPropertiesNV {}
+impl DisplayModeStereoPropertiesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceRawAccessChainsFeaturesNV.html>
 #[doc(alias = "VkPhysicalDeviceRawAccessChainsFeaturesNV")]
@@ -34946,6 +41525,15 @@ impl Default for PhysicalDeviceRawAccessChainsFeaturesNV {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceRawAccessChainsFeaturesNV {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceRawAccessChainsFeaturesNV {}
+impl PhysicalDeviceRawAccessChainsFeaturesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalComputeQueueDeviceCreateInfoNV.html>
 #[doc(alias = "VkExternalComputeQueueDeviceCreateInfoNV")]
@@ -34968,6 +41556,15 @@ impl Default for ExternalComputeQueueDeviceCreateInfoNV {
     }
 }
 impl Extends<DeviceCreateInfo> for ExternalComputeQueueDeviceCreateInfoNV {}
+impl ExternalComputeQueueDeviceCreateInfoNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalComputeQueueCreateInfoNV.html>
 #[doc(alias = "VkExternalComputeQueueCreateInfoNV")]
@@ -35034,6 +41631,15 @@ impl Default for PhysicalDeviceExternalComputeQueuePropertiesNV {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceExternalComputeQueuePropertiesNV {}
+impl PhysicalDeviceExternalComputeQueuePropertiesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCommandBufferInheritanceFeaturesNV.html>
 #[doc(alias = "VkPhysicalDeviceCommandBufferInheritanceFeaturesNV")]
@@ -35057,6 +41663,15 @@ impl Default for PhysicalDeviceCommandBufferInheritanceFeaturesNV {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceCommandBufferInheritanceFeaturesNV {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceCommandBufferInheritanceFeaturesNV {}
+impl PhysicalDeviceCommandBufferInheritanceFeaturesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderAtomicFloat16VectorFeaturesNV.html>
 #[doc(alias = "VkPhysicalDeviceShaderAtomicFloat16VectorFeaturesNV")]
@@ -35080,6 +41695,15 @@ impl Default for PhysicalDeviceShaderAtomicFloat16VectorFeaturesNV {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderAtomicFloat16VectorFeaturesNV {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderAtomicFloat16VectorFeaturesNV {}
+impl PhysicalDeviceShaderAtomicFloat16VectorFeaturesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderReplicatedCompositesFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceShaderReplicatedCompositesFeaturesEXT")]
@@ -35103,6 +41727,15 @@ impl Default for PhysicalDeviceShaderReplicatedCompositesFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderReplicatedCompositesFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderReplicatedCompositesFeaturesEXT {}
+impl PhysicalDeviceShaderReplicatedCompositesFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTensorRollingBackingCreateInfoARM.html>
 #[doc(alias = "VkTensorRollingBackingCreateInfoARM")]
@@ -35125,6 +41758,15 @@ impl Default for TensorRollingBackingCreateInfoARM {
     }
 }
 impl Extends<TensorCreateInfoARM> for TensorRollingBackingCreateInfoARM {}
+impl TensorRollingBackingCreateInfoARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTensorExplicitTilingFormatPropertiesARM.html>
 #[doc(alias = "VkTensorExplicitTilingFormatPropertiesARM")]
@@ -35155,6 +41797,15 @@ impl Default for TensorExplicitTilingFormatPropertiesARM {
     }
 }
 impl Extends<FormatProperties2> for TensorExplicitTilingFormatPropertiesARM {}
+impl TensorExplicitTilingFormatPropertiesARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderFloat8FeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceShaderFloat8FeaturesEXT")]
@@ -35180,6 +41831,15 @@ impl Default for PhysicalDeviceShaderFloat8FeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderFloat8FeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderFloat8FeaturesEXT {}
+impl PhysicalDeviceShaderFloat8FeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceRayTracingValidationFeaturesNV.html>
 #[doc(alias = "VkPhysicalDeviceRayTracingValidationFeaturesNV")]
@@ -35203,6 +41863,15 @@ impl Default for PhysicalDeviceRayTracingValidationFeaturesNV {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceRayTracingValidationFeaturesNV {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceRayTracingValidationFeaturesNV {}
+impl PhysicalDeviceRayTracingValidationFeaturesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceClusterAccelerationStructureFeaturesNV.html>
 #[doc(alias = "VkPhysicalDeviceClusterAccelerationStructureFeaturesNV")]
@@ -35226,6 +41895,15 @@ impl Default for PhysicalDeviceClusterAccelerationStructureFeaturesNV {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceClusterAccelerationStructureFeaturesNV {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceClusterAccelerationStructureFeaturesNV {}
+impl PhysicalDeviceClusterAccelerationStructureFeaturesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceClusterAccelerationStructurePropertiesNV.html>
 #[doc(alias = "VkPhysicalDeviceClusterAccelerationStructurePropertiesNV")]
@@ -35262,6 +41940,15 @@ impl Default for PhysicalDeviceClusterAccelerationStructurePropertiesNV {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceClusterAccelerationStructurePropertiesNV {}
+impl PhysicalDeviceClusterAccelerationStructurePropertiesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkClusterAccelerationStructureClustersBottomLevelInputNV.html>
 #[doc(alias = "VkClusterAccelerationStructureClustersBottomLevelInputNV")]
@@ -35731,6 +42418,15 @@ impl Extends<RayTracingPipelineCreateInfoKHR>
     for RayTracingPipelineClusterAccelerationStructureCreateInfoNV
 {
 }
+impl RayTracingPipelineClusterAccelerationStructureCreateInfoNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePartitionedAccelerationStructureFeaturesNV.html>
 #[doc(alias = "VkPhysicalDevicePartitionedAccelerationStructureFeaturesNV")]
@@ -35754,6 +42450,15 @@ impl Default for PhysicalDevicePartitionedAccelerationStructureFeaturesNV {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDevicePartitionedAccelerationStructureFeaturesNV {}
 impl Extends<DeviceCreateInfo> for PhysicalDevicePartitionedAccelerationStructureFeaturesNV {}
+impl PhysicalDevicePartitionedAccelerationStructureFeaturesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePartitionedAccelerationStructurePropertiesNV.html>
 #[doc(alias = "VkPhysicalDevicePartitionedAccelerationStructurePropertiesNV")]
@@ -35779,6 +42484,15 @@ impl Extends<PhysicalDeviceProperties2>
     for PhysicalDevicePartitionedAccelerationStructurePropertiesNV
 {
 }
+impl PhysicalDevicePartitionedAccelerationStructurePropertiesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPartitionedAccelerationStructureFlagsNV.html>
 #[doc(alias = "VkPartitionedAccelerationStructureFlagsNV")]
@@ -35803,6 +42517,15 @@ impl Default for PartitionedAccelerationStructureFlagsNV {
 impl Extends<PartitionedAccelerationStructureInstancesInputNV>
     for PartitionedAccelerationStructureFlagsNV
 {
+}
+impl PartitionedAccelerationStructureFlagsNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
 }
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBuildPartitionedAccelerationStructureIndirectCommandNV.html>
@@ -35919,6 +42642,15 @@ impl Default for WriteDescriptorSetPartitionedAccelerationStructureNV {
     }
 }
 impl Extends<WriteDescriptorSet> for WriteDescriptorSetPartitionedAccelerationStructureNV {}
+impl WriteDescriptorSetPartitionedAccelerationStructureNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPartitionedAccelerationStructureInstancesInputNV.html>
 ///
@@ -36008,6 +42740,15 @@ impl Default for PhysicalDeviceDeviceGeneratedCommandsFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceDeviceGeneratedCommandsFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceDeviceGeneratedCommandsFeaturesEXT {}
+impl PhysicalDeviceDeviceGeneratedCommandsFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDeviceGeneratedCommandsPropertiesEXT.html>
 #[doc(alias = "VkPhysicalDeviceDeviceGeneratedCommandsPropertiesEXT")]
@@ -36052,6 +42793,15 @@ impl Default for PhysicalDeviceDeviceGeneratedCommandsPropertiesEXT {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceDeviceGeneratedCommandsPropertiesEXT {}
+impl PhysicalDeviceDeviceGeneratedCommandsPropertiesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkGeneratedCommandsMemoryRequirementsInfoEXT.html>
 ///
@@ -36507,6 +43257,15 @@ impl Default for GeneratedCommandsPipelineInfoEXT {
 }
 impl Extends<GeneratedCommandsInfoEXT> for GeneratedCommandsPipelineInfoEXT {}
 impl Extends<GeneratedCommandsMemoryRequirementsInfoEXT> for GeneratedCommandsPipelineInfoEXT {}
+impl GeneratedCommandsPipelineInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkGeneratedCommandsShaderInfoEXT.html>
 #[doc(alias = "VkGeneratedCommandsShaderInfoEXT")]
@@ -36532,6 +43291,15 @@ impl Default for GeneratedCommandsShaderInfoEXT {
 }
 impl Extends<GeneratedCommandsInfoEXT> for GeneratedCommandsShaderInfoEXT {}
 impl Extends<GeneratedCommandsMemoryRequirementsInfoEXT> for GeneratedCommandsShaderInfoEXT {}
+impl GeneratedCommandsShaderInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkWriteIndirectExecutionSetShaderEXT.html>
 #[doc(alias = "VkWriteIndirectExecutionSetShaderEXT")]
@@ -36578,6 +43346,15 @@ impl Default for PhysicalDeviceImageAlignmentControlFeaturesMESA {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceImageAlignmentControlFeaturesMESA {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceImageAlignmentControlFeaturesMESA {}
+impl PhysicalDeviceImageAlignmentControlFeaturesMESA {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceImageAlignmentControlPropertiesMESA.html>
 #[doc(alias = "VkPhysicalDeviceImageAlignmentControlPropertiesMESA")]
@@ -36600,6 +43377,15 @@ impl Default for PhysicalDeviceImageAlignmentControlPropertiesMESA {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceImageAlignmentControlPropertiesMESA {}
+impl PhysicalDeviceImageAlignmentControlPropertiesMESA {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageAlignmentControlCreateInfoMESA.html>
 #[doc(alias = "VkImageAlignmentControlCreateInfoMESA")]
@@ -36622,6 +43408,15 @@ impl Default for ImageAlignmentControlCreateInfoMESA {
     }
 }
 impl Extends<ImageCreateInfo> for ImageAlignmentControlCreateInfoMESA {}
+impl ImageAlignmentControlCreateInfoMESA {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPushConstantBankInfoNV.html>
 #[doc(alias = "VkPushConstantBankInfoNV")]
@@ -36647,6 +43442,15 @@ impl Extends<DescriptorSetAndBindingMappingEXT> for PushConstantBankInfoNV {}
 impl Extends<PushDataInfoEXT> for PushConstantBankInfoNV {}
 impl Extends<PushConstantsInfo> for PushConstantBankInfoNV {}
 impl Extends<IndirectCommandsLayoutTokenEXT> for PushConstantBankInfoNV {}
+impl PushConstantBankInfoNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePushConstantBankFeaturesNV.html>
 #[doc(alias = "VkPhysicalDevicePushConstantBankFeaturesNV")]
@@ -36670,6 +43474,15 @@ impl Default for PhysicalDevicePushConstantBankFeaturesNV {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDevicePushConstantBankFeaturesNV {}
 impl Extends<DeviceCreateInfo> for PhysicalDevicePushConstantBankFeaturesNV {}
+impl PhysicalDevicePushConstantBankFeaturesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePushConstantBankPropertiesNV.html>
 #[doc(alias = "VkPhysicalDevicePushConstantBankPropertiesNV")]
@@ -36698,6 +43511,15 @@ impl Default for PhysicalDevicePushConstantBankPropertiesNV {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDevicePushConstantBankPropertiesNV {}
+impl PhysicalDevicePushConstantBankPropertiesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceRayTracingInvocationReorderPropertiesEXT.html>
 #[doc(alias = "VkPhysicalDeviceRayTracingInvocationReorderPropertiesEXT")]
@@ -36722,6 +43544,15 @@ impl Default for PhysicalDeviceRayTracingInvocationReorderPropertiesEXT {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceRayTracingInvocationReorderPropertiesEXT {}
+impl PhysicalDeviceRayTracingInvocationReorderPropertiesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceRayTracingInvocationReorderFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceRayTracingInvocationReorderFeaturesEXT")]
@@ -36745,6 +43576,15 @@ impl Default for PhysicalDeviceRayTracingInvocationReorderFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceRayTracingInvocationReorderFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceRayTracingInvocationReorderFeaturesEXT {}
+impl PhysicalDeviceRayTracingInvocationReorderFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDepthClampControlFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceDepthClampControlFeaturesEXT")]
@@ -36768,6 +43608,15 @@ impl Default for PhysicalDeviceDepthClampControlFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceDepthClampControlFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceDepthClampControlFeaturesEXT {}
+impl PhysicalDeviceDepthClampControlFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineViewportDepthClampControlCreateInfoEXT.html>
 #[doc(alias = "VkPipelineViewportDepthClampControlCreateInfoEXT")]
@@ -36793,6 +43642,15 @@ impl Default for PipelineViewportDepthClampControlCreateInfoEXT {
     }
 }
 impl Extends<PipelineViewportStateCreateInfo> for PipelineViewportDepthClampControlCreateInfoEXT {}
+impl PipelineViewportDepthClampControlCreateInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfaceCreateInfoOHOS.html>
 #[doc(alias = "VkSurfaceCreateInfoOHOS")]
@@ -36840,6 +43698,15 @@ impl Default for PhysicalDeviceHdrVividFeaturesHUAWEI {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceHdrVividFeaturesHUAWEI {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceHdrVividFeaturesHUAWEI {}
+impl PhysicalDeviceHdrVividFeaturesHUAWEI {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkHdrVividDynamicMetadataHUAWEI.html>
 #[doc(alias = "VkHdrVividDynamicMetadataHUAWEI")]
@@ -36864,6 +43731,15 @@ impl Default for HdrVividDynamicMetadataHUAWEI {
     }
 }
 impl Extends<HdrMetadataEXT> for HdrVividDynamicMetadataHUAWEI {}
+impl HdrVividDynamicMetadataHUAWEI {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCooperativeMatrixFlexibleDimensionsPropertiesNV.html>
 #[doc(alias = "VkCooperativeMatrixFlexibleDimensionsPropertiesNV")]
@@ -36938,6 +43814,15 @@ impl Default for PhysicalDeviceCooperativeMatrix2FeaturesNV {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceCooperativeMatrix2FeaturesNV {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceCooperativeMatrix2FeaturesNV {}
+impl PhysicalDeviceCooperativeMatrix2FeaturesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCooperativeMatrix2PropertiesNV.html>
 #[doc(alias = "VkPhysicalDeviceCooperativeMatrix2PropertiesNV")]
@@ -36964,6 +43849,15 @@ impl Default for PhysicalDeviceCooperativeMatrix2PropertiesNV {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceCooperativeMatrix2PropertiesNV {}
+impl PhysicalDeviceCooperativeMatrix2PropertiesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePipelineOpacityMicromapFeaturesARM.html>
 #[doc(alias = "VkPhysicalDevicePipelineOpacityMicromapFeaturesARM")]
@@ -36987,6 +43881,15 @@ impl Default for PhysicalDevicePipelineOpacityMicromapFeaturesARM {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDevicePipelineOpacityMicromapFeaturesARM {}
 impl Extends<DeviceCreateInfo> for PhysicalDevicePipelineOpacityMicromapFeaturesARM {}
+impl PhysicalDevicePipelineOpacityMicromapFeaturesARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImportMemoryMetalHandleInfoEXT.html>
 #[doc(alias = "VkImportMemoryMetalHandleInfoEXT")]
@@ -37013,6 +43916,15 @@ impl Default for ImportMemoryMetalHandleInfoEXT {
     }
 }
 impl Extends<MemoryAllocateInfo> for ImportMemoryMetalHandleInfoEXT {}
+impl ImportMemoryMetalHandleInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryMetalHandlePropertiesEXT.html>
 #[doc(alias = "VkMemoryMetalHandlePropertiesEXT")]
@@ -37080,6 +43992,15 @@ impl Default for PhysicalDevicePerformanceCountersByRegionFeaturesARM {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDevicePerformanceCountersByRegionFeaturesARM {}
 impl Extends<DeviceCreateInfo> for PhysicalDevicePerformanceCountersByRegionFeaturesARM {}
+impl PhysicalDevicePerformanceCountersByRegionFeaturesARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePerformanceCountersByRegionPropertiesARM.html>
 #[doc(alias = "VkPhysicalDevicePerformanceCountersByRegionPropertiesARM")]
@@ -37110,6 +44031,15 @@ impl Default for PhysicalDevicePerformanceCountersByRegionPropertiesARM {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDevicePerformanceCountersByRegionPropertiesARM {}
+impl PhysicalDevicePerformanceCountersByRegionPropertiesARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceCounterARM.html>
 #[doc(alias = "VkPerformanceCounterARM")]
@@ -37187,6 +44117,15 @@ impl Default for RenderPassPerformanceCountersByRegionBeginInfoARM {
 }
 impl Extends<RenderPassBeginInfo> for RenderPassPerformanceCountersByRegionBeginInfoARM {}
 impl Extends<RenderingInfo> for RenderPassPerformanceCountersByRegionBeginInfoARM {}
+impl RenderPassPerformanceCountersByRegionBeginInfoARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderInstrumentationFeaturesARM.html>
 #[doc(alias = "VkPhysicalDeviceShaderInstrumentationFeaturesARM")]
@@ -37210,6 +44149,15 @@ impl Default for PhysicalDeviceShaderInstrumentationFeaturesARM {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderInstrumentationFeaturesARM {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderInstrumentationFeaturesARM {}
+impl PhysicalDeviceShaderInstrumentationFeaturesARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderInstrumentationPropertiesARM.html>
 #[doc(alias = "VkPhysicalDeviceShaderInstrumentationPropertiesARM")]
@@ -37234,6 +44182,15 @@ impl Default for PhysicalDeviceShaderInstrumentationPropertiesARM {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceShaderInstrumentationPropertiesARM {}
+impl PhysicalDeviceShaderInstrumentationPropertiesARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderInstrumentationCreateInfoARM.html>
 #[doc(alias = "VkShaderInstrumentationCreateInfoARM")]
@@ -37323,6 +44280,15 @@ impl Default for PhysicalDeviceVertexAttributeRobustnessFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceVertexAttributeRobustnessFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceVertexAttributeRobustnessFeaturesEXT {}
+impl PhysicalDeviceVertexAttributeRobustnessFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFormatPackFeaturesARM.html>
 #[doc(alias = "VkPhysicalDeviceFormatPackFeaturesARM")]
@@ -37346,6 +44312,15 @@ impl Default for PhysicalDeviceFormatPackFeaturesARM {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceFormatPackFeaturesARM {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceFormatPackFeaturesARM {}
+impl PhysicalDeviceFormatPackFeaturesARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFragmentDensityMapLayeredFeaturesVALVE.html>
 #[doc(alias = "VkPhysicalDeviceFragmentDensityMapLayeredFeaturesVALVE")]
@@ -37369,6 +44344,15 @@ impl Default for PhysicalDeviceFragmentDensityMapLayeredFeaturesVALVE {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceFragmentDensityMapLayeredFeaturesVALVE {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceFragmentDensityMapLayeredFeaturesVALVE {}
+impl PhysicalDeviceFragmentDensityMapLayeredFeaturesVALVE {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFragmentDensityMapLayeredPropertiesVALVE.html>
 #[doc(alias = "VkPhysicalDeviceFragmentDensityMapLayeredPropertiesVALVE")]
@@ -37391,6 +44375,15 @@ impl Default for PhysicalDeviceFragmentDensityMapLayeredPropertiesVALVE {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceFragmentDensityMapLayeredPropertiesVALVE {}
+impl PhysicalDeviceFragmentDensityMapLayeredPropertiesVALVE {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineFragmentDensityMapLayeredCreateInfoVALVE.html>
 #[doc(alias = "VkPipelineFragmentDensityMapLayeredCreateInfoVALVE")]
@@ -37413,6 +44406,15 @@ impl Default for PipelineFragmentDensityMapLayeredCreateInfoVALVE {
     }
 }
 impl Extends<GraphicsPipelineCreateInfo> for PipelineFragmentDensityMapLayeredCreateInfoVALVE {}
+impl PipelineFragmentDensityMapLayeredCreateInfoVALVE {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSetPresentConfigNV.html>
 #[doc(alias = "VkSetPresentConfigNV")]
@@ -37437,6 +44439,15 @@ impl Default for SetPresentConfigNV {
     }
 }
 impl Extends<PresentInfoKHR> for SetPresentConfigNV {}
+impl SetPresentConfigNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePresentMeteringFeaturesNV.html>
 #[doc(alias = "VkPhysicalDevicePresentMeteringFeaturesNV")]
@@ -37460,6 +44471,15 @@ impl Default for PhysicalDevicePresentMeteringFeaturesNV {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDevicePresentMeteringFeaturesNV {}
 impl Extends<DeviceCreateInfo> for PhysicalDevicePresentMeteringFeaturesNV {}
+impl PhysicalDevicePresentMeteringFeaturesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMultisampledRenderToSwapchainFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceMultisampledRenderToSwapchainFeaturesEXT")]
@@ -37483,6 +44503,15 @@ impl Default for PhysicalDeviceMultisampledRenderToSwapchainFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceMultisampledRenderToSwapchainFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceMultisampledRenderToSwapchainFeaturesEXT {}
+impl PhysicalDeviceMultisampledRenderToSwapchainFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSwapchainFlagsSurfaceCapabilitiesEXT.html>
 #[doc(alias = "VkSwapchainFlagsSurfaceCapabilitiesEXT")]
@@ -37506,6 +44535,15 @@ impl Default for SwapchainFlagsSurfaceCapabilitiesEXT {
     }
 }
 impl Extends<SurfaceCapabilities2KHR> for SwapchainFlagsSurfaceCapabilitiesEXT {}
+impl SwapchainFlagsSurfaceCapabilitiesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXT")]
@@ -37529,6 +44567,15 @@ impl Default for PhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXT {}
+impl PhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShader64BitIndexingFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceShader64BitIndexingFeaturesEXT")]
@@ -37552,6 +44599,15 @@ impl Default for PhysicalDeviceShader64BitIndexingFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShader64BitIndexingFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShader64BitIndexingFeaturesEXT {}
+impl PhysicalDeviceShader64BitIndexingFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCustomResolveFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceCustomResolveFeaturesEXT")]
@@ -37575,6 +44631,15 @@ impl Default for PhysicalDeviceCustomResolveFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceCustomResolveFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceCustomResolveFeaturesEXT {}
+impl PhysicalDeviceCustomResolveFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBeginCustomResolveInfoEXT.html>
 #[doc(alias = "VkBeginCustomResolveInfoEXT")]
@@ -37627,6 +44692,15 @@ impl Default for CustomResolveCreateInfoEXT {
 impl Extends<GraphicsPipelineCreateInfo> for CustomResolveCreateInfoEXT {}
 impl Extends<CommandBufferInheritanceInfo> for CustomResolveCreateInfoEXT {}
 impl Extends<ShaderCreateInfoEXT> for CustomResolveCreateInfoEXT {}
+impl CustomResolveCreateInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCacheHeaderVersionDataGraphQCOM.html>
 #[doc(alias = "VkPipelineCacheHeaderVersionDataGraphQCOM")]
@@ -37673,6 +44747,15 @@ impl Default for DataGraphPipelineBuiltinModelCreateInfoQCOM {
     }
 }
 impl Extends<DataGraphPipelineCreateInfoARM> for DataGraphPipelineBuiltinModelCreateInfoQCOM {}
+impl DataGraphPipelineBuiltinModelCreateInfoQCOM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDataGraphModelFeaturesQCOM.html>
 #[doc(alias = "VkPhysicalDeviceDataGraphModelFeaturesQCOM")]
@@ -37696,6 +44779,15 @@ impl Default for PhysicalDeviceDataGraphModelFeaturesQCOM {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceDataGraphModelFeaturesQCOM {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceDataGraphModelFeaturesQCOM {}
+impl PhysicalDeviceDataGraphModelFeaturesQCOM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDataGraphOpticalFlowFeaturesARM.html>
 #[doc(alias = "VkPhysicalDeviceDataGraphOpticalFlowFeaturesARM")]
@@ -37719,6 +44811,15 @@ impl Default for PhysicalDeviceDataGraphOpticalFlowFeaturesARM {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceDataGraphOpticalFlowFeaturesARM {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceDataGraphOpticalFlowFeaturesARM {}
+impl PhysicalDeviceDataGraphOpticalFlowFeaturesARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkQueueFamilyDataGraphOpticalFlowPropertiesARM.html>
 #[doc(alias = "VkQueueFamilyDataGraphOpticalFlowPropertiesARM")]
@@ -37795,6 +44896,15 @@ impl Default for DataGraphPipelineOpticalFlowCreateInfoARM {
     }
 }
 impl Extends<DataGraphPipelineCreateInfoARM> for DataGraphPipelineOpticalFlowCreateInfoARM {}
+impl DataGraphPipelineOpticalFlowCreateInfoARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphOpticalFlowImageFormatPropertiesARM.html>
 #[doc(alias = "VkDataGraphOpticalFlowImageFormatPropertiesARM")]
@@ -37839,6 +44949,15 @@ impl Default for DataGraphOpticalFlowImageFormatInfoARM {
 }
 impl Extends<PhysicalDeviceImageFormatInfo2> for DataGraphOpticalFlowImageFormatInfoARM {}
 impl Extends<ImageCreateInfo> for DataGraphOpticalFlowImageFormatInfoARM {}
+impl DataGraphOpticalFlowImageFormatInfoARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineOpticalFlowDispatchInfoARM.html>
 #[doc(alias = "VkDataGraphPipelineOpticalFlowDispatchInfoARM")]
@@ -37865,6 +44984,15 @@ impl Default for DataGraphPipelineOpticalFlowDispatchInfoARM {
     }
 }
 impl Extends<DataGraphPipelineDispatchInfoARM> for DataGraphPipelineOpticalFlowDispatchInfoARM {}
+impl DataGraphPipelineOpticalFlowDispatchInfoARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineResourceInfoImageLayoutARM.html>
 #[doc(alias = "VkDataGraphPipelineResourceInfoImageLayoutARM")]
@@ -37887,6 +45015,15 @@ impl Default for DataGraphPipelineResourceInfoImageLayoutARM {
     }
 }
 impl Extends<DataGraphPipelineResourceInfoARM> for DataGraphPipelineResourceInfoImageLayoutARM {}
+impl DataGraphPipelineResourceInfoImageLayoutARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineSingleNodeConnectionARM.html>
 #[doc(alias = "VkDataGraphPipelineSingleNodeConnectionARM")]
@@ -37938,6 +45075,15 @@ impl Default for DataGraphPipelineSingleNodeCreateInfoARM {
     }
 }
 impl Extends<DataGraphPipelineCreateInfoARM> for DataGraphPipelineSingleNodeCreateInfoARM {}
+impl DataGraphPipelineSingleNodeCreateInfoARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderLongVectorFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceShaderLongVectorFeaturesEXT")]
@@ -37961,6 +45107,15 @@ impl Default for PhysicalDeviceShaderLongVectorFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderLongVectorFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderLongVectorFeaturesEXT {}
+impl PhysicalDeviceShaderLongVectorFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderLongVectorPropertiesEXT.html>
 #[doc(alias = "VkPhysicalDeviceShaderLongVectorPropertiesEXT")]
@@ -37983,6 +45138,15 @@ impl Default for PhysicalDeviceShaderLongVectorPropertiesEXT {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceShaderLongVectorPropertiesEXT {}
+impl PhysicalDeviceShaderLongVectorPropertiesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePipelineCacheIncrementalModeFeaturesSEC.html>
 #[doc(alias = "VkPhysicalDevicePipelineCacheIncrementalModeFeaturesSEC")]
@@ -38006,6 +45170,15 @@ impl Default for PhysicalDevicePipelineCacheIncrementalModeFeaturesSEC {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDevicePipelineCacheIncrementalModeFeaturesSEC {}
 impl Extends<DeviceCreateInfo> for PhysicalDevicePipelineCacheIncrementalModeFeaturesSEC {}
+impl PhysicalDevicePipelineCacheIncrementalModeFeaturesSEC {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderUniformBufferUnsizedArrayFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceShaderUniformBufferUnsizedArrayFeaturesEXT")]
@@ -38029,6 +45202,15 @@ impl Default for PhysicalDeviceShaderUniformBufferUnsizedArrayFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderUniformBufferUnsizedArrayFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderUniformBufferUnsizedArrayFeaturesEXT {}
+impl PhysicalDeviceShaderUniformBufferUnsizedArrayFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkComputeOccupancyPriorityParametersNV.html>
 #[doc(alias = "VkComputeOccupancyPriorityParametersNV")]
@@ -38075,6 +45257,15 @@ impl Default for PhysicalDeviceComputeOccupancyPriorityFeaturesNV {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceComputeOccupancyPriorityFeaturesNV {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceComputeOccupancyPriorityFeaturesNV {}
+impl PhysicalDeviceComputeOccupancyPriorityFeaturesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCooperativeMatrixProperties2EXT.html>
 #[doc(alias = "VkCooperativeMatrixProperties2EXT")]
@@ -38169,6 +45360,15 @@ impl Default for PhysicalDeviceCooperativeMatrixMaintenance1FeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceCooperativeMatrixMaintenance1FeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceCooperativeMatrixMaintenance1FeaturesEXT {}
+impl PhysicalDeviceCooperativeMatrixMaintenance1FeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderSubgroupPartitionedFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceShaderSubgroupPartitionedFeaturesEXT")]
@@ -38192,6 +45392,15 @@ impl Default for PhysicalDeviceShaderSubgroupPartitionedFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderSubgroupPartitionedFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderSubgroupPartitionedFeaturesEXT {}
+impl PhysicalDeviceShaderSubgroupPartitionedFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkUbmSurfaceCreateInfoSEC.html>
 #[doc(alias = "VkUbmSurfaceCreateInfoSEC")]
@@ -38247,6 +45456,15 @@ impl Default for PhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT {}
+impl PhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderMixedFloatDotProductFeaturesVALVE.html>
 #[doc(alias = "VkPhysicalDeviceShaderMixedFloatDotProductFeaturesVALVE")]
@@ -38276,6 +45494,15 @@ impl Default for PhysicalDeviceShaderMixedFloatDotProductFeaturesVALVE {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderMixedFloatDotProductFeaturesVALVE {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderMixedFloatDotProductFeaturesVALVE {}
+impl PhysicalDeviceShaderMixedFloatDotProductFeaturesVALVE {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkThrottleHintSubmitInfoSEC.html>
 #[doc(alias = "VkThrottleHintSubmitInfoSEC")]
@@ -38298,6 +45525,15 @@ impl Default for ThrottleHintSubmitInfoSEC {
     }
 }
 impl Extends<SubmitInfo> for ThrottleHintSubmitInfoSEC {}
+impl ThrottleHintSubmitInfoSEC {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceThrottleHintFeaturesSEC.html>
 #[doc(alias = "VkPhysicalDeviceThrottleHintFeaturesSEC")]
@@ -38321,6 +45557,15 @@ impl Default for PhysicalDeviceThrottleHintFeaturesSEC {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceThrottleHintFeaturesSEC {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceThrottleHintFeaturesSEC {}
+impl PhysicalDeviceThrottleHintFeaturesSEC {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDataGraphNeuralAcceleratorStatisticsFeaturesARM.html>
 #[doc(alias = "VkPhysicalDeviceDataGraphNeuralAcceleratorStatisticsFeaturesARM")]
@@ -38348,6 +45593,15 @@ impl Extends<PhysicalDeviceFeatures2>
 {
 }
 impl Extends<DeviceCreateInfo> for PhysicalDeviceDataGraphNeuralAcceleratorStatisticsFeaturesARM {}
+impl PhysicalDeviceDataGraphNeuralAcceleratorStatisticsFeaturesARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineNeuralStatisticsCreateInfoARM.html>
 #[doc(alias = "VkDataGraphPipelineNeuralStatisticsCreateInfoARM")]
@@ -38370,6 +45624,15 @@ impl Default for DataGraphPipelineNeuralStatisticsCreateInfoARM {
     }
 }
 impl Extends<DataGraphPipelineCreateInfoARM> for DataGraphPipelineNeuralStatisticsCreateInfoARM {}
+impl DataGraphPipelineNeuralStatisticsCreateInfoARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineSessionNeuralStatisticsCreateInfoARM.html>
 #[doc(alias = "VkDataGraphPipelineSessionNeuralStatisticsCreateInfoARM")]
@@ -38395,6 +45658,15 @@ impl Extends<DataGraphPipelineSessionCreateInfoARM>
     for DataGraphPipelineSessionNeuralStatisticsCreateInfoARM
 {
 }
+impl DataGraphPipelineSessionNeuralStatisticsCreateInfoARM {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePrimitiveRestartIndexFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDevicePrimitiveRestartIndexFeaturesEXT")]
@@ -38418,6 +45690,15 @@ impl Default for PhysicalDevicePrimitiveRestartIndexFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDevicePrimitiveRestartIndexFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDevicePrimitiveRestartIndexFeaturesEXT {}
+impl PhysicalDevicePrimitiveRestartIndexFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceImageTilingControlFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceImageTilingControlFeaturesEXT")]
@@ -38441,6 +45722,15 @@ impl Default for PhysicalDeviceImageTilingControlFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceImageTilingControlFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceImageTilingControlFeaturesEXT {}
+impl PhysicalDeviceImageTilingControlFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageTilingControlCreateInfoEXT.html>
 #[doc(alias = "VkImageTilingControlCreateInfoEXT")]
@@ -38463,6 +45753,15 @@ impl Default for ImageTilingControlCreateInfoEXT {
     }
 }
 impl Extends<ImageCreateInfo> for ImageTilingControlCreateInfoEXT {}
+impl ImageTilingControlCreateInfoEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCooperativeMatrixDecodeVectorFeaturesNV.html>
 #[doc(alias = "VkPhysicalDeviceCooperativeMatrixDecodeVectorFeaturesNV")]
@@ -38486,6 +45785,15 @@ impl Default for PhysicalDeviceCooperativeMatrixDecodeVectorFeaturesNV {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceCooperativeMatrixDecodeVectorFeaturesNV {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceCooperativeMatrixDecodeVectorFeaturesNV {}
+impl PhysicalDeviceCooperativeMatrixDecodeVectorFeaturesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePrivateDataBaseHandleFeaturesNV.html>
 #[doc(alias = "VkPhysicalDevicePrivateDataBaseHandleFeaturesNV")]
@@ -38509,6 +45817,15 @@ impl Default for PhysicalDevicePrivateDataBaseHandleFeaturesNV {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDevicePrivateDataBaseHandleFeaturesNV {}
 impl Extends<DeviceCreateInfo> for PhysicalDevicePrivateDataBaseHandleFeaturesNV {}
+impl PhysicalDevicePrivateDataBaseHandleFeaturesNV {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceBufferDeviceAddressAllocationAlignmentFeaturesVALVE.html>
 #[doc(alias = "VkPhysicalDeviceBufferDeviceAddressAllocationAlignmentFeaturesVALVE")]
@@ -38538,6 +45855,15 @@ impl Extends<DeviceCreateInfo>
     for PhysicalDeviceBufferDeviceAddressAllocationAlignmentFeaturesVALVE
 {
 }
+impl PhysicalDeviceBufferDeviceAddressAllocationAlignmentFeaturesVALVE {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceBufferDeviceAddressAllocationAlignmentPropertiesVALVE.html>
 #[doc(alias = "VkPhysicalDeviceBufferDeviceAddressAllocationAlignmentPropertiesVALVE")]
@@ -38563,6 +45889,15 @@ impl Extends<PhysicalDeviceProperties2>
     for PhysicalDeviceBufferDeviceAddressAllocationAlignmentPropertiesVALVE
 {
 }
+impl PhysicalDeviceBufferDeviceAddressAllocationAlignmentPropertiesVALVE {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferDeviceAddressAlignmentAllocateInfoVALVE.html>
 #[doc(alias = "VkBufferDeviceAddressAlignmentAllocateInfoVALVE")]
@@ -38586,6 +45921,15 @@ impl Default for BufferDeviceAddressAlignmentAllocateInfoVALVE {
 }
 impl Extends<BufferCreateInfo> for BufferDeviceAddressAlignmentAllocateInfoVALVE {}
 impl Extends<MemoryAllocateInfo> for BufferDeviceAddressAlignmentAllocateInfoVALVE {}
+impl BufferDeviceAddressAlignmentAllocateInfoVALVE {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureBuildRangeInfoKHR.html>
 #[doc(alias = "VkAccelerationStructureBuildRangeInfoKHR")]
@@ -38841,6 +46185,15 @@ impl Default for WriteDescriptorSetAccelerationStructureKHR {
     }
 }
 impl Extends<WriteDescriptorSet> for WriteDescriptorSetAccelerationStructureKHR {}
+impl WriteDescriptorSetAccelerationStructureKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *const T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceAccelerationStructureFeaturesKHR.html>
 #[doc(alias = "VkPhysicalDeviceAccelerationStructureFeaturesKHR")]
@@ -38872,6 +46225,15 @@ impl Default for PhysicalDeviceAccelerationStructureFeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceAccelerationStructureFeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceAccelerationStructureFeaturesKHR {}
+impl PhysicalDeviceAccelerationStructureFeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceAccelerationStructurePropertiesKHR.html>
 #[doc(alias = "VkPhysicalDeviceAccelerationStructurePropertiesKHR")]
@@ -38908,6 +46270,15 @@ impl Default for PhysicalDeviceAccelerationStructurePropertiesKHR {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceAccelerationStructurePropertiesKHR {}
+impl PhysicalDeviceAccelerationStructurePropertiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureDeviceAddressInfoKHR.html>
 #[doc(alias = "VkAccelerationStructureDeviceAddressInfoKHR")]
@@ -39166,6 +46537,15 @@ impl Default for PhysicalDeviceRayTracingPipelineFeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceRayTracingPipelineFeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceRayTracingPipelineFeaturesKHR {}
+impl PhysicalDeviceRayTracingPipelineFeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceRayTracingPipelinePropertiesKHR.html>
 #[doc(alias = "VkPhysicalDeviceRayTracingPipelinePropertiesKHR")]
@@ -39202,6 +46582,15 @@ impl Default for PhysicalDeviceRayTracingPipelinePropertiesKHR {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceRayTracingPipelinePropertiesKHR {}
+impl PhysicalDeviceRayTracingPipelinePropertiesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTraceRaysIndirectCommandKHR.html>
 #[doc(alias = "VkTraceRaysIndirectCommandKHR")]
@@ -39245,6 +46634,15 @@ impl Default for PhysicalDeviceRayQueryFeaturesKHR {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceRayQueryFeaturesKHR {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceRayQueryFeaturesKHR {}
+impl PhysicalDeviceRayQueryFeaturesKHR {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMeshShaderFeaturesEXT.html>
 #[doc(alias = "VkPhysicalDeviceMeshShaderFeaturesEXT")]
@@ -39276,6 +46674,15 @@ impl Default for PhysicalDeviceMeshShaderFeaturesEXT {
 }
 impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceMeshShaderFeaturesEXT {}
 impl Extends<DeviceCreateInfo> for PhysicalDeviceMeshShaderFeaturesEXT {}
+impl PhysicalDeviceMeshShaderFeaturesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMeshShaderPropertiesEXT.html>
 #[doc(alias = "VkPhysicalDeviceMeshShaderPropertiesEXT")]
@@ -39352,6 +46759,15 @@ impl Default for PhysicalDeviceMeshShaderPropertiesEXT {
     }
 }
 impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceMeshShaderPropertiesEXT {}
+impl PhysicalDeviceMeshShaderPropertiesEXT {
+    #[inline(always)]
+    pub fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
+        Self {
+            p_next: next.cast(),
+            ..self
+        }
+    }
+}
 
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDrawMeshTasksIndirectCommandEXT.html>
 #[doc(alias = "VkDrawMeshTasksIndirectCommandEXT")]
