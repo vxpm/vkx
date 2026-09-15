@@ -1,11 +1,12 @@
-from dataclasses import dataclass, field
 import os
-from pathlib import Path
 import sys
-from typing import Generic, TypeVar
+from dataclasses import dataclass, field
+from pathlib import Path
+from typing import TypeVar
 
 import textcase
-from vulkan_object import get_vulkan_object, vulkan_object as vkobj
+from vulkan_object import get_vulkan_object
+from vulkan_object import vulkan_object as vkobj
 
 from .rust_types import RustPointer, RustType
 
@@ -51,6 +52,7 @@ use crate::handles::*;
 use crate::structs::*;
 """
 
+
 class CodeWriter:
     content: str = ""
     newline: bool = True
@@ -81,7 +83,7 @@ T = TypeVar("T")
 
 
 @dataclass
-class Generated(Generic[T]):
+class Generated[T]:
     name: str
     definition: str
     original: T
@@ -100,6 +102,17 @@ class Registry:
     commands: dict[str, Generated[vkobj.Command]] = field(default_factory=dict)
 
 
+def struct_name(name: str) -> str:
+    return name.removeprefix("Vk").removeprefix("StdVideo")
+
+
+def vulkan_doc_header(out: CodeWriter, name: str):
+    out.writeln("/// # Vulkan documentation")
+    out.writeln(
+        f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{name}.html>"
+    )
+
+
 class Context:
     root: Path
     vk: vkobj.VulkanObject = get_vulkan_object(video=True)
@@ -108,21 +121,22 @@ class Context:
     def __init__(self, root: Path):
         self.root = root
 
-    def struct_name(self, name: str) -> str:
-        return name.removeprefix("Vk").removeprefix("StdVideo")
-
+    def remove_vendor_tag(self, name: str) -> str:
+        last = name[-3:]
+        if last in self.vk.vendorTags:
+            return name[:-3]
+        else:
+            return name
 
     # Generates a struct (or union) definition from a vulkan struct.
     def generate_struct(self, x: vkobj.Struct) -> Generated[vkobj.Struct]:
         assert self.vk.videoStd is not None
         out = CodeWriter()
 
-        type_name = self.struct_name(x.name)
+        type_name = struct_name(x.name)
 
         # docs
-        out.writeln(
-            f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{x.name}.html>"
-        )
+        vulkan_doc_header(out, x.name)
 
         # TODO: include extensions
         # if len(x.extensions) > 0:
@@ -130,11 +144,13 @@ class Context:
         #         print(ext)
 
         if not x.union and len(x.extendedBy) > 0:
-            children = map(lambda child: f"[`{self.struct_name(child)}`]", x.extendedBy)
+            children = (f"[`{struct_name(child)}`]" for child in x.extendedBy)
             out.writeln("///")
-            out.writeln(f"/// Extended by {", ".join(children)}")
+            out.writeln("/// # Extended by")
+            for child in children:
+                out.writeln(f"/// - {child}")
 
-        out.writeln(f"#[doc(alias = \"{x.name}\")]")
+        out.writeln(f'#[doc(alias = "{x.name}")]')
 
         # definition
         out.writeln("#[repr(C)]")
@@ -205,7 +221,7 @@ class Context:
             out.writeln("#[inline(always)]")
             out.writeln("fn default() -> Self {")
             out.indent()
-        
+
             out.writeln("Self {")
             out.indent()
             for member in x.members:
@@ -219,7 +235,9 @@ class Context:
                     continue
 
                 if member.pointer:
-                    out.writeln(f"{field_name}: unsafe {{ std::mem::transmute(std::ptr::null::<()>()) }},")
+                    out.writeln(
+                        f"{field_name}: unsafe {{ std::mem::transmute(std::ptr::null::<()>()) }},"
+                    )
                     continue
 
                 default = "Default::default()"
@@ -237,8 +255,8 @@ class Context:
 
         # extends
         for parent in x.extends:
-            assert(not x.union)
-            parent_type_name = self.struct_name(parent)
+            assert not x.union
+            parent_type_name = struct_name(parent)
             out.writeln(f"impl Extends<{parent_type_name}> for {type_name} {{}}")
 
         if x.allowDuplicate:
@@ -248,7 +266,9 @@ class Context:
             out.writeln(f"impl {type_name} {{")
             out.indent()
             out.writeln("#[inline(always)]")
-            out.writeln(f"pub fn with_next<T: Extends<Self>>(self, next: *{ "const" if p_next_const else "mut" } T) -> Self {{")
+            out.writeln(
+                f"pub fn with_next<T: Extends<Self>>(self, next: *{'const' if p_next_const else 'mut'} T) -> Self {{"
+            )
             out.indent()
             out.writeln("Self { p_next: next.cast(), ..self }")
             out.deindent()
@@ -266,21 +286,21 @@ class Context:
     def generate_handle(self, x: vkobj.Handle) -> Generated[vkobj.Handle]:
         out = CodeWriter()
 
-        out.writeln(
-            f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{x.name}.html>"
-        )
-        out.writeln(f"#[doc(alias = \"{x.name}\")]")
+        type_name = x.name.removeprefix("Vk")
+        if x.dispatchable:
+            out.writeln("/// Dispatchable handle")
+        else:
+            out.writeln("/// Non-dispatchable handle")
+
+        out.writeln("///")
+        vulkan_doc_header(out, x.name)
+        out.writeln(f'#[doc(alias = "{x.name}")]')
         out.writeln("#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]")
         out.writeln("#[repr(transparent)]")
 
-        type_name = x.name.removeprefix("Vk")
         if x.dispatchable:
-            out.writeln(f"///")
-            out.writeln(f"/// Dispatchable handle")
             out.writeln(f"pub struct {type_name}(usize);")
         else:
-            out.writeln(f"///")
-            out.writeln(f"/// Non-dispatchable handle")
             out.writeln(f"pub struct {type_name}(u64);")
 
         # aliases
@@ -305,14 +325,11 @@ class Context:
             type_name_snake = type_name_snake.replace("_AV_1", "_AV1")
             type_name_snake = type_name_snake.replace("_VP_9", "_VP9")
 
-
         if type_name == "Result":
             type_name = "ResultCode"
 
-        out.writeln(
-            f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{x.name}.html>"
-        )
-        out.writeln(f"#[doc(alias = \"{x.name}\")]")
+        vulkan_doc_header(out, x.name)
+        out.writeln(f'#[doc(alias = "{x.name}")]')
         out.writeln("#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]")
         out.writeln("#[non_exhaustive]")
         out.writeln(f"#[repr({repr_type})]")
@@ -333,7 +350,7 @@ class Context:
                 out.writeln("#[default]")
                 first_field = False
 
-            out.writeln(f"#[doc(alias = \"{field.name}\")]")
+            out.writeln(f'#[doc(alias = "{field.name}")]')
             out.writeln(f"{name} = {field.value},")
 
         out.deindent()
@@ -352,19 +369,12 @@ class Context:
                 if name[0].isdigit():
                     name = f"_{name}"
 
-                out.writeln(f"#[doc(alias = \"{alias}\")]")
+                out.writeln(f'#[doc(alias = "{alias}")]')
                 out.writeln(f"pub const {name}: Self = Self::{variant};")
             out.deindent()
             out.writeln("}")
 
         return Generated(type_name, out.content, x)
-
-    def remove_vendor_tag(self, name: str) -> str:
-        last = name[-3:]
-        if last in self.vk.vendorTags:
-            return name[:-3]
-        else:
-            return name
 
     def generate_bitmasks(self, x: vkobj.Bitmask) -> Generated[vkobj.Bitmask]:
         out = CodeWriter()
@@ -377,10 +387,8 @@ class Context:
 
         out.writeln("bitflags::bitflags! {")
         out.indent()
-        out.writeln(
-            f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{x.name}.html>"
-        )
-        out.writeln(f"#[doc(alias = \"{x.name}\")]")
+        vulkan_doc_header(out, x.name)
+        out.writeln(f'#[doc(alias = "{x.name}")]')
         out.writeln("#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]")
         out.writeln("#[repr(transparent)]")
         out.writeln(f"pub struct {type_name}: {repr_type} {{")
@@ -395,7 +403,7 @@ class Context:
             for alias in flag.aliases:
                 flag_aliases.append((name, alias))
 
-            out.writeln(f"#[doc(alias = \"{flag.name}\")]")
+            out.writeln(f'#[doc(alias = "{flag.name}")]')
             out.writeln(f"const {name} = {flag.value};")
 
         out.deindent()
@@ -416,7 +424,7 @@ class Context:
                 if name[0].isdigit():
                     name = f"_{name}"
 
-                out.writeln(f"#[doc(alias = \"{alias}\")]")
+                out.writeln(f'#[doc(alias = "{alias}")]')
                 out.writeln(f"pub const {name}: Self = Self::{variant};")
             out.deindent()
             out.writeln("}")
@@ -429,10 +437,8 @@ class Context:
         type_name = x.name.removeprefix("Vk")
         repr_type = "u32" if x.bitWidth == 32 else "u64"
 
-        out.writeln(
-            f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{x.name}.html>"
-        )
-        out.writeln(f"#[doc(alias = \"{x.name}\")]")
+        vulkan_doc_header(out, x.name)
+        out.writeln(f'#[doc(alias = "{x.name}")]')
         out.writeln(f"pub type {type_name} = {repr_type};")
 
         # aliases
@@ -447,10 +453,8 @@ class Context:
 
         type_name = x.name.removeprefix("PFN_")
 
-        out.writeln(
-            f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{x.name}.html>"
-        )
-        out.writeln(f"#[doc(alias = \"{x.name}\")]")
+        vulkan_doc_header(out, x.name)
+        out.writeln(f'#[doc(alias = "{x.name}")]')
 
         params: list[str] = []
         for param in x.params:
@@ -471,9 +475,7 @@ class Context:
         const_ty = RustType.parse(x.type)
         const_value = x.value
 
-        out.writeln(
-            f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{x.name}.html>"
-        )
+        vulkan_doc_header(out, x.name)
         out.writeln(f"pub const {const_name}: {const_ty} = {const_value};")
 
         return Generated(const_name, out.content, x)
@@ -484,10 +486,8 @@ class Context:
         const_name = x.name.removeprefix("VK_").removeprefix("STD_VIDEO_")
         const_ty = RustType.parse(x.type)
 
-        out.writeln(
-            f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{x.name}.html>"
-        )
-        out.writeln(f"#[doc(alias = \"{x.name}\")]")
+        vulkan_doc_header(out, x.name)
+        out.writeln(f'#[doc(alias = "{x.name}")]')
         out.writeln(f"pub const {const_name}: {const_ty} = {x.name};")
 
         return Generated(const_name, out.content, x)
@@ -498,11 +498,17 @@ class Context:
         method_name = textcase.snake(x.name.removeprefix("vk"))
 
         receiver = None
-        allowed_receivers = { "Instance", "PhysicalDevice", "Device", "Queue", "CommandBuffer" }
+        allowed_receivers = {
+            "Instance",
+            "PhysicalDevice",
+            "Device",
+            "Queue",
+            "CommandBuffer",
+        }
 
         params: list[str] = []
         for param in x.params:
-            name = textcase.snake(param.name)
+            name = textcase.snake(param.name).removeprefix("pp_").removeprefix("p_")
 
             if name == "type":
                 name = "type_"
@@ -532,14 +538,14 @@ class Context:
         )
 
         if receiver is not None:
-            signature = f'pub unsafe fn {method_name}(self, {", ".join(params)}) {return_ty}'
+            signature = (
+                f"pub unsafe fn {method_name}(self, {', '.join(params)}) {return_ty}"
+            )
 
             out.writeln(f"impl {receiver} {{")
             out.indent()
-            out.writeln(
-                f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{x.name}.html>"
-            )
-            out.writeln(f"#[doc(alias = \"{x.name}\")]")
+            vulkan_doc_header(out, x.name)
+            out.writeln(f'#[doc(alias = "{x.name}")]')
             out.writeln(f"{signature} {{")
             out.indent()
             out.writeln("todo!()")
@@ -548,12 +554,10 @@ class Context:
             out.deindent()
             out.writeln("}")
         else:
-            signature = f'pub unsafe fn {method_name}({", ".join(params)}) {return_ty}'
+            signature = f"pub unsafe fn {method_name}({', '.join(params)}) {return_ty}"
 
-            out.writeln(
-                f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{x.name}.html>"
-            )
-            out.writeln(f"#[doc(alias = \"{x.name}\")]")
+            vulkan_doc_header(out, x.name)
+            out.writeln(f'#[doc(alias = "{x.name}")]')
             out.writeln(f"{signature} {{")
             out.indent()
             out.writeln("todo!()")
@@ -659,7 +663,9 @@ class Context:
             "commands.rs", COMMANDS_MODULE_PREFIX, self.reg.commands
         )
         self.write_generated_to_module("consts_inner.rs", "", self.reg.constants_inner)
-        self.write_generated_to_module("consts.rs", CONSTS_MODULE_PREFIX, self.reg.constants)
+        self.write_generated_to_module(
+            "consts.rs", CONSTS_MODULE_PREFIX, self.reg.constants
+        )
         self.write_generated_to_module("enums.rs", "", self.reg.enums)
         self.write_generated_to_module("flags.rs", "", self.reg.flags)
         self.write_generated_to_module(
