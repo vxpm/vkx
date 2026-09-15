@@ -106,6 +106,19 @@ def struct_name(name: str) -> str:
     return name.removeprefix("Vk").removeprefix("StdVideo")
 
 
+def bitmask_flag_name(name: str, parent: str) -> str:
+    name = name.removeprefix("VK_").removeprefix(f"{parent}_")
+    if name[0].isdigit():
+        name = f"_{name}"
+
+    if name.endswith("_BIT"):
+        name = name.removesuffix("_BIT")
+    else:
+        name = name.replace("_BIT_", "")
+
+    return name
+
+
 def vulkan_doc_header(out: CodeWriter, name: str):
     out.writeln(f"/// `{name}`")
     out.writeln("///")
@@ -113,6 +126,55 @@ def vulkan_doc_header(out: CodeWriter, name: str):
     out.writeln(
         f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{name}.html>"
     )
+
+
+def command_doc_header(out: CodeWriter, command: vkobj.Command):
+    if len(command.tasks) > 0:
+        out.writeln("/// ## Performed tasks")
+        for task in command.tasks:
+            out.writeln(f"/// - `{task}`")
+
+        out.writeln("///")
+
+    if command.primary or command.secondary:
+        out.writeln("/// ## Allowed command buffers")
+
+        if command.primary:
+            out.writeln("/// - Primary")
+
+        if command.secondary:
+            out.writeln("/// - Secondary")
+
+        out.writeln("///")
+
+    if len(command.queues) > 0:
+        out.writeln("/// ## Allowed queues")
+        for queue in command.queues:
+            queue = bitmask_flag_name(queue, "QUEUE")
+            out.writeln(f"/// - [`{queue}`](QueueFlags::{queue})")
+
+        out.writeln("///")
+
+    if len(command.successCodes) > 0 or len(command.errorCodes) > 0:
+        assert len(command.successCodes) > 0
+        assert len(command.errorCodes) > 0
+        out.writeln("/// # Result codes")
+
+        out.writeln("/// ## Success")
+        for success in command.successCodes:
+            success = success.removeprefix("VK_")
+            out.writeln(f"/// - [`{success}`](ResultCode::{success})")
+
+        out.writeln("/// ## Error")
+        for error in command.errorCodes:
+            if error.startswith("VK_ERROR_"):
+                error = error.removeprefix("VK_ERROR_")
+                variant = f"ERROR_{error}"
+            else:
+                error = error.removeprefix("VK_")
+                variant = error
+
+            out.writeln(f"/// - [`{error}`](ResultCode::{variant})")
 
 
 class Context:
@@ -400,10 +462,7 @@ class Context:
 
         flag_aliases: list[tuple[str, str]] = []
         for flag in x.flags:
-            name = flag.name.removeprefix("VK_").removeprefix(f"{type_name_snake}_")
-            if name[0].isdigit():
-                name = f"_{name}"
-
+            name = bitmask_flag_name(flag.name, type_name_snake)
             for alias in flag.aliases:
                 flag_aliases.append((name, alias))
 
@@ -548,19 +607,25 @@ class Context:
 
             out.writeln(f"impl {receiver} {{")
             out.indent()
+
             vulkan_doc_header(out, x.name)
+            out.writeln("///")
+            command_doc_header(out, x)
             out.writeln(f'#[doc(alias = "{x.name}")]')
             out.writeln(f"{signature} {{")
             out.indent()
             out.writeln("todo!()")
             out.deindent()
             out.writeln("}")
+
             out.deindent()
             out.writeln("}")
         else:
             signature = f"pub unsafe fn {method_name}({', '.join(params)}) {return_ty}"
 
             vulkan_doc_header(out, x.name)
+            out.writeln("///")
+            command_doc_header(out, x)
             out.writeln(f'#[doc(alias = "{x.name}")]')
             out.writeln(f"{signature} {{")
             out.indent()
