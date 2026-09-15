@@ -10,4 +10,4 @@ wheels/
 .venv
 
 # Rust
-vkdefs/target
+vkx/target
