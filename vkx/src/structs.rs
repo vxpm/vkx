@@ -136,7 +136,11 @@ unsafe impl Extendable for BaseInStructure {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -168,7 +172,11 @@ unsafe impl Extendable for BaseOutStructure {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -244,7 +252,11 @@ unsafe impl Extendable for ApplicationInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -352,7 +364,11 @@ unsafe impl Extendable for InstanceCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -903,7 +919,11 @@ unsafe impl Extendable for DeviceQueueCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -1245,7 +1265,11 @@ unsafe impl Extendable for DeviceCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -1352,7 +1376,11 @@ unsafe impl Extendable for SubmitInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -1390,7 +1418,11 @@ unsafe impl Extendable for MappedMemoryRange {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -1450,7 +1482,11 @@ unsafe impl Extendable for MemoryAllocateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -1721,7 +1757,11 @@ unsafe impl Extendable for BindSparseInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -1759,7 +1799,11 @@ unsafe impl Extendable for FenceCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -1801,7 +1845,11 @@ unsafe impl Extendable for SemaphoreCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -1858,7 +1906,11 @@ unsafe impl Extendable for QueryPoolCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -1914,7 +1966,11 @@ unsafe impl Extendable for BufferCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -2001,7 +2057,11 @@ unsafe impl Extendable for ImageCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -2129,7 +2189,11 @@ unsafe impl Extendable for ImageViewCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -2168,7 +2232,11 @@ unsafe impl Extendable for CommandPoolCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -2206,7 +2274,11 @@ unsafe impl Extendable for CommandBufferAllocateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -2269,7 +2341,11 @@ unsafe impl Extendable for CommandBufferInheritanceInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -2309,7 +2385,11 @@ unsafe impl Extendable for CommandBufferBeginInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -2453,7 +2533,11 @@ unsafe impl Extendable for BufferMemoryBarrier {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -2504,7 +2588,11 @@ unsafe impl Extendable for ImageMemoryBarrier {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -2542,7 +2630,11 @@ unsafe impl Extendable for MemoryBarrier {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -2626,7 +2718,11 @@ unsafe impl Extendable for EventCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -2672,7 +2768,11 @@ unsafe impl Extendable for BufferViewCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -2714,7 +2814,11 @@ unsafe impl Extendable for ShaderModuleCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -2756,7 +2860,11 @@ unsafe impl Extendable for PipelineCacheCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -2858,7 +2966,11 @@ unsafe impl Extendable for PipelineShaderStageCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -2912,7 +3024,11 @@ unsafe impl Extendable for ComputePipelineCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -2978,7 +3094,11 @@ unsafe impl Extendable for PipelineLayoutCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -3060,7 +3180,11 @@ unsafe impl Extendable for SamplerCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -3106,7 +3230,11 @@ unsafe impl Extendable for CopyDescriptorSet {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -3214,7 +3342,11 @@ unsafe impl Extendable for DescriptorPoolCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -3254,7 +3386,11 @@ unsafe impl Extendable for DescriptorSetAllocateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -3324,7 +3460,11 @@ unsafe impl Extendable for DescriptorSetLayoutCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -3378,7 +3518,11 @@ unsafe impl Extendable for WriteDescriptorSet {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -3631,7 +3775,11 @@ unsafe impl Extendable for PipelineColorBlendStateCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -3684,7 +3832,11 @@ unsafe impl Extendable for PipelineDepthStencilStateCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -3724,7 +3876,11 @@ unsafe impl Extendable for PipelineDynamicStateCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -3763,7 +3919,11 @@ unsafe impl Extendable for PipelineInputAssemblyStateCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -3816,7 +3976,11 @@ unsafe impl Extendable for PipelineMultisampleStateCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -3880,7 +4044,11 @@ unsafe impl Extendable for PipelineRasterizationStateCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -3919,7 +4087,11 @@ unsafe impl Extendable for PipelineTessellationStateCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -3966,7 +4138,11 @@ unsafe impl Extendable for PipelineVertexInputStateCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -4021,7 +4197,11 @@ unsafe impl Extendable for PipelineViewportStateCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -4125,7 +4305,11 @@ unsafe impl Extendable for GraphicsPipelineCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -4228,7 +4412,11 @@ unsafe impl Extendable for FramebufferCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -4358,7 +4546,11 @@ unsafe impl Extendable for RenderPassCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -4540,7 +4732,11 @@ unsafe impl Extendable for RenderPassBeginInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -4588,7 +4784,11 @@ unsafe impl Extendable for BindBufferMemoryInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -4639,7 +4839,11 @@ unsafe impl Extendable for BindImageMemoryInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -4683,7 +4887,11 @@ unsafe impl Extendable for MemoryDedicatedRequirements {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -4730,7 +4938,11 @@ unsafe impl Extendable for MemoryDedicatedAllocateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -4776,7 +4988,11 @@ unsafe impl Extendable for MemoryAllocateFlagsInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -4819,7 +5035,11 @@ unsafe impl Extendable for DeviceGroupCommandBufferBeginInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -4877,7 +5097,11 @@ unsafe impl Extendable for DeviceGroupSubmitInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -4922,7 +5146,11 @@ unsafe impl Extendable for DeviceGroupBindSparseInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -4968,7 +5196,11 @@ unsafe impl Extendable for BindBufferMemoryDeviceGroupInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -5019,7 +5251,11 @@ unsafe impl Extendable for BindImageMemoryDeviceGroupInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -5066,7 +5302,11 @@ unsafe impl Extendable for PhysicalDeviceGroupProperties {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -5111,7 +5351,11 @@ unsafe impl Extendable for DeviceGroupDeviceCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -5154,7 +5398,11 @@ unsafe impl Extendable for BufferMemoryRequirementsInfo2 {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -5198,7 +5446,11 @@ unsafe impl Extendable for ImageMemoryRequirementsInfo2 {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -5240,7 +5492,11 @@ unsafe impl Extendable for ImageSparseMemoryRequirementsInfo2 {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -5286,7 +5542,11 @@ unsafe impl Extendable for MemoryRequirements2 {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -5328,7 +5588,11 @@ unsafe impl Extendable for SparseImageMemoryRequirements2 {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -5648,7 +5912,11 @@ unsafe impl Extendable for PhysicalDeviceFeatures2 {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -5818,7 +6086,11 @@ unsafe impl Extendable for PhysicalDeviceProperties2 {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -5868,7 +6140,11 @@ unsafe impl Extendable for FormatProperties2 {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -5920,7 +6196,11 @@ unsafe impl Extendable for ImageFormatProperties2 {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -5984,7 +6264,11 @@ unsafe impl Extendable for PhysicalDeviceImageFormatInfo2 {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -6034,7 +6318,11 @@ unsafe impl Extendable for QueueFamilyProperties2 {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -6078,7 +6366,11 @@ unsafe impl Extendable for PhysicalDeviceMemoryProperties2 {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -6120,7 +6412,11 @@ unsafe impl Extendable for SparseImageFormatProperties2 {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -6172,7 +6468,11 @@ unsafe impl Extendable for PhysicalDeviceSparseImageFormatInfo2 {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -6214,7 +6514,11 @@ unsafe impl Extendable for ImageViewUsageCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -6256,7 +6560,11 @@ unsafe impl Extendable for PhysicalDeviceProtectedMemoryFeatures {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -6298,7 +6606,11 @@ unsafe impl Extendable for PhysicalDeviceProtectedMemoryProperties {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -6344,7 +6656,11 @@ unsafe impl Extendable for DeviceQueueInfo2 {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -6384,7 +6700,11 @@ unsafe impl Extendable for ProtectedSubmitInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -6426,7 +6746,11 @@ unsafe impl Extendable for BindImagePlaneMemoryInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -6469,7 +6793,11 @@ unsafe impl Extendable for ImagePlaneMemoryRequirementsInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -6543,7 +6871,11 @@ unsafe impl Extendable for PhysicalDeviceExternalImageFormatInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -6586,7 +6918,11 @@ unsafe impl Extendable for ExternalImageFormatProperties {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -6637,7 +6973,11 @@ unsafe impl Extendable for PhysicalDeviceExternalBufferInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -6679,7 +7019,11 @@ unsafe impl Extendable for ExternalBufferProperties {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -6731,7 +7075,11 @@ unsafe impl Extendable for PhysicalDeviceIDProperties {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -6775,7 +7123,11 @@ unsafe impl Extendable for ExternalMemoryImageCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -6819,7 +7171,11 @@ unsafe impl Extendable for ExternalMemoryBufferCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -6863,7 +7219,11 @@ unsafe impl Extendable for ExportMemoryAllocateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -6906,7 +7266,11 @@ unsafe impl Extendable for PhysicalDeviceExternalFenceInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -6953,7 +7317,11 @@ unsafe impl Extendable for ExternalFenceProperties {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -6996,7 +7364,11 @@ unsafe impl Extendable for ExportFenceCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -7040,7 +7412,11 @@ unsafe impl Extendable for ExportSemaphoreCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -7085,7 +7461,11 @@ unsafe impl Extendable for PhysicalDeviceExternalSemaphoreInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -7132,7 +7512,11 @@ unsafe impl Extendable for ExternalSemaphoreProperties {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -7179,7 +7563,11 @@ unsafe impl Extendable for PhysicalDeviceSubgroupProperties {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -7227,7 +7615,11 @@ unsafe impl Extendable for PhysicalDevice16BitStorageFeatures {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -7273,7 +7665,11 @@ unsafe impl Extendable for PhysicalDeviceVariablePointersFeatures {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -7369,7 +7765,11 @@ unsafe impl Extendable for DescriptorUpdateTemplateCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -7413,7 +7813,11 @@ unsafe impl Extendable for PhysicalDeviceMaintenance3Properties {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -7458,7 +7862,11 @@ unsafe impl Extendable for DescriptorSetLayoutSupport {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -7519,7 +7927,11 @@ unsafe impl Extendable for SamplerYcbcrConversionCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -7561,7 +7973,11 @@ unsafe impl Extendable for SamplerYcbcrConversionInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -7605,7 +8021,11 @@ unsafe impl Extendable for PhysicalDeviceSamplerYcbcrConversionFeatures {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -7650,7 +8070,11 @@ unsafe impl Extendable for SamplerYcbcrConversionImageFormatProperties {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -7699,7 +8123,11 @@ unsafe impl Extendable for DeviceGroupRenderPassBeginInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -7743,7 +8171,11 @@ unsafe impl Extendable for PhysicalDevicePointClippingProperties {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -7817,7 +8249,11 @@ unsafe impl Extendable for RenderPassInputAttachmentAspectCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -7860,7 +8296,11 @@ unsafe impl Extendable for PipelineTessellationDomainOriginStateCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -7920,7 +8360,11 @@ unsafe impl Extendable for RenderPassMultiviewCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -7967,7 +8411,11 @@ unsafe impl Extendable for PhysicalDeviceMultiviewFeatures {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -8013,7 +8461,11 @@ unsafe impl Extendable for PhysicalDeviceMultiviewProperties {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -8055,7 +8507,11 @@ unsafe impl Extendable for PhysicalDeviceShaderDrawParametersFeatures {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -8138,7 +8594,11 @@ unsafe impl Extendable for PhysicalDeviceDriverProperties {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -8202,7 +8662,11 @@ unsafe impl Extendable for PhysicalDeviceVulkan11Features {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -8272,7 +8736,11 @@ unsafe impl Extendable for PhysicalDeviceVulkan11Properties {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -8405,7 +8873,11 @@ unsafe impl Extendable for PhysicalDeviceVulkan12Features {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -8552,7 +9024,11 @@ unsafe impl Extendable for PhysicalDeviceVulkan12Properties {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -8597,7 +9073,11 @@ unsafe impl Extendable for ImageFormatListCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -8646,7 +9126,11 @@ unsafe impl Extendable for PhysicalDeviceVulkanMemoryModelFeatures {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -8690,7 +9174,11 @@ unsafe impl Extendable for PhysicalDeviceHostQueryResetFeatures {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -8734,7 +9222,11 @@ unsafe impl Extendable for PhysicalDeviceTimelineSemaphoreFeatures {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -8778,7 +9270,11 @@ unsafe impl Extendable for PhysicalDeviceTimelineSemaphoreProperties {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -8823,7 +9319,11 @@ unsafe impl Extendable for SemaphoreTypeCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -8877,7 +9377,11 @@ unsafe impl Extendable for TimelineSemaphoreSubmitInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -8928,7 +9432,11 @@ unsafe impl Extendable for SemaphoreWaitInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -8972,7 +9480,11 @@ unsafe impl Extendable for SemaphoreSignalInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -9018,7 +9530,11 @@ unsafe impl Extendable for PhysicalDeviceBufferDeviceAddressFeatures {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -9063,7 +9579,11 @@ unsafe impl Extendable for BufferDeviceAddressInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -9106,7 +9626,11 @@ unsafe impl Extendable for BufferOpaqueCaptureAddressCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -9149,7 +9673,11 @@ unsafe impl Extendable for MemoryOpaqueCaptureAddressAllocateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -9192,7 +9720,11 @@ unsafe impl Extendable for DeviceMemoryOpaqueCaptureAddressInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -9238,7 +9770,11 @@ unsafe impl Extendable for PhysicalDevice8BitStorageFeatures {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -9284,7 +9820,11 @@ unsafe impl Extendable for PhysicalDeviceShaderAtomicInt64Features {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -9330,7 +9870,11 @@ unsafe impl Extendable for PhysicalDeviceShaderFloat16Int8Features {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -9407,7 +9951,11 @@ unsafe impl Extendable for PhysicalDeviceFloatControlsProperties {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -9453,7 +10001,11 @@ unsafe impl Extendable for DescriptorSetLayoutBindingFlagsCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -9534,7 +10086,11 @@ unsafe impl Extendable for PhysicalDeviceDescriptorIndexingFeatures {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -9622,7 +10178,11 @@ unsafe impl Extendable for PhysicalDeviceDescriptorIndexingProperties {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -9668,7 +10228,11 @@ unsafe impl Extendable for DescriptorSetVariableDescriptorCountAllocateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -9715,7 +10279,11 @@ unsafe impl Extendable for DescriptorSetVariableDescriptorCountLayoutSupport {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -9762,7 +10330,11 @@ unsafe impl Extendable for PhysicalDeviceScalarBlockLayoutFeatures {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -9806,7 +10378,11 @@ unsafe impl Extendable for SamplerReductionModeCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -9851,7 +10427,11 @@ unsafe impl Extendable for PhysicalDeviceSamplerFilterMinmaxProperties {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -9895,7 +10475,11 @@ unsafe impl Extendable for PhysicalDeviceUniformBufferStandardLayoutFeatures {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -9940,7 +10524,11 @@ unsafe impl Extendable for PhysicalDeviceShaderSubgroupExtendedTypesFeatures {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -10006,7 +10594,11 @@ unsafe impl Extendable for AttachmentDescription2 {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -10054,7 +10646,11 @@ unsafe impl Extendable for AttachmentReference2 {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -10128,7 +10724,11 @@ unsafe impl Extendable for SubpassDescription2 {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -10192,7 +10792,11 @@ unsafe impl Extendable for SubpassDependency2 {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -10234,7 +10838,11 @@ unsafe impl Extendable for SubpassBeginInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -10276,7 +10884,11 @@ unsafe impl Extendable for SubpassEndInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -10344,7 +10956,11 @@ unsafe impl Extendable for RenderPassCreateInfo2 {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -10393,7 +11009,11 @@ unsafe impl Extendable for SubpassDescriptionDepthStencilResolve {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -10442,7 +11062,11 @@ unsafe impl Extendable for PhysicalDeviceDepthStencilResolveProperties {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -10486,7 +11110,11 @@ unsafe impl Extendable for ImageStencilUsageCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -10530,7 +11158,11 @@ unsafe impl Extendable for PhysicalDeviceImagelessFramebufferFeatures {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -10591,7 +11223,11 @@ unsafe impl Extendable for FramebufferAttachmentImageInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -10636,7 +11272,11 @@ unsafe impl Extendable for RenderPassAttachmentBeginInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -10682,7 +11322,11 @@ unsafe impl Extendable for FramebufferAttachmentsCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -10725,7 +11369,11 @@ unsafe impl Extendable for PhysicalDeviceSeparateDepthStencilLayoutsFeatures {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -10770,7 +11418,11 @@ unsafe impl Extendable for AttachmentReferenceStencilLayout {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -10815,7 +11467,11 @@ unsafe impl Extendable for AttachmentDescriptionStencilLayout {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -10885,7 +11541,11 @@ unsafe impl Extendable for PhysicalDeviceVulkan13Features {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -11016,7 +11676,11 @@ unsafe impl Extendable for PhysicalDeviceVulkan13Properties {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -11070,7 +11734,11 @@ unsafe impl Extendable for PhysicalDeviceToolProperties {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -11112,7 +11780,11 @@ unsafe impl Extendable for PhysicalDevicePrivateDataFeatures {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -11156,7 +11828,11 @@ unsafe impl Extendable for DevicePrivateDataCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -11201,7 +11877,11 @@ unsafe impl Extendable for PrivateDataSlotCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -11253,7 +11933,11 @@ unsafe impl Extendable for MemoryBarrier2 {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -11319,7 +12003,11 @@ unsafe impl Extendable for BufferMemoryBarrier2 {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -11387,7 +12075,11 @@ unsafe impl Extendable for ImageMemoryBarrier2 {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -11449,7 +12141,11 @@ unsafe impl Extendable for DependencyInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -11498,7 +12194,11 @@ unsafe impl Extendable for SemaphoreSubmitInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -11544,7 +12244,11 @@ unsafe impl Extendable for CommandBufferSubmitInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -11609,7 +12313,11 @@ unsafe impl Extendable for SubmitInfo2 {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -11651,7 +12359,11 @@ unsafe impl Extendable for PhysicalDeviceSynchronization2Features {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -11699,7 +12411,11 @@ unsafe impl Extendable for BufferCopy2 {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -11747,7 +12463,11 @@ unsafe impl Extendable for CopyBufferInfo2 {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -11797,7 +12517,11 @@ unsafe impl Extendable for ImageCopy2 {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -11849,7 +12573,11 @@ unsafe impl Extendable for CopyImageInfo2 {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -11903,7 +12631,11 @@ unsafe impl Extendable for BufferImageCopy2 {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -11953,7 +12685,11 @@ unsafe impl Extendable for CopyBufferToImageInfo2 {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -12003,7 +12739,11 @@ unsafe impl Extendable for CopyImageToBufferInfo2 {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -12045,7 +12785,11 @@ unsafe impl Extendable for PhysicalDeviceTextureCompressionASTCHDRFeatures {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -12097,7 +12841,11 @@ unsafe impl Extendable for FormatProperties3 {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -12140,7 +12888,11 @@ unsafe impl Extendable for PhysicalDeviceMaintenance4Features {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -12184,7 +12936,11 @@ unsafe impl Extendable for PhysicalDeviceMaintenance4Properties {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -12227,7 +12983,11 @@ unsafe impl Extendable for DeviceBufferMemoryRequirements {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -12272,7 +13032,11 @@ unsafe impl Extendable for DeviceImageMemoryRequirements {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -12348,7 +13112,11 @@ unsafe impl Extendable for PipelineCreationFeedbackCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -12396,7 +13164,11 @@ unsafe impl Extendable for PhysicalDeviceShaderTerminateInvocationFeatures {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -12441,7 +13213,11 @@ unsafe impl Extendable for PhysicalDeviceShaderDemoteToHelperInvocationFeatures 
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -12489,7 +13265,11 @@ unsafe impl Extendable for PhysicalDevicePipelineCreationCacheControlFeatures {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -12537,7 +13317,11 @@ unsafe impl Extendable for PhysicalDeviceZeroInitializeWorkgroupMemoryFeatures {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -12585,7 +13369,11 @@ unsafe impl Extendable for PhysicalDeviceImageRobustnessFeatures {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -12631,7 +13419,11 @@ unsafe impl Extendable for PhysicalDeviceSubgroupSizeControlFeatures {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -12681,7 +13473,11 @@ unsafe impl Extendable for PhysicalDeviceSubgroupSizeControlProperties {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -12726,7 +13522,11 @@ unsafe impl Extendable for PipelineShaderStageRequiredSubgroupSizeCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -12778,7 +13578,11 @@ unsafe impl Extendable for PhysicalDeviceInlineUniformBlockFeatures {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -12830,7 +13634,11 @@ unsafe impl Extendable for PhysicalDeviceInlineUniformBlockProperties {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -12875,7 +13683,11 @@ unsafe impl Extendable for WriteDescriptorSetInlineUniformBlock {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -12918,7 +13730,11 @@ unsafe impl Extendable for DescriptorPoolInlineUniformBlockCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -12961,7 +13777,11 @@ unsafe impl Extendable for PhysicalDeviceShaderIntegerDotProductFeatures {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -13065,7 +13885,11 @@ unsafe impl Extendable for PhysicalDeviceShaderIntegerDotProductProperties {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -13115,7 +13939,11 @@ unsafe impl Extendable for PhysicalDeviceTexelBufferAlignmentProperties {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -13167,7 +13995,11 @@ unsafe impl Extendable for ImageBlit2 {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -13223,7 +14055,11 @@ unsafe impl Extendable for BlitImageInfo2 {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -13273,7 +14109,11 @@ unsafe impl Extendable for ImageResolve2 {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -13327,7 +14167,11 @@ unsafe impl Extendable for ResolveImageInfo2 {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -13389,7 +14233,11 @@ unsafe impl Extendable for RenderingAttachmentInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -13461,7 +14309,11 @@ unsafe impl Extendable for RenderingInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -13512,7 +14364,11 @@ unsafe impl Extendable for PipelineRenderingCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -13555,7 +14411,11 @@ unsafe impl Extendable for PhysicalDeviceDynamicRenderingFeatures {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -13614,7 +14474,11 @@ unsafe impl Extendable for CommandBufferInheritanceRenderingInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -13696,7 +14560,11 @@ unsafe impl Extendable for PhysicalDeviceVulkan14Features {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -13791,7 +14659,11 @@ unsafe impl Extendable for PhysicalDeviceVulkan14Properties {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -13834,7 +14706,11 @@ unsafe impl Extendable for DeviceQueueGlobalPriorityCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -13879,7 +14755,11 @@ unsafe impl Extendable for PhysicalDeviceGlobalPriorityQueryFeatures {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -13927,7 +14807,11 @@ unsafe impl Extendable for QueueFamilyGlobalPriorityProperties {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -13972,7 +14856,11 @@ unsafe impl Extendable for PhysicalDeviceIndexTypeUint8Features {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -14026,7 +14914,11 @@ unsafe impl Extendable for MemoryMapInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -14071,7 +14963,11 @@ unsafe impl Extendable for MemoryUnmapInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -14113,7 +15009,11 @@ unsafe impl Extendable for PhysicalDeviceMaintenance5Features {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -14167,7 +15067,11 @@ unsafe impl Extendable for PhysicalDeviceMaintenance5Properties {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -14215,7 +15119,11 @@ unsafe impl Extendable for SubresourceLayout2 {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -14260,7 +15168,11 @@ unsafe impl Extendable for ImageSubresource2 {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -14305,7 +15217,11 @@ unsafe impl Extendable for DeviceImageSubresourceInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -14348,7 +15264,11 @@ unsafe impl Extendable for BufferUsageFlags2CreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -14394,7 +15314,11 @@ unsafe impl Extendable for PhysicalDeviceMaintenance6Features {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -14442,7 +15366,11 @@ unsafe impl Extendable for PhysicalDeviceMaintenance6Properties {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -14485,7 +15413,11 @@ unsafe impl Extendable for BindMemoryStatus {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -14529,7 +15461,11 @@ unsafe impl Extendable for PhysicalDeviceHostImageCopyFeatures {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -14588,7 +15524,11 @@ unsafe impl Extendable for PhysicalDeviceHostImageCopyProperties {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -14641,7 +15581,11 @@ unsafe impl Extendable for MemoryToImageCopy {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -14693,7 +15637,11 @@ unsafe impl Extendable for ImageToMemoryCopy {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -14744,7 +15692,11 @@ unsafe impl Extendable for CopyMemoryToImageInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -14795,7 +15747,11 @@ unsafe impl Extendable for CopyImageToMemoryInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -14850,7 +15806,11 @@ unsafe impl Extendable for CopyImageToImageInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -14898,7 +15858,11 @@ unsafe impl Extendable for HostImageLayoutTransitionInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -14940,7 +15904,11 @@ unsafe impl Extendable for SubresourceHostMemcpySize {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -14985,7 +15953,11 @@ unsafe impl Extendable for HostImageCopyDevicePerformanceQuery {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -15030,7 +16002,11 @@ unsafe impl Extendable for PhysicalDeviceShaderSubgroupRotateFeatures {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -15074,7 +16050,11 @@ unsafe impl Extendable for PhysicalDeviceShaderFloatControls2Features {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -15118,7 +16098,11 @@ unsafe impl Extendable for PhysicalDeviceShaderExpectAssumeFeatures {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -15164,7 +16148,11 @@ unsafe impl Extendable for PipelineCreateFlags2CreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -15210,7 +16198,11 @@ unsafe impl Extendable for PhysicalDevicePushDescriptorProperties {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -15271,7 +16263,11 @@ unsafe impl Extendable for BindDescriptorSetsInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -15326,7 +16322,11 @@ unsafe impl Extendable for PushConstantsInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -15380,7 +16380,11 @@ unsafe impl Extendable for PushDescriptorSetInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -15432,7 +16436,11 @@ unsafe impl Extendable for PushDescriptorSetWithTemplateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -15474,7 +16482,11 @@ unsafe impl Extendable for PhysicalDevicePipelineProtectedAccessFeatures {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -15519,7 +16531,11 @@ unsafe impl Extendable for PhysicalDevicePipelineRobustnessFeatures {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -15569,7 +16585,11 @@ unsafe impl Extendable for PhysicalDevicePipelineRobustnessProperties {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -15618,7 +16638,11 @@ unsafe impl Extendable for PipelineRobustnessCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -15675,7 +16699,11 @@ unsafe impl Extendable for PhysicalDeviceLineRasterizationFeatures {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -15721,7 +16749,11 @@ unsafe impl Extendable for PhysicalDeviceLineRasterizationProperties {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -15772,7 +16804,11 @@ unsafe impl Extendable for PipelineRasterizationLineStateCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -15821,7 +16857,11 @@ unsafe impl Extendable for PhysicalDeviceVertexAttributeDivisorProperties {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -15897,7 +16937,11 @@ unsafe impl Extendable for PipelineVertexInputDivisorStateCreateInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -15947,7 +16991,11 @@ unsafe impl Extendable for PhysicalDeviceVertexAttributeDivisorFeatures {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -16003,7 +17051,11 @@ unsafe impl Extendable for RenderingAreaInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -16045,7 +17097,11 @@ unsafe impl Extendable for PhysicalDeviceDynamicRenderingLocalReadFeatures {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -16093,7 +17149,11 @@ unsafe impl Extendable for RenderingAttachmentLocationInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -16151,7 +17211,11 @@ unsafe impl Extendable for RenderingInputAttachmentIndexInfo {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -16306,7 +17370,11 @@ unsafe impl Extendable for SwapchainCreateInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -16372,7 +17440,11 @@ unsafe impl Extendable for PresentInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -16414,7 +17486,11 @@ unsafe impl Extendable for ImageSwapchainCreateInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -16458,7 +17534,11 @@ unsafe impl Extendable for BindImageMemorySwapchainInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -16510,7 +17590,11 @@ unsafe impl Extendable for AcquireNextImageInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -16553,7 +17637,11 @@ unsafe impl Extendable for DeviceGroupPresentCapabilitiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -16599,7 +17687,11 @@ unsafe impl Extendable for DeviceGroupPresentInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -16641,7 +17733,11 @@ unsafe impl Extendable for DeviceGroupSwapchainCreateInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -16710,7 +17806,11 @@ unsafe impl Extendable for DisplayModeCreateInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -16894,7 +17994,11 @@ unsafe impl Extendable for DisplaySurfaceCreateInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -16938,7 +18042,11 @@ unsafe impl Extendable for DisplayPresentInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -16984,7 +18092,11 @@ unsafe impl Extendable for XlibSurfaceCreateInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -17029,7 +18141,11 @@ unsafe impl Extendable for XcbSurfaceCreateInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -17074,7 +18190,11 @@ unsafe impl Extendable for WaylandSurfaceCreateInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -17117,7 +18237,11 @@ unsafe impl Extendable for AndroidSurfaceCreateInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -17162,7 +18286,11 @@ unsafe impl Extendable for Win32SurfaceCreateInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -17202,7 +18330,11 @@ unsafe impl Extendable for QueueFamilyQueryResultStatusPropertiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -17243,7 +18375,11 @@ unsafe impl Extendable for QueueFamilyVideoPropertiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -17302,7 +18438,11 @@ unsafe impl Extendable for VideoProfileInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -17346,7 +18486,11 @@ unsafe impl Extendable for VideoProfileListInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -17423,7 +18567,11 @@ unsafe impl Extendable for VideoCapabilitiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -17466,7 +18614,11 @@ unsafe impl Extendable for PhysicalDeviceVideoFormatInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -17522,7 +18674,11 @@ unsafe impl Extendable for VideoFormatPropertiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -17568,7 +18724,11 @@ unsafe impl Extendable for VideoPictureResourceInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -17619,7 +18779,11 @@ unsafe impl Extendable for VideoReferenceSlotInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -17661,7 +18825,11 @@ unsafe impl Extendable for VideoSessionMemoryRequirementsKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -17707,7 +18875,11 @@ unsafe impl Extendable for BindVideoSessionMemoryInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -17770,7 +18942,11 @@ unsafe impl Extendable for VideoSessionCreateInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -17825,7 +19001,11 @@ unsafe impl Extendable for VideoSessionParametersCreateInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -17870,7 +19050,11 @@ unsafe impl Extendable for VideoSessionParametersUpdateInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -17929,7 +19113,11 @@ unsafe impl Extendable for VideoBeginCodingInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -17970,7 +19158,11 @@ unsafe impl Extendable for VideoEndCodingInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -18016,7 +19208,11 @@ unsafe impl Extendable for VideoCodingControlInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -18056,7 +19252,11 @@ unsafe impl Extendable for VideoDecodeCapabilitiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -18098,7 +19298,11 @@ unsafe impl Extendable for VideoDecodeUsageInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -18166,7 +19370,11 @@ unsafe impl Extendable for VideoDecodeInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -18230,7 +19438,11 @@ unsafe impl Extendable for VideoEncodeH264CapabilitiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -18314,7 +19526,11 @@ unsafe impl Extendable for VideoEncodeH264QualityLevelPropertiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -18360,7 +19576,11 @@ unsafe impl Extendable for VideoEncodeH264SessionCreateInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -18411,7 +19631,11 @@ unsafe impl Extendable for VideoEncodeH264SessionParametersAddInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -18460,7 +19684,11 @@ unsafe impl Extendable for VideoEncodeH264SessionParametersCreateInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -18510,7 +19738,11 @@ unsafe impl Extendable for VideoEncodeH264SessionParametersGetInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -18556,7 +19788,11 @@ unsafe impl Extendable for VideoEncodeH264SessionParametersFeedbackInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -18602,7 +19838,11 @@ unsafe impl Extendable for VideoEncodeH264NaluSliceInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -18648,7 +19888,11 @@ unsafe impl Extendable for VideoEncodeH264PictureInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -18689,7 +19933,11 @@ unsafe impl Extendable for VideoEncodeH264DpbSlotInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -18730,7 +19978,11 @@ unsafe impl Extendable for VideoEncodeH264ProfileInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -18781,7 +20033,11 @@ unsafe impl Extendable for VideoEncodeH264RateControlInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -18860,7 +20116,11 @@ unsafe impl Extendable for VideoEncodeH264RateControlLayerInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -18907,7 +20167,11 @@ unsafe impl Extendable for VideoEncodeH264GopRemainingFrameInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -18978,7 +20242,11 @@ unsafe impl Extendable for VideoEncodeH265CapabilitiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -19021,7 +20289,11 @@ unsafe impl Extendable for VideoEncodeH265SessionCreateInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -19103,7 +20375,11 @@ unsafe impl Extendable for VideoEncodeH265QualityLevelPropertiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -19163,7 +20439,11 @@ unsafe impl Extendable for VideoEncodeH265SessionParametersAddInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -19214,7 +20494,11 @@ unsafe impl Extendable for VideoEncodeH265SessionParametersCreateInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -19268,7 +20552,11 @@ unsafe impl Extendable for VideoEncodeH265SessionParametersGetInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -19316,7 +20604,11 @@ unsafe impl Extendable for VideoEncodeH265SessionParametersFeedbackInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -19362,7 +20654,11 @@ unsafe impl Extendable for VideoEncodeH265NaluSliceSegmentInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -19406,7 +20702,11 @@ unsafe impl Extendable for VideoEncodeH265PictureInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -19447,7 +20747,11 @@ unsafe impl Extendable for VideoEncodeH265DpbSlotInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -19488,7 +20792,11 @@ unsafe impl Extendable for VideoEncodeH265ProfileInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -19539,7 +20847,11 @@ unsafe impl Extendable for VideoEncodeH265RateControlInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -19618,7 +20930,11 @@ unsafe impl Extendable for VideoEncodeH265RateControlLayerInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -19665,7 +20981,11 @@ unsafe impl Extendable for VideoEncodeH265GopRemainingFrameInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -19709,7 +21029,11 @@ unsafe impl Extendable for VideoDecodeH264ProfileInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -19753,7 +21077,11 @@ unsafe impl Extendable for VideoDecodeH264CapabilitiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -19802,7 +21130,11 @@ unsafe impl Extendable for VideoDecodeH264SessionParametersAddInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -19851,7 +21183,11 @@ unsafe impl Extendable for VideoDecodeH264SessionParametersCreateInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -19899,7 +21235,11 @@ unsafe impl Extendable for VideoDecodeH264PictureInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -19940,7 +21280,11 @@ unsafe impl Extendable for VideoDecodeH264DpbSlotInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -19988,7 +21332,11 @@ unsafe impl Extendable for ImportMemoryWin32HandleInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -20034,7 +21382,11 @@ unsafe impl Extendable for ExportMemoryWin32HandleInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -20075,7 +21427,11 @@ unsafe impl Extendable for MemoryWin32HandlePropertiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -20117,7 +21473,11 @@ unsafe impl Extendable for MemoryGetWin32HandleInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -20160,7 +21520,11 @@ unsafe impl Extendable for ImportMemoryFdInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -20201,7 +21565,11 @@ unsafe impl Extendable for MemoryFdPropertiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -20243,7 +21611,11 @@ unsafe impl Extendable for MemoryGetFdInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -20297,7 +21669,11 @@ unsafe impl Extendable for Win32KeyedMutexAcquireReleaseInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -20350,7 +21726,11 @@ unsafe impl Extendable for ImportSemaphoreWin32HandleInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -20395,7 +21775,11 @@ unsafe impl Extendable for ExportSemaphoreWin32HandleInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -20446,7 +21830,11 @@ unsafe impl Extendable for D3D12FenceSubmitInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -20489,7 +21877,11 @@ unsafe impl Extendable for SemaphoreGetWin32HandleInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -20536,7 +21928,11 @@ unsafe impl Extendable for ImportSemaphoreFdInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -20578,7 +21974,11 @@ unsafe impl Extendable for SemaphoreGetFdInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -20675,7 +22075,11 @@ unsafe impl Extendable for PresentRegionsKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -20717,7 +22121,11 @@ unsafe impl Extendable for SharedPresentSurfaceCapabilitiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -20769,7 +22177,11 @@ unsafe impl Extendable for ImportFenceWin32HandleInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -20814,7 +22226,11 @@ unsafe impl Extendable for ExportFenceWin32HandleInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -20857,7 +22273,11 @@ unsafe impl Extendable for FenceGetWin32HandleInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -20904,7 +22324,11 @@ unsafe impl Extendable for ImportFenceFdInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -20946,7 +22370,11 @@ unsafe impl Extendable for FenceGetFdInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -20988,7 +22416,11 @@ unsafe impl Extendable for PhysicalDevicePerformanceQueryFeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -21030,7 +22462,11 @@ unsafe impl Extendable for PhysicalDevicePerformanceQueryPropertiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -21077,7 +22513,11 @@ unsafe impl Extendable for PerformanceCounterKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -21127,7 +22567,11 @@ unsafe impl Extendable for PerformanceCounterDescriptionKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -21171,7 +22615,11 @@ unsafe impl Extendable for QueryPoolPerformanceCreateInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -21247,7 +22695,11 @@ unsafe impl Extendable for AcquireProfilingLockInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -21287,7 +22739,11 @@ unsafe impl Extendable for PerformanceQuerySubmitInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -21334,7 +22790,11 @@ unsafe impl Extendable for PhysicalDeviceSurfaceInfo2KHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -21389,7 +22849,11 @@ unsafe impl Extendable for SurfaceCapabilities2KHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -21431,7 +22895,11 @@ unsafe impl Extendable for SurfaceFormat2KHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -21471,7 +22939,11 @@ unsafe impl Extendable for DisplayProperties2KHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -21511,7 +22983,11 @@ unsafe impl Extendable for DisplayPlaneProperties2KHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -21553,7 +23029,11 @@ unsafe impl Extendable for DisplayModeProperties2KHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -21595,7 +23075,11 @@ unsafe impl Extendable for DisplayPlaneInfo2KHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -21635,7 +23119,11 @@ unsafe impl Extendable for DisplayPlaneCapabilities2KHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -21679,7 +23167,11 @@ unsafe impl Extendable for PhysicalDeviceShaderBfloat16FeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -21749,7 +23241,11 @@ unsafe impl Extendable for PhysicalDevicePortabilitySubsetFeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -21791,7 +23287,11 @@ unsafe impl Extendable for PhysicalDevicePortabilitySubsetPropertiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -21834,7 +23334,11 @@ unsafe impl Extendable for PhysicalDeviceShaderClockFeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -21876,7 +23380,11 @@ unsafe impl Extendable for VideoDecodeH265ProfileInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -21918,7 +23426,11 @@ unsafe impl Extendable for VideoDecodeH265CapabilitiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -21972,7 +23484,11 @@ unsafe impl Extendable for VideoDecodeH265SessionParametersAddInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -22023,7 +23539,11 @@ unsafe impl Extendable for VideoDecodeH265SessionParametersCreateInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -22071,7 +23591,11 @@ unsafe impl Extendable for VideoDecodeH265PictureInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -22112,7 +23636,11 @@ unsafe impl Extendable for VideoDecodeH265DpbSlotInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -22158,7 +23686,11 @@ unsafe impl Extendable for FragmentShadingRateAttachmentInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -22201,7 +23733,11 @@ unsafe impl Extendable for PipelineFragmentShadingRateStateCreateInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -22246,7 +23782,11 @@ unsafe impl Extendable for PhysicalDeviceFragmentShadingRateFeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -22320,7 +23860,11 @@ unsafe impl Extendable for PhysicalDeviceFragmentShadingRatePropertiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -22363,7 +23907,11 @@ unsafe impl Extendable for PhysicalDeviceFragmentShadingRateKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -22408,7 +23956,11 @@ unsafe impl Extendable for RenderingFragmentShadingRateAttachmentInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -22449,7 +24001,11 @@ unsafe impl Extendable for PhysicalDeviceShaderConstantDataFeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -22491,7 +24047,11 @@ unsafe impl Extendable for PhysicalDeviceShaderAbortFeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -22537,7 +24097,11 @@ unsafe impl Extendable for DeviceFaultShaderAbortMessageInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -22578,7 +24142,11 @@ unsafe impl Extendable for PhysicalDeviceShaderAbortPropertiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -22619,7 +24187,11 @@ unsafe impl Extendable for PhysicalDeviceShaderQuadControlFeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -22661,7 +24233,11 @@ unsafe impl Extendable for SurfaceProtectedCapabilitiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -22702,7 +24278,11 @@ unsafe impl Extendable for PhysicalDevicePresentWaitFeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -22744,7 +24324,11 @@ unsafe impl Extendable for PhysicalDevicePipelineExecutablePropertiesFeaturesKHR
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -22790,7 +24374,11 @@ unsafe impl Extendable for PipelineInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -22839,7 +24427,11 @@ unsafe impl Extendable for PipelineExecutablePropertiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -22881,7 +24473,11 @@ unsafe impl Extendable for PipelineExecutableInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -22959,7 +24555,11 @@ unsafe impl Extendable for PipelineExecutableStatisticKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -23010,7 +24610,11 @@ unsafe impl Extendable for PipelineExecutableInternalRepresentationKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -23053,7 +24657,11 @@ unsafe impl Extendable for PipelineLibraryCreateInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -23097,7 +24705,11 @@ unsafe impl Extendable for PresentIdKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -23138,7 +24750,11 @@ unsafe impl Extendable for PhysicalDevicePresentIdFeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -23206,7 +24822,11 @@ unsafe impl Extendable for VideoEncodeInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -23258,7 +24878,11 @@ unsafe impl Extendable for VideoEncodeCapabilitiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -23299,7 +24923,11 @@ unsafe impl Extendable for QueryPoolVideoEncodeFeedbackCreateInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -23347,7 +24975,11 @@ unsafe impl Extendable for VideoEncodeUsageInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -23399,7 +25031,11 @@ unsafe impl Extendable for VideoEncodeRateControlLayerInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -23452,7 +25088,11 @@ unsafe impl Extendable for VideoEncodeRateControlInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -23496,7 +25136,11 @@ unsafe impl Extendable for PhysicalDeviceVideoEncodeQualityLevelInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -23542,7 +25186,11 @@ unsafe impl Extendable for VideoEncodeQualityLevelPropertiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -23582,7 +25230,11 @@ unsafe impl Extendable for VideoEncodeQualityLevelInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -23627,7 +25279,11 @@ unsafe impl Extendable for VideoEncodeSessionParametersGetInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -23670,7 +25326,11 @@ unsafe impl Extendable for VideoEncodeSessionParametersFeedbackInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -23775,7 +25435,11 @@ unsafe impl Extendable for DeviceMemoryCopyKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -23817,7 +25481,11 @@ unsafe impl Extendable for CopyDeviceMemoryInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -23874,7 +25542,11 @@ unsafe impl Extendable for DeviceMemoryImageCopyKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -23918,7 +25590,11 @@ unsafe impl Extendable for CopyDeviceMemoryImageInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -23977,7 +25653,11 @@ unsafe impl Extendable for MemoryRangeBarrierKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -24022,7 +25702,11 @@ unsafe impl Extendable for MemoryRangeBarriersInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -24063,7 +25747,11 @@ unsafe impl Extendable for PhysicalDeviceDeviceAddressCommandsFeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -24110,7 +25798,11 @@ unsafe impl Extendable for BindIndexBuffer3InfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -24155,7 +25847,11 @@ unsafe impl Extendable for BindVertexBuffer3InfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -24200,7 +25896,11 @@ unsafe impl Extendable for DrawIndirect2InfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -24250,7 +25950,11 @@ unsafe impl Extendable for DrawIndirectCount2InfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -24293,7 +25997,11 @@ unsafe impl Extendable for DispatchIndirect2InfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -24339,7 +26047,11 @@ unsafe impl Extendable for ConditionalRenderingBeginInfo2EXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -24382,7 +26094,11 @@ unsafe impl Extendable for BindTransformFeedbackBuffer2InfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -24429,7 +26145,11 @@ unsafe impl Extendable for MemoryMarkerInfoAMD {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -24479,7 +26199,11 @@ unsafe impl Extendable for AccelerationStructureCreateInfo2KHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -24520,7 +26244,11 @@ unsafe impl Extendable for PhysicalDeviceFragmentShaderBarycentricFeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -24567,7 +26295,11 @@ unsafe impl Extendable for PhysicalDeviceFragmentShaderBarycentricPropertiesKHR 
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -24612,7 +26344,11 @@ unsafe impl Extendable for PhysicalDeviceShaderSubgroupUniformControlFlowFeature
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -24666,7 +26402,11 @@ unsafe impl Extendable for PhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKH
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -24713,7 +26453,11 @@ unsafe impl Extendable for PhysicalDeviceRayTracingMaintenance1FeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -24804,7 +26548,11 @@ unsafe impl Extendable for PhysicalDeviceShaderUntypedPointersFeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -24846,7 +26594,11 @@ unsafe impl Extendable for PhysicalDeviceShaderMaximalReconvergenceFeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -24891,7 +26643,11 @@ unsafe impl Extendable for SurfaceCapabilitiesPresentId2KHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -24935,7 +26691,11 @@ unsafe impl Extendable for PresentId2KHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -24976,7 +26736,11 @@ unsafe impl Extendable for PhysicalDevicePresentId2FeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -25018,7 +26782,11 @@ unsafe impl Extendable for SurfaceCapabilitiesPresentWait2KHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -25059,7 +26827,11 @@ unsafe impl Extendable for PhysicalDevicePresentWait2FeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -25103,7 +26875,11 @@ unsafe impl Extendable for PresentWait2InfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -25143,7 +26919,11 @@ unsafe impl Extendable for PhysicalDeviceRayTracingPositionFetchFeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -25185,7 +26965,11 @@ unsafe impl Extendable for PhysicalDevicePipelineBinaryFeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -25235,7 +27019,11 @@ unsafe impl Extendable for PhysicalDevicePipelineBinaryPropertiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -25276,7 +27064,11 @@ unsafe impl Extendable for DevicePipelineBinaryInternalCacheControlKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -25319,7 +27111,11 @@ unsafe impl Extendable for PipelineBinaryKeyKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -25409,7 +27205,11 @@ unsafe impl Extendable for PipelineCreateInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -25456,7 +27256,11 @@ unsafe impl Extendable for PipelineBinaryCreateInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -25499,7 +27303,11 @@ unsafe impl Extendable for PipelineBinaryInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -25542,7 +27350,11 @@ unsafe impl Extendable for ReleaseCapturedPipelineDataInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -25582,7 +27394,11 @@ unsafe impl Extendable for PipelineBinaryDataInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -25625,7 +27441,11 @@ unsafe impl Extendable for PipelineBinaryHandlesInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -25666,7 +27486,11 @@ unsafe impl Extendable for SurfacePresentModeKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -25722,7 +27546,11 @@ unsafe impl Extendable for SurfacePresentScalingCapabilitiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -25769,7 +27597,11 @@ unsafe impl Extendable for SurfacePresentModeCompatibilityKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -25812,7 +27644,11 @@ unsafe impl Extendable for PhysicalDeviceSwapchainMaintenance1FeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -25859,7 +27695,11 @@ unsafe impl Extendable for SwapchainPresentFenceInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -25904,7 +27744,11 @@ unsafe impl Extendable for SwapchainPresentModesCreateInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -25949,7 +27793,11 @@ unsafe impl Extendable for SwapchainPresentModeInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -25999,7 +27847,11 @@ unsafe impl Extendable for SwapchainPresentScalingCreateInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -26046,7 +27898,11 @@ unsafe impl Extendable for ReleaseSwapchainImagesInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -26087,7 +27943,11 @@ unsafe impl Extendable for PhysicalDeviceInternallySynchronizedQueuesFeaturesKHR
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -26148,7 +28008,11 @@ unsafe impl Extendable for CooperativeMatrixPropertiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -26190,7 +28054,11 @@ unsafe impl Extendable for PhysicalDeviceCooperativeMatrixFeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -26232,7 +28100,11 @@ unsafe impl Extendable for PhysicalDeviceCooperativeMatrixPropertiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -26276,7 +28148,11 @@ unsafe impl Extendable for PhysicalDeviceComputeShaderDerivativesFeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -26320,7 +28196,11 @@ unsafe impl Extendable for PhysicalDeviceComputeShaderDerivativesPropertiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -26366,7 +28246,11 @@ unsafe impl Extendable for VideoDecodeAV1ProfileInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -26408,7 +28292,11 @@ unsafe impl Extendable for VideoDecodeAV1CapabilitiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -26449,7 +28337,11 @@ unsafe impl Extendable for VideoDecodeAV1SessionParametersCreateInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -26503,7 +28395,11 @@ unsafe impl Extendable for VideoDecodeAV1PictureInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -26544,7 +28440,11 @@ unsafe impl Extendable for VideoDecodeAV1DpbSlotInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -26585,7 +28485,11 @@ unsafe impl Extendable for PhysicalDeviceVideoEncodeAV1FeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -26673,7 +28577,11 @@ unsafe impl Extendable for VideoEncodeAV1CapabilitiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -26769,7 +28677,11 @@ unsafe impl Extendable for VideoEncodeAV1QualityLevelPropertiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -26815,7 +28727,11 @@ unsafe impl Extendable for VideoEncodeAV1SessionCreateInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -26865,7 +28781,11 @@ unsafe impl Extendable for VideoEncodeAV1SessionParametersCreateInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -26921,7 +28841,11 @@ unsafe impl Extendable for VideoEncodeAV1PictureInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -26962,7 +28886,11 @@ unsafe impl Extendable for VideoEncodeAV1DpbSlotInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -27003,7 +28931,11 @@ unsafe impl Extendable for VideoEncodeAV1ProfileInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -27078,7 +29010,11 @@ unsafe impl Extendable for VideoEncodeAV1GopRemainingFrameInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -27128,7 +29064,11 @@ unsafe impl Extendable for VideoEncodeAV1RateControlInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -27180,7 +29120,11 @@ unsafe impl Extendable for VideoEncodeAV1RateControlLayerInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -27221,7 +29165,11 @@ unsafe impl Extendable for PhysicalDeviceVideoDecodeVP9FeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -27263,7 +29211,11 @@ unsafe impl Extendable for VideoDecodeVP9ProfileInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -27305,7 +29257,11 @@ unsafe impl Extendable for VideoDecodeVP9CapabilitiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -27354,7 +29310,11 @@ unsafe impl Extendable for VideoDecodeVP9PictureInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -27395,7 +29355,11 @@ unsafe impl Extendable for PhysicalDeviceVideoMaintenance1FeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -27442,7 +29406,11 @@ unsafe impl Extendable for VideoInlineQueryInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -27486,7 +29454,11 @@ unsafe impl Extendable for PhysicalDeviceUnifiedImageLayoutsFeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -27528,7 +29500,11 @@ unsafe impl Extendable for AttachmentFeedbackLoopInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -27572,7 +29548,11 @@ unsafe impl Extendable for CalibratedTimestampInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -27627,7 +29607,11 @@ unsafe impl Extendable for SetDescriptorBufferOffsetsInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -27675,7 +29659,11 @@ unsafe impl Extendable for BindDescriptorBufferEmbeddedSamplersInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -27752,7 +29740,11 @@ unsafe impl Extendable for CopyMemoryIndirectInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -27838,7 +29830,11 @@ unsafe impl Extendable for CopyMemoryToImageIndirectInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -27880,7 +29876,11 @@ unsafe impl Extendable for PhysicalDeviceCopyMemoryIndirectFeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -27923,7 +29923,11 @@ unsafe impl Extendable for PhysicalDeviceCopyMemoryIndirectPropertiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -27975,7 +29979,11 @@ unsafe impl Extendable for VideoEncodeIntraRefreshCapabilitiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -28017,7 +30025,11 @@ unsafe impl Extendable for VideoEncodeSessionIntraRefreshCreateInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -28060,7 +30072,11 @@ unsafe impl Extendable for VideoEncodeIntraRefreshInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -28101,7 +30117,11 @@ unsafe impl Extendable for VideoReferenceIntraRefreshInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -28142,7 +30162,11 @@ unsafe impl Extendable for PhysicalDeviceVideoEncodeIntraRefreshFeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -28184,7 +30208,11 @@ unsafe impl Extendable for VideoEncodeQuantizationMapCapabilitiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -28225,7 +30253,11 @@ unsafe impl Extendable for VideoFormatQuantizationMapPropertiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -28269,7 +30301,11 @@ unsafe impl Extendable for VideoEncodeQuantizationMapInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -28310,7 +30346,11 @@ unsafe impl Extendable for VideoEncodeQuantizationMapSessionParametersCreateInfo
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -28354,7 +30394,11 @@ unsafe impl Extendable for PhysicalDeviceVideoEncodeQuantizationMapFeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -28401,7 +30445,11 @@ unsafe impl Extendable for VideoEncodeH264QuantizationMapCapabilitiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -28444,7 +30492,11 @@ unsafe impl Extendable for VideoEncodeH265QuantizationMapCapabilitiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -28485,7 +30537,11 @@ unsafe impl Extendable for VideoFormatH265QuantizationMapPropertiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -28528,7 +30584,11 @@ unsafe impl Extendable for VideoEncodeAV1QuantizationMapCapabilitiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -28569,7 +30629,11 @@ unsafe impl Extendable for VideoFormatAV1QuantizationMapPropertiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -28610,7 +30674,11 @@ unsafe impl Extendable for PhysicalDeviceShaderRelaxedExtendedInstructionFeature
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -28658,7 +30726,11 @@ unsafe impl Extendable for PhysicalDeviceMaintenance7FeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -28714,7 +30786,11 @@ unsafe impl Extendable for PhysicalDeviceMaintenance7PropertiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -28763,7 +30839,11 @@ unsafe impl Extendable for PhysicalDeviceLayeredApiPropertiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -28807,7 +30887,11 @@ unsafe impl Extendable for PhysicalDeviceLayeredApiPropertiesListKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -28848,7 +30932,11 @@ unsafe impl Extendable for PhysicalDeviceLayeredApiVulkanPropertiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -28898,7 +30986,11 @@ unsafe impl Extendable for PhysicalDeviceFaultFeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -28940,7 +31032,11 @@ unsafe impl Extendable for PhysicalDeviceFaultPropertiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -29054,7 +31150,11 @@ unsafe impl Extendable for DeviceFaultInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -29099,7 +31199,11 @@ unsafe impl Extendable for DeviceFaultDebugInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -29188,7 +31292,11 @@ unsafe impl Extendable for MemoryBarrierAccessFlags3KHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -29232,7 +31340,11 @@ unsafe impl Extendable for PhysicalDeviceMaintenance8FeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -29278,7 +31390,11 @@ unsafe impl Extendable for PhysicalDeviceShaderFmaFeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -29320,7 +31436,11 @@ unsafe impl Extendable for PhysicalDeviceMaintenance9FeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -29364,7 +31484,11 @@ unsafe impl Extendable for PhysicalDeviceMaintenance9PropertiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -29405,7 +31529,11 @@ unsafe impl Extendable for QueueFamilyOwnershipTransferPropertiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -29446,7 +31574,11 @@ unsafe impl Extendable for PhysicalDeviceVideoMaintenance2FeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -29492,7 +31624,11 @@ unsafe impl Extendable for VideoDecodeH264InlineSessionParametersInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -29540,7 +31676,11 @@ unsafe impl Extendable for VideoDecodeH265InlineSessionParametersInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -29582,7 +31722,11 @@ unsafe impl Extendable for VideoDecodeAV1InlineSessionParametersInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -29623,7 +31767,11 @@ unsafe impl Extendable for PhysicalDeviceVideoEncodeFeedback2FeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -29667,7 +31815,11 @@ unsafe impl Extendable for VideoEncodeFeedback2CapabilitiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -29712,7 +31864,11 @@ unsafe impl Extendable for QueryPoolVideoEncodePerPartitionFeedbackCreateInfoKHR
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -29754,7 +31910,11 @@ unsafe impl Extendable for PhysicalDeviceDepthClampZeroOneFeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -29802,7 +31962,11 @@ unsafe impl Extendable for PhysicalDeviceRobustness2FeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -29848,7 +32012,11 @@ unsafe impl Extendable for PhysicalDeviceRobustness2PropertiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -29891,7 +32059,11 @@ unsafe impl Extendable for PhysicalDevicePresentModeFifoLatestReadyFeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -29978,7 +32150,11 @@ unsafe impl Extendable for AccelerationStructureGeometryMicromapDataKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -30022,7 +32198,11 @@ unsafe impl Extendable for PhysicalDeviceOpacityMicromapFeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -30070,7 +32250,11 @@ unsafe impl Extendable for PhysicalDeviceOpacityMicromapPropertiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -30149,7 +32333,11 @@ unsafe impl Extendable for AccelerationStructureTrianglesOpacityMicromapKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -30197,7 +32385,11 @@ unsafe impl Extendable for PhysicalDeviceMaintenance10FeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -30243,7 +32435,11 @@ unsafe impl Extendable for PhysicalDeviceMaintenance10PropertiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -30285,7 +32481,11 @@ unsafe impl Extendable for RenderingEndInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -30327,7 +32527,11 @@ unsafe impl Extendable for RenderingAttachmentFlagsInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -30375,7 +32579,11 @@ unsafe impl Extendable for ResolveImageModeInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -30417,7 +32625,11 @@ unsafe impl Extendable for PhysicalDevicePipelineLibraryGroupHandlesFeaturesKHR 
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -30464,7 +32676,11 @@ unsafe impl Extendable for PhysicalDeviceMaintenance11FeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -30506,7 +32722,11 @@ unsafe impl Extendable for QueueFamilyOptimalImageTransferGranularityPropertiesK
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -30557,7 +32777,11 @@ unsafe impl Extendable for FormatProperties4KHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -30598,7 +32822,11 @@ unsafe impl Extendable for ImageUsageFlags2CreateInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -30646,7 +32874,11 @@ unsafe impl Extendable for ImageCreateFlags2CreateInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -30690,7 +32922,11 @@ unsafe impl Extendable for ImageViewUsage2CreateInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -30731,7 +32967,11 @@ unsafe impl Extendable for PhysicalDeviceExtendedFlagsFeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -30773,7 +33013,11 @@ unsafe impl Extendable for ImageStencilUsage2CreateInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -30816,7 +33060,11 @@ unsafe impl Extendable for SharedPresentSurfaceCapabilities2KHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -30863,7 +33111,11 @@ unsafe impl Extendable for DebugReportCallbackCreateInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -30904,7 +33156,11 @@ unsafe impl Extendable for PipelineRasterizationStateRasterizationOrderAMD {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -30953,7 +33209,11 @@ unsafe impl Extendable for DebugMarkerObjectNameInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -31001,7 +33261,11 @@ unsafe impl Extendable for DebugMarkerObjectTagInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -31044,7 +33308,11 @@ unsafe impl Extendable for DebugMarkerMarkerInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -31084,7 +33352,11 @@ unsafe impl Extendable for DedicatedAllocationImageCreateInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -31125,7 +33397,11 @@ unsafe impl Extendable for DedicatedAllocationBufferCreateInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -31170,7 +33446,11 @@ unsafe impl Extendable for DedicatedAllocationMemoryAllocateInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -31213,7 +33493,11 @@ unsafe impl Extendable for PhysicalDeviceTransformFeedbackFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -31273,7 +33557,11 @@ unsafe impl Extendable for PhysicalDeviceTransformFeedbackPropertiesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -31317,7 +33605,11 @@ unsafe impl Extendable for PipelineRasterizationStateStreamCreateInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -31366,7 +33658,11 @@ unsafe impl Extendable for CuModuleCreateInfoNVX {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -31406,7 +33702,11 @@ unsafe impl Extendable for CuModuleTexturingModeCreateInfoNVX {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -31450,7 +33750,11 @@ unsafe impl Extendable for CuFunctionCreateInfoNVX {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -31514,7 +33818,11 @@ unsafe impl Extendable for CuLaunchInfoNVX {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -31559,7 +33867,11 @@ unsafe impl Extendable for ImageViewHandleInfoNVX {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -31601,7 +33913,11 @@ unsafe impl Extendable for ImageViewAddressPropertiesNVX {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -31641,7 +33957,11 @@ unsafe impl Extendable for TextureLODGatherFormatPropertiesAMD {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -31751,7 +34071,11 @@ unsafe impl Extendable for StreamDescriptorSurfaceCreateInfoGGP {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -31791,7 +34115,11 @@ unsafe impl Extendable for PhysicalDeviceCornerSampledImageFeaturesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -31866,7 +34194,11 @@ unsafe impl Extendable for ExternalMemoryImageCreateInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -31908,7 +34240,11 @@ unsafe impl Extendable for ExportMemoryAllocateInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -31953,7 +34289,11 @@ unsafe impl Extendable for ImportMemoryWin32HandleInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -31998,7 +34338,11 @@ unsafe impl Extendable for ExportMemoryWin32HandleInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -32053,7 +34397,11 @@ unsafe impl Extendable for Win32KeyedMutexAcquireReleaseInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -32097,7 +34445,11 @@ unsafe impl Extendable for ValidationFlagsEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -32141,7 +34493,11 @@ unsafe impl Extendable for ViSurfaceCreateInfoNN {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -32181,7 +34537,11 @@ unsafe impl Extendable for ImageViewASTCDecodeModeEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -32222,7 +34582,11 @@ unsafe impl Extendable for PhysicalDeviceASTCDecodeFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -32269,7 +34633,11 @@ unsafe impl Extendable for ConditionalRenderingBeginInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -32311,7 +34679,11 @@ unsafe impl Extendable for PhysicalDeviceConditionalRenderingFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -32353,7 +34725,11 @@ unsafe impl Extendable for CommandBufferInheritanceConditionalRenderingInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -32427,7 +34803,11 @@ unsafe impl Extendable for PipelineViewportWScalingStateCreateInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -32489,7 +34869,11 @@ unsafe impl Extendable for SurfaceCapabilities2EXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -32529,7 +34913,11 @@ unsafe impl Extendable for DisplayPowerInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -32569,7 +34957,11 @@ unsafe impl Extendable for DeviceEventInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -32609,7 +35001,11 @@ unsafe impl Extendable for DisplayEventInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -32650,7 +35046,11 @@ unsafe impl Extendable for SwapchainCounterCreateInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -32773,7 +35173,11 @@ unsafe impl Extendable for PresentTimesInfoGOOGLE {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -32814,7 +35218,11 @@ unsafe impl Extendable for PhysicalDeviceMultiviewPerViewAttributesPropertiesNVX
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -32860,7 +35268,11 @@ unsafe impl Extendable for MultiviewPerViewAttributesInfoNVX {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -32937,7 +35349,11 @@ unsafe impl Extendable for PipelineViewportSwizzleStateCreateInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -32978,7 +35394,11 @@ unsafe impl Extendable for PhysicalDeviceDiscardRectanglePropertiesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -33027,7 +35447,11 @@ unsafe impl Extendable for PipelineDiscardRectangleStateCreateInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -33084,7 +35508,11 @@ unsafe impl Extendable for PhysicalDeviceConservativeRasterizationPropertiesEXT 
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -33133,7 +35561,11 @@ unsafe impl Extendable for PipelineRasterizationConservativeStateCreateInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -33177,7 +35609,11 @@ unsafe impl Extendable for PhysicalDeviceDepthClipEnableFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -33222,7 +35658,11 @@ unsafe impl Extendable for PipelineRasterizationDepthClipStateCreateInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -33307,7 +35747,11 @@ unsafe impl Extendable for HdrMetadataEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -33347,7 +35791,11 @@ unsafe impl Extendable for PhysicalDeviceRelaxedLineRasterizationFeaturesIMG {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -33392,7 +35840,11 @@ unsafe impl Extendable for IOSSurfaceCreateInfoMVK {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -33435,7 +35887,11 @@ unsafe impl Extendable for MacOSSurfaceCreateInfoMVK {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -33478,7 +35934,11 @@ unsafe impl Extendable for DebugUtilsLabelEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -33524,7 +35984,11 @@ unsafe impl Extendable for DebugUtilsObjectNameInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -33595,7 +36059,11 @@ unsafe impl Extendable for DebugUtilsMessengerCallbackDataEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -33645,7 +36113,11 @@ unsafe impl Extendable for DebugUtilsMessengerCreateInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -33695,7 +36167,11 @@ unsafe impl Extendable for DebugUtilsObjectTagInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -33735,7 +36211,11 @@ unsafe impl Extendable for AndroidHardwareBufferUsageANDROID {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -33782,7 +36262,11 @@ unsafe impl Extendable for AndroidHardwareBufferPropertiesANDROID {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -33836,7 +36320,11 @@ unsafe impl Extendable for AndroidHardwareBufferFormatPropertiesANDROID {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -33880,7 +36368,11 @@ unsafe impl Extendable for ImportAndroidHardwareBufferInfoANDROID {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -33921,7 +36413,11 @@ unsafe impl Extendable for MemoryGetAndroidHardwareBufferInfoANDROID {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -33961,7 +36457,11 @@ unsafe impl Extendable for ExternalFormatANDROID {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -34020,7 +36520,11 @@ unsafe impl Extendable for AndroidHardwareBufferFormatProperties2ANDROID {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -34105,7 +36609,11 @@ unsafe impl Extendable for PhysicalDeviceGpaFeaturesAMD {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -34155,7 +36663,11 @@ unsafe impl Extendable for PhysicalDeviceGpaPropertiesAMD {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -34196,7 +36708,11 @@ unsafe impl Extendable for PhysicalDeviceGpaProperties2AMD {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -34293,7 +36809,11 @@ unsafe impl Extendable for GpaSampleBeginInfoAMD {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -34337,7 +36857,11 @@ unsafe impl Extendable for GpaDeviceClockModeInfoAMD {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -34383,7 +36907,11 @@ unsafe impl Extendable for GpaDeviceGetClockInfoAMD {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -34424,7 +36952,11 @@ unsafe impl Extendable for GpaSessionCreateInfoAMD {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -34466,7 +36998,11 @@ unsafe impl Extendable for PhysicalDeviceShaderEnqueueFeaturesAMDX {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -34520,7 +37056,11 @@ unsafe impl Extendable for PhysicalDeviceShaderEnqueuePropertiesAMDX {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -34565,7 +37105,11 @@ unsafe impl Extendable for ExecutionGraphPipelineScratchSizeAMDX {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -34626,7 +37170,11 @@ unsafe impl Extendable for ExecutionGraphPipelineCreateInfoAMDX {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -34756,7 +37304,11 @@ unsafe impl Extendable for PipelineShaderStageNodeCreateInfoAMDX {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -34849,7 +37401,11 @@ unsafe impl Extendable for TexelBufferDescriptorInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -34891,7 +37447,11 @@ unsafe impl Extendable for ImageDescriptorInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -34939,7 +37499,11 @@ unsafe impl Extendable for TensorViewCreateInfoARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -35017,7 +37581,11 @@ unsafe impl Extendable for ResourceDescriptorInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -35061,7 +37629,11 @@ unsafe impl Extendable for BindHeapInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -35105,7 +37677,11 @@ unsafe impl Extendable for PushDataInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -35448,7 +38024,11 @@ unsafe impl Extendable for DescriptorSetAndBindingMappingEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -35491,7 +38071,11 @@ unsafe impl Extendable for ShaderDescriptorSetAndBindingMappingInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -35534,7 +38118,11 @@ unsafe impl Extendable for OpaqueCaptureDataCreateInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -35578,7 +38166,11 @@ unsafe impl Extendable for PhysicalDeviceDescriptorHeapFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -35656,7 +38248,11 @@ unsafe impl Extendable for PhysicalDeviceDescriptorHeapPropertiesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -35701,7 +38297,11 @@ unsafe impl Extendable for CommandBufferInheritanceDescriptorHeapInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -35745,7 +38345,11 @@ unsafe impl Extendable for SamplerCustomBorderColorIndexCreateInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -35789,7 +38393,11 @@ unsafe impl Extendable for SamplerCustomBorderColorCreateInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -35832,7 +38440,11 @@ unsafe impl Extendable for IndirectCommandsLayoutPushDataTokenNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -35873,7 +38485,11 @@ unsafe impl Extendable for SubsampledImageFormatPropertiesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -35918,7 +38534,11 @@ unsafe impl Extendable for PhysicalDeviceDescriptorHeapTensorPropertiesARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -35966,7 +38586,11 @@ unsafe impl Extendable for AttachmentSampleCountInfoAMD {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -36041,7 +38665,11 @@ unsafe impl Extendable for SampleLocationsInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -36143,7 +38771,11 @@ unsafe impl Extendable for RenderPassSampleLocationsBeginInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -36186,7 +38818,11 @@ unsafe impl Extendable for PipelineSampleLocationsStateCreateInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -36238,7 +38874,11 @@ unsafe impl Extendable for PhysicalDeviceSampleLocationsPropertiesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -36279,7 +38919,11 @@ unsafe impl Extendable for MultisamplePropertiesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -36319,7 +38963,11 @@ unsafe impl Extendable for PhysicalDeviceBlendOperationAdvancedFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -36371,7 +39019,11 @@ unsafe impl Extendable for PhysicalDeviceBlendOperationAdvancedPropertiesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -36419,7 +39071,11 @@ unsafe impl Extendable for PipelineColorBlendAdvancedStateCreateInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -36469,7 +39125,11 @@ unsafe impl Extendable for PipelineCoverageToColorStateCreateInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -36524,7 +39184,11 @@ unsafe impl Extendable for PipelineCoverageModulationStateCreateInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -36570,7 +39234,11 @@ unsafe impl Extendable for PhysicalDeviceShaderSMBuiltinsPropertiesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -36611,7 +39279,11 @@ unsafe impl Extendable for PhysicalDeviceShaderSMBuiltinsFeaturesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -36686,7 +39358,11 @@ unsafe impl Extendable for DrmFormatModifierPropertiesListEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -36734,7 +39410,11 @@ unsafe impl Extendable for PhysicalDeviceImageDrmFormatModifierInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -36780,7 +39460,11 @@ unsafe impl Extendable for ImageDrmFormatModifierListCreateInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -36825,7 +39509,11 @@ unsafe impl Extendable for ImageDrmFormatModifierExplicitCreateInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -36866,7 +39554,11 @@ unsafe impl Extendable for ImageDrmFormatModifierPropertiesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -36939,7 +39631,11 @@ unsafe impl Extendable for DrmFormatModifierPropertiesList2EXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -36986,7 +39682,11 @@ unsafe impl Extendable for ValidationCacheCreateInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -37026,7 +39726,11 @@ unsafe impl Extendable for ShaderModuleValidationCacheCreateInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -37098,7 +39802,11 @@ unsafe impl Extendable for PipelineViewportShadingRateImageStateCreateInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -37144,7 +39852,11 @@ unsafe impl Extendable for PhysicalDeviceShadingRateImageFeaturesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -37190,7 +39902,11 @@ unsafe impl Extendable for PhysicalDeviceShadingRateImagePropertiesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -37292,7 +40008,11 @@ unsafe impl Extendable for PipelineViewportCoarseSampleOrderStateCreateInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -37344,7 +40064,11 @@ unsafe impl Extendable for RayTracingShaderGroupCreateInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -37406,7 +40130,11 @@ unsafe impl Extendable for RayTracingPipelineCreateInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -37469,7 +40197,11 @@ unsafe impl Extendable for GeometryTrianglesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -37516,7 +40248,11 @@ unsafe impl Extendable for GeometryAABBNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -37586,7 +40322,11 @@ unsafe impl Extendable for GeometryNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -37637,7 +40377,11 @@ unsafe impl Extendable for AccelerationStructureInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -37681,7 +40425,11 @@ unsafe impl Extendable for AccelerationStructureCreateInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -37730,7 +40478,11 @@ unsafe impl Extendable for BindAccelerationStructureMemoryInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -37772,7 +40524,11 @@ unsafe impl Extendable for WriteDescriptorSetAccelerationStructureNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -37815,7 +40571,11 @@ unsafe impl Extendable for AccelerationStructureMemoryRequirementsInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -37869,7 +40629,11 @@ unsafe impl Extendable for PhysicalDeviceRayTracingPropertiesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -38006,7 +40770,11 @@ unsafe impl Extendable for PhysicalDeviceRepresentativeFragmentTestFeaturesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -38051,7 +40819,11 @@ unsafe impl Extendable for PipelineRepresentativeFragmentTestStateCreateInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -38095,7 +40867,11 @@ unsafe impl Extendable for PhysicalDeviceImageViewImageFormatInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -38138,7 +40914,11 @@ unsafe impl Extendable for FilterCubicImageViewImageFormatPropertiesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -38179,7 +40959,11 @@ unsafe impl Extendable for PhysicalDeviceCooperativeMatrixConversionFeaturesQCOM
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -38224,7 +41008,11 @@ unsafe impl Extendable for PhysicalDeviceElapsedTimerQueryFeaturesQCOM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -38268,7 +41056,11 @@ unsafe impl Extendable for ImportMemoryHostPointerInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -38309,7 +41101,11 @@ unsafe impl Extendable for MemoryHostPointerPropertiesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -38349,7 +41145,11 @@ unsafe impl Extendable for PhysicalDeviceExternalMemoryHostPropertiesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -38391,7 +41191,11 @@ unsafe impl Extendable for PipelineCompilerControlCreateInfoAMD {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -38460,7 +41264,11 @@ unsafe impl Extendable for PhysicalDeviceShaderCorePropertiesAMD {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -38501,7 +41309,11 @@ unsafe impl Extendable for DeviceMemoryOverallocationCreateInfoAMD {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -38542,7 +41354,11 @@ unsafe impl Extendable for PhysicalDeviceVertexAttributeDivisorPropertiesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -38586,7 +41402,11 @@ unsafe impl Extendable for PresentFrameTokenGGP {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -38629,7 +41449,11 @@ unsafe impl Extendable for PhysicalDeviceMeshShaderFeaturesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -38695,7 +41519,11 @@ unsafe impl Extendable for PhysicalDeviceMeshShaderPropertiesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -38761,7 +41589,11 @@ unsafe impl Extendable for PhysicalDeviceShaderImageFootprintFeaturesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -38806,7 +41638,11 @@ unsafe impl Extendable for PipelineViewportExclusiveScissorStateCreateInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -38850,7 +41686,11 @@ unsafe impl Extendable for PhysicalDeviceExclusiveScissorFeaturesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -38892,7 +41732,11 @@ unsafe impl Extendable for QueueFamilyCheckpointPropertiesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -38935,7 +41779,11 @@ unsafe impl Extendable for CheckpointDataNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -38975,7 +41823,11 @@ unsafe impl Extendable for QueueFamilyCheckpointProperties2NV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -39018,7 +41870,11 @@ unsafe impl Extendable for CheckpointData2NV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -39062,7 +41918,11 @@ unsafe impl Extendable for PhysicalDevicePresentTimingFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -39110,7 +41970,11 @@ unsafe impl Extendable for PresentTimingSurfaceCapabilitiesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -39156,7 +42020,11 @@ unsafe impl Extendable for SwapchainCalibratedTimestampInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -39199,7 +42067,11 @@ unsafe impl Extendable for SwapchainTimingPropertiesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -39245,7 +42117,11 @@ unsafe impl Extendable for SwapchainTimeDomainPropertiesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -39288,7 +42164,11 @@ unsafe impl Extendable for PastPresentationTimingInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -39365,7 +42245,11 @@ unsafe impl Extendable for PastPresentationTimingEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -39411,7 +42295,11 @@ unsafe impl Extendable for PastPresentationTimingPropertiesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -39462,7 +42350,11 @@ unsafe impl Extendable for PresentTimingInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -39505,7 +42397,11 @@ unsafe impl Extendable for PresentTimingsInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -39546,7 +42442,11 @@ unsafe impl Extendable for PhysicalDeviceShaderIntegerFunctions2FeaturesINTEL {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -39649,7 +42549,11 @@ unsafe impl Extendable for InitializePerformanceApiInfoINTEL {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -39689,7 +42593,11 @@ unsafe impl Extendable for QueryPoolPerformanceQueryCreateInfoINTEL {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -39731,7 +42639,11 @@ unsafe impl Extendable for PerformanceMarkerInfoINTEL {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -39771,7 +42683,11 @@ unsafe impl Extendable for PerformanceStreamMarkerInfoINTEL {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -39815,7 +42731,11 @@ unsafe impl Extendable for PerformanceOverrideInfoINTEL {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -39855,7 +42775,11 @@ unsafe impl Extendable for PerformanceConfigurationAcquireInfoINTEL {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -39901,7 +42825,11 @@ unsafe impl Extendable for PhysicalDevicePCIBusInfoPropertiesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -39942,7 +42870,11 @@ unsafe impl Extendable for DisplayNativeHdrSurfaceCapabilitiesAMD {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -39983,7 +42915,11 @@ unsafe impl Extendable for SwapchainDisplayNativeHdrCreateInfoAMD {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -40027,7 +42963,11 @@ unsafe impl Extendable for ImagePipeSurfaceCreateInfoFUCHSIA {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -40070,7 +43010,11 @@ unsafe impl Extendable for MetalSurfaceCreateInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -40114,7 +43058,11 @@ unsafe impl Extendable for PhysicalDeviceFragmentDensityMapFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -40160,7 +43108,11 @@ unsafe impl Extendable for PhysicalDeviceFragmentDensityMapPropertiesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -40201,7 +43153,11 @@ unsafe impl Extendable for RenderPassFragmentDensityMapCreateInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -40245,7 +43201,11 @@ unsafe impl Extendable for RenderingFragmentDensityMapAttachmentInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -40288,7 +43248,11 @@ unsafe impl Extendable for PhysicalDeviceShaderCoreProperties2AMD {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -40329,7 +43293,11 @@ unsafe impl Extendable for PhysicalDeviceCoherentMemoryFeaturesAMD {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -40373,7 +43341,11 @@ unsafe impl Extendable for PhysicalDeviceShaderImageAtomicInt64FeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -40417,7 +43389,11 @@ unsafe impl Extendable for PhysicalDeviceMemoryBudgetPropertiesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -40458,7 +43434,11 @@ unsafe impl Extendable for PhysicalDeviceMemoryPriorityFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -40500,7 +43480,11 @@ unsafe impl Extendable for MemoryPriorityAllocateInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -40541,7 +43525,11 @@ unsafe impl Extendable for PhysicalDeviceDedicatedAllocationImageAliasingFeature
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -40590,7 +43578,11 @@ unsafe impl Extendable for PhysicalDeviceBufferDeviceAddressFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -40634,7 +43626,11 @@ unsafe impl Extendable for BufferDeviceAddressCreateInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -40683,7 +43679,11 @@ unsafe impl Extendable for ValidationFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -40744,7 +43744,11 @@ unsafe impl Extendable for CooperativeMatrixPropertiesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -40786,7 +43790,11 @@ unsafe impl Extendable for PhysicalDeviceCooperativeMatrixFeaturesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -40828,7 +43836,11 @@ unsafe impl Extendable for PhysicalDeviceCooperativeMatrixPropertiesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -40869,7 +43881,11 @@ unsafe impl Extendable for PhysicalDeviceCoverageReductionModeFeaturesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -40914,7 +43930,11 @@ unsafe impl Extendable for PipelineCoverageReductionStateCreateInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -40964,7 +43984,11 @@ unsafe impl Extendable for FramebufferMixedSamplesCombinationNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -41008,7 +44032,11 @@ unsafe impl Extendable for PhysicalDeviceFragmentShaderInterlockFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -41050,7 +44078,11 @@ unsafe impl Extendable for PhysicalDeviceYcbcrImageArraysFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -41094,7 +44126,11 @@ unsafe impl Extendable for PhysicalDeviceProvokingVertexFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -41138,7 +44174,11 @@ unsafe impl Extendable for PhysicalDeviceProvokingVertexPropertiesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -41179,7 +44219,11 @@ unsafe impl Extendable for PipelineRasterizationProvokingVertexStateCreateInfoEX
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -41223,7 +44267,11 @@ unsafe impl Extendable for SurfaceFullScreenExclusiveInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -41265,7 +44313,11 @@ unsafe impl Extendable for SurfaceCapabilitiesFullScreenExclusiveEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -41306,7 +44358,11 @@ unsafe impl Extendable for SurfaceFullScreenExclusiveWin32InfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -41349,7 +44405,11 @@ unsafe impl Extendable for HeadlessSurfaceCreateInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -41411,7 +44471,11 @@ unsafe impl Extendable for PhysicalDeviceShaderAtomicFloatFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -41453,7 +44517,11 @@ unsafe impl Extendable for PhysicalDeviceExtendedDynamicStateFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -41499,7 +44567,11 @@ unsafe impl Extendable for PhysicalDeviceMapMemoryPlacedFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -41541,7 +44613,11 @@ unsafe impl Extendable for PhysicalDeviceMapMemoryPlacedPropertiesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -41582,7 +44658,11 @@ unsafe impl Extendable for MemoryMapPlacedInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -41645,7 +44725,11 @@ unsafe impl Extendable for PhysicalDeviceShaderAtomicFloat2FeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -41703,7 +44787,11 @@ unsafe impl Extendable for PhysicalDeviceDeviceGeneratedCommandsPropertiesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -41747,7 +44835,11 @@ unsafe impl Extendable for PhysicalDeviceDeviceGeneratedCommandsFeaturesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -41797,7 +44889,11 @@ unsafe impl Extendable for GraphicsShaderGroupCreateInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -41845,7 +44941,11 @@ unsafe impl Extendable for GraphicsPipelineShaderGroupsCreateInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -42041,7 +45141,11 @@ unsafe impl Extendable for IndirectCommandsLayoutTokenNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -42092,7 +45196,11 @@ unsafe impl Extendable for IndirectCommandsLayoutCreateInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -42159,7 +45267,11 @@ unsafe impl Extendable for GeneratedCommandsInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -42206,7 +45318,11 @@ unsafe impl Extendable for GeneratedCommandsMemoryRequirementsInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -42246,7 +45362,11 @@ unsafe impl Extendable for PhysicalDeviceInheritedViewportScissorFeaturesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -42292,7 +45412,11 @@ unsafe impl Extendable for CommandBufferInheritanceViewportScissorInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -42336,7 +45460,11 @@ unsafe impl Extendable for PhysicalDeviceTexelBufferAlignmentFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -42378,7 +45506,11 @@ unsafe impl Extendable for RenderPassTransformBeginInfoQCOM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -42421,7 +45553,11 @@ unsafe impl Extendable for CommandBufferInheritanceRenderPassTransformInfoQCOM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -42471,7 +45607,11 @@ unsafe impl Extendable for PhysicalDeviceDepthBiasControlFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -42519,7 +45659,11 @@ unsafe impl Extendable for DepthBiasInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -42561,7 +45705,11 @@ unsafe impl Extendable for DepthBiasRepresentationInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -42603,7 +45751,11 @@ unsafe impl Extendable for PhysicalDeviceDeviceMemoryReportFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -42657,7 +45809,11 @@ unsafe impl Extendable for DeviceMemoryReportCallbackDataEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -42702,7 +45858,11 @@ unsafe impl Extendable for DeviceDeviceMemoryReportCreateInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -42747,7 +45907,11 @@ unsafe impl Extendable for PhysicalDeviceCustomBorderColorPropertiesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -42790,7 +45954,11 @@ unsafe impl Extendable for PhysicalDeviceCustomBorderColorFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -42832,7 +46000,11 @@ unsafe impl Extendable for PhysicalDeviceTextureCompressionASTC3DFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -42874,7 +46046,11 @@ unsafe impl Extendable for PhysicalDevicePresentBarrierFeaturesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -42916,7 +46092,11 @@ unsafe impl Extendable for SurfaceCapabilitiesPresentBarrierNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -42957,7 +46137,11 @@ unsafe impl Extendable for SwapchainPresentBarrierCreateInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -42998,7 +46182,11 @@ unsafe impl Extendable for PhysicalDeviceDiagnosticsConfigFeaturesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -43041,7 +46229,11 @@ unsafe impl Extendable for DeviceDiagnosticsConfigCreateInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -43084,7 +46276,11 @@ unsafe impl Extendable for PerfHintInfoQCOM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -43124,7 +46320,11 @@ unsafe impl Extendable for PhysicalDeviceQueuePerfHintFeaturesQCOM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -43166,7 +46366,11 @@ unsafe impl Extendable for PhysicalDeviceQueuePerfHintPropertiesQCOM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -43211,7 +46415,11 @@ unsafe impl Extendable for PhysicalDeviceImageProcessing3FeaturesQCOM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -43253,7 +46461,11 @@ unsafe impl Extendable for PhysicalDeviceShaderMultipleWaitQueuesFeaturesQCOM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -43299,7 +46511,11 @@ unsafe impl Extendable for PhysicalDeviceShaderMultipleWaitQueuesPropertiesQCOM 
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -43343,7 +46559,11 @@ unsafe impl Extendable for PhysicalDeviceShaderSplitBarrierFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -43385,7 +46605,11 @@ unsafe impl Extendable for PhysicalDeviceShaderSplitBarrierPropertiesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -43428,7 +46652,11 @@ unsafe impl Extendable for CudaModuleCreateInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -43471,7 +46699,11 @@ unsafe impl Extendable for CudaFunctionCreateInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -43535,7 +46767,11 @@ unsafe impl Extendable for CudaLaunchInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -43575,7 +46811,11 @@ unsafe impl Extendable for PhysicalDeviceCudaKernelLaunchFeaturesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -43619,7 +46859,11 @@ unsafe impl Extendable for PhysicalDeviceCudaKernelLaunchPropertiesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -43686,7 +46930,11 @@ unsafe impl Extendable for PhysicalDeviceTileShadingFeaturesQCOM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -43734,7 +46982,11 @@ unsafe impl Extendable for PhysicalDeviceTileShadingPropertiesQCOM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -43779,7 +47031,11 @@ unsafe impl Extendable for RenderPassTileShadingCreateInfoQCOM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -43821,7 +47077,11 @@ unsafe impl Extendable for PerTileBeginInfoQCOM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -43859,7 +47119,11 @@ unsafe impl Extendable for PerTileEndInfoQCOM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -43897,7 +47161,11 @@ unsafe impl Extendable for DispatchTileInfoQCOM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -43937,7 +47205,11 @@ unsafe impl Extendable for QueryLowLatencySupportNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -43979,7 +47251,11 @@ unsafe impl Extendable for ExportMetalObjectCreateInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -44032,7 +47308,11 @@ unsafe impl Extendable for ExportMetalObjectsInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -44072,7 +47352,11 @@ unsafe impl Extendable for ExportMetalDeviceInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -44115,7 +47399,11 @@ unsafe impl Extendable for ExportMetalCommandQueueInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -44159,7 +47447,11 @@ unsafe impl Extendable for ExportMetalBufferInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -44201,7 +47493,11 @@ unsafe impl Extendable for ImportMetalBufferInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -44253,7 +47549,11 @@ unsafe impl Extendable for ExportMetalTextureInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -44297,7 +47597,11 @@ unsafe impl Extendable for ImportMetalTextureInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -44341,7 +47645,11 @@ unsafe impl Extendable for ExportMetalIOSurfaceInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -44384,7 +47692,11 @@ unsafe impl Extendable for ImportMetalIOSurfaceInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -44431,7 +47743,11 @@ unsafe impl Extendable for ExportMetalSharedEventInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -44473,7 +47789,11 @@ unsafe impl Extendable for ImportMetalSharedEventInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -44579,7 +47899,11 @@ unsafe impl Extendable for PhysicalDeviceDescriptorBufferPropertiesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -44626,7 +47950,11 @@ unsafe impl Extendable for PhysicalDeviceDescriptorBufferFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -44673,7 +48001,11 @@ unsafe impl Extendable for DescriptorAddressInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -44719,7 +48051,11 @@ unsafe impl Extendable for DescriptorBufferBindingInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -44759,7 +48095,11 @@ unsafe impl Extendable for DescriptorBufferBindingPushDescriptorBufferHandleEXT 
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -44849,7 +48189,11 @@ unsafe impl Extendable for DescriptorGetInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -44889,7 +48233,11 @@ unsafe impl Extendable for BufferCaptureDescriptorDataInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -44929,7 +48277,11 @@ unsafe impl Extendable for ImageCaptureDescriptorDataInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -44969,7 +48321,11 @@ unsafe impl Extendable for ImageViewCaptureDescriptorDataInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -45009,7 +48365,11 @@ unsafe impl Extendable for SamplerCaptureDescriptorDataInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -45049,7 +48409,11 @@ unsafe impl Extendable for OpaqueCaptureDescriptorDataCreateInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -45111,7 +48475,11 @@ unsafe impl Extendable for AccelerationStructureCaptureDescriptorDataInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -45151,7 +48519,11 @@ unsafe impl Extendable for PhysicalDeviceDescriptorBufferDensityMapPropertiesEXT
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -45195,7 +48567,11 @@ unsafe impl Extendable for PhysicalDeviceGraphicsPipelineLibraryFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -45239,7 +48615,11 @@ unsafe impl Extendable for PhysicalDeviceGraphicsPipelineLibraryPropertiesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -45283,7 +48663,11 @@ unsafe impl Extendable for GraphicsPipelineLibraryCreateInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -45325,7 +48709,11 @@ unsafe impl Extendable for PhysicalDeviceShaderEarlyAndLateFragmentTestsFeatures
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -45374,7 +48762,11 @@ unsafe impl Extendable for PhysicalDeviceFragmentShadingRateEnumsFeaturesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -45416,7 +48808,11 @@ unsafe impl Extendable for PhysicalDeviceFragmentShadingRateEnumsPropertiesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -45464,7 +48860,11 @@ unsafe impl Extendable for PipelineFragmentShadingRateEnumStateCreateInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -45536,7 +48936,11 @@ unsafe impl Extendable for AccelerationStructureGeometryMotionTrianglesDataNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -45583,7 +48987,11 @@ unsafe impl Extendable for AccelerationStructureMotionInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -45808,7 +49216,11 @@ unsafe impl Extendable for PhysicalDeviceRayTracingMotionBlurFeaturesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -45850,7 +49262,11 @@ unsafe impl Extendable for PhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -45892,7 +49308,11 @@ unsafe impl Extendable for PhysicalDeviceFragmentDensityMap2FeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -45940,7 +49360,11 @@ unsafe impl Extendable for PhysicalDeviceFragmentDensityMap2PropertiesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -45981,7 +49405,11 @@ unsafe impl Extendable for CopyCommandTransformInfoQCOM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -46024,7 +49452,11 @@ unsafe impl Extendable for PhysicalDeviceImageCompressionControlFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -46071,7 +49503,11 @@ unsafe impl Extendable for ImageCompressionControlEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -46116,7 +49552,11 @@ unsafe impl Extendable for ImageCompressionPropertiesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -46159,7 +49599,11 @@ unsafe impl Extendable for PhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -46206,7 +49650,11 @@ unsafe impl Extendable for PhysicalDevice4444FormatsFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -46250,7 +49698,11 @@ unsafe impl Extendable for PhysicalDeviceFaultFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -46299,7 +49751,11 @@ unsafe impl Extendable for DeviceFaultCountsEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -46349,7 +49805,11 @@ unsafe impl Extendable for DeviceFaultInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -46395,7 +49855,11 @@ unsafe impl Extendable for PhysicalDeviceRasterizationOrderAttachmentAccessFeatu
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -46445,7 +49909,11 @@ unsafe impl Extendable for PhysicalDeviceRGBA10X6FormatsFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -46492,7 +49960,11 @@ unsafe impl Extendable for DirectFBSurfaceCreateInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -46533,7 +50005,11 @@ unsafe impl Extendable for PhysicalDeviceMutableDescriptorTypeFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -46609,7 +50085,11 @@ unsafe impl Extendable for MutableDescriptorTypeCreateInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -46652,7 +50132,11 @@ unsafe impl Extendable for PhysicalDeviceVertexInputDynamicStateFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -46701,7 +50185,11 @@ unsafe impl Extendable for VertexInputBindingDescription2EXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -46748,7 +50236,11 @@ unsafe impl Extendable for VertexInputAttributeDescription2EXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -46798,7 +50290,11 @@ unsafe impl Extendable for PhysicalDeviceDrmPropertiesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -46839,7 +50335,11 @@ unsafe impl Extendable for PhysicalDeviceAddressBindingReportFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -46888,7 +50388,11 @@ unsafe impl Extendable for DeviceAddressBindingCallbackDataEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -46929,7 +50433,11 @@ unsafe impl Extendable for PhysicalDeviceDepthClipControlFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -46971,7 +50479,11 @@ unsafe impl Extendable for PipelineViewportDepthClipControlCreateInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -47017,7 +50529,11 @@ unsafe impl Extendable for PhysicalDevicePrimitiveTopologyListRestartFeaturesEXT
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -47066,7 +50582,11 @@ unsafe impl Extendable for ImportMemoryZirconHandleInfoFUCHSIA {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -47107,7 +50627,11 @@ unsafe impl Extendable for MemoryZirconHandlePropertiesFUCHSIA {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -47149,7 +50673,11 @@ unsafe impl Extendable for MemoryGetZirconHandleInfoFUCHSIA {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -47196,7 +50724,11 @@ unsafe impl Extendable for ImportSemaphoreZirconHandleInfoFUCHSIA {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -47238,7 +50770,11 @@ unsafe impl Extendable for SemaphoreGetZirconHandleInfoFUCHSIA {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -47278,7 +50814,11 @@ unsafe impl Extendable for BufferCollectionCreateInfoFUCHSIA {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -47320,7 +50860,11 @@ unsafe impl Extendable for ImportMemoryBufferCollectionFUCHSIA {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -47363,7 +50907,11 @@ unsafe impl Extendable for BufferCollectionImageCreateInfoFUCHSIA {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -47412,7 +50960,11 @@ unsafe impl Extendable for BufferCollectionConstraintsInfoFUCHSIA {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -47457,7 +51009,11 @@ unsafe impl Extendable for BufferConstraintsInfoFUCHSIA {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -47499,7 +51055,11 @@ unsafe impl Extendable for BufferCollectionBufferCreateInfoFUCHSIA {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -47540,7 +51100,11 @@ unsafe impl Extendable for SysmemColorSpaceFUCHSIA {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -47600,7 +51164,11 @@ unsafe impl Extendable for BufferCollectionPropertiesFUCHSIA {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -47652,7 +51220,11 @@ unsafe impl Extendable for ImageFormatConstraintsInfoFUCHSIA {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -47699,7 +51271,11 @@ unsafe impl Extendable for ImageConstraintsInfoFUCHSIA {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -47741,7 +51317,11 @@ unsafe impl Extendable for SubpassShadingPipelineCreateInfoHUAWEI {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -47782,7 +51362,11 @@ unsafe impl Extendable for PhysicalDeviceSubpassShadingFeaturesHUAWEI {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -47824,7 +51408,11 @@ unsafe impl Extendable for PhysicalDeviceSubpassShadingPropertiesHUAWEI {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -47865,7 +51453,11 @@ unsafe impl Extendable for PhysicalDeviceInvocationMaskFeaturesHUAWEI {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -47909,7 +51501,11 @@ unsafe impl Extendable for MemoryGetRemoteAddressInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -47949,7 +51545,11 @@ unsafe impl Extendable for PhysicalDeviceExternalMemoryRDMAFeaturesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -47991,7 +51591,11 @@ unsafe impl Extendable for PipelinePropertiesIdentifierEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -48031,7 +51635,11 @@ unsafe impl Extendable for PhysicalDevicePipelinePropertiesFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -48073,7 +51681,11 @@ unsafe impl Extendable for PhysicalDeviceFrameBoundaryFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -48139,7 +51751,11 @@ unsafe impl Extendable for FrameBoundaryEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -48184,7 +51800,11 @@ unsafe impl Extendable for PhysicalDeviceMultisampledRenderToSingleSampledFeatur
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -48232,7 +51852,11 @@ unsafe impl Extendable for SubpassResolvePerformanceQueryEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -48275,7 +51899,11 @@ unsafe impl Extendable for MultisampledRenderToSingleSampledInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -48321,7 +51949,11 @@ unsafe impl Extendable for PhysicalDeviceExtendedDynamicState2FeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -48368,7 +52000,11 @@ unsafe impl Extendable for ScreenSurfaceCreateInfoQNX {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -48408,7 +52044,11 @@ unsafe impl Extendable for PhysicalDeviceColorWriteEnableFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -48453,7 +52093,11 @@ unsafe impl Extendable for PipelineColorWriteCreateInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -48498,7 +52142,11 @@ unsafe impl Extendable for PhysicalDevicePrimitivesGeneratedQueryFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -48540,7 +52188,11 @@ unsafe impl Extendable for PhysicalDeviceVideoEncodeRgbConversionFeaturesVALVE {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -48591,7 +52243,11 @@ unsafe impl Extendable for VideoEncodeRgbConversionCapabilitiesVALVE {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -48632,7 +52288,11 @@ unsafe impl Extendable for VideoEncodeProfileRgbConversionInfoVALVE {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -48679,7 +52339,11 @@ unsafe impl Extendable for VideoEncodeSessionRgbConversionCreateInfoVALVE {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -48720,7 +52384,11 @@ unsafe impl Extendable for PhysicalDeviceImageViewMinLodFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -48762,7 +52430,11 @@ unsafe impl Extendable for ImageViewMinLodCreateInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -48803,7 +52475,11 @@ unsafe impl Extendable for PhysicalDeviceMultiDrawFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -48845,7 +52521,11 @@ unsafe impl Extendable for PhysicalDeviceMultiDrawPropertiesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -48940,7 +52620,11 @@ unsafe impl Extendable for PhysicalDeviceImage2DViewOf3DFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -48986,7 +52670,11 @@ unsafe impl Extendable for PhysicalDeviceShaderTileImageFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -49032,7 +52720,11 @@ unsafe impl Extendable for PhysicalDeviceShaderTileImagePropertiesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -49153,7 +52845,11 @@ unsafe impl Extendable for MicromapBuildInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -49205,7 +52901,11 @@ unsafe impl Extendable for MicromapCreateInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -49249,7 +52949,11 @@ unsafe impl Extendable for PhysicalDeviceOpacityMicromapFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -49293,7 +52997,11 @@ unsafe impl Extendable for PhysicalDeviceOpacityMicromapPropertiesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -49334,7 +53042,11 @@ unsafe impl Extendable for MicromapVersionInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -49378,7 +53090,11 @@ unsafe impl Extendable for CopyMicromapToMemoryInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -49422,7 +53138,11 @@ unsafe impl Extendable for CopyMemoryToMicromapInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -49466,7 +53186,11 @@ unsafe impl Extendable for CopyMicromapInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -49510,7 +53234,11 @@ unsafe impl Extendable for MicromapBuildSizesInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -49568,7 +53296,11 @@ unsafe impl Extendable for AccelerationStructureTrianglesOpacityMicromapEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -49616,7 +53348,11 @@ unsafe impl Extendable for PhysicalDeviceDisplacementMicromapFeaturesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -49658,7 +53394,11 @@ unsafe impl Extendable for PhysicalDeviceDisplacementMicromapPropertiesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -49733,7 +53473,11 @@ unsafe impl Extendable for AccelerationStructureTrianglesDisplacementMicromapNV 
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -49781,7 +53525,11 @@ unsafe impl Extendable for PhysicalDeviceClusterCullingShaderFeaturesHUAWEI {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -49829,7 +53577,11 @@ unsafe impl Extendable for PhysicalDeviceClusterCullingShaderPropertiesHUAWEI {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -49873,7 +53625,11 @@ unsafe impl Extendable for PhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEI {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -49919,7 +53675,11 @@ unsafe impl Extendable for PhysicalDeviceBorderColorSwizzleFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -49963,7 +53723,11 @@ unsafe impl Extendable for SamplerBorderColorComponentMappingCreateInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -50004,7 +53768,11 @@ unsafe impl Extendable for PhysicalDevicePageableDeviceLocalMemoryFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -50053,7 +53821,11 @@ unsafe impl Extendable for PhysicalDeviceShaderCorePropertiesARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -50094,7 +53866,11 @@ unsafe impl Extendable for DeviceQueueShaderCoreControlCreateInfoARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -50136,7 +53912,11 @@ unsafe impl Extendable for PhysicalDeviceSchedulingControlsFeaturesARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -50178,7 +53958,11 @@ unsafe impl Extendable for PhysicalDeviceSchedulingControlsPropertiesARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -50226,7 +54010,11 @@ unsafe impl Extendable for DispatchParametersARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -50270,7 +54058,11 @@ unsafe impl Extendable for PhysicalDeviceSchedulingControlsDispatchParametersPro
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -50314,7 +54106,11 @@ unsafe impl Extendable for PhysicalDeviceImageSlicedViewOf3DFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -50358,7 +54154,11 @@ unsafe impl Extendable for ImageViewSlicedCreateInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -50399,7 +54199,11 @@ unsafe impl Extendable for PhysicalDeviceDescriptorSetHostMappingFeaturesVALVE {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -50446,7 +54250,11 @@ unsafe impl Extendable for DescriptorSetBindingReferenceVALVE {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -50488,7 +54296,11 @@ unsafe impl Extendable for DescriptorSetLayoutHostMappingInfoVALVE {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -50528,7 +54340,11 @@ unsafe impl Extendable for PhysicalDeviceNonSeamlessCubeMapFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -50570,7 +54386,11 @@ unsafe impl Extendable for PhysicalDeviceRenderPassStripedFeaturesARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -50614,7 +54434,11 @@ unsafe impl Extendable for PhysicalDeviceRenderPassStripedPropertiesARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -50655,7 +54479,11 @@ unsafe impl Extendable for RenderPassStripeInfoARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -50697,7 +54525,11 @@ unsafe impl Extendable for RenderPassStripeBeginInfoARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -50741,7 +54573,11 @@ unsafe impl Extendable for RenderPassStripeSubmitInfoARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -50783,7 +54619,11 @@ unsafe impl Extendable for PhysicalDeviceFragmentDensityMapOffsetFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -50828,7 +54668,11 @@ unsafe impl Extendable for PhysicalDeviceFragmentDensityMapOffsetPropertiesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -50878,7 +54722,11 @@ unsafe impl Extendable for RenderPassFragmentDensityMapOffsetEndInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -50921,7 +54769,11 @@ unsafe impl Extendable for PhysicalDeviceCopyMemoryIndirectFeaturesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -50995,7 +54847,11 @@ unsafe impl Extendable for PhysicalDeviceMemoryDecompressionFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -51041,7 +54897,11 @@ unsafe impl Extendable for PhysicalDeviceMemoryDecompressionPropertiesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -51088,7 +54948,11 @@ unsafe impl Extendable for PhysicalDeviceDeviceGeneratedCommandsComputeFeaturesN
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -51138,7 +55002,11 @@ unsafe impl Extendable for ComputePipelineIndirectBufferInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -51181,7 +55049,11 @@ unsafe impl Extendable for PipelineIndirectDeviceAddressInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -51246,7 +55118,11 @@ unsafe impl Extendable for PhysicalDeviceRayTracingLinearSweptSpheresFeaturesNV 
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -51311,7 +55187,11 @@ unsafe impl Extendable for AccelerationStructureGeometryLinearSweptSpheresDataNV
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -51371,7 +55251,11 @@ unsafe impl Extendable for AccelerationStructureGeometrySpheresDataNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -51415,7 +55299,11 @@ unsafe impl Extendable for PhysicalDeviceLinearColorAttachmentFeaturesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -51457,7 +55345,11 @@ unsafe impl Extendable for PhysicalDeviceImageCompressionControlSwapchainFeature
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -51509,7 +55401,11 @@ unsafe impl Extendable for ImageViewSampleWeightCreateInfoQCOM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -51554,7 +55450,11 @@ unsafe impl Extendable for PhysicalDeviceImageProcessingFeaturesQCOM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -51606,7 +55506,11 @@ unsafe impl Extendable for PhysicalDeviceImageProcessingPropertiesQCOM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -51651,7 +55555,11 @@ unsafe impl Extendable for PhysicalDeviceNestedCommandBufferFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -51693,7 +55601,11 @@ unsafe impl Extendable for PhysicalDeviceNestedCommandBufferPropertiesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -51734,7 +55646,11 @@ unsafe impl Extendable for NativeBufferUsageOHOS {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -51779,7 +55695,11 @@ unsafe impl Extendable for NativeBufferPropertiesOHOS {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -51833,7 +55753,11 @@ unsafe impl Extendable for NativeBufferFormatPropertiesOHOS {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -51874,7 +55798,11 @@ unsafe impl Extendable for ImportNativeBufferInfoOHOS {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -51915,7 +55843,11 @@ unsafe impl Extendable for MemoryGetNativeBufferInfoOHOS {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -51955,7 +55887,11 @@ unsafe impl Extendable for ExternalFormatOHOS {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -52000,7 +55936,11 @@ unsafe impl Extendable for ExternalMemoryAcquireUnmodifiedEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -52104,7 +56044,11 @@ unsafe impl Extendable for PhysicalDeviceExtendedDynamicState3FeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -52146,7 +56090,11 @@ unsafe impl Extendable for PhysicalDeviceExtendedDynamicState3PropertiesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -52256,7 +56204,11 @@ unsafe impl Extendable for PhysicalDeviceSubpassMergeFeedbackFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -52298,7 +56250,11 @@ unsafe impl Extendable for RenderPassCreationControlEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -52363,7 +56319,11 @@ unsafe impl Extendable for RenderPassCreationFeedbackCreateInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -52432,7 +56392,11 @@ unsafe impl Extendable for RenderPassSubpassFeedbackCreateInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -52475,7 +56439,11 @@ unsafe impl Extendable for DirectDriverLoadingInfoLUNARG {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -52519,7 +56487,11 @@ unsafe impl Extendable for DirectDriverLoadingListLUNARG {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -52571,7 +56543,11 @@ unsafe impl Extendable for TensorDescriptionARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -52628,7 +56604,11 @@ unsafe impl Extendable for TensorCreateInfoARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -52668,7 +56648,11 @@ unsafe impl Extendable for TensorMemoryRequirementsInfoARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -52712,7 +56696,11 @@ unsafe impl Extendable for BindTensorMemoryInfoARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -52754,7 +56742,11 @@ unsafe impl Extendable for WriteDescriptorSetTensorARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -52797,7 +56789,11 @@ unsafe impl Extendable for TensorFormatPropertiesARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -52862,7 +56858,11 @@ unsafe impl Extendable for PhysicalDeviceTensorPropertiesARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -52919,7 +56919,11 @@ unsafe impl Extendable for TensorMemoryBarrierARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -52962,7 +56966,11 @@ unsafe impl Extendable for TensorDependencyInfoARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -53013,7 +57021,11 @@ unsafe impl Extendable for PhysicalDeviceTensorFeaturesARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -53055,7 +57067,11 @@ unsafe impl Extendable for DeviceTensorMemoryRequirementsARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -53105,7 +57121,11 @@ unsafe impl Extendable for TensorCopyARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -53151,7 +57171,11 @@ unsafe impl Extendable for CopyTensorInfoARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -53191,7 +57215,11 @@ unsafe impl Extendable for MemoryDedicatedAllocateInfoTensorARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -53237,7 +57265,11 @@ unsafe impl Extendable for PhysicalDeviceExternalTensorInfoARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -53277,7 +57309,11 @@ unsafe impl Extendable for ExternalTensorPropertiesARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -53318,7 +57354,11 @@ unsafe impl Extendable for ExternalMemoryTensorCreateInfoARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -53359,7 +57399,11 @@ unsafe impl Extendable for PhysicalDeviceDescriptorBufferTensorFeaturesARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -53405,7 +57449,11 @@ unsafe impl Extendable for PhysicalDeviceDescriptorBufferTensorPropertiesARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -53450,7 +57498,11 @@ unsafe impl Extendable for DescriptorGetTensorInfoARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -53491,7 +57543,11 @@ unsafe impl Extendable for TensorCaptureDescriptorDataInfoARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -53531,7 +57587,11 @@ unsafe impl Extendable for TensorViewCaptureDescriptorDataInfoARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -53573,7 +57633,11 @@ unsafe impl Extendable for FrameBoundaryTensorsARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -53617,7 +57681,11 @@ unsafe impl Extendable for PhysicalDeviceShaderModuleIdentifierFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -53659,7 +57727,11 @@ unsafe impl Extendable for PhysicalDeviceShaderModuleIdentifierPropertiesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -53706,7 +57778,11 @@ unsafe impl Extendable for PipelineShaderStageModuleIdentifierCreateInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -53752,7 +57828,11 @@ unsafe impl Extendable for ShaderModuleIdentifierEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -53792,7 +57872,11 @@ unsafe impl Extendable for PhysicalDeviceOpticalFlowFeaturesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -53854,7 +57938,11 @@ unsafe impl Extendable for PhysicalDeviceOpticalFlowPropertiesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -53895,7 +57983,11 @@ unsafe impl Extendable for OpticalFlowImageFormatInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -53937,7 +58029,11 @@ unsafe impl Extendable for OpticalFlowImageFormatPropertiesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -53999,7 +58095,11 @@ unsafe impl Extendable for OpticalFlowSessionCreateInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -54043,7 +58143,11 @@ unsafe impl Extendable for OpticalFlowSessionCreatePrivateDataInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -54090,7 +58194,11 @@ unsafe impl Extendable for OpticalFlowExecuteInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -54130,7 +58238,11 @@ unsafe impl Extendable for PhysicalDeviceLegacyDitheringFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -54172,7 +58284,11 @@ unsafe impl Extendable for PhysicalDeviceExternalFormatResolveFeaturesANDROID {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -54221,7 +58337,11 @@ unsafe impl Extendable for PhysicalDeviceExternalFormatResolvePropertiesANDROID 
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -54265,7 +58385,11 @@ unsafe impl Extendable for AndroidHardwareBufferFormatResolvePropertiesANDROID {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -54309,7 +58433,11 @@ unsafe impl Extendable for PhysicalDeviceAntiLagFeaturesAMD {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -54353,7 +58481,11 @@ unsafe impl Extendable for AntiLagPresentationInfoAMD {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -54398,7 +58530,11 @@ unsafe impl Extendable for AntiLagDataAMD {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -54438,7 +58574,11 @@ unsafe impl Extendable for PhysicalDeviceDenseGeometryFormatFeaturesAMDX {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -54495,7 +58635,11 @@ unsafe impl Extendable for AccelerationStructureDenseGeometryFormatTrianglesData
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -54539,7 +58683,11 @@ unsafe impl Extendable for PhysicalDeviceShaderObjectFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -54583,7 +58731,11 @@ unsafe impl Extendable for PhysicalDeviceShaderObjectPropertiesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -54660,7 +58812,11 @@ unsafe impl Extendable for ShaderCreateInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -54726,7 +58882,11 @@ unsafe impl Extendable for PhysicalDeviceTilePropertiesFeaturesQCOM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -54772,7 +58932,11 @@ unsafe impl Extendable for TilePropertiesQCOM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -54812,7 +58976,11 @@ unsafe impl Extendable for PhysicalDeviceAmigoProfilingFeaturesSEC {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -54856,7 +59024,11 @@ unsafe impl Extendable for AmigoProfilingSubmitInfoSEC {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -54897,7 +59069,11 @@ unsafe impl Extendable for PhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -54942,7 +59118,11 @@ unsafe impl Extendable for PhysicalDeviceRayTracingInvocationReorderPropertiesNV
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -54986,7 +59166,11 @@ unsafe impl Extendable for PhysicalDeviceRayTracingInvocationReorderFeaturesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -55037,7 +59221,11 @@ unsafe impl Extendable for PhysicalDeviceCooperativeVectorPropertiesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -55080,7 +59268,11 @@ unsafe impl Extendable for PhysicalDeviceCooperativeVectorFeaturesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -55132,7 +59324,11 @@ unsafe impl Extendable for CooperativeVectorPropertiesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -55194,7 +59390,11 @@ unsafe impl Extendable for ConvertCooperativeVectorMatrixInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -55234,7 +59434,11 @@ unsafe impl Extendable for PhysicalDeviceExtendedSparseAddressSpaceFeaturesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -55283,7 +59487,11 @@ unsafe impl Extendable for PhysicalDeviceExtendedSparseAddressSpacePropertiesNV 
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -55327,7 +59535,11 @@ unsafe impl Extendable for PhysicalDeviceLegacyVertexAttributesFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -55369,7 +59581,11 @@ unsafe impl Extendable for PhysicalDeviceLegacyVertexAttributesPropertiesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -55450,7 +59666,11 @@ unsafe impl Extendable for LayerSettingsCreateInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -55492,7 +59712,11 @@ unsafe impl Extendable for PhysicalDeviceShaderCoreBuiltinsFeaturesARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -55538,7 +59762,11 @@ unsafe impl Extendable for PhysicalDeviceShaderCoreBuiltinsPropertiesARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -55580,7 +59808,11 @@ unsafe impl Extendable for PhysicalDeviceDynamicRenderingUnusedAttachmentsFeatur
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -55632,7 +59864,11 @@ unsafe impl Extendable for LatencySleepModeInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -55674,7 +59910,11 @@ unsafe impl Extendable for LatencySleepInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -55716,7 +59956,11 @@ unsafe impl Extendable for SetLatencyMarkerInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -55782,7 +60026,11 @@ unsafe impl Extendable for LatencyTimingsFrameReportNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -55826,7 +60074,11 @@ unsafe impl Extendable for GetLatencyMarkerInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -55866,7 +60118,11 @@ unsafe impl Extendable for LatencySubmissionPresentIdNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -55909,7 +60165,11 @@ unsafe impl Extendable for SwapchainLatencyCreateInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -55950,7 +60210,11 @@ unsafe impl Extendable for OutOfBandQueueTypeInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -55994,7 +60258,11 @@ unsafe impl Extendable for LatencySurfaceCapabilitiesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -56043,7 +60311,11 @@ unsafe impl Extendable for PhysicalDeviceDataGraphFeaturesARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -56090,7 +60362,11 @@ unsafe impl Extendable for DataGraphPipelineConstantARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -56138,7 +60414,11 @@ unsafe impl Extendable for DataGraphPipelineResourceInfoARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -56179,7 +60459,11 @@ unsafe impl Extendable for DataGraphPipelineCompilerControlCreateInfoARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -56242,7 +60526,11 @@ unsafe impl Extendable for DataGraphPipelineCreateInfoARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -56295,7 +60583,11 @@ unsafe impl Extendable for DataGraphPipelineShaderModuleCreateInfoARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -56341,7 +60633,11 @@ unsafe impl Extendable for DataGraphPipelineSessionCreateInfoARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -56381,7 +60677,11 @@ unsafe impl Extendable for DataGraphPipelineSessionBindPointRequirementsInfoARM 
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -56425,7 +60725,11 @@ unsafe impl Extendable for DataGraphPipelineSessionBindPointRequirementARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -56469,7 +60773,11 @@ unsafe impl Extendable for DataGraphPipelineSessionMemoryRequirementsInfoARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -56517,7 +60825,11 @@ unsafe impl Extendable for BindDataGraphPipelineSessionMemoryInfoARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -56557,7 +60869,11 @@ unsafe impl Extendable for DataGraphPipelineInfoARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -56605,7 +60921,11 @@ unsafe impl Extendable for DataGraphPipelinePropertyQueryResultARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -56647,7 +60967,11 @@ unsafe impl Extendable for DataGraphPipelineIdentifierCreateInfoARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -56691,7 +61015,11 @@ unsafe impl Extendable for DataGraphPipelineDispatchInfoARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -56786,7 +61114,11 @@ unsafe impl Extendable for QueueFamilyDataGraphPropertiesARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -56828,7 +61160,11 @@ unsafe impl Extendable for DataGraphProcessingEngineCreateInfoARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -56874,7 +61210,11 @@ unsafe impl Extendable for PhysicalDeviceQueueFamilyDataGraphProcessingEngineInf
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -56916,7 +61256,11 @@ unsafe impl Extendable for QueueFamilyDataGraphProcessingEnginePropertiesARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -56961,7 +61305,11 @@ unsafe impl Extendable for DataGraphPipelineConstantTensorSemiStructuredSparsity
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -57043,7 +61391,11 @@ unsafe impl Extendable for QueueFamilyDataGraphTOSAPropertiesARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -57083,7 +61435,11 @@ unsafe impl Extendable for PhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -57131,7 +61487,11 @@ unsafe impl Extendable for MultiviewPerViewRenderAreasRenderPassBeginInfoQCOM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -57175,7 +61535,11 @@ unsafe impl Extendable for PhysicalDevicePerStageDescriptorSetFeaturesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -57217,7 +61581,11 @@ unsafe impl Extendable for PhysicalDeviceImageProcessing2FeaturesQCOM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -57260,7 +61628,11 @@ unsafe impl Extendable for PhysicalDeviceImageProcessing2PropertiesQCOM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -57303,7 +61675,11 @@ unsafe impl Extendable for SamplerBlockMatchWindowCreateInfoQCOM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -57344,7 +61720,11 @@ unsafe impl Extendable for PhysicalDeviceCubicWeightsFeaturesQCOM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -57386,7 +61766,11 @@ unsafe impl Extendable for SamplerCubicWeightsCreateInfoQCOM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -57427,7 +61811,11 @@ unsafe impl Extendable for BlitImageCubicWeightsInfoQCOM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -57468,7 +61856,11 @@ unsafe impl Extendable for PhysicalDeviceYcbcrDegammaFeaturesQCOM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -57512,7 +61904,11 @@ unsafe impl Extendable for SamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -57556,7 +61952,11 @@ unsafe impl Extendable for PhysicalDeviceCubicClampFeaturesQCOM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -57599,7 +61999,11 @@ unsafe impl Extendable for PhysicalDeviceAttachmentFeedbackLoopDynamicStateFeatu
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -57651,7 +62055,11 @@ unsafe impl Extendable for ScreenBufferPropertiesQNX {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -57707,7 +62115,11 @@ unsafe impl Extendable for ScreenBufferFormatPropertiesQNX {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -57748,7 +62160,11 @@ unsafe impl Extendable for ImportScreenBufferInfoQNX {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -57789,7 +62205,11 @@ unsafe impl Extendable for ExternalFormatQNX {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -57831,7 +62251,11 @@ unsafe impl Extendable for PhysicalDeviceExternalMemoryScreenBufferFeaturesQNX {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -57876,7 +62300,11 @@ unsafe impl Extendable for PhysicalDeviceLayeredDriverPropertiesMSFT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -57917,7 +62345,11 @@ unsafe impl Extendable for PhysicalDeviceDescriptorPoolOverallocationFeaturesNV 
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -57962,7 +62394,11 @@ unsafe impl Extendable for PhysicalDeviceTileMemoryHeapFeaturesQCOM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -58006,7 +62442,11 @@ unsafe impl Extendable for PhysicalDeviceTileMemoryHeapPropertiesQCOM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -58049,7 +62489,11 @@ unsafe impl Extendable for TileMemoryRequirementsQCOM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -58090,7 +62534,11 @@ unsafe impl Extendable for TileMemoryBindInfoQCOM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -58131,7 +62579,11 @@ unsafe impl Extendable for TileMemorySizeInfoQCOM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -58207,7 +62659,11 @@ unsafe impl Extendable for DecompressMemoryInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -58247,7 +62703,11 @@ unsafe impl Extendable for DisplaySurfaceStereoCreateInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -58288,7 +62748,11 @@ unsafe impl Extendable for DisplayModeStereoPropertiesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -58329,7 +62793,11 @@ unsafe impl Extendable for PhysicalDeviceRawAccessChainsFeaturesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -58371,7 +62839,11 @@ unsafe impl Extendable for ExternalComputeQueueDeviceCreateInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -58412,7 +62884,11 @@ unsafe impl Extendable for ExternalComputeQueueCreateInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -58452,7 +62928,11 @@ unsafe impl Extendable for ExternalComputeQueueDataParamsNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -58494,7 +62974,11 @@ unsafe impl Extendable for PhysicalDeviceExternalComputeQueuePropertiesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -58535,7 +63019,11 @@ unsafe impl Extendable for PhysicalDeviceCommandBufferInheritanceFeaturesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -58577,7 +63065,11 @@ unsafe impl Extendable for PhysicalDeviceShaderAtomicFloat16VectorFeaturesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -58619,7 +63111,11 @@ unsafe impl Extendable for PhysicalDeviceShaderReplicatedCompositesFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -58664,7 +63160,11 @@ unsafe impl Extendable for TensorRollingBackingCreateInfoARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -58713,7 +63213,11 @@ unsafe impl Extendable for TensorExplicitTilingFormatPropertiesARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -58756,7 +63260,11 @@ unsafe impl Extendable for PhysicalDeviceShaderFloat8FeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -58798,7 +63306,11 @@ unsafe impl Extendable for PhysicalDeviceRayTracingValidationFeaturesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -58840,7 +63352,11 @@ unsafe impl Extendable for PhysicalDeviceClusterAccelerationStructureFeaturesNV 
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -58899,7 +63415,11 @@ unsafe impl Extendable for PhysicalDeviceClusterAccelerationStructurePropertiesN
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -58945,7 +63465,11 @@ unsafe impl Extendable for ClusterAccelerationStructureClustersBottomLevelInputN
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -58999,7 +63523,11 @@ unsafe impl Extendable for ClusterAccelerationStructureTriangleClusterInputNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -59043,7 +63571,11 @@ unsafe impl Extendable for ClusterAccelerationStructureMoveObjectsInputNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -59121,7 +63653,11 @@ unsafe impl Extendable for ClusterAccelerationStructureInputInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -59207,7 +63743,11 @@ unsafe impl Extendable for ClusterAccelerationStructureCommandsInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -59532,7 +64072,11 @@ unsafe impl Extendable for AccelerationStructureBuildSizesInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -59573,7 +64117,11 @@ unsafe impl Extendable for RayTracingPipelineClusterAccelerationStructureCreateI
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -59617,7 +64165,11 @@ unsafe impl Extendable for PhysicalDevicePartitionedAccelerationStructureFeature
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -59662,7 +64214,11 @@ unsafe impl Extendable for PhysicalDevicePartitionedAccelerationStructurePropert
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -59706,7 +64262,11 @@ unsafe impl Extendable for PartitionedAccelerationStructureFlagsNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -59871,7 +64431,11 @@ unsafe impl Extendable for WriteDescriptorSetPartitionedAccelerationStructureNV 
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -59923,7 +64487,11 @@ unsafe impl Extendable for PartitionedAccelerationStructureInstancesInputNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -59974,7 +64542,11 @@ unsafe impl Extendable for BuildPartitionedAccelerationStructureInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -60016,7 +64588,11 @@ unsafe impl Extendable for PhysicalDeviceDeviceGeneratedCommandsFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -60080,7 +64656,11 @@ unsafe impl Extendable for PhysicalDeviceDeviceGeneratedCommandsPropertiesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -60134,7 +64714,11 @@ unsafe impl Extendable for GeneratedCommandsMemoryRequirementsInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -60176,7 +64760,11 @@ unsafe impl Extendable for IndirectExecutionSetPipelineInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -60219,7 +64807,11 @@ unsafe impl Extendable for IndirectExecutionSetShaderLayoutInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -60271,7 +64863,11 @@ unsafe impl Extendable for IndirectExecutionSetShaderInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -60341,7 +64937,11 @@ unsafe impl Extendable for IndirectExecutionSetCreateInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -60405,7 +65005,11 @@ unsafe impl Extendable for GeneratedCommandsInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -60447,7 +65051,11 @@ unsafe impl Extendable for WriteIndirectExecutionSetPipelineEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -60617,7 +65225,11 @@ unsafe impl Extendable for IndirectCommandsLayoutTokenEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -60671,7 +65283,11 @@ unsafe impl Extendable for IndirectCommandsLayoutCreateInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -60792,7 +65408,11 @@ unsafe impl Extendable for GeneratedCommandsPipelineInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -60839,7 +65459,11 @@ unsafe impl Extendable for GeneratedCommandsShaderInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -60883,7 +65507,11 @@ unsafe impl Extendable for WriteIndirectExecutionSetShaderEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -60923,7 +65551,11 @@ unsafe impl Extendable for PhysicalDeviceImageAlignmentControlFeaturesMESA {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -60965,7 +65597,11 @@ unsafe impl Extendable for PhysicalDeviceImageAlignmentControlPropertiesMESA {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -61009,7 +65645,11 @@ unsafe impl Extendable for ImageAlignmentControlCreateInfoMESA {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -61050,7 +65690,11 @@ unsafe impl Extendable for PushConstantBankInfoNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -61094,7 +65738,11 @@ unsafe impl Extendable for PhysicalDevicePushConstantBankFeaturesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -61142,7 +65790,11 @@ unsafe impl Extendable for PhysicalDevicePushConstantBankPropertiesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -61185,7 +65837,11 @@ unsafe impl Extendable for PhysicalDeviceRayTracingInvocationReorderPropertiesEX
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -61229,7 +65885,11 @@ unsafe impl Extendable for PhysicalDeviceRayTracingInvocationReorderFeaturesEXT 
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -61274,7 +65934,11 @@ unsafe impl Extendable for PhysicalDeviceDepthClampControlFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -61319,7 +65983,11 @@ unsafe impl Extendable for PipelineViewportDepthClampControlCreateInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -61366,7 +66034,11 @@ unsafe impl Extendable for SurfaceCreateInfoOHOS {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -61406,7 +66078,11 @@ unsafe impl Extendable for PhysicalDeviceHdrVividFeaturesHUAWEI {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -61450,7 +66126,11 @@ unsafe impl Extendable for HdrVividDynamicMetadataHUAWEI {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -61509,7 +66189,11 @@ unsafe impl Extendable for CooperativeMatrixFlexibleDimensionsPropertiesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -61561,7 +66245,11 @@ unsafe impl Extendable for PhysicalDeviceCooperativeMatrix2FeaturesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -61607,7 +66295,11 @@ unsafe impl Extendable for PhysicalDeviceCooperativeMatrix2PropertiesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -61648,7 +66340,11 @@ unsafe impl Extendable for PhysicalDevicePipelineOpacityMicromapFeaturesARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -61694,7 +66390,11 @@ unsafe impl Extendable for ImportMemoryMetalHandleInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -61735,7 +66435,11 @@ unsafe impl Extendable for MemoryMetalHandlePropertiesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -61777,7 +66481,11 @@ unsafe impl Extendable for MemoryGetMetalHandleInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -61817,7 +66525,11 @@ unsafe impl Extendable for PhysicalDevicePerformanceCountersByRegionFeaturesARM 
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -61870,7 +66582,11 @@ unsafe impl Extendable for PhysicalDevicePerformanceCountersByRegionPropertiesAR
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -61914,7 +66630,11 @@ unsafe impl Extendable for PerformanceCounterARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -61958,7 +66678,11 @@ unsafe impl Extendable for PerformanceCounterDescriptionARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -62006,7 +66730,11 @@ unsafe impl Extendable for RenderPassPerformanceCountersByRegionBeginInfoARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -62048,7 +66776,11 @@ unsafe impl Extendable for PhysicalDeviceShaderInstrumentationFeaturesARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -62092,7 +66824,11 @@ unsafe impl Extendable for PhysicalDeviceShaderInstrumentationPropertiesARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -62134,7 +66870,11 @@ unsafe impl Extendable for ShaderInstrumentationCreateInfoARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -62178,7 +66918,11 @@ unsafe impl Extendable for ShaderInstrumentationMetricDescriptionARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -62247,7 +66991,11 @@ unsafe impl Extendable for PhysicalDeviceVertexAttributeRobustnessFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -62292,7 +67040,11 @@ unsafe impl Extendable for PhysicalDeviceFormatPackFeaturesARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -62334,7 +67086,11 @@ unsafe impl Extendable for PhysicalDeviceFragmentDensityMapLayeredFeaturesVALVE 
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -62379,7 +67135,11 @@ unsafe impl Extendable for PhysicalDeviceFragmentDensityMapLayeredPropertiesVALV
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -62423,7 +67183,11 @@ unsafe impl Extendable for PipelineFragmentDensityMapLayeredCreateInfoVALVE {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -62469,7 +67233,11 @@ unsafe impl Extendable for SetPresentConfigNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -62510,7 +67278,11 @@ unsafe impl Extendable for PhysicalDevicePresentMeteringFeaturesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -62552,7 +67324,11 @@ unsafe impl Extendable for PhysicalDeviceMultisampledRenderToSwapchainFeaturesEX
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -62598,7 +67374,11 @@ unsafe impl Extendable for SwapchainFlagsSurfaceCapabilitiesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -62639,7 +67419,11 @@ unsafe impl Extendable for PhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -62684,7 +67468,11 @@ unsafe impl Extendable for PhysicalDeviceShader64BitIndexingFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -62726,7 +67514,11 @@ unsafe impl Extendable for PhysicalDeviceCustomResolveFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -62766,7 +67558,11 @@ unsafe impl Extendable for BeginCustomResolveInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -62815,7 +67611,11 @@ unsafe impl Extendable for CustomResolveCreateInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -62889,7 +67689,11 @@ unsafe impl Extendable for DataGraphPipelineBuiltinModelCreateInfoQCOM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -62933,7 +67737,11 @@ unsafe impl Extendable for PhysicalDeviceDataGraphModelFeaturesQCOM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -62975,7 +67783,11 @@ unsafe impl Extendable for PhysicalDeviceDataGraphOpticalFlowFeaturesARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -63031,7 +67843,11 @@ unsafe impl Extendable for QueueFamilyDataGraphOpticalFlowPropertiesARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -63090,7 +67906,11 @@ unsafe impl Extendable for DataGraphPipelineOpticalFlowCreateInfoARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -63131,7 +67951,11 @@ unsafe impl Extendable for DataGraphOpticalFlowImageFormatPropertiesARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -63171,7 +67995,11 @@ unsafe impl Extendable for DataGraphOpticalFlowImageFormatInfoARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -63217,7 +68045,11 @@ unsafe impl Extendable for DataGraphPipelineOpticalFlowDispatchInfoARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -63261,7 +68093,11 @@ unsafe impl Extendable for DataGraphPipelineResourceInfoImageLayoutARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -63309,7 +68145,11 @@ unsafe impl Extendable for DataGraphPipelineSingleNodeConnectionARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -63353,7 +68193,11 @@ unsafe impl Extendable for DataGraphPipelineSingleNodeCreateInfoARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -63394,7 +68238,11 @@ unsafe impl Extendable for PhysicalDeviceShaderLongVectorFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -63436,7 +68284,11 @@ unsafe impl Extendable for PhysicalDeviceShaderLongVectorPropertiesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -63477,7 +68329,11 @@ unsafe impl Extendable for PhysicalDevicePipelineCacheIncrementalModeFeaturesSEC
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -63522,7 +68378,11 @@ unsafe impl Extendable for PhysicalDeviceShaderUniformBufferUnsizedArrayFeatures
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -63569,7 +68429,11 @@ unsafe impl Extendable for ComputeOccupancyPriorityParametersNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -63609,7 +68473,11 @@ unsafe impl Extendable for PhysicalDeviceComputeOccupancyPriorityFeaturesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -63663,7 +68531,11 @@ unsafe impl Extendable for CooperativeMatrixProperties2EXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -63712,7 +68584,11 @@ unsafe impl Extendable for PhysicalDeviceCooperativeMatrixInfo2EXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -63760,7 +68636,11 @@ unsafe impl Extendable for PhysicalDeviceCooperativeMatrixMaintenance1FeaturesEX
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -63805,7 +68685,11 @@ unsafe impl Extendable for PhysicalDeviceShaderSubgroupPartitionedFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -63855,7 +68739,11 @@ unsafe impl Extendable for UbmSurfaceCreateInfoSEC {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -63901,7 +68789,11 @@ unsafe impl Extendable for PhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -63952,7 +68844,11 @@ unsafe impl Extendable for PhysicalDeviceShaderMixedFloatDotProductFeaturesVALVE
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -63997,7 +68893,11 @@ unsafe impl Extendable for ThrottleHintSubmitInfoSEC {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -64038,7 +68938,11 @@ unsafe impl Extendable for PhysicalDeviceThrottleHintFeaturesSEC {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -64081,7 +68985,11 @@ unsafe impl Extendable for PhysicalDeviceDataGraphNeuralAcceleratorStatisticsFea
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -64129,7 +69037,11 @@ unsafe impl Extendable for DataGraphPipelineNeuralStatisticsCreateInfoARM {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -64173,7 +69085,11 @@ unsafe impl Extendable for DataGraphPipelineSessionNeuralStatisticsCreateInfoARM
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -64217,7 +69133,11 @@ unsafe impl Extendable for PhysicalDevicePrimitiveRestartIndexFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -64259,7 +69179,11 @@ unsafe impl Extendable for PhysicalDeviceImageTilingControlFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -64301,7 +69225,11 @@ unsafe impl Extendable for ImageTilingControlCreateInfoEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -64342,7 +69270,11 @@ unsafe impl Extendable for PhysicalDeviceCooperativeMatrixDecodeVectorFeaturesNV
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -64387,7 +69319,11 @@ unsafe impl Extendable for PhysicalDevicePrivateDataBaseHandleFeaturesNV {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -64429,7 +69365,11 @@ unsafe impl Extendable for PhysicalDeviceBufferDeviceAddressAllocationAlignmentF
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -64477,7 +69417,11 @@ unsafe impl Extendable for PhysicalDeviceBufferDeviceAddressAllocationAlignmentP
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -64521,7 +69465,11 @@ unsafe impl Extendable for BufferDeviceAddressAlignmentAllocateInfoVALVE {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -64609,7 +69557,11 @@ unsafe impl Extendable for AccelerationStructureGeometryTrianglesDataKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -64651,7 +69603,11 @@ unsafe impl Extendable for AccelerationStructureGeometryAabbsDataKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -64693,7 +69649,11 @@ unsafe impl Extendable for AccelerationStructureGeometryInstancesDataKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -64772,7 +69732,11 @@ unsafe impl Extendable for AccelerationStructureGeometryKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -64834,7 +69798,11 @@ unsafe impl Extendable for AccelerationStructureBuildGeometryInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -64889,7 +69857,11 @@ unsafe impl Extendable for AccelerationStructureCreateInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -64931,7 +69903,11 @@ unsafe impl Extendable for WriteDescriptorSetAccelerationStructureKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -64980,7 +69956,11 @@ unsafe impl Extendable for PhysicalDeviceAccelerationStructureFeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -65036,7 +70016,11 @@ unsafe impl Extendable for PhysicalDeviceAccelerationStructurePropertiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -65080,7 +70064,11 @@ unsafe impl Extendable for AccelerationStructureDeviceAddressInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -65120,7 +70108,11 @@ unsafe impl Extendable for AccelerationStructureVersionInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -65164,7 +70156,11 @@ unsafe impl Extendable for CopyAccelerationStructureToMemoryInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -65208,7 +70204,11 @@ unsafe impl Extendable for CopyMemoryToAccelerationStructureInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -65252,7 +70252,11 @@ unsafe impl Extendable for CopyAccelerationStructureInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -65305,7 +70309,11 @@ unsafe impl Extendable for RayTracingShaderGroupCreateInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -65347,7 +70355,11 @@ unsafe impl Extendable for RayTracingPipelineInterfaceCreateInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -65424,7 +70436,11 @@ unsafe impl Extendable for RayTracingPipelineCreateInfoKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -65472,7 +70488,11 @@ unsafe impl Extendable for PhysicalDeviceRayTracingPipelineFeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -65528,7 +70548,11 @@ unsafe impl Extendable for PhysicalDeviceRayTracingPipelinePropertiesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -65596,7 +70620,11 @@ unsafe impl Extendable for PhysicalDeviceRayQueryFeaturesKHR {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -65646,7 +70674,11 @@ unsafe impl Extendable for PhysicalDeviceMeshShaderFeaturesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self
@@ -65742,7 +70774,11 @@ unsafe impl Extendable for PhysicalDeviceMeshShaderPropertiesEXT {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
-            assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
+            let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);
+            assert!(
+                old.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
             Self {
                 p_next: next as _,
                 ..self

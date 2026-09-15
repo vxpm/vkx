@@ -371,15 +371,20 @@ class Context:
             out.indent()
             out.writeln("fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {")
             out.indent()
+            out.writeln("unsafe {")
+            out.indent()
 
-            out.writeln("""
-                unsafe {
-                    let base_next: *mut crate::BaseOutStructure = next.cast();
-                    assert!(std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _).is_null());
-                    Self { p_next: next as _, ..self }
-                }
-            """)
+            out.writeln("let base_next: *mut crate::BaseOutStructure = next.cast();")
+            out.writeln(
+                "let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);"
+            )
+            out.writeln(
+                'assert!(old.is_null(), "pushed a structure in a chain into another chain");'
+            )
+            out.writeln(" Self { p_next: next as _, ..self }")
 
+            out.deindent()
+            out.writeln("}")
             out.deindent()
             out.writeln("}")
             out.deindent()
