@@ -24,6 +24,7 @@ FN_PTRS_MODULE_PREFIX: str = """
 use crate::bitmasks::*;
 use crate::consts_inner::*;
 use crate::enums::*;
+use crate::extensions::*;
 use crate::flags::*;
 use crate::handles::*;
 use crate::structs::*;
@@ -33,6 +34,7 @@ STRUCTS_MODULE_PREFIX: str = """
 use crate::bitmasks::*;
 use crate::consts_inner::*;
 use crate::enums::*;
+use crate::extensions::*;
 use crate::flags::*;
 use crate::fn_ptrs::*;
 use crate::handles::*;
@@ -46,6 +48,7 @@ COMMANDS_MODULE_PREFIX: str = """
 use crate::bitmasks::*;
 use crate::consts_inner::*;
 use crate::enums::*;
+use crate::extensions::*;
 use crate::flags::*;
 use crate::fn_ptrs::*;
 use crate::handles::*;
@@ -91,15 +94,16 @@ class Generated[T]:
 
 @dataclass
 class Registry:
-    bitmasks: dict[str, Generated[vkobj.Bitmask]] = field(default_factory=dict)
-    constants: dict[str, Generated[vkobj.Constant]] = field(default_factory=dict)
-    constants_inner: dict[str, Generated[vkobj.Constant]] = field(default_factory=dict)
-    enums: dict[str, Generated[vkobj.Enum]] = field(default_factory=dict)
-    flags: dict[str, Generated[vkobj.Flags]] = field(default_factory=dict)
-    fnptrs: dict[str, Generated[vkobj.FuncPointer]] = field(default_factory=dict)
-    handles: dict[str, Generated[vkobj.Handle]] = field(default_factory=dict)
-    structs: dict[str, Generated[vkobj.Struct]] = field(default_factory=dict)
-    commands: dict[str, Generated[vkobj.Command]] = field(default_factory=dict)
+    bitmasks: list[Generated[vkobj.Bitmask]] = field(default_factory=list)
+    constants: list[Generated[vkobj.Constant]] = field(default_factory=list)
+    constants_inner: list[Generated[vkobj.Constant]] = field(default_factory=list)
+    enums: list[Generated[vkobj.Enum]] = field(default_factory=list)
+    flags: list[Generated[vkobj.Flags]] = field(default_factory=list)
+    fnptrs: list[Generated[vkobj.FuncPointer]] = field(default_factory=list)
+    handles: list[Generated[vkobj.Handle]] = field(default_factory=list)
+    structs: list[Generated[vkobj.Struct]] = field(default_factory=list)
+    commands: list[Generated[vkobj.Command]] = field(default_factory=list)
+    extensions: str = field(default_factory=lambda: "")
 
 
 def struct_name(name: str) -> str:
@@ -117,6 +121,16 @@ def bitmask_flag_name(name: str, parent: str) -> str:
         name = name.replace("_BIT_", "")
 
     return name
+
+
+def extension_name(name: str) -> str:
+    name = name.removeprefix("VK_")
+    tag, name = name.split("_", maxsplit=1)
+    return f"{tag}_{textcase.pascal(name)}"
+
+
+def version_number(ver: str) -> str:
+    return ver.removeprefix("VK_VERSION_").replace("_", ".")
 
 
 def vulkan_doc_header(out: CodeWriter, name: str):
@@ -202,14 +216,27 @@ class Context:
         # docs
         vulkan_doc_header(out, x.name)
 
-        # TODO: include extensions
-        # if len(x.extensions) > 0:
-        #     for ext in x.extensions:
-        #         print(ext)
+        out.writeln("///")
+        if len(x.extensions) > 0 or x.version is not None:
+            out.writeln("/// # Enabling")
+            out.writeln("/// This type requires _at least_ one of the following:")
+
+            if x.version is not None:
+                # TODO: list features
+                version = version_number(x.version.name)
+                out.writeln(f"/// - Version {version} with appropriate features")
+
+            for ext in x.extensions:
+                ext = extension_name(ext)
+                out.writeln(f"/// - Extension [`{ext}`](Extensions::{ext})")
+
+            out.writeln("///")
+            out.writeln(
+                "/// Note this is not an exhaustive requirement list. For more information check vulkan documentation."
+            )
 
         if not x.union and len(x.extendedBy) > 0:
             children = (f"[`{struct_name(child)}`]" for child in x.extendedBy)
-            out.writeln("///")
             out.writeln("/// # Extended by")
             for child in children:
                 out.writeln(f"/// - {child}")
@@ -635,36 +662,95 @@ class Context:
 
         return Generated(method_name, out.content, x)
 
+    def generate_extensions(self) -> str:
+        out = CodeWriter()
+
+        out.writeln("/// Enum containing all extensions.")
+        out.writeln("#[derive(Debug, Clone, Copy, PartialEq, Eq)]")
+        out.writeln("#[non_exhaustive]")
+        out.writeln("pub enum Extensions {")
+        out.indent()
+
+        for ext in self.vk.extensions.values():
+            assert ext.vendorTag is not None
+            name = extension_name(ext.name)
+
+            if ext.promotedTo is not None and ext.promotedTo != "":
+                to = ext.promotedTo
+                if to.startswith("VK_VERSION_"):
+                    to = version_number(to)
+                else:
+                    to = f"[`Self::{extension_name(to)}`]"
+
+                out.writeln(f"/// Promoted to {to}.")
+
+            if ext.deprecatedBy is not None and ext.deprecatedBy != "":
+                by = ext.deprecatedBy
+                if by.startswith("VK_VERSION_"):
+                    by = version_number(by)
+                else:
+                    by = f"[`Self::{extension_name(by)}`]"
+
+                out.writeln(f"/// Deprecated by {by}.")
+
+            out.writeln(f'#[doc(alias = "{ext.name}")]')
+            out.writeln(f"{name},")
+
+        out.deindent()
+        out.writeln("}")
+
+        out.writeln("impl Extensions {")
+        out.indent()
+        out.writeln("pub fn name(self) -> &'static std::ffi::CStr {")
+        out.indent()
+        out.writeln("match self {")
+        out.indent()
+
+        for ext in self.vk.extensions.values():
+            assert ext.vendorTag is not None
+            name = ext.name.removeprefix("VK_").removeprefix(f"{ext.vendorTag}_")
+            name = textcase.pascal(name)
+            out.writeln(f'Self::{ext.vendorTag}_{name} => c"{ext.name}",')
+
+        out.deindent()
+        out.writeln("}")
+        out.deindent()
+        out.writeln("}")
+        out.deindent()
+        out.writeln("}")
+
+        return out.content
+
     def fill_registry(self):
         assert self.vk.videoStd is not None
 
         # structs
         for struct in self.vk.structs.values():
             struct = self.generate_struct(struct)
-            self.reg.structs[struct.original.name] = struct
+            self.reg.structs.append(struct)
 
         for struct in self.vk.videoStd.structs.values():
             struct = self.generate_struct(struct)
-            self.reg.structs[struct.original.name] = struct
+            self.reg.structs.append(struct)
 
         # handles
         for handle in self.vk.handles.values():
             handle = self.generate_handle(handle)
-            self.reg.handles[handle.original.name] = handle
+            self.reg.handles.append(handle)
 
         # enums
         for enum in self.vk.enums.values():
             enum = self.generate_enum(enum)
-            self.reg.enums[enum.original.name] = enum
+            self.reg.enums.append(enum)
 
         for enum in self.vk.videoStd.enums.values():
             enum = self.generate_enum(enum)
-            self.reg.enums[enum.original.name] = enum
+            self.reg.enums.append(enum)
 
         # bitmasks
         for bitmask in self.vk.bitmasks.values():
             bitmask = self.generate_bitmasks(bitmask)
-            self.reg.bitmasks[bitmask.original.name] = bitmask
+            self.reg.bitmasks.append(bitmask)
 
         # flags
         for flags in self.vk.flags.values():
@@ -672,30 +758,33 @@ class Context:
                 continue
 
             flags = self.generate_flags(flags)
-            self.reg.flags[flags.original.name] = flags
+            self.reg.flags.append(flags)
 
         # function pointers
         for fnptr in self.vk.funcPointers.values():
             fnptr = self.generate_fnptr(fnptr)
-            self.reg.fnptrs[fnptr.original.name] = fnptr
+            self.reg.fnptrs.append(fnptr)
 
         # constants
         for const in self.vk.constants.values():
             const_inner = self.generate_const_inner(const)
             const = self.generate_const(const)
-            self.reg.constants_inner[const_inner.original.name] = const_inner
-            self.reg.constants[const.original.name] = const
+            self.reg.constants_inner.append(const_inner)
+            self.reg.constants.append(const)
 
         for const in self.vk.videoStd.constants.values():
             const_inner = self.generate_const_inner(const)
             const = self.generate_const(const)
-            self.reg.constants_inner[const_inner.original.name] = const_inner
-            self.reg.constants[const.original.name] = const
+            self.reg.constants_inner.append(const_inner)
+            self.reg.constants.append(const)
 
         # commands
         for command in self.vk.commands.values():
             command = self.generate_command(command)
-            self.reg.commands[command.original.name] = command
+            self.reg.commands.append(command)
+
+        # extensions
+        self.reg.extensions = self.generate_extensions()
 
     def write_module(self, path: str, content: str):
         path = f"{self.root}/src/{path}"
@@ -706,10 +795,10 @@ class Context:
             _ = f.write(content)
 
     def write_generated_to_module(
-        self, path: str, prefix: str, generated: dict[str, Generated[T]]
+        self, path: str, prefix: str, generated: list[Generated[T]]
     ):
         content = prefix
-        for elem in generated.values():
+        for elem in generated:
             content += f"{elem.definition}\n"
 
         self.write_module(path, content)
@@ -744,6 +833,7 @@ class Context:
         self.write_generated_to_module(
             "structs.rs", STRUCTS_MODULE_PREFIX, self.reg.structs
         )
+        self.write_module("extensions.rs", self.reg.extensions)
 
         print("Done!")
 
