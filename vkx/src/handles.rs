@@ -6,535 +6,712 @@
 use crate::manual::*;
 use crate::platform::*;
 use std::ffi::{c_char, c_int, c_uint, c_void};
-/// Dispatchable handle
+/// `VkInstance`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkInstance.html>
+///
+/// # Handle type
+/// Dispatchable
 #[doc(alias = "VkInstance")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct Instance(usize);
 
-/// Dispatchable handle
+/// `VkPhysicalDevice`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevice.html>
+///
+/// # Handle type
+/// Dispatchable
 #[doc(alias = "VkPhysicalDevice")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct PhysicalDevice(usize);
 
-/// Dispatchable handle
+/// `VkDevice`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDevice.html>
+///
+/// # Handle type
+/// Dispatchable
 #[doc(alias = "VkDevice")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct Device(usize);
 
-/// Dispatchable handle
+/// `VkQueue`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkQueue.html>
+///
+/// # Handle type
+/// Dispatchable
 #[doc(alias = "VkQueue")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct Queue(usize);
 
-/// Non-dispatchable handle
+/// `VkSemaphore`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSemaphore.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkSemaphore")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct Semaphore(u64);
 
-/// Dispatchable handle
+/// `VkCommandBuffer`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandBuffer.html>
+///
+/// # Handle type
+/// Dispatchable
 #[doc(alias = "VkCommandBuffer")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct CommandBuffer(usize);
 
-/// Non-dispatchable handle
+/// `VkFence`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFence.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkFence")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct Fence(u64);
 
-/// Non-dispatchable handle
+/// `VkDeviceMemory`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceMemory.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkDeviceMemory")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct DeviceMemory(u64);
 
-/// Non-dispatchable handle
+/// `VkBuffer`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBuffer.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkBuffer")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct Buffer(u64);
 
-/// Non-dispatchable handle
+/// `VkImage`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImage.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkImage")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct Image(u64);
 
-/// Non-dispatchable handle
+/// `VkQueryPool`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkQueryPool.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkQueryPool")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct QueryPool(u64);
 
-/// Non-dispatchable handle
+/// `VkImageView`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageView.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkImageView")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct ImageView(u64);
 
-/// Non-dispatchable handle
+/// `VkCommandPool`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandPool.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkCommandPool")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct CommandPool(u64);
 
-/// Non-dispatchable handle
+/// `VkRenderPass`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPass.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkRenderPass")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct RenderPass(u64);
 
-/// Non-dispatchable handle
+/// `VkFramebuffer`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkFramebuffer.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkFramebuffer")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct Framebuffer(u64);
 
-/// Non-dispatchable handle
+/// `VkEvent`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkEvent.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkEvent")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct Event(u64);
 
-/// Non-dispatchable handle
+/// `VkBufferView`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferView.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkBufferView")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct BufferView(u64);
 
-/// Non-dispatchable handle
+/// `VkShaderModule`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderModule.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkShaderModule")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct ShaderModule(u64);
 
-/// Non-dispatchable handle
+/// `VkPipelineCache`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCache.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkPipelineCache")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct PipelineCache(u64);
 
-/// Non-dispatchable handle
+/// `VkPipeline`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipeline.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkPipeline")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct Pipeline(u64);
 
-/// Non-dispatchable handle
+/// `VkPipelineLayout`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineLayout.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkPipelineLayout")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct PipelineLayout(u64);
 
-/// Non-dispatchable handle
+/// `VkDescriptorSetLayout`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorSetLayout.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkDescriptorSetLayout")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct DescriptorSetLayout(u64);
 
-/// Non-dispatchable handle
+/// `VkSampler`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSampler.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkSampler")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct Sampler(u64);
 
-/// Non-dispatchable handle
+/// `VkDescriptorSet`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorSet.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkDescriptorSet")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct DescriptorSet(u64);
 
-/// Non-dispatchable handle
+/// `VkDescriptorPool`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorPool.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkDescriptorPool")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct DescriptorPool(u64);
 
-/// Non-dispatchable handle
+/// `VkDescriptorUpdateTemplate`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorUpdateTemplate.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkDescriptorUpdateTemplate")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct DescriptorUpdateTemplate(u64);
 pub type DescriptorUpdateTemplateKHR = DescriptorUpdateTemplate;
 
-/// Non-dispatchable handle
+/// `VkSamplerYcbcrConversion`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerYcbcrConversion.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkSamplerYcbcrConversion")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct SamplerYcbcrConversion(u64);
 pub type SamplerYcbcrConversionKHR = SamplerYcbcrConversion;
 
-/// Non-dispatchable handle
+/// `VkPrivateDataSlot`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPrivateDataSlot.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkPrivateDataSlot")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct PrivateDataSlot(u64);
 pub type PrivateDataSlotEXT = PrivateDataSlot;
 
-/// Non-dispatchable handle
+/// `VkSurfaceKHR`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfaceKHR.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkSurfaceKHR")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct SurfaceKHR(u64);
 
-/// Non-dispatchable handle
+/// `VkSwapchainKHR`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSwapchainKHR.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkSwapchainKHR")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct SwapchainKHR(u64);
 
-/// Non-dispatchable handle
+/// `VkDisplayKHR`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplayKHR.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkDisplayKHR")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct DisplayKHR(u64);
 
-/// Non-dispatchable handle
+/// `VkDisplayModeKHR`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplayModeKHR.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkDisplayModeKHR")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct DisplayModeKHR(u64);
 
-/// Non-dispatchable handle
+/// `VkVideoSessionKHR`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoSessionKHR.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkVideoSessionKHR")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct VideoSessionKHR(u64);
 
-/// Non-dispatchable handle
+/// `VkVideoSessionParametersKHR`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoSessionParametersKHR.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkVideoSessionParametersKHR")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct VideoSessionParametersKHR(u64);
 
-/// Non-dispatchable handle
+/// `VkDeferredOperationKHR`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeferredOperationKHR.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkDeferredOperationKHR")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct DeferredOperationKHR(u64);
 
-/// Non-dispatchable handle
+/// `VkAccelerationStructureKHR`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureKHR.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkAccelerationStructureKHR")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct AccelerationStructureKHR(u64);
 
-/// Non-dispatchable handle
+/// `VkPipelineBinaryKHR`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineBinaryKHR.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkPipelineBinaryKHR")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct PipelineBinaryKHR(u64);
 
-/// Non-dispatchable handle
+/// `VkDebugReportCallbackEXT`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDebugReportCallbackEXT.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkDebugReportCallbackEXT")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct DebugReportCallbackEXT(u64);
 
-/// Non-dispatchable handle
+/// `VkCuModuleNVX`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCuModuleNVX.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkCuModuleNVX")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct CuModuleNVX(u64);
 
-/// Non-dispatchable handle
+/// `VkCuFunctionNVX`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCuFunctionNVX.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkCuFunctionNVX")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct CuFunctionNVX(u64);
 
-/// Non-dispatchable handle
+/// `VkDebugUtilsMessengerEXT`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDebugUtilsMessengerEXT.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkDebugUtilsMessengerEXT")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct DebugUtilsMessengerEXT(u64);
 
-/// Non-dispatchable handle
+/// `VkGpaSessionAMD`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkGpaSessionAMD.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkGpaSessionAMD")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct GpaSessionAMD(u64);
 
-/// Non-dispatchable handle
+/// `VkTensorARM`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTensorARM.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkTensorARM")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct TensorARM(u64);
 
-/// Non-dispatchable handle
+/// `VkValidationCacheEXT`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkValidationCacheEXT.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkValidationCacheEXT")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct ValidationCacheEXT(u64);
 
-/// Non-dispatchable handle
+/// `VkAccelerationStructureNV`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureNV.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkAccelerationStructureNV")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct AccelerationStructureNV(u64);
 
-/// Non-dispatchable handle
+/// `VkPerformanceConfigurationINTEL`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceConfigurationINTEL.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkPerformanceConfigurationINTEL")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct PerformanceConfigurationINTEL(u64);
 
-/// Non-dispatchable handle
+/// `VkIndirectCommandsLayoutNV`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectCommandsLayoutNV.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkIndirectCommandsLayoutNV")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct IndirectCommandsLayoutNV(u64);
 
-/// Non-dispatchable handle
+/// `VkCudaModuleNV`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCudaModuleNV.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkCudaModuleNV")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct CudaModuleNV(u64);
 
-/// Non-dispatchable handle
+/// `VkCudaFunctionNV`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCudaFunctionNV.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkCudaFunctionNV")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct CudaFunctionNV(u64);
 
-/// Non-dispatchable handle
+/// `VkBufferCollectionFUCHSIA`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferCollectionFUCHSIA.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkBufferCollectionFUCHSIA")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct BufferCollectionFUCHSIA(u64);
 
-/// Non-dispatchable handle
+/// `VkMicromapEXT`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMicromapEXT.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkMicromapEXT")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct MicromapEXT(u64);
 
-/// Non-dispatchable handle
+/// `VkTensorViewARM`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkTensorViewARM.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkTensorViewARM")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct TensorViewARM(u64);
 
-/// Non-dispatchable handle
+/// `VkOpticalFlowSessionNV`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkOpticalFlowSessionNV.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkOpticalFlowSessionNV")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct OpticalFlowSessionNV(u64);
 
-/// Non-dispatchable handle
+/// `VkShaderEXT`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderEXT.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkShaderEXT")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct ShaderEXT(u64);
 
-/// Non-dispatchable handle
+/// `VkDataGraphPipelineSessionARM`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineSessionARM.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkDataGraphPipelineSessionARM")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct DataGraphPipelineSessionARM(u64);
 
-/// Dispatchable handle
+/// `VkExternalComputeQueueNV`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalComputeQueueNV.html>
+///
+/// # Handle type
+/// Dispatchable
 #[doc(alias = "VkExternalComputeQueueNV")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct ExternalComputeQueueNV(usize);
 
-/// Non-dispatchable handle
+/// `VkIndirectExecutionSetEXT`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectExecutionSetEXT.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkIndirectExecutionSetEXT")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct IndirectExecutionSetEXT(u64);
 
-/// Non-dispatchable handle
+/// `VkIndirectCommandsLayoutEXT`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectCommandsLayoutEXT.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkIndirectCommandsLayoutEXT")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct IndirectCommandsLayoutEXT(u64);
 
-/// Non-dispatchable handle
+/// `VkShaderInstrumentationARM`
 ///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderInstrumentationARM.html>
+///
+/// # Handle type
+/// Non-dispatchable
 #[doc(alias = "VkShaderInstrumentationARM")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]

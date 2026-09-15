@@ -107,6 +107,8 @@ def struct_name(name: str) -> str:
 
 
 def vulkan_doc_header(out: CodeWriter, name: str):
+    out.writeln(f"/// `{name}`")
+    out.writeln("///")
     out.writeln("/// # Vulkan documentation")
     out.writeln(
         f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{name}.html>"
@@ -287,13 +289,15 @@ class Context:
         out = CodeWriter()
 
         type_name = x.name.removeprefix("Vk")
-        if x.dispatchable:
-            out.writeln("/// Dispatchable handle")
-        else:
-            out.writeln("/// Non-dispatchable handle")
 
-        out.writeln("///")
         vulkan_doc_header(out, x.name)
+        out.writeln("///")
+        out.writeln("/// # Handle type")
+        if x.dispatchable:
+            out.writeln("/// Dispatchable")
+        else:
+            out.writeln("/// Non-dispatchable")
+
         out.writeln(f'#[doc(alias = "{x.name}")]')
         out.writeln("#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]")
         out.writeln("#[repr(transparent)]")

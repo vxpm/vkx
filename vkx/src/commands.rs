@@ -14,6 +14,8 @@ use crate::flags::*;
 use crate::fn_ptrs::*;
 use crate::handles::*;
 use crate::structs::*;
+/// `vkCreateInstance`
+///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateInstance.html>
 #[doc(alias = "vkCreateInstance")]
@@ -26,6 +28,8 @@ pub unsafe fn create_instance(
 }
 
 impl Instance {
+    /// `vkDestroyInstance`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyInstance.html>
     #[doc(alias = "vkDestroyInstance")]
@@ -35,6 +39,8 @@ impl Instance {
 }
 
 impl Instance {
+    /// `vkEnumeratePhysicalDevices`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumeratePhysicalDevices.html>
     #[doc(alias = "vkEnumeratePhysicalDevices")]
@@ -48,6 +54,8 @@ impl Instance {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceFeatures`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceFeatures.html>
     #[doc(alias = "vkGetPhysicalDeviceFeatures")]
@@ -57,6 +65,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceFormatProperties`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceFormatProperties.html>
     #[doc(alias = "vkGetPhysicalDeviceFormatProperties")]
@@ -70,6 +80,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceImageFormatProperties`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceImageFormatProperties.html>
     #[doc(alias = "vkGetPhysicalDeviceImageFormatProperties")]
@@ -87,6 +99,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceProperties`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceProperties.html>
     #[doc(alias = "vkGetPhysicalDeviceProperties")]
@@ -96,6 +110,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceQueueFamilyProperties`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceQueueFamilyProperties.html>
     #[doc(alias = "vkGetPhysicalDeviceQueueFamilyProperties")]
@@ -109,6 +125,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceMemoryProperties`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceMemoryProperties.html>
     #[doc(alias = "vkGetPhysicalDeviceMemoryProperties")]
@@ -121,6 +139,8 @@ impl PhysicalDevice {
 }
 
 impl Instance {
+    /// `vkGetInstanceProcAddr`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetInstanceProcAddr.html>
     #[doc(alias = "vkGetInstanceProcAddr")]
@@ -130,6 +150,8 @@ impl Instance {
 }
 
 impl Device {
+    /// `vkGetDeviceProcAddr`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceProcAddr.html>
     #[doc(alias = "vkGetDeviceProcAddr")]
@@ -139,6 +161,8 @@ impl Device {
 }
 
 impl PhysicalDevice {
+    /// `vkCreateDevice`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDevice.html>
     #[doc(alias = "vkCreateDevice")]
@@ -153,6 +177,8 @@ impl PhysicalDevice {
 }
 
 impl Device {
+    /// `vkDestroyDevice`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDevice.html>
     #[doc(alias = "vkDestroyDevice")]
@@ -161,6 +187,8 @@ impl Device {
     }
 }
 
+/// `vkEnumerateInstanceExtensionProperties`
+///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumerateInstanceExtensionProperties.html>
 #[doc(alias = "vkEnumerateInstanceExtensionProperties")]
@@ -173,6 +201,8 @@ pub unsafe fn enumerate_instance_extension_properties(
 }
 
 impl PhysicalDevice {
+    /// `vkEnumerateDeviceExtensionProperties`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumerateDeviceExtensionProperties.html>
     #[doc(alias = "vkEnumerateDeviceExtensionProperties")]
@@ -186,6 +216,8 @@ impl PhysicalDevice {
     }
 }
 
+/// `vkEnumerateInstanceLayerProperties`
+///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumerateInstanceLayerProperties.html>
 #[doc(alias = "vkEnumerateInstanceLayerProperties")]
@@ -197,6 +229,8 @@ pub unsafe fn enumerate_instance_layer_properties(
 }
 
 impl PhysicalDevice {
+    /// `vkEnumerateDeviceLayerProperties`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumerateDeviceLayerProperties.html>
     #[doc(alias = "vkEnumerateDeviceLayerProperties")]
@@ -210,6 +244,8 @@ impl PhysicalDevice {
 }
 
 impl Device {
+    /// `vkGetDeviceQueue`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceQueue.html>
     #[doc(alias = "vkGetDeviceQueue")]
@@ -224,6 +260,8 @@ impl Device {
 }
 
 impl Queue {
+    /// `vkQueueSubmit`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueSubmit.html>
     #[doc(alias = "vkQueueSubmit")]
@@ -238,6 +276,8 @@ impl Queue {
 }
 
 impl Queue {
+    /// `vkQueueWaitIdle`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueWaitIdle.html>
     #[doc(alias = "vkQueueWaitIdle")]
@@ -247,6 +287,8 @@ impl Queue {
 }
 
 impl Device {
+    /// `vkDeviceWaitIdle`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDeviceWaitIdle.html>
     #[doc(alias = "vkDeviceWaitIdle")]
@@ -256,6 +298,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkAllocateMemory`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkAllocateMemory.html>
     #[doc(alias = "vkAllocateMemory")]
@@ -270,6 +314,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkFreeMemory`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkFreeMemory.html>
     #[doc(alias = "vkFreeMemory")]
@@ -279,6 +325,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkMapMemory`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkMapMemory.html>
     #[doc(alias = "vkMapMemory")]
@@ -295,6 +343,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkUnmapMemory`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkUnmapMemory.html>
     #[doc(alias = "vkUnmapMemory")]
@@ -304,6 +354,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkFlushMappedMemoryRanges`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkFlushMappedMemoryRanges.html>
     #[doc(alias = "vkFlushMappedMemoryRanges")]
@@ -317,6 +369,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkInvalidateMappedMemoryRanges`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkInvalidateMappedMemoryRanges.html>
     #[doc(alias = "vkInvalidateMappedMemoryRanges")]
@@ -330,6 +384,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetDeviceMemoryCommitment`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceMemoryCommitment.html>
     #[doc(alias = "vkGetDeviceMemoryCommitment")]
@@ -343,6 +399,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkBindBufferMemory`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkBindBufferMemory.html>
     #[doc(alias = "vkBindBufferMemory")]
@@ -357,6 +415,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkBindImageMemory`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkBindImageMemory.html>
     #[doc(alias = "vkBindImageMemory")]
@@ -371,6 +431,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetBufferMemoryRequirements`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferMemoryRequirements.html>
     #[doc(alias = "vkGetBufferMemoryRequirements")]
@@ -384,6 +446,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetImageMemoryRequirements`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageMemoryRequirements.html>
     #[doc(alias = "vkGetImageMemoryRequirements")]
@@ -397,6 +461,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetImageSparseMemoryRequirements`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageSparseMemoryRequirements.html>
     #[doc(alias = "vkGetImageSparseMemoryRequirements")]
@@ -411,6 +477,8 @@ impl Device {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceSparseImageFormatProperties`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSparseImageFormatProperties.html>
     #[doc(alias = "vkGetPhysicalDeviceSparseImageFormatProperties")]
@@ -429,6 +497,8 @@ impl PhysicalDevice {
 }
 
 impl Queue {
+    /// `vkQueueBindSparse`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueBindSparse.html>
     #[doc(alias = "vkQueueBindSparse")]
@@ -443,6 +513,8 @@ impl Queue {
 }
 
 impl Device {
+    /// `vkCreateFence`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateFence.html>
     #[doc(alias = "vkCreateFence")]
@@ -457,6 +529,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroyFence`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyFence.html>
     #[doc(alias = "vkDestroyFence")]
@@ -466,6 +540,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkResetFences`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkResetFences.html>
     #[doc(alias = "vkResetFences")]
@@ -475,6 +551,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetFenceStatus`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetFenceStatus.html>
     #[doc(alias = "vkGetFenceStatus")]
@@ -484,6 +562,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkWaitForFences`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkWaitForFences.html>
     #[doc(alias = "vkWaitForFences")]
@@ -499,6 +579,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkCreateSemaphore`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateSemaphore.html>
     #[doc(alias = "vkCreateSemaphore")]
@@ -513,6 +595,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroySemaphore`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroySemaphore.html>
     #[doc(alias = "vkDestroySemaphore")]
@@ -526,6 +610,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkCreateQueryPool`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateQueryPool.html>
     #[doc(alias = "vkCreateQueryPool")]
@@ -540,6 +626,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroyQueryPool`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyQueryPool.html>
     #[doc(alias = "vkDestroyQueryPool")]
@@ -553,6 +641,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetQueryPoolResults`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetQueryPoolResults.html>
     #[doc(alias = "vkGetQueryPoolResults")]
@@ -571,6 +661,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkCreateBuffer`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateBuffer.html>
     #[doc(alias = "vkCreateBuffer")]
@@ -585,6 +677,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroyBuffer`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyBuffer.html>
     #[doc(alias = "vkDestroyBuffer")]
@@ -594,6 +688,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkCreateImage`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateImage.html>
     #[doc(alias = "vkCreateImage")]
@@ -608,6 +704,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroyImage`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyImage.html>
     #[doc(alias = "vkDestroyImage")]
@@ -617,6 +715,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetImageSubresourceLayout`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageSubresourceLayout.html>
     #[doc(alias = "vkGetImageSubresourceLayout")]
@@ -631,6 +731,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkCreateImageView`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateImageView.html>
     #[doc(alias = "vkCreateImageView")]
@@ -645,6 +747,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroyImageView`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyImageView.html>
     #[doc(alias = "vkDestroyImageView")]
@@ -658,6 +762,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkCreateCommandPool`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateCommandPool.html>
     #[doc(alias = "vkCreateCommandPool")]
@@ -672,6 +778,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroyCommandPool`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyCommandPool.html>
     #[doc(alias = "vkDestroyCommandPool")]
@@ -685,6 +793,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkResetCommandPool`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkResetCommandPool.html>
     #[doc(alias = "vkResetCommandPool")]
@@ -698,6 +808,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkAllocateCommandBuffers`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkAllocateCommandBuffers.html>
     #[doc(alias = "vkAllocateCommandBuffers")]
@@ -711,6 +823,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkFreeCommandBuffers`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkFreeCommandBuffers.html>
     #[doc(alias = "vkFreeCommandBuffers")]
@@ -725,6 +839,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkBeginCommandBuffer`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkBeginCommandBuffer.html>
     #[doc(alias = "vkBeginCommandBuffer")]
@@ -737,6 +853,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkEndCommandBuffer`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkEndCommandBuffer.html>
     #[doc(alias = "vkEndCommandBuffer")]
@@ -746,6 +864,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkResetCommandBuffer`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkResetCommandBuffer.html>
     #[doc(alias = "vkResetCommandBuffer")]
@@ -755,6 +875,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdCopyBuffer`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyBuffer.html>
     #[doc(alias = "vkCmdCopyBuffer")]
@@ -770,6 +892,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdCopyImage`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyImage.html>
     #[doc(alias = "vkCmdCopyImage")]
@@ -787,6 +911,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdCopyBufferToImage`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyBufferToImage.html>
     #[doc(alias = "vkCmdCopyBufferToImage")]
@@ -803,6 +929,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdCopyImageToBuffer`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyImageToBuffer.html>
     #[doc(alias = "vkCmdCopyImageToBuffer")]
@@ -819,6 +947,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdUpdateBuffer`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdUpdateBuffer.html>
     #[doc(alias = "vkCmdUpdateBuffer")]
@@ -834,6 +964,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdFillBuffer`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdFillBuffer.html>
     #[doc(alias = "vkCmdFillBuffer")]
@@ -849,6 +981,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdPipelineBarrier`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPipelineBarrier.html>
     #[doc(alias = "vkCmdPipelineBarrier")]
@@ -869,6 +1003,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBeginQuery`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginQuery.html>
     #[doc(alias = "vkCmdBeginQuery")]
@@ -883,6 +1019,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdEndQuery`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndQuery.html>
     #[doc(alias = "vkCmdEndQuery")]
@@ -892,6 +1030,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdResetQueryPool`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdResetQueryPool.html>
     #[doc(alias = "vkCmdResetQueryPool")]
@@ -906,6 +1046,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdWriteTimestamp`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteTimestamp.html>
     #[doc(alias = "vkCmdWriteTimestamp")]
@@ -920,6 +1062,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdCopyQueryPoolResults`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyQueryPoolResults.html>
     #[doc(alias = "vkCmdCopyQueryPoolResults")]
@@ -938,6 +1082,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdExecuteCommands`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdExecuteCommands.html>
     #[doc(alias = "vkCmdExecuteCommands")]
@@ -951,6 +1097,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkCreateEvent`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateEvent.html>
     #[doc(alias = "vkCreateEvent")]
@@ -965,6 +1113,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroyEvent`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyEvent.html>
     #[doc(alias = "vkDestroyEvent")]
@@ -974,6 +1124,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetEventStatus`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetEventStatus.html>
     #[doc(alias = "vkGetEventStatus")]
@@ -983,6 +1135,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkSetEvent`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkSetEvent.html>
     #[doc(alias = "vkSetEvent")]
@@ -992,6 +1146,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkResetEvent`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkResetEvent.html>
     #[doc(alias = "vkResetEvent")]
@@ -1001,6 +1157,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkCreateBufferView`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateBufferView.html>
     #[doc(alias = "vkCreateBufferView")]
@@ -1015,6 +1173,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroyBufferView`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyBufferView.html>
     #[doc(alias = "vkDestroyBufferView")]
@@ -1028,6 +1188,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkCreateShaderModule`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateShaderModule.html>
     #[doc(alias = "vkCreateShaderModule")]
@@ -1042,6 +1204,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroyShaderModule`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyShaderModule.html>
     #[doc(alias = "vkDestroyShaderModule")]
@@ -1055,6 +1219,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkCreatePipelineCache`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreatePipelineCache.html>
     #[doc(alias = "vkCreatePipelineCache")]
@@ -1069,6 +1235,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroyPipelineCache`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyPipelineCache.html>
     #[doc(alias = "vkDestroyPipelineCache")]
@@ -1082,6 +1250,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetPipelineCacheData`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPipelineCacheData.html>
     #[doc(alias = "vkGetPipelineCacheData")]
@@ -1096,6 +1266,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkMergePipelineCaches`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkMergePipelineCaches.html>
     #[doc(alias = "vkMergePipelineCaches")]
@@ -1110,6 +1282,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkCreateComputePipelines`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateComputePipelines.html>
     #[doc(alias = "vkCreateComputePipelines")]
@@ -1126,6 +1300,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroyPipeline`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyPipeline.html>
     #[doc(alias = "vkDestroyPipeline")]
@@ -1139,6 +1315,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkCreatePipelineLayout`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreatePipelineLayout.html>
     #[doc(alias = "vkCreatePipelineLayout")]
@@ -1153,6 +1331,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroyPipelineLayout`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyPipelineLayout.html>
     #[doc(alias = "vkDestroyPipelineLayout")]
@@ -1166,6 +1346,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkCreateSampler`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateSampler.html>
     #[doc(alias = "vkCreateSampler")]
@@ -1180,6 +1362,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroySampler`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroySampler.html>
     #[doc(alias = "vkDestroySampler")]
@@ -1189,6 +1373,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkCreateDescriptorSetLayout`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDescriptorSetLayout.html>
     #[doc(alias = "vkCreateDescriptorSetLayout")]
@@ -1203,6 +1389,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroyDescriptorSetLayout`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDescriptorSetLayout.html>
     #[doc(alias = "vkDestroyDescriptorSetLayout")]
@@ -1216,6 +1404,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkCreateDescriptorPool`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDescriptorPool.html>
     #[doc(alias = "vkCreateDescriptorPool")]
@@ -1230,6 +1420,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroyDescriptorPool`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDescriptorPool.html>
     #[doc(alias = "vkDestroyDescriptorPool")]
@@ -1243,6 +1435,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkResetDescriptorPool`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkResetDescriptorPool.html>
     #[doc(alias = "vkResetDescriptorPool")]
@@ -1256,6 +1450,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkAllocateDescriptorSets`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkAllocateDescriptorSets.html>
     #[doc(alias = "vkAllocateDescriptorSets")]
@@ -1269,6 +1465,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkFreeDescriptorSets`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkFreeDescriptorSets.html>
     #[doc(alias = "vkFreeDescriptorSets")]
@@ -1283,6 +1481,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkUpdateDescriptorSets`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkUpdateDescriptorSets.html>
     #[doc(alias = "vkUpdateDescriptorSets")]
@@ -1298,6 +1498,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBindPipeline`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindPipeline.html>
     #[doc(alias = "vkCmdBindPipeline")]
@@ -1311,6 +1513,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBindDescriptorSets`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindDescriptorSets.html>
     #[doc(alias = "vkCmdBindDescriptorSets")]
@@ -1329,6 +1533,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdClearColorImage`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdClearColorImage.html>
     #[doc(alias = "vkCmdClearColorImage")]
@@ -1345,6 +1551,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDispatch`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatch.html>
     #[doc(alias = "vkCmdDispatch")]
@@ -1354,6 +1562,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDispatchIndirect`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchIndirect.html>
     #[doc(alias = "vkCmdDispatchIndirect")]
@@ -1363,6 +1573,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetEvent`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetEvent.html>
     #[doc(alias = "vkCmdSetEvent")]
@@ -1372,6 +1584,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdResetEvent`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdResetEvent.html>
     #[doc(alias = "vkCmdResetEvent")]
@@ -1381,6 +1595,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdWaitEvents`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWaitEvents.html>
     #[doc(alias = "vkCmdWaitEvents")]
@@ -1402,6 +1618,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdPushConstants`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushConstants.html>
     #[doc(alias = "vkCmdPushConstants")]
@@ -1418,6 +1636,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkCreateGraphicsPipelines`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateGraphicsPipelines.html>
     #[doc(alias = "vkCreateGraphicsPipelines")]
@@ -1434,6 +1654,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkCreateFramebuffer`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateFramebuffer.html>
     #[doc(alias = "vkCreateFramebuffer")]
@@ -1448,6 +1670,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroyFramebuffer`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyFramebuffer.html>
     #[doc(alias = "vkDestroyFramebuffer")]
@@ -1461,6 +1685,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkCreateRenderPass`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateRenderPass.html>
     #[doc(alias = "vkCreateRenderPass")]
@@ -1475,6 +1701,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroyRenderPass`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyRenderPass.html>
     #[doc(alias = "vkDestroyRenderPass")]
@@ -1488,6 +1716,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetRenderAreaGranularity`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRenderAreaGranularity.html>
     #[doc(alias = "vkGetRenderAreaGranularity")]
@@ -1501,6 +1731,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetViewport`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetViewport.html>
     #[doc(alias = "vkCmdSetViewport")]
@@ -1515,6 +1747,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetScissor`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetScissor.html>
     #[doc(alias = "vkCmdSetScissor")]
@@ -1529,6 +1763,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetLineWidth`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetLineWidth.html>
     #[doc(alias = "vkCmdSetLineWidth")]
@@ -1538,6 +1774,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetDepthBias`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthBias.html>
     #[doc(alias = "vkCmdSetDepthBias")]
@@ -1552,6 +1790,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetBlendConstants`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetBlendConstants.html>
     #[doc(alias = "vkCmdSetBlendConstants")]
@@ -1561,6 +1801,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetDepthBounds`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthBounds.html>
     #[doc(alias = "vkCmdSetDepthBounds")]
@@ -1570,6 +1812,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetStencilCompareMask`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetStencilCompareMask.html>
     #[doc(alias = "vkCmdSetStencilCompareMask")]
@@ -1583,6 +1827,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetStencilWriteMask`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetStencilWriteMask.html>
     #[doc(alias = "vkCmdSetStencilWriteMask")]
@@ -1592,6 +1838,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetStencilReference`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetStencilReference.html>
     #[doc(alias = "vkCmdSetStencilReference")]
@@ -1601,6 +1849,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBindIndexBuffer`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindIndexBuffer.html>
     #[doc(alias = "vkCmdBindIndexBuffer")]
@@ -1615,6 +1865,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBindVertexBuffers`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindVertexBuffers.html>
     #[doc(alias = "vkCmdBindVertexBuffers")]
@@ -1630,6 +1882,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDraw`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDraw.html>
     #[doc(alias = "vkCmdDraw")]
@@ -1645,6 +1899,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDrawIndexed`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndexed.html>
     #[doc(alias = "vkCmdDrawIndexed")]
@@ -1661,6 +1917,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDrawIndirect`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndirect.html>
     #[doc(alias = "vkCmdDrawIndirect")]
@@ -1676,6 +1934,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDrawIndexedIndirect`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndexedIndirect.html>
     #[doc(alias = "vkCmdDrawIndexedIndirect")]
@@ -1691,6 +1951,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBlitImage`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBlitImage.html>
     #[doc(alias = "vkCmdBlitImage")]
@@ -1709,6 +1971,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdClearDepthStencilImage`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdClearDepthStencilImage.html>
     #[doc(alias = "vkCmdClearDepthStencilImage")]
@@ -1725,6 +1989,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdClearAttachments`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdClearAttachments.html>
     #[doc(alias = "vkCmdClearAttachments")]
@@ -1740,6 +2006,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdResolveImage`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdResolveImage.html>
     #[doc(alias = "vkCmdResolveImage")]
@@ -1757,6 +2025,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBeginRenderPass`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginRenderPass.html>
     #[doc(alias = "vkCmdBeginRenderPass")]
@@ -1770,6 +2040,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdNextSubpass`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdNextSubpass.html>
     #[doc(alias = "vkCmdNextSubpass")]
@@ -1779,6 +2051,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdEndRenderPass`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndRenderPass.html>
     #[doc(alias = "vkCmdEndRenderPass")]
@@ -1787,6 +2061,8 @@ impl CommandBuffer {
     }
 }
 
+/// `vkEnumerateInstanceVersion`
+///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumerateInstanceVersion.html>
 #[doc(alias = "vkEnumerateInstanceVersion")]
@@ -1795,6 +2071,8 @@ pub unsafe fn enumerate_instance_version(api_version: *mut u32) -> ResultCode {
 }
 
 impl Device {
+    /// `vkBindBufferMemory2`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkBindBufferMemory2.html>
     #[doc(alias = "vkBindBufferMemory2")]
@@ -1808,6 +2086,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkBindImageMemory2`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkBindImageMemory2.html>
     #[doc(alias = "vkBindImageMemory2")]
@@ -1821,6 +2101,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetDeviceGroupPeerMemoryFeatures`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceGroupPeerMemoryFeatures.html>
     #[doc(alias = "vkGetDeviceGroupPeerMemoryFeatures")]
@@ -1836,6 +2118,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetDeviceMask`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDeviceMask.html>
     #[doc(alias = "vkCmdSetDeviceMask")]
@@ -1845,6 +2129,8 @@ impl CommandBuffer {
 }
 
 impl Instance {
+    /// `vkEnumeratePhysicalDeviceGroups`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumeratePhysicalDeviceGroups.html>
     #[doc(alias = "vkEnumeratePhysicalDeviceGroups")]
@@ -1858,6 +2144,8 @@ impl Instance {
 }
 
 impl Device {
+    /// `vkGetImageMemoryRequirements2`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageMemoryRequirements2.html>
     #[doc(alias = "vkGetImageMemoryRequirements2")]
@@ -1871,6 +2159,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetBufferMemoryRequirements2`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferMemoryRequirements2.html>
     #[doc(alias = "vkGetBufferMemoryRequirements2")]
@@ -1884,6 +2174,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetImageSparseMemoryRequirements2`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageSparseMemoryRequirements2.html>
     #[doc(alias = "vkGetImageSparseMemoryRequirements2")]
@@ -1898,6 +2190,8 @@ impl Device {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceFeatures2`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceFeatures2.html>
     #[doc(alias = "vkGetPhysicalDeviceFeatures2")]
@@ -1907,6 +2201,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceProperties2`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceProperties2.html>
     #[doc(alias = "vkGetPhysicalDeviceProperties2")]
@@ -1919,6 +2215,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceFormatProperties2`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceFormatProperties2.html>
     #[doc(alias = "vkGetPhysicalDeviceFormatProperties2")]
@@ -1932,6 +2230,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceImageFormatProperties2`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceImageFormatProperties2.html>
     #[doc(alias = "vkGetPhysicalDeviceImageFormatProperties2")]
@@ -1945,6 +2245,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceQueueFamilyProperties2`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceQueueFamilyProperties2.html>
     #[doc(alias = "vkGetPhysicalDeviceQueueFamilyProperties2")]
@@ -1958,6 +2260,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceMemoryProperties2`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceMemoryProperties2.html>
     #[doc(alias = "vkGetPhysicalDeviceMemoryProperties2")]
@@ -1970,6 +2274,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceSparseImageFormatProperties2`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSparseImageFormatProperties2.html>
     #[doc(alias = "vkGetPhysicalDeviceSparseImageFormatProperties2")]
@@ -1984,6 +2290,8 @@ impl PhysicalDevice {
 }
 
 impl Device {
+    /// `vkTrimCommandPool`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkTrimCommandPool.html>
     #[doc(alias = "vkTrimCommandPool")]
@@ -1993,6 +2301,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetDeviceQueue2`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceQueue2.html>
     #[doc(alias = "vkGetDeviceQueue2")]
@@ -2002,6 +2312,8 @@ impl Device {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceExternalBufferProperties`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceExternalBufferProperties.html>
     #[doc(alias = "vkGetPhysicalDeviceExternalBufferProperties")]
@@ -2015,6 +2327,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceExternalFenceProperties`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceExternalFenceProperties.html>
     #[doc(alias = "vkGetPhysicalDeviceExternalFenceProperties")]
@@ -2028,6 +2342,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceExternalSemaphoreProperties`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceExternalSemaphoreProperties.html>
     #[doc(alias = "vkGetPhysicalDeviceExternalSemaphoreProperties")]
@@ -2041,6 +2357,8 @@ impl PhysicalDevice {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDispatchBase`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchBase.html>
     #[doc(alias = "vkCmdDispatchBase")]
@@ -2058,6 +2376,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkCreateDescriptorUpdateTemplate`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDescriptorUpdateTemplate.html>
     #[doc(alias = "vkCreateDescriptorUpdateTemplate")]
@@ -2072,6 +2392,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroyDescriptorUpdateTemplate`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDescriptorUpdateTemplate.html>
     #[doc(alias = "vkDestroyDescriptorUpdateTemplate")]
@@ -2085,6 +2407,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkUpdateDescriptorSetWithTemplate`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkUpdateDescriptorSetWithTemplate.html>
     #[doc(alias = "vkUpdateDescriptorSetWithTemplate")]
@@ -2099,6 +2423,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetDescriptorSetLayoutSupport`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDescriptorSetLayoutSupport.html>
     #[doc(alias = "vkGetDescriptorSetLayoutSupport")]
@@ -2112,6 +2438,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkCreateSamplerYcbcrConversion`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateSamplerYcbcrConversion.html>
     #[doc(alias = "vkCreateSamplerYcbcrConversion")]
@@ -2126,6 +2454,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroySamplerYcbcrConversion`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroySamplerYcbcrConversion.html>
     #[doc(alias = "vkDestroySamplerYcbcrConversion")]
@@ -2139,6 +2469,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkResetQueryPool`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkResetQueryPool.html>
     #[doc(alias = "vkResetQueryPool")]
@@ -2153,6 +2485,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetSemaphoreCounterValue`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSemaphoreCounterValue.html>
     #[doc(alias = "vkGetSemaphoreCounterValue")]
@@ -2166,6 +2500,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkWaitSemaphores`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkWaitSemaphores.html>
     #[doc(alias = "vkWaitSemaphores")]
@@ -2179,6 +2515,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkSignalSemaphore`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkSignalSemaphore.html>
     #[doc(alias = "vkSignalSemaphore")]
@@ -2188,6 +2526,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetBufferDeviceAddress`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferDeviceAddress.html>
     #[doc(alias = "vkGetBufferDeviceAddress")]
@@ -2200,6 +2540,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetBufferOpaqueCaptureAddress`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferOpaqueCaptureAddress.html>
     #[doc(alias = "vkGetBufferOpaqueCaptureAddress")]
@@ -2212,6 +2554,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetDeviceMemoryOpaqueCaptureAddress`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceMemoryOpaqueCaptureAddress.html>
     #[doc(alias = "vkGetDeviceMemoryOpaqueCaptureAddress")]
@@ -2224,6 +2568,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDrawIndirectCount`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndirectCount.html>
     #[doc(alias = "vkCmdDrawIndirectCount")]
@@ -2241,6 +2587,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDrawIndexedIndirectCount`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndexedIndirectCount.html>
     #[doc(alias = "vkCmdDrawIndexedIndirectCount")]
@@ -2258,6 +2606,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkCreateRenderPass2`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateRenderPass2.html>
     #[doc(alias = "vkCreateRenderPass2")]
@@ -2272,6 +2622,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBeginRenderPass2`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginRenderPass2.html>
     #[doc(alias = "vkCmdBeginRenderPass2")]
@@ -2285,6 +2637,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdNextSubpass2`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdNextSubpass2.html>
     #[doc(alias = "vkCmdNextSubpass2")]
@@ -2298,6 +2652,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdEndRenderPass2`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndRenderPass2.html>
     #[doc(alias = "vkCmdEndRenderPass2")]
@@ -2307,6 +2663,8 @@ impl CommandBuffer {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceToolProperties`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceToolProperties.html>
     #[doc(alias = "vkGetPhysicalDeviceToolProperties")]
@@ -2320,6 +2678,8 @@ impl PhysicalDevice {
 }
 
 impl Device {
+    /// `vkCreatePrivateDataSlot`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreatePrivateDataSlot.html>
     #[doc(alias = "vkCreatePrivateDataSlot")]
@@ -2334,6 +2694,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroyPrivateDataSlot`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyPrivateDataSlot.html>
     #[doc(alias = "vkDestroyPrivateDataSlot")]
@@ -2347,6 +2709,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkSetPrivateData`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkSetPrivateData.html>
     #[doc(alias = "vkSetPrivateData")]
@@ -2362,6 +2726,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetPrivateData`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPrivateData.html>
     #[doc(alias = "vkGetPrivateData")]
@@ -2377,6 +2743,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdPipelineBarrier2`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPipelineBarrier2.html>
     #[doc(alias = "vkCmdPipelineBarrier2")]
@@ -2386,6 +2754,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdWriteTimestamp2`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteTimestamp2.html>
     #[doc(alias = "vkCmdWriteTimestamp2")]
@@ -2400,6 +2770,8 @@ impl CommandBuffer {
 }
 
 impl Queue {
+    /// `vkQueueSubmit2`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueSubmit2.html>
     #[doc(alias = "vkQueueSubmit2")]
@@ -2414,6 +2786,8 @@ impl Queue {
 }
 
 impl CommandBuffer {
+    /// `vkCmdCopyBuffer2`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyBuffer2.html>
     #[doc(alias = "vkCmdCopyBuffer2")]
@@ -2423,6 +2797,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdCopyImage2`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyImage2.html>
     #[doc(alias = "vkCmdCopyImage2")]
@@ -2432,6 +2808,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdCopyBufferToImage2`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyBufferToImage2.html>
     #[doc(alias = "vkCmdCopyBufferToImage2")]
@@ -2444,6 +2822,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdCopyImageToBuffer2`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyImageToBuffer2.html>
     #[doc(alias = "vkCmdCopyImageToBuffer2")]
@@ -2456,6 +2836,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkGetDeviceBufferMemoryRequirements`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceBufferMemoryRequirements.html>
     #[doc(alias = "vkGetDeviceBufferMemoryRequirements")]
@@ -2469,6 +2851,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetDeviceImageMemoryRequirements`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceImageMemoryRequirements.html>
     #[doc(alias = "vkGetDeviceImageMemoryRequirements")]
@@ -2482,6 +2866,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetDeviceImageSparseMemoryRequirements`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceImageSparseMemoryRequirements.html>
     #[doc(alias = "vkGetDeviceImageSparseMemoryRequirements")]
@@ -2496,6 +2882,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetEvent2`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetEvent2.html>
     #[doc(alias = "vkCmdSetEvent2")]
@@ -2505,6 +2893,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdResetEvent2`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdResetEvent2.html>
     #[doc(alias = "vkCmdResetEvent2")]
@@ -2514,6 +2904,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdWaitEvents2`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWaitEvents2.html>
     #[doc(alias = "vkCmdWaitEvents2")]
@@ -2528,6 +2920,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBlitImage2`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBlitImage2.html>
     #[doc(alias = "vkCmdBlitImage2")]
@@ -2537,6 +2931,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdResolveImage2`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdResolveImage2.html>
     #[doc(alias = "vkCmdResolveImage2")]
@@ -2546,6 +2942,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBeginRendering`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginRendering.html>
     #[doc(alias = "vkCmdBeginRendering")]
@@ -2555,6 +2953,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdEndRendering`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndRendering.html>
     #[doc(alias = "vkCmdEndRendering")]
@@ -2564,6 +2964,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetCullMode`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCullMode.html>
     #[doc(alias = "vkCmdSetCullMode")]
@@ -2573,6 +2975,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetFrontFace`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetFrontFace.html>
     #[doc(alias = "vkCmdSetFrontFace")]
@@ -2582,6 +2986,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetPrimitiveTopology`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPrimitiveTopology.html>
     #[doc(alias = "vkCmdSetPrimitiveTopology")]
@@ -2591,6 +2997,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetViewportWithCount`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetViewportWithCount.html>
     #[doc(alias = "vkCmdSetViewportWithCount")]
@@ -2604,6 +3012,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetScissorWithCount`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetScissorWithCount.html>
     #[doc(alias = "vkCmdSetScissorWithCount")]
@@ -2613,6 +3023,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBindVertexBuffers2`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindVertexBuffers2.html>
     #[doc(alias = "vkCmdBindVertexBuffers2")]
@@ -2630,6 +3042,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetDepthTestEnable`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthTestEnable.html>
     #[doc(alias = "vkCmdSetDepthTestEnable")]
@@ -2639,6 +3053,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetDepthWriteEnable`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthWriteEnable.html>
     #[doc(alias = "vkCmdSetDepthWriteEnable")]
@@ -2648,6 +3064,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetDepthCompareOp`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthCompareOp.html>
     #[doc(alias = "vkCmdSetDepthCompareOp")]
@@ -2657,6 +3075,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetDepthBoundsTestEnable`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthBoundsTestEnable.html>
     #[doc(alias = "vkCmdSetDepthBoundsTestEnable")]
@@ -2666,6 +3086,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetStencilTestEnable`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetStencilTestEnable.html>
     #[doc(alias = "vkCmdSetStencilTestEnable")]
@@ -2675,6 +3097,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetStencilOp`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetStencilOp.html>
     #[doc(alias = "vkCmdSetStencilOp")]
@@ -2691,6 +3115,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetRasterizerDiscardEnable`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRasterizerDiscardEnable.html>
     #[doc(alias = "vkCmdSetRasterizerDiscardEnable")]
@@ -2700,6 +3126,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetDepthBiasEnable`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthBiasEnable.html>
     #[doc(alias = "vkCmdSetDepthBiasEnable")]
@@ -2709,6 +3137,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetPrimitiveRestartEnable`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPrimitiveRestartEnable.html>
     #[doc(alias = "vkCmdSetPrimitiveRestartEnable")]
@@ -2718,6 +3148,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkMapMemory2`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkMapMemory2.html>
     #[doc(alias = "vkMapMemory2")]
@@ -2731,6 +3163,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkUnmapMemory2`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkUnmapMemory2.html>
     #[doc(alias = "vkUnmapMemory2")]
@@ -2740,6 +3174,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetDeviceImageSubresourceLayout`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceImageSubresourceLayout.html>
     #[doc(alias = "vkGetDeviceImageSubresourceLayout")]
@@ -2753,6 +3189,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetImageSubresourceLayout2`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageSubresourceLayout2.html>
     #[doc(alias = "vkGetImageSubresourceLayout2")]
@@ -2767,6 +3205,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkCopyMemoryToImage`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyMemoryToImage.html>
     #[doc(alias = "vkCopyMemoryToImage")]
@@ -2779,6 +3219,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkCopyImageToMemory`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyImageToMemory.html>
     #[doc(alias = "vkCopyImageToMemory")]
@@ -2791,6 +3233,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkCopyImageToImage`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyImageToImage.html>
     #[doc(alias = "vkCopyImageToImage")]
@@ -2803,6 +3247,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkTransitionImageLayout`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkTransitionImageLayout.html>
     #[doc(alias = "vkTransitionImageLayout")]
@@ -2816,6 +3262,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdPushDescriptorSet`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushDescriptorSet.html>
     #[doc(alias = "vkCmdPushDescriptorSet")]
@@ -2832,6 +3280,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdPushDescriptorSetWithTemplate`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushDescriptorSetWithTemplate.html>
     #[doc(alias = "vkCmdPushDescriptorSetWithTemplate")]
@@ -2847,6 +3297,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBindDescriptorSets2`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindDescriptorSets2.html>
     #[doc(alias = "vkCmdBindDescriptorSets2")]
@@ -2859,6 +3311,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdPushConstants2`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushConstants2.html>
     #[doc(alias = "vkCmdPushConstants2")]
@@ -2868,6 +3322,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdPushDescriptorSet2`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushDescriptorSet2.html>
     #[doc(alias = "vkCmdPushDescriptorSet2")]
@@ -2880,6 +3336,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdPushDescriptorSetWithTemplate2`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushDescriptorSetWithTemplate2.html>
     #[doc(alias = "vkCmdPushDescriptorSetWithTemplate2")]
@@ -2892,6 +3350,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetLineStipple`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetLineStipple.html>
     #[doc(alias = "vkCmdSetLineStipple")]
@@ -2901,6 +3361,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBindIndexBuffer2`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindIndexBuffer2.html>
     #[doc(alias = "vkCmdBindIndexBuffer2")]
@@ -2916,6 +3378,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkGetRenderingAreaGranularity`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRenderingAreaGranularity.html>
     #[doc(alias = "vkGetRenderingAreaGranularity")]
@@ -2929,6 +3393,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetRenderingAttachmentLocations`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRenderingAttachmentLocations.html>
     #[doc(alias = "vkCmdSetRenderingAttachmentLocations")]
@@ -2941,6 +3407,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetRenderingInputAttachmentIndices`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRenderingInputAttachmentIndices.html>
     #[doc(alias = "vkCmdSetRenderingInputAttachmentIndices")]
@@ -2953,6 +3421,8 @@ impl CommandBuffer {
 }
 
 impl Instance {
+    /// `vkDestroySurfaceKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroySurfaceKHR.html>
     #[doc(alias = "vkDestroySurfaceKHR")]
@@ -2966,6 +3436,8 @@ impl Instance {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceSurfaceSupportKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSurfaceSupportKHR.html>
     #[doc(alias = "vkGetPhysicalDeviceSurfaceSupportKHR")]
@@ -2980,6 +3452,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceSurfaceCapabilitiesKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSurfaceCapabilitiesKHR.html>
     #[doc(alias = "vkGetPhysicalDeviceSurfaceCapabilitiesKHR")]
@@ -2993,6 +3467,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceSurfaceFormatsKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSurfaceFormatsKHR.html>
     #[doc(alias = "vkGetPhysicalDeviceSurfaceFormatsKHR")]
@@ -3007,6 +3483,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceSurfacePresentModesKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSurfacePresentModesKHR.html>
     #[doc(alias = "vkGetPhysicalDeviceSurfacePresentModesKHR")]
@@ -3021,6 +3499,8 @@ impl PhysicalDevice {
 }
 
 impl Device {
+    /// `vkCreateSwapchainKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateSwapchainKHR.html>
     #[doc(alias = "vkCreateSwapchainKHR")]
@@ -3035,6 +3515,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroySwapchainKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroySwapchainKHR.html>
     #[doc(alias = "vkDestroySwapchainKHR")]
@@ -3048,6 +3530,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetSwapchainImagesKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSwapchainImagesKHR.html>
     #[doc(alias = "vkGetSwapchainImagesKHR")]
@@ -3062,6 +3546,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkAcquireNextImageKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkAcquireNextImageKHR.html>
     #[doc(alias = "vkAcquireNextImageKHR")]
@@ -3078,6 +3564,8 @@ impl Device {
 }
 
 impl Queue {
+    /// `vkQueuePresentKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkQueuePresentKHR.html>
     #[doc(alias = "vkQueuePresentKHR")]
@@ -3087,6 +3575,8 @@ impl Queue {
 }
 
 impl Device {
+    /// `vkGetDeviceGroupPresentCapabilitiesKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceGroupPresentCapabilitiesKHR.html>
     #[doc(alias = "vkGetDeviceGroupPresentCapabilitiesKHR")]
@@ -3099,6 +3589,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetDeviceGroupSurfacePresentModesKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceGroupSurfacePresentModesKHR.html>
     #[doc(alias = "vkGetDeviceGroupSurfacePresentModesKHR")]
@@ -3112,6 +3604,8 @@ impl Device {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDevicePresentRectanglesKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDevicePresentRectanglesKHR.html>
     #[doc(alias = "vkGetPhysicalDevicePresentRectanglesKHR")]
@@ -3126,6 +3620,8 @@ impl PhysicalDevice {
 }
 
 impl Device {
+    /// `vkAcquireNextImage2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkAcquireNextImage2KHR.html>
     #[doc(alias = "vkAcquireNextImage2KHR")]
@@ -3139,6 +3635,8 @@ impl Device {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceDisplayPropertiesKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceDisplayPropertiesKHR.html>
     #[doc(alias = "vkGetPhysicalDeviceDisplayPropertiesKHR")]
@@ -3152,6 +3650,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceDisplayPlanePropertiesKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceDisplayPlanePropertiesKHR.html>
     #[doc(alias = "vkGetPhysicalDeviceDisplayPlanePropertiesKHR")]
@@ -3165,6 +3665,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkGetDisplayPlaneSupportedDisplaysKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDisplayPlaneSupportedDisplaysKHR.html>
     #[doc(alias = "vkGetDisplayPlaneSupportedDisplaysKHR")]
@@ -3179,6 +3681,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkGetDisplayModePropertiesKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDisplayModePropertiesKHR.html>
     #[doc(alias = "vkGetDisplayModePropertiesKHR")]
@@ -3193,6 +3697,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkCreateDisplayModeKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDisplayModeKHR.html>
     #[doc(alias = "vkCreateDisplayModeKHR")]
@@ -3208,6 +3714,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkGetDisplayPlaneCapabilitiesKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDisplayPlaneCapabilitiesKHR.html>
     #[doc(alias = "vkGetDisplayPlaneCapabilitiesKHR")]
@@ -3222,6 +3730,8 @@ impl PhysicalDevice {
 }
 
 impl Instance {
+    /// `vkCreateDisplayPlaneSurfaceKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDisplayPlaneSurfaceKHR.html>
     #[doc(alias = "vkCreateDisplayPlaneSurfaceKHR")]
@@ -3236,6 +3746,8 @@ impl Instance {
 }
 
 impl Device {
+    /// `vkCreateSharedSwapchainsKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateSharedSwapchainsKHR.html>
     #[doc(alias = "vkCreateSharedSwapchainsKHR")]
@@ -3251,6 +3763,8 @@ impl Device {
 }
 
 impl Instance {
+    /// `vkCreateXlibSurfaceKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateXlibSurfaceKHR.html>
     #[doc(alias = "vkCreateXlibSurfaceKHR")]
@@ -3265,6 +3779,8 @@ impl Instance {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceXlibPresentationSupportKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceXlibPresentationSupportKHR.html>
     #[doc(alias = "vkGetPhysicalDeviceXlibPresentationSupportKHR")]
@@ -3279,6 +3795,8 @@ impl PhysicalDevice {
 }
 
 impl Instance {
+    /// `vkCreateXcbSurfaceKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateXcbSurfaceKHR.html>
     #[doc(alias = "vkCreateXcbSurfaceKHR")]
@@ -3293,6 +3811,8 @@ impl Instance {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceXcbPresentationSupportKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceXcbPresentationSupportKHR.html>
     #[doc(alias = "vkGetPhysicalDeviceXcbPresentationSupportKHR")]
@@ -3307,6 +3827,8 @@ impl PhysicalDevice {
 }
 
 impl Instance {
+    /// `vkCreateWaylandSurfaceKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateWaylandSurfaceKHR.html>
     #[doc(alias = "vkCreateWaylandSurfaceKHR")]
@@ -3321,6 +3843,8 @@ impl Instance {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceWaylandPresentationSupportKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceWaylandPresentationSupportKHR.html>
     #[doc(alias = "vkGetPhysicalDeviceWaylandPresentationSupportKHR")]
@@ -3334,6 +3858,8 @@ impl PhysicalDevice {
 }
 
 impl Instance {
+    /// `vkCreateAndroidSurfaceKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateAndroidSurfaceKHR.html>
     #[doc(alias = "vkCreateAndroidSurfaceKHR")]
@@ -3348,6 +3874,8 @@ impl Instance {
 }
 
 impl Instance {
+    /// `vkCreateWin32SurfaceKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateWin32SurfaceKHR.html>
     #[doc(alias = "vkCreateWin32SurfaceKHR")]
@@ -3362,6 +3890,8 @@ impl Instance {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceWin32PresentationSupportKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceWin32PresentationSupportKHR.html>
     #[doc(alias = "vkGetPhysicalDeviceWin32PresentationSupportKHR")]
@@ -3374,6 +3904,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceVideoCapabilitiesKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceVideoCapabilitiesKHR.html>
     #[doc(alias = "vkGetPhysicalDeviceVideoCapabilitiesKHR")]
@@ -3387,6 +3919,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceVideoFormatPropertiesKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceVideoFormatPropertiesKHR.html>
     #[doc(alias = "vkGetPhysicalDeviceVideoFormatPropertiesKHR")]
@@ -3401,6 +3935,8 @@ impl PhysicalDevice {
 }
 
 impl Device {
+    /// `vkCreateVideoSessionKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateVideoSessionKHR.html>
     #[doc(alias = "vkCreateVideoSessionKHR")]
@@ -3415,6 +3951,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroyVideoSessionKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyVideoSessionKHR.html>
     #[doc(alias = "vkDestroyVideoSessionKHR")]
@@ -3428,6 +3966,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetVideoSessionMemoryRequirementsKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetVideoSessionMemoryRequirementsKHR.html>
     #[doc(alias = "vkGetVideoSessionMemoryRequirementsKHR")]
@@ -3442,6 +3982,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkBindVideoSessionMemoryKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkBindVideoSessionMemoryKHR.html>
     #[doc(alias = "vkBindVideoSessionMemoryKHR")]
@@ -3456,6 +3998,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkCreateVideoSessionParametersKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateVideoSessionParametersKHR.html>
     #[doc(alias = "vkCreateVideoSessionParametersKHR")]
@@ -3470,6 +4014,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkUpdateVideoSessionParametersKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkUpdateVideoSessionParametersKHR.html>
     #[doc(alias = "vkUpdateVideoSessionParametersKHR")]
@@ -3483,6 +4029,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroyVideoSessionParametersKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyVideoSessionParametersKHR.html>
     #[doc(alias = "vkDestroyVideoSessionParametersKHR")]
@@ -3496,6 +4044,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBeginVideoCodingKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginVideoCodingKHR.html>
     #[doc(alias = "vkCmdBeginVideoCodingKHR")]
@@ -3505,6 +4055,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdEndVideoCodingKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndVideoCodingKHR.html>
     #[doc(alias = "vkCmdEndVideoCodingKHR")]
@@ -3514,6 +4066,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdControlVideoCodingKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdControlVideoCodingKHR.html>
     #[doc(alias = "vkCmdControlVideoCodingKHR")]
@@ -3526,6 +4080,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDecodeVideoKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDecodeVideoKHR.html>
     #[doc(alias = "vkCmdDecodeVideoKHR")]
@@ -3535,6 +4091,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBeginRenderingKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginRenderingKHR.html>
     #[doc(alias = "vkCmdBeginRenderingKHR")]
@@ -3544,6 +4102,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdEndRenderingKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndRenderingKHR.html>
     #[doc(alias = "vkCmdEndRenderingKHR")]
@@ -3553,6 +4113,8 @@ impl CommandBuffer {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceFeatures2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceFeatures2KHR.html>
     #[doc(alias = "vkGetPhysicalDeviceFeatures2KHR")]
@@ -3562,6 +4124,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceProperties2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceProperties2KHR.html>
     #[doc(alias = "vkGetPhysicalDeviceProperties2KHR")]
@@ -3574,6 +4138,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceFormatProperties2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceFormatProperties2KHR.html>
     #[doc(alias = "vkGetPhysicalDeviceFormatProperties2KHR")]
@@ -3587,6 +4153,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceImageFormatProperties2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceImageFormatProperties2KHR.html>
     #[doc(alias = "vkGetPhysicalDeviceImageFormatProperties2KHR")]
@@ -3600,6 +4168,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceQueueFamilyProperties2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceQueueFamilyProperties2KHR.html>
     #[doc(alias = "vkGetPhysicalDeviceQueueFamilyProperties2KHR")]
@@ -3613,6 +4183,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceMemoryProperties2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceMemoryProperties2KHR.html>
     #[doc(alias = "vkGetPhysicalDeviceMemoryProperties2KHR")]
@@ -3625,6 +4197,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceSparseImageFormatProperties2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSparseImageFormatProperties2KHR.html>
     #[doc(alias = "vkGetPhysicalDeviceSparseImageFormatProperties2KHR")]
@@ -3639,6 +4213,8 @@ impl PhysicalDevice {
 }
 
 impl Device {
+    /// `vkGetDeviceGroupPeerMemoryFeaturesKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceGroupPeerMemoryFeaturesKHR.html>
     #[doc(alias = "vkGetDeviceGroupPeerMemoryFeaturesKHR")]
@@ -3654,6 +4230,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetDeviceMaskKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDeviceMaskKHR.html>
     #[doc(alias = "vkCmdSetDeviceMaskKHR")]
@@ -3663,6 +4241,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDispatchBaseKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchBaseKHR.html>
     #[doc(alias = "vkCmdDispatchBaseKHR")]
@@ -3680,6 +4260,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkTrimCommandPoolKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkTrimCommandPoolKHR.html>
     #[doc(alias = "vkTrimCommandPoolKHR")]
@@ -3693,6 +4275,8 @@ impl Device {
 }
 
 impl Instance {
+    /// `vkEnumeratePhysicalDeviceGroupsKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumeratePhysicalDeviceGroupsKHR.html>
     #[doc(alias = "vkEnumeratePhysicalDeviceGroupsKHR")]
@@ -3706,6 +4290,8 @@ impl Instance {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceExternalBufferPropertiesKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceExternalBufferPropertiesKHR.html>
     #[doc(alias = "vkGetPhysicalDeviceExternalBufferPropertiesKHR")]
@@ -3719,6 +4305,8 @@ impl PhysicalDevice {
 }
 
 impl Device {
+    /// `vkGetMemoryWin32HandleKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryWin32HandleKHR.html>
     #[doc(alias = "vkGetMemoryWin32HandleKHR")]
@@ -3732,6 +4320,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetMemoryWin32HandlePropertiesKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryWin32HandlePropertiesKHR.html>
     #[doc(alias = "vkGetMemoryWin32HandlePropertiesKHR")]
@@ -3746,6 +4336,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetMemoryFdKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryFdKHR.html>
     #[doc(alias = "vkGetMemoryFdKHR")]
@@ -3759,6 +4351,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetMemoryFdPropertiesKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryFdPropertiesKHR.html>
     #[doc(alias = "vkGetMemoryFdPropertiesKHR")]
@@ -3773,6 +4367,8 @@ impl Device {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceExternalSemaphorePropertiesKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceExternalSemaphorePropertiesKHR.html>
     #[doc(alias = "vkGetPhysicalDeviceExternalSemaphorePropertiesKHR")]
@@ -3786,6 +4382,8 @@ impl PhysicalDevice {
 }
 
 impl Device {
+    /// `vkImportSemaphoreWin32HandleKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkImportSemaphoreWin32HandleKHR.html>
     #[doc(alias = "vkImportSemaphoreWin32HandleKHR")]
@@ -3798,6 +4396,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetSemaphoreWin32HandleKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSemaphoreWin32HandleKHR.html>
     #[doc(alias = "vkGetSemaphoreWin32HandleKHR")]
@@ -3811,6 +4411,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkImportSemaphoreFdKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkImportSemaphoreFdKHR.html>
     #[doc(alias = "vkImportSemaphoreFdKHR")]
@@ -3823,6 +4425,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetSemaphoreFdKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSemaphoreFdKHR.html>
     #[doc(alias = "vkGetSemaphoreFdKHR")]
@@ -3836,6 +4440,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdPushDescriptorSetKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushDescriptorSetKHR.html>
     #[doc(alias = "vkCmdPushDescriptorSetKHR")]
@@ -3852,6 +4458,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdPushDescriptorSetWithTemplateKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushDescriptorSetWithTemplateKHR.html>
     #[doc(alias = "vkCmdPushDescriptorSetWithTemplateKHR")]
@@ -3867,6 +4475,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkCreateDescriptorUpdateTemplateKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDescriptorUpdateTemplateKHR.html>
     #[doc(alias = "vkCreateDescriptorUpdateTemplateKHR")]
@@ -3881,6 +4491,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroyDescriptorUpdateTemplateKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDescriptorUpdateTemplateKHR.html>
     #[doc(alias = "vkDestroyDescriptorUpdateTemplateKHR")]
@@ -3894,6 +4506,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkUpdateDescriptorSetWithTemplateKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkUpdateDescriptorSetWithTemplateKHR.html>
     #[doc(alias = "vkUpdateDescriptorSetWithTemplateKHR")]
@@ -3908,6 +4522,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkCreateRenderPass2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateRenderPass2KHR.html>
     #[doc(alias = "vkCreateRenderPass2KHR")]
@@ -3922,6 +4538,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBeginRenderPass2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginRenderPass2KHR.html>
     #[doc(alias = "vkCmdBeginRenderPass2KHR")]
@@ -3935,6 +4553,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdNextSubpass2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdNextSubpass2KHR.html>
     #[doc(alias = "vkCmdNextSubpass2KHR")]
@@ -3948,6 +4568,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdEndRenderPass2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndRenderPass2KHR.html>
     #[doc(alias = "vkCmdEndRenderPass2KHR")]
@@ -3957,6 +4579,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkGetSwapchainStatusKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSwapchainStatusKHR.html>
     #[doc(alias = "vkGetSwapchainStatusKHR")]
@@ -3966,6 +4590,8 @@ impl Device {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceExternalFencePropertiesKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceExternalFencePropertiesKHR.html>
     #[doc(alias = "vkGetPhysicalDeviceExternalFencePropertiesKHR")]
@@ -3979,6 +4605,8 @@ impl PhysicalDevice {
 }
 
 impl Device {
+    /// `vkImportFenceWin32HandleKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkImportFenceWin32HandleKHR.html>
     #[doc(alias = "vkImportFenceWin32HandleKHR")]
@@ -3991,6 +4619,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetFenceWin32HandleKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetFenceWin32HandleKHR.html>
     #[doc(alias = "vkGetFenceWin32HandleKHR")]
@@ -4004,6 +4634,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkImportFenceFdKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkImportFenceFdKHR.html>
     #[doc(alias = "vkImportFenceFdKHR")]
@@ -4016,6 +4648,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetFenceFdKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetFenceFdKHR.html>
     #[doc(alias = "vkGetFenceFdKHR")]
@@ -4029,6 +4663,8 @@ impl Device {
 }
 
 impl PhysicalDevice {
+    /// `vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR.html>
     #[doc(alias = "vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR")]
@@ -4044,6 +4680,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR.html>
     #[doc(alias = "vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR")]
@@ -4057,6 +4695,8 @@ impl PhysicalDevice {
 }
 
 impl Device {
+    /// `vkAcquireProfilingLockKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkAcquireProfilingLockKHR.html>
     #[doc(alias = "vkAcquireProfilingLockKHR")]
@@ -4069,6 +4709,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkReleaseProfilingLockKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkReleaseProfilingLockKHR.html>
     #[doc(alias = "vkReleaseProfilingLockKHR")]
@@ -4078,6 +4720,8 @@ impl Device {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceSurfaceCapabilities2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSurfaceCapabilities2KHR.html>
     #[doc(alias = "vkGetPhysicalDeviceSurfaceCapabilities2KHR")]
@@ -4091,6 +4735,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceSurfaceFormats2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSurfaceFormats2KHR.html>
     #[doc(alias = "vkGetPhysicalDeviceSurfaceFormats2KHR")]
@@ -4105,6 +4751,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceDisplayProperties2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceDisplayProperties2KHR.html>
     #[doc(alias = "vkGetPhysicalDeviceDisplayProperties2KHR")]
@@ -4118,6 +4766,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceDisplayPlaneProperties2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceDisplayPlaneProperties2KHR.html>
     #[doc(alias = "vkGetPhysicalDeviceDisplayPlaneProperties2KHR")]
@@ -4131,6 +4781,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkGetDisplayModeProperties2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDisplayModeProperties2KHR.html>
     #[doc(alias = "vkGetDisplayModeProperties2KHR")]
@@ -4145,6 +4797,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkGetDisplayPlaneCapabilities2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDisplayPlaneCapabilities2KHR.html>
     #[doc(alias = "vkGetDisplayPlaneCapabilities2KHR")]
@@ -4158,6 +4812,8 @@ impl PhysicalDevice {
 }
 
 impl Device {
+    /// `vkGetImageMemoryRequirements2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageMemoryRequirements2KHR.html>
     #[doc(alias = "vkGetImageMemoryRequirements2KHR")]
@@ -4171,6 +4827,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetBufferMemoryRequirements2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferMemoryRequirements2KHR.html>
     #[doc(alias = "vkGetBufferMemoryRequirements2KHR")]
@@ -4184,6 +4842,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetImageSparseMemoryRequirements2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageSparseMemoryRequirements2KHR.html>
     #[doc(alias = "vkGetImageSparseMemoryRequirements2KHR")]
@@ -4198,6 +4858,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkCreateSamplerYcbcrConversionKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateSamplerYcbcrConversionKHR.html>
     #[doc(alias = "vkCreateSamplerYcbcrConversionKHR")]
@@ -4212,6 +4874,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroySamplerYcbcrConversionKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroySamplerYcbcrConversionKHR.html>
     #[doc(alias = "vkDestroySamplerYcbcrConversionKHR")]
@@ -4225,6 +4889,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkBindBufferMemory2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkBindBufferMemory2KHR.html>
     #[doc(alias = "vkBindBufferMemory2KHR")]
@@ -4238,6 +4904,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkBindImageMemory2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkBindImageMemory2KHR.html>
     #[doc(alias = "vkBindImageMemory2KHR")]
@@ -4251,6 +4919,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetDescriptorSetLayoutSupportKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDescriptorSetLayoutSupportKHR.html>
     #[doc(alias = "vkGetDescriptorSetLayoutSupportKHR")]
@@ -4264,6 +4934,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDrawIndirectCountKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndirectCountKHR.html>
     #[doc(alias = "vkCmdDrawIndirectCountKHR")]
@@ -4281,6 +4953,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDrawIndexedIndirectCountKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndexedIndirectCountKHR.html>
     #[doc(alias = "vkCmdDrawIndexedIndirectCountKHR")]
@@ -4298,6 +4972,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkGetSemaphoreCounterValueKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSemaphoreCounterValueKHR.html>
     #[doc(alias = "vkGetSemaphoreCounterValueKHR")]
@@ -4311,6 +4987,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkWaitSemaphoresKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkWaitSemaphoresKHR.html>
     #[doc(alias = "vkWaitSemaphoresKHR")]
@@ -4324,6 +5002,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkSignalSemaphoreKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkSignalSemaphoreKHR.html>
     #[doc(alias = "vkSignalSemaphoreKHR")]
@@ -4336,6 +5016,8 @@ impl Device {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceFragmentShadingRatesKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceFragmentShadingRatesKHR.html>
     #[doc(alias = "vkGetPhysicalDeviceFragmentShadingRatesKHR")]
@@ -4349,6 +5031,8 @@ impl PhysicalDevice {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetFragmentShadingRateKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetFragmentShadingRateKHR.html>
     #[doc(alias = "vkCmdSetFragmentShadingRateKHR")]
@@ -4362,6 +5046,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetRenderingAttachmentLocationsKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRenderingAttachmentLocationsKHR.html>
     #[doc(alias = "vkCmdSetRenderingAttachmentLocationsKHR")]
@@ -4374,6 +5060,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetRenderingInputAttachmentIndicesKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRenderingInputAttachmentIndicesKHR.html>
     #[doc(alias = "vkCmdSetRenderingInputAttachmentIndicesKHR")]
@@ -4386,6 +5074,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkWaitForPresentKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkWaitForPresentKHR.html>
     #[doc(alias = "vkWaitForPresentKHR")]
@@ -4400,6 +5090,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetBufferDeviceAddressKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferDeviceAddressKHR.html>
     #[doc(alias = "vkGetBufferDeviceAddressKHR")]
@@ -4412,6 +5104,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetBufferOpaqueCaptureAddressKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferOpaqueCaptureAddressKHR.html>
     #[doc(alias = "vkGetBufferOpaqueCaptureAddressKHR")]
@@ -4424,6 +5118,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetDeviceMemoryOpaqueCaptureAddressKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceMemoryOpaqueCaptureAddressKHR.html>
     #[doc(alias = "vkGetDeviceMemoryOpaqueCaptureAddressKHR")]
@@ -4436,6 +5132,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkCreateDeferredOperationKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDeferredOperationKHR.html>
     #[doc(alias = "vkCreateDeferredOperationKHR")]
@@ -4449,6 +5147,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroyDeferredOperationKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDeferredOperationKHR.html>
     #[doc(alias = "vkDestroyDeferredOperationKHR")]
@@ -4462,6 +5162,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetDeferredOperationMaxConcurrencyKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeferredOperationMaxConcurrencyKHR.html>
     #[doc(alias = "vkGetDeferredOperationMaxConcurrencyKHR")]
@@ -4474,6 +5176,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetDeferredOperationResultKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeferredOperationResultKHR.html>
     #[doc(alias = "vkGetDeferredOperationResultKHR")]
@@ -4486,6 +5190,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDeferredOperationJoinKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDeferredOperationJoinKHR.html>
     #[doc(alias = "vkDeferredOperationJoinKHR")]
@@ -4495,6 +5201,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetPipelineExecutablePropertiesKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPipelineExecutablePropertiesKHR.html>
     #[doc(alias = "vkGetPipelineExecutablePropertiesKHR")]
@@ -4509,6 +5217,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetPipelineExecutableStatisticsKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPipelineExecutableStatisticsKHR.html>
     #[doc(alias = "vkGetPipelineExecutableStatisticsKHR")]
@@ -4523,6 +5233,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetPipelineExecutableInternalRepresentationsKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPipelineExecutableInternalRepresentationsKHR.html>
     #[doc(alias = "vkGetPipelineExecutableInternalRepresentationsKHR")]
@@ -4537,6 +5249,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkMapMemory2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkMapMemory2KHR.html>
     #[doc(alias = "vkMapMemory2KHR")]
@@ -4550,6 +5264,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkUnmapMemory2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkUnmapMemory2KHR.html>
     #[doc(alias = "vkUnmapMemory2KHR")]
@@ -4562,6 +5278,8 @@ impl Device {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR.html>
     #[doc(alias = "vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR")]
@@ -4575,6 +5293,8 @@ impl PhysicalDevice {
 }
 
 impl Device {
+    /// `vkGetEncodedVideoSessionParametersKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetEncodedVideoSessionParametersKHR.html>
     #[doc(alias = "vkGetEncodedVideoSessionParametersKHR")]
@@ -4590,6 +5310,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdEncodeVideoKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEncodeVideoKHR.html>
     #[doc(alias = "vkCmdEncodeVideoKHR")]
@@ -4599,6 +5321,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetEvent2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetEvent2KHR.html>
     #[doc(alias = "vkCmdSetEvent2KHR")]
@@ -4608,6 +5332,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdResetEvent2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdResetEvent2KHR.html>
     #[doc(alias = "vkCmdResetEvent2KHR")]
@@ -4617,6 +5343,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdWaitEvents2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWaitEvents2KHR.html>
     #[doc(alias = "vkCmdWaitEvents2KHR")]
@@ -4631,6 +5359,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdPipelineBarrier2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPipelineBarrier2KHR.html>
     #[doc(alias = "vkCmdPipelineBarrier2KHR")]
@@ -4640,6 +5370,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdWriteTimestamp2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteTimestamp2KHR.html>
     #[doc(alias = "vkCmdWriteTimestamp2KHR")]
@@ -4654,6 +5386,8 @@ impl CommandBuffer {
 }
 
 impl Queue {
+    /// `vkQueueSubmit2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueSubmit2KHR.html>
     #[doc(alias = "vkQueueSubmit2KHR")]
@@ -4668,6 +5402,8 @@ impl Queue {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBindIndexBuffer3KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindIndexBuffer3KHR.html>
     #[doc(alias = "vkCmdBindIndexBuffer3KHR")]
@@ -4677,6 +5413,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBindVertexBuffers3KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindVertexBuffers3KHR.html>
     #[doc(alias = "vkCmdBindVertexBuffers3KHR")]
@@ -4691,6 +5429,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDrawIndirect2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndirect2KHR.html>
     #[doc(alias = "vkCmdDrawIndirect2KHR")]
@@ -4700,6 +5440,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDrawIndexedIndirect2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndexedIndirect2KHR.html>
     #[doc(alias = "vkCmdDrawIndexedIndirect2KHR")]
@@ -4709,6 +5451,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDispatchIndirect2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchIndirect2KHR.html>
     #[doc(alias = "vkCmdDispatchIndirect2KHR")]
@@ -4718,6 +5462,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdCopyMemoryKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMemoryKHR.html>
     #[doc(alias = "vkCmdCopyMemoryKHR")]
@@ -4727,6 +5473,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdCopyMemoryToImageKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMemoryToImageKHR.html>
     #[doc(alias = "vkCmdCopyMemoryToImageKHR")]
@@ -4739,6 +5487,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdCopyImageToMemoryKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyImageToMemoryKHR.html>
     #[doc(alias = "vkCmdCopyImageToMemoryKHR")]
@@ -4751,6 +5501,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdUpdateMemoryKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdUpdateMemoryKHR.html>
     #[doc(alias = "vkCmdUpdateMemoryKHR")]
@@ -4766,6 +5518,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdFillMemoryKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdFillMemoryKHR.html>
     #[doc(alias = "vkCmdFillMemoryKHR")]
@@ -4780,6 +5534,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdCopyQueryPoolResultsToMemoryKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyQueryPoolResultsToMemoryKHR.html>
     #[doc(alias = "vkCmdCopyQueryPoolResultsToMemoryKHR")]
@@ -4797,6 +5553,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDrawIndirectCount2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndirectCount2KHR.html>
     #[doc(alias = "vkCmdDrawIndirectCount2KHR")]
@@ -4806,6 +5564,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDrawIndexedIndirectCount2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndexedIndirectCount2KHR.html>
     #[doc(alias = "vkCmdDrawIndexedIndirectCount2KHR")]
@@ -4818,6 +5578,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBeginConditionalRendering2EXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginConditionalRendering2EXT.html>
     #[doc(alias = "vkCmdBeginConditionalRendering2EXT")]
@@ -4830,6 +5592,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBindTransformFeedbackBuffers2EXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindTransformFeedbackBuffers2EXT.html>
     #[doc(alias = "vkCmdBindTransformFeedbackBuffers2EXT")]
@@ -4844,6 +5608,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBeginTransformFeedback2EXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginTransformFeedback2EXT.html>
     #[doc(alias = "vkCmdBeginTransformFeedback2EXT")]
@@ -4858,6 +5624,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdEndTransformFeedback2EXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndTransformFeedback2EXT.html>
     #[doc(alias = "vkCmdEndTransformFeedback2EXT")]
@@ -4872,6 +5640,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDrawIndirectByteCount2EXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndirectByteCount2EXT.html>
     #[doc(alias = "vkCmdDrawIndirectByteCount2EXT")]
@@ -4888,6 +5658,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDrawMeshTasksIndirect2EXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMeshTasksIndirect2EXT.html>
     #[doc(alias = "vkCmdDrawMeshTasksIndirect2EXT")]
@@ -4897,6 +5669,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDrawMeshTasksIndirectCount2EXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMeshTasksIndirectCount2EXT.html>
     #[doc(alias = "vkCmdDrawMeshTasksIndirectCount2EXT")]
@@ -4909,6 +5683,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdWriteMarkerToMemoryAMD`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteMarkerToMemoryAMD.html>
     #[doc(alias = "vkCmdWriteMarkerToMemoryAMD")]
@@ -4918,6 +5694,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkCreateAccelerationStructure2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateAccelerationStructure2KHR.html>
     #[doc(alias = "vkCreateAccelerationStructure2KHR")]
@@ -4932,6 +5710,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdCopyBuffer2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyBuffer2KHR.html>
     #[doc(alias = "vkCmdCopyBuffer2KHR")]
@@ -4941,6 +5721,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdCopyImage2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyImage2KHR.html>
     #[doc(alias = "vkCmdCopyImage2KHR")]
@@ -4950,6 +5732,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdCopyBufferToImage2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyBufferToImage2KHR.html>
     #[doc(alias = "vkCmdCopyBufferToImage2KHR")]
@@ -4962,6 +5746,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdCopyImageToBuffer2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyImageToBuffer2KHR.html>
     #[doc(alias = "vkCmdCopyImageToBuffer2KHR")]
@@ -4974,6 +5760,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBlitImage2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBlitImage2KHR.html>
     #[doc(alias = "vkCmdBlitImage2KHR")]
@@ -4983,6 +5771,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdResolveImage2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdResolveImage2KHR.html>
     #[doc(alias = "vkCmdResolveImage2KHR")]
@@ -4992,6 +5782,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdTraceRaysIndirect2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdTraceRaysIndirect2KHR.html>
     #[doc(alias = "vkCmdTraceRaysIndirect2KHR")]
@@ -5001,6 +5793,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkGetDeviceBufferMemoryRequirementsKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceBufferMemoryRequirementsKHR.html>
     #[doc(alias = "vkGetDeviceBufferMemoryRequirementsKHR")]
@@ -5014,6 +5808,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetDeviceImageMemoryRequirementsKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceImageMemoryRequirementsKHR.html>
     #[doc(alias = "vkGetDeviceImageMemoryRequirementsKHR")]
@@ -5027,6 +5823,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetDeviceImageSparseMemoryRequirementsKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceImageSparseMemoryRequirementsKHR.html>
     #[doc(alias = "vkGetDeviceImageSparseMemoryRequirementsKHR")]
@@ -5041,6 +5839,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBindIndexBuffer2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindIndexBuffer2KHR.html>
     #[doc(alias = "vkCmdBindIndexBuffer2KHR")]
@@ -5056,6 +5856,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkGetRenderingAreaGranularityKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRenderingAreaGranularityKHR.html>
     #[doc(alias = "vkGetRenderingAreaGranularityKHR")]
@@ -5069,6 +5871,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetDeviceImageSubresourceLayoutKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceImageSubresourceLayoutKHR.html>
     #[doc(alias = "vkGetDeviceImageSubresourceLayoutKHR")]
@@ -5082,6 +5886,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetImageSubresourceLayout2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageSubresourceLayout2KHR.html>
     #[doc(alias = "vkGetImageSubresourceLayout2KHR")]
@@ -5096,6 +5902,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkWaitForPresent2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkWaitForPresent2KHR.html>
     #[doc(alias = "vkWaitForPresent2KHR")]
@@ -5109,6 +5917,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkCreatePipelineBinariesKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreatePipelineBinariesKHR.html>
     #[doc(alias = "vkCreatePipelineBinariesKHR")]
@@ -5123,6 +5933,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroyPipelineBinaryKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyPipelineBinaryKHR.html>
     #[doc(alias = "vkDestroyPipelineBinaryKHR")]
@@ -5136,6 +5948,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetPipelineKeyKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPipelineKeyKHR.html>
     #[doc(alias = "vkGetPipelineKeyKHR")]
@@ -5149,6 +5963,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetPipelineBinaryDataKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPipelineBinaryDataKHR.html>
     #[doc(alias = "vkGetPipelineBinaryDataKHR")]
@@ -5164,6 +5980,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkReleaseCapturedPipelineDataKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkReleaseCapturedPipelineDataKHR.html>
     #[doc(alias = "vkReleaseCapturedPipelineDataKHR")]
@@ -5177,6 +5995,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkReleaseSwapchainImagesKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkReleaseSwapchainImagesKHR.html>
     #[doc(alias = "vkReleaseSwapchainImagesKHR")]
@@ -5189,6 +6009,8 @@ impl Device {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR.html>
     #[doc(alias = "vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR")]
@@ -5202,6 +6024,8 @@ impl PhysicalDevice {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetLineStippleKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetLineStippleKHR.html>
     #[doc(alias = "vkCmdSetLineStippleKHR")]
@@ -5215,6 +6039,8 @@ impl CommandBuffer {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceCalibrateableTimeDomainsKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceCalibrateableTimeDomainsKHR.html>
     #[doc(alias = "vkGetPhysicalDeviceCalibrateableTimeDomainsKHR")]
@@ -5228,6 +6054,8 @@ impl PhysicalDevice {
 }
 
 impl Device {
+    /// `vkGetCalibratedTimestampsKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetCalibratedTimestampsKHR.html>
     #[doc(alias = "vkGetCalibratedTimestampsKHR")]
@@ -5243,6 +6071,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBindDescriptorSets2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindDescriptorSets2KHR.html>
     #[doc(alias = "vkCmdBindDescriptorSets2KHR")]
@@ -5255,6 +6085,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdPushConstants2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushConstants2KHR.html>
     #[doc(alias = "vkCmdPushConstants2KHR")]
@@ -5264,6 +6096,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdPushDescriptorSet2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushDescriptorSet2KHR.html>
     #[doc(alias = "vkCmdPushDescriptorSet2KHR")]
@@ -5276,6 +6110,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdPushDescriptorSetWithTemplate2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushDescriptorSetWithTemplate2KHR.html>
     #[doc(alias = "vkCmdPushDescriptorSetWithTemplate2KHR")]
@@ -5288,6 +6124,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetDescriptorBufferOffsets2EXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDescriptorBufferOffsets2EXT.html>
     #[doc(alias = "vkCmdSetDescriptorBufferOffsets2EXT")]
@@ -5300,6 +6138,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBindDescriptorBufferEmbeddedSamplers2EXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindDescriptorBufferEmbeddedSamplers2EXT.html>
     #[doc(alias = "vkCmdBindDescriptorBufferEmbeddedSamplers2EXT")]
@@ -5312,6 +6152,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdCopyMemoryIndirectKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMemoryIndirectKHR.html>
     #[doc(alias = "vkCmdCopyMemoryIndirectKHR")]
@@ -5324,6 +6166,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdCopyMemoryToImageIndirectKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMemoryToImageIndirectKHR.html>
     #[doc(alias = "vkCmdCopyMemoryToImageIndirectKHR")]
@@ -5336,6 +6180,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkGetDeviceFaultReportsKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceFaultReportsKHR.html>
     #[doc(alias = "vkGetDeviceFaultReportsKHR")]
@@ -5350,6 +6196,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetDeviceFaultDebugInfoKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceFaultDebugInfoKHR.html>
     #[doc(alias = "vkGetDeviceFaultDebugInfoKHR")]
@@ -5362,6 +6210,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdEndRendering2KHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndRendering2KHR.html>
     #[doc(alias = "vkCmdEndRendering2KHR")]
@@ -5371,6 +6221,8 @@ impl CommandBuffer {
 }
 
 impl Instance {
+    /// `vkCreateDebugReportCallbackEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDebugReportCallbackEXT.html>
     #[doc(alias = "vkCreateDebugReportCallbackEXT")]
@@ -5385,6 +6237,8 @@ impl Instance {
 }
 
 impl Instance {
+    /// `vkDestroyDebugReportCallbackEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDebugReportCallbackEXT.html>
     #[doc(alias = "vkDestroyDebugReportCallbackEXT")]
@@ -5398,6 +6252,8 @@ impl Instance {
 }
 
 impl Instance {
+    /// `vkDebugReportMessageEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDebugReportMessageEXT.html>
     #[doc(alias = "vkDebugReportMessageEXT")]
@@ -5416,6 +6272,8 @@ impl Instance {
 }
 
 impl Device {
+    /// `vkDebugMarkerSetObjectTagEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDebugMarkerSetObjectTagEXT.html>
     #[doc(alias = "vkDebugMarkerSetObjectTagEXT")]
@@ -5428,6 +6286,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDebugMarkerSetObjectNameEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDebugMarkerSetObjectNameEXT.html>
     #[doc(alias = "vkDebugMarkerSetObjectNameEXT")]
@@ -5440,6 +6300,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDebugMarkerBeginEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDebugMarkerBeginEXT.html>
     #[doc(alias = "vkCmdDebugMarkerBeginEXT")]
@@ -5449,6 +6311,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDebugMarkerEndEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDebugMarkerEndEXT.html>
     #[doc(alias = "vkCmdDebugMarkerEndEXT")]
@@ -5458,6 +6322,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDebugMarkerInsertEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDebugMarkerInsertEXT.html>
     #[doc(alias = "vkCmdDebugMarkerInsertEXT")]
@@ -5467,6 +6333,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBindTransformFeedbackBuffersEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindTransformFeedbackBuffersEXT.html>
     #[doc(alias = "vkCmdBindTransformFeedbackBuffersEXT")]
@@ -5483,6 +6351,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBeginTransformFeedbackEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginTransformFeedbackEXT.html>
     #[doc(alias = "vkCmdBeginTransformFeedbackEXT")]
@@ -5498,6 +6368,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdEndTransformFeedbackEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndTransformFeedbackEXT.html>
     #[doc(alias = "vkCmdEndTransformFeedbackEXT")]
@@ -5513,6 +6385,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBeginQueryIndexedEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginQueryIndexedEXT.html>
     #[doc(alias = "vkCmdBeginQueryIndexedEXT")]
@@ -5528,6 +6402,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdEndQueryIndexedEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndQueryIndexedEXT.html>
     #[doc(alias = "vkCmdEndQueryIndexedEXT")]
@@ -5537,6 +6413,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDrawIndirectByteCountEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndirectByteCountEXT.html>
     #[doc(alias = "vkCmdDrawIndirectByteCountEXT")]
@@ -5554,6 +6432,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkCreateCuModuleNVX`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateCuModuleNVX.html>
     #[doc(alias = "vkCreateCuModuleNVX")]
@@ -5568,6 +6448,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkCreateCuFunctionNVX`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateCuFunctionNVX.html>
     #[doc(alias = "vkCreateCuFunctionNVX")]
@@ -5582,6 +6464,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroyCuModuleNVX`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyCuModuleNVX.html>
     #[doc(alias = "vkDestroyCuModuleNVX")]
@@ -5595,6 +6479,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroyCuFunctionNVX`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyCuFunctionNVX.html>
     #[doc(alias = "vkDestroyCuFunctionNVX")]
@@ -5608,6 +6494,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdCuLaunchKernelNVX`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCuLaunchKernelNVX.html>
     #[doc(alias = "vkCmdCuLaunchKernelNVX")]
@@ -5617,6 +6505,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkGetImageViewHandleNVX`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageViewHandleNVX.html>
     #[doc(alias = "vkGetImageViewHandleNVX")]
@@ -5626,6 +6516,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetImageViewHandle64NVX`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageViewHandle64NVX.html>
     #[doc(alias = "vkGetImageViewHandle64NVX")]
@@ -5635,6 +6527,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetImageViewAddressNVX`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageViewAddressNVX.html>
     #[doc(alias = "vkGetImageViewAddressNVX")]
@@ -5648,6 +6542,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetDeviceCombinedImageSamplerIndexNVX`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceCombinedImageSamplerIndexNVX.html>
     #[doc(alias = "vkGetDeviceCombinedImageSamplerIndexNVX")]
@@ -5661,6 +6557,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDrawIndirectCountAMD`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndirectCountAMD.html>
     #[doc(alias = "vkCmdDrawIndirectCountAMD")]
@@ -5678,6 +6576,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDrawIndexedIndirectCountAMD`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndexedIndirectCountAMD.html>
     #[doc(alias = "vkCmdDrawIndexedIndirectCountAMD")]
@@ -5695,6 +6595,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkGetShaderInfoAMD`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetShaderInfoAMD.html>
     #[doc(alias = "vkGetShaderInfoAMD")]
@@ -5711,6 +6613,8 @@ impl Device {
 }
 
 impl Instance {
+    /// `vkCreateStreamDescriptorSurfaceGGP`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateStreamDescriptorSurfaceGGP.html>
     #[doc(alias = "vkCreateStreamDescriptorSurfaceGGP")]
@@ -5725,6 +6629,8 @@ impl Instance {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceExternalImageFormatPropertiesNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceExternalImageFormatPropertiesNV.html>
     #[doc(alias = "vkGetPhysicalDeviceExternalImageFormatPropertiesNV")]
@@ -5743,6 +6649,8 @@ impl PhysicalDevice {
 }
 
 impl Device {
+    /// `vkGetMemoryWin32HandleNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryWin32HandleNV.html>
     #[doc(alias = "vkGetMemoryWin32HandleNV")]
@@ -5757,6 +6665,8 @@ impl Device {
 }
 
 impl Instance {
+    /// `vkCreateViSurfaceNN`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateViSurfaceNN.html>
     #[doc(alias = "vkCreateViSurfaceNN")]
@@ -5771,6 +6681,8 @@ impl Instance {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBeginConditionalRenderingEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginConditionalRenderingEXT.html>
     #[doc(alias = "vkCmdBeginConditionalRenderingEXT")]
@@ -5783,6 +6695,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdEndConditionalRenderingEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndConditionalRenderingEXT.html>
     #[doc(alias = "vkCmdEndConditionalRenderingEXT")]
@@ -5792,6 +6706,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetViewportWScalingNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetViewportWScalingNV.html>
     #[doc(alias = "vkCmdSetViewportWScalingNV")]
@@ -5806,6 +6722,8 @@ impl CommandBuffer {
 }
 
 impl PhysicalDevice {
+    /// `vkReleaseDisplayEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkReleaseDisplayEXT.html>
     #[doc(alias = "vkReleaseDisplayEXT")]
@@ -5815,6 +6733,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkAcquireXlibDisplayEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkAcquireXlibDisplayEXT.html>
     #[doc(alias = "vkAcquireXlibDisplayEXT")]
@@ -5828,6 +6748,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkGetRandROutputDisplayEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRandROutputDisplayEXT.html>
     #[doc(alias = "vkGetRandROutputDisplayEXT")]
@@ -5842,6 +6764,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceSurfaceCapabilities2EXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSurfaceCapabilities2EXT.html>
     #[doc(alias = "vkGetPhysicalDeviceSurfaceCapabilities2EXT")]
@@ -5855,6 +6779,8 @@ impl PhysicalDevice {
 }
 
 impl Device {
+    /// `vkDisplayPowerControlEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDisplayPowerControlEXT.html>
     #[doc(alias = "vkDisplayPowerControlEXT")]
@@ -5868,6 +6794,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkRegisterDeviceEventEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkRegisterDeviceEventEXT.html>
     #[doc(alias = "vkRegisterDeviceEventEXT")]
@@ -5882,6 +6810,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkRegisterDisplayEventEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkRegisterDisplayEventEXT.html>
     #[doc(alias = "vkRegisterDisplayEventEXT")]
@@ -5897,6 +6827,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetSwapchainCounterEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSwapchainCounterEXT.html>
     #[doc(alias = "vkGetSwapchainCounterEXT")]
@@ -5911,6 +6843,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetRefreshCycleDurationGOOGLE`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRefreshCycleDurationGOOGLE.html>
     #[doc(alias = "vkGetRefreshCycleDurationGOOGLE")]
@@ -5924,6 +6858,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetPastPresentationTimingGOOGLE`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPastPresentationTimingGOOGLE.html>
     #[doc(alias = "vkGetPastPresentationTimingGOOGLE")]
@@ -5938,6 +6874,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetDiscardRectangleEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDiscardRectangleEXT.html>
     #[doc(alias = "vkCmdSetDiscardRectangleEXT")]
@@ -5952,6 +6890,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetDiscardRectangleEnableEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDiscardRectangleEnableEXT.html>
     #[doc(alias = "vkCmdSetDiscardRectangleEnableEXT")]
@@ -5961,6 +6901,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetDiscardRectangleModeEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDiscardRectangleModeEXT.html>
     #[doc(alias = "vkCmdSetDiscardRectangleModeEXT")]
@@ -5973,6 +6915,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkSetHdrMetadataEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkSetHdrMetadataEXT.html>
     #[doc(alias = "vkSetHdrMetadataEXT")]
@@ -5987,6 +6931,8 @@ impl Device {
 }
 
 impl Instance {
+    /// `vkCreateIOSSurfaceMVK`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateIOSSurfaceMVK.html>
     #[doc(alias = "vkCreateIOSSurfaceMVK")]
@@ -6001,6 +6947,8 @@ impl Instance {
 }
 
 impl Instance {
+    /// `vkCreateMacOSSurfaceMVK`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateMacOSSurfaceMVK.html>
     #[doc(alias = "vkCreateMacOSSurfaceMVK")]
@@ -6015,6 +6963,8 @@ impl Instance {
 }
 
 impl Device {
+    /// `vkSetDebugUtilsObjectNameEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkSetDebugUtilsObjectNameEXT.html>
     #[doc(alias = "vkSetDebugUtilsObjectNameEXT")]
@@ -6027,6 +6977,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkSetDebugUtilsObjectTagEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkSetDebugUtilsObjectTagEXT.html>
     #[doc(alias = "vkSetDebugUtilsObjectTagEXT")]
@@ -6039,6 +6991,8 @@ impl Device {
 }
 
 impl Queue {
+    /// `vkQueueBeginDebugUtilsLabelEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueBeginDebugUtilsLabelEXT.html>
     #[doc(alias = "vkQueueBeginDebugUtilsLabelEXT")]
@@ -6048,6 +7002,8 @@ impl Queue {
 }
 
 impl Queue {
+    /// `vkQueueEndDebugUtilsLabelEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueEndDebugUtilsLabelEXT.html>
     #[doc(alias = "vkQueueEndDebugUtilsLabelEXT")]
@@ -6057,6 +7013,8 @@ impl Queue {
 }
 
 impl Queue {
+    /// `vkQueueInsertDebugUtilsLabelEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueInsertDebugUtilsLabelEXT.html>
     #[doc(alias = "vkQueueInsertDebugUtilsLabelEXT")]
@@ -6066,6 +7024,8 @@ impl Queue {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBeginDebugUtilsLabelEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginDebugUtilsLabelEXT.html>
     #[doc(alias = "vkCmdBeginDebugUtilsLabelEXT")]
@@ -6075,6 +7035,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdEndDebugUtilsLabelEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndDebugUtilsLabelEXT.html>
     #[doc(alias = "vkCmdEndDebugUtilsLabelEXT")]
@@ -6084,6 +7046,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdInsertDebugUtilsLabelEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdInsertDebugUtilsLabelEXT.html>
     #[doc(alias = "vkCmdInsertDebugUtilsLabelEXT")]
@@ -6093,6 +7057,8 @@ impl CommandBuffer {
 }
 
 impl Instance {
+    /// `vkCreateDebugUtilsMessengerEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDebugUtilsMessengerEXT.html>
     #[doc(alias = "vkCreateDebugUtilsMessengerEXT")]
@@ -6107,6 +7073,8 @@ impl Instance {
 }
 
 impl Instance {
+    /// `vkDestroyDebugUtilsMessengerEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDebugUtilsMessengerEXT.html>
     #[doc(alias = "vkDestroyDebugUtilsMessengerEXT")]
@@ -6120,6 +7088,8 @@ impl Instance {
 }
 
 impl Instance {
+    /// `vkSubmitDebugUtilsMessageEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkSubmitDebugUtilsMessageEXT.html>
     #[doc(alias = "vkSubmitDebugUtilsMessageEXT")]
@@ -6134,6 +7104,8 @@ impl Instance {
 }
 
 impl Device {
+    /// `vkGetAndroidHardwareBufferPropertiesANDROID`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetAndroidHardwareBufferPropertiesANDROID.html>
     #[doc(alias = "vkGetAndroidHardwareBufferPropertiesANDROID")]
@@ -6147,6 +7119,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetMemoryAndroidHardwareBufferANDROID`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryAndroidHardwareBufferANDROID.html>
     #[doc(alias = "vkGetMemoryAndroidHardwareBufferANDROID")]
@@ -6160,6 +7134,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkCreateGpaSessionAMD`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateGpaSessionAMD.html>
     #[doc(alias = "vkCreateGpaSessionAMD")]
@@ -6174,6 +7150,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroyGpaSessionAMD`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyGpaSessionAMD.html>
     #[doc(alias = "vkDestroyGpaSessionAMD")]
@@ -6187,6 +7165,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkSetGpaDeviceClockModeAMD`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkSetGpaDeviceClockModeAMD.html>
     #[doc(alias = "vkSetGpaDeviceClockModeAMD")]
@@ -6199,6 +7179,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetGpaDeviceClockInfoAMD`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetGpaDeviceClockInfoAMD.html>
     #[doc(alias = "vkGetGpaDeviceClockInfoAMD")]
@@ -6211,6 +7193,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBeginGpaSessionAMD`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginGpaSessionAMD.html>
     #[doc(alias = "vkCmdBeginGpaSessionAMD")]
@@ -6220,6 +7204,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdEndGpaSessionAMD`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndGpaSessionAMD.html>
     #[doc(alias = "vkCmdEndGpaSessionAMD")]
@@ -6229,6 +7215,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBeginGpaSampleAMD`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginGpaSampleAMD.html>
     #[doc(alias = "vkCmdBeginGpaSampleAMD")]
@@ -6243,6 +7231,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdEndGpaSampleAMD`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndGpaSampleAMD.html>
     #[doc(alias = "vkCmdEndGpaSampleAMD")]
@@ -6252,6 +7242,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkGetGpaSessionStatusAMD`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetGpaSessionStatusAMD.html>
     #[doc(alias = "vkGetGpaSessionStatusAMD")]
@@ -6261,6 +7253,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetGpaSessionResultsAMD`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetGpaSessionResultsAMD.html>
     #[doc(alias = "vkGetGpaSessionResultsAMD")]
@@ -6276,6 +7270,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkResetGpaSessionAMD`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkResetGpaSessionAMD.html>
     #[doc(alias = "vkResetGpaSessionAMD")]
@@ -6285,6 +7281,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdCopyGpaSessionResultsAMD`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyGpaSessionResultsAMD.html>
     #[doc(alias = "vkCmdCopyGpaSessionResultsAMD")]
@@ -6294,6 +7292,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkCreateExecutionGraphPipelinesAMDX`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateExecutionGraphPipelinesAMDX.html>
     #[doc(alias = "vkCreateExecutionGraphPipelinesAMDX")]
@@ -6310,6 +7310,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetExecutionGraphPipelineScratchSizeAMDX`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetExecutionGraphPipelineScratchSizeAMDX.html>
     #[doc(alias = "vkGetExecutionGraphPipelineScratchSizeAMDX")]
@@ -6323,6 +7325,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetExecutionGraphPipelineNodeIndexAMDX`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetExecutionGraphPipelineNodeIndexAMDX.html>
     #[doc(alias = "vkGetExecutionGraphPipelineNodeIndexAMDX")]
@@ -6337,6 +7341,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdInitializeGraphScratchMemoryAMDX`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdInitializeGraphScratchMemoryAMDX.html>
     #[doc(alias = "vkCmdInitializeGraphScratchMemoryAMDX")]
@@ -6351,6 +7357,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDispatchGraphAMDX`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchGraphAMDX.html>
     #[doc(alias = "vkCmdDispatchGraphAMDX")]
@@ -6365,6 +7373,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDispatchGraphIndirectAMDX`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchGraphIndirectAMDX.html>
     #[doc(alias = "vkCmdDispatchGraphIndirectAMDX")]
@@ -6379,6 +7389,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDispatchGraphIndirectCountAMDX`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchGraphIndirectCountAMDX.html>
     #[doc(alias = "vkCmdDispatchGraphIndirectCountAMDX")]
@@ -6393,6 +7405,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkWriteSamplerDescriptorsEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkWriteSamplerDescriptorsEXT.html>
     #[doc(alias = "vkWriteSamplerDescriptorsEXT")]
@@ -6407,6 +7421,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkWriteResourceDescriptorsEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkWriteResourceDescriptorsEXT.html>
     #[doc(alias = "vkWriteResourceDescriptorsEXT")]
@@ -6421,6 +7437,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBindSamplerHeapEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindSamplerHeapEXT.html>
     #[doc(alias = "vkCmdBindSamplerHeapEXT")]
@@ -6430,6 +7448,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBindResourceHeapEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindResourceHeapEXT.html>
     #[doc(alias = "vkCmdBindResourceHeapEXT")]
@@ -6439,6 +7459,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdPushDataEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushDataEXT.html>
     #[doc(alias = "vkCmdPushDataEXT")]
@@ -6448,6 +7470,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkGetImageOpaqueCaptureDataEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageOpaqueCaptureDataEXT.html>
     #[doc(alias = "vkGetImageOpaqueCaptureDataEXT")]
@@ -6462,6 +7486,8 @@ impl Device {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceDescriptorSizeEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceDescriptorSizeEXT.html>
     #[doc(alias = "vkGetPhysicalDeviceDescriptorSizeEXT")]
@@ -6474,6 +7500,8 @@ impl PhysicalDevice {
 }
 
 impl Device {
+    /// `vkRegisterCustomBorderColorEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkRegisterCustomBorderColorEXT.html>
     #[doc(alias = "vkRegisterCustomBorderColorEXT")]
@@ -6488,6 +7516,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkUnregisterCustomBorderColorEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkUnregisterCustomBorderColorEXT.html>
     #[doc(alias = "vkUnregisterCustomBorderColorEXT")]
@@ -6497,6 +7527,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetTensorOpaqueCaptureDataARM`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetTensorOpaqueCaptureDataARM.html>
     #[doc(alias = "vkGetTensorOpaqueCaptureDataARM")]
@@ -6511,6 +7543,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetSampleLocationsEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetSampleLocationsEXT.html>
     #[doc(alias = "vkCmdSetSampleLocationsEXT")]
@@ -6523,6 +7557,8 @@ impl CommandBuffer {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceMultisamplePropertiesEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceMultisamplePropertiesEXT.html>
     #[doc(alias = "vkGetPhysicalDeviceMultisamplePropertiesEXT")]
@@ -6536,6 +7572,8 @@ impl PhysicalDevice {
 }
 
 impl Device {
+    /// `vkGetImageDrmFormatModifierPropertiesEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageDrmFormatModifierPropertiesEXT.html>
     #[doc(alias = "vkGetImageDrmFormatModifierPropertiesEXT")]
@@ -6549,6 +7587,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkCreateValidationCacheEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateValidationCacheEXT.html>
     #[doc(alias = "vkCreateValidationCacheEXT")]
@@ -6563,6 +7603,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroyValidationCacheEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyValidationCacheEXT.html>
     #[doc(alias = "vkDestroyValidationCacheEXT")]
@@ -6576,6 +7618,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkMergeValidationCachesEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkMergeValidationCachesEXT.html>
     #[doc(alias = "vkMergeValidationCachesEXT")]
@@ -6590,6 +7634,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetValidationCacheDataEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetValidationCacheDataEXT.html>
     #[doc(alias = "vkGetValidationCacheDataEXT")]
@@ -6604,6 +7650,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBindShadingRateImageNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindShadingRateImageNV.html>
     #[doc(alias = "vkCmdBindShadingRateImageNV")]
@@ -6617,6 +7665,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetViewportShadingRatePaletteNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetViewportShadingRatePaletteNV.html>
     #[doc(alias = "vkCmdSetViewportShadingRatePaletteNV")]
@@ -6631,6 +7681,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetCoarseSampleOrderNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCoarseSampleOrderNV.html>
     #[doc(alias = "vkCmdSetCoarseSampleOrderNV")]
@@ -6645,6 +7697,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkCreateAccelerationStructureNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateAccelerationStructureNV.html>
     #[doc(alias = "vkCreateAccelerationStructureNV")]
@@ -6659,6 +7713,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroyAccelerationStructureNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyAccelerationStructureNV.html>
     #[doc(alias = "vkDestroyAccelerationStructureNV")]
@@ -6672,6 +7728,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetAccelerationStructureMemoryRequirementsNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetAccelerationStructureMemoryRequirementsNV.html>
     #[doc(alias = "vkGetAccelerationStructureMemoryRequirementsNV")]
@@ -6685,6 +7743,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkBindAccelerationStructureMemoryNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkBindAccelerationStructureMemoryNV.html>
     #[doc(alias = "vkBindAccelerationStructureMemoryNV")]
@@ -6698,6 +7758,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBuildAccelerationStructureNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBuildAccelerationStructureNV.html>
     #[doc(alias = "vkCmdBuildAccelerationStructureNV")]
@@ -6717,6 +7779,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdCopyAccelerationStructureNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyAccelerationStructureNV.html>
     #[doc(alias = "vkCmdCopyAccelerationStructureNV")]
@@ -6731,6 +7795,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdTraceRaysNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdTraceRaysNV.html>
     #[doc(alias = "vkCmdTraceRaysNV")]
@@ -6756,6 +7822,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkCreateRayTracingPipelinesNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateRayTracingPipelinesNV.html>
     #[doc(alias = "vkCreateRayTracingPipelinesNV")]
@@ -6772,6 +7840,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetRayTracingShaderGroupHandlesKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRayTracingShaderGroupHandlesKHR.html>
     #[doc(alias = "vkGetRayTracingShaderGroupHandlesKHR")]
@@ -6788,6 +7858,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetRayTracingShaderGroupHandlesNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRayTracingShaderGroupHandlesNV.html>
     #[doc(alias = "vkGetRayTracingShaderGroupHandlesNV")]
@@ -6804,6 +7876,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetAccelerationStructureHandleNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetAccelerationStructureHandleNV.html>
     #[doc(alias = "vkGetAccelerationStructureHandleNV")]
@@ -6818,6 +7892,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdWriteAccelerationStructuresPropertiesNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteAccelerationStructuresPropertiesNV.html>
     #[doc(alias = "vkCmdWriteAccelerationStructuresPropertiesNV")]
@@ -6834,6 +7910,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkCompileDeferredNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCompileDeferredNV.html>
     #[doc(alias = "vkCompileDeferredNV")]
@@ -6843,6 +7921,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetMemoryHostPointerPropertiesEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryHostPointerPropertiesEXT.html>
     #[doc(alias = "vkGetMemoryHostPointerPropertiesEXT")]
@@ -6857,6 +7937,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdWriteBufferMarkerAMD`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteBufferMarkerAMD.html>
     #[doc(alias = "vkCmdWriteBufferMarkerAMD")]
@@ -6872,6 +7954,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdWriteBufferMarker2AMD`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteBufferMarker2AMD.html>
     #[doc(alias = "vkCmdWriteBufferMarker2AMD")]
@@ -6887,6 +7971,8 @@ impl CommandBuffer {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceCalibrateableTimeDomainsEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceCalibrateableTimeDomainsEXT.html>
     #[doc(alias = "vkGetPhysicalDeviceCalibrateableTimeDomainsEXT")]
@@ -6900,6 +7986,8 @@ impl PhysicalDevice {
 }
 
 impl Device {
+    /// `vkGetCalibratedTimestampsEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetCalibratedTimestampsEXT.html>
     #[doc(alias = "vkGetCalibratedTimestampsEXT")]
@@ -6915,6 +8003,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDrawMeshTasksNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMeshTasksNV.html>
     #[doc(alias = "vkCmdDrawMeshTasksNV")]
@@ -6924,6 +8014,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDrawMeshTasksIndirectNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMeshTasksIndirectNV.html>
     #[doc(alias = "vkCmdDrawMeshTasksIndirectNV")]
@@ -6939,6 +8031,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDrawMeshTasksIndirectCountNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMeshTasksIndirectCountNV.html>
     #[doc(alias = "vkCmdDrawMeshTasksIndirectCountNV")]
@@ -6956,6 +8050,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetExclusiveScissorEnableNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetExclusiveScissorEnableNV.html>
     #[doc(alias = "vkCmdSetExclusiveScissorEnableNV")]
@@ -6970,6 +8066,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetExclusiveScissorNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetExclusiveScissorNV.html>
     #[doc(alias = "vkCmdSetExclusiveScissorNV")]
@@ -6984,6 +8082,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetCheckpointNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCheckpointNV.html>
     #[doc(alias = "vkCmdSetCheckpointNV")]
@@ -6993,6 +8093,8 @@ impl CommandBuffer {
 }
 
 impl Queue {
+    /// `vkGetQueueCheckpointDataNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetQueueCheckpointDataNV.html>
     #[doc(alias = "vkGetQueueCheckpointDataNV")]
@@ -7006,6 +8108,8 @@ impl Queue {
 }
 
 impl Queue {
+    /// `vkGetQueueCheckpointData2NV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetQueueCheckpointData2NV.html>
     #[doc(alias = "vkGetQueueCheckpointData2NV")]
@@ -7019,6 +8123,8 @@ impl Queue {
 }
 
 impl Device {
+    /// `vkSetSwapchainPresentTimingQueueSizeEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkSetSwapchainPresentTimingQueueSizeEXT.html>
     #[doc(alias = "vkSetSwapchainPresentTimingQueueSizeEXT")]
@@ -7032,6 +8138,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetSwapchainTimingPropertiesEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSwapchainTimingPropertiesEXT.html>
     #[doc(alias = "vkGetSwapchainTimingPropertiesEXT")]
@@ -7046,6 +8154,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetSwapchainTimeDomainPropertiesEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSwapchainTimeDomainPropertiesEXT.html>
     #[doc(alias = "vkGetSwapchainTimeDomainPropertiesEXT")]
@@ -7060,6 +8170,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetPastPresentationTimingEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPastPresentationTimingEXT.html>
     #[doc(alias = "vkGetPastPresentationTimingEXT")]
@@ -7073,6 +8185,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkInitializePerformanceApiINTEL`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkInitializePerformanceApiINTEL.html>
     #[doc(alias = "vkInitializePerformanceApiINTEL")]
@@ -7085,6 +8199,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkUninitializePerformanceApiINTEL`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkUninitializePerformanceApiINTEL.html>
     #[doc(alias = "vkUninitializePerformanceApiINTEL")]
@@ -7094,6 +8210,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetPerformanceMarkerINTEL`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPerformanceMarkerINTEL.html>
     #[doc(alias = "vkCmdSetPerformanceMarkerINTEL")]
@@ -7106,6 +8224,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetPerformanceStreamMarkerINTEL`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPerformanceStreamMarkerINTEL.html>
     #[doc(alias = "vkCmdSetPerformanceStreamMarkerINTEL")]
@@ -7118,6 +8238,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetPerformanceOverrideINTEL`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPerformanceOverrideINTEL.html>
     #[doc(alias = "vkCmdSetPerformanceOverrideINTEL")]
@@ -7130,6 +8252,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkAcquirePerformanceConfigurationINTEL`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkAcquirePerformanceConfigurationINTEL.html>
     #[doc(alias = "vkAcquirePerformanceConfigurationINTEL")]
@@ -7143,6 +8267,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkReleasePerformanceConfigurationINTEL`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkReleasePerformanceConfigurationINTEL.html>
     #[doc(alias = "vkReleasePerformanceConfigurationINTEL")]
@@ -7155,6 +8281,8 @@ impl Device {
 }
 
 impl Queue {
+    /// `vkQueueSetPerformanceConfigurationINTEL`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueSetPerformanceConfigurationINTEL.html>
     #[doc(alias = "vkQueueSetPerformanceConfigurationINTEL")]
@@ -7167,6 +8295,8 @@ impl Queue {
 }
 
 impl Device {
+    /// `vkGetPerformanceParameterINTEL`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPerformanceParameterINTEL.html>
     #[doc(alias = "vkGetPerformanceParameterINTEL")]
@@ -7180,6 +8310,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkSetLocalDimmingAMD`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkSetLocalDimmingAMD.html>
     #[doc(alias = "vkSetLocalDimmingAMD")]
@@ -7193,6 +8325,8 @@ impl Device {
 }
 
 impl Instance {
+    /// `vkCreateImagePipeSurfaceFUCHSIA`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateImagePipeSurfaceFUCHSIA.html>
     #[doc(alias = "vkCreateImagePipeSurfaceFUCHSIA")]
@@ -7207,6 +8341,8 @@ impl Instance {
 }
 
 impl Instance {
+    /// `vkCreateMetalSurfaceEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateMetalSurfaceEXT.html>
     #[doc(alias = "vkCreateMetalSurfaceEXT")]
@@ -7221,6 +8357,8 @@ impl Instance {
 }
 
 impl Device {
+    /// `vkGetBufferDeviceAddressEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferDeviceAddressEXT.html>
     #[doc(alias = "vkGetBufferDeviceAddressEXT")]
@@ -7233,6 +8371,8 @@ impl Device {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceToolPropertiesEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceToolPropertiesEXT.html>
     #[doc(alias = "vkGetPhysicalDeviceToolPropertiesEXT")]
@@ -7246,6 +8386,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceCooperativeMatrixPropertiesNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceCooperativeMatrixPropertiesNV.html>
     #[doc(alias = "vkGetPhysicalDeviceCooperativeMatrixPropertiesNV")]
@@ -7259,6 +8401,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV.html>
     #[doc(alias = "vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV")]
@@ -7272,6 +8416,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceSurfacePresentModes2EXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSurfacePresentModes2EXT.html>
     #[doc(alias = "vkGetPhysicalDeviceSurfacePresentModes2EXT")]
@@ -7286,6 +8432,8 @@ impl PhysicalDevice {
 }
 
 impl Device {
+    /// `vkAcquireFullScreenExclusiveModeEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkAcquireFullScreenExclusiveModeEXT.html>
     #[doc(alias = "vkAcquireFullScreenExclusiveModeEXT")]
@@ -7298,6 +8446,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkReleaseFullScreenExclusiveModeEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkReleaseFullScreenExclusiveModeEXT.html>
     #[doc(alias = "vkReleaseFullScreenExclusiveModeEXT")]
@@ -7310,6 +8460,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetDeviceGroupSurfacePresentModes2EXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceGroupSurfacePresentModes2EXT.html>
     #[doc(alias = "vkGetDeviceGroupSurfacePresentModes2EXT")]
@@ -7323,6 +8475,8 @@ impl Device {
 }
 
 impl Instance {
+    /// `vkCreateHeadlessSurfaceEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateHeadlessSurfaceEXT.html>
     #[doc(alias = "vkCreateHeadlessSurfaceEXT")]
@@ -7337,6 +8491,8 @@ impl Instance {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetLineStippleEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetLineStippleEXT.html>
     #[doc(alias = "vkCmdSetLineStippleEXT")]
@@ -7350,6 +8506,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkResetQueryPoolEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkResetQueryPoolEXT.html>
     #[doc(alias = "vkResetQueryPoolEXT")]
@@ -7364,6 +8522,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetCullModeEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCullModeEXT.html>
     #[doc(alias = "vkCmdSetCullModeEXT")]
@@ -7373,6 +8533,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetFrontFaceEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetFrontFaceEXT.html>
     #[doc(alias = "vkCmdSetFrontFaceEXT")]
@@ -7382,6 +8544,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetPrimitiveTopologyEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPrimitiveTopologyEXT.html>
     #[doc(alias = "vkCmdSetPrimitiveTopologyEXT")]
@@ -7391,6 +8555,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetViewportWithCountEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetViewportWithCountEXT.html>
     #[doc(alias = "vkCmdSetViewportWithCountEXT")]
@@ -7404,6 +8570,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetScissorWithCountEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetScissorWithCountEXT.html>
     #[doc(alias = "vkCmdSetScissorWithCountEXT")]
@@ -7417,6 +8585,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBindVertexBuffers2EXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindVertexBuffers2EXT.html>
     #[doc(alias = "vkCmdBindVertexBuffers2EXT")]
@@ -7434,6 +8604,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetDepthTestEnableEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthTestEnableEXT.html>
     #[doc(alias = "vkCmdSetDepthTestEnableEXT")]
@@ -7443,6 +8615,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetDepthWriteEnableEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthWriteEnableEXT.html>
     #[doc(alias = "vkCmdSetDepthWriteEnableEXT")]
@@ -7452,6 +8626,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetDepthCompareOpEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthCompareOpEXT.html>
     #[doc(alias = "vkCmdSetDepthCompareOpEXT")]
@@ -7461,6 +8637,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetDepthBoundsTestEnableEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthBoundsTestEnableEXT.html>
     #[doc(alias = "vkCmdSetDepthBoundsTestEnableEXT")]
@@ -7470,6 +8648,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetStencilTestEnableEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetStencilTestEnableEXT.html>
     #[doc(alias = "vkCmdSetStencilTestEnableEXT")]
@@ -7479,6 +8659,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetStencilOpEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetStencilOpEXT.html>
     #[doc(alias = "vkCmdSetStencilOpEXT")]
@@ -7495,6 +8677,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkCopyMemoryToImageEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyMemoryToImageEXT.html>
     #[doc(alias = "vkCopyMemoryToImageEXT")]
@@ -7507,6 +8691,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkCopyImageToMemoryEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyImageToMemoryEXT.html>
     #[doc(alias = "vkCopyImageToMemoryEXT")]
@@ -7519,6 +8705,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkCopyImageToImageEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyImageToImageEXT.html>
     #[doc(alias = "vkCopyImageToImageEXT")]
@@ -7531,6 +8719,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkTransitionImageLayoutEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkTransitionImageLayoutEXT.html>
     #[doc(alias = "vkTransitionImageLayoutEXT")]
@@ -7544,6 +8734,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetImageSubresourceLayout2EXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageSubresourceLayout2EXT.html>
     #[doc(alias = "vkGetImageSubresourceLayout2EXT")]
@@ -7558,6 +8750,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkReleaseSwapchainImagesEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkReleaseSwapchainImagesEXT.html>
     #[doc(alias = "vkReleaseSwapchainImagesEXT")]
@@ -7570,6 +8764,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetGeneratedCommandsMemoryRequirementsNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetGeneratedCommandsMemoryRequirementsNV.html>
     #[doc(alias = "vkGetGeneratedCommandsMemoryRequirementsNV")]
@@ -7583,6 +8779,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdPreprocessGeneratedCommandsNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPreprocessGeneratedCommandsNV.html>
     #[doc(alias = "vkCmdPreprocessGeneratedCommandsNV")]
@@ -7595,6 +8793,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdExecuteGeneratedCommandsNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdExecuteGeneratedCommandsNV.html>
     #[doc(alias = "vkCmdExecuteGeneratedCommandsNV")]
@@ -7608,6 +8808,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBindPipelineShaderGroupNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindPipelineShaderGroupNV.html>
     #[doc(alias = "vkCmdBindPipelineShaderGroupNV")]
@@ -7622,6 +8824,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkCreateIndirectCommandsLayoutNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateIndirectCommandsLayoutNV.html>
     #[doc(alias = "vkCreateIndirectCommandsLayoutNV")]
@@ -7636,6 +8840,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroyIndirectCommandsLayoutNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyIndirectCommandsLayoutNV.html>
     #[doc(alias = "vkDestroyIndirectCommandsLayoutNV")]
@@ -7649,6 +8855,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetDepthBias2EXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthBias2EXT.html>
     #[doc(alias = "vkCmdSetDepthBias2EXT")]
@@ -7658,6 +8866,8 @@ impl CommandBuffer {
 }
 
 impl PhysicalDevice {
+    /// `vkAcquireDrmDisplayEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkAcquireDrmDisplayEXT.html>
     #[doc(alias = "vkAcquireDrmDisplayEXT")]
@@ -7667,6 +8877,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkGetDrmDisplayEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDrmDisplayEXT.html>
     #[doc(alias = "vkGetDrmDisplayEXT")]
@@ -7681,6 +8893,8 @@ impl PhysicalDevice {
 }
 
 impl Device {
+    /// `vkCreatePrivateDataSlotEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreatePrivateDataSlotEXT.html>
     #[doc(alias = "vkCreatePrivateDataSlotEXT")]
@@ -7695,6 +8909,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroyPrivateDataSlotEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyPrivateDataSlotEXT.html>
     #[doc(alias = "vkDestroyPrivateDataSlotEXT")]
@@ -7708,6 +8924,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkSetPrivateDataEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkSetPrivateDataEXT.html>
     #[doc(alias = "vkSetPrivateDataEXT")]
@@ -7723,6 +8941,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetPrivateDataEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPrivateDataEXT.html>
     #[doc(alias = "vkGetPrivateDataEXT")]
@@ -7738,6 +8958,8 @@ impl Device {
 }
 
 impl Queue {
+    /// `vkQueueSetPerfHintQCOM`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueSetPerfHintQCOM.html>
     #[doc(alias = "vkQueueSetPerfHintQCOM")]
@@ -7750,6 +8972,8 @@ impl Queue {
 }
 
 impl Device {
+    /// `vkCreateCudaModuleNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateCudaModuleNV.html>
     #[doc(alias = "vkCreateCudaModuleNV")]
@@ -7764,6 +8988,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetCudaModuleCacheNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetCudaModuleCacheNV.html>
     #[doc(alias = "vkGetCudaModuleCacheNV")]
@@ -7778,6 +9004,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkCreateCudaFunctionNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateCudaFunctionNV.html>
     #[doc(alias = "vkCreateCudaFunctionNV")]
@@ -7792,6 +9020,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroyCudaModuleNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyCudaModuleNV.html>
     #[doc(alias = "vkDestroyCudaModuleNV")]
@@ -7805,6 +9035,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroyCudaFunctionNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyCudaFunctionNV.html>
     #[doc(alias = "vkDestroyCudaFunctionNV")]
@@ -7818,6 +9050,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdCudaLaunchKernelNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCudaLaunchKernelNV.html>
     #[doc(alias = "vkCmdCudaLaunchKernelNV")]
@@ -7827,6 +9061,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDispatchTileQCOM`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchTileQCOM.html>
     #[doc(alias = "vkCmdDispatchTileQCOM")]
@@ -7836,6 +9072,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBeginPerTileExecutionQCOM`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginPerTileExecutionQCOM.html>
     #[doc(alias = "vkCmdBeginPerTileExecutionQCOM")]
@@ -7848,6 +9086,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdEndPerTileExecutionQCOM`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndPerTileExecutionQCOM.html>
     #[doc(alias = "vkCmdEndPerTileExecutionQCOM")]
@@ -7860,6 +9100,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkSetLatencySleepModeLegacyNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkSetLatencySleepModeLegacyNV.html>
     #[doc(alias = "vkSetLatencySleepModeLegacyNV")]
@@ -7874,6 +9116,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkLatencySleepLegacyNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkLatencySleepLegacyNV.html>
     #[doc(alias = "vkLatencySleepLegacyNV")]
@@ -7883,6 +9127,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkSetLatencyMarkerLegacyNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkSetLatencyMarkerLegacyNV.html>
     #[doc(alias = "vkSetLatencyMarkerLegacyNV")]
@@ -7892,6 +9138,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetLatencyTimingsLegacyNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetLatencyTimingsLegacyNV.html>
     #[doc(alias = "vkGetLatencyTimingsLegacyNV")]
@@ -7901,6 +9149,8 @@ impl Device {
 }
 
 impl Queue {
+    /// `vkQueueNotifyOutOfBandLegacyNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueNotifyOutOfBandLegacyNV.html>
     #[doc(alias = "vkQueueNotifyOutOfBandLegacyNV")]
@@ -7910,6 +9160,8 @@ impl Queue {
 }
 
 impl Device {
+    /// `vkGetSleepStatusLegacyNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSleepStatusLegacyNV.html>
     #[doc(alias = "vkGetSleepStatusLegacyNV")]
@@ -7919,6 +9171,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkShutdownLatencyDeviceLegacyNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkShutdownLatencyDeviceLegacyNV.html>
     #[doc(alias = "vkShutdownLatencyDeviceLegacyNV")]
@@ -7928,6 +9182,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkExportMetalObjectsEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkExportMetalObjectsEXT.html>
     #[doc(alias = "vkExportMetalObjectsEXT")]
@@ -7940,6 +9196,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetDescriptorSetLayoutSizeEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDescriptorSetLayoutSizeEXT.html>
     #[doc(alias = "vkGetDescriptorSetLayoutSizeEXT")]
@@ -7953,6 +9211,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetDescriptorSetLayoutBindingOffsetEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDescriptorSetLayoutBindingOffsetEXT.html>
     #[doc(alias = "vkGetDescriptorSetLayoutBindingOffsetEXT")]
@@ -7967,6 +9227,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetDescriptorEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDescriptorEXT.html>
     #[doc(alias = "vkGetDescriptorEXT")]
@@ -7981,6 +9243,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBindDescriptorBuffersEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindDescriptorBuffersEXT.html>
     #[doc(alias = "vkCmdBindDescriptorBuffersEXT")]
@@ -7994,6 +9258,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetDescriptorBufferOffsetsEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDescriptorBufferOffsetsEXT.html>
     #[doc(alias = "vkCmdSetDescriptorBufferOffsetsEXT")]
@@ -8011,6 +9277,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBindDescriptorBufferEmbeddedSamplersEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindDescriptorBufferEmbeddedSamplersEXT.html>
     #[doc(alias = "vkCmdBindDescriptorBufferEmbeddedSamplersEXT")]
@@ -8025,6 +9293,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkGetBufferOpaqueCaptureDescriptorDataEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferOpaqueCaptureDescriptorDataEXT.html>
     #[doc(alias = "vkGetBufferOpaqueCaptureDescriptorDataEXT")]
@@ -8038,6 +9308,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetImageOpaqueCaptureDescriptorDataEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageOpaqueCaptureDescriptorDataEXT.html>
     #[doc(alias = "vkGetImageOpaqueCaptureDescriptorDataEXT")]
@@ -8051,6 +9323,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetImageViewOpaqueCaptureDescriptorDataEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageViewOpaqueCaptureDescriptorDataEXT.html>
     #[doc(alias = "vkGetImageViewOpaqueCaptureDescriptorDataEXT")]
@@ -8064,6 +9338,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetSamplerOpaqueCaptureDescriptorDataEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSamplerOpaqueCaptureDescriptorDataEXT.html>
     #[doc(alias = "vkGetSamplerOpaqueCaptureDescriptorDataEXT")]
@@ -8077,6 +9353,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT.html>
     #[doc(alias = "vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT")]
@@ -8090,6 +9368,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetFragmentShadingRateEnumNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetFragmentShadingRateEnumNV.html>
     #[doc(alias = "vkCmdSetFragmentShadingRateEnumNV")]
@@ -8103,6 +9383,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkGetDeviceFaultInfoEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceFaultInfoEXT.html>
     #[doc(alias = "vkGetDeviceFaultInfoEXT")]
@@ -8116,6 +9398,8 @@ impl Device {
 }
 
 impl PhysicalDevice {
+    /// `vkAcquireWinrtDisplayNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkAcquireWinrtDisplayNV.html>
     #[doc(alias = "vkAcquireWinrtDisplayNV")]
@@ -8125,6 +9409,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkGetWinrtDisplayNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetWinrtDisplayNV.html>
     #[doc(alias = "vkGetWinrtDisplayNV")]
@@ -8138,6 +9424,8 @@ impl PhysicalDevice {
 }
 
 impl Instance {
+    /// `vkCreateDirectFBSurfaceEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDirectFBSurfaceEXT.html>
     #[doc(alias = "vkCreateDirectFBSurfaceEXT")]
@@ -8152,6 +9440,8 @@ impl Instance {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceDirectFBPresentationSupportEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceDirectFBPresentationSupportEXT.html>
     #[doc(alias = "vkGetPhysicalDeviceDirectFBPresentationSupportEXT")]
@@ -8165,6 +9455,8 @@ impl PhysicalDevice {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetVertexInputEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetVertexInputEXT.html>
     #[doc(alias = "vkCmdSetVertexInputEXT")]
@@ -8180,6 +9472,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkGetMemoryZirconHandleFUCHSIA`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryZirconHandleFUCHSIA.html>
     #[doc(alias = "vkGetMemoryZirconHandleFUCHSIA")]
@@ -8193,6 +9487,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetMemoryZirconHandlePropertiesFUCHSIA`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryZirconHandlePropertiesFUCHSIA.html>
     #[doc(alias = "vkGetMemoryZirconHandlePropertiesFUCHSIA")]
@@ -8207,6 +9503,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkImportSemaphoreZirconHandleFUCHSIA`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkImportSemaphoreZirconHandleFUCHSIA.html>
     #[doc(alias = "vkImportSemaphoreZirconHandleFUCHSIA")]
@@ -8219,6 +9517,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetSemaphoreZirconHandleFUCHSIA`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSemaphoreZirconHandleFUCHSIA.html>
     #[doc(alias = "vkGetSemaphoreZirconHandleFUCHSIA")]
@@ -8232,6 +9532,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkCreateBufferCollectionFUCHSIA`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateBufferCollectionFUCHSIA.html>
     #[doc(alias = "vkCreateBufferCollectionFUCHSIA")]
@@ -8246,6 +9548,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkSetBufferCollectionImageConstraintsFUCHSIA`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkSetBufferCollectionImageConstraintsFUCHSIA.html>
     #[doc(alias = "vkSetBufferCollectionImageConstraintsFUCHSIA")]
@@ -8259,6 +9563,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkSetBufferCollectionBufferConstraintsFUCHSIA`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkSetBufferCollectionBufferConstraintsFUCHSIA.html>
     #[doc(alias = "vkSetBufferCollectionBufferConstraintsFUCHSIA")]
@@ -8272,6 +9578,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroyBufferCollectionFUCHSIA`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyBufferCollectionFUCHSIA.html>
     #[doc(alias = "vkDestroyBufferCollectionFUCHSIA")]
@@ -8285,6 +9593,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetBufferCollectionPropertiesFUCHSIA`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferCollectionPropertiesFUCHSIA.html>
     #[doc(alias = "vkGetBufferCollectionPropertiesFUCHSIA")]
@@ -8298,6 +9608,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI.html>
     #[doc(alias = "vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI")]
@@ -8311,6 +9623,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSubpassShadingHUAWEI`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSubpassShadingHUAWEI.html>
     #[doc(alias = "vkCmdSubpassShadingHUAWEI")]
@@ -8320,6 +9634,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBindInvocationMaskHUAWEI`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindInvocationMaskHUAWEI.html>
     #[doc(alias = "vkCmdBindInvocationMaskHUAWEI")]
@@ -8333,6 +9649,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkGetMemoryRemoteAddressNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryRemoteAddressNV.html>
     #[doc(alias = "vkGetMemoryRemoteAddressNV")]
@@ -8346,6 +9664,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetPipelinePropertiesEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPipelinePropertiesEXT.html>
     #[doc(alias = "vkGetPipelinePropertiesEXT")]
@@ -8359,6 +9679,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetPatchControlPointsEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPatchControlPointsEXT.html>
     #[doc(alias = "vkCmdSetPatchControlPointsEXT")]
@@ -8368,6 +9690,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetRasterizerDiscardEnableEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRasterizerDiscardEnableEXT.html>
     #[doc(alias = "vkCmdSetRasterizerDiscardEnableEXT")]
@@ -8377,6 +9701,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetDepthBiasEnableEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthBiasEnableEXT.html>
     #[doc(alias = "vkCmdSetDepthBiasEnableEXT")]
@@ -8386,6 +9712,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetLogicOpEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetLogicOpEXT.html>
     #[doc(alias = "vkCmdSetLogicOpEXT")]
@@ -8395,6 +9723,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetPrimitiveRestartEnableEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPrimitiveRestartEnableEXT.html>
     #[doc(alias = "vkCmdSetPrimitiveRestartEnableEXT")]
@@ -8404,6 +9734,8 @@ impl CommandBuffer {
 }
 
 impl Instance {
+    /// `vkCreateScreenSurfaceQNX`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateScreenSurfaceQNX.html>
     #[doc(alias = "vkCreateScreenSurfaceQNX")]
@@ -8418,6 +9750,8 @@ impl Instance {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceScreenPresentationSupportQNX`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceScreenPresentationSupportQNX.html>
     #[doc(alias = "vkGetPhysicalDeviceScreenPresentationSupportQNX")]
@@ -8431,6 +9765,8 @@ impl PhysicalDevice {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetColorWriteEnableEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetColorWriteEnableEXT.html>
     #[doc(alias = "vkCmdSetColorWriteEnableEXT")]
@@ -8444,6 +9780,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDrawMultiEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMultiEXT.html>
     #[doc(alias = "vkCmdDrawMultiEXT")]
@@ -8460,6 +9798,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDrawMultiIndexedEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMultiIndexedEXT.html>
     #[doc(alias = "vkCmdDrawMultiIndexedEXT")]
@@ -8477,6 +9817,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkCreateMicromapEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateMicromapEXT.html>
     #[doc(alias = "vkCreateMicromapEXT")]
@@ -8491,6 +9833,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroyMicromapEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyMicromapEXT.html>
     #[doc(alias = "vkDestroyMicromapEXT")]
@@ -8504,6 +9848,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBuildMicromapsEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBuildMicromapsEXT.html>
     #[doc(alias = "vkCmdBuildMicromapsEXT")]
@@ -8517,6 +9863,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkBuildMicromapsEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkBuildMicromapsEXT.html>
     #[doc(alias = "vkBuildMicromapsEXT")]
@@ -8531,6 +9879,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkCopyMicromapEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyMicromapEXT.html>
     #[doc(alias = "vkCopyMicromapEXT")]
@@ -8544,6 +9894,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkCopyMicromapToMemoryEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyMicromapToMemoryEXT.html>
     #[doc(alias = "vkCopyMicromapToMemoryEXT")]
@@ -8557,6 +9909,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkCopyMemoryToMicromapEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyMemoryToMicromapEXT.html>
     #[doc(alias = "vkCopyMemoryToMicromapEXT")]
@@ -8570,6 +9924,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkWriteMicromapsPropertiesEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkWriteMicromapsPropertiesEXT.html>
     #[doc(alias = "vkWriteMicromapsPropertiesEXT")]
@@ -8587,6 +9943,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdCopyMicromapEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMicromapEXT.html>
     #[doc(alias = "vkCmdCopyMicromapEXT")]
@@ -8596,6 +9954,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdCopyMicromapToMemoryEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMicromapToMemoryEXT.html>
     #[doc(alias = "vkCmdCopyMicromapToMemoryEXT")]
@@ -8605,6 +9965,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdCopyMemoryToMicromapEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMemoryToMicromapEXT.html>
     #[doc(alias = "vkCmdCopyMemoryToMicromapEXT")]
@@ -8614,6 +9976,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdWriteMicromapsPropertiesEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteMicromapsPropertiesEXT.html>
     #[doc(alias = "vkCmdWriteMicromapsPropertiesEXT")]
@@ -8630,6 +9994,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkGetDeviceMicromapCompatibilityEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceMicromapCompatibilityEXT.html>
     #[doc(alias = "vkGetDeviceMicromapCompatibilityEXT")]
@@ -8643,6 +10009,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetMicromapBuildSizesEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMicromapBuildSizesEXT.html>
     #[doc(alias = "vkGetMicromapBuildSizesEXT")]
@@ -8657,6 +10025,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDrawClusterHUAWEI`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawClusterHUAWEI.html>
     #[doc(alias = "vkCmdDrawClusterHUAWEI")]
@@ -8671,6 +10041,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDrawClusterIndirectHUAWEI`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawClusterIndirectHUAWEI.html>
     #[doc(alias = "vkCmdDrawClusterIndirectHUAWEI")]
@@ -8680,6 +10052,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkSetDeviceMemoryPriorityEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkSetDeviceMemoryPriorityEXT.html>
     #[doc(alias = "vkSetDeviceMemoryPriorityEXT")]
@@ -8689,6 +10063,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetDispatchParametersARM`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDispatchParametersARM.html>
     #[doc(alias = "vkCmdSetDispatchParametersARM")]
@@ -8701,6 +10077,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkGetDescriptorSetLayoutHostMappingInfoVALVE`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDescriptorSetLayoutHostMappingInfoVALVE.html>
     #[doc(alias = "vkGetDescriptorSetLayoutHostMappingInfoVALVE")]
@@ -8714,6 +10092,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetDescriptorSetHostMappingVALVE`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDescriptorSetHostMappingVALVE.html>
     #[doc(alias = "vkGetDescriptorSetHostMappingVALVE")]
@@ -8727,6 +10107,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdCopyMemoryIndirectNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMemoryIndirectNV.html>
     #[doc(alias = "vkCmdCopyMemoryIndirectNV")]
@@ -8741,6 +10123,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdCopyMemoryToImageIndirectNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMemoryToImageIndirectNV.html>
     #[doc(alias = "vkCmdCopyMemoryToImageIndirectNV")]
@@ -8758,6 +10142,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDecompressMemoryNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDecompressMemoryNV.html>
     #[doc(alias = "vkCmdDecompressMemoryNV")]
@@ -8771,6 +10157,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDecompressMemoryIndirectCountNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDecompressMemoryIndirectCountNV.html>
     #[doc(alias = "vkCmdDecompressMemoryIndirectCountNV")]
@@ -8785,6 +10173,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkGetPipelineIndirectMemoryRequirementsNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPipelineIndirectMemoryRequirementsNV.html>
     #[doc(alias = "vkGetPipelineIndirectMemoryRequirementsNV")]
@@ -8798,6 +10188,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdUpdatePipelineIndirectBufferNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdUpdatePipelineIndirectBufferNV.html>
     #[doc(alias = "vkCmdUpdatePipelineIndirectBufferNV")]
@@ -8811,6 +10203,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkGetPipelineIndirectDeviceAddressNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPipelineIndirectDeviceAddressNV.html>
     #[doc(alias = "vkGetPipelineIndirectDeviceAddressNV")]
@@ -8823,6 +10217,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetNativeBufferPropertiesOHOS`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetNativeBufferPropertiesOHOS.html>
     #[doc(alias = "vkGetNativeBufferPropertiesOHOS")]
@@ -8836,6 +10232,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetMemoryNativeBufferOHOS`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryNativeBufferOHOS.html>
     #[doc(alias = "vkGetMemoryNativeBufferOHOS")]
@@ -8849,6 +10247,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetDepthClampEnableEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthClampEnableEXT.html>
     #[doc(alias = "vkCmdSetDepthClampEnableEXT")]
@@ -8858,6 +10258,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetPolygonModeEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPolygonModeEXT.html>
     #[doc(alias = "vkCmdSetPolygonModeEXT")]
@@ -8867,6 +10269,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetRasterizationSamplesEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRasterizationSamplesEXT.html>
     #[doc(alias = "vkCmdSetRasterizationSamplesEXT")]
@@ -8876,6 +10280,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetSampleMaskEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetSampleMaskEXT.html>
     #[doc(alias = "vkCmdSetSampleMaskEXT")]
@@ -8889,6 +10295,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetAlphaToCoverageEnableEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetAlphaToCoverageEnableEXT.html>
     #[doc(alias = "vkCmdSetAlphaToCoverageEnableEXT")]
@@ -8898,6 +10306,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetAlphaToOneEnableEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetAlphaToOneEnableEXT.html>
     #[doc(alias = "vkCmdSetAlphaToOneEnableEXT")]
@@ -8907,6 +10317,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetLogicOpEnableEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetLogicOpEnableEXT.html>
     #[doc(alias = "vkCmdSetLogicOpEnableEXT")]
@@ -8916,6 +10328,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetColorBlendEnableEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetColorBlendEnableEXT.html>
     #[doc(alias = "vkCmdSetColorBlendEnableEXT")]
@@ -8930,6 +10344,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetColorBlendEquationEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetColorBlendEquationEXT.html>
     #[doc(alias = "vkCmdSetColorBlendEquationEXT")]
@@ -8944,6 +10360,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetColorWriteMaskEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetColorWriteMaskEXT.html>
     #[doc(alias = "vkCmdSetColorWriteMaskEXT")]
@@ -8958,6 +10376,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetTessellationDomainOriginEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetTessellationDomainOriginEXT.html>
     #[doc(alias = "vkCmdSetTessellationDomainOriginEXT")]
@@ -8970,6 +10390,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetRasterizationStreamEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRasterizationStreamEXT.html>
     #[doc(alias = "vkCmdSetRasterizationStreamEXT")]
@@ -8979,6 +10401,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetConservativeRasterizationModeEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetConservativeRasterizationModeEXT.html>
     #[doc(alias = "vkCmdSetConservativeRasterizationModeEXT")]
@@ -8991,6 +10415,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetExtraPrimitiveOverestimationSizeEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetExtraPrimitiveOverestimationSizeEXT.html>
     #[doc(alias = "vkCmdSetExtraPrimitiveOverestimationSizeEXT")]
@@ -9003,6 +10429,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetDepthClipEnableEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthClipEnableEXT.html>
     #[doc(alias = "vkCmdSetDepthClipEnableEXT")]
@@ -9012,6 +10440,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetSampleLocationsEnableEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetSampleLocationsEnableEXT.html>
     #[doc(alias = "vkCmdSetSampleLocationsEnableEXT")]
@@ -9021,6 +10451,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetColorBlendAdvancedEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetColorBlendAdvancedEXT.html>
     #[doc(alias = "vkCmdSetColorBlendAdvancedEXT")]
@@ -9035,6 +10467,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetProvokingVertexModeEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetProvokingVertexModeEXT.html>
     #[doc(alias = "vkCmdSetProvokingVertexModeEXT")]
@@ -9047,6 +10481,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetLineRasterizationModeEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetLineRasterizationModeEXT.html>
     #[doc(alias = "vkCmdSetLineRasterizationModeEXT")]
@@ -9059,6 +10495,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetLineStippleEnableEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetLineStippleEnableEXT.html>
     #[doc(alias = "vkCmdSetLineStippleEnableEXT")]
@@ -9068,6 +10506,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetDepthClipNegativeOneToOneEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthClipNegativeOneToOneEXT.html>
     #[doc(alias = "vkCmdSetDepthClipNegativeOneToOneEXT")]
@@ -9077,6 +10517,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetViewportWScalingEnableNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetViewportWScalingEnableNV.html>
     #[doc(alias = "vkCmdSetViewportWScalingEnableNV")]
@@ -9086,6 +10528,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetViewportSwizzleNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetViewportSwizzleNV.html>
     #[doc(alias = "vkCmdSetViewportSwizzleNV")]
@@ -9100,6 +10544,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetCoverageToColorEnableNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCoverageToColorEnableNV.html>
     #[doc(alias = "vkCmdSetCoverageToColorEnableNV")]
@@ -9109,6 +10555,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetCoverageToColorLocationNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCoverageToColorLocationNV.html>
     #[doc(alias = "vkCmdSetCoverageToColorLocationNV")]
@@ -9118,6 +10566,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetCoverageModulationModeNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCoverageModulationModeNV.html>
     #[doc(alias = "vkCmdSetCoverageModulationModeNV")]
@@ -9130,6 +10580,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetCoverageModulationTableEnableNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCoverageModulationTableEnableNV.html>
     #[doc(alias = "vkCmdSetCoverageModulationTableEnableNV")]
@@ -9142,6 +10594,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetCoverageModulationTableNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCoverageModulationTableNV.html>
     #[doc(alias = "vkCmdSetCoverageModulationTableNV")]
@@ -9155,6 +10609,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetShadingRateImageEnableNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetShadingRateImageEnableNV.html>
     #[doc(alias = "vkCmdSetShadingRateImageEnableNV")]
@@ -9164,6 +10620,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetRepresentativeFragmentTestEnableNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRepresentativeFragmentTestEnableNV.html>
     #[doc(alias = "vkCmdSetRepresentativeFragmentTestEnableNV")]
@@ -9176,6 +10634,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetCoverageReductionModeNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCoverageReductionModeNV.html>
     #[doc(alias = "vkCmdSetCoverageReductionModeNV")]
@@ -9188,6 +10648,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkCreateTensorARM`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateTensorARM.html>
     #[doc(alias = "vkCreateTensorARM")]
@@ -9202,6 +10664,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroyTensorARM`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyTensorARM.html>
     #[doc(alias = "vkDestroyTensorARM")]
@@ -9215,6 +10679,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkCreateTensorViewARM`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateTensorViewARM.html>
     #[doc(alias = "vkCreateTensorViewARM")]
@@ -9229,6 +10695,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroyTensorViewARM`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyTensorViewARM.html>
     #[doc(alias = "vkDestroyTensorViewARM")]
@@ -9242,6 +10710,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetTensorMemoryRequirementsARM`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetTensorMemoryRequirementsARM.html>
     #[doc(alias = "vkGetTensorMemoryRequirementsARM")]
@@ -9255,6 +10725,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkBindTensorMemoryARM`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkBindTensorMemoryARM.html>
     #[doc(alias = "vkBindTensorMemoryARM")]
@@ -9268,6 +10740,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetDeviceTensorMemoryRequirementsARM`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceTensorMemoryRequirementsARM.html>
     #[doc(alias = "vkGetDeviceTensorMemoryRequirementsARM")]
@@ -9281,6 +10755,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdCopyTensorARM`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyTensorARM.html>
     #[doc(alias = "vkCmdCopyTensorARM")]
@@ -9290,6 +10766,8 @@ impl CommandBuffer {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceExternalTensorPropertiesARM`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceExternalTensorPropertiesARM.html>
     #[doc(alias = "vkGetPhysicalDeviceExternalTensorPropertiesARM")]
@@ -9303,6 +10781,8 @@ impl PhysicalDevice {
 }
 
 impl Device {
+    /// `vkGetTensorOpaqueCaptureDescriptorDataARM`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetTensorOpaqueCaptureDescriptorDataARM.html>
     #[doc(alias = "vkGetTensorOpaqueCaptureDescriptorDataARM")]
@@ -9316,6 +10796,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetTensorViewOpaqueCaptureDescriptorDataARM`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetTensorViewOpaqueCaptureDescriptorDataARM.html>
     #[doc(alias = "vkGetTensorViewOpaqueCaptureDescriptorDataARM")]
@@ -9329,6 +10811,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetShaderModuleIdentifierEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetShaderModuleIdentifierEXT.html>
     #[doc(alias = "vkGetShaderModuleIdentifierEXT")]
@@ -9342,6 +10826,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetShaderModuleCreateInfoIdentifierEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetShaderModuleCreateInfoIdentifierEXT.html>
     #[doc(alias = "vkGetShaderModuleCreateInfoIdentifierEXT")]
@@ -9355,6 +10841,8 @@ impl Device {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceOpticalFlowImageFormatsNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceOpticalFlowImageFormatsNV.html>
     #[doc(alias = "vkGetPhysicalDeviceOpticalFlowImageFormatsNV")]
@@ -9369,6 +10857,8 @@ impl PhysicalDevice {
 }
 
 impl Device {
+    /// `vkCreateOpticalFlowSessionNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateOpticalFlowSessionNV.html>
     #[doc(alias = "vkCreateOpticalFlowSessionNV")]
@@ -9383,6 +10873,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroyOpticalFlowSessionNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyOpticalFlowSessionNV.html>
     #[doc(alias = "vkDestroyOpticalFlowSessionNV")]
@@ -9396,6 +10888,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkBindOpticalFlowSessionImageNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkBindOpticalFlowSessionImageNV.html>
     #[doc(alias = "vkBindOpticalFlowSessionImageNV")]
@@ -9411,6 +10905,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdOpticalFlowExecuteNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdOpticalFlowExecuteNV.html>
     #[doc(alias = "vkCmdOpticalFlowExecuteNV")]
@@ -9424,6 +10920,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkAntiLagUpdateAMD`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkAntiLagUpdateAMD.html>
     #[doc(alias = "vkAntiLagUpdateAMD")]
@@ -9433,6 +10931,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkCreateShadersEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateShadersEXT.html>
     #[doc(alias = "vkCreateShadersEXT")]
@@ -9448,6 +10948,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroyShaderEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyShaderEXT.html>
     #[doc(alias = "vkDestroyShaderEXT")]
@@ -9461,6 +10963,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetShaderBinaryDataEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetShaderBinaryDataEXT.html>
     #[doc(alias = "vkGetShaderBinaryDataEXT")]
@@ -9475,6 +10979,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBindShadersEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindShadersEXT.html>
     #[doc(alias = "vkCmdBindShadersEXT")]
@@ -9489,6 +10995,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetDepthClampRangeEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthClampRangeEXT.html>
     #[doc(alias = "vkCmdSetDepthClampRangeEXT")]
@@ -9502,6 +11010,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkGetFramebufferTilePropertiesQCOM`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetFramebufferTilePropertiesQCOM.html>
     #[doc(alias = "vkGetFramebufferTilePropertiesQCOM")]
@@ -9516,6 +11026,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetDynamicRenderingTilePropertiesQCOM`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDynamicRenderingTilePropertiesQCOM.html>
     #[doc(alias = "vkGetDynamicRenderingTilePropertiesQCOM")]
@@ -9529,6 +11041,8 @@ impl Device {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceCooperativeVectorPropertiesNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceCooperativeVectorPropertiesNV.html>
     #[doc(alias = "vkGetPhysicalDeviceCooperativeVectorPropertiesNV")]
@@ -9542,6 +11056,8 @@ impl PhysicalDevice {
 }
 
 impl Device {
+    /// `vkConvertCooperativeVectorMatrixNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkConvertCooperativeVectorMatrixNV.html>
     #[doc(alias = "vkConvertCooperativeVectorMatrixNV")]
@@ -9554,6 +11070,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdConvertCooperativeVectorMatrixNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdConvertCooperativeVectorMatrixNV.html>
     #[doc(alias = "vkCmdConvertCooperativeVectorMatrixNV")]
@@ -9567,6 +11085,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkSetLatencySleepModeNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkSetLatencySleepModeNV.html>
     #[doc(alias = "vkSetLatencySleepModeNV")]
@@ -9580,6 +11100,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkLatencySleepNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkLatencySleepNV.html>
     #[doc(alias = "vkLatencySleepNV")]
@@ -9593,6 +11115,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkSetLatencyMarkerNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkSetLatencyMarkerNV.html>
     #[doc(alias = "vkSetLatencyMarkerNV")]
@@ -9606,6 +11130,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetLatencyTimingsNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetLatencyTimingsNV.html>
     #[doc(alias = "vkGetLatencyTimingsNV")]
@@ -9619,6 +11145,8 @@ impl Device {
 }
 
 impl Queue {
+    /// `vkQueueNotifyOutOfBandNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueNotifyOutOfBandNV.html>
     #[doc(alias = "vkQueueNotifyOutOfBandNV")]
@@ -9631,6 +11159,8 @@ impl Queue {
 }
 
 impl Device {
+    /// `vkCreateDataGraphPipelinesARM`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDataGraphPipelinesARM.html>
     #[doc(alias = "vkCreateDataGraphPipelinesARM")]
@@ -9648,6 +11178,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkCreateDataGraphPipelineSessionARM`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDataGraphPipelineSessionARM.html>
     #[doc(alias = "vkCreateDataGraphPipelineSessionARM")]
@@ -9662,6 +11194,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetDataGraphPipelineSessionBindPointRequirementsARM`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDataGraphPipelineSessionBindPointRequirementsARM.html>
     #[doc(alias = "vkGetDataGraphPipelineSessionBindPointRequirementsARM")]
@@ -9676,6 +11210,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetDataGraphPipelineSessionMemoryRequirementsARM`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDataGraphPipelineSessionMemoryRequirementsARM.html>
     #[doc(alias = "vkGetDataGraphPipelineSessionMemoryRequirementsARM")]
@@ -9689,6 +11225,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkBindDataGraphPipelineSessionMemoryARM`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkBindDataGraphPipelineSessionMemoryARM.html>
     #[doc(alias = "vkBindDataGraphPipelineSessionMemoryARM")]
@@ -9702,6 +11240,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroyDataGraphPipelineSessionARM`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDataGraphPipelineSessionARM.html>
     #[doc(alias = "vkDestroyDataGraphPipelineSessionARM")]
@@ -9715,6 +11255,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDispatchDataGraphARM`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchDataGraphARM.html>
     #[doc(alias = "vkCmdDispatchDataGraphARM")]
@@ -9728,6 +11270,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkGetDataGraphPipelineAvailablePropertiesARM`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDataGraphPipelineAvailablePropertiesARM.html>
     #[doc(alias = "vkGetDataGraphPipelineAvailablePropertiesARM")]
@@ -9742,6 +11286,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetDataGraphPipelinePropertiesARM`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDataGraphPipelinePropertiesARM.html>
     #[doc(alias = "vkGetDataGraphPipelinePropertiesARM")]
@@ -9756,6 +11302,8 @@ impl Device {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM.html>
     #[doc(alias = "vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM")]
@@ -9770,6 +11318,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM.html>
     #[doc(alias = "vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM")]
@@ -9783,6 +11333,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceQueueFamilyDataGraphEngineOperationPropertiesARM`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceQueueFamilyDataGraphEngineOperationPropertiesARM.html>
     #[doc(alias = "vkGetPhysicalDeviceQueueFamilyDataGraphEngineOperationPropertiesARM")]
@@ -9797,6 +11349,8 @@ impl PhysicalDevice {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetAttachmentFeedbackLoopEnableEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetAttachmentFeedbackLoopEnableEXT.html>
     #[doc(alias = "vkCmdSetAttachmentFeedbackLoopEnableEXT")]
@@ -9806,6 +11360,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkGetScreenBufferPropertiesQNX`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetScreenBufferPropertiesQNX.html>
     #[doc(alias = "vkGetScreenBufferPropertiesQNX")]
@@ -9819,6 +11375,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBindTileMemoryQCOM`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindTileMemoryQCOM.html>
     #[doc(alias = "vkCmdBindTileMemoryQCOM")]
@@ -9831,6 +11389,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDecompressMemoryEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDecompressMemoryEXT.html>
     #[doc(alias = "vkCmdDecompressMemoryEXT")]
@@ -9843,6 +11403,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDecompressMemoryIndirectCountEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDecompressMemoryIndirectCountEXT.html>
     #[doc(alias = "vkCmdDecompressMemoryIndirectCountEXT")]
@@ -9859,6 +11421,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkCreateExternalComputeQueueNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateExternalComputeQueueNV.html>
     #[doc(alias = "vkCreateExternalComputeQueueNV")]
@@ -9873,6 +11437,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroyExternalComputeQueueNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyExternalComputeQueueNV.html>
     #[doc(alias = "vkDestroyExternalComputeQueueNV")]
@@ -9885,6 +11451,8 @@ impl Device {
     }
 }
 
+/// `vkGetExternalComputeQueueDataNV`
+///
 /// # Vulkan documentation
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetExternalComputeQueueDataNV.html>
 #[doc(alias = "vkGetExternalComputeQueueDataNV")]
@@ -9897,6 +11465,8 @@ pub unsafe fn get_external_compute_queue_data_nv(
 }
 
 impl Device {
+    /// `vkGetClusterAccelerationStructureBuildSizesNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetClusterAccelerationStructureBuildSizesNV.html>
     #[doc(alias = "vkGetClusterAccelerationStructureBuildSizesNV")]
@@ -9910,6 +11480,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBuildClusterAccelerationStructureIndirectNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBuildClusterAccelerationStructureIndirectNV.html>
     #[doc(alias = "vkCmdBuildClusterAccelerationStructureIndirectNV")]
@@ -9922,6 +11494,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkGetPartitionedAccelerationStructuresBuildSizesNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPartitionedAccelerationStructuresBuildSizesNV.html>
     #[doc(alias = "vkGetPartitionedAccelerationStructuresBuildSizesNV")]
@@ -9935,6 +11509,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBuildPartitionedAccelerationStructuresNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBuildPartitionedAccelerationStructuresNV.html>
     #[doc(alias = "vkCmdBuildPartitionedAccelerationStructuresNV")]
@@ -9947,6 +11523,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkGetGeneratedCommandsMemoryRequirementsEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetGeneratedCommandsMemoryRequirementsEXT.html>
     #[doc(alias = "vkGetGeneratedCommandsMemoryRequirementsEXT")]
@@ -9960,6 +11538,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdPreprocessGeneratedCommandsEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPreprocessGeneratedCommandsEXT.html>
     #[doc(alias = "vkCmdPreprocessGeneratedCommandsEXT")]
@@ -9973,6 +11553,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdExecuteGeneratedCommandsEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdExecuteGeneratedCommandsEXT.html>
     #[doc(alias = "vkCmdExecuteGeneratedCommandsEXT")]
@@ -9986,6 +11568,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkCreateIndirectCommandsLayoutEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateIndirectCommandsLayoutEXT.html>
     #[doc(alias = "vkCreateIndirectCommandsLayoutEXT")]
@@ -10000,6 +11584,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroyIndirectCommandsLayoutEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyIndirectCommandsLayoutEXT.html>
     #[doc(alias = "vkDestroyIndirectCommandsLayoutEXT")]
@@ -10013,6 +11599,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkCreateIndirectExecutionSetEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateIndirectExecutionSetEXT.html>
     #[doc(alias = "vkCreateIndirectExecutionSetEXT")]
@@ -10027,6 +11615,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroyIndirectExecutionSetEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyIndirectExecutionSetEXT.html>
     #[doc(alias = "vkDestroyIndirectExecutionSetEXT")]
@@ -10040,6 +11630,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkUpdateIndirectExecutionSetPipelineEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkUpdateIndirectExecutionSetPipelineEXT.html>
     #[doc(alias = "vkUpdateIndirectExecutionSetPipelineEXT")]
@@ -10054,6 +11646,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkUpdateIndirectExecutionSetShaderEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkUpdateIndirectExecutionSetShaderEXT.html>
     #[doc(alias = "vkUpdateIndirectExecutionSetShaderEXT")]
@@ -10068,6 +11662,8 @@ impl Device {
 }
 
 impl Instance {
+    /// `vkCreateSurfaceOHOS`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateSurfaceOHOS.html>
     #[doc(alias = "vkCreateSurfaceOHOS")]
@@ -10082,6 +11678,8 @@ impl Instance {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV.html>
     #[doc(alias = "vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV")]
@@ -10095,6 +11693,8 @@ impl PhysicalDevice {
 }
 
 impl Device {
+    /// `vkGetMemoryMetalHandleEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryMetalHandleEXT.html>
     #[doc(alias = "vkGetMemoryMetalHandleEXT")]
@@ -10108,6 +11708,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetMemoryMetalHandlePropertiesEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryMetalHandlePropertiesEXT.html>
     #[doc(alias = "vkGetMemoryMetalHandlePropertiesEXT")]
@@ -10122,6 +11724,8 @@ impl Device {
 }
 
 impl PhysicalDevice {
+    /// `vkEnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM.html>
     #[doc(alias = "vkEnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM")]
@@ -10137,6 +11741,8 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    /// `vkEnumeratePhysicalDeviceShaderInstrumentationMetricsARM`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumeratePhysicalDeviceShaderInstrumentationMetricsARM.html>
     #[doc(alias = "vkEnumeratePhysicalDeviceShaderInstrumentationMetricsARM")]
@@ -10150,6 +11756,8 @@ impl PhysicalDevice {
 }
 
 impl Device {
+    /// `vkCreateShaderInstrumentationARM`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateShaderInstrumentationARM.html>
     #[doc(alias = "vkCreateShaderInstrumentationARM")]
@@ -10164,6 +11772,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroyShaderInstrumentationARM`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyShaderInstrumentationARM.html>
     #[doc(alias = "vkDestroyShaderInstrumentationARM")]
@@ -10177,6 +11787,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBeginShaderInstrumentationARM`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginShaderInstrumentationARM.html>
     #[doc(alias = "vkCmdBeginShaderInstrumentationARM")]
@@ -10189,6 +11801,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdEndShaderInstrumentationARM`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndShaderInstrumentationARM.html>
     #[doc(alias = "vkCmdEndShaderInstrumentationARM")]
@@ -10198,6 +11812,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkGetShaderInstrumentationValuesARM`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetShaderInstrumentationValuesARM.html>
     #[doc(alias = "vkGetShaderInstrumentationValuesARM")]
@@ -10213,6 +11829,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkClearShaderInstrumentationMetricsARM`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkClearShaderInstrumentationMetricsARM.html>
     #[doc(alias = "vkClearShaderInstrumentationMetricsARM")]
@@ -10225,6 +11843,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdEndRendering2EXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndRendering2EXT.html>
     #[doc(alias = "vkCmdEndRendering2EXT")]
@@ -10234,6 +11854,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBeginCustomResolveEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginCustomResolveEXT.html>
     #[doc(alias = "vkCmdBeginCustomResolveEXT")]
@@ -10246,6 +11868,8 @@ impl CommandBuffer {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceQueueFamilyDataGraphOpticalFlowImageFormatsARM`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceQueueFamilyDataGraphOpticalFlowImageFormatsARM.html>
     #[doc(alias = "vkGetPhysicalDeviceQueueFamilyDataGraphOpticalFlowImageFormatsARM")]
@@ -10262,6 +11886,8 @@ impl PhysicalDevice {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetComputeOccupancyPriorityNV`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetComputeOccupancyPriorityNV.html>
     #[doc(alias = "vkCmdSetComputeOccupancyPriorityNV")]
@@ -10274,6 +11900,8 @@ impl CommandBuffer {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceCooperativeMatrixProperties2EXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceCooperativeMatrixProperties2EXT.html>
     #[doc(alias = "vkGetPhysicalDeviceCooperativeMatrixProperties2EXT")]
@@ -10288,6 +11916,8 @@ impl PhysicalDevice {
 }
 
 impl Instance {
+    /// `vkCreateUbmSurfaceSEC`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateUbmSurfaceSEC.html>
     #[doc(alias = "vkCreateUbmSurfaceSEC")]
@@ -10302,6 +11932,8 @@ impl Instance {
 }
 
 impl PhysicalDevice {
+    /// `vkGetPhysicalDeviceUbmPresentationSupportSEC`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceUbmPresentationSupportSEC.html>
     #[doc(alias = "vkGetPhysicalDeviceUbmPresentationSupportSEC")]
@@ -10315,6 +11947,8 @@ impl PhysicalDevice {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetPrimitiveRestartIndexEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPrimitiveRestartIndexEXT.html>
     #[doc(alias = "vkCmdSetPrimitiveRestartIndexEXT")]
@@ -10324,6 +11958,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkCreateAccelerationStructureKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateAccelerationStructureKHR.html>
     #[doc(alias = "vkCreateAccelerationStructureKHR")]
@@ -10338,6 +11974,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkDestroyAccelerationStructureKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyAccelerationStructureKHR.html>
     #[doc(alias = "vkDestroyAccelerationStructureKHR")]
@@ -10351,6 +11989,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBuildAccelerationStructuresKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBuildAccelerationStructuresKHR.html>
     #[doc(alias = "vkCmdBuildAccelerationStructuresKHR")]
@@ -10365,6 +12005,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdBuildAccelerationStructuresIndirectKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBuildAccelerationStructuresIndirectKHR.html>
     #[doc(alias = "vkCmdBuildAccelerationStructuresIndirectKHR")]
@@ -10381,6 +12023,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkBuildAccelerationStructuresKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkBuildAccelerationStructuresKHR.html>
     #[doc(alias = "vkBuildAccelerationStructuresKHR")]
@@ -10396,6 +12040,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkCopyAccelerationStructureKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyAccelerationStructureKHR.html>
     #[doc(alias = "vkCopyAccelerationStructureKHR")]
@@ -10409,6 +12055,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkCopyAccelerationStructureToMemoryKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyAccelerationStructureToMemoryKHR.html>
     #[doc(alias = "vkCopyAccelerationStructureToMemoryKHR")]
@@ -10422,6 +12070,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkCopyMemoryToAccelerationStructureKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyMemoryToAccelerationStructureKHR.html>
     #[doc(alias = "vkCopyMemoryToAccelerationStructureKHR")]
@@ -10435,6 +12085,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkWriteAccelerationStructuresPropertiesKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkWriteAccelerationStructuresPropertiesKHR.html>
     #[doc(alias = "vkWriteAccelerationStructuresPropertiesKHR")]
@@ -10452,6 +12104,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdCopyAccelerationStructureKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyAccelerationStructureKHR.html>
     #[doc(alias = "vkCmdCopyAccelerationStructureKHR")]
@@ -10464,6 +12118,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdCopyAccelerationStructureToMemoryKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyAccelerationStructureToMemoryKHR.html>
     #[doc(alias = "vkCmdCopyAccelerationStructureToMemoryKHR")]
@@ -10476,6 +12132,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdCopyMemoryToAccelerationStructureKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMemoryToAccelerationStructureKHR.html>
     #[doc(alias = "vkCmdCopyMemoryToAccelerationStructureKHR")]
@@ -10488,6 +12146,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkGetAccelerationStructureDeviceAddressKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetAccelerationStructureDeviceAddressKHR.html>
     #[doc(alias = "vkGetAccelerationStructureDeviceAddressKHR")]
@@ -10500,6 +12160,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdWriteAccelerationStructuresPropertiesKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteAccelerationStructuresPropertiesKHR.html>
     #[doc(alias = "vkCmdWriteAccelerationStructuresPropertiesKHR")]
@@ -10516,6 +12178,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkGetDeviceAccelerationStructureCompatibilityKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceAccelerationStructureCompatibilityKHR.html>
     #[doc(alias = "vkGetDeviceAccelerationStructureCompatibilityKHR")]
@@ -10529,6 +12193,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetAccelerationStructureBuildSizesKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetAccelerationStructureBuildSizesKHR.html>
     #[doc(alias = "vkGetAccelerationStructureBuildSizesKHR")]
@@ -10544,6 +12210,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdTraceRaysKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdTraceRaysKHR.html>
     #[doc(alias = "vkCmdTraceRaysKHR")]
@@ -10562,6 +12230,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkCreateRayTracingPipelinesKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateRayTracingPipelinesKHR.html>
     #[doc(alias = "vkCreateRayTracingPipelinesKHR")]
@@ -10579,6 +12249,8 @@ impl Device {
 }
 
 impl Device {
+    /// `vkGetRayTracingCaptureReplayShaderGroupHandlesKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRayTracingCaptureReplayShaderGroupHandlesKHR.html>
     #[doc(alias = "vkGetRayTracingCaptureReplayShaderGroupHandlesKHR")]
@@ -10595,6 +12267,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdTraceRaysIndirectKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdTraceRaysIndirectKHR.html>
     #[doc(alias = "vkCmdTraceRaysIndirectKHR")]
@@ -10611,6 +12285,8 @@ impl CommandBuffer {
 }
 
 impl Device {
+    /// `vkGetRayTracingShaderGroupStackSizeKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRayTracingShaderGroupStackSizeKHR.html>
     #[doc(alias = "vkGetRayTracingShaderGroupStackSizeKHR")]
@@ -10625,6 +12301,8 @@ impl Device {
 }
 
 impl CommandBuffer {
+    /// `vkCmdSetRayTracingPipelineStackSizeKHR`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRayTracingPipelineStackSizeKHR.html>
     #[doc(alias = "vkCmdSetRayTracingPipelineStackSizeKHR")]
@@ -10634,6 +12312,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDrawMeshTasksEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMeshTasksEXT.html>
     #[doc(alias = "vkCmdDrawMeshTasksEXT")]
@@ -10648,6 +12328,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDrawMeshTasksIndirectEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMeshTasksIndirectEXT.html>
     #[doc(alias = "vkCmdDrawMeshTasksIndirectEXT")]
@@ -10663,6 +12345,8 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
+    /// `vkCmdDrawMeshTasksIndirectCountEXT`
+    ///
     /// # Vulkan documentation
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMeshTasksIndirectCountEXT.html>
     #[doc(alias = "vkCmdDrawMeshTasksIndirectCountEXT")]
