@@ -1,7 +1,6 @@
 from dataclasses import dataclass, field
 import os
 from pathlib import Path
-from pprint import pprint
 import sys
 from typing import Generic, TypeVar
 
@@ -97,26 +96,43 @@ class Context:
     def __init__(self, root: Path):
         self.root = root
 
+    def struct_name(self, name: str) -> str:
+        return name.removeprefix("Vk").removeprefix("StdVideo")
+
+
     # Generates a struct (or union) definition from a vulkan struct.
     def generate_struct(self, x: vkobj.Struct) -> Generated[vkobj.Struct]:
         assert self.vk.videoStd is not None
         out = CodeWriter()
 
-        type_name = x.name.removeprefix("Vk").removeprefix("StdVideo")
+        type_name = self.struct_name(x.name)
 
-        # definition
+        # docs
         out.writeln(
             f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{x.name}.html>"
         )
+
+        # TODO: include extensions
+        # if len(x.extensions) > 0:
+        #     for ext in x.extensions:
+        #         print(ext)
+
+        if not x.union and len(x.extendedBy) > 0:
+            children = map(lambda child: f"[`{self.struct_name(child)}`]", x.extendedBy)
+            out.writeln("///")
+            out.writeln(f"/// Extended by {", ".join(children)}")
+
         out.writeln(f"#[doc(alias = \"{x.name}\")]")
 
+        # definition
+        out.writeln("#[repr(C)]")
         if x.union:
             out.writeln("#[derive(Clone, Copy)]")
+            out.writeln(f"pub union {type_name} {'{'}")
         else:
             out.writeln("#[derive(Debug, Clone, Copy)]")
+            out.writeln(f"pub struct {type_name} {'{'}")
 
-        out.writeln("#[repr(C)]")
-        out.writeln(f"pub struct {type_name} {'{'}")
         out.indent()
 
         for member in x.members:
@@ -127,6 +143,12 @@ class Context:
             type = RustType.parse(member.fullType)
             for size in member.fixedSizeArray:
                 type = type.array(size)
+
+            if member.optional:
+                out.writeln("/// Optional")
+
+            if member.nullTerminated:
+                out.writeln("/// Null terminated")
 
             out.writeln(f"pub {field_name}: {type},")
         out.deindent()
@@ -146,6 +168,66 @@ class Context:
             out.deindent()
             out.writeln("}")
 
+        # default impl
+        if x.union:
+            field_name = textcase.snake(x.members[0].name)
+            if field_name == "type":
+                field_name = "type_"
+
+            out.writeln(f"impl Default for {type_name} {{")
+            out.indent()
+            out.writeln("fn default() -> Self {")
+            out.indent()
+            out.writeln(f"Self {{ {field_name}: Default::default() }}")
+            out.deindent()
+            out.writeln("}")
+            out.deindent()
+            out.writeln("}")
+        else:
+            out.writeln(f"impl Default for {type_name} {{")
+            out.indent()
+            out.writeln("#[inline(always)]")
+            out.writeln("fn default() -> Self {")
+            out.indent()
+        
+            out.writeln("Self {")
+            out.indent()
+            for member in x.members:
+                field_name = textcase.snake(member.name)
+                if field_name == "type":
+                    field_name = "type_"
+
+                if field_name == "s_type" and x.sType is not None:
+                    s_type = x.sType.removeprefix("VK_STRUCTURE_TYPE_")
+                    out.writeln(f"{field_name}: StructureType::{s_type},")
+                    continue
+
+                if member.pointer:
+                    out.writeln(f"{field_name}: unsafe {{ std::mem::transmute(std::ptr::null::<()>()) }},")
+                    continue
+
+                default = "Default::default()"
+                for _ in range(len(member.fixedSizeArray)):
+                    default = f"[{default}; _]"
+
+                out.writeln(f"{field_name}: {default},")
+
+            out.deindent()
+            out.writeln("}")
+            out.deindent()
+            out.writeln("}")
+            out.deindent()
+            out.writeln("}")
+
+        # extends
+        for parent in x.extends:
+            assert(not x.union)
+            parent_type_name = self.struct_name(parent)
+            out.writeln(f"impl Extends<{parent_type_name}> for {type_name} {{}}")
+
+        if x.allowDuplicate:
+            out.writeln(f"impl Extends<{type_name}> for {type_name} {{}}")
+
         # aliases
         for alias in x.aliases:
             alias = alias.removeprefix("Vk")
@@ -160,7 +242,7 @@ class Context:
             f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{x.name}.html>"
         )
         out.writeln(f"#[doc(alias = \"{x.name}\")]")
-        out.writeln("#[derive(Debug, Clone, Copy, PartialEq, Eq)]")
+        out.writeln("#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]")
         out.writeln("#[repr(transparent)]")
 
         type_name = x.name.removeprefix("Vk")
@@ -199,12 +281,13 @@ class Context:
             f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{x.name}.html>"
         )
         out.writeln(f"#[doc(alias = \"{x.name}\")]")
-        out.writeln("#[derive(Debug, Clone, Copy, PartialEq, Eq)]")
+        out.writeln("#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]")
         out.writeln("#[non_exhaustive]")
         out.writeln(f"#[repr({repr_type})]")
         out.writeln(f"pub enum {type_name} {{")
         out.indent()
 
+        first_field = True
         field_aliases: list[tuple[str, str]] = []
         for field in x.fields:
             name = field.name.removeprefix("VK_").removeprefix(f"{type_name_snake}_")
@@ -213,6 +296,10 @@ class Context:
 
             for alias in field.aliases:
                 field_aliases.append((name, alias))
+
+            if first_field:
+                out.writeln("#[default]")
+                first_field = False
 
             out.writeln(f"#[doc(alias = \"{field.name}\")]")
             out.writeln(f"{name} = {field.value},")
@@ -262,7 +349,7 @@ class Context:
             f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{x.name}.html>"
         )
         out.writeln(f"#[doc(alias = \"{x.name}\")]")
-        out.writeln("#[derive(Debug, Clone, Copy, PartialEq, Eq)]")
+        out.writeln("#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]")
         out.writeln("#[repr(transparent)]")
         out.writeln(f"pub struct {type_name}: {repr_type} {{")
         out.indent()
