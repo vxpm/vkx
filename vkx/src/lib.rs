@@ -23,3 +23,8 @@ pub use fn_ptrs::*;
 pub use handles::*;
 pub use manual::*;
 pub use structs::*;
+
+fn test() {
+    let instance = Instance::default();
+    // instance.destroy
+}

@@ -6,396 +6,284 @@
 use crate::manual::*;
 use crate::platform::*;
 use std::ffi::{c_char, c_int, c_uint, c_void};
-/// `VkDeviceCreateFlags`
+/// [`VkDeviceCreateFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceCreateFlags.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceCreateFlags.html>
 #[doc(alias = "VkDeviceCreateFlags")]
 pub type DeviceCreateFlags = u32;
 
-/// `VkSemaphoreCreateFlags`
+/// [`VkSemaphoreCreateFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSemaphoreCreateFlags.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSemaphoreCreateFlags.html>
 #[doc(alias = "VkSemaphoreCreateFlags")]
 pub type SemaphoreCreateFlags = u32;
 
-/// `VkBufferViewCreateFlags`
+/// [`VkBufferViewCreateFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferViewCreateFlags.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferViewCreateFlags.html>
 #[doc(alias = "VkBufferViewCreateFlags")]
 pub type BufferViewCreateFlags = u32;
 
-/// `VkShaderModuleCreateFlags`
+/// [`VkShaderModuleCreateFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderModuleCreateFlags.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderModuleCreateFlags.html>
 #[doc(alias = "VkShaderModuleCreateFlags")]
 pub type ShaderModuleCreateFlags = u32;
 
-/// `VkDescriptorPoolResetFlags`
+/// [`VkDescriptorPoolResetFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorPoolResetFlags.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorPoolResetFlags.html>
 #[doc(alias = "VkDescriptorPoolResetFlags")]
 pub type DescriptorPoolResetFlags = u32;
 
-/// `VkPipelineDynamicStateCreateFlags`
+/// [`VkPipelineDynamicStateCreateFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineDynamicStateCreateFlags.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineDynamicStateCreateFlags.html>
 #[doc(alias = "VkPipelineDynamicStateCreateFlags")]
 pub type PipelineDynamicStateCreateFlags = u32;
 
-/// `VkPipelineInputAssemblyStateCreateFlags`
+/// [`VkPipelineInputAssemblyStateCreateFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineInputAssemblyStateCreateFlags.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineInputAssemblyStateCreateFlags.html>
 #[doc(alias = "VkPipelineInputAssemblyStateCreateFlags")]
 pub type PipelineInputAssemblyStateCreateFlags = u32;
 
-/// `VkPipelineMultisampleStateCreateFlags`
+/// [`VkPipelineMultisampleStateCreateFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineMultisampleStateCreateFlags.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineMultisampleStateCreateFlags.html>
 #[doc(alias = "VkPipelineMultisampleStateCreateFlags")]
 pub type PipelineMultisampleStateCreateFlags = u32;
 
-/// `VkPipelineRasterizationStateCreateFlags`
+/// [`VkPipelineRasterizationStateCreateFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineRasterizationStateCreateFlags.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineRasterizationStateCreateFlags.html>
 #[doc(alias = "VkPipelineRasterizationStateCreateFlags")]
 pub type PipelineRasterizationStateCreateFlags = u32;
 
-/// `VkPipelineTessellationStateCreateFlags`
+/// [`VkPipelineTessellationStateCreateFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineTessellationStateCreateFlags.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineTessellationStateCreateFlags.html>
 #[doc(alias = "VkPipelineTessellationStateCreateFlags")]
 pub type PipelineTessellationStateCreateFlags = u32;
 
-/// `VkPipelineVertexInputStateCreateFlags`
+/// [`VkPipelineVertexInputStateCreateFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineVertexInputStateCreateFlags.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineVertexInputStateCreateFlags.html>
 #[doc(alias = "VkPipelineVertexInputStateCreateFlags")]
 pub type PipelineVertexInputStateCreateFlags = u32;
 
-/// `VkPipelineViewportStateCreateFlags`
+/// [`VkPipelineViewportStateCreateFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineViewportStateCreateFlags.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineViewportStateCreateFlags.html>
 #[doc(alias = "VkPipelineViewportStateCreateFlags")]
 pub type PipelineViewportStateCreateFlags = u32;
 
-/// `VkCommandPoolTrimFlags`
+/// [`VkCommandPoolTrimFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandPoolTrimFlags.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandPoolTrimFlags.html>
 #[doc(alias = "VkCommandPoolTrimFlags")]
 pub type CommandPoolTrimFlags = u32;
 pub type CommandPoolTrimFlagsKHR = CommandPoolTrimFlags;
 
-/// `VkDescriptorUpdateTemplateCreateFlags`
+/// [`VkDescriptorUpdateTemplateCreateFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorUpdateTemplateCreateFlags.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorUpdateTemplateCreateFlags.html>
 #[doc(alias = "VkDescriptorUpdateTemplateCreateFlags")]
 pub type DescriptorUpdateTemplateCreateFlags = u32;
 pub type DescriptorUpdateTemplateCreateFlagsKHR = DescriptorUpdateTemplateCreateFlags;
 
-/// `VkDisplayModeCreateFlagsKHR`
+/// [`VkDisplayModeCreateFlagsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplayModeCreateFlagsKHR.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplayModeCreateFlagsKHR.html>
 #[doc(alias = "VkDisplayModeCreateFlagsKHR")]
 pub type DisplayModeCreateFlagsKHR = u32;
 
-/// `VkDisplaySurfaceCreateFlagsKHR`
+/// [`VkDisplaySurfaceCreateFlagsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplaySurfaceCreateFlagsKHR.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplaySurfaceCreateFlagsKHR.html>
 #[doc(alias = "VkDisplaySurfaceCreateFlagsKHR")]
 pub type DisplaySurfaceCreateFlagsKHR = u32;
 
-/// `VkXlibSurfaceCreateFlagsKHR`
+/// [`VkXlibSurfaceCreateFlagsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkXlibSurfaceCreateFlagsKHR.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkXlibSurfaceCreateFlagsKHR.html>
 #[doc(alias = "VkXlibSurfaceCreateFlagsKHR")]
 pub type XlibSurfaceCreateFlagsKHR = u32;
 
-/// `VkXcbSurfaceCreateFlagsKHR`
+/// [`VkXcbSurfaceCreateFlagsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkXcbSurfaceCreateFlagsKHR.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkXcbSurfaceCreateFlagsKHR.html>
 #[doc(alias = "VkXcbSurfaceCreateFlagsKHR")]
 pub type XcbSurfaceCreateFlagsKHR = u32;
 
-/// `VkWaylandSurfaceCreateFlagsKHR`
+/// [`VkWaylandSurfaceCreateFlagsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkWaylandSurfaceCreateFlagsKHR.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkWaylandSurfaceCreateFlagsKHR.html>
 #[doc(alias = "VkWaylandSurfaceCreateFlagsKHR")]
 pub type WaylandSurfaceCreateFlagsKHR = u32;
 
-/// `VkAndroidSurfaceCreateFlagsKHR`
+/// [`VkAndroidSurfaceCreateFlagsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAndroidSurfaceCreateFlagsKHR.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAndroidSurfaceCreateFlagsKHR.html>
 #[doc(alias = "VkAndroidSurfaceCreateFlagsKHR")]
 pub type AndroidSurfaceCreateFlagsKHR = u32;
 
-/// `VkWin32SurfaceCreateFlagsKHR`
+/// [`VkWin32SurfaceCreateFlagsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkWin32SurfaceCreateFlagsKHR.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkWin32SurfaceCreateFlagsKHR.html>
 #[doc(alias = "VkWin32SurfaceCreateFlagsKHR")]
 pub type Win32SurfaceCreateFlagsKHR = u32;
 
-/// `VkVideoBeginCodingFlagsKHR`
+/// [`VkVideoBeginCodingFlagsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoBeginCodingFlagsKHR.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoBeginCodingFlagsKHR.html>
 #[doc(alias = "VkVideoBeginCodingFlagsKHR")]
 pub type VideoBeginCodingFlagsKHR = u32;
 
-/// `VkVideoEndCodingFlagsKHR`
+/// [`VkVideoEndCodingFlagsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEndCodingFlagsKHR.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEndCodingFlagsKHR.html>
 #[doc(alias = "VkVideoEndCodingFlagsKHR")]
 pub type VideoEndCodingFlagsKHR = u32;
 
-/// `VkVideoDecodeFlagsKHR`
+/// [`VkVideoDecodeFlagsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeFlagsKHR.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeFlagsKHR.html>
 #[doc(alias = "VkVideoDecodeFlagsKHR")]
 pub type VideoDecodeFlagsKHR = u32;
 
-/// `VkVideoEncodeRateControlFlagsKHR`
+/// [`VkVideoEncodeRateControlFlagsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeRateControlFlagsKHR.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeRateControlFlagsKHR.html>
 #[doc(alias = "VkVideoEncodeRateControlFlagsKHR")]
 pub type VideoEncodeRateControlFlagsKHR = u32;
 
-/// `VkPipelineRasterizationStateStreamCreateFlagsEXT`
+/// [`VkPipelineRasterizationStateStreamCreateFlagsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineRasterizationStateStreamCreateFlagsEXT.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineRasterizationStateStreamCreateFlagsEXT.html>
 #[doc(alias = "VkPipelineRasterizationStateStreamCreateFlagsEXT")]
 pub type PipelineRasterizationStateStreamCreateFlagsEXT = u32;
 
-/// `VkStreamDescriptorSurfaceCreateFlagsGGP`
+/// [`VkStreamDescriptorSurfaceCreateFlagsGGP`](https://docs.vulkan.org/refpages/latest/refpages/source/VkStreamDescriptorSurfaceCreateFlagsGGP.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkStreamDescriptorSurfaceCreateFlagsGGP.html>
 #[doc(alias = "VkStreamDescriptorSurfaceCreateFlagsGGP")]
 pub type StreamDescriptorSurfaceCreateFlagsGGP = u32;
 
-/// `VkViSurfaceCreateFlagsNN`
+/// [`VkViSurfaceCreateFlagsNN`](https://docs.vulkan.org/refpages/latest/refpages/source/VkViSurfaceCreateFlagsNN.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkViSurfaceCreateFlagsNN.html>
 #[doc(alias = "VkViSurfaceCreateFlagsNN")]
 pub type ViSurfaceCreateFlagsNN = u32;
 
-/// `VkPipelineViewportSwizzleStateCreateFlagsNV`
+/// [`VkPipelineViewportSwizzleStateCreateFlagsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineViewportSwizzleStateCreateFlagsNV.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineViewportSwizzleStateCreateFlagsNV.html>
 #[doc(alias = "VkPipelineViewportSwizzleStateCreateFlagsNV")]
 pub type PipelineViewportSwizzleStateCreateFlagsNV = u32;
 
-/// `VkPipelineDiscardRectangleStateCreateFlagsEXT`
+/// [`VkPipelineDiscardRectangleStateCreateFlagsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineDiscardRectangleStateCreateFlagsEXT.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineDiscardRectangleStateCreateFlagsEXT.html>
 #[doc(alias = "VkPipelineDiscardRectangleStateCreateFlagsEXT")]
 pub type PipelineDiscardRectangleStateCreateFlagsEXT = u32;
 
-/// `VkPipelineRasterizationConservativeStateCreateFlagsEXT`
+/// [`VkPipelineRasterizationConservativeStateCreateFlagsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineRasterizationConservativeStateCreateFlagsEXT.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineRasterizationConservativeStateCreateFlagsEXT.html>
 #[doc(alias = "VkPipelineRasterizationConservativeStateCreateFlagsEXT")]
 pub type PipelineRasterizationConservativeStateCreateFlagsEXT = u32;
 
-/// `VkPipelineRasterizationDepthClipStateCreateFlagsEXT`
+/// [`VkPipelineRasterizationDepthClipStateCreateFlagsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineRasterizationDepthClipStateCreateFlagsEXT.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineRasterizationDepthClipStateCreateFlagsEXT.html>
 #[doc(alias = "VkPipelineRasterizationDepthClipStateCreateFlagsEXT")]
 pub type PipelineRasterizationDepthClipStateCreateFlagsEXT = u32;
 
-/// `VkIOSSurfaceCreateFlagsMVK`
+/// [`VkIOSSurfaceCreateFlagsMVK`](https://docs.vulkan.org/refpages/latest/refpages/source/VkIOSSurfaceCreateFlagsMVK.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkIOSSurfaceCreateFlagsMVK.html>
 #[doc(alias = "VkIOSSurfaceCreateFlagsMVK")]
 pub type IOSSurfaceCreateFlagsMVK = u32;
 
-/// `VkMacOSSurfaceCreateFlagsMVK`
+/// [`VkMacOSSurfaceCreateFlagsMVK`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMacOSSurfaceCreateFlagsMVK.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMacOSSurfaceCreateFlagsMVK.html>
 #[doc(alias = "VkMacOSSurfaceCreateFlagsMVK")]
 pub type MacOSSurfaceCreateFlagsMVK = u32;
 
-/// `VkDebugUtilsMessengerCallbackDataFlagsEXT`
+/// [`VkDebugUtilsMessengerCallbackDataFlagsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDebugUtilsMessengerCallbackDataFlagsEXT.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDebugUtilsMessengerCallbackDataFlagsEXT.html>
 #[doc(alias = "VkDebugUtilsMessengerCallbackDataFlagsEXT")]
 pub type DebugUtilsMessengerCallbackDataFlagsEXT = u32;
 
-/// `VkDebugUtilsMessengerCreateFlagsEXT`
+/// [`VkDebugUtilsMessengerCreateFlagsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDebugUtilsMessengerCreateFlagsEXT.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDebugUtilsMessengerCreateFlagsEXT.html>
 #[doc(alias = "VkDebugUtilsMessengerCreateFlagsEXT")]
 pub type DebugUtilsMessengerCreateFlagsEXT = u32;
 
-/// `VkGpaPerfBlockPropertiesFlagsAMD`
+/// [`VkGpaPerfBlockPropertiesFlagsAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/VkGpaPerfBlockPropertiesFlagsAMD.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkGpaPerfBlockPropertiesFlagsAMD.html>
 #[doc(alias = "VkGpaPerfBlockPropertiesFlagsAMD")]
 pub type GpaPerfBlockPropertiesFlagsAMD = u32;
 
-/// `VkPhysicalDeviceGpaPropertiesFlagsAMD`
+/// [`VkPhysicalDeviceGpaPropertiesFlagsAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceGpaPropertiesFlagsAMD.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceGpaPropertiesFlagsAMD.html>
 #[doc(alias = "VkPhysicalDeviceGpaPropertiesFlagsAMD")]
 pub type PhysicalDeviceGpaPropertiesFlagsAMD = u32;
 
-/// `VkPipelineCoverageToColorStateCreateFlagsNV`
+/// [`VkPipelineCoverageToColorStateCreateFlagsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCoverageToColorStateCreateFlagsNV.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCoverageToColorStateCreateFlagsNV.html>
 #[doc(alias = "VkPipelineCoverageToColorStateCreateFlagsNV")]
 pub type PipelineCoverageToColorStateCreateFlagsNV = u32;
 
-/// `VkPipelineCoverageModulationStateCreateFlagsNV`
+/// [`VkPipelineCoverageModulationStateCreateFlagsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCoverageModulationStateCreateFlagsNV.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCoverageModulationStateCreateFlagsNV.html>
 #[doc(alias = "VkPipelineCoverageModulationStateCreateFlagsNV")]
 pub type PipelineCoverageModulationStateCreateFlagsNV = u32;
 
-/// `VkValidationCacheCreateFlagsEXT`
+/// [`VkValidationCacheCreateFlagsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkValidationCacheCreateFlagsEXT.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkValidationCacheCreateFlagsEXT.html>
 #[doc(alias = "VkValidationCacheCreateFlagsEXT")]
 pub type ValidationCacheCreateFlagsEXT = u32;
 
-/// `VkImagePipeSurfaceCreateFlagsFUCHSIA`
+/// [`VkImagePipeSurfaceCreateFlagsFUCHSIA`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImagePipeSurfaceCreateFlagsFUCHSIA.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImagePipeSurfaceCreateFlagsFUCHSIA.html>
 #[doc(alias = "VkImagePipeSurfaceCreateFlagsFUCHSIA")]
 pub type ImagePipeSurfaceCreateFlagsFUCHSIA = u32;
 
-/// `VkMetalSurfaceCreateFlagsEXT`
+/// [`VkMetalSurfaceCreateFlagsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMetalSurfaceCreateFlagsEXT.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkMetalSurfaceCreateFlagsEXT.html>
 #[doc(alias = "VkMetalSurfaceCreateFlagsEXT")]
 pub type MetalSurfaceCreateFlagsEXT = u32;
 
-/// `VkPipelineCoverageReductionStateCreateFlagsNV`
+/// [`VkPipelineCoverageReductionStateCreateFlagsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCoverageReductionStateCreateFlagsNV.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCoverageReductionStateCreateFlagsNV.html>
 #[doc(alias = "VkPipelineCoverageReductionStateCreateFlagsNV")]
 pub type PipelineCoverageReductionStateCreateFlagsNV = u32;
 
-/// `VkHeadlessSurfaceCreateFlagsEXT`
+/// [`VkHeadlessSurfaceCreateFlagsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkHeadlessSurfaceCreateFlagsEXT.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkHeadlessSurfaceCreateFlagsEXT.html>
 #[doc(alias = "VkHeadlessSurfaceCreateFlagsEXT")]
 pub type HeadlessSurfaceCreateFlagsEXT = u32;
 
-/// `VkDeviceMemoryReportFlagsEXT`
+/// [`VkDeviceMemoryReportFlagsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceMemoryReportFlagsEXT.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceMemoryReportFlagsEXT.html>
 #[doc(alias = "VkDeviceMemoryReportFlagsEXT")]
 pub type DeviceMemoryReportFlagsEXT = u32;
 
-/// `VkAccelerationStructureMotionInfoFlagsNV`
+/// [`VkAccelerationStructureMotionInfoFlagsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureMotionInfoFlagsNV.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureMotionInfoFlagsNV.html>
 #[doc(alias = "VkAccelerationStructureMotionInfoFlagsNV")]
 pub type AccelerationStructureMotionInfoFlagsNV = u32;
 
-/// `VkAccelerationStructureMotionInstanceFlagsNV`
+/// [`VkAccelerationStructureMotionInstanceFlagsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureMotionInstanceFlagsNV.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureMotionInstanceFlagsNV.html>
 #[doc(alias = "VkAccelerationStructureMotionInstanceFlagsNV")]
 pub type AccelerationStructureMotionInstanceFlagsNV = u32;
 
-/// `VkDirectFBSurfaceCreateFlagsEXT`
+/// [`VkDirectFBSurfaceCreateFlagsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDirectFBSurfaceCreateFlagsEXT.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDirectFBSurfaceCreateFlagsEXT.html>
 #[doc(alias = "VkDirectFBSurfaceCreateFlagsEXT")]
 pub type DirectFBSurfaceCreateFlagsEXT = u32;
 
-/// `VkImageFormatConstraintsFlagsFUCHSIA`
+/// [`VkImageFormatConstraintsFlagsFUCHSIA`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageFormatConstraintsFlagsFUCHSIA.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkImageFormatConstraintsFlagsFUCHSIA.html>
 #[doc(alias = "VkImageFormatConstraintsFlagsFUCHSIA")]
 pub type ImageFormatConstraintsFlagsFUCHSIA = u32;
 
-/// `VkScreenSurfaceCreateFlagsQNX`
+/// [`VkScreenSurfaceCreateFlagsQNX`](https://docs.vulkan.org/refpages/latest/refpages/source/VkScreenSurfaceCreateFlagsQNX.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkScreenSurfaceCreateFlagsQNX.html>
 #[doc(alias = "VkScreenSurfaceCreateFlagsQNX")]
 pub type ScreenSurfaceCreateFlagsQNX = u32;
 
-/// `VkDirectDriverLoadingFlagsLUNARG`
+/// [`VkDirectDriverLoadingFlagsLUNARG`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDirectDriverLoadingFlagsLUNARG.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkDirectDriverLoadingFlagsLUNARG.html>
 #[doc(alias = "VkDirectDriverLoadingFlagsLUNARG")]
 pub type DirectDriverLoadingFlagsLUNARG = u32;
 
-/// `VkSurfaceCreateFlagsOHOS`
+/// [`VkSurfaceCreateFlagsOHOS`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfaceCreateFlagsOHOS.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfaceCreateFlagsOHOS.html>
 #[doc(alias = "VkSurfaceCreateFlagsOHOS")]
 pub type SurfaceCreateFlagsOHOS = u32;
 
-/// `VkPerformanceCounterDescriptionFlagsARM`
+/// [`VkPerformanceCounterDescriptionFlagsARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceCounterDescriptionFlagsARM.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceCounterDescriptionFlagsARM.html>
 #[doc(alias = "VkPerformanceCounterDescriptionFlagsARM")]
 pub type PerformanceCounterDescriptionFlagsARM = u32;
 
-/// `VkShaderInstrumentationValuesFlagsARM`
+/// [`VkShaderInstrumentationValuesFlagsARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderInstrumentationValuesFlagsARM.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderInstrumentationValuesFlagsARM.html>
 #[doc(alias = "VkShaderInstrumentationValuesFlagsARM")]
 pub type ShaderInstrumentationValuesFlagsARM = u32;
 
-/// `VkUbmSurfaceCreateFlagsSEC`
+/// [`VkUbmSurfaceCreateFlagsSEC`](https://docs.vulkan.org/refpages/latest/refpages/source/VkUbmSurfaceCreateFlagsSEC.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/VkUbmSurfaceCreateFlagsSEC.html>
 #[doc(alias = "VkUbmSurfaceCreateFlagsSEC")]
 pub type UbmSurfaceCreateFlagsSEC = u32;

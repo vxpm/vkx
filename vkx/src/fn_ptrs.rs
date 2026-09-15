@@ -14,41 +14,31 @@ use crate::extensions::*;
 use crate::flags::*;
 use crate::handles::*;
 use crate::structs::*;
-/// `PFN_vkAllocationFunction`
+/// [`PFN_vkAllocationFunction`](https://docs.vulkan.org/refpages/latest/refpages/source/PFN_vkAllocationFunction.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/PFN_vkAllocationFunction.html>
 #[doc(alias = "PFN_vkAllocationFunction")]
 pub type vkAllocationFunction =
     unsafe extern "C" fn(*mut c_void, usize, usize, SystemAllocationScope) -> *mut c_void;
 
-/// `PFN_vkFreeFunction`
+/// [`PFN_vkFreeFunction`](https://docs.vulkan.org/refpages/latest/refpages/source/PFN_vkFreeFunction.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/PFN_vkFreeFunction.html>
 #[doc(alias = "PFN_vkFreeFunction")]
 pub type vkFreeFunction = unsafe extern "C" fn(*mut c_void, *mut c_void);
 
-/// `PFN_vkInternalAllocationNotification`
+/// [`PFN_vkInternalAllocationNotification`](https://docs.vulkan.org/refpages/latest/refpages/source/PFN_vkInternalAllocationNotification.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/PFN_vkInternalAllocationNotification.html>
 #[doc(alias = "PFN_vkInternalAllocationNotification")]
 pub type vkInternalAllocationNotification =
     unsafe extern "C" fn(*mut c_void, usize, InternalAllocationType, SystemAllocationScope);
 
-/// `PFN_vkInternalFreeNotification`
+/// [`PFN_vkInternalFreeNotification`](https://docs.vulkan.org/refpages/latest/refpages/source/PFN_vkInternalFreeNotification.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/PFN_vkInternalFreeNotification.html>
 #[doc(alias = "PFN_vkInternalFreeNotification")]
 pub type vkInternalFreeNotification =
     unsafe extern "C" fn(*mut c_void, usize, InternalAllocationType, SystemAllocationScope);
 
-/// `PFN_vkReallocationFunction`
+/// [`PFN_vkReallocationFunction`](https://docs.vulkan.org/refpages/latest/refpages/source/PFN_vkReallocationFunction.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/PFN_vkReallocationFunction.html>
 #[doc(alias = "PFN_vkReallocationFunction")]
 pub type vkReallocationFunction = unsafe extern "C" fn(
     *mut c_void,
@@ -58,17 +48,13 @@ pub type vkReallocationFunction = unsafe extern "C" fn(
     SystemAllocationScope,
 ) -> *mut c_void;
 
-/// `PFN_vkVoidFunction`
+/// [`PFN_vkVoidFunction`](https://docs.vulkan.org/refpages/latest/refpages/source/PFN_vkVoidFunction.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/PFN_vkVoidFunction.html>
 #[doc(alias = "PFN_vkVoidFunction")]
 pub type vkVoidFunction = unsafe extern "C" fn();
 
-/// `PFN_vkDebugReportCallbackEXT`
+/// [`PFN_vkDebugReportCallbackEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/PFN_vkDebugReportCallbackEXT.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/PFN_vkDebugReportCallbackEXT.html>
 #[doc(alias = "PFN_vkDebugReportCallbackEXT")]
 pub type vkDebugReportCallbackEXT = unsafe extern "C" fn(
     DebugReportFlagsEXT,
@@ -81,10 +67,8 @@ pub type vkDebugReportCallbackEXT = unsafe extern "C" fn(
     *mut c_void,
 ) -> Bool32;
 
-/// `PFN_vkDebugUtilsMessengerCallbackEXT`
+/// [`PFN_vkDebugUtilsMessengerCallbackEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/PFN_vkDebugUtilsMessengerCallbackEXT.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/PFN_vkDebugUtilsMessengerCallbackEXT.html>
 #[doc(alias = "PFN_vkDebugUtilsMessengerCallbackEXT")]
 pub type vkDebugUtilsMessengerCallbackEXT = unsafe extern "C" fn(
     DebugUtilsMessageSeverityFlagsEXT,
@@ -93,18 +77,14 @@ pub type vkDebugUtilsMessengerCallbackEXT = unsafe extern "C" fn(
     *mut c_void,
 ) -> Bool32;
 
-/// `PFN_vkDeviceMemoryReportCallbackEXT`
+/// [`PFN_vkDeviceMemoryReportCallbackEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/PFN_vkDeviceMemoryReportCallbackEXT.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/PFN_vkDeviceMemoryReportCallbackEXT.html>
 #[doc(alias = "PFN_vkDeviceMemoryReportCallbackEXT")]
 pub type vkDeviceMemoryReportCallbackEXT =
     unsafe extern "C" fn(*const DeviceMemoryReportCallbackDataEXT, *mut c_void);
 
-/// `PFN_vkGetInstanceProcAddrLUNARG`
+/// [`PFN_vkGetInstanceProcAddrLUNARG`](https://docs.vulkan.org/refpages/latest/refpages/source/PFN_vkGetInstanceProcAddrLUNARG.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/PFN_vkGetInstanceProcAddrLUNARG.html>
 #[doc(alias = "PFN_vkGetInstanceProcAddrLUNARG")]
 pub type vkGetInstanceProcAddrLUNARG =
     unsafe extern "C" fn(Instance, *const c_char) -> vkVoidFunction;

@@ -134,24 +134,62 @@ def version_number(ver: str) -> str:
 
 
 def vulkan_doc_header(out: CodeWriter, name: str):
-    out.writeln(f"/// `{name}`")
-    out.writeln("///")
-    out.writeln("/// # Vulkan documentation")
     out.writeln(
-        f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{name}.html>"
+        f"/// [`{name}`](https://docs.vulkan.org/refpages/latest/refpages/source/{name}.html)"
     )
+    out.writeln("///")
+
+
+def requirements_doc_header(
+    out: CodeWriter, version: vkobj.Version | None, extensions: list[str]
+):
+    if len(extensions) > 0 or version is not None:
+        out.writeln("/// # Requirements")
+        out.writeln("/// This requires _at least_ one of the following:")
+
+        if version is not None:
+            # TODO: list features
+            version_num = version_number(version.name)
+            out.writeln(f"/// - Version {version_num} with appropriate features")
+
+        for ext in extensions:
+            ext_name = extension_name(ext)
+            out.writeln(f"/// - Extension [`{ext_name}`](Extensions::{ext_name})")
+
+        out.writeln("///")
+        out.writeln(
+            "/// Note this is not an exhaustive requirement list. For more information check vulkan documentation."
+        )
+        out.writeln("///")
+
+
+def command_param_name(name: str) -> str:
+    name = textcase.snake(name).removeprefix("pp_").removeprefix("p_")
+    if name == "type":
+        name = "type_"
+
+    return name
 
 
 def command_doc_header(out: CodeWriter, command: vkobj.Command):
+    optional_params = [param for param in command.params if param.optional]
+
+    if len(optional_params) > 0:
+        out.writeln("/// # Optional parameters")
+        for param in optional_params:
+            name = command_param_name(param.name)
+            out.writeln(f"/// - {name}")
+        out.writeln("///")
+
     if len(command.tasks) > 0:
-        out.writeln("/// ## Performed tasks")
+        out.writeln("/// # Performed tasks")
         for task in command.tasks:
             out.writeln(f"/// - `{task}`")
 
         out.writeln("///")
 
     if command.primary or command.secondary:
-        out.writeln("/// ## Allowed command buffers")
+        out.writeln("/// # Allowed command buffers")
 
         if command.primary:
             out.writeln("/// - Primary")
@@ -162,7 +200,7 @@ def command_doc_header(out: CodeWriter, command: vkobj.Command):
         out.writeln("///")
 
     if len(command.queues) > 0:
-        out.writeln("/// ## Allowed queues")
+        out.writeln("/// # Allowed queues")
         for queue in command.queues:
             queue = bitmask_flag_name(queue, "QUEUE")
             out.writeln(f"/// - [`{queue}`](QueueFlags::{queue})")
@@ -215,25 +253,7 @@ class Context:
 
         # docs
         vulkan_doc_header(out, x.name)
-
-        out.writeln("///")
-        if len(x.extensions) > 0 or x.version is not None:
-            out.writeln("/// # Enabling")
-            out.writeln("/// This type requires _at least_ one of the following:")
-
-            if x.version is not None:
-                # TODO: list features
-                version = version_number(x.version.name)
-                out.writeln(f"/// - Version {version} with appropriate features")
-
-            for ext in x.extensions:
-                ext = extension_name(ext)
-                out.writeln(f"/// - Extension [`{ext}`](Extensions::{ext})")
-
-            out.writeln("///")
-            out.writeln(
-                "/// Note this is not an exhaustive requirement list. For more information check vulkan documentation."
-            )
+        requirements_doc_header(out, x.version, x.extensions)
 
         if not x.union and len(x.extendedBy) > 0:
             children = (f"[`{struct_name(child)}`]" for child in x.extendedBy)
@@ -380,7 +400,6 @@ class Context:
         type_name = x.name.removeprefix("Vk")
 
         vulkan_doc_header(out, x.name)
-        out.writeln("///")
         out.writeln("/// # Handle type")
         if x.dispatchable:
             out.writeln("/// Dispatchable")
@@ -598,10 +617,7 @@ class Context:
 
         params: list[str] = []
         for param in x.params:
-            name = textcase.snake(param.name).removeprefix("pp_").removeprefix("p_")
-
-            if name == "type":
-                name = "type_"
+            name = command_param_name(param.name)
 
             if len(param.fixedSizeArray) > 0:
                 # it's actually a pointer. amazing
@@ -628,6 +644,13 @@ class Context:
         )
 
         if receiver is not None:
+            receiver_snake = textcase.snake(str(receiver))
+
+            old_method_name = method_name
+            method_name = method_name.replace(f"{receiver_snake}_", "", count=1)
+            if method_name == old_method_name:
+                method_name = method_name.replace(f"_{receiver_snake}", "", count=1)
+
             signature = (
                 f"pub unsafe fn {method_name}(self, {', '.join(params)}) {return_ty}"
             )
@@ -636,7 +659,7 @@ class Context:
             out.indent()
 
             vulkan_doc_header(out, x.name)
-            out.writeln("///")
+            requirements_doc_header(out, x.version, x.extensions)
             command_doc_header(out, x)
             out.writeln(f'#[doc(alias = "{x.name}")]')
             out.writeln(f"{signature} {{")
@@ -651,7 +674,6 @@ class Context:
             signature = f"pub unsafe fn {method_name}({', '.join(params)}) {return_ty}"
 
             vulkan_doc_header(out, x.name)
-            out.writeln("///")
             command_doc_header(out, x)
             out.writeln(f'#[doc(alias = "{x.name}")]')
             out.writeln(f"{signature} {{")

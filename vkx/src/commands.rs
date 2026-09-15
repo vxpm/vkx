@@ -15,10 +15,10 @@ use crate::flags::*;
 use crate::fn_ptrs::*;
 use crate::handles::*;
 use crate::structs::*;
-/// `vkCreateInstance`
+/// [`vkCreateInstance`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateInstance.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateInstance.html>
+/// # Optional parameters
+/// - allocator
 ///
 /// # Result codes
 /// ## Success
@@ -42,22 +42,23 @@ pub unsafe fn create_instance(
 }
 
 impl Instance {
-    /// `vkDestroyInstance`
+    /// [`vkDestroyInstance`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyInstance.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyInstance.html>
+    /// # Optional parameters
+    /// - instance
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyInstance")]
-    pub unsafe fn destroy_instance(self, allocator: *const AllocationCallbacks) {
+    pub unsafe fn destroy(self, allocator: *const AllocationCallbacks) {
         todo!()
     }
 }
 
 impl Instance {
-    /// `vkEnumeratePhysicalDevices`
+    /// [`vkEnumeratePhysicalDevices`](https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumeratePhysicalDevices.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumeratePhysicalDevices.html>
+    /// # Optional parameters
+    /// - physical_devices
     ///
     /// # Result codes
     /// ## Success
@@ -80,25 +81,19 @@ impl Instance {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceFeatures`
-    ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceFeatures.html>
+    /// [`vkGetPhysicalDeviceFeatures`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceFeatures.html)
     ///
     #[doc(alias = "vkGetPhysicalDeviceFeatures")]
-    pub unsafe fn get_physical_device_features(self, features: *mut PhysicalDeviceFeatures) {
+    pub unsafe fn get_features(self, features: *mut PhysicalDeviceFeatures) {
         todo!()
     }
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceFormatProperties`
-    ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceFormatProperties.html>
+    /// [`vkGetPhysicalDeviceFormatProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceFormatProperties.html)
     ///
     #[doc(alias = "vkGetPhysicalDeviceFormatProperties")]
-    pub unsafe fn get_physical_device_format_properties(
+    pub unsafe fn get_format_properties(
         self,
         format: Format,
         format_properties: *mut FormatProperties,
@@ -108,10 +103,10 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceImageFormatProperties`
+    /// [`vkGetPhysicalDeviceImageFormatProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceImageFormatProperties.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceImageFormatProperties.html>
+    /// # Optional parameters
+    /// - flags
     ///
     /// # Result codes
     /// ## Success
@@ -123,7 +118,7 @@ impl PhysicalDevice {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetPhysicalDeviceImageFormatProperties")]
-    pub unsafe fn get_physical_device_image_format_properties(
+    pub unsafe fn get_image_format_properties(
         self,
         format: Format,
         type_: ImageType,
@@ -137,25 +132,22 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceProperties`
-    ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceProperties.html>
+    /// [`vkGetPhysicalDeviceProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceProperties.html)
     ///
     #[doc(alias = "vkGetPhysicalDeviceProperties")]
-    pub unsafe fn get_physical_device_properties(self, properties: *mut PhysicalDeviceProperties) {
+    pub unsafe fn get_properties(self, properties: *mut PhysicalDeviceProperties) {
         todo!()
     }
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceQueueFamilyProperties`
+    /// [`vkGetPhysicalDeviceQueueFamilyProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceQueueFamilyProperties.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceQueueFamilyProperties.html>
+    /// # Optional parameters
+    /// - queue_family_properties
     ///
     #[doc(alias = "vkGetPhysicalDeviceQueueFamilyProperties")]
-    pub unsafe fn get_physical_device_queue_family_properties(
+    pub unsafe fn get_queue_family_properties(
         self,
         queue_family_property_count: *mut u32,
         queue_family_properties: *mut QueueFamilyProperties,
@@ -165,13 +157,10 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceMemoryProperties`
-    ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceMemoryProperties.html>
+    /// [`vkGetPhysicalDeviceMemoryProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceMemoryProperties.html)
     ///
     #[doc(alias = "vkGetPhysicalDeviceMemoryProperties")]
-    pub unsafe fn get_physical_device_memory_properties(
+    pub unsafe fn get_memory_properties(
         self,
         memory_properties: *mut PhysicalDeviceMemoryProperties,
     ) {
@@ -180,34 +169,31 @@ impl PhysicalDevice {
 }
 
 impl Instance {
-    /// `vkGetInstanceProcAddr`
+    /// [`vkGetInstanceProcAddr`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetInstanceProcAddr.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetInstanceProcAddr.html>
+    /// # Optional parameters
+    /// - instance
     ///
     #[doc(alias = "vkGetInstanceProcAddr")]
-    pub unsafe fn get_instance_proc_addr(self, name: *const c_char) -> vkVoidFunction {
+    pub unsafe fn get_proc_addr(self, name: *const c_char) -> vkVoidFunction {
         todo!()
     }
 }
 
 impl Device {
-    /// `vkGetDeviceProcAddr`
-    ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceProcAddr.html>
+    /// [`vkGetDeviceProcAddr`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceProcAddr.html)
     ///
     #[doc(alias = "vkGetDeviceProcAddr")]
-    pub unsafe fn get_device_proc_addr(self, name: *const c_char) -> vkVoidFunction {
+    pub unsafe fn get_proc_addr(self, name: *const c_char) -> vkVoidFunction {
         todo!()
     }
 }
 
 impl PhysicalDevice {
-    /// `vkCreateDevice`
+    /// [`vkCreateDevice`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDevice.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDevice.html>
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -234,21 +220,23 @@ impl PhysicalDevice {
 }
 
 impl Device {
-    /// `vkDestroyDevice`
+    /// [`vkDestroyDevice`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDevice.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDevice.html>
+    /// # Optional parameters
+    /// - device
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyDevice")]
-    pub unsafe fn destroy_device(self, allocator: *const AllocationCallbacks) {
+    pub unsafe fn destroy(self, allocator: *const AllocationCallbacks) {
         todo!()
     }
 }
 
-/// `vkEnumerateInstanceExtensionProperties`
+/// [`vkEnumerateInstanceExtensionProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumerateInstanceExtensionProperties.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumerateInstanceExtensionProperties.html>
+/// # Optional parameters
+/// - layer_name
+/// - properties
 ///
 /// # Result codes
 /// ## Success
@@ -270,10 +258,11 @@ pub unsafe fn enumerate_instance_extension_properties(
 }
 
 impl PhysicalDevice {
-    /// `vkEnumerateDeviceExtensionProperties`
+    /// [`vkEnumerateDeviceExtensionProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumerateDeviceExtensionProperties.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumerateDeviceExtensionProperties.html>
+    /// # Optional parameters
+    /// - layer_name
+    /// - properties
     ///
     /// # Result codes
     /// ## Success
@@ -296,10 +285,10 @@ impl PhysicalDevice {
     }
 }
 
-/// `vkEnumerateInstanceLayerProperties`
+/// [`vkEnumerateInstanceLayerProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumerateInstanceLayerProperties.html)
 ///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumerateInstanceLayerProperties.html>
+/// # Optional parameters
+/// - properties
 ///
 /// # Result codes
 /// ## Success
@@ -319,10 +308,10 @@ pub unsafe fn enumerate_instance_layer_properties(
 }
 
 impl PhysicalDevice {
-    /// `vkEnumerateDeviceLayerProperties`
+    /// [`vkEnumerateDeviceLayerProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumerateDeviceLayerProperties.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumerateDeviceLayerProperties.html>
+    /// # Optional parameters
+    /// - properties
     ///
     /// # Result codes
     /// ## Success
@@ -344,27 +333,20 @@ impl PhysicalDevice {
 }
 
 impl Device {
-    /// `vkGetDeviceQueue`
-    ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceQueue.html>
+    /// [`vkGetDeviceQueue`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceQueue.html)
     ///
     #[doc(alias = "vkGetDeviceQueue")]
-    pub unsafe fn get_device_queue(
-        self,
-        queue_family_index: u32,
-        queue_index: u32,
-        queue: *mut Queue,
-    ) {
+    pub unsafe fn get_queue(self, queue_family_index: u32, queue_index: u32, queue: *mut Queue) {
         todo!()
     }
 }
 
 impl Queue {
-    /// `vkQueueSubmit`
+    /// [`vkQueueSubmit`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueSubmit.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueSubmit.html>
+    /// # Optional parameters
+    /// - submit_count
+    /// - fence
     ///
     /// # Result codes
     /// ## Success
@@ -376,7 +358,7 @@ impl Queue {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkQueueSubmit")]
-    pub unsafe fn queue_submit(
+    pub unsafe fn submit(
         self,
         submit_count: u32,
         submits: *const SubmitInfo,
@@ -387,10 +369,7 @@ impl Queue {
 }
 
 impl Queue {
-    /// `vkQueueWaitIdle`
-    ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueWaitIdle.html>
+    /// [`vkQueueWaitIdle`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueWaitIdle.html)
     ///
     /// # Result codes
     /// ## Success
@@ -402,16 +381,13 @@ impl Queue {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkQueueWaitIdle")]
-    pub unsafe fn queue_wait_idle(self) -> ResultCode {
+    pub unsafe fn wait_idle(self) -> ResultCode {
         todo!()
     }
 }
 
 impl Device {
-    /// `vkDeviceWaitIdle`
-    ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDeviceWaitIdle.html>
+    /// [`vkDeviceWaitIdle`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDeviceWaitIdle.html)
     ///
     /// # Result codes
     /// ## Success
@@ -423,16 +399,16 @@ impl Device {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkDeviceWaitIdle")]
-    pub unsafe fn device_wait_idle(self) -> ResultCode {
+    pub unsafe fn wait_idle(self) -> ResultCode {
         todo!()
     }
 }
 
 impl Device {
-    /// `vkAllocateMemory`
+    /// [`vkAllocateMemory`](https://docs.vulkan.org/refpages/latest/refpages/source/vkAllocateMemory.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkAllocateMemory.html>
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -456,10 +432,11 @@ impl Device {
 }
 
 impl Device {
-    /// `vkFreeMemory`
+    /// [`vkFreeMemory`](https://docs.vulkan.org/refpages/latest/refpages/source/vkFreeMemory.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkFreeMemory.html>
+    /// # Optional parameters
+    /// - memory
+    /// - allocator
     ///
     #[doc(alias = "vkFreeMemory")]
     pub unsafe fn free_memory(self, memory: DeviceMemory, allocator: *const AllocationCallbacks) {
@@ -468,10 +445,10 @@ impl Device {
 }
 
 impl Device {
-    /// `vkMapMemory`
+    /// [`vkMapMemory`](https://docs.vulkan.org/refpages/latest/refpages/source/vkMapMemory.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkMapMemory.html>
+    /// # Optional parameters
+    /// - flags
     ///
     /// # Result codes
     /// ## Success
@@ -496,10 +473,7 @@ impl Device {
 }
 
 impl Device {
-    /// `vkUnmapMemory`
-    ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkUnmapMemory.html>
+    /// [`vkUnmapMemory`](https://docs.vulkan.org/refpages/latest/refpages/source/vkUnmapMemory.html)
     ///
     #[doc(alias = "vkUnmapMemory")]
     pub unsafe fn unmap_memory(self, memory: DeviceMemory) {
@@ -508,10 +482,7 @@ impl Device {
 }
 
 impl Device {
-    /// `vkFlushMappedMemoryRanges`
-    ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkFlushMappedMemoryRanges.html>
+    /// [`vkFlushMappedMemoryRanges`](https://docs.vulkan.org/refpages/latest/refpages/source/vkFlushMappedMemoryRanges.html)
     ///
     /// # Result codes
     /// ## Success
@@ -532,10 +503,7 @@ impl Device {
 }
 
 impl Device {
-    /// `vkInvalidateMappedMemoryRanges`
-    ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkInvalidateMappedMemoryRanges.html>
+    /// [`vkInvalidateMappedMemoryRanges`](https://docs.vulkan.org/refpages/latest/refpages/source/vkInvalidateMappedMemoryRanges.html)
     ///
     /// # Result codes
     /// ## Success
@@ -556,13 +524,10 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetDeviceMemoryCommitment`
-    ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceMemoryCommitment.html>
+    /// [`vkGetDeviceMemoryCommitment`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceMemoryCommitment.html)
     ///
     #[doc(alias = "vkGetDeviceMemoryCommitment")]
-    pub unsafe fn get_device_memory_commitment(
+    pub unsafe fn get_memory_commitment(
         self,
         memory: DeviceMemory,
         committed_memory_in_bytes: *mut DeviceSize,
@@ -572,10 +537,7 @@ impl Device {
 }
 
 impl Device {
-    /// `vkBindBufferMemory`
-    ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkBindBufferMemory.html>
+    /// [`vkBindBufferMemory`](https://docs.vulkan.org/refpages/latest/refpages/source/vkBindBufferMemory.html)
     ///
     /// # Result codes
     /// ## Success
@@ -598,10 +560,7 @@ impl Device {
 }
 
 impl Device {
-    /// `vkBindImageMemory`
-    ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkBindImageMemory.html>
+    /// [`vkBindImageMemory`](https://docs.vulkan.org/refpages/latest/refpages/source/vkBindImageMemory.html)
     ///
     /// # Result codes
     /// ## Success
@@ -623,10 +582,7 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetBufferMemoryRequirements`
-    ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferMemoryRequirements.html>
+    /// [`vkGetBufferMemoryRequirements`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferMemoryRequirements.html)
     ///
     #[doc(alias = "vkGetBufferMemoryRequirements")]
     pub unsafe fn get_buffer_memory_requirements(
@@ -639,10 +595,7 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetImageMemoryRequirements`
-    ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageMemoryRequirements.html>
+    /// [`vkGetImageMemoryRequirements`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageMemoryRequirements.html)
     ///
     #[doc(alias = "vkGetImageMemoryRequirements")]
     pub unsafe fn get_image_memory_requirements(
@@ -655,10 +608,10 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetImageSparseMemoryRequirements`
+    /// [`vkGetImageSparseMemoryRequirements`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageSparseMemoryRequirements.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageSparseMemoryRequirements.html>
+    /// # Optional parameters
+    /// - sparse_memory_requirements
     ///
     #[doc(alias = "vkGetImageSparseMemoryRequirements")]
     pub unsafe fn get_image_sparse_memory_requirements(
@@ -672,13 +625,13 @@ impl Device {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceSparseImageFormatProperties`
+    /// [`vkGetPhysicalDeviceSparseImageFormatProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSparseImageFormatProperties.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSparseImageFormatProperties.html>
+    /// # Optional parameters
+    /// - properties
     ///
     #[doc(alias = "vkGetPhysicalDeviceSparseImageFormatProperties")]
-    pub unsafe fn get_physical_device_sparse_image_format_properties(
+    pub unsafe fn get_sparse_image_format_properties(
         self,
         format: Format,
         type_: ImageType,
@@ -693,12 +646,13 @@ impl PhysicalDevice {
 }
 
 impl Queue {
-    /// `vkQueueBindSparse`
+    /// [`vkQueueBindSparse`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueBindSparse.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueBindSparse.html>
+    /// # Optional parameters
+    /// - bind_info_count
+    /// - fence
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`SPARSE_BINDING`](QueueFlags::SPARSE_BINDING)
     ///
     /// # Result codes
@@ -711,7 +665,7 @@ impl Queue {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkQueueBindSparse")]
-    pub unsafe fn queue_bind_sparse(
+    pub unsafe fn bind_sparse(
         self,
         bind_info_count: u32,
         bind_info: *const BindSparseInfo,
@@ -722,10 +676,10 @@ impl Queue {
 }
 
 impl Device {
-    /// `vkCreateFence`
+    /// [`vkCreateFence`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateFence.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateFence.html>
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -747,10 +701,11 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroyFence`
+    /// [`vkDestroyFence`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyFence.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyFence.html>
+    /// # Optional parameters
+    /// - fence
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyFence")]
     pub unsafe fn destroy_fence(self, fence: Fence, allocator: *const AllocationCallbacks) {
@@ -759,10 +714,7 @@ impl Device {
 }
 
 impl Device {
-    /// `vkResetFences`
-    ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkResetFences.html>
+    /// [`vkResetFences`](https://docs.vulkan.org/refpages/latest/refpages/source/vkResetFences.html)
     ///
     /// # Result codes
     /// ## Success
@@ -778,10 +730,7 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetFenceStatus`
-    ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetFenceStatus.html>
+    /// [`vkGetFenceStatus`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetFenceStatus.html)
     ///
     /// # Result codes
     /// ## Success
@@ -800,10 +749,7 @@ impl Device {
 }
 
 impl Device {
-    /// `vkWaitForFences`
-    ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkWaitForFences.html>
+    /// [`vkWaitForFences`](https://docs.vulkan.org/refpages/latest/refpages/source/vkWaitForFences.html)
     ///
     /// # Result codes
     /// ## Success
@@ -828,10 +774,10 @@ impl Device {
 }
 
 impl Device {
-    /// `vkCreateSemaphore`
+    /// [`vkCreateSemaphore`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateSemaphore.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateSemaphore.html>
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -853,10 +799,11 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroySemaphore`
+    /// [`vkDestroySemaphore`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroySemaphore.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroySemaphore.html>
+    /// # Optional parameters
+    /// - semaphore
+    /// - allocator
     ///
     #[doc(alias = "vkDestroySemaphore")]
     pub unsafe fn destroy_semaphore(
@@ -869,10 +816,10 @@ impl Device {
 }
 
 impl Device {
-    /// `vkCreateQueryPool`
+    /// [`vkCreateQueryPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateQueryPool.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateQueryPool.html>
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -894,10 +841,11 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroyQueryPool`
+    /// [`vkDestroyQueryPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyQueryPool.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyQueryPool.html>
+    /// # Optional parameters
+    /// - query_pool
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyQueryPool")]
     pub unsafe fn destroy_query_pool(
@@ -910,10 +858,10 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetQueryPoolResults`
+    /// [`vkGetQueryPoolResults`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetQueryPoolResults.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetQueryPoolResults.html>
+    /// # Optional parameters
+    /// - flags
     ///
     /// # Result codes
     /// ## Success
@@ -941,10 +889,10 @@ impl Device {
 }
 
 impl Device {
-    /// `vkCreateBuffer`
+    /// [`vkCreateBuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateBuffer.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateBuffer.html>
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -967,10 +915,11 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroyBuffer`
+    /// [`vkDestroyBuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyBuffer.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyBuffer.html>
+    /// # Optional parameters
+    /// - buffer
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyBuffer")]
     pub unsafe fn destroy_buffer(self, buffer: Buffer, allocator: *const AllocationCallbacks) {
@@ -979,10 +928,10 @@ impl Device {
 }
 
 impl Device {
-    /// `vkCreateImage`
+    /// [`vkCreateImage`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateImage.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateImage.html>
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -1006,10 +955,11 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroyImage`
+    /// [`vkDestroyImage`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyImage.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyImage.html>
+    /// # Optional parameters
+    /// - image
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyImage")]
     pub unsafe fn destroy_image(self, image: Image, allocator: *const AllocationCallbacks) {
@@ -1018,10 +968,7 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetImageSubresourceLayout`
-    ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageSubresourceLayout.html>
+    /// [`vkGetImageSubresourceLayout`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageSubresourceLayout.html)
     ///
     #[doc(alias = "vkGetImageSubresourceLayout")]
     pub unsafe fn get_image_subresource_layout(
@@ -1035,10 +982,10 @@ impl Device {
 }
 
 impl Device {
-    /// `vkCreateImageView`
+    /// [`vkCreateImageView`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateImageView.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateImageView.html>
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -1061,10 +1008,11 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroyImageView`
+    /// [`vkDestroyImageView`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyImageView.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyImageView.html>
+    /// # Optional parameters
+    /// - image_view
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyImageView")]
     pub unsafe fn destroy_image_view(
@@ -1077,10 +1025,10 @@ impl Device {
 }
 
 impl Device {
-    /// `vkCreateCommandPool`
+    /// [`vkCreateCommandPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateCommandPool.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateCommandPool.html>
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -1102,10 +1050,11 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroyCommandPool`
+    /// [`vkDestroyCommandPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyCommandPool.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyCommandPool.html>
+    /// # Optional parameters
+    /// - command_pool
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyCommandPool")]
     pub unsafe fn destroy_command_pool(
@@ -1118,10 +1067,10 @@ impl Device {
 }
 
 impl Device {
-    /// `vkResetCommandPool`
+    /// [`vkResetCommandPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkResetCommandPool.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkResetCommandPool.html>
+    /// # Optional parameters
+    /// - flags
     ///
     /// # Result codes
     /// ## Success
@@ -1141,10 +1090,7 @@ impl Device {
 }
 
 impl Device {
-    /// `vkAllocateCommandBuffers`
-    ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkAllocateCommandBuffers.html>
+    /// [`vkAllocateCommandBuffers`](https://docs.vulkan.org/refpages/latest/refpages/source/vkAllocateCommandBuffers.html)
     ///
     /// # Result codes
     /// ## Success
@@ -1165,10 +1111,7 @@ impl Device {
 }
 
 impl Device {
-    /// `vkFreeCommandBuffers`
-    ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkFreeCommandBuffers.html>
+    /// [`vkFreeCommandBuffers`](https://docs.vulkan.org/refpages/latest/refpages/source/vkFreeCommandBuffers.html)
     ///
     #[doc(alias = "vkFreeCommandBuffers")]
     pub unsafe fn free_command_buffers(
@@ -1182,10 +1125,7 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkBeginCommandBuffer`
-    ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkBeginCommandBuffer.html>
+    /// [`vkBeginCommandBuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkBeginCommandBuffer.html)
     ///
     /// # Result codes
     /// ## Success
@@ -1196,19 +1136,13 @@ impl CommandBuffer {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkBeginCommandBuffer")]
-    pub unsafe fn begin_command_buffer(
-        self,
-        begin_info: *const CommandBufferBeginInfo,
-    ) -> ResultCode {
+    pub unsafe fn begin(self, begin_info: *const CommandBufferBeginInfo) -> ResultCode {
         todo!()
     }
 }
 
 impl CommandBuffer {
-    /// `vkEndCommandBuffer`
-    ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkEndCommandBuffer.html>
+    /// [`vkEndCommandBuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkEndCommandBuffer.html)
     ///
     /// # Result codes
     /// ## Success
@@ -1220,16 +1154,16 @@ impl CommandBuffer {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkEndCommandBuffer")]
-    pub unsafe fn end_command_buffer(self) -> ResultCode {
+    pub unsafe fn end(self) -> ResultCode {
         todo!()
     }
 }
 
 impl CommandBuffer {
-    /// `vkResetCommandBuffer`
+    /// [`vkResetCommandBuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkResetCommandBuffer.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkResetCommandBuffer.html>
+    /// # Optional parameters
+    /// - flags
     ///
     /// # Result codes
     /// ## Success
@@ -1239,25 +1173,22 @@ impl CommandBuffer {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkResetCommandBuffer")]
-    pub unsafe fn reset_command_buffer(self, flags: CommandBufferResetFlags) -> ResultCode {
+    pub unsafe fn reset(self, flags: CommandBufferResetFlags) -> ResultCode {
         todo!()
     }
 }
 
 impl CommandBuffer {
-    /// `vkCmdCopyBuffer`
+    /// [`vkCmdCopyBuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyBuffer.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyBuffer.html>
-    ///
-    /// ## Performed tasks
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
@@ -1275,19 +1206,16 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdCopyImage`
+    /// [`vkCmdCopyImage`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyImage.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyImage.html>
-    ///
-    /// ## Performed tasks
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
@@ -1307,19 +1235,16 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdCopyBufferToImage`
+    /// [`vkCmdCopyBufferToImage`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyBufferToImage.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyBufferToImage.html>
-    ///
-    /// ## Performed tasks
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
@@ -1338,19 +1263,16 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdCopyImageToBuffer`
+    /// [`vkCmdCopyImageToBuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyImageToBuffer.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyImageToBuffer.html>
-    ///
-    /// ## Performed tasks
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
@@ -1369,19 +1291,16 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdUpdateBuffer`
+    /// [`vkCmdUpdateBuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdUpdateBuffer.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdUpdateBuffer.html>
-    ///
-    /// ## Performed tasks
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
@@ -1399,19 +1318,16 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdFillBuffer`
+    /// [`vkCmdFillBuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdFillBuffer.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdFillBuffer.html>
-    ///
-    /// ## Performed tasks
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
@@ -1429,19 +1345,24 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdPipelineBarrier`
+    /// [`vkCmdPipelineBarrier`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPipelineBarrier.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPipelineBarrier.html>
+    /// # Optional parameters
+    /// - src_stage_mask
+    /// - dst_stage_mask
+    /// - dependency_flags
+    /// - memory_barrier_count
+    /// - buffer_memory_barrier_count
+    /// - image_memory_barrier_count
     ///
-    /// ## Performed tasks
+    /// # Performed tasks
     /// - `synchronization`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
@@ -1466,20 +1387,20 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBeginQuery`
+    /// [`vkCmdBeginQuery`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginQuery.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginQuery.html>
+    /// # Optional parameters
+    /// - flags
     ///
-    /// ## Performed tasks
+    /// # Performed tasks
     /// - `action`
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
@@ -1497,20 +1418,17 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdEndQuery`
+    /// [`vkCmdEndQuery`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndQuery.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndQuery.html>
-    ///
-    /// ## Performed tasks
+    /// # Performed tasks
     /// - `action`
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
@@ -1523,19 +1441,16 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdResetQueryPool`
+    /// [`vkCmdResetQueryPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdResetQueryPool.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdResetQueryPool.html>
-    ///
-    /// ## Performed tasks
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
@@ -1554,19 +1469,16 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdWriteTimestamp`
+    /// [`vkCmdWriteTimestamp`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteTimestamp.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteTimestamp.html>
-    ///
-    /// ## Performed tasks
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
@@ -1586,19 +1498,19 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdCopyQueryPoolResults`
+    /// [`vkCmdCopyQueryPoolResults`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyQueryPoolResults.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyQueryPoolResults.html>
+    /// # Optional parameters
+    /// - flags
     ///
-    /// ## Performed tasks
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -1618,19 +1530,16 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdExecuteCommands`
+    /// [`vkCmdExecuteCommands`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdExecuteCommands.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdExecuteCommands.html>
-    ///
-    /// ## Performed tasks
+    /// # Performed tasks
     /// - `indirection`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
@@ -1646,10 +1555,10 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkCreateEvent`
+    /// [`vkCreateEvent`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateEvent.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateEvent.html>
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -1671,10 +1580,11 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroyEvent`
+    /// [`vkDestroyEvent`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyEvent.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyEvent.html>
+    /// # Optional parameters
+    /// - event
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyEvent")]
     pub unsafe fn destroy_event(self, event: Event, allocator: *const AllocationCallbacks) {
@@ -1683,10 +1593,7 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetEventStatus`
-    ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetEventStatus.html>
+    /// [`vkGetEventStatus`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetEventStatus.html)
     ///
     /// # Result codes
     /// ## Success
@@ -1705,10 +1612,7 @@ impl Device {
 }
 
 impl Device {
-    /// `vkSetEvent`
-    ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkSetEvent.html>
+    /// [`vkSetEvent`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetEvent.html)
     ///
     /// # Result codes
     /// ## Success
@@ -1725,10 +1629,7 @@ impl Device {
 }
 
 impl Device {
-    /// `vkResetEvent`
-    ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkResetEvent.html>
+    /// [`vkResetEvent`](https://docs.vulkan.org/refpages/latest/refpages/source/vkResetEvent.html)
     ///
     /// # Result codes
     /// ## Success
@@ -1744,10 +1645,10 @@ impl Device {
 }
 
 impl Device {
-    /// `vkCreateBufferView`
+    /// [`vkCreateBufferView`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateBufferView.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateBufferView.html>
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -1769,10 +1670,11 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroyBufferView`
+    /// [`vkDestroyBufferView`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyBufferView.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyBufferView.html>
+    /// # Optional parameters
+    /// - buffer_view
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyBufferView")]
     pub unsafe fn destroy_buffer_view(
@@ -1785,10 +1687,10 @@ impl Device {
 }
 
 impl Device {
-    /// `vkCreateShaderModule`
+    /// [`vkCreateShaderModule`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateShaderModule.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateShaderModule.html>
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -1811,10 +1713,11 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroyShaderModule`
+    /// [`vkDestroyShaderModule`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyShaderModule.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyShaderModule.html>
+    /// # Optional parameters
+    /// - shader_module
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyShaderModule")]
     pub unsafe fn destroy_shader_module(
@@ -1827,10 +1730,10 @@ impl Device {
 }
 
 impl Device {
-    /// `vkCreatePipelineCache`
+    /// [`vkCreatePipelineCache`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreatePipelineCache.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreatePipelineCache.html>
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -1852,10 +1755,11 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroyPipelineCache`
+    /// [`vkDestroyPipelineCache`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyPipelineCache.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyPipelineCache.html>
+    /// # Optional parameters
+    /// - pipeline_cache
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyPipelineCache")]
     pub unsafe fn destroy_pipeline_cache(
@@ -1868,10 +1772,10 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetPipelineCacheData`
+    /// [`vkGetPipelineCacheData`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPipelineCacheData.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPipelineCacheData.html>
+    /// # Optional parameters
+    /// - data
     ///
     /// # Result codes
     /// ## Success
@@ -1894,10 +1798,7 @@ impl Device {
 }
 
 impl Device {
-    /// `vkMergePipelineCaches`
-    ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkMergePipelineCaches.html>
+    /// [`vkMergePipelineCaches`](https://docs.vulkan.org/refpages/latest/refpages/source/vkMergePipelineCaches.html)
     ///
     /// # Result codes
     /// ## Success
@@ -1919,10 +1820,11 @@ impl Device {
 }
 
 impl Device {
-    /// `vkCreateComputePipelines`
+    /// [`vkCreateComputePipelines`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateComputePipelines.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateComputePipelines.html>
+    /// # Optional parameters
+    /// - pipeline_cache
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -1948,10 +1850,11 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroyPipeline`
+    /// [`vkDestroyPipeline`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyPipeline.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyPipeline.html>
+    /// # Optional parameters
+    /// - pipeline
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyPipeline")]
     pub unsafe fn destroy_pipeline(
@@ -1964,10 +1867,10 @@ impl Device {
 }
 
 impl Device {
-    /// `vkCreatePipelineLayout`
+    /// [`vkCreatePipelineLayout`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreatePipelineLayout.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreatePipelineLayout.html>
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -1989,10 +1892,11 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroyPipelineLayout`
+    /// [`vkDestroyPipelineLayout`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyPipelineLayout.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyPipelineLayout.html>
+    /// # Optional parameters
+    /// - pipeline_layout
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyPipelineLayout")]
     pub unsafe fn destroy_pipeline_layout(
@@ -2005,10 +1909,10 @@ impl Device {
 }
 
 impl Device {
-    /// `vkCreateSampler`
+    /// [`vkCreateSampler`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateSampler.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateSampler.html>
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -2031,10 +1935,11 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroySampler`
+    /// [`vkDestroySampler`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroySampler.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroySampler.html>
+    /// # Optional parameters
+    /// - sampler
+    /// - allocator
     ///
     #[doc(alias = "vkDestroySampler")]
     pub unsafe fn destroy_sampler(self, sampler: Sampler, allocator: *const AllocationCallbacks) {
@@ -2043,10 +1948,10 @@ impl Device {
 }
 
 impl Device {
-    /// `vkCreateDescriptorSetLayout`
+    /// [`vkCreateDescriptorSetLayout`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDescriptorSetLayout.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDescriptorSetLayout.html>
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -2068,10 +1973,11 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroyDescriptorSetLayout`
+    /// [`vkDestroyDescriptorSetLayout`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDescriptorSetLayout.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDescriptorSetLayout.html>
+    /// # Optional parameters
+    /// - descriptor_set_layout
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyDescriptorSetLayout")]
     pub unsafe fn destroy_descriptor_set_layout(
@@ -2084,10 +1990,10 @@ impl Device {
 }
 
 impl Device {
-    /// `vkCreateDescriptorPool`
+    /// [`vkCreateDescriptorPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDescriptorPool.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDescriptorPool.html>
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -2110,10 +2016,11 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroyDescriptorPool`
+    /// [`vkDestroyDescriptorPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDescriptorPool.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDescriptorPool.html>
+    /// # Optional parameters
+    /// - descriptor_pool
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyDescriptorPool")]
     pub unsafe fn destroy_descriptor_pool(
@@ -2126,10 +2033,10 @@ impl Device {
 }
 
 impl Device {
-    /// `vkResetDescriptorPool`
+    /// [`vkResetDescriptorPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkResetDescriptorPool.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkResetDescriptorPool.html>
+    /// # Optional parameters
+    /// - flags
     ///
     /// # Result codes
     /// ## Success
@@ -2148,10 +2055,7 @@ impl Device {
 }
 
 impl Device {
-    /// `vkAllocateDescriptorSets`
-    ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkAllocateDescriptorSets.html>
+    /// [`vkAllocateDescriptorSets`](https://docs.vulkan.org/refpages/latest/refpages/source/vkAllocateDescriptorSets.html)
     ///
     /// # Result codes
     /// ## Success
@@ -2174,10 +2078,7 @@ impl Device {
 }
 
 impl Device {
-    /// `vkFreeDescriptorSets`
-    ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkFreeDescriptorSets.html>
+    /// [`vkFreeDescriptorSets`](https://docs.vulkan.org/refpages/latest/refpages/source/vkFreeDescriptorSets.html)
     ///
     /// # Result codes
     /// ## Success
@@ -2197,10 +2098,11 @@ impl Device {
 }
 
 impl Device {
-    /// `vkUpdateDescriptorSets`
+    /// [`vkUpdateDescriptorSets`](https://docs.vulkan.org/refpages/latest/refpages/source/vkUpdateDescriptorSets.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkUpdateDescriptorSets.html>
+    /// # Optional parameters
+    /// - descriptor_write_count
+    /// - descriptor_copy_count
     ///
     #[doc(alias = "vkUpdateDescriptorSets")]
     pub unsafe fn update_descriptor_sets(
@@ -2215,19 +2117,16 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBindPipeline`
+    /// [`vkCmdBindPipeline`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindPipeline.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindPipeline.html>
-    ///
-    /// ## Performed tasks
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     /// - [`DATA_GRAPHARM`](QueueFlags::DATA_GRAPHARM)
@@ -2243,19 +2142,19 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBindDescriptorSets`
+    /// [`vkCmdBindDescriptorSets`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindDescriptorSets.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindDescriptorSets.html>
+    /// # Optional parameters
+    /// - dynamic_offset_count
     ///
-    /// ## Performed tasks
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     /// - [`DATA_GRAPHARM`](QueueFlags::DATA_GRAPHARM)
@@ -2276,19 +2175,16 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdClearColorImage`
+    /// [`vkCmdClearColorImage`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdClearColorImage.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdClearColorImage.html>
-    ///
-    /// ## Performed tasks
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -2306,19 +2202,16 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDispatch`
+    /// [`vkCmdDispatch`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatch.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatch.html>
-    ///
-    /// ## Performed tasks
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
     #[doc(alias = "vkCmdDispatch")]
@@ -2328,19 +2221,16 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDispatchIndirect`
+    /// [`vkCmdDispatchIndirect`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchIndirect.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchIndirect.html>
-    ///
-    /// ## Performed tasks
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
     #[doc(alias = "vkCmdDispatchIndirect")]
@@ -2350,19 +2240,19 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetEvent`
+    /// [`vkCmdSetEvent`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetEvent.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetEvent.html>
+    /// # Optional parameters
+    /// - stage_mask
     ///
-    /// ## Performed tasks
+    /// # Performed tasks
     /// - `synchronization`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
@@ -2375,19 +2265,19 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdResetEvent`
+    /// [`vkCmdResetEvent`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdResetEvent.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdResetEvent.html>
+    /// # Optional parameters
+    /// - stage_mask
     ///
-    /// ## Performed tasks
+    /// # Performed tasks
     /// - `synchronization`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
@@ -2400,19 +2290,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdWaitEvents`
+    /// [`vkCmdWaitEvents`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWaitEvents.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWaitEvents.html>
+    /// # Optional parameters
+    /// - src_stage_mask
+    /// - dst_stage_mask
+    /// - memory_barrier_count
+    /// - buffer_memory_barrier_count
+    /// - image_memory_barrier_count
     ///
-    /// ## Performed tasks
+    /// # Performed tasks
     /// - `synchronization`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
@@ -2437,19 +2331,16 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdPushConstants`
+    /// [`vkCmdPushConstants`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushConstants.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushConstants.html>
-    ///
-    /// ## Performed tasks
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -2467,10 +2358,11 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkCreateGraphicsPipelines`
+    /// [`vkCreateGraphicsPipelines`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateGraphicsPipelines.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateGraphicsPipelines.html>
+    /// # Optional parameters
+    /// - pipeline_cache
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -2496,10 +2388,10 @@ impl Device {
 }
 
 impl Device {
-    /// `vkCreateFramebuffer`
+    /// [`vkCreateFramebuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateFramebuffer.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateFramebuffer.html>
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -2521,10 +2413,11 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroyFramebuffer`
+    /// [`vkDestroyFramebuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyFramebuffer.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyFramebuffer.html>
+    /// # Optional parameters
+    /// - framebuffer
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyFramebuffer")]
     pub unsafe fn destroy_framebuffer(
@@ -2537,10 +2430,10 @@ impl Device {
 }
 
 impl Device {
-    /// `vkCreateRenderPass`
+    /// [`vkCreateRenderPass`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateRenderPass.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateRenderPass.html>
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -2562,10 +2455,11 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroyRenderPass`
+    /// [`vkDestroyRenderPass`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyRenderPass.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyRenderPass.html>
+    /// # Optional parameters
+    /// - render_pass
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyRenderPass")]
     pub unsafe fn destroy_render_pass(
@@ -2578,10 +2472,7 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetRenderAreaGranularity`
-    ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRenderAreaGranularity.html>
+    /// [`vkGetRenderAreaGranularity`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRenderAreaGranularity.html)
     ///
     #[doc(alias = "vkGetRenderAreaGranularity")]
     pub unsafe fn get_render_area_granularity(
@@ -2594,19 +2485,16 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetViewport`
+    /// [`vkCmdSetViewport`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetViewport.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetViewport.html>
-    ///
-    /// ## Performed tasks
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetViewport")]
@@ -2621,19 +2509,16 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetScissor`
+    /// [`vkCmdSetScissor`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetScissor.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetScissor.html>
-    ///
-    /// ## Performed tasks
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetScissor")]
@@ -2648,19 +2533,16 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetLineWidth`
+    /// [`vkCmdSetLineWidth`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetLineWidth.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetLineWidth.html>
-    ///
-    /// ## Performed tasks
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetLineWidth")]
@@ -2670,19 +2552,16 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetDepthBias`
+    /// [`vkCmdSetDepthBias`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthBias.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthBias.html>
-    ///
-    /// ## Performed tasks
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetDepthBias")]
@@ -2697,19 +2576,16 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetBlendConstants`
+    /// [`vkCmdSetBlendConstants`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetBlendConstants.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetBlendConstants.html>
-    ///
-    /// ## Performed tasks
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetBlendConstants")]
@@ -2719,19 +2595,16 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetDepthBounds`
+    /// [`vkCmdSetDepthBounds`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthBounds.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthBounds.html>
-    ///
-    /// ## Performed tasks
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetDepthBounds")]
@@ -2741,19 +2614,16 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetStencilCompareMask`
+    /// [`vkCmdSetStencilCompareMask`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetStencilCompareMask.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetStencilCompareMask.html>
-    ///
-    /// ## Performed tasks
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetStencilCompareMask")]
@@ -2767,19 +2637,16 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetStencilWriteMask`
+    /// [`vkCmdSetStencilWriteMask`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetStencilWriteMask.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetStencilWriteMask.html>
-    ///
-    /// ## Performed tasks
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetStencilWriteMask")]
@@ -2789,19 +2656,16 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetStencilReference`
+    /// [`vkCmdSetStencilReference`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetStencilReference.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetStencilReference.html>
-    ///
-    /// ## Performed tasks
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetStencilReference")]
@@ -2811,19 +2675,19 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBindIndexBuffer`
+    /// [`vkCmdBindIndexBuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindIndexBuffer.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindIndexBuffer.html>
+    /// # Optional parameters
+    /// - buffer
     ///
-    /// ## Performed tasks
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdBindIndexBuffer")]
@@ -2838,19 +2702,16 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBindVertexBuffers`
+    /// [`vkCmdBindVertexBuffers`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindVertexBuffers.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindVertexBuffers.html>
-    ///
-    /// ## Performed tasks
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdBindVertexBuffers")]
@@ -2866,19 +2727,16 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDraw`
+    /// [`vkCmdDraw`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDraw.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDraw.html>
-    ///
-    /// ## Performed tasks
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDraw")]
@@ -2894,19 +2752,16 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDrawIndexed`
+    /// [`vkCmdDrawIndexed`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndexed.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndexed.html>
-    ///
-    /// ## Performed tasks
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawIndexed")]
@@ -2923,19 +2778,16 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDrawIndirect`
+    /// [`vkCmdDrawIndirect`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndirect.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndirect.html>
-    ///
-    /// ## Performed tasks
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawIndirect")]
@@ -2951,19 +2803,16 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDrawIndexedIndirect`
+    /// [`vkCmdDrawIndexedIndirect`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndexedIndirect.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndexedIndirect.html>
-    ///
-    /// ## Performed tasks
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawIndexedIndirect")]
@@ -2979,19 +2828,16 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBlitImage`
+    /// [`vkCmdBlitImage`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBlitImage.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBlitImage.html>
-    ///
-    /// ## Performed tasks
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdBlitImage")]
@@ -3010,19 +2856,16 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdClearDepthStencilImage`
+    /// [`vkCmdClearDepthStencilImage`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdClearDepthStencilImage.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdClearDepthStencilImage.html>
-    ///
-    /// ## Performed tasks
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdClearDepthStencilImage")]
@@ -3039,19 +2882,16 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdClearAttachments`
+    /// [`vkCmdClearAttachments`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdClearAttachments.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdClearAttachments.html>
-    ///
-    /// ## Performed tasks
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdClearAttachments")]
@@ -3067,19 +2907,16 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdResolveImage`
+    /// [`vkCmdResolveImage`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdResolveImage.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdResolveImage.html>
-    ///
-    /// ## Performed tasks
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdResolveImage")]
@@ -3097,20 +2934,17 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBeginRenderPass`
+    /// [`vkCmdBeginRenderPass`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginRenderPass.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginRenderPass.html>
-    ///
-    /// ## Performed tasks
+    /// # Performed tasks
     /// - `action`
     /// - `state`
     /// - `synchronization`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdBeginRenderPass")]
@@ -3124,20 +2958,17 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdNextSubpass`
+    /// [`vkCmdNextSubpass`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdNextSubpass.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdNextSubpass.html>
-    ///
-    /// ## Performed tasks
+    /// # Performed tasks
     /// - `action`
     /// - `state`
     /// - `synchronization`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdNextSubpass")]
@@ -3147,20 +2978,17 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdEndRenderPass`
+    /// [`vkCmdEndRenderPass`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndRenderPass.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndRenderPass.html>
-    ///
-    /// ## Performed tasks
+    /// # Performed tasks
     /// - `action`
     /// - `state`
     /// - `synchronization`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdEndRenderPass")]
@@ -3169,10 +2997,7 @@ impl CommandBuffer {
     }
 }
 
-/// `vkEnumerateInstanceVersion`
-///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumerateInstanceVersion.html>
+/// [`vkEnumerateInstanceVersion`](https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumerateInstanceVersion.html)
 ///
 /// # Result codes
 /// ## Success
@@ -3187,10 +3012,13 @@ pub unsafe fn enumerate_instance_version(api_version: *mut u32) -> ResultCode {
 }
 
 impl Device {
-    /// `vkBindBufferMemory2`
+    /// [`vkBindBufferMemory2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkBindBufferMemory2.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkBindBufferMemory2.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -3212,10 +3040,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkBindImageMemory2`
+    /// [`vkBindImageMemory2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkBindImageMemory2.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkBindImageMemory2.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -3236,13 +3067,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetDeviceGroupPeerMemoryFeatures`
+    /// [`vkGetDeviceGroupPeerMemoryFeatures`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceGroupPeerMemoryFeatures.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceGroupPeerMemoryFeatures.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceGroupPeerMemoryFeatures")]
-    pub unsafe fn get_device_group_peer_memory_features(
+    pub unsafe fn get_group_peer_memory_features(
         self,
         heap_index: u32,
         local_device_index: u32,
@@ -3254,19 +3088,22 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetDeviceMask`
+    /// [`vkCmdSetDeviceMask`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDeviceMask.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDeviceMask.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
@@ -3278,10 +3115,16 @@ impl CommandBuffer {
 }
 
 impl Instance {
-    /// `vkEnumeratePhysicalDeviceGroups`
+    /// [`vkEnumeratePhysicalDeviceGroups`](https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumeratePhysicalDeviceGroups.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumeratePhysicalDeviceGroups.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - physical_device_group_properties
     ///
     /// # Result codes
     /// ## Success
@@ -3304,10 +3147,13 @@ impl Instance {
 }
 
 impl Device {
-    /// `vkGetImageMemoryRequirements2`
+    /// [`vkGetImageMemoryRequirements2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageMemoryRequirements2.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageMemoryRequirements2.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetImageMemoryRequirements2")]
     pub unsafe fn get_image_memory_requirements_2(
@@ -3320,10 +3166,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetBufferMemoryRequirements2`
+    /// [`vkGetBufferMemoryRequirements2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferMemoryRequirements2.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferMemoryRequirements2.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetBufferMemoryRequirements2")]
     pub unsafe fn get_buffer_memory_requirements_2(
@@ -3336,10 +3185,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetImageSparseMemoryRequirements2`
+    /// [`vkGetImageSparseMemoryRequirements2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageSparseMemoryRequirements2.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageSparseMemoryRequirements2.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - sparse_memory_requirements
     ///
     #[doc(alias = "vkGetImageSparseMemoryRequirements2")]
     pub unsafe fn get_image_sparse_memory_requirements_2(
@@ -3353,40 +3208,46 @@ impl Device {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceFeatures2`
+    /// [`vkGetPhysicalDeviceFeatures2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceFeatures2.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceFeatures2.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceFeatures2")]
-    pub unsafe fn get_physical_device_features_2(self, features: *mut PhysicalDeviceFeatures2) {
+    pub unsafe fn get_features_2(self, features: *mut PhysicalDeviceFeatures2) {
         todo!()
     }
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceProperties2`
+    /// [`vkGetPhysicalDeviceProperties2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceProperties2.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceProperties2.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceProperties2")]
-    pub unsafe fn get_physical_device_properties_2(
-        self,
-        properties: *mut PhysicalDeviceProperties2,
-    ) {
+    pub unsafe fn get_properties_2(self, properties: *mut PhysicalDeviceProperties2) {
         todo!()
     }
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceFormatProperties2`
+    /// [`vkGetPhysicalDeviceFormatProperties2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceFormatProperties2.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceFormatProperties2.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceFormatProperties2")]
-    pub unsafe fn get_physical_device_format_properties_2(
+    pub unsafe fn get_format_properties_2(
         self,
         format: Format,
         format_properties: *mut FormatProperties2,
@@ -3396,10 +3257,13 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceImageFormatProperties2`
+    /// [`vkGetPhysicalDeviceImageFormatProperties2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceImageFormatProperties2.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceImageFormatProperties2.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -3416,7 +3280,7 @@ impl PhysicalDevice {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetPhysicalDeviceImageFormatProperties2")]
-    pub unsafe fn get_physical_device_image_format_properties_2(
+    pub unsafe fn get_image_format_properties_2(
         self,
         image_format_info: *const PhysicalDeviceImageFormatInfo2,
         image_format_properties: *mut ImageFormatProperties2,
@@ -3426,13 +3290,19 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceQueueFamilyProperties2`
+    /// [`vkGetPhysicalDeviceQueueFamilyProperties2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceQueueFamilyProperties2.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceQueueFamilyProperties2.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - queue_family_properties
     ///
     #[doc(alias = "vkGetPhysicalDeviceQueueFamilyProperties2")]
-    pub unsafe fn get_physical_device_queue_family_properties_2(
+    pub unsafe fn get_queue_family_properties_2(
         self,
         queue_family_property_count: *mut u32,
         queue_family_properties: *mut QueueFamilyProperties2,
@@ -3442,13 +3312,16 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceMemoryProperties2`
+    /// [`vkGetPhysicalDeviceMemoryProperties2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceMemoryProperties2.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceMemoryProperties2.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceMemoryProperties2")]
-    pub unsafe fn get_physical_device_memory_properties_2(
+    pub unsafe fn get_memory_properties_2(
         self,
         memory_properties: *mut PhysicalDeviceMemoryProperties2,
     ) {
@@ -3457,13 +3330,19 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceSparseImageFormatProperties2`
+    /// [`vkGetPhysicalDeviceSparseImageFormatProperties2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSparseImageFormatProperties2.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSparseImageFormatProperties2.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - properties
     ///
     #[doc(alias = "vkGetPhysicalDeviceSparseImageFormatProperties2")]
-    pub unsafe fn get_physical_device_sparse_image_format_properties_2(
+    pub unsafe fn get_sparse_image_format_properties_2(
         self,
         format_info: *const PhysicalDeviceSparseImageFormatInfo2,
         property_count: *mut u32,
@@ -3474,10 +3353,16 @@ impl PhysicalDevice {
 }
 
 impl Device {
-    /// `vkTrimCommandPool`
+    /// [`vkTrimCommandPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkTrimCommandPool.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkTrimCommandPool.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - flags
     ///
     #[doc(alias = "vkTrimCommandPool")]
     pub unsafe fn trim_command_pool(self, command_pool: CommandPool, flags: CommandPoolTrimFlags) {
@@ -3486,25 +3371,31 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetDeviceQueue2`
+    /// [`vkGetDeviceQueue2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceQueue2.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceQueue2.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceQueue2")]
-    pub unsafe fn get_device_queue_2(self, queue_info: *const DeviceQueueInfo2, queue: *mut Queue) {
+    pub unsafe fn get_queue_2(self, queue_info: *const DeviceQueueInfo2, queue: *mut Queue) {
         todo!()
     }
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceExternalBufferProperties`
+    /// [`vkGetPhysicalDeviceExternalBufferProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceExternalBufferProperties.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceExternalBufferProperties.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceExternalBufferProperties")]
-    pub unsafe fn get_physical_device_external_buffer_properties(
+    pub unsafe fn get_external_buffer_properties(
         self,
         external_buffer_info: *const PhysicalDeviceExternalBufferInfo,
         external_buffer_properties: *mut ExternalBufferProperties,
@@ -3514,13 +3405,16 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceExternalFenceProperties`
+    /// [`vkGetPhysicalDeviceExternalFenceProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceExternalFenceProperties.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceExternalFenceProperties.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceExternalFenceProperties")]
-    pub unsafe fn get_physical_device_external_fence_properties(
+    pub unsafe fn get_external_fence_properties(
         self,
         external_fence_info: *const PhysicalDeviceExternalFenceInfo,
         external_fence_properties: *mut ExternalFenceProperties,
@@ -3530,13 +3424,16 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceExternalSemaphoreProperties`
+    /// [`vkGetPhysicalDeviceExternalSemaphoreProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceExternalSemaphoreProperties.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceExternalSemaphoreProperties.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceExternalSemaphoreProperties")]
-    pub unsafe fn get_physical_device_external_semaphore_properties(
+    pub unsafe fn get_external_semaphore_properties(
         self,
         external_semaphore_info: *const PhysicalDeviceExternalSemaphoreInfo,
         external_semaphore_properties: *mut ExternalSemaphoreProperties,
@@ -3546,19 +3443,22 @@ impl PhysicalDevice {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDispatchBase`
+    /// [`vkCmdDispatchBase`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchBase.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchBase.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
     #[doc(alias = "vkCmdDispatchBase")]
@@ -3576,10 +3476,16 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkCreateDescriptorUpdateTemplate`
+    /// [`vkCreateDescriptorUpdateTemplate`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDescriptorUpdateTemplate.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDescriptorUpdateTemplate.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -3601,10 +3507,17 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroyDescriptorUpdateTemplate`
+    /// [`vkDestroyDescriptorUpdateTemplate`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDescriptorUpdateTemplate.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDescriptorUpdateTemplate.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - descriptor_update_template
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyDescriptorUpdateTemplate")]
     pub unsafe fn destroy_descriptor_update_template(
@@ -3617,10 +3530,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkUpdateDescriptorSetWithTemplate`
+    /// [`vkUpdateDescriptorSetWithTemplate`](https://docs.vulkan.org/refpages/latest/refpages/source/vkUpdateDescriptorSetWithTemplate.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkUpdateDescriptorSetWithTemplate.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkUpdateDescriptorSetWithTemplate")]
     pub unsafe fn update_descriptor_set_with_template(
@@ -3634,10 +3550,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetDescriptorSetLayoutSupport`
+    /// [`vkGetDescriptorSetLayoutSupport`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDescriptorSetLayoutSupport.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDescriptorSetLayoutSupport.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDescriptorSetLayoutSupport")]
     pub unsafe fn get_descriptor_set_layout_support(
@@ -3650,10 +3569,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkCreateSamplerYcbcrConversion`
+    /// [`vkCreateSamplerYcbcrConversion`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateSamplerYcbcrConversion.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateSamplerYcbcrConversion.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -3675,10 +3600,17 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroySamplerYcbcrConversion`
+    /// [`vkDestroySamplerYcbcrConversion`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroySamplerYcbcrConversion.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroySamplerYcbcrConversion.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - ycbcr_conversion
+    /// - allocator
     ///
     #[doc(alias = "vkDestroySamplerYcbcrConversion")]
     pub unsafe fn destroy_sampler_ycbcr_conversion(
@@ -3691,10 +3623,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkResetQueryPool`
+    /// [`vkResetQueryPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkResetQueryPool.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkResetQueryPool.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.2 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkResetQueryPool")]
     pub unsafe fn reset_query_pool(
@@ -3708,10 +3643,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetSemaphoreCounterValue`
+    /// [`vkGetSemaphoreCounterValue`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSemaphoreCounterValue.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSemaphoreCounterValue.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.2 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -3733,10 +3671,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkWaitSemaphores`
+    /// [`vkWaitSemaphores`](https://docs.vulkan.org/refpages/latest/refpages/source/vkWaitSemaphores.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkWaitSemaphores.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.2 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -3759,10 +3700,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkSignalSemaphore`
+    /// [`vkSignalSemaphore`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSignalSemaphore.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkSignalSemaphore.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.2 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -3779,25 +3723,28 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetBufferDeviceAddress`
+    /// [`vkGetBufferDeviceAddress`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferDeviceAddress.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferDeviceAddress.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.2 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetBufferDeviceAddress")]
-    pub unsafe fn get_buffer_device_address(
-        self,
-        info: *const BufferDeviceAddressInfo,
-    ) -> DeviceAddress {
+    pub unsafe fn get_buffer_address(self, info: *const BufferDeviceAddressInfo) -> DeviceAddress {
         todo!()
     }
 }
 
 impl Device {
-    /// `vkGetBufferOpaqueCaptureAddress`
+    /// [`vkGetBufferOpaqueCaptureAddress`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferOpaqueCaptureAddress.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferOpaqueCaptureAddress.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.2 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetBufferOpaqueCaptureAddress")]
     pub unsafe fn get_buffer_opaque_capture_address(
@@ -3809,13 +3756,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetDeviceMemoryOpaqueCaptureAddress`
+    /// [`vkGetDeviceMemoryOpaqueCaptureAddress`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceMemoryOpaqueCaptureAddress.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceMemoryOpaqueCaptureAddress.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.2 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceMemoryOpaqueCaptureAddress")]
-    pub unsafe fn get_device_memory_opaque_capture_address(
+    pub unsafe fn get_memory_opaque_capture_address(
         self,
         info: *const DeviceMemoryOpaqueCaptureAddressInfo,
     ) -> u64 {
@@ -3824,19 +3774,22 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDrawIndirectCount`
+    /// [`vkCmdDrawIndirectCount`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndirectCount.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndirectCount.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.2 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawIndirectCount")]
@@ -3854,19 +3807,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDrawIndexedIndirectCount`
+    /// [`vkCmdDrawIndexedIndirectCount`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndexedIndirectCount.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndexedIndirectCount.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.2 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawIndexedIndirectCount")]
@@ -3884,10 +3840,16 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkCreateRenderPass2`
+    /// [`vkCreateRenderPass2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateRenderPass2.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateRenderPass2.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.2 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -3909,20 +3871,23 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBeginRenderPass2`
+    /// [`vkCmdBeginRenderPass2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginRenderPass2.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginRenderPass2.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.2 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     /// - `state`
     /// - `synchronization`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdBeginRenderPass2")]
@@ -3936,20 +3901,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdNextSubpass2`
+    /// [`vkCmdNextSubpass2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdNextSubpass2.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdNextSubpass2.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.2 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     /// - `state`
     /// - `synchronization`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdNextSubpass2")]
@@ -3963,20 +3931,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdEndRenderPass2`
+    /// [`vkCmdEndRenderPass2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndRenderPass2.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndRenderPass2.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.2 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     /// - `state`
     /// - `synchronization`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdEndRenderPass2")]
@@ -3986,10 +3957,16 @@ impl CommandBuffer {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceToolProperties`
+    /// [`vkGetPhysicalDeviceToolProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceToolProperties.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceToolProperties.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - tool_properties
     ///
     /// # Result codes
     /// ## Success
@@ -4000,7 +3977,7 @@ impl PhysicalDevice {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetPhysicalDeviceToolProperties")]
-    pub unsafe fn get_physical_device_tool_properties(
+    pub unsafe fn get_tool_properties(
         self,
         tool_count: *mut u32,
         tool_properties: *mut PhysicalDeviceToolProperties,
@@ -4010,10 +3987,16 @@ impl PhysicalDevice {
 }
 
 impl Device {
-    /// `vkCreatePrivateDataSlot`
+    /// [`vkCreatePrivateDataSlot`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreatePrivateDataSlot.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreatePrivateDataSlot.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -4034,10 +4017,17 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroyPrivateDataSlot`
+    /// [`vkDestroyPrivateDataSlot`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyPrivateDataSlot.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyPrivateDataSlot.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - private_data_slot
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyPrivateDataSlot")]
     pub unsafe fn destroy_private_data_slot(
@@ -4050,10 +4040,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkSetPrivateData`
+    /// [`vkSetPrivateData`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetPrivateData.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkSetPrivateData.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -4075,10 +4068,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetPrivateData`
+    /// [`vkGetPrivateData`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPrivateData.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPrivateData.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPrivateData")]
     pub unsafe fn get_private_data(
@@ -4093,19 +4089,22 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdPipelineBarrier2`
+    /// [`vkCmdPipelineBarrier2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPipelineBarrier2.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPipelineBarrier2.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `synchronization`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
@@ -4119,19 +4118,25 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdWriteTimestamp2`
+    /// [`vkCmdWriteTimestamp2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteTimestamp2.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteTimestamp2.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - stage
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
@@ -4150,10 +4155,17 @@ impl CommandBuffer {
 }
 
 impl Queue {
-    /// `vkQueueSubmit2`
+    /// [`vkQueueSubmit2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueSubmit2.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueSubmit2.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - submit_count
+    /// - fence
     ///
     /// # Result codes
     /// ## Success
@@ -4165,7 +4177,7 @@ impl Queue {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkQueueSubmit2")]
-    pub unsafe fn queue_submit_2(
+    pub unsafe fn submit_2(
         self,
         submit_count: u32,
         submits: *const SubmitInfo2,
@@ -4176,19 +4188,22 @@ impl Queue {
 }
 
 impl CommandBuffer {
-    /// `vkCmdCopyBuffer2`
+    /// [`vkCmdCopyBuffer2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyBuffer2.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyBuffer2.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
@@ -4200,19 +4215,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdCopyImage2`
+    /// [`vkCmdCopyImage2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyImage2.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyImage2.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
@@ -4224,19 +4242,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdCopyBufferToImage2`
+    /// [`vkCmdCopyBufferToImage2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyBufferToImage2.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyBufferToImage2.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
@@ -4251,19 +4272,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdCopyImageToBuffer2`
+    /// [`vkCmdCopyImageToBuffer2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyImageToBuffer2.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyImageToBuffer2.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
@@ -4278,13 +4302,16 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkGetDeviceBufferMemoryRequirements`
+    /// [`vkGetDeviceBufferMemoryRequirements`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceBufferMemoryRequirements.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceBufferMemoryRequirements.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceBufferMemoryRequirements")]
-    pub unsafe fn get_device_buffer_memory_requirements(
+    pub unsafe fn get_buffer_memory_requirements(
         self,
         info: *const DeviceBufferMemoryRequirements,
         memory_requirements: *mut MemoryRequirements2,
@@ -4294,13 +4321,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetDeviceImageMemoryRequirements`
+    /// [`vkGetDeviceImageMemoryRequirements`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceImageMemoryRequirements.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceImageMemoryRequirements.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceImageMemoryRequirements")]
-    pub unsafe fn get_device_image_memory_requirements(
+    pub unsafe fn get_image_memory_requirements(
         self,
         info: *const DeviceImageMemoryRequirements,
         memory_requirements: *mut MemoryRequirements2,
@@ -4310,13 +4340,19 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetDeviceImageSparseMemoryRequirements`
+    /// [`vkGetDeviceImageSparseMemoryRequirements`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceImageSparseMemoryRequirements.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceImageSparseMemoryRequirements.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - sparse_memory_requirements
     ///
     #[doc(alias = "vkGetDeviceImageSparseMemoryRequirements")]
-    pub unsafe fn get_device_image_sparse_memory_requirements(
+    pub unsafe fn get_image_sparse_memory_requirements(
         self,
         info: *const DeviceImageMemoryRequirements,
         sparse_memory_requirement_count: *mut u32,
@@ -4327,19 +4363,22 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetEvent2`
+    /// [`vkCmdSetEvent2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetEvent2.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetEvent2.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `synchronization`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
@@ -4352,19 +4391,25 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdResetEvent2`
+    /// [`vkCmdResetEvent2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdResetEvent2.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdResetEvent2.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - stage_mask
+    ///
+    /// # Performed tasks
     /// - `synchronization`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
@@ -4377,19 +4422,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdWaitEvents2`
+    /// [`vkCmdWaitEvents2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWaitEvents2.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWaitEvents2.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `synchronization`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
@@ -4407,19 +4455,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBlitImage2`
+    /// [`vkCmdBlitImage2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBlitImage2.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBlitImage2.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdBlitImage2")]
@@ -4429,19 +4480,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdResolveImage2`
+    /// [`vkCmdResolveImage2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdResolveImage2.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdResolveImage2.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdResolveImage2")]
@@ -4451,20 +4505,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBeginRendering`
+    /// [`vkCmdBeginRendering`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginRendering.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginRendering.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdBeginRendering")]
@@ -4474,20 +4531,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdEndRendering`
+    /// [`vkCmdEndRendering`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndRendering.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndRendering.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdEndRendering")]
@@ -4497,19 +4557,25 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetCullMode`
+    /// [`vkCmdSetCullMode`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCullMode.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCullMode.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - cull_mode
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetCullMode")]
@@ -4519,19 +4585,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetFrontFace`
+    /// [`vkCmdSetFrontFace`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetFrontFace.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetFrontFace.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetFrontFace")]
@@ -4541,19 +4610,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetPrimitiveTopology`
+    /// [`vkCmdSetPrimitiveTopology`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPrimitiveTopology.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPrimitiveTopology.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetPrimitiveTopology")]
@@ -4563,19 +4635,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetViewportWithCount`
+    /// [`vkCmdSetViewportWithCount`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetViewportWithCount.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetViewportWithCount.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetViewportWithCount")]
@@ -4589,19 +4664,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetScissorWithCount`
+    /// [`vkCmdSetScissorWithCount`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetScissorWithCount.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetScissorWithCount.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetScissorWithCount")]
@@ -4611,19 +4689,26 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBindVertexBuffers2`
+    /// [`vkCmdBindVertexBuffers2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindVertexBuffers2.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindVertexBuffers2.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - sizes
+    /// - strides
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdBindVertexBuffers2")]
@@ -4641,19 +4726,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetDepthTestEnable`
+    /// [`vkCmdSetDepthTestEnable`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthTestEnable.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthTestEnable.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetDepthTestEnable")]
@@ -4663,19 +4751,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetDepthWriteEnable`
+    /// [`vkCmdSetDepthWriteEnable`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthWriteEnable.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthWriteEnable.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetDepthWriteEnable")]
@@ -4685,19 +4776,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetDepthCompareOp`
+    /// [`vkCmdSetDepthCompareOp`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthCompareOp.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthCompareOp.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetDepthCompareOp")]
@@ -4707,19 +4801,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetDepthBoundsTestEnable`
+    /// [`vkCmdSetDepthBoundsTestEnable`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthBoundsTestEnable.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthBoundsTestEnable.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetDepthBoundsTestEnable")]
@@ -4729,19 +4826,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetStencilTestEnable`
+    /// [`vkCmdSetStencilTestEnable`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetStencilTestEnable.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetStencilTestEnable.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetStencilTestEnable")]
@@ -4751,19 +4851,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetStencilOp`
+    /// [`vkCmdSetStencilOp`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetStencilOp.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetStencilOp.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetStencilOp")]
@@ -4780,19 +4883,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetRasterizerDiscardEnable`
+    /// [`vkCmdSetRasterizerDiscardEnable`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRasterizerDiscardEnable.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRasterizerDiscardEnable.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetRasterizerDiscardEnable")]
@@ -4802,19 +4908,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetDepthBiasEnable`
+    /// [`vkCmdSetDepthBiasEnable`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthBiasEnable.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthBiasEnable.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetDepthBiasEnable")]
@@ -4824,19 +4933,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetPrimitiveRestartEnable`
+    /// [`vkCmdSetPrimitiveRestartEnable`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPrimitiveRestartEnable.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPrimitiveRestartEnable.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetPrimitiveRestartEnable")]
@@ -4846,10 +4958,13 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkMapMemory2`
+    /// [`vkMapMemory2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkMapMemory2.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkMapMemory2.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.4 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -4871,10 +4986,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkUnmapMemory2`
+    /// [`vkUnmapMemory2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkUnmapMemory2.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkUnmapMemory2.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.4 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -4890,13 +5008,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetDeviceImageSubresourceLayout`
+    /// [`vkGetDeviceImageSubresourceLayout`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceImageSubresourceLayout.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceImageSubresourceLayout.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.4 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceImageSubresourceLayout")]
-    pub unsafe fn get_device_image_subresource_layout(
+    pub unsafe fn get_image_subresource_layout(
         self,
         info: *const DeviceImageSubresourceInfo,
         layout: *mut SubresourceLayout2,
@@ -4906,10 +5027,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetImageSubresourceLayout2`
+    /// [`vkGetImageSubresourceLayout2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageSubresourceLayout2.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageSubresourceLayout2.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.4 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetImageSubresourceLayout2")]
     pub unsafe fn get_image_subresource_layout_2(
@@ -4923,10 +5047,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkCopyMemoryToImage`
+    /// [`vkCopyMemoryToImage`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyMemoryToImage.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyMemoryToImage.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.4 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -4948,10 +5075,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkCopyImageToMemory`
+    /// [`vkCopyImageToMemory`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyImageToMemory.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyImageToMemory.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.4 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -4973,10 +5103,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkCopyImageToImage`
+    /// [`vkCopyImageToImage`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyImageToImage.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyImageToImage.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.4 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -4998,10 +5131,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkTransitionImageLayout`
+    /// [`vkTransitionImageLayout`](https://docs.vulkan.org/refpages/latest/refpages/source/vkTransitionImageLayout.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkTransitionImageLayout.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.4 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -5024,19 +5160,22 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdPushDescriptorSet`
+    /// [`vkCmdPushDescriptorSet`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushDescriptorSet.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushDescriptorSet.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.4 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -5054,19 +5193,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdPushDescriptorSetWithTemplate`
+    /// [`vkCmdPushDescriptorSetWithTemplate`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushDescriptorSetWithTemplate.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushDescriptorSetWithTemplate.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.4 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -5083,19 +5225,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBindDescriptorSets2`
+    /// [`vkCmdBindDescriptorSets2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindDescriptorSets2.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindDescriptorSets2.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.4 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -5109,19 +5254,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdPushConstants2`
+    /// [`vkCmdPushConstants2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushConstants2.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushConstants2.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.4 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -5132,19 +5280,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdPushDescriptorSet2`
+    /// [`vkCmdPushDescriptorSet2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushDescriptorSet2.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushDescriptorSet2.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.4 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -5158,19 +5309,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdPushDescriptorSetWithTemplate2`
+    /// [`vkCmdPushDescriptorSetWithTemplate2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushDescriptorSetWithTemplate2.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushDescriptorSetWithTemplate2.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.4 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -5184,19 +5338,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetLineStipple`
+    /// [`vkCmdSetLineStipple`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetLineStipple.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetLineStipple.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.4 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetLineStipple")]
@@ -5206,19 +5363,25 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBindIndexBuffer2`
+    /// [`vkCmdBindIndexBuffer2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindIndexBuffer2.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindIndexBuffer2.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.4 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - buffer
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdBindIndexBuffer2")]
@@ -5234,10 +5397,13 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkGetRenderingAreaGranularity`
+    /// [`vkGetRenderingAreaGranularity`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRenderingAreaGranularity.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRenderingAreaGranularity.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.4 with appropriate features
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetRenderingAreaGranularity")]
     pub unsafe fn get_rendering_area_granularity(
@@ -5250,19 +5416,22 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetRenderingAttachmentLocations`
+    /// [`vkCmdSetRenderingAttachmentLocations`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRenderingAttachmentLocations.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRenderingAttachmentLocations.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.4 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetRenderingAttachmentLocations")]
@@ -5275,19 +5444,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetRenderingInputAttachmentIndices`
+    /// [`vkCmdSetRenderingInputAttachmentIndices`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRenderingInputAttachmentIndices.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRenderingInputAttachmentIndices.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.4 with appropriate features
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetRenderingInputAttachmentIndices")]
@@ -5300,10 +5472,17 @@ impl CommandBuffer {
 }
 
 impl Instance {
-    /// `vkDestroySurfaceKHR`
+    /// [`vkDestroySurfaceKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroySurfaceKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroySurfaceKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Surface`](Extensions::KHR_Surface)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - surface
+    /// - allocator
     ///
     #[doc(alias = "vkDestroySurfaceKHR")]
     pub unsafe fn destroy_surface_khr(
@@ -5316,10 +5495,13 @@ impl Instance {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceSurfaceSupportKHR`
+    /// [`vkGetPhysicalDeviceSurfaceSupportKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSurfaceSupportKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSurfaceSupportKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Surface`](Extensions::KHR_Surface)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -5331,7 +5513,7 @@ impl PhysicalDevice {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetPhysicalDeviceSurfaceSupportKHR")]
-    pub unsafe fn get_physical_device_surface_support_khr(
+    pub unsafe fn get_surface_support_khr(
         self,
         queue_family_index: u32,
         surface: SurfaceKHR,
@@ -5342,10 +5524,13 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceSurfaceCapabilitiesKHR`
+    /// [`vkGetPhysicalDeviceSurfaceCapabilitiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSurfaceCapabilitiesKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSurfaceCapabilitiesKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Surface`](Extensions::KHR_Surface)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -5357,7 +5542,7 @@ impl PhysicalDevice {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetPhysicalDeviceSurfaceCapabilitiesKHR")]
-    pub unsafe fn get_physical_device_surface_capabilities_khr(
+    pub unsafe fn get_surface_capabilities_khr(
         self,
         surface: SurfaceKHR,
         surface_capabilities: *mut SurfaceCapabilitiesKHR,
@@ -5367,10 +5552,17 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceSurfaceFormatsKHR`
+    /// [`vkGetPhysicalDeviceSurfaceFormatsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSurfaceFormatsKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSurfaceFormatsKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Surface`](Extensions::KHR_Surface)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - surface
+    /// - surface_formats
     ///
     /// # Result codes
     /// ## Success
@@ -5383,7 +5575,7 @@ impl PhysicalDevice {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetPhysicalDeviceSurfaceFormatsKHR")]
-    pub unsafe fn get_physical_device_surface_formats_khr(
+    pub unsafe fn get_surface_formats_khr(
         self,
         surface: SurfaceKHR,
         surface_format_count: *mut u32,
@@ -5394,10 +5586,17 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceSurfacePresentModesKHR`
+    /// [`vkGetPhysicalDeviceSurfacePresentModesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSurfacePresentModesKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSurfacePresentModesKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Surface`](Extensions::KHR_Surface)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - surface
+    /// - present_modes
     ///
     /// # Result codes
     /// ## Success
@@ -5410,7 +5609,7 @@ impl PhysicalDevice {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetPhysicalDeviceSurfacePresentModesKHR")]
-    pub unsafe fn get_physical_device_surface_present_modes_khr(
+    pub unsafe fn get_surface_present_modes_khr(
         self,
         surface: SurfaceKHR,
         present_mode_count: *mut u32,
@@ -5421,10 +5620,16 @@ impl PhysicalDevice {
 }
 
 impl Device {
-    /// `vkCreateSwapchainKHR`
+    /// [`vkCreateSwapchainKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateSwapchainKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateSwapchainKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -5451,10 +5656,17 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroySwapchainKHR`
+    /// [`vkDestroySwapchainKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroySwapchainKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroySwapchainKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - swapchain
+    /// - allocator
     ///
     #[doc(alias = "vkDestroySwapchainKHR")]
     pub unsafe fn destroy_swapchain_khr(
@@ -5467,10 +5679,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetSwapchainImagesKHR`
+    /// [`vkGetSwapchainImagesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSwapchainImagesKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSwapchainImagesKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - swapchain_images
     ///
     /// # Result codes
     /// ## Success
@@ -5493,10 +5711,17 @@ impl Device {
 }
 
 impl Device {
-    /// `vkAcquireNextImageKHR`
+    /// [`vkAcquireNextImageKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkAcquireNextImageKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkAcquireNextImageKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - semaphore
+    /// - fence
     ///
     /// # Result codes
     /// ## Success
@@ -5527,10 +5752,13 @@ impl Device {
 }
 
 impl Queue {
-    /// `vkQueuePresentKHR`
+    /// [`vkQueuePresentKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueuePresentKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkQueuePresentKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -5547,16 +5775,20 @@ impl Queue {
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     /// - [`PRESENT_TIMING_QUEUE_FULL_EXT`](ResultCode::ERROR_PRESENT_TIMING_QUEUE_FULL_EXT)
     #[doc(alias = "vkQueuePresentKHR")]
-    pub unsafe fn queue_present_khr(self, present_info: *const PresentInfoKHR) -> ResultCode {
+    pub unsafe fn present_khr(self, present_info: *const PresentInfoKHR) -> ResultCode {
         todo!()
     }
 }
 
 impl Device {
-    /// `vkGetDeviceGroupPresentCapabilitiesKHR`
+    /// [`vkGetDeviceGroupPresentCapabilitiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceGroupPresentCapabilitiesKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceGroupPresentCapabilitiesKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
+    /// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -5567,7 +5799,7 @@ impl Device {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetDeviceGroupPresentCapabilitiesKHR")]
-    pub unsafe fn get_device_group_present_capabilities_khr(
+    pub unsafe fn get_group_present_capabilities_khr(
         self,
         device_group_present_capabilities: *mut DeviceGroupPresentCapabilitiesKHR,
     ) -> ResultCode {
@@ -5576,10 +5808,14 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetDeviceGroupSurfacePresentModesKHR`
+    /// [`vkGetDeviceGroupSurfacePresentModesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceGroupSurfacePresentModesKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceGroupSurfacePresentModesKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
+    /// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -5591,7 +5827,7 @@ impl Device {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetDeviceGroupSurfacePresentModesKHR")]
-    pub unsafe fn get_device_group_surface_present_modes_khr(
+    pub unsafe fn get_group_surface_present_modes_khr(
         self,
         surface: SurfaceKHR,
         modes: *mut DeviceGroupPresentModeFlagsKHR,
@@ -5601,10 +5837,17 @@ impl Device {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDevicePresentRectanglesKHR`
+    /// [`vkGetPhysicalDevicePresentRectanglesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDevicePresentRectanglesKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDevicePresentRectanglesKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
+    /// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - rects
     ///
     /// # Result codes
     /// ## Success
@@ -5616,7 +5859,7 @@ impl PhysicalDevice {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetPhysicalDevicePresentRectanglesKHR")]
-    pub unsafe fn get_physical_device_present_rectangles_khr(
+    pub unsafe fn get_present_rectangles_khr(
         self,
         surface: SurfaceKHR,
         rect_count: *mut u32,
@@ -5627,10 +5870,14 @@ impl PhysicalDevice {
 }
 
 impl Device {
-    /// `vkAcquireNextImage2KHR`
+    /// [`vkAcquireNextImage2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkAcquireNextImage2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkAcquireNextImage2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
+    /// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -5658,10 +5905,16 @@ impl Device {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceDisplayPropertiesKHR`
+    /// [`vkGetPhysicalDeviceDisplayPropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceDisplayPropertiesKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceDisplayPropertiesKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Display`](Extensions::KHR_Display)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - properties
     ///
     /// # Result codes
     /// ## Success
@@ -5673,7 +5926,7 @@ impl PhysicalDevice {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetPhysicalDeviceDisplayPropertiesKHR")]
-    pub unsafe fn get_physical_device_display_properties_khr(
+    pub unsafe fn get_display_properties_khr(
         self,
         property_count: *mut u32,
         properties: *mut DisplayPropertiesKHR,
@@ -5683,10 +5936,16 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceDisplayPlanePropertiesKHR`
+    /// [`vkGetPhysicalDeviceDisplayPlanePropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceDisplayPlanePropertiesKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceDisplayPlanePropertiesKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Display`](Extensions::KHR_Display)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - properties
     ///
     /// # Result codes
     /// ## Success
@@ -5698,7 +5957,7 @@ impl PhysicalDevice {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetPhysicalDeviceDisplayPlanePropertiesKHR")]
-    pub unsafe fn get_physical_device_display_plane_properties_khr(
+    pub unsafe fn get_display_plane_properties_khr(
         self,
         property_count: *mut u32,
         properties: *mut DisplayPlanePropertiesKHR,
@@ -5708,10 +5967,16 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
-    /// `vkGetDisplayPlaneSupportedDisplaysKHR`
+    /// [`vkGetDisplayPlaneSupportedDisplaysKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDisplayPlaneSupportedDisplaysKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDisplayPlaneSupportedDisplaysKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Display`](Extensions::KHR_Display)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - displays
     ///
     /// # Result codes
     /// ## Success
@@ -5734,10 +5999,16 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
-    /// `vkGetDisplayModePropertiesKHR`
+    /// [`vkGetDisplayModePropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDisplayModePropertiesKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDisplayModePropertiesKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Display`](Extensions::KHR_Display)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - properties
     ///
     /// # Result codes
     /// ## Success
@@ -5760,10 +6031,16 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
-    /// `vkCreateDisplayModeKHR`
+    /// [`vkCreateDisplayModeKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDisplayModeKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDisplayModeKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Display`](Extensions::KHR_Display)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -5787,10 +6064,13 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
-    /// `vkGetDisplayPlaneCapabilitiesKHR`
+    /// [`vkGetDisplayPlaneCapabilitiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDisplayPlaneCapabilitiesKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDisplayPlaneCapabilitiesKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Display`](Extensions::KHR_Display)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -5812,10 +6092,16 @@ impl PhysicalDevice {
 }
 
 impl Instance {
-    /// `vkCreateDisplayPlaneSurfaceKHR`
+    /// [`vkCreateDisplayPlaneSurfaceKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDisplayPlaneSurfaceKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDisplayPlaneSurfaceKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Display`](Extensions::KHR_Display)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -5837,10 +6123,16 @@ impl Instance {
 }
 
 impl Device {
-    /// `vkCreateSharedSwapchainsKHR`
+    /// [`vkCreateSharedSwapchainsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateSharedSwapchainsKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateSharedSwapchainsKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DisplaySwapchain`](Extensions::KHR_DisplaySwapchain)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -5866,10 +6158,16 @@ impl Device {
 }
 
 impl Instance {
-    /// `vkCreateXlibSurfaceKHR`
+    /// [`vkCreateXlibSurfaceKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateXlibSurfaceKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateXlibSurfaceKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_XlibSurface`](Extensions::KHR_XlibSurface)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -5891,13 +6189,16 @@ impl Instance {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceXlibPresentationSupportKHR`
+    /// [`vkGetPhysicalDeviceXlibPresentationSupportKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceXlibPresentationSupportKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceXlibPresentationSupportKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_XlibSurface`](Extensions::KHR_XlibSurface)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceXlibPresentationSupportKHR")]
-    pub unsafe fn get_physical_device_xlib_presentation_support_khr(
+    pub unsafe fn get_xlib_presentation_support_khr(
         self,
         queue_family_index: u32,
         dpy: *mut Display,
@@ -5908,10 +6209,16 @@ impl PhysicalDevice {
 }
 
 impl Instance {
-    /// `vkCreateXcbSurfaceKHR`
+    /// [`vkCreateXcbSurfaceKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateXcbSurfaceKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateXcbSurfaceKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_XcbSurface`](Extensions::KHR_XcbSurface)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -5933,13 +6240,16 @@ impl Instance {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceXcbPresentationSupportKHR`
+    /// [`vkGetPhysicalDeviceXcbPresentationSupportKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceXcbPresentationSupportKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceXcbPresentationSupportKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_XcbSurface`](Extensions::KHR_XcbSurface)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceXcbPresentationSupportKHR")]
-    pub unsafe fn get_physical_device_xcb_presentation_support_khr(
+    pub unsafe fn get_xcb_presentation_support_khr(
         self,
         queue_family_index: u32,
         connection: *mut xcb_connection_t,
@@ -5950,10 +6260,16 @@ impl PhysicalDevice {
 }
 
 impl Instance {
-    /// `vkCreateWaylandSurfaceKHR`
+    /// [`vkCreateWaylandSurfaceKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateWaylandSurfaceKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateWaylandSurfaceKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_WaylandSurface`](Extensions::KHR_WaylandSurface)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -5975,13 +6291,16 @@ impl Instance {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceWaylandPresentationSupportKHR`
+    /// [`vkGetPhysicalDeviceWaylandPresentationSupportKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceWaylandPresentationSupportKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceWaylandPresentationSupportKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_WaylandSurface`](Extensions::KHR_WaylandSurface)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceWaylandPresentationSupportKHR")]
-    pub unsafe fn get_physical_device_wayland_presentation_support_khr(
+    pub unsafe fn get_wayland_presentation_support_khr(
         self,
         queue_family_index: u32,
         display: *mut wl_display,
@@ -5991,10 +6310,16 @@ impl PhysicalDevice {
 }
 
 impl Instance {
-    /// `vkCreateAndroidSurfaceKHR`
+    /// [`vkCreateAndroidSurfaceKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateAndroidSurfaceKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateAndroidSurfaceKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_AndroidSurface`](Extensions::KHR_AndroidSurface)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -6017,10 +6342,16 @@ impl Instance {
 }
 
 impl Instance {
-    /// `vkCreateWin32SurfaceKHR`
+    /// [`vkCreateWin32SurfaceKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateWin32SurfaceKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateWin32SurfaceKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Win32Surface`](Extensions::KHR_Win32Surface)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -6042,25 +6373,28 @@ impl Instance {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceWin32PresentationSupportKHR`
+    /// [`vkGetPhysicalDeviceWin32PresentationSupportKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceWin32PresentationSupportKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceWin32PresentationSupportKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Win32Surface`](Extensions::KHR_Win32Surface)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceWin32PresentationSupportKHR")]
-    pub unsafe fn get_physical_device_win_32_presentation_support_khr(
-        self,
-        queue_family_index: u32,
-    ) -> Bool32 {
+    pub unsafe fn get_win_32_presentation_support_khr(self, queue_family_index: u32) -> Bool32 {
         todo!()
     }
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceVideoCapabilitiesKHR`
+    /// [`vkGetPhysicalDeviceVideoCapabilitiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceVideoCapabilitiesKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceVideoCapabilitiesKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -6075,7 +6409,7 @@ impl PhysicalDevice {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetPhysicalDeviceVideoCapabilitiesKHR")]
-    pub unsafe fn get_physical_device_video_capabilities_khr(
+    pub unsafe fn get_video_capabilities_khr(
         self,
         video_profile: *const VideoProfileInfoKHR,
         capabilities: *mut VideoCapabilitiesKHR,
@@ -6085,10 +6419,16 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceVideoFormatPropertiesKHR`
+    /// [`vkGetPhysicalDeviceVideoFormatPropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceVideoFormatPropertiesKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceVideoFormatPropertiesKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - video_format_properties
     ///
     /// # Result codes
     /// ## Success
@@ -6105,7 +6445,7 @@ impl PhysicalDevice {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetPhysicalDeviceVideoFormatPropertiesKHR")]
-    pub unsafe fn get_physical_device_video_format_properties_khr(
+    pub unsafe fn get_video_format_properties_khr(
         self,
         video_format_info: *const PhysicalDeviceVideoFormatInfoKHR,
         video_format_property_count: *mut u32,
@@ -6116,10 +6456,16 @@ impl PhysicalDevice {
 }
 
 impl Device {
-    /// `vkCreateVideoSessionKHR`
+    /// [`vkCreateVideoSessionKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateVideoSessionKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateVideoSessionKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -6144,10 +6490,17 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroyVideoSessionKHR`
+    /// [`vkDestroyVideoSessionKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyVideoSessionKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyVideoSessionKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - video_session
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyVideoSessionKHR")]
     pub unsafe fn destroy_video_session_khr(
@@ -6160,10 +6513,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetVideoSessionMemoryRequirementsKHR`
+    /// [`vkGetVideoSessionMemoryRequirementsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetVideoSessionMemoryRequirementsKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetVideoSessionMemoryRequirementsKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - memory_requirements
     ///
     /// # Result codes
     /// ## Success
@@ -6184,10 +6543,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkBindVideoSessionMemoryKHR`
+    /// [`vkBindVideoSessionMemoryKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkBindVideoSessionMemoryKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkBindVideoSessionMemoryKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -6209,10 +6571,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkCreateVideoSessionParametersKHR`
+    /// [`vkCreateVideoSessionParametersKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateVideoSessionParametersKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateVideoSessionParametersKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -6236,10 +6604,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkUpdateVideoSessionParametersKHR`
+    /// [`vkUpdateVideoSessionParametersKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkUpdateVideoSessionParametersKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkUpdateVideoSessionParametersKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -6261,10 +6632,17 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroyVideoSessionParametersKHR`
+    /// [`vkDestroyVideoSessionParametersKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyVideoSessionParametersKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyVideoSessionParametersKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - video_session_parameters
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyVideoSessionParametersKHR")]
     pub unsafe fn destroy_video_session_parameters_khr(
@@ -6277,19 +6655,22 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBeginVideoCodingKHR`
+    /// [`vkCmdBeginVideoCodingKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginVideoCodingKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginVideoCodingKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
     /// - [`VIDEO_ENCODEKHR`](QueueFlags::VIDEO_ENCODEKHR)
     ///
@@ -6300,19 +6681,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdEndVideoCodingKHR`
+    /// [`vkCmdEndVideoCodingKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndVideoCodingKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndVideoCodingKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
     /// - [`VIDEO_ENCODEKHR`](QueueFlags::VIDEO_ENCODEKHR)
     ///
@@ -6323,18 +6707,21 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdControlVideoCodingKHR`
+    /// [`vkCmdControlVideoCodingKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdControlVideoCodingKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdControlVideoCodingKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
     /// - [`VIDEO_ENCODEKHR`](QueueFlags::VIDEO_ENCODEKHR)
     ///
@@ -6348,18 +6735,21 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDecodeVideoKHR`
+    /// [`vkCmdDecodeVideoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDecodeVideoKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDecodeVideoKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoDecodeQueue`](Extensions::KHR_VideoDecodeQueue)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
     ///
     #[doc(alias = "vkCmdDecodeVideoKHR")]
@@ -6369,20 +6759,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBeginRenderingKHR`
+    /// [`vkCmdBeginRenderingKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginRenderingKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginRenderingKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DynamicRendering`](Extensions::KHR_DynamicRendering)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdBeginRenderingKHR")]
@@ -6392,20 +6785,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdEndRenderingKHR`
+    /// [`vkCmdEndRenderingKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndRenderingKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndRenderingKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DynamicRendering`](Extensions::KHR_DynamicRendering)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdEndRenderingKHR")]
@@ -6415,40 +6811,46 @@ impl CommandBuffer {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceFeatures2KHR`
+    /// [`vkGetPhysicalDeviceFeatures2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceFeatures2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceFeatures2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extensions::KHR_GetPhysicalDeviceProperties2)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceFeatures2KHR")]
-    pub unsafe fn get_physical_device_features_2_khr(self, features: *mut PhysicalDeviceFeatures2) {
+    pub unsafe fn get_features_2_khr(self, features: *mut PhysicalDeviceFeatures2) {
         todo!()
     }
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceProperties2KHR`
+    /// [`vkGetPhysicalDeviceProperties2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceProperties2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceProperties2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extensions::KHR_GetPhysicalDeviceProperties2)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceProperties2KHR")]
-    pub unsafe fn get_physical_device_properties_2_khr(
-        self,
-        properties: *mut PhysicalDeviceProperties2,
-    ) {
+    pub unsafe fn get_properties_2_khr(self, properties: *mut PhysicalDeviceProperties2) {
         todo!()
     }
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceFormatProperties2KHR`
+    /// [`vkGetPhysicalDeviceFormatProperties2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceFormatProperties2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceFormatProperties2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extensions::KHR_GetPhysicalDeviceProperties2)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceFormatProperties2KHR")]
-    pub unsafe fn get_physical_device_format_properties_2_khr(
+    pub unsafe fn get_format_properties_2_khr(
         self,
         format: Format,
         format_properties: *mut FormatProperties2,
@@ -6458,10 +6860,13 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceImageFormatProperties2KHR`
+    /// [`vkGetPhysicalDeviceImageFormatProperties2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceImageFormatProperties2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceImageFormatProperties2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extensions::KHR_GetPhysicalDeviceProperties2)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -6478,7 +6883,7 @@ impl PhysicalDevice {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetPhysicalDeviceImageFormatProperties2KHR")]
-    pub unsafe fn get_physical_device_image_format_properties_2_khr(
+    pub unsafe fn get_image_format_properties_2_khr(
         self,
         image_format_info: *const PhysicalDeviceImageFormatInfo2,
         image_format_properties: *mut ImageFormatProperties2,
@@ -6488,13 +6893,19 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceQueueFamilyProperties2KHR`
+    /// [`vkGetPhysicalDeviceQueueFamilyProperties2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceQueueFamilyProperties2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceQueueFamilyProperties2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extensions::KHR_GetPhysicalDeviceProperties2)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - queue_family_properties
     ///
     #[doc(alias = "vkGetPhysicalDeviceQueueFamilyProperties2KHR")]
-    pub unsafe fn get_physical_device_queue_family_properties_2_khr(
+    pub unsafe fn get_queue_family_properties_2_khr(
         self,
         queue_family_property_count: *mut u32,
         queue_family_properties: *mut QueueFamilyProperties2,
@@ -6504,13 +6915,16 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceMemoryProperties2KHR`
+    /// [`vkGetPhysicalDeviceMemoryProperties2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceMemoryProperties2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceMemoryProperties2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extensions::KHR_GetPhysicalDeviceProperties2)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceMemoryProperties2KHR")]
-    pub unsafe fn get_physical_device_memory_properties_2_khr(
+    pub unsafe fn get_memory_properties_2_khr(
         self,
         memory_properties: *mut PhysicalDeviceMemoryProperties2,
     ) {
@@ -6519,13 +6933,19 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceSparseImageFormatProperties2KHR`
+    /// [`vkGetPhysicalDeviceSparseImageFormatProperties2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSparseImageFormatProperties2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSparseImageFormatProperties2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extensions::KHR_GetPhysicalDeviceProperties2)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - properties
     ///
     #[doc(alias = "vkGetPhysicalDeviceSparseImageFormatProperties2KHR")]
-    pub unsafe fn get_physical_device_sparse_image_format_properties_2_khr(
+    pub unsafe fn get_sparse_image_format_properties_2_khr(
         self,
         format_info: *const PhysicalDeviceSparseImageFormatInfo2,
         property_count: *mut u32,
@@ -6536,13 +6956,16 @@ impl PhysicalDevice {
 }
 
 impl Device {
-    /// `vkGetDeviceGroupPeerMemoryFeaturesKHR`
+    /// [`vkGetDeviceGroupPeerMemoryFeaturesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceGroupPeerMemoryFeaturesKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceGroupPeerMemoryFeaturesKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceGroupPeerMemoryFeaturesKHR")]
-    pub unsafe fn get_device_group_peer_memory_features_khr(
+    pub unsafe fn get_group_peer_memory_features_khr(
         self,
         heap_index: u32,
         local_device_index: u32,
@@ -6554,19 +6977,22 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetDeviceMaskKHR`
+    /// [`vkCmdSetDeviceMaskKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDeviceMaskKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDeviceMaskKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
@@ -6578,19 +7004,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDispatchBaseKHR`
+    /// [`vkCmdDispatchBaseKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchBaseKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchBaseKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
     #[doc(alias = "vkCmdDispatchBaseKHR")]
@@ -6608,10 +7037,16 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkTrimCommandPoolKHR`
+    /// [`vkTrimCommandPoolKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkTrimCommandPoolKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkTrimCommandPoolKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Maintenance1`](Extensions::KHR_Maintenance1)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - flags
     ///
     #[doc(alias = "vkTrimCommandPoolKHR")]
     pub unsafe fn trim_command_pool_khr(
@@ -6624,10 +7059,16 @@ impl Device {
 }
 
 impl Instance {
-    /// `vkEnumeratePhysicalDeviceGroupsKHR`
+    /// [`vkEnumeratePhysicalDeviceGroupsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumeratePhysicalDeviceGroupsKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumeratePhysicalDeviceGroupsKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DeviceGroupCreation`](Extensions::KHR_DeviceGroupCreation)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - physical_device_group_properties
     ///
     /// # Result codes
     /// ## Success
@@ -6650,13 +7091,16 @@ impl Instance {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceExternalBufferPropertiesKHR`
+    /// [`vkGetPhysicalDeviceExternalBufferPropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceExternalBufferPropertiesKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceExternalBufferPropertiesKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_ExternalMemoryCapabilities`](Extensions::KHR_ExternalMemoryCapabilities)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceExternalBufferPropertiesKHR")]
-    pub unsafe fn get_physical_device_external_buffer_properties_khr(
+    pub unsafe fn get_external_buffer_properties_khr(
         self,
         external_buffer_info: *const PhysicalDeviceExternalBufferInfo,
         external_buffer_properties: *mut ExternalBufferProperties,
@@ -6666,10 +7110,13 @@ impl PhysicalDevice {
 }
 
 impl Device {
-    /// `vkGetMemoryWin32HandleKHR`
+    /// [`vkGetMemoryWin32HandleKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryWin32HandleKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryWin32HandleKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_ExternalMemoryWin32`](Extensions::KHR_ExternalMemoryWin32)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -6690,10 +7137,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetMemoryWin32HandlePropertiesKHR`
+    /// [`vkGetMemoryWin32HandlePropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryWin32HandlePropertiesKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryWin32HandlePropertiesKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_ExternalMemoryWin32`](Extensions::KHR_ExternalMemoryWin32)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -6715,10 +7165,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetMemoryFdKHR`
+    /// [`vkGetMemoryFdKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryFdKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryFdKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_ExternalMemoryFd`](Extensions::KHR_ExternalMemoryFd)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -6739,10 +7192,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetMemoryFdPropertiesKHR`
+    /// [`vkGetMemoryFdPropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryFdPropertiesKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryFdPropertiesKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_ExternalMemoryFd`](Extensions::KHR_ExternalMemoryFd)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -6764,13 +7220,16 @@ impl Device {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceExternalSemaphorePropertiesKHR`
+    /// [`vkGetPhysicalDeviceExternalSemaphorePropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceExternalSemaphorePropertiesKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceExternalSemaphorePropertiesKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_ExternalSemaphoreCapabilities`](Extensions::KHR_ExternalSemaphoreCapabilities)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceExternalSemaphorePropertiesKHR")]
-    pub unsafe fn get_physical_device_external_semaphore_properties_khr(
+    pub unsafe fn get_external_semaphore_properties_khr(
         self,
         external_semaphore_info: *const PhysicalDeviceExternalSemaphoreInfo,
         external_semaphore_properties: *mut ExternalSemaphoreProperties,
@@ -6780,10 +7239,13 @@ impl PhysicalDevice {
 }
 
 impl Device {
-    /// `vkImportSemaphoreWin32HandleKHR`
+    /// [`vkImportSemaphoreWin32HandleKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkImportSemaphoreWin32HandleKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkImportSemaphoreWin32HandleKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_ExternalSemaphoreWin32`](Extensions::KHR_ExternalSemaphoreWin32)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -6803,10 +7265,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetSemaphoreWin32HandleKHR`
+    /// [`vkGetSemaphoreWin32HandleKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSemaphoreWin32HandleKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSemaphoreWin32HandleKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_ExternalSemaphoreWin32`](Extensions::KHR_ExternalSemaphoreWin32)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -6827,10 +7292,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkImportSemaphoreFdKHR`
+    /// [`vkImportSemaphoreFdKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkImportSemaphoreFdKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkImportSemaphoreFdKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_ExternalSemaphoreFd`](Extensions::KHR_ExternalSemaphoreFd)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -6850,10 +7318,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetSemaphoreFdKHR`
+    /// [`vkGetSemaphoreFdKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSemaphoreFdKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSemaphoreFdKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_ExternalSemaphoreFd`](Extensions::KHR_ExternalSemaphoreFd)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -6874,19 +7345,22 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdPushDescriptorSetKHR`
+    /// [`vkCmdPushDescriptorSetKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushDescriptorSetKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushDescriptorSetKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_PushDescriptor`](Extensions::KHR_PushDescriptor)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -6904,19 +7378,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdPushDescriptorSetWithTemplateKHR`
+    /// [`vkCmdPushDescriptorSetWithTemplateKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushDescriptorSetWithTemplateKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushDescriptorSetWithTemplateKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_PushDescriptor`](Extensions::KHR_PushDescriptor)
+    /// - Extension [`KHR_DescriptorUpdateTemplate`](Extensions::KHR_DescriptorUpdateTemplate)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -6933,10 +7411,16 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkCreateDescriptorUpdateTemplateKHR`
+    /// [`vkCreateDescriptorUpdateTemplateKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDescriptorUpdateTemplateKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDescriptorUpdateTemplateKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DescriptorUpdateTemplate`](Extensions::KHR_DescriptorUpdateTemplate)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -6958,10 +7442,17 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroyDescriptorUpdateTemplateKHR`
+    /// [`vkDestroyDescriptorUpdateTemplateKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDescriptorUpdateTemplateKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDescriptorUpdateTemplateKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DescriptorUpdateTemplate`](Extensions::KHR_DescriptorUpdateTemplate)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - descriptor_update_template
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyDescriptorUpdateTemplateKHR")]
     pub unsafe fn destroy_descriptor_update_template_khr(
@@ -6974,10 +7465,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkUpdateDescriptorSetWithTemplateKHR`
+    /// [`vkUpdateDescriptorSetWithTemplateKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkUpdateDescriptorSetWithTemplateKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkUpdateDescriptorSetWithTemplateKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DescriptorUpdateTemplate`](Extensions::KHR_DescriptorUpdateTemplate)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkUpdateDescriptorSetWithTemplateKHR")]
     pub unsafe fn update_descriptor_set_with_template_khr(
@@ -6991,10 +7485,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkCreateRenderPass2KHR`
+    /// [`vkCreateRenderPass2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateRenderPass2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateRenderPass2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_CreateRenderpass2`](Extensions::KHR_CreateRenderpass2)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -7016,20 +7516,23 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBeginRenderPass2KHR`
+    /// [`vkCmdBeginRenderPass2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginRenderPass2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginRenderPass2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_CreateRenderpass2`](Extensions::KHR_CreateRenderpass2)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     /// - `state`
     /// - `synchronization`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdBeginRenderPass2KHR")]
@@ -7043,20 +7546,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdNextSubpass2KHR`
+    /// [`vkCmdNextSubpass2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdNextSubpass2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdNextSubpass2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_CreateRenderpass2`](Extensions::KHR_CreateRenderpass2)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     /// - `state`
     /// - `synchronization`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdNextSubpass2KHR")]
@@ -7070,20 +7576,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdEndRenderPass2KHR`
+    /// [`vkCmdEndRenderPass2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndRenderPass2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndRenderPass2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_CreateRenderpass2`](Extensions::KHR_CreateRenderpass2)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     /// - `state`
     /// - `synchronization`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdEndRenderPass2KHR")]
@@ -7093,10 +7602,13 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkGetSwapchainStatusKHR`
+    /// [`vkGetSwapchainStatusKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSwapchainStatusKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSwapchainStatusKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_SharedPresentableImage`](Extensions::KHR_SharedPresentableImage)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -7118,13 +7630,16 @@ impl Device {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceExternalFencePropertiesKHR`
+    /// [`vkGetPhysicalDeviceExternalFencePropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceExternalFencePropertiesKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceExternalFencePropertiesKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_ExternalFenceCapabilities`](Extensions::KHR_ExternalFenceCapabilities)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceExternalFencePropertiesKHR")]
-    pub unsafe fn get_physical_device_external_fence_properties_khr(
+    pub unsafe fn get_external_fence_properties_khr(
         self,
         external_fence_info: *const PhysicalDeviceExternalFenceInfo,
         external_fence_properties: *mut ExternalFenceProperties,
@@ -7134,10 +7649,13 @@ impl PhysicalDevice {
 }
 
 impl Device {
-    /// `vkImportFenceWin32HandleKHR`
+    /// [`vkImportFenceWin32HandleKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkImportFenceWin32HandleKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkImportFenceWin32HandleKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_ExternalFenceWin32`](Extensions::KHR_ExternalFenceWin32)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -7157,10 +7675,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetFenceWin32HandleKHR`
+    /// [`vkGetFenceWin32HandleKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetFenceWin32HandleKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetFenceWin32HandleKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_ExternalFenceWin32`](Extensions::KHR_ExternalFenceWin32)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -7181,10 +7702,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkImportFenceFdKHR`
+    /// [`vkImportFenceFdKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkImportFenceFdKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkImportFenceFdKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_ExternalFenceFd`](Extensions::KHR_ExternalFenceFd)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -7204,10 +7728,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetFenceFdKHR`
+    /// [`vkGetFenceFdKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetFenceFdKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetFenceFdKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_ExternalFenceFd`](Extensions::KHR_ExternalFenceFd)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -7228,10 +7755,17 @@ impl Device {
 }
 
 impl PhysicalDevice {
-    /// `vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR`
+    /// [`vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_PerformanceQuery`](Extensions::KHR_PerformanceQuery)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - counters
+    /// - counter_descriptions
     ///
     /// # Result codes
     /// ## Success
@@ -7244,7 +7778,7 @@ impl PhysicalDevice {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR")]
-    pub unsafe fn enumerate_physical_device_queue_family_performance_query_counters_khr(
+    pub unsafe fn enumerate_queue_family_performance_query_counters_khr(
         self,
         queue_family_index: u32,
         counter_count: *mut u32,
@@ -7256,13 +7790,16 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR`
+    /// [`vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_PerformanceQuery`](Extensions::KHR_PerformanceQuery)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR")]
-    pub unsafe fn get_physical_device_queue_family_performance_query_passes_khr(
+    pub unsafe fn get_queue_family_performance_query_passes_khr(
         self,
         performance_query_create_info: *const QueryPoolPerformanceCreateInfoKHR,
         num_passes: *mut u32,
@@ -7272,10 +7809,13 @@ impl PhysicalDevice {
 }
 
 impl Device {
-    /// `vkAcquireProfilingLockKHR`
+    /// [`vkAcquireProfilingLockKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkAcquireProfilingLockKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkAcquireProfilingLockKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_PerformanceQuery`](Extensions::KHR_PerformanceQuery)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -7295,10 +7835,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkReleaseProfilingLockKHR`
+    /// [`vkReleaseProfilingLockKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkReleaseProfilingLockKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkReleaseProfilingLockKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_PerformanceQuery`](Extensions::KHR_PerformanceQuery)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkReleaseProfilingLockKHR")]
     pub unsafe fn release_profiling_lock_khr(self) {
@@ -7307,10 +7850,13 @@ impl Device {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceSurfaceCapabilities2KHR`
+    /// [`vkGetPhysicalDeviceSurfaceCapabilities2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSurfaceCapabilities2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSurfaceCapabilities2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_GetSurfaceCapabilities2`](Extensions::KHR_GetSurfaceCapabilities2)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -7322,7 +7868,7 @@ impl PhysicalDevice {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetPhysicalDeviceSurfaceCapabilities2KHR")]
-    pub unsafe fn get_physical_device_surface_capabilities_2_khr(
+    pub unsafe fn get_surface_capabilities_2_khr(
         self,
         surface_info: *const PhysicalDeviceSurfaceInfo2KHR,
         surface_capabilities: *mut SurfaceCapabilities2KHR,
@@ -7332,10 +7878,16 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceSurfaceFormats2KHR`
+    /// [`vkGetPhysicalDeviceSurfaceFormats2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSurfaceFormats2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSurfaceFormats2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_GetSurfaceCapabilities2`](Extensions::KHR_GetSurfaceCapabilities2)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - surface_formats
     ///
     /// # Result codes
     /// ## Success
@@ -7348,7 +7900,7 @@ impl PhysicalDevice {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetPhysicalDeviceSurfaceFormats2KHR")]
-    pub unsafe fn get_physical_device_surface_formats_2_khr(
+    pub unsafe fn get_surface_formats_2_khr(
         self,
         surface_info: *const PhysicalDeviceSurfaceInfo2KHR,
         surface_format_count: *mut u32,
@@ -7359,10 +7911,16 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceDisplayProperties2KHR`
+    /// [`vkGetPhysicalDeviceDisplayProperties2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceDisplayProperties2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceDisplayProperties2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_GetDisplayProperties2`](Extensions::KHR_GetDisplayProperties2)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - properties
     ///
     /// # Result codes
     /// ## Success
@@ -7374,7 +7932,7 @@ impl PhysicalDevice {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetPhysicalDeviceDisplayProperties2KHR")]
-    pub unsafe fn get_physical_device_display_properties_2_khr(
+    pub unsafe fn get_display_properties_2_khr(
         self,
         property_count: *mut u32,
         properties: *mut DisplayProperties2KHR,
@@ -7384,10 +7942,16 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceDisplayPlaneProperties2KHR`
+    /// [`vkGetPhysicalDeviceDisplayPlaneProperties2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceDisplayPlaneProperties2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceDisplayPlaneProperties2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_GetDisplayProperties2`](Extensions::KHR_GetDisplayProperties2)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - properties
     ///
     /// # Result codes
     /// ## Success
@@ -7399,7 +7963,7 @@ impl PhysicalDevice {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetPhysicalDeviceDisplayPlaneProperties2KHR")]
-    pub unsafe fn get_physical_device_display_plane_properties_2_khr(
+    pub unsafe fn get_display_plane_properties_2_khr(
         self,
         property_count: *mut u32,
         properties: *mut DisplayPlaneProperties2KHR,
@@ -7409,10 +7973,16 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
-    /// `vkGetDisplayModeProperties2KHR`
+    /// [`vkGetDisplayModeProperties2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDisplayModeProperties2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDisplayModeProperties2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_GetDisplayProperties2`](Extensions::KHR_GetDisplayProperties2)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - properties
     ///
     /// # Result codes
     /// ## Success
@@ -7435,10 +8005,13 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
-    /// `vkGetDisplayPlaneCapabilities2KHR`
+    /// [`vkGetDisplayPlaneCapabilities2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDisplayPlaneCapabilities2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDisplayPlaneCapabilities2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_GetDisplayProperties2`](Extensions::KHR_GetDisplayProperties2)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -7459,10 +8032,13 @@ impl PhysicalDevice {
 }
 
 impl Device {
-    /// `vkGetImageMemoryRequirements2KHR`
+    /// [`vkGetImageMemoryRequirements2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageMemoryRequirements2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageMemoryRequirements2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_GetMemoryRequirements2`](Extensions::KHR_GetMemoryRequirements2)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetImageMemoryRequirements2KHR")]
     pub unsafe fn get_image_memory_requirements_2_khr(
@@ -7475,10 +8051,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetBufferMemoryRequirements2KHR`
+    /// [`vkGetBufferMemoryRequirements2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferMemoryRequirements2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferMemoryRequirements2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_GetMemoryRequirements2`](Extensions::KHR_GetMemoryRequirements2)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetBufferMemoryRequirements2KHR")]
     pub unsafe fn get_buffer_memory_requirements_2_khr(
@@ -7491,10 +8070,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetImageSparseMemoryRequirements2KHR`
+    /// [`vkGetImageSparseMemoryRequirements2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageSparseMemoryRequirements2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageSparseMemoryRequirements2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_GetMemoryRequirements2`](Extensions::KHR_GetMemoryRequirements2)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - sparse_memory_requirements
     ///
     #[doc(alias = "vkGetImageSparseMemoryRequirements2KHR")]
     pub unsafe fn get_image_sparse_memory_requirements_2_khr(
@@ -7508,10 +8093,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkCreateSamplerYcbcrConversionKHR`
+    /// [`vkCreateSamplerYcbcrConversionKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateSamplerYcbcrConversionKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateSamplerYcbcrConversionKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_SamplerYcbcrConversion`](Extensions::KHR_SamplerYcbcrConversion)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -7533,10 +8124,17 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroySamplerYcbcrConversionKHR`
+    /// [`vkDestroySamplerYcbcrConversionKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroySamplerYcbcrConversionKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroySamplerYcbcrConversionKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_SamplerYcbcrConversion`](Extensions::KHR_SamplerYcbcrConversion)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - ycbcr_conversion
+    /// - allocator
     ///
     #[doc(alias = "vkDestroySamplerYcbcrConversionKHR")]
     pub unsafe fn destroy_sampler_ycbcr_conversion_khr(
@@ -7549,10 +8147,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkBindBufferMemory2KHR`
+    /// [`vkBindBufferMemory2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkBindBufferMemory2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkBindBufferMemory2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_BindMemory2`](Extensions::KHR_BindMemory2)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -7574,10 +8175,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkBindImageMemory2KHR`
+    /// [`vkBindImageMemory2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkBindImageMemory2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkBindImageMemory2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_BindMemory2`](Extensions::KHR_BindMemory2)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -7598,10 +8202,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetDescriptorSetLayoutSupportKHR`
+    /// [`vkGetDescriptorSetLayoutSupportKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDescriptorSetLayoutSupportKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDescriptorSetLayoutSupportKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Maintenance3`](Extensions::KHR_Maintenance3)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDescriptorSetLayoutSupportKHR")]
     pub unsafe fn get_descriptor_set_layout_support_khr(
@@ -7614,19 +8221,22 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDrawIndirectCountKHR`
+    /// [`vkCmdDrawIndirectCountKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndirectCountKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndirectCountKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DrawIndirectCount`](Extensions::KHR_DrawIndirectCount)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawIndirectCountKHR")]
@@ -7644,19 +8254,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDrawIndexedIndirectCountKHR`
+    /// [`vkCmdDrawIndexedIndirectCountKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndexedIndirectCountKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndexedIndirectCountKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DrawIndirectCount`](Extensions::KHR_DrawIndirectCount)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawIndexedIndirectCountKHR")]
@@ -7674,10 +8287,13 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkGetSemaphoreCounterValueKHR`
+    /// [`vkGetSemaphoreCounterValueKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSemaphoreCounterValueKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSemaphoreCounterValueKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_TimelineSemaphore`](Extensions::KHR_TimelineSemaphore)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -7699,10 +8315,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkWaitSemaphoresKHR`
+    /// [`vkWaitSemaphoresKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkWaitSemaphoresKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkWaitSemaphoresKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_TimelineSemaphore`](Extensions::KHR_TimelineSemaphore)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -7725,10 +8344,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkSignalSemaphoreKHR`
+    /// [`vkSignalSemaphoreKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSignalSemaphoreKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkSignalSemaphoreKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_TimelineSemaphore`](Extensions::KHR_TimelineSemaphore)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -7748,10 +8370,16 @@ impl Device {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceFragmentShadingRatesKHR`
+    /// [`vkGetPhysicalDeviceFragmentShadingRatesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceFragmentShadingRatesKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceFragmentShadingRatesKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_FragmentShadingRate`](Extensions::KHR_FragmentShadingRate)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - fragment_shading_rates
     ///
     /// # Result codes
     /// ## Success
@@ -7762,7 +8390,7 @@ impl PhysicalDevice {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetPhysicalDeviceFragmentShadingRatesKHR")]
-    pub unsafe fn get_physical_device_fragment_shading_rates_khr(
+    pub unsafe fn get_fragment_shading_rates_khr(
         self,
         fragment_shading_rate_count: *mut u32,
         fragment_shading_rates: *mut PhysicalDeviceFragmentShadingRateKHR,
@@ -7772,19 +8400,22 @@ impl PhysicalDevice {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetFragmentShadingRateKHR`
+    /// [`vkCmdSetFragmentShadingRateKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetFragmentShadingRateKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetFragmentShadingRateKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_FragmentShadingRate`](Extensions::KHR_FragmentShadingRate)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetFragmentShadingRateKHR")]
@@ -7798,19 +8429,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetRenderingAttachmentLocationsKHR`
+    /// [`vkCmdSetRenderingAttachmentLocationsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRenderingAttachmentLocationsKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRenderingAttachmentLocationsKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DynamicRenderingLocalRead`](Extensions::KHR_DynamicRenderingLocalRead)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetRenderingAttachmentLocationsKHR")]
@@ -7823,19 +8457,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetRenderingInputAttachmentIndicesKHR`
+    /// [`vkCmdSetRenderingInputAttachmentIndicesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRenderingInputAttachmentIndicesKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRenderingInputAttachmentIndicesKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DynamicRenderingLocalRead`](Extensions::KHR_DynamicRenderingLocalRead)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetRenderingInputAttachmentIndicesKHR")]
@@ -7848,10 +8485,13 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkWaitForPresentKHR`
+    /// [`vkWaitForPresentKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkWaitForPresentKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkWaitForPresentKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_PresentWait`](Extensions::KHR_PresentWait)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -7879,13 +8519,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetBufferDeviceAddressKHR`
+    /// [`vkGetBufferDeviceAddressKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferDeviceAddressKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferDeviceAddressKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_BufferDeviceAddress`](Extensions::KHR_BufferDeviceAddress)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetBufferDeviceAddressKHR")]
-    pub unsafe fn get_buffer_device_address_khr(
+    pub unsafe fn get_buffer_address_khr(
         self,
         info: *const BufferDeviceAddressInfo,
     ) -> DeviceAddress {
@@ -7894,10 +8537,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetBufferOpaqueCaptureAddressKHR`
+    /// [`vkGetBufferOpaqueCaptureAddressKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferOpaqueCaptureAddressKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferOpaqueCaptureAddressKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_BufferDeviceAddress`](Extensions::KHR_BufferDeviceAddress)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetBufferOpaqueCaptureAddressKHR")]
     pub unsafe fn get_buffer_opaque_capture_address_khr(
@@ -7909,13 +8555,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetDeviceMemoryOpaqueCaptureAddressKHR`
+    /// [`vkGetDeviceMemoryOpaqueCaptureAddressKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceMemoryOpaqueCaptureAddressKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceMemoryOpaqueCaptureAddressKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_BufferDeviceAddress`](Extensions::KHR_BufferDeviceAddress)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceMemoryOpaqueCaptureAddressKHR")]
-    pub unsafe fn get_device_memory_opaque_capture_address_khr(
+    pub unsafe fn get_memory_opaque_capture_address_khr(
         self,
         info: *const DeviceMemoryOpaqueCaptureAddressInfo,
     ) -> u64 {
@@ -7924,10 +8573,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkCreateDeferredOperationKHR`
+    /// [`vkCreateDeferredOperationKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDeferredOperationKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDeferredOperationKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DeferredHostOperations`](Extensions::KHR_DeferredHostOperations)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -7947,10 +8602,17 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroyDeferredOperationKHR`
+    /// [`vkDestroyDeferredOperationKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDeferredOperationKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDeferredOperationKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DeferredHostOperations`](Extensions::KHR_DeferredHostOperations)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - operation
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyDeferredOperationKHR")]
     pub unsafe fn destroy_deferred_operation_khr(
@@ -7963,10 +8625,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetDeferredOperationMaxConcurrencyKHR`
+    /// [`vkGetDeferredOperationMaxConcurrencyKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeferredOperationMaxConcurrencyKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeferredOperationMaxConcurrencyKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DeferredHostOperations`](Extensions::KHR_DeferredHostOperations)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeferredOperationMaxConcurrencyKHR")]
     pub unsafe fn get_deferred_operation_max_concurrency_khr(
@@ -7978,10 +8643,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetDeferredOperationResultKHR`
+    /// [`vkGetDeferredOperationResultKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeferredOperationResultKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeferredOperationResultKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DeferredHostOperations`](Extensions::KHR_DeferredHostOperations)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -8000,10 +8668,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDeferredOperationJoinKHR`
+    /// [`vkDeferredOperationJoinKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDeferredOperationJoinKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDeferredOperationJoinKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DeferredHostOperations`](Extensions::KHR_DeferredHostOperations)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -8022,10 +8693,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetPipelineExecutablePropertiesKHR`
+    /// [`vkGetPipelineExecutablePropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPipelineExecutablePropertiesKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPipelineExecutablePropertiesKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_PipelineExecutableProperties`](Extensions::KHR_PipelineExecutableProperties)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - properties
     ///
     /// # Result codes
     /// ## Success
@@ -8048,10 +8725,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetPipelineExecutableStatisticsKHR`
+    /// [`vkGetPipelineExecutableStatisticsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPipelineExecutableStatisticsKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPipelineExecutableStatisticsKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_PipelineExecutableProperties`](Extensions::KHR_PipelineExecutableProperties)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - statistics
     ///
     /// # Result codes
     /// ## Success
@@ -8074,10 +8757,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetPipelineExecutableInternalRepresentationsKHR`
+    /// [`vkGetPipelineExecutableInternalRepresentationsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPipelineExecutableInternalRepresentationsKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPipelineExecutableInternalRepresentationsKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_PipelineExecutableProperties`](Extensions::KHR_PipelineExecutableProperties)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - internal_representations
     ///
     /// # Result codes
     /// ## Success
@@ -8100,10 +8789,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkMapMemory2KHR`
+    /// [`vkMapMemory2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkMapMemory2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkMapMemory2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_MapMemory2`](Extensions::KHR_MapMemory2)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -8125,10 +8817,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkUnmapMemory2KHR`
+    /// [`vkUnmapMemory2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkUnmapMemory2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkUnmapMemory2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_MapMemory2`](Extensions::KHR_MapMemory2)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -8147,10 +8842,13 @@ impl Device {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR`
+    /// [`vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -8165,7 +8863,7 @@ impl PhysicalDevice {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR")]
-    pub unsafe fn get_physical_device_video_encode_quality_level_properties_khr(
+    pub unsafe fn get_video_encode_quality_level_properties_khr(
         self,
         quality_level_info: *const PhysicalDeviceVideoEncodeQualityLevelInfoKHR,
         quality_level_properties: *mut VideoEncodeQualityLevelPropertiesKHR,
@@ -8175,10 +8873,17 @@ impl PhysicalDevice {
 }
 
 impl Device {
-    /// `vkGetEncodedVideoSessionParametersKHR`
+    /// [`vkGetEncodedVideoSessionParametersKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetEncodedVideoSessionParametersKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetEncodedVideoSessionParametersKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - feedback_info
+    /// - data
     ///
     /// # Result codes
     /// ## Success
@@ -8202,18 +8907,21 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdEncodeVideoKHR`
+    /// [`vkCmdEncodeVideoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEncodeVideoKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEncodeVideoKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`VIDEO_ENCODEKHR`](QueueFlags::VIDEO_ENCODEKHR)
     ///
     #[doc(alias = "vkCmdEncodeVideoKHR")]
@@ -8223,19 +8931,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetEvent2KHR`
+    /// [`vkCmdSetEvent2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetEvent2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetEvent2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `synchronization`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
@@ -8248,19 +8959,25 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdResetEvent2KHR`
+    /// [`vkCmdResetEvent2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdResetEvent2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdResetEvent2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - stage_mask
+    ///
+    /// # Performed tasks
     /// - `synchronization`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
@@ -8273,19 +8990,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdWaitEvents2KHR`
+    /// [`vkCmdWaitEvents2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWaitEvents2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWaitEvents2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `synchronization`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
@@ -8303,19 +9023,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdPipelineBarrier2KHR`
+    /// [`vkCmdPipelineBarrier2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPipelineBarrier2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPipelineBarrier2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `synchronization`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
@@ -8329,19 +9052,25 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdWriteTimestamp2KHR`
+    /// [`vkCmdWriteTimestamp2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteTimestamp2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteTimestamp2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - stage
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
@@ -8360,10 +9089,17 @@ impl CommandBuffer {
 }
 
 impl Queue {
-    /// `vkQueueSubmit2KHR`
+    /// [`vkQueueSubmit2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueSubmit2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueSubmit2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - submit_count
+    /// - fence
     ///
     /// # Result codes
     /// ## Success
@@ -8375,7 +9111,7 @@ impl Queue {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkQueueSubmit2KHR")]
-    pub unsafe fn queue_submit_2_khr(
+    pub unsafe fn submit_2_khr(
         self,
         submit_count: u32,
         submits: *const SubmitInfo2,
@@ -8386,19 +9122,22 @@ impl Queue {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBindIndexBuffer3KHR`
+    /// [`vkCmdBindIndexBuffer3KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindIndexBuffer3KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindIndexBuffer3KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdBindIndexBuffer3KHR")]
@@ -8408,19 +9147,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBindVertexBuffers3KHR`
+    /// [`vkCmdBindVertexBuffers3KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindVertexBuffers3KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindVertexBuffers3KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdBindVertexBuffers3KHR")]
@@ -8435,19 +9177,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDrawIndirect2KHR`
+    /// [`vkCmdDrawIndirect2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndirect2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndirect2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawIndirect2KHR")]
@@ -8457,19 +9202,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDrawIndexedIndirect2KHR`
+    /// [`vkCmdDrawIndexedIndirect2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndexedIndirect2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndexedIndirect2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawIndexedIndirect2KHR")]
@@ -8479,19 +9227,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDispatchIndirect2KHR`
+    /// [`vkCmdDispatchIndirect2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchIndirect2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchIndirect2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
     #[doc(alias = "vkCmdDispatchIndirect2KHR")]
@@ -8501,19 +9252,25 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdCopyMemoryKHR`
+    /// [`vkCmdCopyMemoryKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMemoryKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMemoryKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - copy_memory_info
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     ///
     #[doc(alias = "vkCmdCopyMemoryKHR")]
@@ -8523,19 +9280,25 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdCopyMemoryToImageKHR`
+    /// [`vkCmdCopyMemoryToImageKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMemoryToImageKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMemoryToImageKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - copy_memory_info
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     ///
     #[doc(alias = "vkCmdCopyMemoryToImageKHR")]
@@ -8548,19 +9311,25 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdCopyImageToMemoryKHR`
+    /// [`vkCmdCopyImageToMemoryKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyImageToMemoryKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyImageToMemoryKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - copy_memory_info
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     ///
     #[doc(alias = "vkCmdCopyImageToMemoryKHR")]
@@ -8573,19 +9342,25 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdUpdateMemoryKHR`
+    /// [`vkCmdUpdateMemoryKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdUpdateMemoryKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdUpdateMemoryKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - dst_flags
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     ///
     #[doc(alias = "vkCmdUpdateMemoryKHR")]
@@ -8601,19 +9376,25 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdFillMemoryKHR`
+    /// [`vkCmdFillMemoryKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdFillMemoryKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdFillMemoryKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - dst_flags
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     ///
     #[doc(alias = "vkCmdFillMemoryKHR")]
@@ -8628,19 +9409,26 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdCopyQueryPoolResultsToMemoryKHR`
+    /// [`vkCmdCopyQueryPoolResultsToMemoryKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyQueryPoolResultsToMemoryKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyQueryPoolResultsToMemoryKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - dst_flags
+    /// - query_result_flags
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     ///
     #[doc(alias = "vkCmdCopyQueryPoolResultsToMemoryKHR")]
@@ -8658,19 +9446,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDrawIndirectCount2KHR`
+    /// [`vkCmdDrawIndirectCount2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndirectCount2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndirectCount2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawIndirectCount2KHR")]
@@ -8680,19 +9471,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDrawIndexedIndirectCount2KHR`
+    /// [`vkCmdDrawIndexedIndirectCount2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndexedIndirectCount2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndexedIndirectCount2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawIndexedIndirectCount2KHR")]
@@ -8705,20 +9499,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBeginConditionalRendering2EXT`
+    /// [`vkCmdBeginConditionalRendering2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginConditionalRendering2EXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginConditionalRendering2EXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -8732,19 +9529,25 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBindTransformFeedbackBuffers2EXT`
+    /// [`vkCmdBindTransformFeedbackBuffers2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindTransformFeedbackBuffers2EXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindTransformFeedbackBuffers2EXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - binding_infos
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdBindTransformFeedbackBuffers2EXT")]
@@ -8759,19 +9562,26 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBeginTransformFeedback2EXT`
+    /// [`vkCmdBeginTransformFeedback2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginTransformFeedback2EXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginTransformFeedback2EXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - counter_range_count
+    /// - counter_infos
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdBeginTransformFeedback2EXT")]
@@ -8786,19 +9596,26 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdEndTransformFeedback2EXT`
+    /// [`vkCmdEndTransformFeedback2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndTransformFeedback2EXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndTransformFeedback2EXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - counter_range_count
+    /// - counter_infos
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdEndTransformFeedback2EXT")]
@@ -8813,19 +9630,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDrawIndirectByteCount2EXT`
+    /// [`vkCmdDrawIndirectByteCount2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndirectByteCount2EXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndirectByteCount2EXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawIndirectByteCount2EXT")]
@@ -8842,19 +9662,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDrawMeshTasksIndirect2EXT`
+    /// [`vkCmdDrawMeshTasksIndirect2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMeshTasksIndirect2EXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMeshTasksIndirect2EXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawMeshTasksIndirect2EXT")]
@@ -8864,19 +9687,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDrawMeshTasksIndirectCount2EXT`
+    /// [`vkCmdDrawMeshTasksIndirectCount2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMeshTasksIndirectCount2EXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMeshTasksIndirectCount2EXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawMeshTasksIndirectCount2EXT")]
@@ -8889,19 +9715,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdWriteMarkerToMemoryAMD`
+    /// [`vkCmdWriteMarkerToMemoryAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteMarkerToMemoryAMD.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteMarkerToMemoryAMD.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
@@ -8913,10 +9742,16 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkCreateAccelerationStructure2KHR`
+    /// [`vkCreateAccelerationStructure2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateAccelerationStructure2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateAccelerationStructure2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -8938,19 +9773,22 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdCopyBuffer2KHR`
+    /// [`vkCmdCopyBuffer2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyBuffer2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyBuffer2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_CopyCommands2`](Extensions::KHR_CopyCommands2)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
@@ -8962,19 +9800,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdCopyImage2KHR`
+    /// [`vkCmdCopyImage2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyImage2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyImage2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_CopyCommands2`](Extensions::KHR_CopyCommands2)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
@@ -8986,19 +9827,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdCopyBufferToImage2KHR`
+    /// [`vkCmdCopyBufferToImage2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyBufferToImage2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyBufferToImage2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_CopyCommands2`](Extensions::KHR_CopyCommands2)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
@@ -9013,19 +9857,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdCopyImageToBuffer2KHR`
+    /// [`vkCmdCopyImageToBuffer2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyImageToBuffer2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyImageToBuffer2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_CopyCommands2`](Extensions::KHR_CopyCommands2)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
@@ -9040,19 +9887,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBlitImage2KHR`
+    /// [`vkCmdBlitImage2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBlitImage2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBlitImage2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_CopyCommands2`](Extensions::KHR_CopyCommands2)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdBlitImage2KHR")]
@@ -9062,19 +9912,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdResolveImage2KHR`
+    /// [`vkCmdResolveImage2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdResolveImage2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdResolveImage2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_CopyCommands2`](Extensions::KHR_CopyCommands2)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdResolveImage2KHR")]
@@ -9084,19 +9937,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdTraceRaysIndirect2KHR`
+    /// [`vkCmdTraceRaysIndirect2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdTraceRaysIndirect2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdTraceRaysIndirect2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_RayTracingMaintenance1`](Extensions::KHR_RayTracingMaintenance1)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
     #[doc(alias = "vkCmdTraceRaysIndirect2KHR")]
@@ -9106,13 +9962,16 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkGetDeviceBufferMemoryRequirementsKHR`
+    /// [`vkGetDeviceBufferMemoryRequirementsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceBufferMemoryRequirementsKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceBufferMemoryRequirementsKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Maintenance4`](Extensions::KHR_Maintenance4)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceBufferMemoryRequirementsKHR")]
-    pub unsafe fn get_device_buffer_memory_requirements_khr(
+    pub unsafe fn get_buffer_memory_requirements_khr(
         self,
         info: *const DeviceBufferMemoryRequirements,
         memory_requirements: *mut MemoryRequirements2,
@@ -9122,13 +9981,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetDeviceImageMemoryRequirementsKHR`
+    /// [`vkGetDeviceImageMemoryRequirementsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceImageMemoryRequirementsKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceImageMemoryRequirementsKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Maintenance4`](Extensions::KHR_Maintenance4)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceImageMemoryRequirementsKHR")]
-    pub unsafe fn get_device_image_memory_requirements_khr(
+    pub unsafe fn get_image_memory_requirements_khr(
         self,
         info: *const DeviceImageMemoryRequirements,
         memory_requirements: *mut MemoryRequirements2,
@@ -9138,13 +10000,19 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetDeviceImageSparseMemoryRequirementsKHR`
+    /// [`vkGetDeviceImageSparseMemoryRequirementsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceImageSparseMemoryRequirementsKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceImageSparseMemoryRequirementsKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Maintenance4`](Extensions::KHR_Maintenance4)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - sparse_memory_requirements
     ///
     #[doc(alias = "vkGetDeviceImageSparseMemoryRequirementsKHR")]
-    pub unsafe fn get_device_image_sparse_memory_requirements_khr(
+    pub unsafe fn get_image_sparse_memory_requirements_khr(
         self,
         info: *const DeviceImageMemoryRequirements,
         sparse_memory_requirement_count: *mut u32,
@@ -9155,19 +10023,25 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBindIndexBuffer2KHR`
+    /// [`vkCmdBindIndexBuffer2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindIndexBuffer2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindIndexBuffer2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - buffer
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdBindIndexBuffer2KHR")]
@@ -9183,10 +10057,13 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkGetRenderingAreaGranularityKHR`
+    /// [`vkGetRenderingAreaGranularityKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRenderingAreaGranularityKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRenderingAreaGranularityKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetRenderingAreaGranularityKHR")]
     pub unsafe fn get_rendering_area_granularity_khr(
@@ -9199,13 +10076,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetDeviceImageSubresourceLayoutKHR`
+    /// [`vkGetDeviceImageSubresourceLayoutKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceImageSubresourceLayoutKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceImageSubresourceLayoutKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceImageSubresourceLayoutKHR")]
-    pub unsafe fn get_device_image_subresource_layout_khr(
+    pub unsafe fn get_image_subresource_layout_khr(
         self,
         info: *const DeviceImageSubresourceInfo,
         layout: *mut SubresourceLayout2,
@@ -9215,10 +10095,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetImageSubresourceLayout2KHR`
+    /// [`vkGetImageSubresourceLayout2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageSubresourceLayout2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageSubresourceLayout2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetImageSubresourceLayout2KHR")]
     pub unsafe fn get_image_subresource_layout_2_khr(
@@ -9232,10 +10115,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkWaitForPresent2KHR`
+    /// [`vkWaitForPresent2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkWaitForPresent2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkWaitForPresent2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_PresentWait2`](Extensions::KHR_PresentWait2)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -9262,10 +10148,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkCreatePipelineBinariesKHR`
+    /// [`vkCreatePipelineBinariesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreatePipelineBinariesKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreatePipelineBinariesKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_PipelineBinary`](Extensions::KHR_PipelineBinary)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -9290,10 +10182,17 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroyPipelineBinaryKHR`
+    /// [`vkDestroyPipelineBinaryKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyPipelineBinaryKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyPipelineBinaryKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_PipelineBinary`](Extensions::KHR_PipelineBinary)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - pipeline_binary
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyPipelineBinaryKHR")]
     pub unsafe fn destroy_pipeline_binary_khr(
@@ -9306,10 +10205,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetPipelineKeyKHR`
+    /// [`vkGetPipelineKeyKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPipelineKeyKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPipelineKeyKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_PipelineBinary`](Extensions::KHR_PipelineBinary)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - pipeline_create_info
     ///
     /// # Result codes
     /// ## Success
@@ -9330,10 +10235,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetPipelineBinaryDataKHR`
+    /// [`vkGetPipelineBinaryDataKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPipelineBinaryDataKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPipelineBinaryDataKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_PipelineBinary`](Extensions::KHR_PipelineBinary)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - pipeline_binary_data
     ///
     /// # Result codes
     /// ## Success
@@ -9357,10 +10268,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkReleaseCapturedPipelineDataKHR`
+    /// [`vkReleaseCapturedPipelineDataKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkReleaseCapturedPipelineDataKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkReleaseCapturedPipelineDataKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_PipelineBinary`](Extensions::KHR_PipelineBinary)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -9379,10 +10296,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkReleaseSwapchainImagesKHR`
+    /// [`vkReleaseSwapchainImagesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkReleaseSwapchainImagesKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkReleaseSwapchainImagesKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_SwapchainMaintenance1`](Extensions::KHR_SwapchainMaintenance1)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -9401,10 +10321,16 @@ impl Device {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR`
+    /// [`vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_CooperativeMatrix`](Extensions::KHR_CooperativeMatrix)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - properties
     ///
     /// # Result codes
     /// ## Success
@@ -9416,7 +10342,7 @@ impl PhysicalDevice {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR")]
-    pub unsafe fn get_physical_device_cooperative_matrix_properties_khr(
+    pub unsafe fn get_cooperative_matrix_properties_khr(
         self,
         property_count: *mut u32,
         properties: *mut CooperativeMatrixPropertiesKHR,
@@ -9426,19 +10352,22 @@ impl PhysicalDevice {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetLineStippleKHR`
+    /// [`vkCmdSetLineStippleKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetLineStippleKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetLineStippleKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_LineRasterization`](Extensions::KHR_LineRasterization)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetLineStippleKHR")]
@@ -9452,10 +10381,16 @@ impl CommandBuffer {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceCalibrateableTimeDomainsKHR`
+    /// [`vkGetPhysicalDeviceCalibrateableTimeDomainsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceCalibrateableTimeDomainsKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceCalibrateableTimeDomainsKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_CalibratedTimestamps`](Extensions::KHR_CalibratedTimestamps)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - time_domains
     ///
     /// # Result codes
     /// ## Success
@@ -9467,7 +10402,7 @@ impl PhysicalDevice {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetPhysicalDeviceCalibrateableTimeDomainsKHR")]
-    pub unsafe fn get_physical_device_calibrateable_time_domains_khr(
+    pub unsafe fn get_calibrateable_time_domains_khr(
         self,
         time_domain_count: *mut u32,
         time_domains: *mut TimeDomainKHR,
@@ -9477,10 +10412,13 @@ impl PhysicalDevice {
 }
 
 impl Device {
-    /// `vkGetCalibratedTimestampsKHR`
+    /// [`vkGetCalibratedTimestampsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetCalibratedTimestampsKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetCalibratedTimestampsKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_CalibratedTimestamps`](Extensions::KHR_CalibratedTimestamps)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -9503,19 +10441,22 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBindDescriptorSets2KHR`
+    /// [`vkCmdBindDescriptorSets2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindDescriptorSets2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindDescriptorSets2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Maintenance6`](Extensions::KHR_Maintenance6)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -9529,19 +10470,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdPushConstants2KHR`
+    /// [`vkCmdPushConstants2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushConstants2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushConstants2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Maintenance6`](Extensions::KHR_Maintenance6)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -9552,19 +10496,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdPushDescriptorSet2KHR`
+    /// [`vkCmdPushDescriptorSet2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushDescriptorSet2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushDescriptorSet2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Maintenance6`](Extensions::KHR_Maintenance6)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -9578,19 +10525,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdPushDescriptorSetWithTemplate2KHR`
+    /// [`vkCmdPushDescriptorSetWithTemplate2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushDescriptorSetWithTemplate2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushDescriptorSetWithTemplate2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Maintenance6`](Extensions::KHR_Maintenance6)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -9604,19 +10554,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetDescriptorBufferOffsets2EXT`
+    /// [`vkCmdSetDescriptorBufferOffsets2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDescriptorBufferOffsets2EXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDescriptorBufferOffsets2EXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Maintenance6`](Extensions::KHR_Maintenance6)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     /// - [`DATA_GRAPHARM`](QueueFlags::DATA_GRAPHARM)
@@ -9631,19 +10584,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBindDescriptorBufferEmbeddedSamplers2EXT`
+    /// [`vkCmdBindDescriptorBufferEmbeddedSamplers2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindDescriptorBufferEmbeddedSamplers2EXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindDescriptorBufferEmbeddedSamplers2EXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Maintenance6`](Extensions::KHR_Maintenance6)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -9657,19 +10613,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdCopyMemoryIndirectKHR`
+    /// [`vkCmdCopyMemoryIndirectKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMemoryIndirectKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMemoryIndirectKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_CopyMemoryIndirect`](Extensions::KHR_CopyMemoryIndirect)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
@@ -9684,19 +10643,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdCopyMemoryToImageIndirectKHR`
+    /// [`vkCmdCopyMemoryToImageIndirectKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMemoryToImageIndirectKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMemoryToImageIndirectKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_CopyMemoryIndirect`](Extensions::KHR_CopyMemoryIndirect)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
@@ -9711,10 +10673,16 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkGetDeviceFaultReportsKHR`
+    /// [`vkGetDeviceFaultReportsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceFaultReportsKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceFaultReportsKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DeviceFault`](Extensions::KHR_DeviceFault)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - fault_info
     ///
     /// # Result codes
     /// ## Success
@@ -9726,7 +10694,7 @@ impl Device {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetDeviceFaultReportsKHR")]
-    pub unsafe fn get_device_fault_reports_khr(
+    pub unsafe fn get_fault_reports_khr(
         self,
         timeout: u64,
         fault_counts: *mut u32,
@@ -9737,10 +10705,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetDeviceFaultDebugInfoKHR`
+    /// [`vkGetDeviceFaultDebugInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceFaultDebugInfoKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceFaultDebugInfoKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DeviceFault`](Extensions::KHR_DeviceFault)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -9752,7 +10723,7 @@ impl Device {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetDeviceFaultDebugInfoKHR")]
-    pub unsafe fn get_device_fault_debug_info_khr(
+    pub unsafe fn get_fault_debug_info_khr(
         self,
         debug_info: *mut DeviceFaultDebugInfoKHR,
     ) -> ResultCode {
@@ -9761,20 +10732,26 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdEndRendering2KHR`
+    /// [`vkCmdEndRendering2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndRendering2KHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndRendering2KHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Maintenance10`](Extensions::KHR_Maintenance10)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - rendering_end_info
+    ///
+    /// # Performed tasks
     /// - `action`
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdEndRendering2KHR")]
@@ -9784,10 +10761,16 @@ impl CommandBuffer {
 }
 
 impl Instance {
-    /// `vkCreateDebugReportCallbackEXT`
+    /// [`vkCreateDebugReportCallbackEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDebugReportCallbackEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDebugReportCallbackEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DebugReport`](Extensions::EXT_DebugReport)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -9808,10 +10791,17 @@ impl Instance {
 }
 
 impl Instance {
-    /// `vkDestroyDebugReportCallbackEXT`
+    /// [`vkDestroyDebugReportCallbackEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDebugReportCallbackEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDebugReportCallbackEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DebugReport`](Extensions::EXT_DebugReport)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - callback
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyDebugReportCallbackEXT")]
     pub unsafe fn destroy_debug_report_callback_ext(
@@ -9824,10 +10814,13 @@ impl Instance {
 }
 
 impl Instance {
-    /// `vkDebugReportMessageEXT`
+    /// [`vkDebugReportMessageEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDebugReportMessageEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDebugReportMessageEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DebugReport`](Extensions::EXT_DebugReport)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkDebugReportMessageEXT")]
     pub unsafe fn debug_report_message_ext(
@@ -9845,10 +10838,13 @@ impl Instance {
 }
 
 impl Device {
-    /// `vkDebugMarkerSetObjectTagEXT`
+    /// [`vkDebugMarkerSetObjectTagEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDebugMarkerSetObjectTagEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDebugMarkerSetObjectTagEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DebugMarker`](Extensions::EXT_DebugMarker)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -9868,10 +10864,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDebugMarkerSetObjectNameEXT`
+    /// [`vkDebugMarkerSetObjectNameEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDebugMarkerSetObjectNameEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDebugMarkerSetObjectNameEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DebugMarker`](Extensions::EXT_DebugMarker)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -9891,19 +10890,22 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDebugMarkerBeginEXT`
+    /// [`vkCmdDebugMarkerBeginEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDebugMarkerBeginEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDebugMarkerBeginEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DebugMarker`](Extensions::EXT_DebugMarker)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
@@ -9918,19 +10920,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDebugMarkerEndEXT`
+    /// [`vkCmdDebugMarkerEndEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDebugMarkerEndEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDebugMarkerEndEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DebugMarker`](Extensions::EXT_DebugMarker)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
@@ -9945,19 +10950,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDebugMarkerInsertEXT`
+    /// [`vkCmdDebugMarkerInsertEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDebugMarkerInsertEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDebugMarkerInsertEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DebugMarker`](Extensions::EXT_DebugMarker)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
@@ -9972,19 +10980,25 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBindTransformFeedbackBuffersEXT`
+    /// [`vkCmdBindTransformFeedbackBuffersEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindTransformFeedbackBuffersEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindTransformFeedbackBuffersEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_TransformFeedback`](Extensions::EXT_TransformFeedback)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - sizes
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdBindTransformFeedbackBuffersEXT")]
@@ -10001,19 +11015,26 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBeginTransformFeedbackEXT`
+    /// [`vkCmdBeginTransformFeedbackEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginTransformFeedbackEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginTransformFeedbackEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_TransformFeedback`](Extensions::EXT_TransformFeedback)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - counter_buffer_count
+    /// - counter_buffer_offsets
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdBeginTransformFeedbackEXT")]
@@ -10029,19 +11050,26 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdEndTransformFeedbackEXT`
+    /// [`vkCmdEndTransformFeedbackEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndTransformFeedbackEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndTransformFeedbackEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_TransformFeedback`](Extensions::EXT_TransformFeedback)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - counter_buffer_count
+    /// - counter_buffer_offsets
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdEndTransformFeedbackEXT")]
@@ -10057,20 +11085,26 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBeginQueryIndexedEXT`
+    /// [`vkCmdBeginQueryIndexedEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginQueryIndexedEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginQueryIndexedEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_TransformFeedback`](Extensions::EXT_TransformFeedback)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - flags
+    ///
+    /// # Performed tasks
     /// - `action`
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
@@ -10089,20 +11123,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdEndQueryIndexedEXT`
+    /// [`vkCmdEndQueryIndexedEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndQueryIndexedEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndQueryIndexedEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_TransformFeedback`](Extensions::EXT_TransformFeedback)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
@@ -10115,19 +11152,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDrawIndirectByteCountEXT`
+    /// [`vkCmdDrawIndirectByteCountEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndirectByteCountEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndirectByteCountEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_TransformFeedback`](Extensions::EXT_TransformFeedback)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawIndirectByteCountEXT")]
@@ -10145,10 +11185,16 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkCreateCuModuleNVX`
+    /// [`vkCreateCuModuleNVX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateCuModuleNVX.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateCuModuleNVX.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NVX_BinaryImport`](Extensions::NVX_BinaryImport)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -10170,10 +11216,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkCreateCuFunctionNVX`
+    /// [`vkCreateCuFunctionNVX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateCuFunctionNVX.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateCuFunctionNVX.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NVX_BinaryImport`](Extensions::NVX_BinaryImport)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -10195,10 +11247,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroyCuModuleNVX`
+    /// [`vkDestroyCuModuleNVX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyCuModuleNVX.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyCuModuleNVX.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NVX_BinaryImport`](Extensions::NVX_BinaryImport)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyCuModuleNVX")]
     pub unsafe fn destroy_cu_module_nvx(
@@ -10211,10 +11269,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroyCuFunctionNVX`
+    /// [`vkDestroyCuFunctionNVX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyCuFunctionNVX.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyCuFunctionNVX.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NVX_BinaryImport`](Extensions::NVX_BinaryImport)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyCuFunctionNVX")]
     pub unsafe fn destroy_cu_function_nvx(
@@ -10227,19 +11291,22 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdCuLaunchKernelNVX`
+    /// [`vkCmdCuLaunchKernelNVX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCuLaunchKernelNVX.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCuLaunchKernelNVX.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NVX_BinaryImport`](Extensions::NVX_BinaryImport)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -10250,10 +11317,13 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkGetImageViewHandleNVX`
+    /// [`vkGetImageViewHandleNVX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageViewHandleNVX.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageViewHandleNVX.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NVX_ImageViewHandle`](Extensions::NVX_ImageViewHandle)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetImageViewHandleNVX")]
     pub unsafe fn get_image_view_handle_nvx(self, info: *const ImageViewHandleInfoNVX) -> u32 {
@@ -10262,10 +11332,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetImageViewHandle64NVX`
+    /// [`vkGetImageViewHandle64NVX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageViewHandle64NVX.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageViewHandle64NVX.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NVX_ImageViewHandle`](Extensions::NVX_ImageViewHandle)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetImageViewHandle64NVX")]
     pub unsafe fn get_image_view_handle_64_nvx(self, info: *const ImageViewHandleInfoNVX) -> u64 {
@@ -10274,10 +11347,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetImageViewAddressNVX`
+    /// [`vkGetImageViewAddressNVX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageViewAddressNVX.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageViewAddressNVX.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NVX_ImageViewHandle`](Extensions::NVX_ImageViewHandle)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -10297,13 +11373,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetDeviceCombinedImageSamplerIndexNVX`
+    /// [`vkGetDeviceCombinedImageSamplerIndexNVX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceCombinedImageSamplerIndexNVX.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceCombinedImageSamplerIndexNVX.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NVX_ImageViewHandle`](Extensions::NVX_ImageViewHandle)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceCombinedImageSamplerIndexNVX")]
-    pub unsafe fn get_device_combined_image_sampler_index_nvx(
+    pub unsafe fn get_combined_image_sampler_index_nvx(
         self,
         image_view_index: u64,
         sampler_index: u64,
@@ -10313,19 +11392,22 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDrawIndirectCountAMD`
+    /// [`vkCmdDrawIndirectCountAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndirectCountAMD.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndirectCountAMD.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`AMD_DrawIndirectCount`](Extensions::AMD_DrawIndirectCount)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawIndirectCountAMD")]
@@ -10343,19 +11425,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDrawIndexedIndirectCountAMD`
+    /// [`vkCmdDrawIndexedIndirectCountAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndexedIndirectCountAMD.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndexedIndirectCountAMD.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`AMD_DrawIndirectCount`](Extensions::AMD_DrawIndirectCount)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawIndexedIndirectCountAMD")]
@@ -10373,10 +11458,16 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkGetShaderInfoAMD`
+    /// [`vkGetShaderInfoAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetShaderInfoAMD.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetShaderInfoAMD.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`AMD_ShaderInfo`](Extensions::AMD_ShaderInfo)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - info
     ///
     /// # Result codes
     /// ## Success
@@ -10401,10 +11492,16 @@ impl Device {
 }
 
 impl Instance {
-    /// `vkCreateStreamDescriptorSurfaceGGP`
+    /// [`vkCreateStreamDescriptorSurfaceGGP`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateStreamDescriptorSurfaceGGP.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateStreamDescriptorSurfaceGGP.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`GGP_StreamDescriptorSurface`](Extensions::GGP_StreamDescriptorSurface)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -10427,10 +11524,17 @@ impl Instance {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceExternalImageFormatPropertiesNV`
+    /// [`vkGetPhysicalDeviceExternalImageFormatPropertiesNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceExternalImageFormatPropertiesNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceExternalImageFormatPropertiesNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_ExternalMemoryCapabilities`](Extensions::NV_ExternalMemoryCapabilities)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - flags
+    /// - external_handle_type
     ///
     /// # Result codes
     /// ## Success
@@ -10442,7 +11546,7 @@ impl PhysicalDevice {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetPhysicalDeviceExternalImageFormatPropertiesNV")]
-    pub unsafe fn get_physical_device_external_image_format_properties_nv(
+    pub unsafe fn get_external_image_format_properties_nv(
         self,
         format: Format,
         type_: ImageType,
@@ -10457,10 +11561,13 @@ impl PhysicalDevice {
 }
 
 impl Device {
-    /// `vkGetMemoryWin32HandleNV`
+    /// [`vkGetMemoryWin32HandleNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryWin32HandleNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryWin32HandleNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_ExternalMemoryWin32`](Extensions::NV_ExternalMemoryWin32)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -10482,10 +11589,16 @@ impl Device {
 }
 
 impl Instance {
-    /// `vkCreateViSurfaceNN`
+    /// [`vkCreateViSurfaceNN`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateViSurfaceNN.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateViSurfaceNN.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NN_ViSurface`](Extensions::NN_ViSurface)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -10508,20 +11621,23 @@ impl Instance {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBeginConditionalRenderingEXT`
+    /// [`vkCmdBeginConditionalRenderingEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginConditionalRenderingEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginConditionalRenderingEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ConditionalRendering`](Extensions::EXT_ConditionalRendering)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -10535,20 +11651,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdEndConditionalRenderingEXT`
+    /// [`vkCmdEndConditionalRenderingEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndConditionalRenderingEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndConditionalRenderingEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ConditionalRendering`](Extensions::EXT_ConditionalRendering)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -10559,19 +11678,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetViewportWScalingNV`
+    /// [`vkCmdSetViewportWScalingNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetViewportWScalingNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetViewportWScalingNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_ClipSpaceWScaling`](Extensions::NV_ClipSpaceWScaling)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetViewportWScalingNV")]
@@ -10586,10 +11708,13 @@ impl CommandBuffer {
 }
 
 impl PhysicalDevice {
-    /// `vkReleaseDisplayEXT`
+    /// [`vkReleaseDisplayEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkReleaseDisplayEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkReleaseDisplayEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DirectModeDisplay`](Extensions::EXT_DirectModeDisplay)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -10604,10 +11729,13 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
-    /// `vkAcquireXlibDisplayEXT`
+    /// [`vkAcquireXlibDisplayEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkAcquireXlibDisplayEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkAcquireXlibDisplayEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_AcquireXlibDisplay`](Extensions::EXT_AcquireXlibDisplay)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -10628,10 +11756,13 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
-    /// `vkGetRandROutputDisplayEXT`
+    /// [`vkGetRandROutputDisplayEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRandROutputDisplayEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRandROutputDisplayEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_AcquireXlibDisplay`](Extensions::EXT_AcquireXlibDisplay)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -10652,10 +11783,13 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceSurfaceCapabilities2EXT`
+    /// [`vkGetPhysicalDeviceSurfaceCapabilities2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSurfaceCapabilities2EXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSurfaceCapabilities2EXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DisplaySurfaceCounter`](Extensions::EXT_DisplaySurfaceCounter)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -10667,7 +11801,7 @@ impl PhysicalDevice {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetPhysicalDeviceSurfaceCapabilities2EXT")]
-    pub unsafe fn get_physical_device_surface_capabilities_2_ext(
+    pub unsafe fn get_surface_capabilities_2_ext(
         self,
         surface: SurfaceKHR,
         surface_capabilities: *mut SurfaceCapabilities2EXT,
@@ -10677,10 +11811,13 @@ impl PhysicalDevice {
 }
 
 impl Device {
-    /// `vkDisplayPowerControlEXT`
+    /// [`vkDisplayPowerControlEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDisplayPowerControlEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDisplayPowerControlEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DisplayControl`](Extensions::EXT_DisplayControl)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -10700,10 +11837,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkRegisterDeviceEventEXT`
+    /// [`vkRegisterDeviceEventEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkRegisterDeviceEventEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkRegisterDeviceEventEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DisplayControl`](Extensions::EXT_DisplayControl)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -10713,7 +11856,7 @@ impl Device {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkRegisterDeviceEventEXT")]
-    pub unsafe fn register_device_event_ext(
+    pub unsafe fn register_event_ext(
         self,
         device_event_info: *const DeviceEventInfoEXT,
         allocator: *const AllocationCallbacks,
@@ -10724,10 +11867,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkRegisterDisplayEventEXT`
+    /// [`vkRegisterDisplayEventEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkRegisterDisplayEventEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkRegisterDisplayEventEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DisplayControl`](Extensions::EXT_DisplayControl)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -10749,10 +11898,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetSwapchainCounterEXT`
+    /// [`vkGetSwapchainCounterEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSwapchainCounterEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSwapchainCounterEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DisplayControl`](Extensions::EXT_DisplayControl)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -10775,10 +11927,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetRefreshCycleDurationGOOGLE`
+    /// [`vkGetRefreshCycleDurationGOOGLE`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRefreshCycleDurationGOOGLE.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRefreshCycleDurationGOOGLE.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`GOOGLE_DisplayTiming`](Extensions::GOOGLE_DisplayTiming)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -10800,10 +11955,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetPastPresentationTimingGOOGLE`
+    /// [`vkGetPastPresentationTimingGOOGLE`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPastPresentationTimingGOOGLE.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPastPresentationTimingGOOGLE.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`GOOGLE_DisplayTiming`](Extensions::GOOGLE_DisplayTiming)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - presentation_timings
     ///
     /// # Result codes
     /// ## Success
@@ -10828,19 +11989,22 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetDiscardRectangleEXT`
+    /// [`vkCmdSetDiscardRectangleEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDiscardRectangleEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDiscardRectangleEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DiscardRectangles`](Extensions::EXT_DiscardRectangles)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetDiscardRectangleEXT")]
@@ -10855,19 +12019,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetDiscardRectangleEnableEXT`
+    /// [`vkCmdSetDiscardRectangleEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDiscardRectangleEnableEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDiscardRectangleEnableEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DiscardRectangles`](Extensions::EXT_DiscardRectangles)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetDiscardRectangleEnableEXT")]
@@ -10877,19 +12044,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetDiscardRectangleModeEXT`
+    /// [`vkCmdSetDiscardRectangleModeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDiscardRectangleModeEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDiscardRectangleModeEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DiscardRectangles`](Extensions::EXT_DiscardRectangles)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetDiscardRectangleModeEXT")]
@@ -10902,10 +12072,13 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkSetHdrMetadataEXT`
+    /// [`vkSetHdrMetadataEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetHdrMetadataEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkSetHdrMetadataEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_HdrMetadata`](Extensions::EXT_HdrMetadata)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkSetHdrMetadataEXT")]
     pub unsafe fn set_hdr_metadata_ext(
@@ -10919,10 +12092,16 @@ impl Device {
 }
 
 impl Instance {
-    /// `vkCreateIOSSurfaceMVK`
+    /// [`vkCreateIOSSurfaceMVK`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateIOSSurfaceMVK.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateIOSSurfaceMVK.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`MVK_IosSurface`](Extensions::MVK_IosSurface)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -10945,10 +12124,16 @@ impl Instance {
 }
 
 impl Instance {
-    /// `vkCreateMacOSSurfaceMVK`
+    /// [`vkCreateMacOSSurfaceMVK`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateMacOSSurfaceMVK.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateMacOSSurfaceMVK.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`MVK_MacosSurface`](Extensions::MVK_MacosSurface)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -10971,10 +12156,13 @@ impl Instance {
 }
 
 impl Device {
-    /// `vkSetDebugUtilsObjectNameEXT`
+    /// [`vkSetDebugUtilsObjectNameEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetDebugUtilsObjectNameEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkSetDebugUtilsObjectNameEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -10994,10 +12182,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkSetDebugUtilsObjectTagEXT`
+    /// [`vkSetDebugUtilsObjectTagEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetDebugUtilsObjectTagEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkSetDebugUtilsObjectTagEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -11017,55 +12208,67 @@ impl Device {
 }
 
 impl Queue {
-    /// `vkQueueBeginDebugUtilsLabelEXT`
+    /// [`vkQueueBeginDebugUtilsLabelEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueBeginDebugUtilsLabelEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueBeginDebugUtilsLabelEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkQueueBeginDebugUtilsLabelEXT")]
-    pub unsafe fn queue_begin_debug_utils_label_ext(self, label_info: *const DebugUtilsLabelEXT) {
+    pub unsafe fn begin_debug_utils_label_ext(self, label_info: *const DebugUtilsLabelEXT) {
         todo!()
     }
 }
 
 impl Queue {
-    /// `vkQueueEndDebugUtilsLabelEXT`
+    /// [`vkQueueEndDebugUtilsLabelEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueEndDebugUtilsLabelEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueEndDebugUtilsLabelEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkQueueEndDebugUtilsLabelEXT")]
-    pub unsafe fn queue_end_debug_utils_label_ext(self) {
+    pub unsafe fn end_debug_utils_label_ext(self) {
         todo!()
     }
 }
 
 impl Queue {
-    /// `vkQueueInsertDebugUtilsLabelEXT`
+    /// [`vkQueueInsertDebugUtilsLabelEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueInsertDebugUtilsLabelEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueInsertDebugUtilsLabelEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkQueueInsertDebugUtilsLabelEXT")]
-    pub unsafe fn queue_insert_debug_utils_label_ext(self, label_info: *const DebugUtilsLabelEXT) {
+    pub unsafe fn insert_debug_utils_label_ext(self, label_info: *const DebugUtilsLabelEXT) {
         todo!()
     }
 }
 
 impl CommandBuffer {
-    /// `vkCmdBeginDebugUtilsLabelEXT`
+    /// [`vkCmdBeginDebugUtilsLabelEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginDebugUtilsLabelEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginDebugUtilsLabelEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
@@ -11080,19 +12283,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdEndDebugUtilsLabelEXT`
+    /// [`vkCmdEndDebugUtilsLabelEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndDebugUtilsLabelEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndDebugUtilsLabelEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
@@ -11107,19 +12313,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdInsertDebugUtilsLabelEXT`
+    /// [`vkCmdInsertDebugUtilsLabelEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdInsertDebugUtilsLabelEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdInsertDebugUtilsLabelEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
@@ -11134,10 +12343,16 @@ impl CommandBuffer {
 }
 
 impl Instance {
-    /// `vkCreateDebugUtilsMessengerEXT`
+    /// [`vkCreateDebugUtilsMessengerEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDebugUtilsMessengerEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDebugUtilsMessengerEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -11158,10 +12373,17 @@ impl Instance {
 }
 
 impl Instance {
-    /// `vkDestroyDebugUtilsMessengerEXT`
+    /// [`vkDestroyDebugUtilsMessengerEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDebugUtilsMessengerEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDebugUtilsMessengerEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - messenger
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyDebugUtilsMessengerEXT")]
     pub unsafe fn destroy_debug_utils_messenger_ext(
@@ -11174,10 +12396,13 @@ impl Instance {
 }
 
 impl Instance {
-    /// `vkSubmitDebugUtilsMessageEXT`
+    /// [`vkSubmitDebugUtilsMessageEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSubmitDebugUtilsMessageEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkSubmitDebugUtilsMessageEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkSubmitDebugUtilsMessageEXT")]
     pub unsafe fn submit_debug_utils_message_ext(
@@ -11191,10 +12416,13 @@ impl Instance {
 }
 
 impl Device {
-    /// `vkGetAndroidHardwareBufferPropertiesANDROID`
+    /// [`vkGetAndroidHardwareBufferPropertiesANDROID`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetAndroidHardwareBufferPropertiesANDROID.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetAndroidHardwareBufferPropertiesANDROID.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ANDROID_ExternalMemoryAndroidHardwareBuffer`](Extensions::ANDROID_ExternalMemoryAndroidHardwareBuffer)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -11215,10 +12443,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetMemoryAndroidHardwareBufferANDROID`
+    /// [`vkGetMemoryAndroidHardwareBufferANDROID`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryAndroidHardwareBufferANDROID.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryAndroidHardwareBufferANDROID.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ANDROID_ExternalMemoryAndroidHardwareBuffer`](Extensions::ANDROID_ExternalMemoryAndroidHardwareBuffer)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -11239,10 +12470,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkCreateGpaSessionAMD`
+    /// [`vkCreateGpaSessionAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateGpaSessionAMD.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateGpaSessionAMD.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -11264,10 +12501,17 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroyGpaSessionAMD`
+    /// [`vkDestroyGpaSessionAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyGpaSessionAMD.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyGpaSessionAMD.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - gpa_session
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyGpaSessionAMD")]
     pub unsafe fn destroy_gpa_session_amd(
@@ -11280,10 +12524,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkSetGpaDeviceClockModeAMD`
+    /// [`vkSetGpaDeviceClockModeAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetGpaDeviceClockModeAMD.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkSetGpaDeviceClockModeAMD.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -11294,19 +12541,19 @@ impl Device {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkSetGpaDeviceClockModeAMD")]
-    pub unsafe fn set_gpa_device_clock_mode_amd(
-        self,
-        info: *mut GpaDeviceClockModeInfoAMD,
-    ) -> ResultCode {
+    pub unsafe fn set_gpa_clock_mode_amd(self, info: *mut GpaDeviceClockModeInfoAMD) -> ResultCode {
         todo!()
     }
 }
 
 impl Device {
-    /// `vkGetGpaDeviceClockInfoAMD`
+    /// [`vkGetGpaDeviceClockInfoAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetGpaDeviceClockInfoAMD.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetGpaDeviceClockInfoAMD.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -11317,29 +12564,29 @@ impl Device {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetGpaDeviceClockInfoAMD")]
-    pub unsafe fn get_gpa_device_clock_info_amd(
-        self,
-        info: *mut GpaDeviceGetClockInfoAMD,
-    ) -> ResultCode {
+    pub unsafe fn get_gpa_clock_info_amd(self, info: *mut GpaDeviceGetClockInfoAMD) -> ResultCode {
         todo!()
     }
 }
 
 impl CommandBuffer {
-    /// `vkCmdBeginGpaSessionAMD`
+    /// [`vkCmdBeginGpaSessionAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginGpaSessionAMD.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginGpaSessionAMD.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -11358,20 +12605,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdEndGpaSessionAMD`
+    /// [`vkCmdEndGpaSessionAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndGpaSessionAMD.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndGpaSessionAMD.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -11390,20 +12640,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBeginGpaSampleAMD`
+    /// [`vkCmdBeginGpaSampleAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginGpaSampleAMD.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginGpaSampleAMD.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -11427,20 +12680,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdEndGpaSampleAMD`
+    /// [`vkCmdEndGpaSampleAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndGpaSampleAMD.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndGpaSampleAMD.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -11451,10 +12707,13 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkGetGpaSessionStatusAMD`
+    /// [`vkGetGpaSessionStatusAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetGpaSessionStatusAMD.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetGpaSessionStatusAMD.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -11471,10 +12730,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetGpaSessionResultsAMD`
+    /// [`vkGetGpaSessionResultsAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetGpaSessionResultsAMD.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetGpaSessionResultsAMD.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - data
     ///
     /// # Result codes
     /// ## Success
@@ -11497,10 +12762,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkResetGpaSessionAMD`
+    /// [`vkResetGpaSessionAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkResetGpaSessionAMD.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkResetGpaSessionAMD.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -11517,20 +12785,23 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdCopyGpaSessionResultsAMD`
+    /// [`vkCmdCopyGpaSessionResultsAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyGpaSessionResultsAMD.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyGpaSessionResultsAMD.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
@@ -11542,10 +12813,17 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkCreateExecutionGraphPipelinesAMDX`
+    /// [`vkCreateExecutionGraphPipelinesAMDX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateExecutionGraphPipelinesAMDX.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateExecutionGraphPipelinesAMDX.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`AMDX_ShaderEnqueue`](Extensions::AMDX_ShaderEnqueue)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - pipeline_cache
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -11570,10 +12848,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetExecutionGraphPipelineScratchSizeAMDX`
+    /// [`vkGetExecutionGraphPipelineScratchSizeAMDX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetExecutionGraphPipelineScratchSizeAMDX.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetExecutionGraphPipelineScratchSizeAMDX.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`AMDX_ShaderEnqueue`](Extensions::AMDX_ShaderEnqueue)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -11593,10 +12874,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetExecutionGraphPipelineNodeIndexAMDX`
+    /// [`vkGetExecutionGraphPipelineNodeIndexAMDX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetExecutionGraphPipelineNodeIndexAMDX.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetExecutionGraphPipelineNodeIndexAMDX.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`AMDX_ShaderEnqueue`](Extensions::AMDX_ShaderEnqueue)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -11617,18 +12901,21 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdInitializeGraphScratchMemoryAMDX`
+    /// [`vkCmdInitializeGraphScratchMemoryAMDX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdInitializeGraphScratchMemoryAMDX.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdInitializeGraphScratchMemoryAMDX.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`AMDX_ShaderEnqueue`](Extensions::AMDX_ShaderEnqueue)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -11644,18 +12931,21 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDispatchGraphAMDX`
+    /// [`vkCmdDispatchGraphAMDX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchGraphAMDX.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchGraphAMDX.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`AMDX_ShaderEnqueue`](Extensions::AMDX_ShaderEnqueue)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -11671,18 +12961,21 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDispatchGraphIndirectAMDX`
+    /// [`vkCmdDispatchGraphIndirectAMDX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchGraphIndirectAMDX.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchGraphIndirectAMDX.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`AMDX_ShaderEnqueue`](Extensions::AMDX_ShaderEnqueue)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -11698,18 +12991,21 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDispatchGraphIndirectCountAMDX`
+    /// [`vkCmdDispatchGraphIndirectCountAMDX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchGraphIndirectCountAMDX.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchGraphIndirectCountAMDX.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`AMDX_ShaderEnqueue`](Extensions::AMDX_ShaderEnqueue)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -11725,10 +13021,13 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkWriteSamplerDescriptorsEXT`
+    /// [`vkWriteSamplerDescriptorsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkWriteSamplerDescriptorsEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkWriteSamplerDescriptorsEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -11750,10 +13049,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkWriteResourceDescriptorsEXT`
+    /// [`vkWriteResourceDescriptorsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkWriteResourceDescriptorsEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkWriteResourceDescriptorsEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -11775,19 +13077,22 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBindSamplerHeapEXT`
+    /// [`vkCmdBindSamplerHeapEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindSamplerHeapEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindSamplerHeapEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -11798,19 +13103,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBindResourceHeapEXT`
+    /// [`vkCmdBindResourceHeapEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindResourceHeapEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindResourceHeapEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -11821,19 +13129,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdPushDataEXT`
+    /// [`vkCmdPushDataEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushDataEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushDataEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -11844,10 +13155,13 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkGetImageOpaqueCaptureDataEXT`
+    /// [`vkGetImageOpaqueCaptureDataEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageOpaqueCaptureDataEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageOpaqueCaptureDataEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -11869,25 +13183,28 @@ impl Device {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceDescriptorSizeEXT`
+    /// [`vkGetPhysicalDeviceDescriptorSizeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceDescriptorSizeEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceDescriptorSizeEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceDescriptorSizeEXT")]
-    pub unsafe fn get_physical_device_descriptor_size_ext(
-        self,
-        descriptor_type: DescriptorType,
-    ) -> DeviceSize {
+    pub unsafe fn get_descriptor_size_ext(self, descriptor_type: DescriptorType) -> DeviceSize {
         todo!()
     }
 }
 
 impl Device {
-    /// `vkRegisterCustomBorderColorEXT`
+    /// [`vkRegisterCustomBorderColorEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkRegisterCustomBorderColorEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkRegisterCustomBorderColorEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -11911,10 +13228,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkUnregisterCustomBorderColorEXT`
+    /// [`vkUnregisterCustomBorderColorEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkUnregisterCustomBorderColorEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkUnregisterCustomBorderColorEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkUnregisterCustomBorderColorEXT")]
     pub unsafe fn unregister_custom_border_color_ext(self, index: u32) {
@@ -11923,10 +13243,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetTensorOpaqueCaptureDataARM`
+    /// [`vkGetTensorOpaqueCaptureDataARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetTensorOpaqueCaptureDataARM.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetTensorOpaqueCaptureDataARM.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -11948,19 +13271,22 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetSampleLocationsEXT`
+    /// [`vkCmdSetSampleLocationsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetSampleLocationsEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetSampleLocationsEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_SampleLocations`](Extensions::EXT_SampleLocations)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetSampleLocationsEXT")]
@@ -11973,13 +13299,16 @@ impl CommandBuffer {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceMultisamplePropertiesEXT`
+    /// [`vkGetPhysicalDeviceMultisamplePropertiesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceMultisamplePropertiesEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceMultisamplePropertiesEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_SampleLocations`](Extensions::EXT_SampleLocations)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceMultisamplePropertiesEXT")]
-    pub unsafe fn get_physical_device_multisample_properties_ext(
+    pub unsafe fn get_multisample_properties_ext(
         self,
         samples: SampleCountFlags,
         multisample_properties: *mut MultisamplePropertiesEXT,
@@ -11989,10 +13318,13 @@ impl PhysicalDevice {
 }
 
 impl Device {
-    /// `vkGetImageDrmFormatModifierPropertiesEXT`
+    /// [`vkGetImageDrmFormatModifierPropertiesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageDrmFormatModifierPropertiesEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageDrmFormatModifierPropertiesEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ImageDrmFormatModifier`](Extensions::EXT_ImageDrmFormatModifier)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -12012,10 +13344,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkCreateValidationCacheEXT`
+    /// [`vkCreateValidationCacheEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateValidationCacheEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateValidationCacheEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ValidationCache`](Extensions::EXT_ValidationCache)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -12036,10 +13374,17 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroyValidationCacheEXT`
+    /// [`vkDestroyValidationCacheEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyValidationCacheEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyValidationCacheEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ValidationCache`](Extensions::EXT_ValidationCache)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - validation_cache
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyValidationCacheEXT")]
     pub unsafe fn destroy_validation_cache_ext(
@@ -12052,10 +13397,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkMergeValidationCachesEXT`
+    /// [`vkMergeValidationCachesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkMergeValidationCachesEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkMergeValidationCachesEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ValidationCache`](Extensions::EXT_ValidationCache)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -12077,10 +13425,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetValidationCacheDataEXT`
+    /// [`vkGetValidationCacheDataEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetValidationCacheDataEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetValidationCacheDataEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ValidationCache`](Extensions::EXT_ValidationCache)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - data
     ///
     /// # Result codes
     /// ## Success
@@ -12103,19 +13457,25 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBindShadingRateImageNV`
+    /// [`vkCmdBindShadingRateImageNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindShadingRateImageNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindShadingRateImageNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_ShadingRateImage`](Extensions::NV_ShadingRateImage)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - image_view
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdBindShadingRateImageNV")]
@@ -12129,19 +13489,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetViewportShadingRatePaletteNV`
+    /// [`vkCmdSetViewportShadingRatePaletteNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetViewportShadingRatePaletteNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetViewportShadingRatePaletteNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_ShadingRateImage`](Extensions::NV_ShadingRateImage)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetViewportShadingRatePaletteNV")]
@@ -12156,19 +13519,25 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetCoarseSampleOrderNV`
+    /// [`vkCmdSetCoarseSampleOrderNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCoarseSampleOrderNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCoarseSampleOrderNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_ShadingRateImage`](Extensions::NV_ShadingRateImage)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - custom_sample_order_count
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetCoarseSampleOrderNV")]
@@ -12183,10 +13552,16 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkCreateAccelerationStructureNV`
+    /// [`vkCreateAccelerationStructureNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateAccelerationStructureNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateAccelerationStructureNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -12207,10 +13582,17 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroyAccelerationStructureNV`
+    /// [`vkDestroyAccelerationStructureNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyAccelerationStructureNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyAccelerationStructureNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - acceleration_structure
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyAccelerationStructureNV")]
     pub unsafe fn destroy_acceleration_structure_nv(
@@ -12223,10 +13605,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetAccelerationStructureMemoryRequirementsNV`
+    /// [`vkGetAccelerationStructureMemoryRequirementsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetAccelerationStructureMemoryRequirementsNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetAccelerationStructureMemoryRequirementsNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetAccelerationStructureMemoryRequirementsNV")]
     pub unsafe fn get_acceleration_structure_memory_requirements_nv(
@@ -12239,10 +13624,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkBindAccelerationStructureMemoryNV`
+    /// [`vkBindAccelerationStructureMemoryNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkBindAccelerationStructureMemoryNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkBindAccelerationStructureMemoryNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -12263,19 +13651,26 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBuildAccelerationStructureNV`
+    /// [`vkCmdBuildAccelerationStructureNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBuildAccelerationStructureNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBuildAccelerationStructureNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - instance_data
+    /// - src
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
     #[doc(alias = "vkCmdBuildAccelerationStructureNV")]
@@ -12295,19 +13690,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdCopyAccelerationStructureNV`
+    /// [`vkCmdCopyAccelerationStructureNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyAccelerationStructureNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyAccelerationStructureNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
     #[doc(alias = "vkCmdCopyAccelerationStructureNV")]
@@ -12322,19 +13720,27 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdTraceRaysNV`
+    /// [`vkCmdTraceRaysNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdTraceRaysNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdTraceRaysNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - miss_shader_binding_table_buffer
+    /// - hit_shader_binding_table_buffer
+    /// - callable_shader_binding_table_buffer
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
     #[doc(alias = "vkCmdTraceRaysNV")]
@@ -12360,10 +13766,17 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkCreateRayTracingPipelinesNV`
+    /// [`vkCreateRayTracingPipelinesNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateRayTracingPipelinesNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateRayTracingPipelinesNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - pipeline_cache
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -12389,10 +13802,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetRayTracingShaderGroupHandlesKHR`
+    /// [`vkGetRayTracingShaderGroupHandlesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRayTracingShaderGroupHandlesKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRayTracingShaderGroupHandlesKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -12416,10 +13832,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetRayTracingShaderGroupHandlesNV`
+    /// [`vkGetRayTracingShaderGroupHandlesNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRayTracingShaderGroupHandlesNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRayTracingShaderGroupHandlesNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -12443,10 +13862,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetAccelerationStructureHandleNV`
+    /// [`vkGetAccelerationStructureHandleNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetAccelerationStructureHandleNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetAccelerationStructureHandleNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -12468,19 +13890,22 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdWriteAccelerationStructuresPropertiesNV`
+    /// [`vkCmdWriteAccelerationStructuresPropertiesNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteAccelerationStructuresPropertiesNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteAccelerationStructuresPropertiesNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
     #[doc(alias = "vkCmdWriteAccelerationStructuresPropertiesNV")]
@@ -12497,10 +13922,13 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkCompileDeferredNV`
+    /// [`vkCompileDeferredNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCompileDeferredNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCompileDeferredNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -12517,10 +13945,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetMemoryHostPointerPropertiesEXT`
+    /// [`vkGetMemoryHostPointerPropertiesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryHostPointerPropertiesEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryHostPointerPropertiesEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExternalMemoryHost`](Extensions::EXT_ExternalMemoryHost)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -12542,19 +13973,25 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdWriteBufferMarkerAMD`
+    /// [`vkCmdWriteBufferMarkerAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteBufferMarkerAMD.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteBufferMarkerAMD.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`AMD_BufferMarker`](Extensions::AMD_BufferMarker)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - pipeline_stage
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
@@ -12572,19 +14009,25 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdWriteBufferMarker2AMD`
+    /// [`vkCmdWriteBufferMarker2AMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteBufferMarker2AMD.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteBufferMarker2AMD.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`AMD_BufferMarker`](Extensions::AMD_BufferMarker)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - stage
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
@@ -12602,10 +14045,16 @@ impl CommandBuffer {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceCalibrateableTimeDomainsEXT`
+    /// [`vkGetPhysicalDeviceCalibrateableTimeDomainsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceCalibrateableTimeDomainsEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceCalibrateableTimeDomainsEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_CalibratedTimestamps`](Extensions::EXT_CalibratedTimestamps)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - time_domains
     ///
     /// # Result codes
     /// ## Success
@@ -12617,7 +14066,7 @@ impl PhysicalDevice {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetPhysicalDeviceCalibrateableTimeDomainsEXT")]
-    pub unsafe fn get_physical_device_calibrateable_time_domains_ext(
+    pub unsafe fn get_calibrateable_time_domains_ext(
         self,
         time_domain_count: *mut u32,
         time_domains: *mut TimeDomainKHR,
@@ -12627,10 +14076,13 @@ impl PhysicalDevice {
 }
 
 impl Device {
-    /// `vkGetCalibratedTimestampsEXT`
+    /// [`vkGetCalibratedTimestampsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetCalibratedTimestampsEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetCalibratedTimestampsEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_CalibratedTimestamps`](Extensions::EXT_CalibratedTimestamps)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -12653,19 +14105,22 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDrawMeshTasksNV`
+    /// [`vkCmdDrawMeshTasksNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMeshTasksNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMeshTasksNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_MeshShader`](Extensions::NV_MeshShader)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawMeshTasksNV")]
@@ -12675,19 +14130,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDrawMeshTasksIndirectNV`
+    /// [`vkCmdDrawMeshTasksIndirectNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMeshTasksIndirectNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMeshTasksIndirectNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_MeshShader`](Extensions::NV_MeshShader)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawMeshTasksIndirectNV")]
@@ -12703,19 +14161,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDrawMeshTasksIndirectCountNV`
+    /// [`vkCmdDrawMeshTasksIndirectCountNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMeshTasksIndirectCountNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMeshTasksIndirectCountNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_MeshShader`](Extensions::NV_MeshShader)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawMeshTasksIndirectCountNV")]
@@ -12733,19 +14194,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetExclusiveScissorEnableNV`
+    /// [`vkCmdSetExclusiveScissorEnableNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetExclusiveScissorEnableNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetExclusiveScissorEnableNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_ScissorExclusive`](Extensions::NV_ScissorExclusive)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetExclusiveScissorEnableNV")]
@@ -12760,19 +14224,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetExclusiveScissorNV`
+    /// [`vkCmdSetExclusiveScissorNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetExclusiveScissorNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetExclusiveScissorNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_ScissorExclusive`](Extensions::NV_ScissorExclusive)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetExclusiveScissorNV")]
@@ -12787,19 +14254,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetCheckpointNV`
+    /// [`vkCmdSetCheckpointNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCheckpointNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCheckpointNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_DeviceDiagnosticCheckpoints`](Extensions::NV_DeviceDiagnosticCheckpoints)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
@@ -12811,13 +14281,19 @@ impl CommandBuffer {
 }
 
 impl Queue {
-    /// `vkGetQueueCheckpointDataNV`
+    /// [`vkGetQueueCheckpointDataNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetQueueCheckpointDataNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetQueueCheckpointDataNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_DeviceDiagnosticCheckpoints`](Extensions::NV_DeviceDiagnosticCheckpoints)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - checkpoint_data
     ///
     #[doc(alias = "vkGetQueueCheckpointDataNV")]
-    pub unsafe fn get_queue_checkpoint_data_nv(
+    pub unsafe fn get_checkpoint_data_nv(
         self,
         checkpoint_data_count: *mut u32,
         checkpoint_data: *mut CheckpointDataNV,
@@ -12827,13 +14303,19 @@ impl Queue {
 }
 
 impl Queue {
-    /// `vkGetQueueCheckpointData2NV`
+    /// [`vkGetQueueCheckpointData2NV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetQueueCheckpointData2NV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetQueueCheckpointData2NV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_DeviceDiagnosticCheckpoints`](Extensions::NV_DeviceDiagnosticCheckpoints)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - checkpoint_data
     ///
     #[doc(alias = "vkGetQueueCheckpointData2NV")]
-    pub unsafe fn get_queue_checkpoint_data_2_nv(
+    pub unsafe fn get_checkpoint_data_2_nv(
         self,
         checkpoint_data_count: *mut u32,
         checkpoint_data: *mut CheckpointData2NV,
@@ -12843,10 +14325,13 @@ impl Queue {
 }
 
 impl Device {
-    /// `vkSetSwapchainPresentTimingQueueSizeEXT`
+    /// [`vkSetSwapchainPresentTimingQueueSizeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetSwapchainPresentTimingQueueSizeEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkSetSwapchainPresentTimingQueueSizeEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_PresentTiming`](Extensions::EXT_PresentTiming)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -12868,10 +14353,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetSwapchainTimingPropertiesEXT`
+    /// [`vkGetSwapchainTimingPropertiesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSwapchainTimingPropertiesEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSwapchainTimingPropertiesEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_PresentTiming`](Extensions::EXT_PresentTiming)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - swapchain_timing_properties_counter
     ///
     /// # Result codes
     /// ## Success
@@ -12895,10 +14386,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetSwapchainTimeDomainPropertiesEXT`
+    /// [`vkGetSwapchainTimeDomainPropertiesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSwapchainTimeDomainPropertiesEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSwapchainTimeDomainPropertiesEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_PresentTiming`](Extensions::EXT_PresentTiming)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - time_domains_counter
     ///
     /// # Result codes
     /// ## Success
@@ -12922,10 +14419,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetPastPresentationTimingEXT`
+    /// [`vkGetPastPresentationTimingEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPastPresentationTimingEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPastPresentationTimingEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_PresentTiming`](Extensions::EXT_PresentTiming)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -12948,10 +14448,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkInitializePerformanceApiINTEL`
+    /// [`vkInitializePerformanceApiINTEL`](https://docs.vulkan.org/refpages/latest/refpages/source/vkInitializePerformanceApiINTEL.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkInitializePerformanceApiINTEL.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`INTEL_PerformanceQuery`](Extensions::INTEL_PerformanceQuery)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -12971,10 +14474,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkUninitializePerformanceApiINTEL`
+    /// [`vkUninitializePerformanceApiINTEL`](https://docs.vulkan.org/refpages/latest/refpages/source/vkUninitializePerformanceApiINTEL.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkUninitializePerformanceApiINTEL.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`INTEL_PerformanceQuery`](Extensions::INTEL_PerformanceQuery)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkUninitializePerformanceApiINTEL")]
     pub unsafe fn uninitialize_performance_api_intel(self) {
@@ -12983,20 +14489,23 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetPerformanceMarkerINTEL`
+    /// [`vkCmdSetPerformanceMarkerINTEL`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPerformanceMarkerINTEL.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPerformanceMarkerINTEL.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`INTEL_PerformanceQuery`](Extensions::INTEL_PerformanceQuery)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
@@ -13019,20 +14528,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetPerformanceStreamMarkerINTEL`
+    /// [`vkCmdSetPerformanceStreamMarkerINTEL`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPerformanceStreamMarkerINTEL.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPerformanceStreamMarkerINTEL.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`INTEL_PerformanceQuery`](Extensions::INTEL_PerformanceQuery)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
@@ -13055,19 +14567,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetPerformanceOverrideINTEL`
+    /// [`vkCmdSetPerformanceOverrideINTEL`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPerformanceOverrideINTEL.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPerformanceOverrideINTEL.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`INTEL_PerformanceQuery`](Extensions::INTEL_PerformanceQuery)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
@@ -13090,10 +14605,13 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkAcquirePerformanceConfigurationINTEL`
+    /// [`vkAcquirePerformanceConfigurationINTEL`](https://docs.vulkan.org/refpages/latest/refpages/source/vkAcquirePerformanceConfigurationINTEL.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkAcquirePerformanceConfigurationINTEL.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`INTEL_PerformanceQuery`](Extensions::INTEL_PerformanceQuery)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -13114,10 +14632,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkReleasePerformanceConfigurationINTEL`
+    /// [`vkReleasePerformanceConfigurationINTEL`](https://docs.vulkan.org/refpages/latest/refpages/source/vkReleasePerformanceConfigurationINTEL.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkReleasePerformanceConfigurationINTEL.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`INTEL_PerformanceQuery`](Extensions::INTEL_PerformanceQuery)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - configuration
     ///
     /// # Result codes
     /// ## Success
@@ -13137,10 +14661,13 @@ impl Device {
 }
 
 impl Queue {
-    /// `vkQueueSetPerformanceConfigurationINTEL`
+    /// [`vkQueueSetPerformanceConfigurationINTEL`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueSetPerformanceConfigurationINTEL.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueSetPerformanceConfigurationINTEL.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`INTEL_PerformanceQuery`](Extensions::INTEL_PerformanceQuery)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -13151,7 +14678,7 @@ impl Queue {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkQueueSetPerformanceConfigurationINTEL")]
-    pub unsafe fn queue_set_performance_configuration_intel(
+    pub unsafe fn set_performance_configuration_intel(
         self,
         configuration: PerformanceConfigurationINTEL,
     ) -> ResultCode {
@@ -13160,10 +14687,13 @@ impl Queue {
 }
 
 impl Device {
-    /// `vkGetPerformanceParameterINTEL`
+    /// [`vkGetPerformanceParameterINTEL`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPerformanceParameterINTEL.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPerformanceParameterINTEL.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`INTEL_PerformanceQuery`](Extensions::INTEL_PerformanceQuery)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -13184,10 +14714,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkSetLocalDimmingAMD`
+    /// [`vkSetLocalDimmingAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetLocalDimmingAMD.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkSetLocalDimmingAMD.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`AMD_DisplayNativeHdr`](Extensions::AMD_DisplayNativeHdr)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkSetLocalDimmingAMD")]
     pub unsafe fn set_local_dimming_amd(
@@ -13200,10 +14733,16 @@ impl Device {
 }
 
 impl Instance {
-    /// `vkCreateImagePipeSurfaceFUCHSIA`
+    /// [`vkCreateImagePipeSurfaceFUCHSIA`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateImagePipeSurfaceFUCHSIA.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateImagePipeSurfaceFUCHSIA.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`FUCHSIA_ImagepipeSurface`](Extensions::FUCHSIA_ImagepipeSurface)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -13225,10 +14764,16 @@ impl Instance {
 }
 
 impl Instance {
-    /// `vkCreateMetalSurfaceEXT`
+    /// [`vkCreateMetalSurfaceEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateMetalSurfaceEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateMetalSurfaceEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_MetalSurface`](Extensions::EXT_MetalSurface)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -13251,13 +14796,16 @@ impl Instance {
 }
 
 impl Device {
-    /// `vkGetBufferDeviceAddressEXT`
+    /// [`vkGetBufferDeviceAddressEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferDeviceAddressEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferDeviceAddressEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_BufferDeviceAddress`](Extensions::EXT_BufferDeviceAddress)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetBufferDeviceAddressEXT")]
-    pub unsafe fn get_buffer_device_address_ext(
+    pub unsafe fn get_buffer_address_ext(
         self,
         info: *const BufferDeviceAddressInfo,
     ) -> DeviceAddress {
@@ -13266,10 +14814,16 @@ impl Device {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceToolPropertiesEXT`
+    /// [`vkGetPhysicalDeviceToolPropertiesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceToolPropertiesEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceToolPropertiesEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ToolingInfo`](Extensions::EXT_ToolingInfo)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - tool_properties
     ///
     /// # Result codes
     /// ## Success
@@ -13280,7 +14834,7 @@ impl PhysicalDevice {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetPhysicalDeviceToolPropertiesEXT")]
-    pub unsafe fn get_physical_device_tool_properties_ext(
+    pub unsafe fn get_tool_properties_ext(
         self,
         tool_count: *mut u32,
         tool_properties: *mut PhysicalDeviceToolProperties,
@@ -13290,10 +14844,16 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceCooperativeMatrixPropertiesNV`
+    /// [`vkGetPhysicalDeviceCooperativeMatrixPropertiesNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceCooperativeMatrixPropertiesNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceCooperativeMatrixPropertiesNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_CooperativeMatrix`](Extensions::NV_CooperativeMatrix)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - properties
     ///
     /// # Result codes
     /// ## Success
@@ -13305,7 +14865,7 @@ impl PhysicalDevice {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetPhysicalDeviceCooperativeMatrixPropertiesNV")]
-    pub unsafe fn get_physical_device_cooperative_matrix_properties_nv(
+    pub unsafe fn get_cooperative_matrix_properties_nv(
         self,
         property_count: *mut u32,
         properties: *mut CooperativeMatrixPropertiesNV,
@@ -13315,10 +14875,16 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV`
+    /// [`vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_CoverageReductionMode`](Extensions::NV_CoverageReductionMode)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - combinations
     ///
     /// # Result codes
     /// ## Success
@@ -13330,7 +14896,7 @@ impl PhysicalDevice {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV")]
-    pub unsafe fn get_physical_device_supported_framebuffer_mixed_samples_combinations_nv(
+    pub unsafe fn get_supported_framebuffer_mixed_samples_combinations_nv(
         self,
         combination_count: *mut u32,
         combinations: *mut FramebufferMixedSamplesCombinationNV,
@@ -13340,10 +14906,16 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceSurfacePresentModes2EXT`
+    /// [`vkGetPhysicalDeviceSurfacePresentModes2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSurfacePresentModes2EXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSurfacePresentModes2EXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_FullScreenExclusive`](Extensions::EXT_FullScreenExclusive)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - present_modes
     ///
     /// # Result codes
     /// ## Success
@@ -13356,7 +14928,7 @@ impl PhysicalDevice {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetPhysicalDeviceSurfacePresentModes2EXT")]
-    pub unsafe fn get_physical_device_surface_present_modes_2_ext(
+    pub unsafe fn get_surface_present_modes_2_ext(
         self,
         surface_info: *const PhysicalDeviceSurfaceInfo2KHR,
         present_mode_count: *mut u32,
@@ -13367,10 +14939,13 @@ impl PhysicalDevice {
 }
 
 impl Device {
-    /// `vkAcquireFullScreenExclusiveModeEXT`
+    /// [`vkAcquireFullScreenExclusiveModeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkAcquireFullScreenExclusiveModeEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkAcquireFullScreenExclusiveModeEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_FullScreenExclusive`](Extensions::EXT_FullScreenExclusive)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -13392,10 +14967,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkReleaseFullScreenExclusiveModeEXT`
+    /// [`vkReleaseFullScreenExclusiveModeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkReleaseFullScreenExclusiveModeEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkReleaseFullScreenExclusiveModeEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_FullScreenExclusive`](Extensions::EXT_FullScreenExclusive)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -13416,10 +14994,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetDeviceGroupSurfacePresentModes2EXT`
+    /// [`vkGetDeviceGroupSurfacePresentModes2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceGroupSurfacePresentModes2EXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceGroupSurfacePresentModes2EXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_FullScreenExclusive`](Extensions::EXT_FullScreenExclusive)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -13431,7 +15012,7 @@ impl Device {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetDeviceGroupSurfacePresentModes2EXT")]
-    pub unsafe fn get_device_group_surface_present_modes_2_ext(
+    pub unsafe fn get_group_surface_present_modes_2_ext(
         self,
         surface_info: *const PhysicalDeviceSurfaceInfo2KHR,
         modes: *mut DeviceGroupPresentModeFlagsKHR,
@@ -13441,10 +15022,16 @@ impl Device {
 }
 
 impl Instance {
-    /// `vkCreateHeadlessSurfaceEXT`
+    /// [`vkCreateHeadlessSurfaceEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateHeadlessSurfaceEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateHeadlessSurfaceEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_HeadlessSurface`](Extensions::EXT_HeadlessSurface)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -13466,19 +15053,22 @@ impl Instance {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetLineStippleEXT`
+    /// [`vkCmdSetLineStippleEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetLineStippleEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetLineStippleEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_LineRasterization`](Extensions::EXT_LineRasterization)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetLineStippleEXT")]
@@ -13492,10 +15082,13 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkResetQueryPoolEXT`
+    /// [`vkResetQueryPoolEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkResetQueryPoolEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkResetQueryPoolEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_HostQueryReset`](Extensions::EXT_HostQueryReset)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkResetQueryPoolEXT")]
     pub unsafe fn reset_query_pool_ext(
@@ -13509,19 +15102,26 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetCullModeEXT`
+    /// [`vkCmdSetCullModeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCullModeEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCullModeEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState`](Extensions::EXT_ExtendedDynamicState)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - cull_mode
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetCullModeEXT")]
@@ -13531,19 +15131,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetFrontFaceEXT`
+    /// [`vkCmdSetFrontFaceEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetFrontFaceEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetFrontFaceEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState`](Extensions::EXT_ExtendedDynamicState)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetFrontFaceEXT")]
@@ -13553,19 +15157,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetPrimitiveTopologyEXT`
+    /// [`vkCmdSetPrimitiveTopologyEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPrimitiveTopologyEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPrimitiveTopologyEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState`](Extensions::EXT_ExtendedDynamicState)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetPrimitiveTopologyEXT")]
@@ -13575,19 +15183,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetViewportWithCountEXT`
+    /// [`vkCmdSetViewportWithCountEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetViewportWithCountEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetViewportWithCountEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState`](Extensions::EXT_ExtendedDynamicState)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetViewportWithCountEXT")]
@@ -13601,19 +15213,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetScissorWithCountEXT`
+    /// [`vkCmdSetScissorWithCountEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetScissorWithCountEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetScissorWithCountEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState`](Extensions::EXT_ExtendedDynamicState)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetScissorWithCountEXT")]
@@ -13627,19 +15243,27 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBindVertexBuffers2EXT`
+    /// [`vkCmdBindVertexBuffers2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindVertexBuffers2EXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindVertexBuffers2EXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState`](Extensions::EXT_ExtendedDynamicState)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - sizes
+    /// - strides
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdBindVertexBuffers2EXT")]
@@ -13657,19 +15281,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetDepthTestEnableEXT`
+    /// [`vkCmdSetDepthTestEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthTestEnableEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthTestEnableEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState`](Extensions::EXT_ExtendedDynamicState)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetDepthTestEnableEXT")]
@@ -13679,19 +15307,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetDepthWriteEnableEXT`
+    /// [`vkCmdSetDepthWriteEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthWriteEnableEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthWriteEnableEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState`](Extensions::EXT_ExtendedDynamicState)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetDepthWriteEnableEXT")]
@@ -13701,19 +15333,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetDepthCompareOpEXT`
+    /// [`vkCmdSetDepthCompareOpEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthCompareOpEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthCompareOpEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState`](Extensions::EXT_ExtendedDynamicState)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetDepthCompareOpEXT")]
@@ -13723,19 +15359,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetDepthBoundsTestEnableEXT`
+    /// [`vkCmdSetDepthBoundsTestEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthBoundsTestEnableEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthBoundsTestEnableEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState`](Extensions::EXT_ExtendedDynamicState)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetDepthBoundsTestEnableEXT")]
@@ -13745,19 +15385,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetStencilTestEnableEXT`
+    /// [`vkCmdSetStencilTestEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetStencilTestEnableEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetStencilTestEnableEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState`](Extensions::EXT_ExtendedDynamicState)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetStencilTestEnableEXT")]
@@ -13767,19 +15411,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetStencilOpEXT`
+    /// [`vkCmdSetStencilOpEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetStencilOpEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetStencilOpEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState`](Extensions::EXT_ExtendedDynamicState)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetStencilOpEXT")]
@@ -13796,10 +15444,13 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkCopyMemoryToImageEXT`
+    /// [`vkCopyMemoryToImageEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyMemoryToImageEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyMemoryToImageEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_HostImageCopy`](Extensions::EXT_HostImageCopy)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -13821,10 +15472,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkCopyImageToMemoryEXT`
+    /// [`vkCopyImageToMemoryEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyImageToMemoryEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyImageToMemoryEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_HostImageCopy`](Extensions::EXT_HostImageCopy)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -13846,10 +15500,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkCopyImageToImageEXT`
+    /// [`vkCopyImageToImageEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyImageToImageEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyImageToImageEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_HostImageCopy`](Extensions::EXT_HostImageCopy)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -13871,10 +15528,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkTransitionImageLayoutEXT`
+    /// [`vkTransitionImageLayoutEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkTransitionImageLayoutEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkTransitionImageLayoutEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_HostImageCopy`](Extensions::EXT_HostImageCopy)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -13897,10 +15557,14 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetImageSubresourceLayout2EXT`
+    /// [`vkGetImageSubresourceLayout2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageSubresourceLayout2EXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageSubresourceLayout2EXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_HostImageCopy`](Extensions::EXT_HostImageCopy)
+    /// - Extension [`EXT_ImageCompressionControl`](Extensions::EXT_ImageCompressionControl)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetImageSubresourceLayout2EXT")]
     pub unsafe fn get_image_subresource_layout_2_ext(
@@ -13914,10 +15578,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkReleaseSwapchainImagesEXT`
+    /// [`vkReleaseSwapchainImagesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkReleaseSwapchainImagesEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkReleaseSwapchainImagesEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_SwapchainMaintenance1`](Extensions::EXT_SwapchainMaintenance1)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -13936,10 +15603,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetGeneratedCommandsMemoryRequirementsNV`
+    /// [`vkGetGeneratedCommandsMemoryRequirementsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetGeneratedCommandsMemoryRequirementsNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetGeneratedCommandsMemoryRequirementsNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetGeneratedCommandsMemoryRequirementsNV")]
     pub unsafe fn get_generated_commands_memory_requirements_nv(
@@ -13952,19 +15622,22 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdPreprocessGeneratedCommandsNV`
+    /// [`vkCmdPreprocessGeneratedCommandsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPreprocessGeneratedCommandsNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPreprocessGeneratedCommandsNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -13978,20 +15651,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdExecuteGeneratedCommandsNV`
+    /// [`vkCmdExecuteGeneratedCommandsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdExecuteGeneratedCommandsNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdExecuteGeneratedCommandsNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     /// - `indirection`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -14006,19 +15682,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBindPipelineShaderGroupNV`
+    /// [`vkCmdBindPipelineShaderGroupNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindPipelineShaderGroupNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindPipelineShaderGroupNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -14034,10 +15713,16 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkCreateIndirectCommandsLayoutNV`
+    /// [`vkCreateIndirectCommandsLayoutNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateIndirectCommandsLayoutNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateIndirectCommandsLayoutNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -14059,10 +15744,17 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroyIndirectCommandsLayoutNV`
+    /// [`vkDestroyIndirectCommandsLayoutNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyIndirectCommandsLayoutNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyIndirectCommandsLayoutNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - indirect_commands_layout
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyIndirectCommandsLayoutNV")]
     pub unsafe fn destroy_indirect_commands_layout_nv(
@@ -14075,19 +15767,22 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetDepthBias2EXT`
+    /// [`vkCmdSetDepthBias2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthBias2EXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthBias2EXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DepthBiasControl`](Extensions::EXT_DepthBiasControl)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetDepthBias2EXT")]
@@ -14097,10 +15792,13 @@ impl CommandBuffer {
 }
 
 impl PhysicalDevice {
-    /// `vkAcquireDrmDisplayEXT`
+    /// [`vkAcquireDrmDisplayEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkAcquireDrmDisplayEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkAcquireDrmDisplayEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_AcquireDrmDisplay`](Extensions::EXT_AcquireDrmDisplay)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -14116,10 +15814,13 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
-    /// `vkGetDrmDisplayEXT`
+    /// [`vkGetDrmDisplayEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDrmDisplayEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDrmDisplayEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_AcquireDrmDisplay`](Extensions::EXT_AcquireDrmDisplay)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -14141,10 +15842,16 @@ impl PhysicalDevice {
 }
 
 impl Device {
-    /// `vkCreatePrivateDataSlotEXT`
+    /// [`vkCreatePrivateDataSlotEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreatePrivateDataSlotEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreatePrivateDataSlotEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_PrivateData`](Extensions::EXT_PrivateData)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -14165,10 +15872,17 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroyPrivateDataSlotEXT`
+    /// [`vkDestroyPrivateDataSlotEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyPrivateDataSlotEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyPrivateDataSlotEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_PrivateData`](Extensions::EXT_PrivateData)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - private_data_slot
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyPrivateDataSlotEXT")]
     pub unsafe fn destroy_private_data_slot_ext(
@@ -14181,10 +15895,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkSetPrivateDataEXT`
+    /// [`vkSetPrivateDataEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetPrivateDataEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkSetPrivateDataEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_PrivateData`](Extensions::EXT_PrivateData)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -14206,10 +15923,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetPrivateDataEXT`
+    /// [`vkGetPrivateDataEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPrivateDataEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPrivateDataEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_PrivateData`](Extensions::EXT_PrivateData)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPrivateDataEXT")]
     pub unsafe fn get_private_data_ext(
@@ -14224,10 +15944,13 @@ impl Device {
 }
 
 impl Queue {
-    /// `vkQueueSetPerfHintQCOM`
+    /// [`vkQueueSetPerfHintQCOM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueSetPerfHintQCOM.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueSetPerfHintQCOM.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`QCOM_QueuePerfHint`](Extensions::QCOM_QueuePerfHint)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -14237,19 +15960,22 @@ impl Queue {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkQueueSetPerfHintQCOM")]
-    pub unsafe fn queue_set_perf_hint_qcom(
-        self,
-        perf_hint_info: *const PerfHintInfoQCOM,
-    ) -> ResultCode {
+    pub unsafe fn set_perf_hint_qcom(self, perf_hint_info: *const PerfHintInfoQCOM) -> ResultCode {
         todo!()
     }
 }
 
 impl Device {
-    /// `vkCreateCudaModuleNV`
+    /// [`vkCreateCudaModuleNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateCudaModuleNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateCudaModuleNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_CudaKernelLaunch`](Extensions::NV_CudaKernelLaunch)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -14271,10 +15997,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetCudaModuleCacheNV`
+    /// [`vkGetCudaModuleCacheNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetCudaModuleCacheNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetCudaModuleCacheNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_CudaKernelLaunch`](Extensions::NV_CudaKernelLaunch)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - cache_data
     ///
     /// # Result codes
     /// ## Success
@@ -14296,10 +16028,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkCreateCudaFunctionNV`
+    /// [`vkCreateCudaFunctionNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateCudaFunctionNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateCudaFunctionNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_CudaKernelLaunch`](Extensions::NV_CudaKernelLaunch)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -14321,10 +16059,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroyCudaModuleNV`
+    /// [`vkDestroyCudaModuleNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyCudaModuleNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyCudaModuleNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_CudaKernelLaunch`](Extensions::NV_CudaKernelLaunch)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyCudaModuleNV")]
     pub unsafe fn destroy_cuda_module_nv(
@@ -14337,10 +16081,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroyCudaFunctionNV`
+    /// [`vkDestroyCudaFunctionNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyCudaFunctionNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyCudaFunctionNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_CudaKernelLaunch`](Extensions::NV_CudaKernelLaunch)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyCudaFunctionNV")]
     pub unsafe fn destroy_cuda_function_nv(
@@ -14353,19 +16103,22 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdCudaLaunchKernelNV`
+    /// [`vkCmdCudaLaunchKernelNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCudaLaunchKernelNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCudaLaunchKernelNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_CudaKernelLaunch`](Extensions::NV_CudaKernelLaunch)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -14376,19 +16129,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDispatchTileQCOM`
+    /// [`vkCmdDispatchTileQCOM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchTileQCOM.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchTileQCOM.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`QCOM_TileShading`](Extensions::QCOM_TileShading)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
     #[doc(alias = "vkCmdDispatchTileQCOM")]
@@ -14398,19 +16154,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBeginPerTileExecutionQCOM`
+    /// [`vkCmdBeginPerTileExecutionQCOM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginPerTileExecutionQCOM.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginPerTileExecutionQCOM.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`QCOM_TileShading`](Extensions::QCOM_TileShading)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -14424,19 +16183,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdEndPerTileExecutionQCOM`
+    /// [`vkCmdEndPerTileExecutionQCOM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndPerTileExecutionQCOM.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndPerTileExecutionQCOM.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`QCOM_TileShading`](Extensions::QCOM_TileShading)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -14450,10 +16212,13 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkSetLatencySleepModeLegacyNV`
+    /// [`vkSetLatencySleepModeLegacyNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetLatencySleepModeLegacyNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkSetLatencySleepModeLegacyNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_LowLatency`](Extensions::NV_LowLatency)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkSetLatencySleepModeLegacyNV")]
     pub unsafe fn set_latency_sleep_mode_legacy_nv(
@@ -14467,10 +16232,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkLatencySleepLegacyNV`
+    /// [`vkLatencySleepLegacyNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkLatencySleepLegacyNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkLatencySleepLegacyNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_LowLatency`](Extensions::NV_LowLatency)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkLatencySleepLegacyNV")]
     pub unsafe fn latency_sleep_legacy_nv(self, signal_semaphore: Semaphore, value: u64) {
@@ -14479,10 +16247,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkSetLatencyMarkerLegacyNV`
+    /// [`vkSetLatencyMarkerLegacyNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetLatencyMarkerLegacyNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkSetLatencyMarkerLegacyNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_LowLatency`](Extensions::NV_LowLatency)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkSetLatencyMarkerLegacyNV")]
     pub unsafe fn set_latency_marker_legacy_nv(self, frame_id: u64, marker: u32) {
@@ -14491,10 +16262,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetLatencyTimingsLegacyNV`
+    /// [`vkGetLatencyTimingsLegacyNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetLatencyTimingsLegacyNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetLatencyTimingsLegacyNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_LowLatency`](Extensions::NV_LowLatency)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetLatencyTimingsLegacyNV")]
     pub unsafe fn get_latency_timings_legacy_nv(self, timings: *mut c_void) {
@@ -14503,22 +16277,28 @@ impl Device {
 }
 
 impl Queue {
-    /// `vkQueueNotifyOutOfBandLegacyNV`
+    /// [`vkQueueNotifyOutOfBandLegacyNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueNotifyOutOfBandLegacyNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueNotifyOutOfBandLegacyNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_LowLatency`](Extensions::NV_LowLatency)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkQueueNotifyOutOfBandLegacyNV")]
-    pub unsafe fn queue_notify_out_of_band_legacy_nv(self, queue_type: u32) {
+    pub unsafe fn notify_out_of_band_legacy_nv(self, queue_type: u32) {
         todo!()
     }
 }
 
 impl Device {
-    /// `vkGetSleepStatusLegacyNV`
+    /// [`vkGetSleepStatusLegacyNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSleepStatusLegacyNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSleepStatusLegacyNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_LowLatency`](Extensions::NV_LowLatency)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetSleepStatusLegacyNV")]
     pub unsafe fn get_sleep_status_legacy_nv(self, low_latency_mode: *mut Bool32) {
@@ -14527,22 +16307,28 @@ impl Device {
 }
 
 impl Device {
-    /// `vkShutdownLatencyDeviceLegacyNV`
+    /// [`vkShutdownLatencyDeviceLegacyNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkShutdownLatencyDeviceLegacyNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkShutdownLatencyDeviceLegacyNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_LowLatency`](Extensions::NV_LowLatency)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkShutdownLatencyDeviceLegacyNV")]
-    pub unsafe fn shutdown_latency_device_legacy_nv(self) {
+    pub unsafe fn shutdown_latency_legacy_nv(self) {
         todo!()
     }
 }
 
 impl Device {
-    /// `vkExportMetalObjectsEXT`
+    /// [`vkExportMetalObjectsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkExportMetalObjectsEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkExportMetalObjectsEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_MetalObjects`](Extensions::EXT_MetalObjects)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkExportMetalObjectsEXT")]
     pub unsafe fn export_metal_objects_ext(
@@ -14554,10 +16340,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetDescriptorSetLayoutSizeEXT`
+    /// [`vkGetDescriptorSetLayoutSizeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDescriptorSetLayoutSizeEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDescriptorSetLayoutSizeEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDescriptorSetLayoutSizeEXT")]
     pub unsafe fn get_descriptor_set_layout_size_ext(
@@ -14570,10 +16359,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetDescriptorSetLayoutBindingOffsetEXT`
+    /// [`vkGetDescriptorSetLayoutBindingOffsetEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDescriptorSetLayoutBindingOffsetEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDescriptorSetLayoutBindingOffsetEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDescriptorSetLayoutBindingOffsetEXT")]
     pub unsafe fn get_descriptor_set_layout_binding_offset_ext(
@@ -14587,10 +16379,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetDescriptorEXT`
+    /// [`vkGetDescriptorEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDescriptorEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDescriptorEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDescriptorEXT")]
     pub unsafe fn get_descriptor_ext(
@@ -14604,19 +16399,22 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBindDescriptorBuffersEXT`
+    /// [`vkCmdBindDescriptorBuffersEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindDescriptorBuffersEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindDescriptorBuffersEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     /// - [`DATA_GRAPHARM`](QueueFlags::DATA_GRAPHARM)
@@ -14632,19 +16430,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetDescriptorBufferOffsetsEXT`
+    /// [`vkCmdSetDescriptorBufferOffsetsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDescriptorBufferOffsetsEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDescriptorBufferOffsetsEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     /// - [`DATA_GRAPHARM`](QueueFlags::DATA_GRAPHARM)
@@ -14664,19 +16465,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBindDescriptorBufferEmbeddedSamplersEXT`
+    /// [`vkCmdBindDescriptorBufferEmbeddedSamplersEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindDescriptorBufferEmbeddedSamplersEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindDescriptorBufferEmbeddedSamplersEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -14692,10 +16496,13 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkGetBufferOpaqueCaptureDescriptorDataEXT`
+    /// [`vkGetBufferOpaqueCaptureDescriptorDataEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferOpaqueCaptureDescriptorDataEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferOpaqueCaptureDescriptorDataEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -14716,10 +16523,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetImageOpaqueCaptureDescriptorDataEXT`
+    /// [`vkGetImageOpaqueCaptureDescriptorDataEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageOpaqueCaptureDescriptorDataEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageOpaqueCaptureDescriptorDataEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -14740,10 +16550,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetImageViewOpaqueCaptureDescriptorDataEXT`
+    /// [`vkGetImageViewOpaqueCaptureDescriptorDataEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageViewOpaqueCaptureDescriptorDataEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageViewOpaqueCaptureDescriptorDataEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -14764,10 +16577,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetSamplerOpaqueCaptureDescriptorDataEXT`
+    /// [`vkGetSamplerOpaqueCaptureDescriptorDataEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSamplerOpaqueCaptureDescriptorDataEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSamplerOpaqueCaptureDescriptorDataEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -14788,10 +16604,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT`
+    /// [`vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -14812,19 +16631,22 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetFragmentShadingRateEnumNV`
+    /// [`vkCmdSetFragmentShadingRateEnumNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetFragmentShadingRateEnumNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetFragmentShadingRateEnumNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_FragmentShadingRateEnums`](Extensions::NV_FragmentShadingRateEnums)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetFragmentShadingRateEnumNV")]
@@ -14838,10 +16660,16 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkGetDeviceFaultInfoEXT`
+    /// [`vkGetDeviceFaultInfoEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceFaultInfoEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceFaultInfoEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DeviceFault`](Extensions::EXT_DeviceFault)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - fault_info
     ///
     /// # Result codes
     /// ## Success
@@ -14852,7 +16680,7 @@ impl Device {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetDeviceFaultInfoEXT")]
-    pub unsafe fn get_device_fault_info_ext(
+    pub unsafe fn get_fault_info_ext(
         self,
         fault_counts: *mut DeviceFaultCountsEXT,
         fault_info: *mut DeviceFaultInfoEXT,
@@ -14862,10 +16690,13 @@ impl Device {
 }
 
 impl PhysicalDevice {
-    /// `vkAcquireWinrtDisplayNV`
+    /// [`vkAcquireWinrtDisplayNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkAcquireWinrtDisplayNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkAcquireWinrtDisplayNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_AcquireWinrtDisplay`](Extensions::NV_AcquireWinrtDisplay)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -14883,10 +16714,13 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
-    /// `vkGetWinrtDisplayNV`
+    /// [`vkGetWinrtDisplayNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetWinrtDisplayNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetWinrtDisplayNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_AcquireWinrtDisplay`](Extensions::NV_AcquireWinrtDisplay)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -14908,10 +16742,16 @@ impl PhysicalDevice {
 }
 
 impl Instance {
-    /// `vkCreateDirectFBSurfaceEXT`
+    /// [`vkCreateDirectFBSurfaceEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDirectFBSurfaceEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDirectFBSurfaceEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DirectfbSurface`](Extensions::EXT_DirectfbSurface)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -14933,13 +16773,16 @@ impl Instance {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceDirectFBPresentationSupportEXT`
+    /// [`vkGetPhysicalDeviceDirectFBPresentationSupportEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceDirectFBPresentationSupportEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceDirectFBPresentationSupportEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DirectfbSurface`](Extensions::EXT_DirectfbSurface)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceDirectFBPresentationSupportEXT")]
-    pub unsafe fn get_physical_device_direct_fb_presentation_support_ext(
+    pub unsafe fn get_direct_fb_presentation_support_ext(
         self,
         queue_family_index: u32,
         dfb: *mut IDirectFB,
@@ -14949,19 +16792,27 @@ impl PhysicalDevice {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetVertexInputEXT`
+    /// [`vkCmdSetVertexInputEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetVertexInputEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetVertexInputEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_VertexInputDynamicState`](Extensions::EXT_VertexInputDynamicState)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - vertex_binding_description_count
+    /// - vertex_attribute_description_count
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetVertexInputEXT")]
@@ -14977,10 +16828,13 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkGetMemoryZirconHandleFUCHSIA`
+    /// [`vkGetMemoryZirconHandleFUCHSIA`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryZirconHandleFUCHSIA.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryZirconHandleFUCHSIA.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`FUCHSIA_ExternalMemory`](Extensions::FUCHSIA_ExternalMemory)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -15001,10 +16855,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetMemoryZirconHandlePropertiesFUCHSIA`
+    /// [`vkGetMemoryZirconHandlePropertiesFUCHSIA`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryZirconHandlePropertiesFUCHSIA.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryZirconHandlePropertiesFUCHSIA.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`FUCHSIA_ExternalMemory`](Extensions::FUCHSIA_ExternalMemory)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -15025,10 +16882,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkImportSemaphoreZirconHandleFUCHSIA`
+    /// [`vkImportSemaphoreZirconHandleFUCHSIA`](https://docs.vulkan.org/refpages/latest/refpages/source/vkImportSemaphoreZirconHandleFUCHSIA.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkImportSemaphoreZirconHandleFUCHSIA.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`FUCHSIA_ExternalSemaphore`](Extensions::FUCHSIA_ExternalSemaphore)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -15048,10 +16908,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetSemaphoreZirconHandleFUCHSIA`
+    /// [`vkGetSemaphoreZirconHandleFUCHSIA`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSemaphoreZirconHandleFUCHSIA.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSemaphoreZirconHandleFUCHSIA.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`FUCHSIA_ExternalSemaphore`](Extensions::FUCHSIA_ExternalSemaphore)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -15072,10 +16935,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkCreateBufferCollectionFUCHSIA`
+    /// [`vkCreateBufferCollectionFUCHSIA`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateBufferCollectionFUCHSIA.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateBufferCollectionFUCHSIA.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`FUCHSIA_BufferCollection`](Extensions::FUCHSIA_BufferCollection)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -15098,10 +16967,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkSetBufferCollectionImageConstraintsFUCHSIA`
+    /// [`vkSetBufferCollectionImageConstraintsFUCHSIA`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetBufferCollectionImageConstraintsFUCHSIA.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkSetBufferCollectionImageConstraintsFUCHSIA.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`FUCHSIA_BufferCollection`](Extensions::FUCHSIA_BufferCollection)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -15123,10 +16995,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkSetBufferCollectionBufferConstraintsFUCHSIA`
+    /// [`vkSetBufferCollectionBufferConstraintsFUCHSIA`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetBufferCollectionBufferConstraintsFUCHSIA.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkSetBufferCollectionBufferConstraintsFUCHSIA.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`FUCHSIA_BufferCollection`](Extensions::FUCHSIA_BufferCollection)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -15148,10 +17023,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroyBufferCollectionFUCHSIA`
+    /// [`vkDestroyBufferCollectionFUCHSIA`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyBufferCollectionFUCHSIA.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyBufferCollectionFUCHSIA.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`FUCHSIA_BufferCollection`](Extensions::FUCHSIA_BufferCollection)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyBufferCollectionFUCHSIA")]
     pub unsafe fn destroy_buffer_collection_fuchsia(
@@ -15164,10 +17045,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetBufferCollectionPropertiesFUCHSIA`
+    /// [`vkGetBufferCollectionPropertiesFUCHSIA`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferCollectionPropertiesFUCHSIA.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferCollectionPropertiesFUCHSIA.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`FUCHSIA_BufferCollection`](Extensions::FUCHSIA_BufferCollection)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -15188,10 +17072,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI`
+    /// [`vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`HUAWEI_SubpassShading`](Extensions::HUAWEI_SubpassShading)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -15203,7 +17090,7 @@ impl Device {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI")]
-    pub unsafe fn get_device_subpass_shading_max_workgroup_size_huawei(
+    pub unsafe fn get_subpass_shading_max_workgroup_size_huawei(
         self,
         renderpass: RenderPass,
         max_workgroup_size: *mut Extent2D,
@@ -15213,19 +17100,22 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSubpassShadingHUAWEI`
+    /// [`vkCmdSubpassShadingHUAWEI`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSubpassShadingHUAWEI.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSubpassShadingHUAWEI.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`HUAWEI_SubpassShading`](Extensions::HUAWEI_SubpassShading)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSubpassShadingHUAWEI")]
@@ -15235,19 +17125,25 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBindInvocationMaskHUAWEI`
+    /// [`vkCmdBindInvocationMaskHUAWEI`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindInvocationMaskHUAWEI.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindInvocationMaskHUAWEI.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`HUAWEI_InvocationMask`](Extensions::HUAWEI_InvocationMask)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - image_view
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
     #[doc(alias = "vkCmdBindInvocationMaskHUAWEI")]
@@ -15261,10 +17157,13 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkGetMemoryRemoteAddressNV`
+    /// [`vkGetMemoryRemoteAddressNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryRemoteAddressNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryRemoteAddressNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_ExternalMemoryRdma`](Extensions::NV_ExternalMemoryRdma)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -15284,10 +17183,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetPipelinePropertiesEXT`
+    /// [`vkGetPipelinePropertiesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPipelinePropertiesEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPipelinePropertiesEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_PipelineProperties`](Extensions::EXT_PipelineProperties)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -15307,19 +17209,23 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetPatchControlPointsEXT`
+    /// [`vkCmdSetPatchControlPointsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPatchControlPointsEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPatchControlPointsEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState2`](Extensions::EXT_ExtendedDynamicState2)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetPatchControlPointsEXT")]
@@ -15329,19 +17235,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetRasterizerDiscardEnableEXT`
+    /// [`vkCmdSetRasterizerDiscardEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRasterizerDiscardEnableEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRasterizerDiscardEnableEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState2`](Extensions::EXT_ExtendedDynamicState2)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetRasterizerDiscardEnableEXT")]
@@ -15351,19 +17261,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetDepthBiasEnableEXT`
+    /// [`vkCmdSetDepthBiasEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthBiasEnableEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthBiasEnableEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState2`](Extensions::EXT_ExtendedDynamicState2)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetDepthBiasEnableEXT")]
@@ -15373,19 +17287,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetLogicOpEXT`
+    /// [`vkCmdSetLogicOpEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetLogicOpEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetLogicOpEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState2`](Extensions::EXT_ExtendedDynamicState2)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetLogicOpEXT")]
@@ -15395,19 +17313,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetPrimitiveRestartEnableEXT`
+    /// [`vkCmdSetPrimitiveRestartEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPrimitiveRestartEnableEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPrimitiveRestartEnableEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState2`](Extensions::EXT_ExtendedDynamicState2)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetPrimitiveRestartEnableEXT")]
@@ -15417,10 +17339,16 @@ impl CommandBuffer {
 }
 
 impl Instance {
-    /// `vkCreateScreenSurfaceQNX`
+    /// [`vkCreateScreenSurfaceQNX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateScreenSurfaceQNX.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateScreenSurfaceQNX.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`QNX_ScreenSurface`](Extensions::QNX_ScreenSurface)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -15442,13 +17370,16 @@ impl Instance {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceScreenPresentationSupportQNX`
+    /// [`vkGetPhysicalDeviceScreenPresentationSupportQNX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceScreenPresentationSupportQNX.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceScreenPresentationSupportQNX.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`QNX_ScreenSurface`](Extensions::QNX_ScreenSurface)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceScreenPresentationSupportQNX")]
-    pub unsafe fn get_physical_device_screen_presentation_support_qnx(
+    pub unsafe fn get_screen_presentation_support_qnx(
         self,
         queue_family_index: u32,
         window: *mut _screen_window,
@@ -15458,19 +17389,22 @@ impl PhysicalDevice {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetColorWriteEnableEXT`
+    /// [`vkCmdSetColorWriteEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetColorWriteEnableEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetColorWriteEnableEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ColorWriteEnable`](Extensions::EXT_ColorWriteEnable)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetColorWriteEnableEXT")]
@@ -15484,19 +17418,25 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDrawMultiEXT`
+    /// [`vkCmdDrawMultiEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMultiEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMultiEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_MultiDraw`](Extensions::EXT_MultiDraw)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - draw_count
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawMultiEXT")]
@@ -15513,19 +17453,26 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDrawMultiIndexedEXT`
+    /// [`vkCmdDrawMultiIndexedEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMultiIndexedEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMultiIndexedEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_MultiDraw`](Extensions::EXT_MultiDraw)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - draw_count
+    /// - vertex_offset
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawMultiIndexedEXT")]
@@ -15543,10 +17490,16 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkCreateMicromapEXT`
+    /// [`vkCreateMicromapEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateMicromapEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateMicromapEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -15568,10 +17521,17 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroyMicromapEXT`
+    /// [`vkDestroyMicromapEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyMicromapEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyMicromapEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - micromap
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyMicromapEXT")]
     pub unsafe fn destroy_micromap_ext(
@@ -15584,19 +17544,22 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBuildMicromapsEXT`
+    /// [`vkCmdBuildMicromapsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBuildMicromapsEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBuildMicromapsEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
     #[doc(alias = "vkCmdBuildMicromapsEXT")]
@@ -15610,10 +17573,16 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkBuildMicromapsEXT`
+    /// [`vkBuildMicromapsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkBuildMicromapsEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkBuildMicromapsEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - deferred_operation
     ///
     /// # Result codes
     /// ## Success
@@ -15637,10 +17606,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkCopyMicromapEXT`
+    /// [`vkCopyMicromapEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyMicromapEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyMicromapEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - deferred_operation
     ///
     /// # Result codes
     /// ## Success
@@ -15663,10 +17638,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkCopyMicromapToMemoryEXT`
+    /// [`vkCopyMicromapToMemoryEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyMicromapToMemoryEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyMicromapToMemoryEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - deferred_operation
     ///
     /// # Result codes
     /// ## Success
@@ -15689,10 +17670,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkCopyMemoryToMicromapEXT`
+    /// [`vkCopyMemoryToMicromapEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyMemoryToMicromapEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyMemoryToMicromapEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - deferred_operation
     ///
     /// # Result codes
     /// ## Success
@@ -15715,10 +17702,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkWriteMicromapsPropertiesEXT`
+    /// [`vkWriteMicromapsPropertiesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkWriteMicromapsPropertiesEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkWriteMicromapsPropertiesEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -15743,19 +17733,22 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdCopyMicromapEXT`
+    /// [`vkCmdCopyMicromapEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMicromapEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMicromapEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
     #[doc(alias = "vkCmdCopyMicromapEXT")]
@@ -15765,19 +17758,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdCopyMicromapToMemoryEXT`
+    /// [`vkCmdCopyMicromapToMemoryEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMicromapToMemoryEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMicromapToMemoryEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
     #[doc(alias = "vkCmdCopyMicromapToMemoryEXT")]
@@ -15787,19 +17783,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdCopyMemoryToMicromapEXT`
+    /// [`vkCmdCopyMemoryToMicromapEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMemoryToMicromapEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMemoryToMicromapEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
     #[doc(alias = "vkCmdCopyMemoryToMicromapEXT")]
@@ -15809,19 +17808,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdWriteMicromapsPropertiesEXT`
+    /// [`vkCmdWriteMicromapsPropertiesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteMicromapsPropertiesEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteMicromapsPropertiesEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
     #[doc(alias = "vkCmdWriteMicromapsPropertiesEXT")]
@@ -15838,13 +17840,16 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkGetDeviceMicromapCompatibilityEXT`
+    /// [`vkGetDeviceMicromapCompatibilityEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceMicromapCompatibilityEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceMicromapCompatibilityEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceMicromapCompatibilityEXT")]
-    pub unsafe fn get_device_micromap_compatibility_ext(
+    pub unsafe fn get_micromap_compatibility_ext(
         self,
         version_info: *const MicromapVersionInfoEXT,
         compatibility: *mut AccelerationStructureCompatibilityKHR,
@@ -15854,10 +17859,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetMicromapBuildSizesEXT`
+    /// [`vkGetMicromapBuildSizesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMicromapBuildSizesEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMicromapBuildSizesEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetMicromapBuildSizesEXT")]
     pub unsafe fn get_micromap_build_sizes_ext(
@@ -15871,19 +17879,22 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDrawClusterHUAWEI`
+    /// [`vkCmdDrawClusterHUAWEI`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawClusterHUAWEI.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawClusterHUAWEI.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`HUAWEI_ClusterCullingShader`](Extensions::HUAWEI_ClusterCullingShader)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawClusterHUAWEI")]
@@ -15898,19 +17909,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDrawClusterIndirectHUAWEI`
+    /// [`vkCmdDrawClusterIndirectHUAWEI`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawClusterIndirectHUAWEI.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawClusterIndirectHUAWEI.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`HUAWEI_ClusterCullingShader`](Extensions::HUAWEI_ClusterCullingShader)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawClusterIndirectHUAWEI")]
@@ -15920,31 +17934,37 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkSetDeviceMemoryPriorityEXT`
+    /// [`vkSetDeviceMemoryPriorityEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetDeviceMemoryPriorityEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkSetDeviceMemoryPriorityEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_PageableDeviceLocalMemory`](Extensions::EXT_PageableDeviceLocalMemory)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkSetDeviceMemoryPriorityEXT")]
-    pub unsafe fn set_device_memory_priority_ext(self, memory: DeviceMemory, priority: f32) {
+    pub unsafe fn set_memory_priority_ext(self, memory: DeviceMemory, priority: f32) {
         todo!()
     }
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetDispatchParametersARM`
+    /// [`vkCmdSetDispatchParametersARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDispatchParametersARM.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDispatchParametersARM.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ARM_SchedulingControls`](Extensions::ARM_SchedulingControls)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
     #[doc(alias = "vkCmdSetDispatchParametersARM")]
@@ -15957,10 +17977,13 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkGetDescriptorSetLayoutHostMappingInfoVALVE`
+    /// [`vkGetDescriptorSetLayoutHostMappingInfoVALVE`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDescriptorSetLayoutHostMappingInfoVALVE.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDescriptorSetLayoutHostMappingInfoVALVE.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`VALVE_DescriptorSetHostMapping`](Extensions::VALVE_DescriptorSetHostMapping)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDescriptorSetLayoutHostMappingInfoVALVE")]
     pub unsafe fn get_descriptor_set_layout_host_mapping_info_valve(
@@ -15973,10 +17996,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetDescriptorSetHostMappingVALVE`
+    /// [`vkGetDescriptorSetHostMappingVALVE`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDescriptorSetHostMappingVALVE.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDescriptorSetHostMappingVALVE.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`VALVE_DescriptorSetHostMapping`](Extensions::VALVE_DescriptorSetHostMapping)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDescriptorSetHostMappingVALVE")]
     pub unsafe fn get_descriptor_set_host_mapping_valve(
@@ -15989,19 +18015,22 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdCopyMemoryIndirectNV`
+    /// [`vkCmdCopyMemoryIndirectNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMemoryIndirectNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMemoryIndirectNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_CopyMemoryIndirect`](Extensions::NV_CopyMemoryIndirect)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
@@ -16018,19 +18047,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdCopyMemoryToImageIndirectNV`
+    /// [`vkCmdCopyMemoryToImageIndirectNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMemoryToImageIndirectNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMemoryToImageIndirectNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_CopyMemoryIndirect`](Extensions::NV_CopyMemoryIndirect)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
@@ -16050,19 +18082,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDecompressMemoryNV`
+    /// [`vkCmdDecompressMemoryNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDecompressMemoryNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDecompressMemoryNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_MemoryDecompression`](Extensions::NV_MemoryDecompression)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -16077,19 +18112,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDecompressMemoryIndirectCountNV`
+    /// [`vkCmdDecompressMemoryIndirectCountNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDecompressMemoryIndirectCountNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDecompressMemoryIndirectCountNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_MemoryDecompression`](Extensions::NV_MemoryDecompression)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -16105,10 +18143,13 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkGetPipelineIndirectMemoryRequirementsNV`
+    /// [`vkGetPipelineIndirectMemoryRequirementsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPipelineIndirectMemoryRequirementsNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPipelineIndirectMemoryRequirementsNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_DeviceGeneratedCommandsCompute`](Extensions::NV_DeviceGeneratedCommandsCompute)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPipelineIndirectMemoryRequirementsNV")]
     pub unsafe fn get_pipeline_indirect_memory_requirements_nv(
@@ -16121,19 +18162,22 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdUpdatePipelineIndirectBufferNV`
+    /// [`vkCmdUpdatePipelineIndirectBufferNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdUpdatePipelineIndirectBufferNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdUpdatePipelineIndirectBufferNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_DeviceGeneratedCommandsCompute`](Extensions::NV_DeviceGeneratedCommandsCompute)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
@@ -16149,13 +18193,16 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkGetPipelineIndirectDeviceAddressNV`
+    /// [`vkGetPipelineIndirectDeviceAddressNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPipelineIndirectDeviceAddressNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPipelineIndirectDeviceAddressNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_DeviceGeneratedCommandsCompute`](Extensions::NV_DeviceGeneratedCommandsCompute)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPipelineIndirectDeviceAddressNV")]
-    pub unsafe fn get_pipeline_indirect_device_address_nv(
+    pub unsafe fn get_pipeline_indirect_address_nv(
         self,
         info: *const PipelineIndirectDeviceAddressInfoNV,
     ) -> DeviceAddress {
@@ -16164,10 +18211,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetNativeBufferPropertiesOHOS`
+    /// [`vkGetNativeBufferPropertiesOHOS`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetNativeBufferPropertiesOHOS.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetNativeBufferPropertiesOHOS.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`OHOS_ExternalMemory`](Extensions::OHOS_ExternalMemory)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -16188,10 +18238,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetMemoryNativeBufferOHOS`
+    /// [`vkGetMemoryNativeBufferOHOS`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryNativeBufferOHOS.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryNativeBufferOHOS.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`OHOS_ExternalMemory`](Extensions::OHOS_ExternalMemory)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -16211,19 +18264,23 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetDepthClampEnableEXT`
+    /// [`vkCmdSetDepthClampEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthClampEnableEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthClampEnableEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetDepthClampEnableEXT")]
@@ -16233,19 +18290,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetPolygonModeEXT`
+    /// [`vkCmdSetPolygonModeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPolygonModeEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPolygonModeEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetPolygonModeEXT")]
@@ -16255,19 +18316,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetRasterizationSamplesEXT`
+    /// [`vkCmdSetRasterizationSamplesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRasterizationSamplesEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRasterizationSamplesEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetRasterizationSamplesEXT")]
@@ -16277,19 +18342,26 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetSampleMaskEXT`
+    /// [`vkCmdSetSampleMaskEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetSampleMaskEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetSampleMaskEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - sample_mask
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetSampleMaskEXT")]
@@ -16303,19 +18375,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetAlphaToCoverageEnableEXT`
+    /// [`vkCmdSetAlphaToCoverageEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetAlphaToCoverageEnableEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetAlphaToCoverageEnableEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetAlphaToCoverageEnableEXT")]
@@ -16325,19 +18401,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetAlphaToOneEnableEXT`
+    /// [`vkCmdSetAlphaToOneEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetAlphaToOneEnableEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetAlphaToOneEnableEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetAlphaToOneEnableEXT")]
@@ -16347,19 +18427,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetLogicOpEnableEXT`
+    /// [`vkCmdSetLogicOpEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetLogicOpEnableEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetLogicOpEnableEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetLogicOpEnableEXT")]
@@ -16369,19 +18453,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetColorBlendEnableEXT`
+    /// [`vkCmdSetColorBlendEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetColorBlendEnableEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetColorBlendEnableEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetColorBlendEnableEXT")]
@@ -16396,19 +18484,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetColorBlendEquationEXT`
+    /// [`vkCmdSetColorBlendEquationEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetColorBlendEquationEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetColorBlendEquationEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetColorBlendEquationEXT")]
@@ -16423,19 +18515,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetColorWriteMaskEXT`
+    /// [`vkCmdSetColorWriteMaskEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetColorWriteMaskEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetColorWriteMaskEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetColorWriteMaskEXT")]
@@ -16450,19 +18546,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetTessellationDomainOriginEXT`
+    /// [`vkCmdSetTessellationDomainOriginEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetTessellationDomainOriginEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetTessellationDomainOriginEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetTessellationDomainOriginEXT")]
@@ -16475,19 +18575,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetRasterizationStreamEXT`
+    /// [`vkCmdSetRasterizationStreamEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRasterizationStreamEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRasterizationStreamEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetRasterizationStreamEXT")]
@@ -16497,19 +18601,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetConservativeRasterizationModeEXT`
+    /// [`vkCmdSetConservativeRasterizationModeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetConservativeRasterizationModeEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetConservativeRasterizationModeEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetConservativeRasterizationModeEXT")]
@@ -16522,19 +18630,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetExtraPrimitiveOverestimationSizeEXT`
+    /// [`vkCmdSetExtraPrimitiveOverestimationSizeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetExtraPrimitiveOverestimationSizeEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetExtraPrimitiveOverestimationSizeEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetExtraPrimitiveOverestimationSizeEXT")]
@@ -16547,19 +18659,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetDepthClipEnableEXT`
+    /// [`vkCmdSetDepthClipEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthClipEnableEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthClipEnableEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetDepthClipEnableEXT")]
@@ -16569,19 +18685,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetSampleLocationsEnableEXT`
+    /// [`vkCmdSetSampleLocationsEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetSampleLocationsEnableEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetSampleLocationsEnableEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetSampleLocationsEnableEXT")]
@@ -16591,19 +18711,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetColorBlendAdvancedEXT`
+    /// [`vkCmdSetColorBlendAdvancedEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetColorBlendAdvancedEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetColorBlendAdvancedEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetColorBlendAdvancedEXT")]
@@ -16618,19 +18742,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetProvokingVertexModeEXT`
+    /// [`vkCmdSetProvokingVertexModeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetProvokingVertexModeEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetProvokingVertexModeEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetProvokingVertexModeEXT")]
@@ -16643,19 +18771,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetLineRasterizationModeEXT`
+    /// [`vkCmdSetLineRasterizationModeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetLineRasterizationModeEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetLineRasterizationModeEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetLineRasterizationModeEXT")]
@@ -16668,19 +18800,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetLineStippleEnableEXT`
+    /// [`vkCmdSetLineStippleEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetLineStippleEnableEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetLineStippleEnableEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetLineStippleEnableEXT")]
@@ -16690,19 +18826,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetDepthClipNegativeOneToOneEXT`
+    /// [`vkCmdSetDepthClipNegativeOneToOneEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthClipNegativeOneToOneEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthClipNegativeOneToOneEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetDepthClipNegativeOneToOneEXT")]
@@ -16712,19 +18852,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetViewportWScalingEnableNV`
+    /// [`vkCmdSetViewportWScalingEnableNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetViewportWScalingEnableNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetViewportWScalingEnableNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetViewportWScalingEnableNV")]
@@ -16734,19 +18878,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetViewportSwizzleNV`
+    /// [`vkCmdSetViewportSwizzleNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetViewportSwizzleNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetViewportSwizzleNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetViewportSwizzleNV")]
@@ -16761,19 +18909,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetCoverageToColorEnableNV`
+    /// [`vkCmdSetCoverageToColorEnableNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCoverageToColorEnableNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCoverageToColorEnableNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetCoverageToColorEnableNV")]
@@ -16783,19 +18935,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetCoverageToColorLocationNV`
+    /// [`vkCmdSetCoverageToColorLocationNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCoverageToColorLocationNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCoverageToColorLocationNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetCoverageToColorLocationNV")]
@@ -16805,19 +18961,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetCoverageModulationModeNV`
+    /// [`vkCmdSetCoverageModulationModeNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCoverageModulationModeNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCoverageModulationModeNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetCoverageModulationModeNV")]
@@ -16830,19 +18990,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetCoverageModulationTableEnableNV`
+    /// [`vkCmdSetCoverageModulationTableEnableNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCoverageModulationTableEnableNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCoverageModulationTableEnableNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetCoverageModulationTableEnableNV")]
@@ -16855,19 +19019,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetCoverageModulationTableNV`
+    /// [`vkCmdSetCoverageModulationTableNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCoverageModulationTableNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCoverageModulationTableNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetCoverageModulationTableNV")]
@@ -16881,19 +19049,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetShadingRateImageEnableNV`
+    /// [`vkCmdSetShadingRateImageEnableNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetShadingRateImageEnableNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetShadingRateImageEnableNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetShadingRateImageEnableNV")]
@@ -16903,19 +19075,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetRepresentativeFragmentTestEnableNV`
+    /// [`vkCmdSetRepresentativeFragmentTestEnableNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRepresentativeFragmentTestEnableNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRepresentativeFragmentTestEnableNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetRepresentativeFragmentTestEnableNV")]
@@ -16928,19 +19104,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetCoverageReductionModeNV`
+    /// [`vkCmdSetCoverageReductionModeNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCoverageReductionModeNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCoverageReductionModeNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetCoverageReductionModeNV")]
@@ -16953,10 +19133,16 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkCreateTensorARM`
+    /// [`vkCreateTensorARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateTensorARM.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateTensorARM.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -16978,10 +19164,17 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroyTensorARM`
+    /// [`vkDestroyTensorARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyTensorARM.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyTensorARM.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - tensor
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyTensorARM")]
     pub unsafe fn destroy_tensor_arm(
@@ -16994,10 +19187,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkCreateTensorViewARM`
+    /// [`vkCreateTensorViewARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateTensorViewARM.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateTensorViewARM.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -17019,10 +19218,17 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroyTensorViewARM`
+    /// [`vkDestroyTensorViewARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyTensorViewARM.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyTensorViewARM.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - tensor_view
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyTensorViewARM")]
     pub unsafe fn destroy_tensor_view_arm(
@@ -17035,10 +19241,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetTensorMemoryRequirementsARM`
+    /// [`vkGetTensorMemoryRequirementsARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetTensorMemoryRequirementsARM.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetTensorMemoryRequirementsARM.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetTensorMemoryRequirementsARM")]
     pub unsafe fn get_tensor_memory_requirements_arm(
@@ -17051,10 +19260,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkBindTensorMemoryARM`
+    /// [`vkBindTensorMemoryARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkBindTensorMemoryARM.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkBindTensorMemoryARM.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -17075,13 +19287,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetDeviceTensorMemoryRequirementsARM`
+    /// [`vkGetDeviceTensorMemoryRequirementsARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceTensorMemoryRequirementsARM.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceTensorMemoryRequirementsARM.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceTensorMemoryRequirementsARM")]
-    pub unsafe fn get_device_tensor_memory_requirements_arm(
+    pub unsafe fn get_tensor_memory_requirements_arm(
         self,
         info: *const DeviceTensorMemoryRequirementsARM,
         memory_requirements: *mut MemoryRequirements2,
@@ -17091,19 +19306,22 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdCopyTensorARM`
+    /// [`vkCmdCopyTensorARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyTensorARM.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyTensorARM.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
@@ -17115,13 +19333,16 @@ impl CommandBuffer {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceExternalTensorPropertiesARM`
+    /// [`vkGetPhysicalDeviceExternalTensorPropertiesARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceExternalTensorPropertiesARM.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceExternalTensorPropertiesARM.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceExternalTensorPropertiesARM")]
-    pub unsafe fn get_physical_device_external_tensor_properties_arm(
+    pub unsafe fn get_external_tensor_properties_arm(
         self,
         external_tensor_info: *const PhysicalDeviceExternalTensorInfoARM,
         external_tensor_properties: *mut ExternalTensorPropertiesARM,
@@ -17131,10 +19352,13 @@ impl PhysicalDevice {
 }
 
 impl Device {
-    /// `vkGetTensorOpaqueCaptureDescriptorDataARM`
+    /// [`vkGetTensorOpaqueCaptureDescriptorDataARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetTensorOpaqueCaptureDescriptorDataARM.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetTensorOpaqueCaptureDescriptorDataARM.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -17155,10 +19379,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetTensorViewOpaqueCaptureDescriptorDataARM`
+    /// [`vkGetTensorViewOpaqueCaptureDescriptorDataARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetTensorViewOpaqueCaptureDescriptorDataARM.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetTensorViewOpaqueCaptureDescriptorDataARM.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -17179,10 +19406,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetShaderModuleIdentifierEXT`
+    /// [`vkGetShaderModuleIdentifierEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetShaderModuleIdentifierEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetShaderModuleIdentifierEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ShaderModuleIdentifier`](Extensions::EXT_ShaderModuleIdentifier)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetShaderModuleIdentifierEXT")]
     pub unsafe fn get_shader_module_identifier_ext(
@@ -17195,10 +19425,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetShaderModuleCreateInfoIdentifierEXT`
+    /// [`vkGetShaderModuleCreateInfoIdentifierEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetShaderModuleCreateInfoIdentifierEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetShaderModuleCreateInfoIdentifierEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ShaderModuleIdentifier`](Extensions::EXT_ShaderModuleIdentifier)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetShaderModuleCreateInfoIdentifierEXT")]
     pub unsafe fn get_shader_module_create_info_identifier_ext(
@@ -17211,10 +19444,16 @@ impl Device {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceOpticalFlowImageFormatsNV`
+    /// [`vkGetPhysicalDeviceOpticalFlowImageFormatsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceOpticalFlowImageFormatsNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceOpticalFlowImageFormatsNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - image_format_properties
     ///
     /// # Result codes
     /// ## Success
@@ -17227,7 +19466,7 @@ impl PhysicalDevice {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetPhysicalDeviceOpticalFlowImageFormatsNV")]
-    pub unsafe fn get_physical_device_optical_flow_image_formats_nv(
+    pub unsafe fn get_optical_flow_image_formats_nv(
         self,
         optical_flow_image_format_info: *const OpticalFlowImageFormatInfoNV,
         format_count: *mut u32,
@@ -17238,10 +19477,16 @@ impl PhysicalDevice {
 }
 
 impl Device {
-    /// `vkCreateOpticalFlowSessionNV`
+    /// [`vkCreateOpticalFlowSessionNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateOpticalFlowSessionNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateOpticalFlowSessionNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -17263,10 +19508,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroyOpticalFlowSessionNV`
+    /// [`vkDestroyOpticalFlowSessionNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyOpticalFlowSessionNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyOpticalFlowSessionNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyOpticalFlowSessionNV")]
     pub unsafe fn destroy_optical_flow_session_nv(
@@ -17279,10 +19530,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkBindOpticalFlowSessionImageNV`
+    /// [`vkBindOpticalFlowSessionImageNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkBindOpticalFlowSessionImageNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkBindOpticalFlowSessionImageNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - view
     ///
     /// # Result codes
     /// ## Success
@@ -17305,19 +19562,22 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdOpticalFlowExecuteNV`
+    /// [`vkCmdOpticalFlowExecuteNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdOpticalFlowExecuteNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdOpticalFlowExecuteNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`OPTICAL_FLOWNV`](QueueFlags::OPTICAL_FLOWNV)
     ///
     #[doc(alias = "vkCmdOpticalFlowExecuteNV")]
@@ -17331,10 +19591,13 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkAntiLagUpdateAMD`
+    /// [`vkAntiLagUpdateAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkAntiLagUpdateAMD.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkAntiLagUpdateAMD.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`AMD_AntiLag`](Extensions::AMD_AntiLag)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkAntiLagUpdateAMD")]
     pub unsafe fn anti_lag_update_amd(self, data: *const AntiLagDataAMD) {
@@ -17343,10 +19606,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkCreateShadersEXT`
+    /// [`vkCreateShadersEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateShadersEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateShadersEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -17371,10 +19640,17 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroyShaderEXT`
+    /// [`vkDestroyShaderEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyShaderEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyShaderEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - shader
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyShaderEXT")]
     pub unsafe fn destroy_shader_ext(
@@ -17387,10 +19663,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetShaderBinaryDataEXT`
+    /// [`vkGetShaderBinaryDataEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetShaderBinaryDataEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetShaderBinaryDataEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - data
     ///
     /// # Result codes
     /// ## Success
@@ -17413,19 +19695,25 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBindShadersEXT`
+    /// [`vkCmdBindShadersEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindShadersEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindShadersEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - shaders
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -17441,19 +19729,26 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetDepthClampRangeEXT`
+    /// [`vkCmdSetDepthClampRangeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthClampRangeEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthClampRangeEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_DepthClampControl`](Extensions::EXT_DepthClampControl)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - depth_clamp_range
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetDepthClampRangeEXT")]
@@ -17467,10 +19762,16 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkGetFramebufferTilePropertiesQCOM`
+    /// [`vkGetFramebufferTilePropertiesQCOM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetFramebufferTilePropertiesQCOM.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetFramebufferTilePropertiesQCOM.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`QCOM_TileProperties`](Extensions::QCOM_TileProperties)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - properties
     ///
     /// # Result codes
     /// ## Success
@@ -17491,10 +19792,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetDynamicRenderingTilePropertiesQCOM`
+    /// [`vkGetDynamicRenderingTilePropertiesQCOM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDynamicRenderingTilePropertiesQCOM.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDynamicRenderingTilePropertiesQCOM.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`QCOM_TileProperties`](Extensions::QCOM_TileProperties)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -17513,10 +19817,16 @@ impl Device {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceCooperativeVectorPropertiesNV`
+    /// [`vkGetPhysicalDeviceCooperativeVectorPropertiesNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceCooperativeVectorPropertiesNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceCooperativeVectorPropertiesNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_CooperativeVector`](Extensions::NV_CooperativeVector)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - properties
     ///
     /// # Result codes
     /// ## Success
@@ -17528,7 +19838,7 @@ impl PhysicalDevice {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetPhysicalDeviceCooperativeVectorPropertiesNV")]
-    pub unsafe fn get_physical_device_cooperative_vector_properties_nv(
+    pub unsafe fn get_cooperative_vector_properties_nv(
         self,
         property_count: *mut u32,
         properties: *mut CooperativeVectorPropertiesNV,
@@ -17538,10 +19848,13 @@ impl PhysicalDevice {
 }
 
 impl Device {
-    /// `vkConvertCooperativeVectorMatrixNV`
+    /// [`vkConvertCooperativeVectorMatrixNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkConvertCooperativeVectorMatrixNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkConvertCooperativeVectorMatrixNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_CooperativeVector`](Extensions::NV_CooperativeVector)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -17561,19 +19874,22 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdConvertCooperativeVectorMatrixNV`
+    /// [`vkCmdConvertCooperativeVectorMatrixNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdConvertCooperativeVectorMatrixNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdConvertCooperativeVectorMatrixNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_CooperativeVector`](Extensions::NV_CooperativeVector)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -17588,10 +19904,13 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkSetLatencySleepModeNV`
+    /// [`vkSetLatencySleepModeNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetLatencySleepModeNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkSetLatencySleepModeNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_LowLatency2`](Extensions::NV_LowLatency2)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -17611,10 +19930,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkLatencySleepNV`
+    /// [`vkLatencySleepNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkLatencySleepNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkLatencySleepNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_LowLatency2`](Extensions::NV_LowLatency2)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -17633,10 +19955,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkSetLatencyMarkerNV`
+    /// [`vkSetLatencyMarkerNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetLatencyMarkerNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkSetLatencyMarkerNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_LowLatency2`](Extensions::NV_LowLatency2)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkSetLatencyMarkerNV")]
     pub unsafe fn set_latency_marker_nv(
@@ -17649,10 +19974,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetLatencyTimingsNV`
+    /// [`vkGetLatencyTimingsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetLatencyTimingsNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetLatencyTimingsNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_LowLatency2`](Extensions::NV_LowLatency2)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetLatencyTimingsNV")]
     pub unsafe fn get_latency_timings_nv(
@@ -17665,25 +19993,33 @@ impl Device {
 }
 
 impl Queue {
-    /// `vkQueueNotifyOutOfBandNV`
+    /// [`vkQueueNotifyOutOfBandNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueNotifyOutOfBandNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueNotifyOutOfBandNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_LowLatency2`](Extensions::NV_LowLatency2)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkQueueNotifyOutOfBandNV")]
-    pub unsafe fn queue_notify_out_of_band_nv(
-        self,
-        queue_type_info: *const OutOfBandQueueTypeInfoNV,
-    ) {
+    pub unsafe fn notify_out_of_band_nv(self, queue_type_info: *const OutOfBandQueueTypeInfoNV) {
         todo!()
     }
 }
 
 impl Device {
-    /// `vkCreateDataGraphPipelinesARM`
+    /// [`vkCreateDataGraphPipelinesARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDataGraphPipelinesARM.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDataGraphPipelinesARM.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - deferred_operation
+    /// - pipeline_cache
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -17709,10 +20045,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkCreateDataGraphPipelineSessionARM`
+    /// [`vkCreateDataGraphPipelineSessionARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDataGraphPipelineSessionARM.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDataGraphPipelineSessionARM.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -17734,10 +20076,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetDataGraphPipelineSessionBindPointRequirementsARM`
+    /// [`vkGetDataGraphPipelineSessionBindPointRequirementsARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDataGraphPipelineSessionBindPointRequirementsARM.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDataGraphPipelineSessionBindPointRequirementsARM.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - bind_point_requirements
     ///
     /// # Result codes
     /// ## Success
@@ -17760,10 +20108,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetDataGraphPipelineSessionMemoryRequirementsARM`
+    /// [`vkGetDataGraphPipelineSessionMemoryRequirementsARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDataGraphPipelineSessionMemoryRequirementsARM.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDataGraphPipelineSessionMemoryRequirementsARM.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDataGraphPipelineSessionMemoryRequirementsARM")]
     pub unsafe fn get_data_graph_pipeline_session_memory_requirements_arm(
@@ -17776,10 +20127,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkBindDataGraphPipelineSessionMemoryARM`
+    /// [`vkBindDataGraphPipelineSessionMemoryARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkBindDataGraphPipelineSessionMemoryARM.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkBindDataGraphPipelineSessionMemoryARM.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -17800,10 +20154,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroyDataGraphPipelineSessionARM`
+    /// [`vkDestroyDataGraphPipelineSessionARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDataGraphPipelineSessionARM.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDataGraphPipelineSessionARM.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyDataGraphPipelineSessionARM")]
     pub unsafe fn destroy_data_graph_pipeline_session_arm(
@@ -17816,19 +20176,25 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDispatchDataGraphARM`
+    /// [`vkCmdDispatchDataGraphARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchDataGraphARM.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchDataGraphARM.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - info
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`DATA_GRAPHARM`](QueueFlags::DATA_GRAPHARM)
     ///
     #[doc(alias = "vkCmdDispatchDataGraphARM")]
@@ -17842,10 +20208,16 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkGetDataGraphPipelineAvailablePropertiesARM`
+    /// [`vkGetDataGraphPipelineAvailablePropertiesARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDataGraphPipelineAvailablePropertiesARM.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDataGraphPipelineAvailablePropertiesARM.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - properties
     ///
     /// # Result codes
     /// ## Success
@@ -17868,10 +20240,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetDataGraphPipelinePropertiesARM`
+    /// [`vkGetDataGraphPipelinePropertiesARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDataGraphPipelinePropertiesARM.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDataGraphPipelinePropertiesARM.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -17894,10 +20269,16 @@ impl Device {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM`
+    /// [`vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - queue_family_data_graph_properties
     ///
     /// # Result codes
     /// ## Success
@@ -17909,7 +20290,7 @@ impl PhysicalDevice {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM")]
-    pub unsafe fn get_physical_device_queue_family_data_graph_properties_arm(
+    pub unsafe fn get_queue_family_data_graph_properties_arm(
         self,
         queue_family_index: u32,
         queue_family_data_graph_property_count: *mut u32,
@@ -17920,13 +20301,16 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM`
+    /// [`vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM")]
-    pub unsafe fn get_physical_device_queue_family_data_graph_processing_engine_properties_arm(
+    pub unsafe fn get_queue_family_data_graph_processing_engine_properties_arm(
         self,
         queue_family_data_graph_processing_engine_info: *const PhysicalDeviceQueueFamilyDataGraphProcessingEngineInfoARM,
         queue_family_data_graph_processing_engine_properties: *mut QueueFamilyDataGraphProcessingEnginePropertiesARM,
@@ -17936,10 +20320,14 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceQueueFamilyDataGraphEngineOperationPropertiesARM`
+    /// [`vkGetPhysicalDeviceQueueFamilyDataGraphEngineOperationPropertiesARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceQueueFamilyDataGraphEngineOperationPropertiesARM.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceQueueFamilyDataGraphEngineOperationPropertiesARM.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ARM_DataGraphInstructionSetTosa`](Extensions::ARM_DataGraphInstructionSetTosa)
+    /// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -17950,7 +20338,7 @@ impl PhysicalDevice {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetPhysicalDeviceQueueFamilyDataGraphEngineOperationPropertiesARM")]
-    pub unsafe fn get_physical_device_queue_family_data_graph_engine_operation_properties_arm(
+    pub unsafe fn get_queue_family_data_graph_engine_operation_properties_arm(
         self,
         queue_family_index: u32,
         queue_family_data_graph_properties: *const QueueFamilyDataGraphPropertiesARM,
@@ -17961,19 +20349,25 @@ impl PhysicalDevice {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetAttachmentFeedbackLoopEnableEXT`
+    /// [`vkCmdSetAttachmentFeedbackLoopEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetAttachmentFeedbackLoopEnableEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetAttachmentFeedbackLoopEnableEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_AttachmentFeedbackLoopDynamicState`](Extensions::EXT_AttachmentFeedbackLoopDynamicState)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - aspect_mask
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetAttachmentFeedbackLoopEnableEXT")]
@@ -17983,10 +20377,13 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkGetScreenBufferPropertiesQNX`
+    /// [`vkGetScreenBufferPropertiesQNX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetScreenBufferPropertiesQNX.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetScreenBufferPropertiesQNX.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`QNX_ExternalMemoryScreenBuffer`](Extensions::QNX_ExternalMemoryScreenBuffer)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -18007,19 +20404,25 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBindTileMemoryQCOM`
+    /// [`vkCmdBindTileMemoryQCOM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindTileMemoryQCOM.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindTileMemoryQCOM.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`QCOM_TileMemoryHeap`](Extensions::QCOM_TileMemoryHeap)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - tile_memory_bind_info
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -18033,19 +20436,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDecompressMemoryEXT`
+    /// [`vkCmdDecompressMemoryEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDecompressMemoryEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDecompressMemoryEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_MemoryDecompression`](Extensions::EXT_MemoryDecompression)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -18059,19 +20465,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDecompressMemoryIndirectCountEXT`
+    /// [`vkCmdDecompressMemoryIndirectCountEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDecompressMemoryIndirectCountEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDecompressMemoryIndirectCountEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_MemoryDecompression`](Extensions::EXT_MemoryDecompression)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -18089,10 +20498,16 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkCreateExternalComputeQueueNV`
+    /// [`vkCreateExternalComputeQueueNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateExternalComputeQueueNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateExternalComputeQueueNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_ExternalComputeQueue`](Extensions::NV_ExternalComputeQueue)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -18114,10 +20529,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroyExternalComputeQueueNV`
+    /// [`vkDestroyExternalComputeQueueNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyExternalComputeQueueNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyExternalComputeQueueNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_ExternalComputeQueue`](Extensions::NV_ExternalComputeQueue)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyExternalComputeQueueNV")]
     pub unsafe fn destroy_external_compute_queue_nv(
@@ -18129,10 +20550,7 @@ impl Device {
     }
 }
 
-/// `vkGetExternalComputeQueueDataNV`
-///
-/// # Vulkan documentation
-/// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetExternalComputeQueueDataNV.html>
+/// [`vkGetExternalComputeQueueDataNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetExternalComputeQueueDataNV.html)
 ///
 #[doc(alias = "vkGetExternalComputeQueueDataNV")]
 pub unsafe fn get_external_compute_queue_data_nv(
@@ -18144,10 +20562,13 @@ pub unsafe fn get_external_compute_queue_data_nv(
 }
 
 impl Device {
-    /// `vkGetClusterAccelerationStructureBuildSizesNV`
+    /// [`vkGetClusterAccelerationStructureBuildSizesNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetClusterAccelerationStructureBuildSizesNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetClusterAccelerationStructureBuildSizesNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetClusterAccelerationStructureBuildSizesNV")]
     pub unsafe fn get_cluster_acceleration_structure_build_sizes_nv(
@@ -18160,19 +20581,22 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBuildClusterAccelerationStructureIndirectNV`
+    /// [`vkCmdBuildClusterAccelerationStructureIndirectNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBuildClusterAccelerationStructureIndirectNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBuildClusterAccelerationStructureIndirectNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
     #[doc(alias = "vkCmdBuildClusterAccelerationStructureIndirectNV")]
@@ -18185,10 +20609,13 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkGetPartitionedAccelerationStructuresBuildSizesNV`
+    /// [`vkGetPartitionedAccelerationStructuresBuildSizesNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPartitionedAccelerationStructuresBuildSizesNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPartitionedAccelerationStructuresBuildSizesNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_PartitionedAccelerationStructure`](Extensions::NV_PartitionedAccelerationStructure)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPartitionedAccelerationStructuresBuildSizesNV")]
     pub unsafe fn get_partitioned_acceleration_structures_build_sizes_nv(
@@ -18201,19 +20628,22 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBuildPartitionedAccelerationStructuresNV`
+    /// [`vkCmdBuildPartitionedAccelerationStructuresNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBuildPartitionedAccelerationStructuresNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBuildPartitionedAccelerationStructuresNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_PartitionedAccelerationStructure`](Extensions::NV_PartitionedAccelerationStructure)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
     #[doc(alias = "vkCmdBuildPartitionedAccelerationStructuresNV")]
@@ -18226,10 +20656,13 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkGetGeneratedCommandsMemoryRequirementsEXT`
+    /// [`vkGetGeneratedCommandsMemoryRequirementsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetGeneratedCommandsMemoryRequirementsEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetGeneratedCommandsMemoryRequirementsEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetGeneratedCommandsMemoryRequirementsEXT")]
     pub unsafe fn get_generated_commands_memory_requirements_ext(
@@ -18242,18 +20675,21 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdPreprocessGeneratedCommandsEXT`
+    /// [`vkCmdPreprocessGeneratedCommandsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPreprocessGeneratedCommandsEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPreprocessGeneratedCommandsEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -18268,19 +20704,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdExecuteGeneratedCommandsEXT`
+    /// [`vkCmdExecuteGeneratedCommandsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdExecuteGeneratedCommandsEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdExecuteGeneratedCommandsEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     /// - `indirection`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
@@ -18295,10 +20734,16 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkCreateIndirectCommandsLayoutEXT`
+    /// [`vkCreateIndirectCommandsLayoutEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateIndirectCommandsLayoutEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateIndirectCommandsLayoutEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -18320,10 +20765,17 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroyIndirectCommandsLayoutEXT`
+    /// [`vkDestroyIndirectCommandsLayoutEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyIndirectCommandsLayoutEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyIndirectCommandsLayoutEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - indirect_commands_layout
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyIndirectCommandsLayoutEXT")]
     pub unsafe fn destroy_indirect_commands_layout_ext(
@@ -18336,10 +20788,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkCreateIndirectExecutionSetEXT`
+    /// [`vkCreateIndirectExecutionSetEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateIndirectExecutionSetEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateIndirectExecutionSetEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -18361,10 +20819,17 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroyIndirectExecutionSetEXT`
+    /// [`vkDestroyIndirectExecutionSetEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyIndirectExecutionSetEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyIndirectExecutionSetEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - indirect_execution_set
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyIndirectExecutionSetEXT")]
     pub unsafe fn destroy_indirect_execution_set_ext(
@@ -18377,10 +20842,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkUpdateIndirectExecutionSetPipelineEXT`
+    /// [`vkUpdateIndirectExecutionSetPipelineEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkUpdateIndirectExecutionSetPipelineEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkUpdateIndirectExecutionSetPipelineEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkUpdateIndirectExecutionSetPipelineEXT")]
     pub unsafe fn update_indirect_execution_set_pipeline_ext(
@@ -18394,10 +20862,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkUpdateIndirectExecutionSetShaderEXT`
+    /// [`vkUpdateIndirectExecutionSetShaderEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkUpdateIndirectExecutionSetShaderEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkUpdateIndirectExecutionSetShaderEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkUpdateIndirectExecutionSetShaderEXT")]
     pub unsafe fn update_indirect_execution_set_shader_ext(
@@ -18411,10 +20882,16 @@ impl Device {
 }
 
 impl Instance {
-    /// `vkCreateSurfaceOHOS`
+    /// [`vkCreateSurfaceOHOS`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateSurfaceOHOS.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateSurfaceOHOS.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`OHOS_Surface`](Extensions::OHOS_Surface)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -18436,10 +20913,16 @@ impl Instance {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV`
+    /// [`vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_CooperativeMatrix2`](Extensions::NV_CooperativeMatrix2)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - properties
     ///
     /// # Result codes
     /// ## Success
@@ -18451,7 +20934,7 @@ impl PhysicalDevice {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV")]
-    pub unsafe fn get_physical_device_cooperative_matrix_flexible_dimensions_properties_nv(
+    pub unsafe fn get_cooperative_matrix_flexible_dimensions_properties_nv(
         self,
         property_count: *mut u32,
         properties: *mut CooperativeMatrixFlexibleDimensionsPropertiesNV,
@@ -18461,10 +20944,13 @@ impl PhysicalDevice {
 }
 
 impl Device {
-    /// `vkGetMemoryMetalHandleEXT`
+    /// [`vkGetMemoryMetalHandleEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryMetalHandleEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryMetalHandleEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExternalMemoryMetal`](Extensions::EXT_ExternalMemoryMetal)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -18485,10 +20971,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetMemoryMetalHandlePropertiesEXT`
+    /// [`vkGetMemoryMetalHandlePropertiesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryMetalHandlePropertiesEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryMetalHandlePropertiesEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ExternalMemoryMetal`](Extensions::EXT_ExternalMemoryMetal)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -18510,10 +20999,17 @@ impl Device {
 }
 
 impl PhysicalDevice {
-    /// `vkEnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM`
+    /// [`vkEnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ARM_PerformanceCountersByRegion`](Extensions::ARM_PerformanceCountersByRegion)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - counters
+    /// - counter_descriptions
     ///
     /// # Result codes
     /// ## Success
@@ -18526,7 +21022,7 @@ impl PhysicalDevice {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkEnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM")]
-    pub unsafe fn enumerate_physical_device_queue_family_performance_counters_by_region_arm(
+    pub unsafe fn enumerate_queue_family_performance_counters_by_region_arm(
         self,
         queue_family_index: u32,
         counter_count: *mut u32,
@@ -18538,10 +21034,16 @@ impl PhysicalDevice {
 }
 
 impl PhysicalDevice {
-    /// `vkEnumeratePhysicalDeviceShaderInstrumentationMetricsARM`
+    /// [`vkEnumeratePhysicalDeviceShaderInstrumentationMetricsARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumeratePhysicalDeviceShaderInstrumentationMetricsARM.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumeratePhysicalDeviceShaderInstrumentationMetricsARM.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ARM_ShaderInstrumentation`](Extensions::ARM_ShaderInstrumentation)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - descriptions
     ///
     /// # Result codes
     /// ## Success
@@ -18554,7 +21056,7 @@ impl PhysicalDevice {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkEnumeratePhysicalDeviceShaderInstrumentationMetricsARM")]
-    pub unsafe fn enumerate_physical_device_shader_instrumentation_metrics_arm(
+    pub unsafe fn enumerate_shader_instrumentation_metrics_arm(
         self,
         description_count: *mut u32,
         descriptions: *mut ShaderInstrumentationMetricDescriptionARM,
@@ -18564,10 +21066,16 @@ impl PhysicalDevice {
 }
 
 impl Device {
-    /// `vkCreateShaderInstrumentationARM`
+    /// [`vkCreateShaderInstrumentationARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateShaderInstrumentationARM.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateShaderInstrumentationARM.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ARM_ShaderInstrumentation`](Extensions::ARM_ShaderInstrumentation)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -18589,10 +21097,17 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroyShaderInstrumentationARM`
+    /// [`vkDestroyShaderInstrumentationARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyShaderInstrumentationARM.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyShaderInstrumentationARM.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ARM_ShaderInstrumentation`](Extensions::ARM_ShaderInstrumentation)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - instrumentation
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyShaderInstrumentationARM")]
     pub unsafe fn destroy_shader_instrumentation_arm(
@@ -18605,20 +21120,23 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBeginShaderInstrumentationARM`
+    /// [`vkCmdBeginShaderInstrumentationARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginShaderInstrumentationARM.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginShaderInstrumentationARM.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ARM_ShaderInstrumentation`](Extensions::ARM_ShaderInstrumentation)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     /// - [`DATA_GRAPHARM`](QueueFlags::DATA_GRAPHARM)
@@ -18633,20 +21151,23 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdEndShaderInstrumentationARM`
+    /// [`vkCmdEndShaderInstrumentationARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndShaderInstrumentationARM.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndShaderInstrumentationARM.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ARM_ShaderInstrumentation`](Extensions::ARM_ShaderInstrumentation)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     /// - [`DATA_GRAPHARM`](QueueFlags::DATA_GRAPHARM)
@@ -18658,10 +21179,17 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkGetShaderInstrumentationValuesARM`
+    /// [`vkGetShaderInstrumentationValuesARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetShaderInstrumentationValuesARM.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetShaderInstrumentationValuesARM.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ARM_ShaderInstrumentation`](Extensions::ARM_ShaderInstrumentation)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - metric_values
+    /// - flags
     ///
     /// # Result codes
     /// ## Success
@@ -18685,10 +21213,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkClearShaderInstrumentationMetricsARM`
+    /// [`vkClearShaderInstrumentationMetricsARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkClearShaderInstrumentationMetricsARM.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkClearShaderInstrumentationMetricsARM.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ARM_ShaderInstrumentation`](Extensions::ARM_ShaderInstrumentation)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkClearShaderInstrumentationMetricsARM")]
     pub unsafe fn clear_shader_instrumentation_metrics_arm(
@@ -18700,20 +21231,26 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdEndRendering2EXT`
+    /// [`vkCmdEndRendering2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndRendering2EXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndRendering2EXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_FragmentDensityMapOffset`](Extensions::EXT_FragmentDensityMapOffset)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - rendering_end_info
+    ///
+    /// # Performed tasks
     /// - `action`
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdEndRendering2EXT")]
@@ -18723,19 +21260,25 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBeginCustomResolveEXT`
+    /// [`vkCmdBeginCustomResolveEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginCustomResolveEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginCustomResolveEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_CustomResolve`](Extensions::EXT_CustomResolve)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - begin_custom_resolve_info
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdBeginCustomResolveEXT")]
@@ -18748,10 +21291,16 @@ impl CommandBuffer {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceQueueFamilyDataGraphOpticalFlowImageFormatsARM`
+    /// [`vkGetPhysicalDeviceQueueFamilyDataGraphOpticalFlowImageFormatsARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceQueueFamilyDataGraphOpticalFlowImageFormatsARM.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceQueueFamilyDataGraphOpticalFlowImageFormatsARM.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - image_format_properties
     ///
     /// # Result codes
     /// ## Success
@@ -18764,7 +21313,7 @@ impl PhysicalDevice {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetPhysicalDeviceQueueFamilyDataGraphOpticalFlowImageFormatsARM")]
-    pub unsafe fn get_physical_device_queue_family_data_graph_optical_flow_image_formats_arm(
+    pub unsafe fn get_queue_family_data_graph_optical_flow_image_formats_arm(
         self,
         queue_family_index: u32,
         queue_family_data_graph_properties: *const QueueFamilyDataGraphPropertiesARM,
@@ -18777,19 +21326,22 @@ impl PhysicalDevice {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetComputeOccupancyPriorityNV`
+    /// [`vkCmdSetComputeOccupancyPriorityNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetComputeOccupancyPriorityNV.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetComputeOccupancyPriorityNV.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_ComputeOccupancyPriority`](Extensions::NV_ComputeOccupancyPriority)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
     #[doc(alias = "vkCmdSetComputeOccupancyPriorityNV")]
@@ -18802,10 +21354,16 @@ impl CommandBuffer {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceCooperativeMatrixProperties2EXT`
+    /// [`vkGetPhysicalDeviceCooperativeMatrixProperties2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceCooperativeMatrixProperties2EXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceCooperativeMatrixProperties2EXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_CooperativeMatrixMaintenance1`](Extensions::EXT_CooperativeMatrixMaintenance1)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - properties
     ///
     /// # Result codes
     /// ## Success
@@ -18817,7 +21375,7 @@ impl PhysicalDevice {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetPhysicalDeviceCooperativeMatrixProperties2EXT")]
-    pub unsafe fn get_physical_device_cooperative_matrix_properties_2_ext(
+    pub unsafe fn get_cooperative_matrix_properties_2_ext(
         self,
         cooperative_matrix_info: *const PhysicalDeviceCooperativeMatrixInfo2EXT,
         property_count: *mut u32,
@@ -18828,10 +21386,16 @@ impl PhysicalDevice {
 }
 
 impl Instance {
-    /// `vkCreateUbmSurfaceSEC`
+    /// [`vkCreateUbmSurfaceSEC`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateUbmSurfaceSEC.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateUbmSurfaceSEC.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`SEC_UbmSurface`](Extensions::SEC_UbmSurface)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -18853,13 +21417,16 @@ impl Instance {
 }
 
 impl PhysicalDevice {
-    /// `vkGetPhysicalDeviceUbmPresentationSupportSEC`
+    /// [`vkGetPhysicalDeviceUbmPresentationSupportSEC`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceUbmPresentationSupportSEC.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceUbmPresentationSupportSEC.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`SEC_UbmSurface`](Extensions::SEC_UbmSurface)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceUbmPresentationSupportSEC")]
-    pub unsafe fn get_physical_device_ubm_presentation_support_sec(
+    pub unsafe fn get_ubm_presentation_support_sec(
         self,
         queue_family_index: u32,
         device: *mut ubm_device,
@@ -18869,19 +21436,25 @@ impl PhysicalDevice {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetPrimitiveRestartIndexEXT`
+    /// [`vkCmdSetPrimitiveRestartIndexEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPrimitiveRestartIndexEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPrimitiveRestartIndexEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_PrimitiveRestartIndex`](Extensions::EXT_PrimitiveRestartIndex)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - primitive_restart_index
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetPrimitiveRestartIndexEXT")]
@@ -18891,10 +21464,16 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkCreateAccelerationStructureKHR`
+    /// [`vkCreateAccelerationStructureKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateAccelerationStructureKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateAccelerationStructureKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -18916,10 +21495,17 @@ impl Device {
 }
 
 impl Device {
-    /// `vkDestroyAccelerationStructureKHR`
+    /// [`vkDestroyAccelerationStructureKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyAccelerationStructureKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyAccelerationStructureKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - acceleration_structure
+    /// - allocator
     ///
     #[doc(alias = "vkDestroyAccelerationStructureKHR")]
     pub unsafe fn destroy_acceleration_structure_khr(
@@ -18932,19 +21518,22 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBuildAccelerationStructuresKHR`
+    /// [`vkCmdBuildAccelerationStructuresKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBuildAccelerationStructuresKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBuildAccelerationStructuresKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
     #[doc(alias = "vkCmdBuildAccelerationStructuresKHR")]
@@ -18959,19 +21548,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdBuildAccelerationStructuresIndirectKHR`
+    /// [`vkCmdBuildAccelerationStructuresIndirectKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBuildAccelerationStructuresIndirectKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBuildAccelerationStructuresIndirectKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
     #[doc(alias = "vkCmdBuildAccelerationStructuresIndirectKHR")]
@@ -18988,10 +21580,16 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkBuildAccelerationStructuresKHR`
+    /// [`vkBuildAccelerationStructuresKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkBuildAccelerationStructuresKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkBuildAccelerationStructuresKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - deferred_operation
     ///
     /// # Result codes
     /// ## Success
@@ -19016,10 +21614,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkCopyAccelerationStructureKHR`
+    /// [`vkCopyAccelerationStructureKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyAccelerationStructureKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyAccelerationStructureKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - deferred_operation
     ///
     /// # Result codes
     /// ## Success
@@ -19042,10 +21646,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkCopyAccelerationStructureToMemoryKHR`
+    /// [`vkCopyAccelerationStructureToMemoryKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyAccelerationStructureToMemoryKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyAccelerationStructureToMemoryKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - deferred_operation
     ///
     /// # Result codes
     /// ## Success
@@ -19068,10 +21678,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkCopyMemoryToAccelerationStructureKHR`
+    /// [`vkCopyMemoryToAccelerationStructureKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyMemoryToAccelerationStructureKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyMemoryToAccelerationStructureKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - deferred_operation
     ///
     /// # Result codes
     /// ## Success
@@ -19094,10 +21710,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkWriteAccelerationStructuresPropertiesKHR`
+    /// [`vkWriteAccelerationStructuresPropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkWriteAccelerationStructuresPropertiesKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkWriteAccelerationStructuresPropertiesKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -19122,19 +21741,22 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdCopyAccelerationStructureKHR`
+    /// [`vkCmdCopyAccelerationStructureKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyAccelerationStructureKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyAccelerationStructureKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
     #[doc(alias = "vkCmdCopyAccelerationStructureKHR")]
@@ -19147,19 +21769,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdCopyAccelerationStructureToMemoryKHR`
+    /// [`vkCmdCopyAccelerationStructureToMemoryKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyAccelerationStructureToMemoryKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyAccelerationStructureToMemoryKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
     #[doc(alias = "vkCmdCopyAccelerationStructureToMemoryKHR")]
@@ -19172,19 +21797,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdCopyMemoryToAccelerationStructureKHR`
+    /// [`vkCmdCopyMemoryToAccelerationStructureKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMemoryToAccelerationStructureKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMemoryToAccelerationStructureKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
     #[doc(alias = "vkCmdCopyMemoryToAccelerationStructureKHR")]
@@ -19197,13 +21825,16 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkGetAccelerationStructureDeviceAddressKHR`
+    /// [`vkGetAccelerationStructureDeviceAddressKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetAccelerationStructureDeviceAddressKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetAccelerationStructureDeviceAddressKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetAccelerationStructureDeviceAddressKHR")]
-    pub unsafe fn get_acceleration_structure_device_address_khr(
+    pub unsafe fn get_acceleration_structure_address_khr(
         self,
         info: *const AccelerationStructureDeviceAddressInfoKHR,
     ) -> DeviceAddress {
@@ -19212,19 +21843,22 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdWriteAccelerationStructuresPropertiesKHR`
+    /// [`vkCmdWriteAccelerationStructuresPropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteAccelerationStructuresPropertiesKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteAccelerationStructuresPropertiesKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
     #[doc(alias = "vkCmdWriteAccelerationStructuresPropertiesKHR")]
@@ -19241,13 +21875,16 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkGetDeviceAccelerationStructureCompatibilityKHR`
+    /// [`vkGetDeviceAccelerationStructureCompatibilityKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceAccelerationStructureCompatibilityKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceAccelerationStructureCompatibilityKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceAccelerationStructureCompatibilityKHR")]
-    pub unsafe fn get_device_acceleration_structure_compatibility_khr(
+    pub unsafe fn get_acceleration_structure_compatibility_khr(
         self,
         version_info: *const AccelerationStructureVersionInfoKHR,
         compatibility: *mut AccelerationStructureCompatibilityKHR,
@@ -19257,10 +21894,16 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetAccelerationStructureBuildSizesKHR`
+    /// [`vkGetAccelerationStructureBuildSizesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetAccelerationStructureBuildSizesKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetAccelerationStructureBuildSizesKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - max_primitive_counts
     ///
     #[doc(alias = "vkGetAccelerationStructureBuildSizesKHR")]
     pub unsafe fn get_acceleration_structure_build_sizes_khr(
@@ -19275,19 +21918,22 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdTraceRaysKHR`
+    /// [`vkCmdTraceRaysKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdTraceRaysKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdTraceRaysKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
     #[doc(alias = "vkCmdTraceRaysKHR")]
@@ -19306,10 +21952,18 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkCreateRayTracingPipelinesKHR`
+    /// [`vkCreateRayTracingPipelinesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateRayTracingPipelinesKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateRayTracingPipelinesKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Optional parameters
+    /// - deferred_operation
+    /// - pipeline_cache
+    /// - allocator
     ///
     /// # Result codes
     /// ## Success
@@ -19338,10 +21992,13 @@ impl Device {
 }
 
 impl Device {
-    /// `vkGetRayTracingCaptureReplayShaderGroupHandlesKHR`
+    /// [`vkGetRayTracingCaptureReplayShaderGroupHandlesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRayTracingCaptureReplayShaderGroupHandlesKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRayTracingCaptureReplayShaderGroupHandlesKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -19365,19 +22022,22 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdTraceRaysIndirectKHR`
+    /// [`vkCmdTraceRaysIndirectKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdTraceRaysIndirectKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdTraceRaysIndirectKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
     #[doc(alias = "vkCmdTraceRaysIndirectKHR")]
@@ -19394,10 +22054,13 @@ impl CommandBuffer {
 }
 
 impl Device {
-    /// `vkGetRayTracingShaderGroupStackSizeKHR`
+    /// [`vkGetRayTracingShaderGroupStackSizeKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRayTracingShaderGroupStackSizeKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRayTracingShaderGroupStackSizeKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetRayTracingShaderGroupStackSizeKHR")]
     pub unsafe fn get_ray_tracing_shader_group_stack_size_khr(
@@ -19411,19 +22074,22 @@ impl Device {
 }
 
 impl CommandBuffer {
-    /// `vkCmdSetRayTracingPipelineStackSizeKHR`
+    /// [`vkCmdSetRayTracingPipelineStackSizeKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRayTracingPipelineStackSizeKHR.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRayTracingPipelineStackSizeKHR.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `state`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
     ///
     #[doc(alias = "vkCmdSetRayTracingPipelineStackSizeKHR")]
@@ -19433,19 +22099,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDrawMeshTasksEXT`
+    /// [`vkCmdDrawMeshTasksEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMeshTasksEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMeshTasksEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_MeshShader`](Extensions::EXT_MeshShader)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawMeshTasksEXT")]
@@ -19460,19 +22129,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDrawMeshTasksIndirectEXT`
+    /// [`vkCmdDrawMeshTasksIndirectEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMeshTasksIndirectEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMeshTasksIndirectEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_MeshShader`](Extensions::EXT_MeshShader)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawMeshTasksIndirectEXT")]
@@ -19488,19 +22160,22 @@ impl CommandBuffer {
 }
 
 impl CommandBuffer {
-    /// `vkCmdDrawMeshTasksIndirectCountEXT`
+    /// [`vkCmdDrawMeshTasksIndirectCountEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMeshTasksIndirectCountEXT.html)
     ///
-    /// # Vulkan documentation
-    /// <https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMeshTasksIndirectCountEXT.html>
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_MeshShader`](Extensions::EXT_MeshShader)
     ///
-    /// ## Performed tasks
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Performed tasks
     /// - `action`
     ///
-    /// ## Allowed command buffers
+    /// # Allowed command buffers
     /// - Primary
     /// - Secondary
     ///
-    /// ## Allowed queues
+    /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawMeshTasksIndirectCountEXT")]
