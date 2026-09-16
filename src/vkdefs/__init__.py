@@ -24,7 +24,7 @@ FN_PTRS_MODULE_PREFIX: str = """
 use crate::bitmasks::*;
 use crate::consts_inner::*;
 use crate::enums::*;
-use crate::extensions::*;
+use crate::internal::*;
 use crate::flags::*;
 use crate::handles::*;
 use crate::structs::*;
@@ -34,7 +34,7 @@ STRUCTS_MODULE_PREFIX: str = """
 use crate::bitmasks::*;
 use crate::consts_inner::*;
 use crate::enums::*;
-use crate::extensions::*;
+use crate::internal::*;
 use crate::flags::*;
 use crate::fn_ptrs::*;
 use crate::handles::*;
@@ -48,7 +48,7 @@ COMMANDS_MODULE_PREFIX: str = """
 use crate::bitmasks::*;
 use crate::consts_inner::*;
 use crate::enums::*;
-use crate::extensions::*;
+use crate::internal::*;
 use crate::flags::*;
 use crate::fn_ptrs::*;
 use crate::handles::*;
@@ -103,7 +103,6 @@ class Registry:
     handles: list[Generated[vkobj.Handle]] = field(default_factory=list)
     structs: list[Generated[vkobj.Struct]] = field(default_factory=list)
     commands: list[Generated[vkobj.Command]] = field(default_factory=list)
-    extensions: str = field(default_factory=lambda: "")
 
 
 def struct_name(name: str) -> str:
@@ -241,9 +240,13 @@ class Context:
     root: Path
     vk: vkobj.VulkanObject = get_vulkan_object(video=True)
     reg: Registry = Registry()
+    global_commands: list[str]
+    instance_commands: list[str]
 
     def __init__(self, root: Path):
         self.root = root
+        self.global_commands = []
+        self.instance_commands = []
 
     def remove_vendor_tag(self, name: str) -> str:
         last = name[-3:]
@@ -283,12 +286,10 @@ class Context:
         out.indent()
 
         has_p_next = False
-        p_next_const = True
         for member in x.members:
             field_name = struct_field_name(member.name)
             if field_name == "p_next":
                 has_p_next = True
-                p_next_const = member.const
 
             type = RustType.parse(member.fullType)
             for size in member.fixedSizeArray:
@@ -369,6 +370,7 @@ class Context:
         if has_p_next:
             out.writeln(f"unsafe impl Extendable for {type_name} {{")
             out.indent()
+            out.writeln("#[inline(always)]")
             out.writeln("fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {")
             out.indent()
             out.writeln("unsafe {")
@@ -411,6 +413,8 @@ class Context:
         out = CodeWriter()
 
         type_name = x.name.removeprefix("Vk")
+        if x.dispatchable:
+            type_name = f"{type_name}Handle"
 
         vulkan_doc_header(out, x.name)
         out.writeln("/// # Handle type")
@@ -620,10 +624,11 @@ class Context:
     def generate_command(self, x: vkobj.Command) -> Generated[vkobj.Command]:
         out = CodeWriter()
 
-        method_name = textcase.snake(x.name.removeprefix("vk"))
+        fn_alias_name = x.name.removeprefix("vk")
+        method_name = textcase.snake(fn_alias_name)
 
-        receiver = None
-        allowed_receivers = {
+        handle = None
+        dispatchable_handles = {
             "Instance",
             "PhysicalDevice",
             "Device",
@@ -632,6 +637,7 @@ class Context:
         }
 
         params: list[str] = []
+        params_ty: list[str] = []
         for param in x.params:
             name = command_param_name(param.name)
 
@@ -649,36 +655,42 @@ class Context:
             else:
                 ty = RustType.parse(param.fullType)
 
-            if receiver is None and str(ty) in allowed_receivers:
-                receiver = ty
+            if handle is None and str(ty) in dispatchable_handles:
+                handle = ty
                 continue
 
             params.append(f"{name}: {ty}")
+            params_ty.append(str(ty))
 
         return_ty = (
             "" if x.returnType == "void" else f"-> {RustType.parse(x.returnType)}"
         )
 
-        if receiver is not None:
-            receiver_snake = textcase.snake(str(receiver))
+        if handle is not None:
+            self.instance_commands.append(x.name)
+            out.writeln(
+                f'pub(crate) type FUN_{fn_alias_name} = unsafe extern "C" fn({handle}Handle, {", ".join(params_ty)}) {return_ty};'
+            )
 
-            if str(receiver) != "Device":
+            if str(handle) != "Device":
+                handle_snake = textcase.snake(str(handle))
                 old_method_name = method_name
-                method_name = method_name.replace(f"{receiver_snake}_", "", count=1)
+                method_name = method_name.replace(f"{handle_snake}_", "", count=1)
                 if method_name == old_method_name:
-                    method_name = method_name.replace(f"_{receiver_snake}", "", count=1)
+                    method_name = method_name.replace(f"_{handle_snake}", "", count=1)
 
             signature = (
                 f"pub unsafe fn {method_name}(self, {', '.join(params)}) {return_ty}"
             )
 
-            out.writeln(f"impl {receiver} {{")
+            out.writeln(f"impl {handle} {{")
             out.indent()
 
             vulkan_doc_header(out, x.name)
             requirements_doc_header(out, x.version, x.extensions)
             command_doc_header(out, x)
             out.writeln(f'#[doc(alias = "{x.name}")]')
+            out.writeln("#[inline(always)]")
             out.writeln(f"{signature} {{")
             out.indent()
             out.writeln("todo!()")
@@ -688,11 +700,17 @@ class Context:
             out.deindent()
             out.writeln("}")
         else:
+            self.global_commands.append(x.name)
+            out.writeln(
+                f'pub(crate) type FUN_{fn_alias_name} = unsafe extern "C" fn({", ".join(params_ty)}) {return_ty};'
+            )
+
             signature = f"pub unsafe fn {method_name}({', '.join(params)}) {return_ty}"
 
             vulkan_doc_header(out, x.name)
             command_doc_header(out, x)
             out.writeln(f'#[doc(alias = "{x.name}")]')
+            out.writeln("#[inline(always)]")
             out.writeln(f"{signature} {{")
             out.indent()
             out.writeln("todo!()")
@@ -769,6 +787,41 @@ class Context:
 
         return out.content
 
+    def generate_commands_enum(self, name: str, commands: list[str]) -> str:
+        out = CodeWriter()
+
+        out.writeln("#[derive(Debug, Clone, Copy, PartialEq, Eq)]")
+        out.writeln(f"pub(crate) enum {name} {{")
+        out.indent()
+
+        for cmd in commands:
+            out.writeln(f"{cmd},")
+
+        out.deindent()
+        out.writeln("}")
+
+        out.writeln(f"impl {name} {{")
+        out.indent()
+        out.writeln(
+            f"pub const VARIANTS: &[Self; {len(commands)}] = &[{', '.join(f'Self::{cmd}' for cmd in commands)}];"
+        )
+        out.writeln("pub fn name(self) -> &'static std::ffi::CStr {")
+        out.indent()
+        out.writeln("match self {")
+        out.indent()
+
+        for cmd in commands:
+            out.writeln(f'Self::{cmd} => c"{cmd}",')
+
+        out.deindent()
+        out.writeln("}")
+        out.deindent()
+        out.writeln("}")
+        out.deindent()
+        out.writeln("}")
+
+        return out.content
+
     def fill_registry(self):
         assert self.vk.videoStd is not None
 
@@ -831,9 +884,6 @@ class Context:
             command = self.generate_command(command)
             self.reg.commands.append(command)
 
-        # extensions
-        self.reg.extensions = self.generate_extensions()
-
     def write_module(self, path: str, content: str):
         path = f"{self.root}/src/{path}"
         os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -863,6 +913,7 @@ class Context:
         print(f"- Function Pointers: {len(self.reg.fnptrs)}")
         print(f"- Handles: {len(self.reg.handles)}")
         print(f"- Structs: {len(self.reg.structs)}")
+
         print("Generating source files...")
         self.write_generated_to_module("bitmasks.rs", "", self.reg.bitmasks)
         self.write_generated_to_module(
@@ -881,7 +932,19 @@ class Context:
         self.write_generated_to_module(
             "structs.rs", STRUCTS_MODULE_PREFIX, self.reg.structs
         )
-        self.write_module("extensions.rs", self.reg.extensions)
+
+        # internal
+        extensions_enum = self.generate_extensions()
+        global_commands_enum = self.generate_commands_enum(
+            "GlobalCommands", self.global_commands
+        )
+        instance_commands_enum = self.generate_commands_enum(
+            "InstanceCommands", self.instance_commands
+        )
+        internal = "\n".join(
+            [extensions_enum, global_commands_enum, instance_commands_enum]
+        )
+        self.write_module("internal.rs", internal)
 
         print("Done!")
 

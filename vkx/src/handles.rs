@@ -13,7 +13,7 @@ use std::ffi::{c_char, c_int, c_uint, c_void};
 #[doc(alias = "VkInstance")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
-pub struct Instance(usize);
+pub struct InstanceHandle(usize);
 
 /// [`VkPhysicalDevice`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevice.html)
 ///
@@ -22,7 +22,7 @@ pub struct Instance(usize);
 #[doc(alias = "VkPhysicalDevice")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
-pub struct PhysicalDevice(usize);
+pub struct PhysicalDeviceHandle(usize);
 
 /// [`VkDevice`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDevice.html)
 ///
@@ -31,7 +31,7 @@ pub struct PhysicalDevice(usize);
 #[doc(alias = "VkDevice")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
-pub struct Device(usize);
+pub struct DeviceHandle(usize);
 
 /// [`VkQueue`](https://docs.vulkan.org/refpages/latest/refpages/source/VkQueue.html)
 ///
@@ -40,7 +40,7 @@ pub struct Device(usize);
 #[doc(alias = "VkQueue")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
-pub struct Queue(usize);
+pub struct QueueHandle(usize);
 
 /// [`VkSemaphore`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSemaphore.html)
 ///
@@ -58,7 +58,7 @@ pub struct Semaphore(u64);
 #[doc(alias = "VkCommandBuffer")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
-pub struct CommandBuffer(usize);
+pub struct CommandBufferHandle(usize);
 
 /// [`VkFence`](https://docs.vulkan.org/refpages/latest/refpages/source/VkFence.html)
 ///
@@ -511,7 +511,7 @@ pub struct DataGraphPipelineSessionARM(u64);
 #[doc(alias = "VkExternalComputeQueueNV")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
-pub struct ExternalComputeQueueNV(usize);
+pub struct ExternalComputeQueueNVHandle(usize);
 
 /// [`VkIndirectExecutionSetEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectExecutionSetEXT.html)
 ///

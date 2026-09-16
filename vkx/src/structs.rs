@@ -10,10 +10,10 @@ use std::ffi::{c_char, c_int, c_uint, c_void};
 use crate::bitmasks::*;
 use crate::consts_inner::*;
 use crate::enums::*;
-use crate::extensions::*;
 use crate::flags::*;
 use crate::fn_ptrs::*;
 use crate::handles::*;
+use crate::internal::*;
 /// [`VkExtent2D`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExtent2D.html)
 ///
 #[doc(alias = "VkExtent2D")]
@@ -133,6 +133,7 @@ impl Default for BaseInStructure {
     }
 }
 unsafe impl Extendable for BaseInStructure {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -169,6 +170,7 @@ impl Default for BaseOutStructure {
     }
 }
 unsafe impl Extendable for BaseOutStructure {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -249,6 +251,7 @@ impl Default for ApplicationInfo {
     }
 }
 unsafe impl Extendable for ApplicationInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -361,6 +364,7 @@ impl Default for InstanceCreateInfo {
     }
 }
 unsafe impl Extendable for InstanceCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -916,6 +920,7 @@ impl Default for DeviceQueueCreateInfo {
     }
 }
 unsafe impl Extendable for DeviceQueueCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -1262,6 +1267,7 @@ impl Default for DeviceCreateInfo {
     }
 }
 unsafe impl Extendable for DeviceCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -1351,7 +1357,7 @@ pub struct SubmitInfo {
     pub p_wait_dst_stage_mask: *const PipelineStageFlags,
     /// Optional
     pub command_buffer_count: u32,
-    pub p_command_buffers: *const CommandBuffer,
+    pub p_command_buffers: *const CommandBufferHandle,
     /// Optional
     pub signal_semaphore_count: u32,
     pub p_signal_semaphores: *const Semaphore,
@@ -1373,6 +1379,7 @@ impl Default for SubmitInfo {
     }
 }
 unsafe impl Extendable for SubmitInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -1415,6 +1422,7 @@ impl Default for MappedMemoryRange {
     }
 }
 unsafe impl Extendable for MappedMemoryRange {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -1479,6 +1487,7 @@ impl Default for MemoryAllocateInfo {
     }
 }
 unsafe impl Extendable for MemoryAllocateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -1754,6 +1763,7 @@ impl Default for BindSparseInfo {
     }
 }
 unsafe impl Extendable for BindSparseInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -1796,6 +1806,7 @@ impl Default for FenceCreateInfo {
     }
 }
 unsafe impl Extendable for FenceCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -1842,6 +1853,7 @@ impl Default for SemaphoreCreateInfo {
     }
 }
 unsafe impl Extendable for SemaphoreCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -1903,6 +1915,7 @@ impl Default for QueryPoolCreateInfo {
     }
 }
 unsafe impl Extendable for QueryPoolCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -1963,6 +1976,7 @@ impl Default for BufferCreateInfo {
     }
 }
 unsafe impl Extendable for BufferCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -2054,6 +2068,7 @@ impl Default for ImageCreateInfo {
     }
 }
 unsafe impl Extendable for ImageCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -2186,6 +2201,7 @@ impl Default for ImageViewCreateInfo {
     }
 }
 unsafe impl Extendable for ImageViewCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -2229,6 +2245,7 @@ impl Default for CommandPoolCreateInfo {
     }
 }
 unsafe impl Extendable for CommandPoolCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -2271,6 +2288,7 @@ impl Default for CommandBufferAllocateInfo {
     }
 }
 unsafe impl Extendable for CommandBufferAllocateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -2338,6 +2356,7 @@ impl Default for CommandBufferInheritanceInfo {
     }
 }
 unsafe impl Extendable for CommandBufferInheritanceInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -2382,6 +2401,7 @@ impl Default for CommandBufferBeginInfo {
     }
 }
 unsafe impl Extendable for CommandBufferBeginInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -2530,6 +2550,7 @@ impl Default for BufferMemoryBarrier {
     }
 }
 unsafe impl Extendable for BufferMemoryBarrier {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -2585,6 +2606,7 @@ impl Default for ImageMemoryBarrier {
     }
 }
 unsafe impl Extendable for ImageMemoryBarrier {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -2627,6 +2649,7 @@ impl Default for MemoryBarrier {
     }
 }
 unsafe impl Extendable for MemoryBarrier {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -2715,6 +2738,7 @@ impl Default for EventCreateInfo {
     }
 }
 unsafe impl Extendable for EventCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -2765,6 +2789,7 @@ impl Default for BufferViewCreateInfo {
     }
 }
 unsafe impl Extendable for BufferViewCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -2811,6 +2836,7 @@ impl Default for ShaderModuleCreateInfo {
     }
 }
 unsafe impl Extendable for ShaderModuleCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -2857,6 +2883,7 @@ impl Default for PipelineCacheCreateInfo {
     }
 }
 unsafe impl Extendable for PipelineCacheCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -2963,6 +2990,7 @@ impl Default for PipelineShaderStageCreateInfo {
     }
 }
 unsafe impl Extendable for PipelineShaderStageCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -3021,6 +3049,7 @@ impl Default for ComputePipelineCreateInfo {
     }
 }
 unsafe impl Extendable for ComputePipelineCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -3091,6 +3120,7 @@ impl Default for PipelineLayoutCreateInfo {
     }
 }
 unsafe impl Extendable for PipelineLayoutCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -3177,6 +3207,7 @@ impl Default for SamplerCreateInfo {
     }
 }
 unsafe impl Extendable for SamplerCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -3227,6 +3258,7 @@ impl Default for CopyDescriptorSet {
     }
 }
 unsafe impl Extendable for CopyDescriptorSet {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -3339,6 +3371,7 @@ impl Default for DescriptorPoolCreateInfo {
     }
 }
 unsafe impl Extendable for DescriptorPoolCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -3383,6 +3416,7 @@ impl Default for DescriptorSetAllocateInfo {
     }
 }
 unsafe impl Extendable for DescriptorSetAllocateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -3457,6 +3491,7 @@ impl Default for DescriptorSetLayoutCreateInfo {
     }
 }
 unsafe impl Extendable for DescriptorSetLayoutCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -3515,6 +3550,7 @@ impl Default for WriteDescriptorSet {
     }
 }
 unsafe impl Extendable for WriteDescriptorSet {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -3772,6 +3808,7 @@ impl Default for PipelineColorBlendStateCreateInfo {
     }
 }
 unsafe impl Extendable for PipelineColorBlendStateCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -3829,6 +3866,7 @@ impl Default for PipelineDepthStencilStateCreateInfo {
     }
 }
 unsafe impl Extendable for PipelineDepthStencilStateCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -3873,6 +3911,7 @@ impl Default for PipelineDynamicStateCreateInfo {
     }
 }
 unsafe impl Extendable for PipelineDynamicStateCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -3916,6 +3955,7 @@ impl Default for PipelineInputAssemblyStateCreateInfo {
     }
 }
 unsafe impl Extendable for PipelineInputAssemblyStateCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -3973,6 +4013,7 @@ impl Default for PipelineMultisampleStateCreateInfo {
     }
 }
 unsafe impl Extendable for PipelineMultisampleStateCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -4041,6 +4082,7 @@ impl Default for PipelineRasterizationStateCreateInfo {
     }
 }
 unsafe impl Extendable for PipelineRasterizationStateCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -4084,6 +4126,7 @@ impl Default for PipelineTessellationStateCreateInfo {
     }
 }
 unsafe impl Extendable for PipelineTessellationStateCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -4135,6 +4178,7 @@ impl Default for PipelineVertexInputStateCreateInfo {
     }
 }
 unsafe impl Extendable for PipelineVertexInputStateCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -4194,6 +4238,7 @@ impl Default for PipelineViewportStateCreateInfo {
     }
 }
 unsafe impl Extendable for PipelineViewportStateCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -4302,6 +4347,7 @@ impl Default for GraphicsPipelineCreateInfo {
     }
 }
 unsafe impl Extendable for GraphicsPipelineCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -4409,6 +4455,7 @@ impl Default for FramebufferCreateInfo {
     }
 }
 unsafe impl Extendable for FramebufferCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -4543,6 +4590,7 @@ impl Default for RenderPassCreateInfo {
     }
 }
 unsafe impl Extendable for RenderPassCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -4729,6 +4777,7 @@ impl Default for RenderPassBeginInfo {
     }
 }
 unsafe impl Extendable for RenderPassBeginInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -4781,6 +4830,7 @@ impl Default for BindBufferMemoryInfo {
     }
 }
 unsafe impl Extendable for BindBufferMemoryInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -4836,6 +4886,7 @@ impl Default for BindImageMemoryInfo {
     }
 }
 unsafe impl Extendable for BindImageMemoryInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -4884,6 +4935,7 @@ impl Default for MemoryDedicatedRequirements {
     }
 }
 unsafe impl Extendable for MemoryDedicatedRequirements {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -4935,6 +4987,7 @@ impl Default for MemoryDedicatedAllocateInfo {
     }
 }
 unsafe impl Extendable for MemoryDedicatedAllocateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -4985,6 +5038,7 @@ impl Default for MemoryAllocateFlagsInfo {
     }
 }
 unsafe impl Extendable for MemoryAllocateFlagsInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -5032,6 +5086,7 @@ impl Default for DeviceGroupCommandBufferBeginInfo {
     }
 }
 unsafe impl Extendable for DeviceGroupCommandBufferBeginInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -5094,6 +5149,7 @@ impl Default for DeviceGroupSubmitInfo {
     }
 }
 unsafe impl Extendable for DeviceGroupSubmitInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -5143,6 +5199,7 @@ impl Default for DeviceGroupBindSparseInfo {
     }
 }
 unsafe impl Extendable for DeviceGroupBindSparseInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -5193,6 +5250,7 @@ impl Default for BindBufferMemoryDeviceGroupInfo {
     }
 }
 unsafe impl Extendable for BindBufferMemoryDeviceGroupInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -5248,6 +5306,7 @@ impl Default for BindImageMemoryDeviceGroupInfo {
     }
 }
 unsafe impl Extendable for BindImageMemoryDeviceGroupInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -5283,7 +5342,7 @@ pub struct PhysicalDeviceGroupProperties {
     /// Optional
     pub p_next: *mut c_void,
     pub physical_device_count: u32,
-    pub physical_devices: [PhysicalDevice; VK_MAX_DEVICE_GROUP_SIZE as usize],
+    pub physical_devices: [PhysicalDeviceHandle; VK_MAX_DEVICE_GROUP_SIZE as usize],
     pub subset_allocation: Bool32,
 }
 impl Default for PhysicalDeviceGroupProperties {
@@ -5299,6 +5358,7 @@ impl Default for PhysicalDeviceGroupProperties {
     }
 }
 unsafe impl Extendable for PhysicalDeviceGroupProperties {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -5334,7 +5394,7 @@ pub struct DeviceGroupDeviceCreateInfo {
     pub p_next: *const c_void,
     /// Optional
     pub physical_device_count: u32,
-    pub p_physical_devices: *const PhysicalDevice,
+    pub p_physical_devices: *const PhysicalDeviceHandle,
 }
 impl Default for DeviceGroupDeviceCreateInfo {
     #[inline(always)]
@@ -5348,6 +5408,7 @@ impl Default for DeviceGroupDeviceCreateInfo {
     }
 }
 unsafe impl Extendable for DeviceGroupDeviceCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -5395,6 +5456,7 @@ impl Default for BufferMemoryRequirementsInfo2 {
     }
 }
 unsafe impl Extendable for BufferMemoryRequirementsInfo2 {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -5443,6 +5505,7 @@ impl Default for ImageMemoryRequirementsInfo2 {
     }
 }
 unsafe impl Extendable for ImageMemoryRequirementsInfo2 {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -5489,6 +5552,7 @@ impl Default for ImageSparseMemoryRequirementsInfo2 {
     }
 }
 unsafe impl Extendable for ImageSparseMemoryRequirementsInfo2 {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -5539,6 +5603,7 @@ impl Default for MemoryRequirements2 {
     }
 }
 unsafe impl Extendable for MemoryRequirements2 {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -5585,6 +5650,7 @@ impl Default for SparseImageMemoryRequirements2 {
     }
 }
 unsafe impl Extendable for SparseImageMemoryRequirements2 {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -5909,6 +5975,7 @@ impl Default for PhysicalDeviceFeatures2 {
     }
 }
 unsafe impl Extendable for PhysicalDeviceFeatures2 {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -6083,6 +6150,7 @@ impl Default for PhysicalDeviceProperties2 {
     }
 }
 unsafe impl Extendable for PhysicalDeviceProperties2 {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -6137,6 +6205,7 @@ impl Default for FormatProperties2 {
     }
 }
 unsafe impl Extendable for FormatProperties2 {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -6193,6 +6262,7 @@ impl Default for ImageFormatProperties2 {
     }
 }
 unsafe impl Extendable for ImageFormatProperties2 {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -6261,6 +6331,7 @@ impl Default for PhysicalDeviceImageFormatInfo2 {
     }
 }
 unsafe impl Extendable for PhysicalDeviceImageFormatInfo2 {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -6315,6 +6386,7 @@ impl Default for QueueFamilyProperties2 {
     }
 }
 unsafe impl Extendable for QueueFamilyProperties2 {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -6363,6 +6435,7 @@ impl Default for PhysicalDeviceMemoryProperties2 {
     }
 }
 unsafe impl Extendable for PhysicalDeviceMemoryProperties2 {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -6409,6 +6482,7 @@ impl Default for SparseImageFormatProperties2 {
     }
 }
 unsafe impl Extendable for SparseImageFormatProperties2 {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -6465,6 +6539,7 @@ impl Default for PhysicalDeviceSparseImageFormatInfo2 {
     }
 }
 unsafe impl Extendable for PhysicalDeviceSparseImageFormatInfo2 {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -6511,6 +6586,7 @@ impl Default for ImageViewUsageCreateInfo {
     }
 }
 unsafe impl Extendable for ImageViewUsageCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -6557,6 +6633,7 @@ impl Default for PhysicalDeviceProtectedMemoryFeatures {
     }
 }
 unsafe impl Extendable for PhysicalDeviceProtectedMemoryFeatures {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -6603,6 +6680,7 @@ impl Default for PhysicalDeviceProtectedMemoryProperties {
     }
 }
 unsafe impl Extendable for PhysicalDeviceProtectedMemoryProperties {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -6653,6 +6731,7 @@ impl Default for DeviceQueueInfo2 {
     }
 }
 unsafe impl Extendable for DeviceQueueInfo2 {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -6697,6 +6776,7 @@ impl Default for ProtectedSubmitInfo {
     }
 }
 unsafe impl Extendable for ProtectedSubmitInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -6743,6 +6823,7 @@ impl Default for BindImagePlaneMemoryInfo {
     }
 }
 unsafe impl Extendable for BindImagePlaneMemoryInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -6790,6 +6871,7 @@ impl Default for ImagePlaneMemoryRequirementsInfo {
     }
 }
 unsafe impl Extendable for ImagePlaneMemoryRequirementsInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -6868,6 +6950,7 @@ impl Default for PhysicalDeviceExternalImageFormatInfo {
     }
 }
 unsafe impl Extendable for PhysicalDeviceExternalImageFormatInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -6915,6 +6998,7 @@ impl Default for ExternalImageFormatProperties {
     }
 }
 unsafe impl Extendable for ExternalImageFormatProperties {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -6970,6 +7054,7 @@ impl Default for PhysicalDeviceExternalBufferInfo {
     }
 }
 unsafe impl Extendable for PhysicalDeviceExternalBufferInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -7016,6 +7101,7 @@ impl Default for ExternalBufferProperties {
     }
 }
 unsafe impl Extendable for ExternalBufferProperties {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -7072,6 +7158,7 @@ impl Default for PhysicalDeviceIDProperties {
     }
 }
 unsafe impl Extendable for PhysicalDeviceIDProperties {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -7120,6 +7207,7 @@ impl Default for ExternalMemoryImageCreateInfo {
     }
 }
 unsafe impl Extendable for ExternalMemoryImageCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -7168,6 +7256,7 @@ impl Default for ExternalMemoryBufferCreateInfo {
     }
 }
 unsafe impl Extendable for ExternalMemoryBufferCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -7216,6 +7305,7 @@ impl Default for ExportMemoryAllocateInfo {
     }
 }
 unsafe impl Extendable for ExportMemoryAllocateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -7263,6 +7353,7 @@ impl Default for PhysicalDeviceExternalFenceInfo {
     }
 }
 unsafe impl Extendable for PhysicalDeviceExternalFenceInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -7314,6 +7405,7 @@ impl Default for ExternalFenceProperties {
     }
 }
 unsafe impl Extendable for ExternalFenceProperties {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -7361,6 +7453,7 @@ impl Default for ExportFenceCreateInfo {
     }
 }
 unsafe impl Extendable for ExportFenceCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -7409,6 +7502,7 @@ impl Default for ExportSemaphoreCreateInfo {
     }
 }
 unsafe impl Extendable for ExportSemaphoreCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -7458,6 +7552,7 @@ impl Default for PhysicalDeviceExternalSemaphoreInfo {
     }
 }
 unsafe impl Extendable for PhysicalDeviceExternalSemaphoreInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -7509,6 +7604,7 @@ impl Default for ExternalSemaphoreProperties {
     }
 }
 unsafe impl Extendable for ExternalSemaphoreProperties {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -7560,6 +7656,7 @@ impl Default for PhysicalDeviceSubgroupProperties {
     }
 }
 unsafe impl Extendable for PhysicalDeviceSubgroupProperties {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -7612,6 +7709,7 @@ impl Default for PhysicalDevice16BitStorageFeatures {
     }
 }
 unsafe impl Extendable for PhysicalDevice16BitStorageFeatures {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -7662,6 +7760,7 @@ impl Default for PhysicalDeviceVariablePointersFeatures {
     }
 }
 unsafe impl Extendable for PhysicalDeviceVariablePointersFeatures {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -7762,6 +7861,7 @@ impl Default for DescriptorUpdateTemplateCreateInfo {
     }
 }
 unsafe impl Extendable for DescriptorUpdateTemplateCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -7810,6 +7910,7 @@ impl Default for PhysicalDeviceMaintenance3Properties {
     }
 }
 unsafe impl Extendable for PhysicalDeviceMaintenance3Properties {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -7859,6 +7960,7 @@ impl Default for DescriptorSetLayoutSupport {
     }
 }
 unsafe impl Extendable for DescriptorSetLayoutSupport {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -7924,6 +8026,7 @@ impl Default for SamplerYcbcrConversionCreateInfo {
     }
 }
 unsafe impl Extendable for SamplerYcbcrConversionCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -7970,6 +8073,7 @@ impl Default for SamplerYcbcrConversionInfo {
     }
 }
 unsafe impl Extendable for SamplerYcbcrConversionInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -8018,6 +8122,7 @@ impl Default for PhysicalDeviceSamplerYcbcrConversionFeatures {
     }
 }
 unsafe impl Extendable for PhysicalDeviceSamplerYcbcrConversionFeatures {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -8067,6 +8172,7 @@ impl Default for SamplerYcbcrConversionImageFormatProperties {
     }
 }
 unsafe impl Extendable for SamplerYcbcrConversionImageFormatProperties {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -8120,6 +8226,7 @@ impl Default for DeviceGroupRenderPassBeginInfo {
     }
 }
 unsafe impl Extendable for DeviceGroupRenderPassBeginInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -8168,6 +8275,7 @@ impl Default for PhysicalDevicePointClippingProperties {
     }
 }
 unsafe impl Extendable for PhysicalDevicePointClippingProperties {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -8246,6 +8354,7 @@ impl Default for RenderPassInputAttachmentAspectCreateInfo {
     }
 }
 unsafe impl Extendable for RenderPassInputAttachmentAspectCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -8293,6 +8402,7 @@ impl Default for PipelineTessellationDomainOriginStateCreateInfo {
     }
 }
 unsafe impl Extendable for PipelineTessellationDomainOriginStateCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -8357,6 +8467,7 @@ impl Default for RenderPassMultiviewCreateInfo {
     }
 }
 unsafe impl Extendable for RenderPassMultiviewCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -8408,6 +8519,7 @@ impl Default for PhysicalDeviceMultiviewFeatures {
     }
 }
 unsafe impl Extendable for PhysicalDeviceMultiviewFeatures {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -8458,6 +8570,7 @@ impl Default for PhysicalDeviceMultiviewProperties {
     }
 }
 unsafe impl Extendable for PhysicalDeviceMultiviewProperties {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -8504,6 +8617,7 @@ impl Default for PhysicalDeviceShaderDrawParametersFeatures {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderDrawParametersFeatures {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -8591,6 +8705,7 @@ impl Default for PhysicalDeviceDriverProperties {
     }
 }
 unsafe impl Extendable for PhysicalDeviceDriverProperties {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -8659,6 +8774,7 @@ impl Default for PhysicalDeviceVulkan11Features {
     }
 }
 unsafe impl Extendable for PhysicalDeviceVulkan11Features {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -8733,6 +8849,7 @@ impl Default for PhysicalDeviceVulkan11Properties {
     }
 }
 unsafe impl Extendable for PhysicalDeviceVulkan11Properties {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -8870,6 +8987,7 @@ impl Default for PhysicalDeviceVulkan12Features {
     }
 }
 unsafe impl Extendable for PhysicalDeviceVulkan12Features {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -9021,6 +9139,7 @@ impl Default for PhysicalDeviceVulkan12Properties {
     }
 }
 unsafe impl Extendable for PhysicalDeviceVulkan12Properties {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -9070,6 +9189,7 @@ impl Default for ImageFormatListCreateInfo {
     }
 }
 unsafe impl Extendable for ImageFormatListCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -9123,6 +9243,7 @@ impl Default for PhysicalDeviceVulkanMemoryModelFeatures {
     }
 }
 unsafe impl Extendable for PhysicalDeviceVulkanMemoryModelFeatures {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -9171,6 +9292,7 @@ impl Default for PhysicalDeviceHostQueryResetFeatures {
     }
 }
 unsafe impl Extendable for PhysicalDeviceHostQueryResetFeatures {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -9219,6 +9341,7 @@ impl Default for PhysicalDeviceTimelineSemaphoreFeatures {
     }
 }
 unsafe impl Extendable for PhysicalDeviceTimelineSemaphoreFeatures {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -9267,6 +9390,7 @@ impl Default for PhysicalDeviceTimelineSemaphoreProperties {
     }
 }
 unsafe impl Extendable for PhysicalDeviceTimelineSemaphoreProperties {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -9316,6 +9440,7 @@ impl Default for SemaphoreTypeCreateInfo {
     }
 }
 unsafe impl Extendable for SemaphoreTypeCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -9374,6 +9499,7 @@ impl Default for TimelineSemaphoreSubmitInfo {
     }
 }
 unsafe impl Extendable for TimelineSemaphoreSubmitInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -9429,6 +9555,7 @@ impl Default for SemaphoreWaitInfo {
     }
 }
 unsafe impl Extendable for SemaphoreWaitInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -9477,6 +9604,7 @@ impl Default for SemaphoreSignalInfo {
     }
 }
 unsafe impl Extendable for SemaphoreSignalInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -9527,6 +9655,7 @@ impl Default for PhysicalDeviceBufferDeviceAddressFeatures {
     }
 }
 unsafe impl Extendable for PhysicalDeviceBufferDeviceAddressFeatures {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -9576,6 +9705,7 @@ impl Default for BufferDeviceAddressInfo {
     }
 }
 unsafe impl Extendable for BufferDeviceAddressInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -9623,6 +9753,7 @@ impl Default for BufferOpaqueCaptureAddressCreateInfo {
     }
 }
 unsafe impl Extendable for BufferOpaqueCaptureAddressCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -9670,6 +9801,7 @@ impl Default for MemoryOpaqueCaptureAddressAllocateInfo {
     }
 }
 unsafe impl Extendable for MemoryOpaqueCaptureAddressAllocateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -9717,6 +9849,7 @@ impl Default for DeviceMemoryOpaqueCaptureAddressInfo {
     }
 }
 unsafe impl Extendable for DeviceMemoryOpaqueCaptureAddressInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -9767,6 +9900,7 @@ impl Default for PhysicalDevice8BitStorageFeatures {
     }
 }
 unsafe impl Extendable for PhysicalDevice8BitStorageFeatures {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -9817,6 +9951,7 @@ impl Default for PhysicalDeviceShaderAtomicInt64Features {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderAtomicInt64Features {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -9867,6 +10002,7 @@ impl Default for PhysicalDeviceShaderFloat16Int8Features {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderFloat16Int8Features {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -9948,6 +10084,7 @@ impl Default for PhysicalDeviceFloatControlsProperties {
     }
 }
 unsafe impl Extendable for PhysicalDeviceFloatControlsProperties {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -9998,6 +10135,7 @@ impl Default for DescriptorSetLayoutBindingFlagsCreateInfo {
     }
 }
 unsafe impl Extendable for DescriptorSetLayoutBindingFlagsCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -10083,6 +10221,7 @@ impl Default for PhysicalDeviceDescriptorIndexingFeatures {
     }
 }
 unsafe impl Extendable for PhysicalDeviceDescriptorIndexingFeatures {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -10175,6 +10314,7 @@ impl Default for PhysicalDeviceDescriptorIndexingProperties {
     }
 }
 unsafe impl Extendable for PhysicalDeviceDescriptorIndexingProperties {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -10225,6 +10365,7 @@ impl Default for DescriptorSetVariableDescriptorCountAllocateInfo {
     }
 }
 unsafe impl Extendable for DescriptorSetVariableDescriptorCountAllocateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -10276,6 +10417,7 @@ impl Default for DescriptorSetVariableDescriptorCountLayoutSupport {
     }
 }
 unsafe impl Extendable for DescriptorSetVariableDescriptorCountLayoutSupport {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -10327,6 +10469,7 @@ impl Default for PhysicalDeviceScalarBlockLayoutFeatures {
     }
 }
 unsafe impl Extendable for PhysicalDeviceScalarBlockLayoutFeatures {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -10375,6 +10518,7 @@ impl Default for SamplerReductionModeCreateInfo {
     }
 }
 unsafe impl Extendable for SamplerReductionModeCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -10424,6 +10568,7 @@ impl Default for PhysicalDeviceSamplerFilterMinmaxProperties {
     }
 }
 unsafe impl Extendable for PhysicalDeviceSamplerFilterMinmaxProperties {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -10472,6 +10617,7 @@ impl Default for PhysicalDeviceUniformBufferStandardLayoutFeatures {
     }
 }
 unsafe impl Extendable for PhysicalDeviceUniformBufferStandardLayoutFeatures {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -10521,6 +10667,7 @@ impl Default for PhysicalDeviceShaderSubgroupExtendedTypesFeatures {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderSubgroupExtendedTypesFeatures {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -10591,6 +10738,7 @@ impl Default for AttachmentDescription2 {
     }
 }
 unsafe impl Extendable for AttachmentDescription2 {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -10643,6 +10791,7 @@ impl Default for AttachmentReference2 {
     }
 }
 unsafe impl Extendable for AttachmentReference2 {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -10721,6 +10870,7 @@ impl Default for SubpassDescription2 {
     }
 }
 unsafe impl Extendable for SubpassDescription2 {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -10789,6 +10939,7 @@ impl Default for SubpassDependency2 {
     }
 }
 unsafe impl Extendable for SubpassDependency2 {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -10835,6 +10986,7 @@ impl Default for SubpassBeginInfo {
     }
 }
 unsafe impl Extendable for SubpassBeginInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -10881,6 +11033,7 @@ impl Default for SubpassEndInfo {
     }
 }
 unsafe impl Extendable for SubpassEndInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -10953,6 +11106,7 @@ impl Default for RenderPassCreateInfo2 {
     }
 }
 unsafe impl Extendable for RenderPassCreateInfo2 {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -11006,6 +11160,7 @@ impl Default for SubpassDescriptionDepthStencilResolve {
     }
 }
 unsafe impl Extendable for SubpassDescriptionDepthStencilResolve {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -11059,6 +11214,7 @@ impl Default for PhysicalDeviceDepthStencilResolveProperties {
     }
 }
 unsafe impl Extendable for PhysicalDeviceDepthStencilResolveProperties {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -11107,6 +11263,7 @@ impl Default for ImageStencilUsageCreateInfo {
     }
 }
 unsafe impl Extendable for ImageStencilUsageCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -11155,6 +11312,7 @@ impl Default for PhysicalDeviceImagelessFramebufferFeatures {
     }
 }
 unsafe impl Extendable for PhysicalDeviceImagelessFramebufferFeatures {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -11220,6 +11378,7 @@ impl Default for FramebufferAttachmentImageInfo {
     }
 }
 unsafe impl Extendable for FramebufferAttachmentImageInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -11269,6 +11428,7 @@ impl Default for RenderPassAttachmentBeginInfo {
     }
 }
 unsafe impl Extendable for RenderPassAttachmentBeginInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -11319,6 +11479,7 @@ impl Default for FramebufferAttachmentsCreateInfo {
     }
 }
 unsafe impl Extendable for FramebufferAttachmentsCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -11366,6 +11527,7 @@ impl Default for PhysicalDeviceSeparateDepthStencilLayoutsFeatures {
     }
 }
 unsafe impl Extendable for PhysicalDeviceSeparateDepthStencilLayoutsFeatures {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -11415,6 +11577,7 @@ impl Default for AttachmentReferenceStencilLayout {
     }
 }
 unsafe impl Extendable for AttachmentReferenceStencilLayout {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -11464,6 +11627,7 @@ impl Default for AttachmentDescriptionStencilLayout {
     }
 }
 unsafe impl Extendable for AttachmentDescriptionStencilLayout {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -11538,6 +11702,7 @@ impl Default for PhysicalDeviceVulkan13Features {
     }
 }
 unsafe impl Extendable for PhysicalDeviceVulkan13Features {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -11673,6 +11838,7 @@ impl Default for PhysicalDeviceVulkan13Properties {
     }
 }
 unsafe impl Extendable for PhysicalDeviceVulkan13Properties {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -11731,6 +11897,7 @@ impl Default for PhysicalDeviceToolProperties {
     }
 }
 unsafe impl Extendable for PhysicalDeviceToolProperties {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -11777,6 +11944,7 @@ impl Default for PhysicalDevicePrivateDataFeatures {
     }
 }
 unsafe impl Extendable for PhysicalDevicePrivateDataFeatures {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -11825,6 +11993,7 @@ impl Default for DevicePrivateDataCreateInfo {
     }
 }
 unsafe impl Extendable for DevicePrivateDataCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -11874,6 +12043,7 @@ impl Default for PrivateDataSlotCreateInfo {
     }
 }
 unsafe impl Extendable for PrivateDataSlotCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -11930,6 +12100,7 @@ impl Default for MemoryBarrier2 {
     }
 }
 unsafe impl Extendable for MemoryBarrier2 {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -12000,6 +12171,7 @@ impl Default for BufferMemoryBarrier2 {
     }
 }
 unsafe impl Extendable for BufferMemoryBarrier2 {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -12072,6 +12244,7 @@ impl Default for ImageMemoryBarrier2 {
     }
 }
 unsafe impl Extendable for ImageMemoryBarrier2 {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -12138,6 +12311,7 @@ impl Default for DependencyInfo {
     }
 }
 unsafe impl Extendable for DependencyInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -12191,6 +12365,7 @@ impl Default for SemaphoreSubmitInfo {
     }
 }
 unsafe impl Extendable for SemaphoreSubmitInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -12226,7 +12401,7 @@ pub struct CommandBufferSubmitInfo {
     pub s_type: StructureType,
     /// Optional
     pub p_next: *const c_void,
-    pub command_buffer: CommandBuffer,
+    pub command_buffer: CommandBufferHandle,
     pub device_mask: u32,
 }
 impl Default for CommandBufferSubmitInfo {
@@ -12241,6 +12416,7 @@ impl Default for CommandBufferSubmitInfo {
     }
 }
 unsafe impl Extendable for CommandBufferSubmitInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -12310,6 +12486,7 @@ impl Default for SubmitInfo2 {
     }
 }
 unsafe impl Extendable for SubmitInfo2 {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -12356,6 +12533,7 @@ impl Default for PhysicalDeviceSynchronization2Features {
     }
 }
 unsafe impl Extendable for PhysicalDeviceSynchronization2Features {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -12408,6 +12586,7 @@ impl Default for BufferCopy2 {
     }
 }
 unsafe impl Extendable for BufferCopy2 {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -12460,6 +12639,7 @@ impl Default for CopyBufferInfo2 {
     }
 }
 unsafe impl Extendable for CopyBufferInfo2 {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -12514,6 +12694,7 @@ impl Default for ImageCopy2 {
     }
 }
 unsafe impl Extendable for ImageCopy2 {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -12570,6 +12751,7 @@ impl Default for CopyImageInfo2 {
     }
 }
 unsafe impl Extendable for CopyImageInfo2 {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -12628,6 +12810,7 @@ impl Default for BufferImageCopy2 {
     }
 }
 unsafe impl Extendable for BufferImageCopy2 {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -12682,6 +12865,7 @@ impl Default for CopyBufferToImageInfo2 {
     }
 }
 unsafe impl Extendable for CopyBufferToImageInfo2 {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -12736,6 +12920,7 @@ impl Default for CopyImageToBufferInfo2 {
     }
 }
 unsafe impl Extendable for CopyImageToBufferInfo2 {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -12782,6 +12967,7 @@ impl Default for PhysicalDeviceTextureCompressionASTCHDRFeatures {
     }
 }
 unsafe impl Extendable for PhysicalDeviceTextureCompressionASTCHDRFeatures {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -12838,6 +13024,7 @@ impl Default for FormatProperties3 {
     }
 }
 unsafe impl Extendable for FormatProperties3 {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -12885,6 +13072,7 @@ impl Default for PhysicalDeviceMaintenance4Features {
     }
 }
 unsafe impl Extendable for PhysicalDeviceMaintenance4Features {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -12933,6 +13121,7 @@ impl Default for PhysicalDeviceMaintenance4Properties {
     }
 }
 unsafe impl Extendable for PhysicalDeviceMaintenance4Properties {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -12980,6 +13169,7 @@ impl Default for DeviceBufferMemoryRequirements {
     }
 }
 unsafe impl Extendable for DeviceBufferMemoryRequirements {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -13029,6 +13219,7 @@ impl Default for DeviceImageMemoryRequirements {
     }
 }
 unsafe impl Extendable for DeviceImageMemoryRequirements {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -13109,6 +13300,7 @@ impl Default for PipelineCreationFeedbackCreateInfo {
     }
 }
 unsafe impl Extendable for PipelineCreationFeedbackCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -13161,6 +13353,7 @@ impl Default for PhysicalDeviceShaderTerminateInvocationFeatures {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderTerminateInvocationFeatures {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -13210,6 +13403,7 @@ impl Default for PhysicalDeviceShaderDemoteToHelperInvocationFeatures {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderDemoteToHelperInvocationFeatures {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -13262,6 +13456,7 @@ impl Default for PhysicalDevicePipelineCreationCacheControlFeatures {
     }
 }
 unsafe impl Extendable for PhysicalDevicePipelineCreationCacheControlFeatures {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -13314,6 +13509,7 @@ impl Default for PhysicalDeviceZeroInitializeWorkgroupMemoryFeatures {
     }
 }
 unsafe impl Extendable for PhysicalDeviceZeroInitializeWorkgroupMemoryFeatures {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -13366,6 +13562,7 @@ impl Default for PhysicalDeviceImageRobustnessFeatures {
     }
 }
 unsafe impl Extendable for PhysicalDeviceImageRobustnessFeatures {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -13416,6 +13613,7 @@ impl Default for PhysicalDeviceSubgroupSizeControlFeatures {
     }
 }
 unsafe impl Extendable for PhysicalDeviceSubgroupSizeControlFeatures {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -13470,6 +13668,7 @@ impl Default for PhysicalDeviceSubgroupSizeControlProperties {
     }
 }
 unsafe impl Extendable for PhysicalDeviceSubgroupSizeControlProperties {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -13519,6 +13718,7 @@ impl Default for PipelineShaderStageRequiredSubgroupSizeCreateInfo {
     }
 }
 unsafe impl Extendable for PipelineShaderStageRequiredSubgroupSizeCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -13575,6 +13775,7 @@ impl Default for PhysicalDeviceInlineUniformBlockFeatures {
     }
 }
 unsafe impl Extendable for PhysicalDeviceInlineUniformBlockFeatures {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -13631,6 +13832,7 @@ impl Default for PhysicalDeviceInlineUniformBlockProperties {
     }
 }
 unsafe impl Extendable for PhysicalDeviceInlineUniformBlockProperties {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -13680,6 +13882,7 @@ impl Default for WriteDescriptorSetInlineUniformBlock {
     }
 }
 unsafe impl Extendable for WriteDescriptorSetInlineUniformBlock {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -13727,6 +13930,7 @@ impl Default for DescriptorPoolInlineUniformBlockCreateInfo {
     }
 }
 unsafe impl Extendable for DescriptorPoolInlineUniformBlockCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -13774,6 +13978,7 @@ impl Default for PhysicalDeviceShaderIntegerDotProductFeatures {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderIntegerDotProductFeatures {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -13882,6 +14087,7 @@ impl Default for PhysicalDeviceShaderIntegerDotProductProperties {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderIntegerDotProductProperties {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -13936,6 +14142,7 @@ impl Default for PhysicalDeviceTexelBufferAlignmentProperties {
     }
 }
 unsafe impl Extendable for PhysicalDeviceTexelBufferAlignmentProperties {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -13992,6 +14199,7 @@ impl Default for ImageBlit2 {
     }
 }
 unsafe impl Extendable for ImageBlit2 {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -14052,6 +14260,7 @@ impl Default for BlitImageInfo2 {
     }
 }
 unsafe impl Extendable for BlitImageInfo2 {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -14106,6 +14315,7 @@ impl Default for ImageResolve2 {
     }
 }
 unsafe impl Extendable for ImageResolve2 {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -14164,6 +14374,7 @@ impl Default for ResolveImageInfo2 {
     }
 }
 unsafe impl Extendable for ResolveImageInfo2 {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -14230,6 +14441,7 @@ impl Default for RenderingAttachmentInfo {
     }
 }
 unsafe impl Extendable for RenderingAttachmentInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -14306,6 +14518,7 @@ impl Default for RenderingInfo {
     }
 }
 unsafe impl Extendable for RenderingInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -14361,6 +14574,7 @@ impl Default for PipelineRenderingCreateInfo {
     }
 }
 unsafe impl Extendable for PipelineRenderingCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -14408,6 +14622,7 @@ impl Default for PhysicalDeviceDynamicRenderingFeatures {
     }
 }
 unsafe impl Extendable for PhysicalDeviceDynamicRenderingFeatures {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -14471,6 +14686,7 @@ impl Default for CommandBufferInheritanceRenderingInfo {
     }
 }
 unsafe impl Extendable for CommandBufferInheritanceRenderingInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -14557,6 +14773,7 @@ impl Default for PhysicalDeviceVulkan14Features {
     }
 }
 unsafe impl Extendable for PhysicalDeviceVulkan14Features {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -14656,6 +14873,7 @@ impl Default for PhysicalDeviceVulkan14Properties {
     }
 }
 unsafe impl Extendable for PhysicalDeviceVulkan14Properties {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -14703,6 +14921,7 @@ impl Default for DeviceQueueGlobalPriorityCreateInfo {
     }
 }
 unsafe impl Extendable for DeviceQueueGlobalPriorityCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -14752,6 +14971,7 @@ impl Default for PhysicalDeviceGlobalPriorityQueryFeatures {
     }
 }
 unsafe impl Extendable for PhysicalDeviceGlobalPriorityQueryFeatures {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -14804,6 +15024,7 @@ impl Default for QueueFamilyGlobalPriorityProperties {
     }
 }
 unsafe impl Extendable for QueueFamilyGlobalPriorityProperties {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -14853,6 +15074,7 @@ impl Default for PhysicalDeviceIndexTypeUint8Features {
     }
 }
 unsafe impl Extendable for PhysicalDeviceIndexTypeUint8Features {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -14911,6 +15133,7 @@ impl Default for MemoryMapInfo {
     }
 }
 unsafe impl Extendable for MemoryMapInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -14960,6 +15183,7 @@ impl Default for MemoryUnmapInfo {
     }
 }
 unsafe impl Extendable for MemoryUnmapInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -15006,6 +15230,7 @@ impl Default for PhysicalDeviceMaintenance5Features {
     }
 }
 unsafe impl Extendable for PhysicalDeviceMaintenance5Features {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -15064,6 +15289,7 @@ impl Default for PhysicalDeviceMaintenance5Properties {
     }
 }
 unsafe impl Extendable for PhysicalDeviceMaintenance5Properties {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -15116,6 +15342,7 @@ impl Default for SubresourceLayout2 {
     }
 }
 unsafe impl Extendable for SubresourceLayout2 {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -15165,6 +15392,7 @@ impl Default for ImageSubresource2 {
     }
 }
 unsafe impl Extendable for ImageSubresource2 {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -15214,6 +15442,7 @@ impl Default for DeviceImageSubresourceInfo {
     }
 }
 unsafe impl Extendable for DeviceImageSubresourceInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -15261,6 +15490,7 @@ impl Default for BufferUsageFlags2CreateInfo {
     }
 }
 unsafe impl Extendable for BufferUsageFlags2CreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -15311,6 +15541,7 @@ impl Default for PhysicalDeviceMaintenance6Features {
     }
 }
 unsafe impl Extendable for PhysicalDeviceMaintenance6Features {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -15363,6 +15594,7 @@ impl Default for PhysicalDeviceMaintenance6Properties {
     }
 }
 unsafe impl Extendable for PhysicalDeviceMaintenance6Properties {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -15410,6 +15642,7 @@ impl Default for BindMemoryStatus {
     }
 }
 unsafe impl Extendable for BindMemoryStatus {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -15458,6 +15691,7 @@ impl Default for PhysicalDeviceHostImageCopyFeatures {
     }
 }
 unsafe impl Extendable for PhysicalDeviceHostImageCopyFeatures {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -15521,6 +15755,7 @@ impl Default for PhysicalDeviceHostImageCopyProperties {
     }
 }
 unsafe impl Extendable for PhysicalDeviceHostImageCopyProperties {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -15578,6 +15813,7 @@ impl Default for MemoryToImageCopy {
     }
 }
 unsafe impl Extendable for MemoryToImageCopy {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -15634,6 +15870,7 @@ impl Default for ImageToMemoryCopy {
     }
 }
 unsafe impl Extendable for ImageToMemoryCopy {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -15689,6 +15926,7 @@ impl Default for CopyMemoryToImageInfo {
     }
 }
 unsafe impl Extendable for CopyMemoryToImageInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -15744,6 +15982,7 @@ impl Default for CopyImageToMemoryInfo {
     }
 }
 unsafe impl Extendable for CopyImageToMemoryInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -15803,6 +16042,7 @@ impl Default for CopyImageToImageInfo {
     }
 }
 unsafe impl Extendable for CopyImageToImageInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -15855,6 +16095,7 @@ impl Default for HostImageLayoutTransitionInfo {
     }
 }
 unsafe impl Extendable for HostImageLayoutTransitionInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -15901,6 +16142,7 @@ impl Default for SubresourceHostMemcpySize {
     }
 }
 unsafe impl Extendable for SubresourceHostMemcpySize {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -15950,6 +16192,7 @@ impl Default for HostImageCopyDevicePerformanceQuery {
     }
 }
 unsafe impl Extendable for HostImageCopyDevicePerformanceQuery {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -15999,6 +16242,7 @@ impl Default for PhysicalDeviceShaderSubgroupRotateFeatures {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderSubgroupRotateFeatures {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -16047,6 +16291,7 @@ impl Default for PhysicalDeviceShaderFloatControls2Features {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderFloatControls2Features {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -16095,6 +16340,7 @@ impl Default for PhysicalDeviceShaderExpectAssumeFeatures {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderExpectAssumeFeatures {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -16145,6 +16391,7 @@ impl Default for PipelineCreateFlags2CreateInfo {
     }
 }
 unsafe impl Extendable for PipelineCreateFlags2CreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -16195,6 +16442,7 @@ impl Default for PhysicalDevicePushDescriptorProperties {
     }
 }
 unsafe impl Extendable for PhysicalDevicePushDescriptorProperties {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -16260,6 +16508,7 @@ impl Default for BindDescriptorSetsInfo {
     }
 }
 unsafe impl Extendable for BindDescriptorSetsInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -16319,6 +16568,7 @@ impl Default for PushConstantsInfo {
     }
 }
 unsafe impl Extendable for PushConstantsInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -16377,6 +16627,7 @@ impl Default for PushDescriptorSetInfo {
     }
 }
 unsafe impl Extendable for PushDescriptorSetInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -16433,6 +16684,7 @@ impl Default for PushDescriptorSetWithTemplateInfo {
     }
 }
 unsafe impl Extendable for PushDescriptorSetWithTemplateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -16479,6 +16731,7 @@ impl Default for PhysicalDevicePipelineProtectedAccessFeatures {
     }
 }
 unsafe impl Extendable for PhysicalDevicePipelineProtectedAccessFeatures {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -16528,6 +16781,7 @@ impl Default for PhysicalDevicePipelineRobustnessFeatures {
     }
 }
 unsafe impl Extendable for PhysicalDevicePipelineRobustnessFeatures {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -16582,6 +16836,7 @@ impl Default for PhysicalDevicePipelineRobustnessProperties {
     }
 }
 unsafe impl Extendable for PhysicalDevicePipelineRobustnessProperties {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -16635,6 +16890,7 @@ impl Default for PipelineRobustnessCreateInfo {
     }
 }
 unsafe impl Extendable for PipelineRobustnessCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -16696,6 +16952,7 @@ impl Default for PhysicalDeviceLineRasterizationFeatures {
     }
 }
 unsafe impl Extendable for PhysicalDeviceLineRasterizationFeatures {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -16746,6 +17003,7 @@ impl Default for PhysicalDeviceLineRasterizationProperties {
     }
 }
 unsafe impl Extendable for PhysicalDeviceLineRasterizationProperties {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -16801,6 +17059,7 @@ impl Default for PipelineRasterizationLineStateCreateInfo {
     }
 }
 unsafe impl Extendable for PipelineRasterizationLineStateCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -16854,6 +17113,7 @@ impl Default for PhysicalDeviceVertexAttributeDivisorProperties {
     }
 }
 unsafe impl Extendable for PhysicalDeviceVertexAttributeDivisorProperties {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -16934,6 +17194,7 @@ impl Default for PipelineVertexInputDivisorStateCreateInfo {
     }
 }
 unsafe impl Extendable for PipelineVertexInputDivisorStateCreateInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -16988,6 +17249,7 @@ impl Default for PhysicalDeviceVertexAttributeDivisorFeatures {
     }
 }
 unsafe impl Extendable for PhysicalDeviceVertexAttributeDivisorFeatures {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -17048,6 +17310,7 @@ impl Default for RenderingAreaInfo {
     }
 }
 unsafe impl Extendable for RenderingAreaInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -17094,6 +17357,7 @@ impl Default for PhysicalDeviceDynamicRenderingLocalReadFeatures {
     }
 }
 unsafe impl Extendable for PhysicalDeviceDynamicRenderingLocalReadFeatures {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -17146,6 +17410,7 @@ impl Default for RenderingAttachmentLocationInfo {
     }
 }
 unsafe impl Extendable for RenderingAttachmentLocationInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -17208,6 +17473,7 @@ impl Default for RenderingInputAttachmentIndexInfo {
     }
 }
 unsafe impl Extendable for RenderingInputAttachmentIndexInfo {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -17367,6 +17633,7 @@ impl Default for SwapchainCreateInfoKHR {
     }
 }
 unsafe impl Extendable for SwapchainCreateInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -17437,6 +17704,7 @@ impl Default for PresentInfoKHR {
     }
 }
 unsafe impl Extendable for PresentInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -17483,6 +17751,7 @@ impl Default for ImageSwapchainCreateInfoKHR {
     }
 }
 unsafe impl Extendable for ImageSwapchainCreateInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -17531,6 +17800,7 @@ impl Default for BindImageMemorySwapchainInfoKHR {
     }
 }
 unsafe impl Extendable for BindImageMemorySwapchainInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -17587,6 +17857,7 @@ impl Default for AcquireNextImageInfoKHR {
     }
 }
 unsafe impl Extendable for AcquireNextImageInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -17634,6 +17905,7 @@ impl Default for DeviceGroupPresentCapabilitiesKHR {
     }
 }
 unsafe impl Extendable for DeviceGroupPresentCapabilitiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -17684,6 +17956,7 @@ impl Default for DeviceGroupPresentInfoKHR {
     }
 }
 unsafe impl Extendable for DeviceGroupPresentInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -17730,6 +18003,7 @@ impl Default for DeviceGroupSwapchainCreateInfoKHR {
     }
 }
 unsafe impl Extendable for DeviceGroupSwapchainCreateInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -17803,6 +18077,7 @@ impl Default for DisplayModeCreateInfoKHR {
     }
 }
 unsafe impl Extendable for DisplayModeCreateInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -17991,6 +18266,7 @@ impl Default for DisplaySurfaceCreateInfoKHR {
     }
 }
 unsafe impl Extendable for DisplaySurfaceCreateInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -18039,6 +18315,7 @@ impl Default for DisplayPresentInfoKHR {
     }
 }
 unsafe impl Extendable for DisplayPresentInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -18089,6 +18366,7 @@ impl Default for XlibSurfaceCreateInfoKHR {
     }
 }
 unsafe impl Extendable for XlibSurfaceCreateInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -18138,6 +18416,7 @@ impl Default for XcbSurfaceCreateInfoKHR {
     }
 }
 unsafe impl Extendable for XcbSurfaceCreateInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -18187,6 +18466,7 @@ impl Default for WaylandSurfaceCreateInfoKHR {
     }
 }
 unsafe impl Extendable for WaylandSurfaceCreateInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -18234,6 +18514,7 @@ impl Default for AndroidSurfaceCreateInfoKHR {
     }
 }
 unsafe impl Extendable for AndroidSurfaceCreateInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -18283,6 +18564,7 @@ impl Default for Win32SurfaceCreateInfoKHR {
     }
 }
 unsafe impl Extendable for Win32SurfaceCreateInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -18327,6 +18609,7 @@ impl Default for QueueFamilyQueryResultStatusPropertiesKHR {
     }
 }
 unsafe impl Extendable for QueueFamilyQueryResultStatusPropertiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -18372,6 +18655,7 @@ impl Default for QueueFamilyVideoPropertiesKHR {
     }
 }
 unsafe impl Extendable for QueueFamilyVideoPropertiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -18435,6 +18719,7 @@ impl Default for VideoProfileInfoKHR {
     }
 }
 unsafe impl Extendable for VideoProfileInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -18483,6 +18768,7 @@ impl Default for VideoProfileListInfoKHR {
     }
 }
 unsafe impl Extendable for VideoProfileListInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -18564,6 +18850,7 @@ impl Default for VideoCapabilitiesKHR {
     }
 }
 unsafe impl Extendable for VideoCapabilitiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -18611,6 +18898,7 @@ impl Default for PhysicalDeviceVideoFormatInfoKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceVideoFormatInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -18671,6 +18959,7 @@ impl Default for VideoFormatPropertiesKHR {
     }
 }
 unsafe impl Extendable for VideoFormatPropertiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -18721,6 +19010,7 @@ impl Default for VideoPictureResourceInfoKHR {
     }
 }
 unsafe impl Extendable for VideoPictureResourceInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -18776,6 +19066,7 @@ impl Default for VideoReferenceSlotInfoKHR {
     }
 }
 unsafe impl Extendable for VideoReferenceSlotInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -18822,6 +19113,7 @@ impl Default for VideoSessionMemoryRequirementsKHR {
     }
 }
 unsafe impl Extendable for VideoSessionMemoryRequirementsKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -18872,6 +19164,7 @@ impl Default for BindVideoSessionMemoryInfoKHR {
     }
 }
 unsafe impl Extendable for BindVideoSessionMemoryInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -18939,6 +19232,7 @@ impl Default for VideoSessionCreateInfoKHR {
     }
 }
 unsafe impl Extendable for VideoSessionCreateInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -18998,6 +19292,7 @@ impl Default for VideoSessionParametersCreateInfoKHR {
     }
 }
 unsafe impl Extendable for VideoSessionParametersCreateInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -19047,6 +19342,7 @@ impl Default for VideoSessionParametersUpdateInfoKHR {
     }
 }
 unsafe impl Extendable for VideoSessionParametersUpdateInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -19110,6 +19406,7 @@ impl Default for VideoBeginCodingInfoKHR {
     }
 }
 unsafe impl Extendable for VideoBeginCodingInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -19155,6 +19452,7 @@ impl Default for VideoEndCodingInfoKHR {
     }
 }
 unsafe impl Extendable for VideoEndCodingInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -19205,6 +19503,7 @@ impl Default for VideoCodingControlInfoKHR {
     }
 }
 unsafe impl Extendable for VideoCodingControlInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -19249,6 +19548,7 @@ impl Default for VideoDecodeCapabilitiesKHR {
     }
 }
 unsafe impl Extendable for VideoDecodeCapabilitiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -19295,6 +19595,7 @@ impl Default for VideoDecodeUsageInfoKHR {
     }
 }
 unsafe impl Extendable for VideoDecodeUsageInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -19367,6 +19668,7 @@ impl Default for VideoDecodeInfoKHR {
     }
 }
 unsafe impl Extendable for VideoDecodeInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -19435,6 +19737,7 @@ impl Default for VideoEncodeH264CapabilitiesKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeH264CapabilitiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -19523,6 +19826,7 @@ impl Default for VideoEncodeH264QualityLevelPropertiesKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeH264QualityLevelPropertiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -19573,6 +19877,7 @@ impl Default for VideoEncodeH264SessionCreateInfoKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeH264SessionCreateInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -19628,6 +19933,7 @@ impl Default for VideoEncodeH264SessionParametersAddInfoKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeH264SessionParametersAddInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -19681,6 +19987,7 @@ impl Default for VideoEncodeH264SessionParametersCreateInfoKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeH264SessionParametersCreateInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -19735,6 +20042,7 @@ impl Default for VideoEncodeH264SessionParametersGetInfoKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeH264SessionParametersGetInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -19785,6 +20093,7 @@ impl Default for VideoEncodeH264SessionParametersFeedbackInfoKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeH264SessionParametersFeedbackInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -19835,6 +20144,7 @@ impl Default for VideoEncodeH264NaluSliceInfoKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeH264NaluSliceInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -19885,6 +20195,7 @@ impl Default for VideoEncodeH264PictureInfoKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeH264PictureInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -19930,6 +20241,7 @@ impl Default for VideoEncodeH264DpbSlotInfoKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeH264DpbSlotInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -19975,6 +20287,7 @@ impl Default for VideoEncodeH264ProfileInfoKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeH264ProfileInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -20030,6 +20343,7 @@ impl Default for VideoEncodeH264RateControlInfoKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeH264RateControlInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -20113,6 +20427,7 @@ impl Default for VideoEncodeH264RateControlLayerInfoKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeH264RateControlLayerInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -20164,6 +20479,7 @@ impl Default for VideoEncodeH264GopRemainingFrameInfoKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeH264GopRemainingFrameInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -20239,6 +20555,7 @@ impl Default for VideoEncodeH265CapabilitiesKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeH265CapabilitiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -20286,6 +20603,7 @@ impl Default for VideoEncodeH265SessionCreateInfoKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeH265SessionCreateInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -20372,6 +20690,7 @@ impl Default for VideoEncodeH265QualityLevelPropertiesKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeH265QualityLevelPropertiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -20436,6 +20755,7 @@ impl Default for VideoEncodeH265SessionParametersAddInfoKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeH265SessionParametersAddInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -20491,6 +20811,7 @@ impl Default for VideoEncodeH265SessionParametersCreateInfoKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeH265SessionParametersCreateInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -20549,6 +20870,7 @@ impl Default for VideoEncodeH265SessionParametersGetInfoKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeH265SessionParametersGetInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -20601,6 +20923,7 @@ impl Default for VideoEncodeH265SessionParametersFeedbackInfoKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeH265SessionParametersFeedbackInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -20651,6 +20974,7 @@ impl Default for VideoEncodeH265NaluSliceSegmentInfoKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeH265NaluSliceSegmentInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -20699,6 +21023,7 @@ impl Default for VideoEncodeH265PictureInfoKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeH265PictureInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -20744,6 +21069,7 @@ impl Default for VideoEncodeH265DpbSlotInfoKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeH265DpbSlotInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -20789,6 +21115,7 @@ impl Default for VideoEncodeH265ProfileInfoKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeH265ProfileInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -20844,6 +21171,7 @@ impl Default for VideoEncodeH265RateControlInfoKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeH265RateControlInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -20927,6 +21255,7 @@ impl Default for VideoEncodeH265RateControlLayerInfoKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeH265RateControlLayerInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -20978,6 +21307,7 @@ impl Default for VideoEncodeH265GopRemainingFrameInfoKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeH265GopRemainingFrameInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -21026,6 +21356,7 @@ impl Default for VideoDecodeH264ProfileInfoKHR {
     }
 }
 unsafe impl Extendable for VideoDecodeH264ProfileInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -21074,6 +21405,7 @@ impl Default for VideoDecodeH264CapabilitiesKHR {
     }
 }
 unsafe impl Extendable for VideoDecodeH264CapabilitiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -21127,6 +21459,7 @@ impl Default for VideoDecodeH264SessionParametersAddInfoKHR {
     }
 }
 unsafe impl Extendable for VideoDecodeH264SessionParametersAddInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -21180,6 +21513,7 @@ impl Default for VideoDecodeH264SessionParametersCreateInfoKHR {
     }
 }
 unsafe impl Extendable for VideoDecodeH264SessionParametersCreateInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -21232,6 +21566,7 @@ impl Default for VideoDecodeH264PictureInfoKHR {
     }
 }
 unsafe impl Extendable for VideoDecodeH264PictureInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -21277,6 +21612,7 @@ impl Default for VideoDecodeH264DpbSlotInfoKHR {
     }
 }
 unsafe impl Extendable for VideoDecodeH264DpbSlotInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -21329,6 +21665,7 @@ impl Default for ImportMemoryWin32HandleInfoKHR {
     }
 }
 unsafe impl Extendable for ImportMemoryWin32HandleInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -21379,6 +21716,7 @@ impl Default for ExportMemoryWin32HandleInfoKHR {
     }
 }
 unsafe impl Extendable for ExportMemoryWin32HandleInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -21424,6 +21762,7 @@ impl Default for MemoryWin32HandlePropertiesKHR {
     }
 }
 unsafe impl Extendable for MemoryWin32HandlePropertiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -21470,6 +21809,7 @@ impl Default for MemoryGetWin32HandleInfoKHR {
     }
 }
 unsafe impl Extendable for MemoryGetWin32HandleInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -21517,6 +21857,7 @@ impl Default for ImportMemoryFdInfoKHR {
     }
 }
 unsafe impl Extendable for ImportMemoryFdInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -21562,6 +21903,7 @@ impl Default for MemoryFdPropertiesKHR {
     }
 }
 unsafe impl Extendable for MemoryFdPropertiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -21608,6 +21950,7 @@ impl Default for MemoryGetFdInfoKHR {
     }
 }
 unsafe impl Extendable for MemoryGetFdInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -21666,6 +22009,7 @@ impl Default for Win32KeyedMutexAcquireReleaseInfoKHR {
     }
 }
 unsafe impl Extendable for Win32KeyedMutexAcquireReleaseInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -21723,6 +22067,7 @@ impl Default for ImportSemaphoreWin32HandleInfoKHR {
     }
 }
 unsafe impl Extendable for ImportSemaphoreWin32HandleInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -21772,6 +22117,7 @@ impl Default for ExportSemaphoreWin32HandleInfoKHR {
     }
 }
 unsafe impl Extendable for ExportSemaphoreWin32HandleInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -21827,6 +22173,7 @@ impl Default for D3D12FenceSubmitInfoKHR {
     }
 }
 unsafe impl Extendable for D3D12FenceSubmitInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -21874,6 +22221,7 @@ impl Default for SemaphoreGetWin32HandleInfoKHR {
     }
 }
 unsafe impl Extendable for SemaphoreGetWin32HandleInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -21925,6 +22273,7 @@ impl Default for ImportSemaphoreFdInfoKHR {
     }
 }
 unsafe impl Extendable for ImportSemaphoreFdInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -21971,6 +22320,7 @@ impl Default for SemaphoreGetFdInfoKHR {
     }
 }
 unsafe impl Extendable for SemaphoreGetFdInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -22072,6 +22422,7 @@ impl Default for PresentRegionsKHR {
     }
 }
 unsafe impl Extendable for PresentRegionsKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -22118,6 +22469,7 @@ impl Default for SharedPresentSurfaceCapabilitiesKHR {
     }
 }
 unsafe impl Extendable for SharedPresentSurfaceCapabilitiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -22174,6 +22526,7 @@ impl Default for ImportFenceWin32HandleInfoKHR {
     }
 }
 unsafe impl Extendable for ImportFenceWin32HandleInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -22223,6 +22576,7 @@ impl Default for ExportFenceWin32HandleInfoKHR {
     }
 }
 unsafe impl Extendable for ExportFenceWin32HandleInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -22270,6 +22624,7 @@ impl Default for FenceGetWin32HandleInfoKHR {
     }
 }
 unsafe impl Extendable for FenceGetWin32HandleInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -22321,6 +22676,7 @@ impl Default for ImportFenceFdInfoKHR {
     }
 }
 unsafe impl Extendable for ImportFenceFdInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -22367,6 +22723,7 @@ impl Default for FenceGetFdInfoKHR {
     }
 }
 unsafe impl Extendable for FenceGetFdInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -22413,6 +22770,7 @@ impl Default for PhysicalDevicePerformanceQueryFeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDevicePerformanceQueryFeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -22459,6 +22817,7 @@ impl Default for PhysicalDevicePerformanceQueryPropertiesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDevicePerformanceQueryPropertiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -22510,6 +22869,7 @@ impl Default for PerformanceCounterKHR {
     }
 }
 unsafe impl Extendable for PerformanceCounterKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -22564,6 +22924,7 @@ impl Default for PerformanceCounterDescriptionKHR {
     }
 }
 unsafe impl Extendable for PerformanceCounterDescriptionKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -22612,6 +22973,7 @@ impl Default for QueryPoolPerformanceCreateInfoKHR {
     }
 }
 unsafe impl Extendable for QueryPoolPerformanceCreateInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -22692,6 +23054,7 @@ impl Default for AcquireProfilingLockInfoKHR {
     }
 }
 unsafe impl Extendable for AcquireProfilingLockInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -22736,6 +23099,7 @@ impl Default for PerformanceQuerySubmitInfoKHR {
     }
 }
 unsafe impl Extendable for PerformanceQuerySubmitInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -22787,6 +23151,7 @@ impl Default for PhysicalDeviceSurfaceInfo2KHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceSurfaceInfo2KHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -22846,6 +23211,7 @@ impl Default for SurfaceCapabilities2KHR {
     }
 }
 unsafe impl Extendable for SurfaceCapabilities2KHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -22892,6 +23258,7 @@ impl Default for SurfaceFormat2KHR {
     }
 }
 unsafe impl Extendable for SurfaceFormat2KHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -22936,6 +23303,7 @@ impl Default for DisplayProperties2KHR {
     }
 }
 unsafe impl Extendable for DisplayProperties2KHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -22980,6 +23348,7 @@ impl Default for DisplayPlaneProperties2KHR {
     }
 }
 unsafe impl Extendable for DisplayPlaneProperties2KHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -23026,6 +23395,7 @@ impl Default for DisplayModeProperties2KHR {
     }
 }
 unsafe impl Extendable for DisplayModeProperties2KHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -23072,6 +23442,7 @@ impl Default for DisplayPlaneInfo2KHR {
     }
 }
 unsafe impl Extendable for DisplayPlaneInfo2KHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -23116,6 +23487,7 @@ impl Default for DisplayPlaneCapabilities2KHR {
     }
 }
 unsafe impl Extendable for DisplayPlaneCapabilities2KHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -23164,6 +23536,7 @@ impl Default for PhysicalDeviceShaderBfloat16FeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderBfloat16FeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -23238,6 +23611,7 @@ impl Default for PhysicalDevicePortabilitySubsetFeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDevicePortabilitySubsetFeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -23284,6 +23658,7 @@ impl Default for PhysicalDevicePortabilitySubsetPropertiesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDevicePortabilitySubsetPropertiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -23331,6 +23706,7 @@ impl Default for PhysicalDeviceShaderClockFeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderClockFeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -23377,6 +23753,7 @@ impl Default for VideoDecodeH265ProfileInfoKHR {
     }
 }
 unsafe impl Extendable for VideoDecodeH265ProfileInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -23423,6 +23800,7 @@ impl Default for VideoDecodeH265CapabilitiesKHR {
     }
 }
 unsafe impl Extendable for VideoDecodeH265CapabilitiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -23481,6 +23859,7 @@ impl Default for VideoDecodeH265SessionParametersAddInfoKHR {
     }
 }
 unsafe impl Extendable for VideoDecodeH265SessionParametersAddInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -23536,6 +23915,7 @@ impl Default for VideoDecodeH265SessionParametersCreateInfoKHR {
     }
 }
 unsafe impl Extendable for VideoDecodeH265SessionParametersCreateInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -23588,6 +23968,7 @@ impl Default for VideoDecodeH265PictureInfoKHR {
     }
 }
 unsafe impl Extendable for VideoDecodeH265PictureInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -23633,6 +24014,7 @@ impl Default for VideoDecodeH265DpbSlotInfoKHR {
     }
 }
 unsafe impl Extendable for VideoDecodeH265DpbSlotInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -23683,6 +24065,7 @@ impl Default for FragmentShadingRateAttachmentInfoKHR {
     }
 }
 unsafe impl Extendable for FragmentShadingRateAttachmentInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -23730,6 +24113,7 @@ impl Default for PipelineFragmentShadingRateStateCreateInfoKHR {
     }
 }
 unsafe impl Extendable for PipelineFragmentShadingRateStateCreateInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -23779,6 +24163,7 @@ impl Default for PhysicalDeviceFragmentShadingRateFeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceFragmentShadingRateFeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -23857,6 +24242,7 @@ impl Default for PhysicalDeviceFragmentShadingRatePropertiesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceFragmentShadingRatePropertiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -23904,6 +24290,7 @@ impl Default for PhysicalDeviceFragmentShadingRateKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceFragmentShadingRateKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -23953,6 +24340,7 @@ impl Default for RenderingFragmentShadingRateAttachmentInfoKHR {
     }
 }
 unsafe impl Extendable for RenderingFragmentShadingRateAttachmentInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -23998,6 +24386,7 @@ impl Default for PhysicalDeviceShaderConstantDataFeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderConstantDataFeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -24044,6 +24433,7 @@ impl Default for PhysicalDeviceShaderAbortFeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderAbortFeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -24094,6 +24484,7 @@ impl Default for DeviceFaultShaderAbortMessageInfoKHR {
     }
 }
 unsafe impl Extendable for DeviceFaultShaderAbortMessageInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -24139,6 +24530,7 @@ impl Default for PhysicalDeviceShaderAbortPropertiesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderAbortPropertiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -24184,6 +24576,7 @@ impl Default for PhysicalDeviceShaderQuadControlFeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderQuadControlFeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -24230,6 +24623,7 @@ impl Default for SurfaceProtectedCapabilitiesKHR {
     }
 }
 unsafe impl Extendable for SurfaceProtectedCapabilitiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -24275,6 +24669,7 @@ impl Default for PhysicalDevicePresentWaitFeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDevicePresentWaitFeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -24321,6 +24716,7 @@ impl Default for PhysicalDevicePipelineExecutablePropertiesFeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDevicePipelineExecutablePropertiesFeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -24371,6 +24767,7 @@ impl Default for PipelineInfoKHR {
     }
 }
 unsafe impl Extendable for PipelineInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -24424,6 +24821,7 @@ impl Default for PipelineExecutablePropertiesKHR {
     }
 }
 unsafe impl Extendable for PipelineExecutablePropertiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -24470,6 +24868,7 @@ impl Default for PipelineExecutableInfoKHR {
     }
 }
 unsafe impl Extendable for PipelineExecutableInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -24552,6 +24951,7 @@ impl Default for PipelineExecutableStatisticKHR {
     }
 }
 unsafe impl Extendable for PipelineExecutableStatisticKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -24607,6 +25007,7 @@ impl Default for PipelineExecutableInternalRepresentationKHR {
     }
 }
 unsafe impl Extendable for PipelineExecutableInternalRepresentationKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -24654,6 +25055,7 @@ impl Default for PipelineLibraryCreateInfoKHR {
     }
 }
 unsafe impl Extendable for PipelineLibraryCreateInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -24702,6 +25104,7 @@ impl Default for PresentIdKHR {
     }
 }
 unsafe impl Extendable for PresentIdKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -24747,6 +25150,7 @@ impl Default for PhysicalDevicePresentIdFeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDevicePresentIdFeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -24819,6 +25223,7 @@ impl Default for VideoEncodeInfoKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -24875,6 +25280,7 @@ impl Default for VideoEncodeCapabilitiesKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeCapabilitiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -24920,6 +25326,7 @@ impl Default for QueryPoolVideoEncodeFeedbackCreateInfoKHR {
     }
 }
 unsafe impl Extendable for QueryPoolVideoEncodeFeedbackCreateInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -24972,6 +25379,7 @@ impl Default for VideoEncodeUsageInfoKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeUsageInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -25028,6 +25436,7 @@ impl Default for VideoEncodeRateControlLayerInfoKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeRateControlLayerInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -25085,6 +25494,7 @@ impl Default for VideoEncodeRateControlInfoKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeRateControlInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -25133,6 +25543,7 @@ impl Default for PhysicalDeviceVideoEncodeQualityLevelInfoKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceVideoEncodeQualityLevelInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -25183,6 +25594,7 @@ impl Default for VideoEncodeQualityLevelPropertiesKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeQualityLevelPropertiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -25227,6 +25639,7 @@ impl Default for VideoEncodeQualityLevelInfoKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeQualityLevelInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -25276,6 +25689,7 @@ impl Default for VideoEncodeSessionParametersGetInfoKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeSessionParametersGetInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -25323,6 +25737,7 @@ impl Default for VideoEncodeSessionParametersFeedbackInfoKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeSessionParametersFeedbackInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -25432,6 +25847,7 @@ impl Default for DeviceMemoryCopyKHR {
     }
 }
 unsafe impl Extendable for DeviceMemoryCopyKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -25478,6 +25894,7 @@ impl Default for CopyDeviceMemoryInfoKHR {
     }
 }
 unsafe impl Extendable for CopyDeviceMemoryInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -25539,6 +25956,7 @@ impl Default for DeviceMemoryImageCopyKHR {
     }
 }
 unsafe impl Extendable for DeviceMemoryImageCopyKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -25587,6 +26005,7 @@ impl Default for CopyDeviceMemoryImageInfoKHR {
     }
 }
 unsafe impl Extendable for CopyDeviceMemoryImageInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -25650,6 +26069,7 @@ impl Default for MemoryRangeBarrierKHR {
     }
 }
 unsafe impl Extendable for MemoryRangeBarrierKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -25699,6 +26119,7 @@ impl Default for MemoryRangeBarriersInfoKHR {
     }
 }
 unsafe impl Extendable for MemoryRangeBarriersInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -25744,6 +26165,7 @@ impl Default for PhysicalDeviceDeviceAddressCommandsFeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceDeviceAddressCommandsFeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -25795,6 +26217,7 @@ impl Default for BindIndexBuffer3InfoKHR {
     }
 }
 unsafe impl Extendable for BindIndexBuffer3InfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -25844,6 +26267,7 @@ impl Default for BindVertexBuffer3InfoKHR {
     }
 }
 unsafe impl Extendable for BindVertexBuffer3InfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -25893,6 +26317,7 @@ impl Default for DrawIndirect2InfoKHR {
     }
 }
 unsafe impl Extendable for DrawIndirect2InfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -25947,6 +26372,7 @@ impl Default for DrawIndirectCount2InfoKHR {
     }
 }
 unsafe impl Extendable for DrawIndirectCount2InfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -25994,6 +26420,7 @@ impl Default for DispatchIndirect2InfoKHR {
     }
 }
 unsafe impl Extendable for DispatchIndirect2InfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -26044,6 +26471,7 @@ impl Default for ConditionalRenderingBeginInfo2EXT {
     }
 }
 unsafe impl Extendable for ConditionalRenderingBeginInfo2EXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -26091,6 +26519,7 @@ impl Default for BindTransformFeedbackBuffer2InfoEXT {
     }
 }
 unsafe impl Extendable for BindTransformFeedbackBuffer2InfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -26142,6 +26571,7 @@ impl Default for MemoryMarkerInfoAMD {
     }
 }
 unsafe impl Extendable for MemoryMarkerInfoAMD {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -26196,6 +26626,7 @@ impl Default for AccelerationStructureCreateInfo2KHR {
     }
 }
 unsafe impl Extendable for AccelerationStructureCreateInfo2KHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -26241,6 +26672,7 @@ impl Default for PhysicalDeviceFragmentShaderBarycentricFeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceFragmentShaderBarycentricFeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -26292,6 +26724,7 @@ impl Default for PhysicalDeviceFragmentShaderBarycentricPropertiesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceFragmentShaderBarycentricPropertiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -26341,6 +26774,7 @@ impl Default for PhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -26399,6 +26833,7 @@ impl Default for PhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -26450,6 +26885,7 @@ impl Default for PhysicalDeviceRayTracingMaintenance1FeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceRayTracingMaintenance1FeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -26545,6 +26981,7 @@ impl Default for PhysicalDeviceShaderUntypedPointersFeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderUntypedPointersFeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -26591,6 +27028,7 @@ impl Default for PhysicalDeviceShaderMaximalReconvergenceFeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderMaximalReconvergenceFeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -26640,6 +27078,7 @@ impl Default for SurfaceCapabilitiesPresentId2KHR {
     }
 }
 unsafe impl Extendable for SurfaceCapabilitiesPresentId2KHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -26688,6 +27127,7 @@ impl Default for PresentId2KHR {
     }
 }
 unsafe impl Extendable for PresentId2KHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -26733,6 +27173,7 @@ impl Default for PhysicalDevicePresentId2FeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDevicePresentId2FeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -26779,6 +27220,7 @@ impl Default for SurfaceCapabilitiesPresentWait2KHR {
     }
 }
 unsafe impl Extendable for SurfaceCapabilitiesPresentWait2KHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -26824,6 +27266,7 @@ impl Default for PhysicalDevicePresentWait2FeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDevicePresentWait2FeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -26872,6 +27315,7 @@ impl Default for PresentWait2InfoKHR {
     }
 }
 unsafe impl Extendable for PresentWait2InfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -26916,6 +27360,7 @@ impl Default for PhysicalDeviceRayTracingPositionFetchFeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceRayTracingPositionFetchFeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -26962,6 +27407,7 @@ impl Default for PhysicalDevicePipelineBinaryFeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDevicePipelineBinaryFeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -27016,6 +27462,7 @@ impl Default for PhysicalDevicePipelineBinaryPropertiesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDevicePipelineBinaryPropertiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -27061,6 +27508,7 @@ impl Default for DevicePipelineBinaryInternalCacheControlKHR {
     }
 }
 unsafe impl Extendable for DevicePipelineBinaryInternalCacheControlKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -27108,6 +27556,7 @@ impl Default for PipelineBinaryKeyKHR {
     }
 }
 unsafe impl Extendable for PipelineBinaryKeyKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -27202,6 +27651,7 @@ impl Default for PipelineCreateInfoKHR {
     }
 }
 unsafe impl Extendable for PipelineCreateInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -27253,6 +27703,7 @@ impl Default for PipelineBinaryCreateInfoKHR {
     }
 }
 unsafe impl Extendable for PipelineBinaryCreateInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -27300,6 +27751,7 @@ impl Default for PipelineBinaryInfoKHR {
     }
 }
 unsafe impl Extendable for PipelineBinaryInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -27347,6 +27799,7 @@ impl Default for ReleaseCapturedPipelineDataInfoKHR {
     }
 }
 unsafe impl Extendable for ReleaseCapturedPipelineDataInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -27391,6 +27844,7 @@ impl Default for PipelineBinaryDataInfoKHR {
     }
 }
 unsafe impl Extendable for PipelineBinaryDataInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -27438,6 +27892,7 @@ impl Default for PipelineBinaryHandlesInfoKHR {
     }
 }
 unsafe impl Extendable for PipelineBinaryHandlesInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -27483,6 +27938,7 @@ impl Default for SurfacePresentModeKHR {
     }
 }
 unsafe impl Extendable for SurfacePresentModeKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -27543,6 +27999,7 @@ impl Default for SurfacePresentScalingCapabilitiesKHR {
     }
 }
 unsafe impl Extendable for SurfacePresentScalingCapabilitiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -27594,6 +28051,7 @@ impl Default for SurfacePresentModeCompatibilityKHR {
     }
 }
 unsafe impl Extendable for SurfacePresentModeCompatibilityKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -27641,6 +28099,7 @@ impl Default for PhysicalDeviceSwapchainMaintenance1FeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceSwapchainMaintenance1FeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -27692,6 +28151,7 @@ impl Default for SwapchainPresentFenceInfoKHR {
     }
 }
 unsafe impl Extendable for SwapchainPresentFenceInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -27741,6 +28201,7 @@ impl Default for SwapchainPresentModesCreateInfoKHR {
     }
 }
 unsafe impl Extendable for SwapchainPresentModesCreateInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -27790,6 +28251,7 @@ impl Default for SwapchainPresentModeInfoKHR {
     }
 }
 unsafe impl Extendable for SwapchainPresentModeInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -27844,6 +28306,7 @@ impl Default for SwapchainPresentScalingCreateInfoKHR {
     }
 }
 unsafe impl Extendable for SwapchainPresentScalingCreateInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -27895,6 +28358,7 @@ impl Default for ReleaseSwapchainImagesInfoKHR {
     }
 }
 unsafe impl Extendable for ReleaseSwapchainImagesInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -27940,6 +28404,7 @@ impl Default for PhysicalDeviceInternallySynchronizedQueuesFeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceInternallySynchronizedQueuesFeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -28005,6 +28470,7 @@ impl Default for CooperativeMatrixPropertiesKHR {
     }
 }
 unsafe impl Extendable for CooperativeMatrixPropertiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -28051,6 +28517,7 @@ impl Default for PhysicalDeviceCooperativeMatrixFeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceCooperativeMatrixFeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -28097,6 +28564,7 @@ impl Default for PhysicalDeviceCooperativeMatrixPropertiesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceCooperativeMatrixPropertiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -28145,6 +28613,7 @@ impl Default for PhysicalDeviceComputeShaderDerivativesFeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceComputeShaderDerivativesFeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -28193,6 +28662,7 @@ impl Default for PhysicalDeviceComputeShaderDerivativesPropertiesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceComputeShaderDerivativesPropertiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -28243,6 +28713,7 @@ impl Default for VideoDecodeAV1ProfileInfoKHR {
     }
 }
 unsafe impl Extendable for VideoDecodeAV1ProfileInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -28289,6 +28760,7 @@ impl Default for VideoDecodeAV1CapabilitiesKHR {
     }
 }
 unsafe impl Extendable for VideoDecodeAV1CapabilitiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -28334,6 +28806,7 @@ impl Default for VideoDecodeAV1SessionParametersCreateInfoKHR {
     }
 }
 unsafe impl Extendable for VideoDecodeAV1SessionParametersCreateInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -28392,6 +28865,7 @@ impl Default for VideoDecodeAV1PictureInfoKHR {
     }
 }
 unsafe impl Extendable for VideoDecodeAV1PictureInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -28437,6 +28911,7 @@ impl Default for VideoDecodeAV1DpbSlotInfoKHR {
     }
 }
 unsafe impl Extendable for VideoDecodeAV1DpbSlotInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -28482,6 +28957,7 @@ impl Default for PhysicalDeviceVideoEncodeAV1FeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceVideoEncodeAV1FeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -28574,6 +29050,7 @@ impl Default for VideoEncodeAV1CapabilitiesKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeAV1CapabilitiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -28674,6 +29151,7 @@ impl Default for VideoEncodeAV1QualityLevelPropertiesKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeAV1QualityLevelPropertiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -28724,6 +29202,7 @@ impl Default for VideoEncodeAV1SessionCreateInfoKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeAV1SessionCreateInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -28778,6 +29257,7 @@ impl Default for VideoEncodeAV1SessionParametersCreateInfoKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeAV1SessionParametersCreateInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -28838,6 +29318,7 @@ impl Default for VideoEncodeAV1PictureInfoKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeAV1PictureInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -28883,6 +29364,7 @@ impl Default for VideoEncodeAV1DpbSlotInfoKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeAV1DpbSlotInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -28928,6 +29410,7 @@ impl Default for VideoEncodeAV1ProfileInfoKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeAV1ProfileInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -29007,6 +29490,7 @@ impl Default for VideoEncodeAV1GopRemainingFrameInfoKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeAV1GopRemainingFrameInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -29061,6 +29545,7 @@ impl Default for VideoEncodeAV1RateControlInfoKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeAV1RateControlInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -29117,6 +29602,7 @@ impl Default for VideoEncodeAV1RateControlLayerInfoKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeAV1RateControlLayerInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -29162,6 +29648,7 @@ impl Default for PhysicalDeviceVideoDecodeVP9FeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceVideoDecodeVP9FeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -29208,6 +29695,7 @@ impl Default for VideoDecodeVP9ProfileInfoKHR {
     }
 }
 unsafe impl Extendable for VideoDecodeVP9ProfileInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -29254,6 +29742,7 @@ impl Default for VideoDecodeVP9CapabilitiesKHR {
     }
 }
 unsafe impl Extendable for VideoDecodeVP9CapabilitiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -29307,6 +29796,7 @@ impl Default for VideoDecodeVP9PictureInfoKHR {
     }
 }
 unsafe impl Extendable for VideoDecodeVP9PictureInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -29352,6 +29842,7 @@ impl Default for PhysicalDeviceVideoMaintenance1FeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceVideoMaintenance1FeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -29403,6 +29894,7 @@ impl Default for VideoInlineQueryInfoKHR {
     }
 }
 unsafe impl Extendable for VideoInlineQueryInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -29451,6 +29943,7 @@ impl Default for PhysicalDeviceUnifiedImageLayoutsFeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceUnifiedImageLayoutsFeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -29497,6 +29990,7 @@ impl Default for AttachmentFeedbackLoopInfoEXT {
     }
 }
 unsafe impl Extendable for AttachmentFeedbackLoopInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -29545,6 +30039,7 @@ impl Default for CalibratedTimestampInfoKHR {
     }
 }
 unsafe impl Extendable for CalibratedTimestampInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -29604,6 +30099,7 @@ impl Default for SetDescriptorBufferOffsetsInfoEXT {
     }
 }
 unsafe impl Extendable for SetDescriptorBufferOffsetsInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -29656,6 +30152,7 @@ impl Default for BindDescriptorBufferEmbeddedSamplersInfoEXT {
     }
 }
 unsafe impl Extendable for BindDescriptorBufferEmbeddedSamplersInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -29737,6 +30234,7 @@ impl Default for CopyMemoryIndirectInfoKHR {
     }
 }
 unsafe impl Extendable for CopyMemoryIndirectInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -29827,6 +30325,7 @@ impl Default for CopyMemoryToImageIndirectInfoKHR {
     }
 }
 unsafe impl Extendable for CopyMemoryToImageIndirectInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -29873,6 +30372,7 @@ impl Default for PhysicalDeviceCopyMemoryIndirectFeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceCopyMemoryIndirectFeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -29920,6 +30420,7 @@ impl Default for PhysicalDeviceCopyMemoryIndirectPropertiesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceCopyMemoryIndirectPropertiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -29976,6 +30477,7 @@ impl Default for VideoEncodeIntraRefreshCapabilitiesKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeIntraRefreshCapabilitiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -30022,6 +30524,7 @@ impl Default for VideoEncodeSessionIntraRefreshCreateInfoKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeSessionIntraRefreshCreateInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -30069,6 +30572,7 @@ impl Default for VideoEncodeIntraRefreshInfoKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeIntraRefreshInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -30114,6 +30618,7 @@ impl Default for VideoReferenceIntraRefreshInfoKHR {
     }
 }
 unsafe impl Extendable for VideoReferenceIntraRefreshInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -30159,6 +30664,7 @@ impl Default for PhysicalDeviceVideoEncodeIntraRefreshFeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceVideoEncodeIntraRefreshFeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -30205,6 +30711,7 @@ impl Default for VideoEncodeQuantizationMapCapabilitiesKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeQuantizationMapCapabilitiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -30250,6 +30757,7 @@ impl Default for VideoFormatQuantizationMapPropertiesKHR {
     }
 }
 unsafe impl Extendable for VideoFormatQuantizationMapPropertiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -30298,6 +30806,7 @@ impl Default for VideoEncodeQuantizationMapInfoKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeQuantizationMapInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -30343,6 +30852,7 @@ impl Default for VideoEncodeQuantizationMapSessionParametersCreateInfoKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeQuantizationMapSessionParametersCreateInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -30391,6 +30901,7 @@ impl Default for PhysicalDeviceVideoEncodeQuantizationMapFeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceVideoEncodeQuantizationMapFeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -30442,6 +30953,7 @@ impl Default for VideoEncodeH264QuantizationMapCapabilitiesKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeH264QuantizationMapCapabilitiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -30489,6 +31001,7 @@ impl Default for VideoEncodeH265QuantizationMapCapabilitiesKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeH265QuantizationMapCapabilitiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -30534,6 +31047,7 @@ impl Default for VideoFormatH265QuantizationMapPropertiesKHR {
     }
 }
 unsafe impl Extendable for VideoFormatH265QuantizationMapPropertiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -30581,6 +31095,7 @@ impl Default for VideoEncodeAV1QuantizationMapCapabilitiesKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeAV1QuantizationMapCapabilitiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -30626,6 +31141,7 @@ impl Default for VideoFormatAV1QuantizationMapPropertiesKHR {
     }
 }
 unsafe impl Extendable for VideoFormatAV1QuantizationMapPropertiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -30671,6 +31187,7 @@ impl Default for PhysicalDeviceShaderRelaxedExtendedInstructionFeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderRelaxedExtendedInstructionFeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -30723,6 +31240,7 @@ impl Default for PhysicalDeviceMaintenance7FeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceMaintenance7FeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -30783,6 +31301,7 @@ impl Default for PhysicalDeviceMaintenance7PropertiesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceMaintenance7PropertiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -30836,6 +31355,7 @@ impl Default for PhysicalDeviceLayeredApiPropertiesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceLayeredApiPropertiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -30884,6 +31404,7 @@ impl Default for PhysicalDeviceLayeredApiPropertiesListKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceLayeredApiPropertiesListKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -30929,6 +31450,7 @@ impl Default for PhysicalDeviceLayeredApiVulkanPropertiesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceLayeredApiVulkanPropertiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -30983,6 +31505,7 @@ impl Default for PhysicalDeviceFaultFeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceFaultFeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -31029,6 +31552,7 @@ impl Default for PhysicalDeviceFaultPropertiesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceFaultPropertiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -31147,6 +31671,7 @@ impl Default for DeviceFaultInfoKHR {
     }
 }
 unsafe impl Extendable for DeviceFaultInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -31196,6 +31721,7 @@ impl Default for DeviceFaultDebugInfoKHR {
     }
 }
 unsafe impl Extendable for DeviceFaultDebugInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -31289,6 +31815,7 @@ impl Default for MemoryBarrierAccessFlags3KHR {
     }
 }
 unsafe impl Extendable for MemoryBarrierAccessFlags3KHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -31337,6 +31864,7 @@ impl Default for PhysicalDeviceMaintenance8FeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceMaintenance8FeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -31387,6 +31915,7 @@ impl Default for PhysicalDeviceShaderFmaFeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderFmaFeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -31433,6 +31962,7 @@ impl Default for PhysicalDeviceMaintenance9FeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceMaintenance9FeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -31481,6 +32011,7 @@ impl Default for PhysicalDeviceMaintenance9PropertiesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceMaintenance9PropertiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -31526,6 +32057,7 @@ impl Default for QueueFamilyOwnershipTransferPropertiesKHR {
     }
 }
 unsafe impl Extendable for QueueFamilyOwnershipTransferPropertiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -31571,6 +32103,7 @@ impl Default for PhysicalDeviceVideoMaintenance2FeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceVideoMaintenance2FeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -31621,6 +32154,7 @@ impl Default for VideoDecodeH264InlineSessionParametersInfoKHR {
     }
 }
 unsafe impl Extendable for VideoDecodeH264InlineSessionParametersInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -31673,6 +32207,7 @@ impl Default for VideoDecodeH265InlineSessionParametersInfoKHR {
     }
 }
 unsafe impl Extendable for VideoDecodeH265InlineSessionParametersInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -31719,6 +32254,7 @@ impl Default for VideoDecodeAV1InlineSessionParametersInfoKHR {
     }
 }
 unsafe impl Extendable for VideoDecodeAV1InlineSessionParametersInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -31764,6 +32300,7 @@ impl Default for PhysicalDeviceVideoEncodeFeedback2FeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceVideoEncodeFeedback2FeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -31812,6 +32349,7 @@ impl Default for VideoEncodeFeedback2CapabilitiesKHR {
     }
 }
 unsafe impl Extendable for VideoEncodeFeedback2CapabilitiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -31861,6 +32399,7 @@ impl Default for QueryPoolVideoEncodePerPartitionFeedbackCreateInfoKHR {
     }
 }
 unsafe impl Extendable for QueryPoolVideoEncodePerPartitionFeedbackCreateInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -31907,6 +32446,7 @@ impl Default for PhysicalDeviceDepthClampZeroOneFeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceDepthClampZeroOneFeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -31959,6 +32499,7 @@ impl Default for PhysicalDeviceRobustness2FeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceRobustness2FeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -32009,6 +32550,7 @@ impl Default for PhysicalDeviceRobustness2PropertiesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceRobustness2PropertiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -32056,6 +32598,7 @@ impl Default for PhysicalDevicePresentModeFifoLatestReadyFeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDevicePresentModeFifoLatestReadyFeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -32147,6 +32690,7 @@ impl Default for AccelerationStructureGeometryMicromapDataKHR {
     }
 }
 unsafe impl Extendable for AccelerationStructureGeometryMicromapDataKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -32195,6 +32739,7 @@ impl Default for PhysicalDeviceOpacityMicromapFeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceOpacityMicromapFeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -32247,6 +32792,7 @@ impl Default for PhysicalDeviceOpacityMicromapPropertiesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceOpacityMicromapPropertiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -32330,6 +32876,7 @@ impl Default for AccelerationStructureTrianglesOpacityMicromapKHR {
     }
 }
 unsafe impl Extendable for AccelerationStructureTrianglesOpacityMicromapKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -32382,6 +32929,7 @@ impl Default for PhysicalDeviceMaintenance10FeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceMaintenance10FeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -32432,6 +32980,7 @@ impl Default for PhysicalDeviceMaintenance10PropertiesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceMaintenance10PropertiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -32478,6 +33027,7 @@ impl Default for RenderingEndInfoKHR {
     }
 }
 unsafe impl Extendable for RenderingEndInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -32524,6 +33074,7 @@ impl Default for RenderingAttachmentFlagsInfoKHR {
     }
 }
 unsafe impl Extendable for RenderingAttachmentFlagsInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -32576,6 +33127,7 @@ impl Default for ResolveImageModeInfoKHR {
     }
 }
 unsafe impl Extendable for ResolveImageModeInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -32622,6 +33174,7 @@ impl Default for PhysicalDevicePipelineLibraryGroupHandlesFeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDevicePipelineLibraryGroupHandlesFeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -32673,6 +33226,7 @@ impl Default for PhysicalDeviceMaintenance11FeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceMaintenance11FeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -32719,6 +33273,7 @@ impl Default for QueueFamilyOptimalImageTransferGranularityPropertiesKHR {
     }
 }
 unsafe impl Extendable for QueueFamilyOptimalImageTransferGranularityPropertiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -32774,6 +33329,7 @@ impl Default for FormatProperties4KHR {
     }
 }
 unsafe impl Extendable for FormatProperties4KHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -32819,6 +33375,7 @@ impl Default for ImageUsageFlags2CreateInfoKHR {
     }
 }
 unsafe impl Extendable for ImageUsageFlags2CreateInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -32871,6 +33428,7 @@ impl Default for ImageCreateFlags2CreateInfoKHR {
     }
 }
 unsafe impl Extendable for ImageCreateFlags2CreateInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -32919,6 +33477,7 @@ impl Default for ImageViewUsage2CreateInfoKHR {
     }
 }
 unsafe impl Extendable for ImageViewUsage2CreateInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -32964,6 +33523,7 @@ impl Default for PhysicalDeviceExtendedFlagsFeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceExtendedFlagsFeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -33010,6 +33570,7 @@ impl Default for ImageStencilUsage2CreateInfoKHR {
     }
 }
 unsafe impl Extendable for ImageStencilUsage2CreateInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -33057,6 +33618,7 @@ impl Default for SharedPresentSurfaceCapabilities2KHR {
     }
 }
 unsafe impl Extendable for SharedPresentSurfaceCapabilities2KHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -33108,6 +33670,7 @@ impl Default for DebugReportCallbackCreateInfoEXT {
     }
 }
 unsafe impl Extendable for DebugReportCallbackCreateInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -33153,6 +33716,7 @@ impl Default for PipelineRasterizationStateRasterizationOrderAMD {
     }
 }
 unsafe impl Extendable for PipelineRasterizationStateRasterizationOrderAMD {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -33206,6 +33770,7 @@ impl Default for DebugMarkerObjectNameInfoEXT {
     }
 }
 unsafe impl Extendable for DebugMarkerObjectNameInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -33258,6 +33823,7 @@ impl Default for DebugMarkerObjectTagInfoEXT {
     }
 }
 unsafe impl Extendable for DebugMarkerObjectTagInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -33305,6 +33871,7 @@ impl Default for DebugMarkerMarkerInfoEXT {
     }
 }
 unsafe impl Extendable for DebugMarkerMarkerInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -33349,6 +33916,7 @@ impl Default for DedicatedAllocationImageCreateInfoNV {
     }
 }
 unsafe impl Extendable for DedicatedAllocationImageCreateInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -33394,6 +33962,7 @@ impl Default for DedicatedAllocationBufferCreateInfoNV {
     }
 }
 unsafe impl Extendable for DedicatedAllocationBufferCreateInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -33443,6 +34012,7 @@ impl Default for DedicatedAllocationMemoryAllocateInfoNV {
     }
 }
 unsafe impl Extendable for DedicatedAllocationMemoryAllocateInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -33490,6 +34060,7 @@ impl Default for PhysicalDeviceTransformFeedbackFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceTransformFeedbackFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -33554,6 +34125,7 @@ impl Default for PhysicalDeviceTransformFeedbackPropertiesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceTransformFeedbackPropertiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -33602,6 +34174,7 @@ impl Default for PipelineRasterizationStateStreamCreateInfoEXT {
     }
 }
 unsafe impl Extendable for PipelineRasterizationStateStreamCreateInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -33655,6 +34228,7 @@ impl Default for CuModuleCreateInfoNVX {
     }
 }
 unsafe impl Extendable for CuModuleCreateInfoNVX {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -33699,6 +34273,7 @@ impl Default for CuModuleTexturingModeCreateInfoNVX {
     }
 }
 unsafe impl Extendable for CuModuleTexturingModeCreateInfoNVX {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -33747,6 +34322,7 @@ impl Default for CuFunctionCreateInfoNVX {
     }
 }
 unsafe impl Extendable for CuFunctionCreateInfoNVX {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -33815,6 +34391,7 @@ impl Default for CuLaunchInfoNVX {
     }
 }
 unsafe impl Extendable for CuLaunchInfoNVX {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -33864,6 +34441,7 @@ impl Default for ImageViewHandleInfoNVX {
     }
 }
 unsafe impl Extendable for ImageViewHandleInfoNVX {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -33910,6 +34488,7 @@ impl Default for ImageViewAddressPropertiesNVX {
     }
 }
 unsafe impl Extendable for ImageViewAddressPropertiesNVX {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -33954,6 +34533,7 @@ impl Default for TextureLODGatherFormatPropertiesAMD {
     }
 }
 unsafe impl Extendable for TextureLODGatherFormatPropertiesAMD {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -34068,6 +34648,7 @@ impl Default for StreamDescriptorSurfaceCreateInfoGGP {
     }
 }
 unsafe impl Extendable for StreamDescriptorSurfaceCreateInfoGGP {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -34112,6 +34693,7 @@ impl Default for PhysicalDeviceCornerSampledImageFeaturesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceCornerSampledImageFeaturesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -34191,6 +34773,7 @@ impl Default for ExternalMemoryImageCreateInfoNV {
     }
 }
 unsafe impl Extendable for ExternalMemoryImageCreateInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -34237,6 +34820,7 @@ impl Default for ExportMemoryAllocateInfoNV {
     }
 }
 unsafe impl Extendable for ExportMemoryAllocateInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -34286,6 +34870,7 @@ impl Default for ImportMemoryWin32HandleInfoNV {
     }
 }
 unsafe impl Extendable for ImportMemoryWin32HandleInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -34335,6 +34920,7 @@ impl Default for ExportMemoryWin32HandleInfoNV {
     }
 }
 unsafe impl Extendable for ExportMemoryWin32HandleInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -34394,6 +34980,7 @@ impl Default for Win32KeyedMutexAcquireReleaseInfoNV {
     }
 }
 unsafe impl Extendable for Win32KeyedMutexAcquireReleaseInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -34442,6 +35029,7 @@ impl Default for ValidationFlagsEXT {
     }
 }
 unsafe impl Extendable for ValidationFlagsEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -34490,6 +35078,7 @@ impl Default for ViSurfaceCreateInfoNN {
     }
 }
 unsafe impl Extendable for ViSurfaceCreateInfoNN {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -34534,6 +35123,7 @@ impl Default for ImageViewASTCDecodeModeEXT {
     }
 }
 unsafe impl Extendable for ImageViewASTCDecodeModeEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -34579,6 +35169,7 @@ impl Default for PhysicalDeviceASTCDecodeFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceASTCDecodeFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -34630,6 +35221,7 @@ impl Default for ConditionalRenderingBeginInfoEXT {
     }
 }
 unsafe impl Extendable for ConditionalRenderingBeginInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -34676,6 +35268,7 @@ impl Default for PhysicalDeviceConditionalRenderingFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceConditionalRenderingFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -34722,6 +35315,7 @@ impl Default for CommandBufferInheritanceConditionalRenderingInfoEXT {
     }
 }
 unsafe impl Extendable for CommandBufferInheritanceConditionalRenderingInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -34800,6 +35394,7 @@ impl Default for PipelineViewportWScalingStateCreateInfoNV {
     }
 }
 unsafe impl Extendable for PipelineViewportWScalingStateCreateInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -34866,6 +35461,7 @@ impl Default for SurfaceCapabilities2EXT {
     }
 }
 unsafe impl Extendable for SurfaceCapabilities2EXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -34910,6 +35506,7 @@ impl Default for DisplayPowerInfoEXT {
     }
 }
 unsafe impl Extendable for DisplayPowerInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -34954,6 +35551,7 @@ impl Default for DeviceEventInfoEXT {
     }
 }
 unsafe impl Extendable for DeviceEventInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -34998,6 +35596,7 @@ impl Default for DisplayEventInfoEXT {
     }
 }
 unsafe impl Extendable for DisplayEventInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -35043,6 +35642,7 @@ impl Default for SwapchainCounterCreateInfoEXT {
     }
 }
 unsafe impl Extendable for SwapchainCounterCreateInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -35170,6 +35770,7 @@ impl Default for PresentTimesInfoGOOGLE {
     }
 }
 unsafe impl Extendable for PresentTimesInfoGOOGLE {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -35215,6 +35816,7 @@ impl Default for PhysicalDeviceMultiviewPerViewAttributesPropertiesNVX {
     }
 }
 unsafe impl Extendable for PhysicalDeviceMultiviewPerViewAttributesPropertiesNVX {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -35265,6 +35867,7 @@ impl Default for MultiviewPerViewAttributesInfoNVX {
     }
 }
 unsafe impl Extendable for MultiviewPerViewAttributesInfoNVX {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -35346,6 +35949,7 @@ impl Default for PipelineViewportSwizzleStateCreateInfoNV {
     }
 }
 unsafe impl Extendable for PipelineViewportSwizzleStateCreateInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -35391,6 +35995,7 @@ impl Default for PhysicalDeviceDiscardRectanglePropertiesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceDiscardRectanglePropertiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -35444,6 +36049,7 @@ impl Default for PipelineDiscardRectangleStateCreateInfoEXT {
     }
 }
 unsafe impl Extendable for PipelineDiscardRectangleStateCreateInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -35505,6 +36111,7 @@ impl Default for PhysicalDeviceConservativeRasterizationPropertiesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceConservativeRasterizationPropertiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -35558,6 +36165,7 @@ impl Default for PipelineRasterizationConservativeStateCreateInfoEXT {
     }
 }
 unsafe impl Extendable for PipelineRasterizationConservativeStateCreateInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -35606,6 +36214,7 @@ impl Default for PhysicalDeviceDepthClipEnableFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceDepthClipEnableFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -35655,6 +36264,7 @@ impl Default for PipelineRasterizationDepthClipStateCreateInfoEXT {
     }
 }
 unsafe impl Extendable for PipelineRasterizationDepthClipStateCreateInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -35744,6 +36354,7 @@ impl Default for HdrMetadataEXT {
     }
 }
 unsafe impl Extendable for HdrMetadataEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -35788,6 +36399,7 @@ impl Default for PhysicalDeviceRelaxedLineRasterizationFeaturesIMG {
     }
 }
 unsafe impl Extendable for PhysicalDeviceRelaxedLineRasterizationFeaturesIMG {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -35837,6 +36449,7 @@ impl Default for IOSSurfaceCreateInfoMVK {
     }
 }
 unsafe impl Extendable for IOSSurfaceCreateInfoMVK {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -35884,6 +36497,7 @@ impl Default for MacOSSurfaceCreateInfoMVK {
     }
 }
 unsafe impl Extendable for MacOSSurfaceCreateInfoMVK {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -35931,6 +36545,7 @@ impl Default for DebugUtilsLabelEXT {
     }
 }
 unsafe impl Extendable for DebugUtilsLabelEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -35981,6 +36596,7 @@ impl Default for DebugUtilsObjectNameInfoEXT {
     }
 }
 unsafe impl Extendable for DebugUtilsObjectNameInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -36056,6 +36672,7 @@ impl Default for DebugUtilsMessengerCallbackDataEXT {
     }
 }
 unsafe impl Extendable for DebugUtilsMessengerCallbackDataEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -36110,6 +36727,7 @@ impl Default for DebugUtilsMessengerCreateInfoEXT {
     }
 }
 unsafe impl Extendable for DebugUtilsMessengerCreateInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -36164,6 +36782,7 @@ impl Default for DebugUtilsObjectTagInfoEXT {
     }
 }
 unsafe impl Extendable for DebugUtilsObjectTagInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -36208,6 +36827,7 @@ impl Default for AndroidHardwareBufferUsageANDROID {
     }
 }
 unsafe impl Extendable for AndroidHardwareBufferUsageANDROID {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -36259,6 +36879,7 @@ impl Default for AndroidHardwareBufferPropertiesANDROID {
     }
 }
 unsafe impl Extendable for AndroidHardwareBufferPropertiesANDROID {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -36317,6 +36938,7 @@ impl Default for AndroidHardwareBufferFormatPropertiesANDROID {
     }
 }
 unsafe impl Extendable for AndroidHardwareBufferFormatPropertiesANDROID {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -36365,6 +36987,7 @@ impl Default for ImportAndroidHardwareBufferInfoANDROID {
     }
 }
 unsafe impl Extendable for ImportAndroidHardwareBufferInfoANDROID {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -36410,6 +37033,7 @@ impl Default for MemoryGetAndroidHardwareBufferInfoANDROID {
     }
 }
 unsafe impl Extendable for MemoryGetAndroidHardwareBufferInfoANDROID {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -36454,6 +37078,7 @@ impl Default for ExternalFormatANDROID {
     }
 }
 unsafe impl Extendable for ExternalFormatANDROID {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -36517,6 +37142,7 @@ impl Default for AndroidHardwareBufferFormatProperties2ANDROID {
     }
 }
 unsafe impl Extendable for AndroidHardwareBufferFormatProperties2ANDROID {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -36606,6 +37232,7 @@ impl Default for PhysicalDeviceGpaFeaturesAMD {
     }
 }
 unsafe impl Extendable for PhysicalDeviceGpaFeaturesAMD {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -36660,6 +37287,7 @@ impl Default for PhysicalDeviceGpaPropertiesAMD {
     }
 }
 unsafe impl Extendable for PhysicalDeviceGpaPropertiesAMD {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -36705,6 +37333,7 @@ impl Default for PhysicalDeviceGpaProperties2AMD {
     }
 }
 unsafe impl Extendable for PhysicalDeviceGpaProperties2AMD {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -36806,6 +37435,7 @@ impl Default for GpaSampleBeginInfoAMD {
     }
 }
 unsafe impl Extendable for GpaSampleBeginInfoAMD {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -36854,6 +37484,7 @@ impl Default for GpaDeviceClockModeInfoAMD {
     }
 }
 unsafe impl Extendable for GpaDeviceClockModeInfoAMD {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -36904,6 +37535,7 @@ impl Default for GpaDeviceGetClockInfoAMD {
     }
 }
 unsafe impl Extendable for GpaDeviceGetClockInfoAMD {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -36949,6 +37581,7 @@ impl Default for GpaSessionCreateInfoAMD {
     }
 }
 unsafe impl Extendable for GpaSessionCreateInfoAMD {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -36995,6 +37628,7 @@ impl Default for PhysicalDeviceShaderEnqueueFeaturesAMDX {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderEnqueueFeaturesAMDX {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -37053,6 +37687,7 @@ impl Default for PhysicalDeviceShaderEnqueuePropertiesAMDX {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderEnqueuePropertiesAMDX {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -37102,6 +37737,7 @@ impl Default for ExecutionGraphPipelineScratchSizeAMDX {
     }
 }
 unsafe impl Extendable for ExecutionGraphPipelineScratchSizeAMDX {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -37167,6 +37803,7 @@ impl Default for ExecutionGraphPipelineCreateInfoAMDX {
     }
 }
 unsafe impl Extendable for ExecutionGraphPipelineCreateInfoAMDX {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -37301,6 +37938,7 @@ impl Default for PipelineShaderStageNodeCreateInfoAMDX {
     }
 }
 unsafe impl Extendable for PipelineShaderStageNodeCreateInfoAMDX {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -37398,6 +38036,7 @@ impl Default for TexelBufferDescriptorInfoEXT {
     }
 }
 unsafe impl Extendable for TexelBufferDescriptorInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -37444,6 +38083,7 @@ impl Default for ImageDescriptorInfoEXT {
     }
 }
 unsafe impl Extendable for ImageDescriptorInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -37496,6 +38136,7 @@ impl Default for TensorViewCreateInfoARM {
     }
 }
 unsafe impl Extendable for TensorViewCreateInfoARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -37578,6 +38219,7 @@ impl Default for ResourceDescriptorInfoEXT {
     }
 }
 unsafe impl Extendable for ResourceDescriptorInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -37626,6 +38268,7 @@ impl Default for BindHeapInfoEXT {
     }
 }
 unsafe impl Extendable for BindHeapInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -37674,6 +38317,7 @@ impl Default for PushDataInfoEXT {
     }
 }
 unsafe impl Extendable for PushDataInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -38021,6 +38665,7 @@ impl Default for DescriptorSetAndBindingMappingEXT {
     }
 }
 unsafe impl Extendable for DescriptorSetAndBindingMappingEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -38068,6 +38713,7 @@ impl Default for ShaderDescriptorSetAndBindingMappingInfoEXT {
     }
 }
 unsafe impl Extendable for ShaderDescriptorSetAndBindingMappingInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -38115,6 +38761,7 @@ impl Default for OpaqueCaptureDataCreateInfoEXT {
     }
 }
 unsafe impl Extendable for OpaqueCaptureDataCreateInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -38163,6 +38810,7 @@ impl Default for PhysicalDeviceDescriptorHeapFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceDescriptorHeapFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -38245,6 +38893,7 @@ impl Default for PhysicalDeviceDescriptorHeapPropertiesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceDescriptorHeapPropertiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -38294,6 +38943,7 @@ impl Default for CommandBufferInheritanceDescriptorHeapInfoEXT {
     }
 }
 unsafe impl Extendable for CommandBufferInheritanceDescriptorHeapInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -38342,6 +38992,7 @@ impl Default for SamplerCustomBorderColorIndexCreateInfoEXT {
     }
 }
 unsafe impl Extendable for SamplerCustomBorderColorIndexCreateInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -38390,6 +39041,7 @@ impl Default for SamplerCustomBorderColorCreateInfoEXT {
     }
 }
 unsafe impl Extendable for SamplerCustomBorderColorCreateInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -38437,6 +39089,7 @@ impl Default for IndirectCommandsLayoutPushDataTokenNV {
     }
 }
 unsafe impl Extendable for IndirectCommandsLayoutPushDataTokenNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -38482,6 +39135,7 @@ impl Default for SubsampledImageFormatPropertiesEXT {
     }
 }
 unsafe impl Extendable for SubsampledImageFormatPropertiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -38531,6 +39185,7 @@ impl Default for PhysicalDeviceDescriptorHeapTensorPropertiesARM {
     }
 }
 unsafe impl Extendable for PhysicalDeviceDescriptorHeapTensorPropertiesARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -38583,6 +39238,7 @@ impl Default for AttachmentSampleCountInfoAMD {
     }
 }
 unsafe impl Extendable for AttachmentSampleCountInfoAMD {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -38662,6 +39318,7 @@ impl Default for SampleLocationsInfoEXT {
     }
 }
 unsafe impl Extendable for SampleLocationsInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -38768,6 +39425,7 @@ impl Default for RenderPassSampleLocationsBeginInfoEXT {
     }
 }
 unsafe impl Extendable for RenderPassSampleLocationsBeginInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -38815,6 +39473,7 @@ impl Default for PipelineSampleLocationsStateCreateInfoEXT {
     }
 }
 unsafe impl Extendable for PipelineSampleLocationsStateCreateInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -38871,6 +39530,7 @@ impl Default for PhysicalDeviceSampleLocationsPropertiesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceSampleLocationsPropertiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -38916,6 +39576,7 @@ impl Default for MultisamplePropertiesEXT {
     }
 }
 unsafe impl Extendable for MultisamplePropertiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -38960,6 +39621,7 @@ impl Default for PhysicalDeviceBlendOperationAdvancedFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceBlendOperationAdvancedFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -39016,6 +39678,7 @@ impl Default for PhysicalDeviceBlendOperationAdvancedPropertiesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceBlendOperationAdvancedPropertiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -39068,6 +39731,7 @@ impl Default for PipelineColorBlendAdvancedStateCreateInfoEXT {
     }
 }
 unsafe impl Extendable for PipelineColorBlendAdvancedStateCreateInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -39122,6 +39786,7 @@ impl Default for PipelineCoverageToColorStateCreateInfoNV {
     }
 }
 unsafe impl Extendable for PipelineCoverageToColorStateCreateInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -39181,6 +39846,7 @@ impl Default for PipelineCoverageModulationStateCreateInfoNV {
     }
 }
 unsafe impl Extendable for PipelineCoverageModulationStateCreateInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -39231,6 +39897,7 @@ impl Default for PhysicalDeviceShaderSMBuiltinsPropertiesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderSMBuiltinsPropertiesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -39276,6 +39943,7 @@ impl Default for PhysicalDeviceShaderSMBuiltinsFeaturesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderSMBuiltinsFeaturesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -39355,6 +40023,7 @@ impl Default for DrmFormatModifierPropertiesListEXT {
     }
 }
 unsafe impl Extendable for DrmFormatModifierPropertiesListEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -39407,6 +40076,7 @@ impl Default for PhysicalDeviceImageDrmFormatModifierInfoEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceImageDrmFormatModifierInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -39457,6 +40127,7 @@ impl Default for ImageDrmFormatModifierListCreateInfoEXT {
     }
 }
 unsafe impl Extendable for ImageDrmFormatModifierListCreateInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -39506,6 +40177,7 @@ impl Default for ImageDrmFormatModifierExplicitCreateInfoEXT {
     }
 }
 unsafe impl Extendable for ImageDrmFormatModifierExplicitCreateInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -39551,6 +40223,7 @@ impl Default for ImageDrmFormatModifierPropertiesEXT {
     }
 }
 unsafe impl Extendable for ImageDrmFormatModifierPropertiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -39628,6 +40301,7 @@ impl Default for DrmFormatModifierPropertiesList2EXT {
     }
 }
 unsafe impl Extendable for DrmFormatModifierPropertiesList2EXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -39679,6 +40353,7 @@ impl Default for ValidationCacheCreateInfoEXT {
     }
 }
 unsafe impl Extendable for ValidationCacheCreateInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -39723,6 +40398,7 @@ impl Default for ShaderModuleValidationCacheCreateInfoEXT {
     }
 }
 unsafe impl Extendable for ShaderModuleValidationCacheCreateInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -39799,6 +40475,7 @@ impl Default for PipelineViewportShadingRateImageStateCreateInfoNV {
     }
 }
 unsafe impl Extendable for PipelineViewportShadingRateImageStateCreateInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -39849,6 +40526,7 @@ impl Default for PhysicalDeviceShadingRateImageFeaturesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShadingRateImageFeaturesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -39899,6 +40577,7 @@ impl Default for PhysicalDeviceShadingRateImagePropertiesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShadingRateImagePropertiesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -40005,6 +40684,7 @@ impl Default for PipelineViewportCoarseSampleOrderStateCreateInfoNV {
     }
 }
 unsafe impl Extendable for PipelineViewportCoarseSampleOrderStateCreateInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -40061,6 +40741,7 @@ impl Default for RayTracingShaderGroupCreateInfoNV {
     }
 }
 unsafe impl Extendable for RayTracingShaderGroupCreateInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -40127,6 +40808,7 @@ impl Default for RayTracingPipelineCreateInfoNV {
     }
 }
 unsafe impl Extendable for RayTracingPipelineCreateInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -40194,6 +40876,7 @@ impl Default for GeometryTrianglesNV {
     }
 }
 unsafe impl Extendable for GeometryTrianglesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -40245,6 +40928,7 @@ impl Default for GeometryAABBNV {
     }
 }
 unsafe impl Extendable for GeometryAABBNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -40319,6 +41003,7 @@ impl Default for GeometryNV {
     }
 }
 unsafe impl Extendable for GeometryNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -40374,6 +41059,7 @@ impl Default for AccelerationStructureInfoNV {
     }
 }
 unsafe impl Extendable for AccelerationStructureInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -40422,6 +41108,7 @@ impl Default for AccelerationStructureCreateInfoNV {
     }
 }
 unsafe impl Extendable for AccelerationStructureCreateInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -40475,6 +41162,7 @@ impl Default for BindAccelerationStructureMemoryInfoNV {
     }
 }
 unsafe impl Extendable for BindAccelerationStructureMemoryInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -40521,6 +41209,7 @@ impl Default for WriteDescriptorSetAccelerationStructureNV {
     }
 }
 unsafe impl Extendable for WriteDescriptorSetAccelerationStructureNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -40568,6 +41257,7 @@ impl Default for AccelerationStructureMemoryRequirementsInfoNV {
     }
 }
 unsafe impl Extendable for AccelerationStructureMemoryRequirementsInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -40626,6 +41316,7 @@ impl Default for PhysicalDeviceRayTracingPropertiesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceRayTracingPropertiesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -40767,6 +41458,7 @@ impl Default for PhysicalDeviceRepresentativeFragmentTestFeaturesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceRepresentativeFragmentTestFeaturesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -40816,6 +41508,7 @@ impl Default for PipelineRepresentativeFragmentTestStateCreateInfoNV {
     }
 }
 unsafe impl Extendable for PipelineRepresentativeFragmentTestStateCreateInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -40864,6 +41557,7 @@ impl Default for PhysicalDeviceImageViewImageFormatInfoEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceImageViewImageFormatInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -40911,6 +41605,7 @@ impl Default for FilterCubicImageViewImageFormatPropertiesEXT {
     }
 }
 unsafe impl Extendable for FilterCubicImageViewImageFormatPropertiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -40956,6 +41651,7 @@ impl Default for PhysicalDeviceCooperativeMatrixConversionFeaturesQCOM {
     }
 }
 unsafe impl Extendable for PhysicalDeviceCooperativeMatrixConversionFeaturesQCOM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -41005,6 +41701,7 @@ impl Default for PhysicalDeviceElapsedTimerQueryFeaturesQCOM {
     }
 }
 unsafe impl Extendable for PhysicalDeviceElapsedTimerQueryFeaturesQCOM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -41053,6 +41750,7 @@ impl Default for ImportMemoryHostPointerInfoEXT {
     }
 }
 unsafe impl Extendable for ImportMemoryHostPointerInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -41098,6 +41796,7 @@ impl Default for MemoryHostPointerPropertiesEXT {
     }
 }
 unsafe impl Extendable for MemoryHostPointerPropertiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -41142,6 +41841,7 @@ impl Default for PhysicalDeviceExternalMemoryHostPropertiesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceExternalMemoryHostPropertiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -41188,6 +41888,7 @@ impl Default for PipelineCompilerControlCreateInfoAMD {
     }
 }
 unsafe impl Extendable for PipelineCompilerControlCreateInfoAMD {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -41261,6 +41962,7 @@ impl Default for PhysicalDeviceShaderCorePropertiesAMD {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderCorePropertiesAMD {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -41306,6 +42008,7 @@ impl Default for DeviceMemoryOverallocationCreateInfoAMD {
     }
 }
 unsafe impl Extendable for DeviceMemoryOverallocationCreateInfoAMD {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -41351,6 +42054,7 @@ impl Default for PhysicalDeviceVertexAttributeDivisorPropertiesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceVertexAttributeDivisorPropertiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -41399,6 +42103,7 @@ impl Default for PresentFrameTokenGGP {
     }
 }
 unsafe impl Extendable for PresentFrameTokenGGP {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -41446,6 +42151,7 @@ impl Default for PhysicalDeviceMeshShaderFeaturesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceMeshShaderFeaturesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -41516,6 +42222,7 @@ impl Default for PhysicalDeviceMeshShaderPropertiesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceMeshShaderPropertiesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -41586,6 +42293,7 @@ impl Default for PhysicalDeviceShaderImageFootprintFeaturesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderImageFootprintFeaturesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -41635,6 +42343,7 @@ impl Default for PipelineViewportExclusiveScissorStateCreateInfoNV {
     }
 }
 unsafe impl Extendable for PipelineViewportExclusiveScissorStateCreateInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -41683,6 +42392,7 @@ impl Default for PhysicalDeviceExclusiveScissorFeaturesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceExclusiveScissorFeaturesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -41729,6 +42439,7 @@ impl Default for QueueFamilyCheckpointPropertiesNV {
     }
 }
 unsafe impl Extendable for QueueFamilyCheckpointPropertiesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -41776,6 +42487,7 @@ impl Default for CheckpointDataNV {
     }
 }
 unsafe impl Extendable for CheckpointDataNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -41820,6 +42532,7 @@ impl Default for QueueFamilyCheckpointProperties2NV {
     }
 }
 unsafe impl Extendable for QueueFamilyCheckpointProperties2NV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -41867,6 +42580,7 @@ impl Default for CheckpointData2NV {
     }
 }
 unsafe impl Extendable for CheckpointData2NV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -41915,6 +42629,7 @@ impl Default for PhysicalDevicePresentTimingFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDevicePresentTimingFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -41967,6 +42682,7 @@ impl Default for PresentTimingSurfaceCapabilitiesEXT {
     }
 }
 unsafe impl Extendable for PresentTimingSurfaceCapabilitiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -42017,6 +42733,7 @@ impl Default for SwapchainCalibratedTimestampInfoEXT {
     }
 }
 unsafe impl Extendable for SwapchainCalibratedTimestampInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -42064,6 +42781,7 @@ impl Default for SwapchainTimingPropertiesEXT {
     }
 }
 unsafe impl Extendable for SwapchainTimingPropertiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -42114,6 +42832,7 @@ impl Default for SwapchainTimeDomainPropertiesEXT {
     }
 }
 unsafe impl Extendable for SwapchainTimeDomainPropertiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -42161,6 +42880,7 @@ impl Default for PastPresentationTimingInfoEXT {
     }
 }
 unsafe impl Extendable for PastPresentationTimingInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -42242,6 +42962,7 @@ impl Default for PastPresentationTimingEXT {
     }
 }
 unsafe impl Extendable for PastPresentationTimingEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -42292,6 +43013,7 @@ impl Default for PastPresentationTimingPropertiesEXT {
     }
 }
 unsafe impl Extendable for PastPresentationTimingPropertiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -42347,6 +43069,7 @@ impl Default for PresentTimingInfoEXT {
     }
 }
 unsafe impl Extendable for PresentTimingInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -42394,6 +43117,7 @@ impl Default for PresentTimingsInfoEXT {
     }
 }
 unsafe impl Extendable for PresentTimingsInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -42439,6 +43163,7 @@ impl Default for PhysicalDeviceShaderIntegerFunctions2FeaturesINTEL {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderIntegerFunctions2FeaturesINTEL {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -42546,6 +43271,7 @@ impl Default for InitializePerformanceApiInfoINTEL {
     }
 }
 unsafe impl Extendable for InitializePerformanceApiInfoINTEL {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -42590,6 +43316,7 @@ impl Default for QueryPoolPerformanceQueryCreateInfoINTEL {
     }
 }
 unsafe impl Extendable for QueryPoolPerformanceQueryCreateInfoINTEL {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -42636,6 +43363,7 @@ impl Default for PerformanceMarkerInfoINTEL {
     }
 }
 unsafe impl Extendable for PerformanceMarkerInfoINTEL {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -42680,6 +43408,7 @@ impl Default for PerformanceStreamMarkerInfoINTEL {
     }
 }
 unsafe impl Extendable for PerformanceStreamMarkerInfoINTEL {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -42728,6 +43457,7 @@ impl Default for PerformanceOverrideInfoINTEL {
     }
 }
 unsafe impl Extendable for PerformanceOverrideInfoINTEL {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -42772,6 +43502,7 @@ impl Default for PerformanceConfigurationAcquireInfoINTEL {
     }
 }
 unsafe impl Extendable for PerformanceConfigurationAcquireInfoINTEL {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -42822,6 +43553,7 @@ impl Default for PhysicalDevicePCIBusInfoPropertiesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDevicePCIBusInfoPropertiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -42867,6 +43599,7 @@ impl Default for DisplayNativeHdrSurfaceCapabilitiesAMD {
     }
 }
 unsafe impl Extendable for DisplayNativeHdrSurfaceCapabilitiesAMD {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -42912,6 +43645,7 @@ impl Default for SwapchainDisplayNativeHdrCreateInfoAMD {
     }
 }
 unsafe impl Extendable for SwapchainDisplayNativeHdrCreateInfoAMD {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -42960,6 +43694,7 @@ impl Default for ImagePipeSurfaceCreateInfoFUCHSIA {
     }
 }
 unsafe impl Extendable for ImagePipeSurfaceCreateInfoFUCHSIA {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -43007,6 +43742,7 @@ impl Default for MetalSurfaceCreateInfoEXT {
     }
 }
 unsafe impl Extendable for MetalSurfaceCreateInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -43055,6 +43791,7 @@ impl Default for PhysicalDeviceFragmentDensityMapFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceFragmentDensityMapFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -43105,6 +43842,7 @@ impl Default for PhysicalDeviceFragmentDensityMapPropertiesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceFragmentDensityMapPropertiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -43150,6 +43888,7 @@ impl Default for RenderPassFragmentDensityMapCreateInfoEXT {
     }
 }
 unsafe impl Extendable for RenderPassFragmentDensityMapCreateInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -43198,6 +43937,7 @@ impl Default for RenderingFragmentDensityMapAttachmentInfoEXT {
     }
 }
 unsafe impl Extendable for RenderingFragmentDensityMapAttachmentInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -43245,6 +43985,7 @@ impl Default for PhysicalDeviceShaderCoreProperties2AMD {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderCoreProperties2AMD {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -43290,6 +44031,7 @@ impl Default for PhysicalDeviceCoherentMemoryFeaturesAMD {
     }
 }
 unsafe impl Extendable for PhysicalDeviceCoherentMemoryFeaturesAMD {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -43338,6 +44080,7 @@ impl Default for PhysicalDeviceShaderImageAtomicInt64FeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderImageAtomicInt64FeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -43386,6 +44129,7 @@ impl Default for PhysicalDeviceMemoryBudgetPropertiesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceMemoryBudgetPropertiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -43431,6 +44175,7 @@ impl Default for PhysicalDeviceMemoryPriorityFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceMemoryPriorityFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -43477,6 +44222,7 @@ impl Default for MemoryPriorityAllocateInfoEXT {
     }
 }
 unsafe impl Extendable for MemoryPriorityAllocateInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -43522,6 +44268,7 @@ impl Default for PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -43575,6 +44322,7 @@ impl Default for PhysicalDeviceBufferDeviceAddressFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceBufferDeviceAddressFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -43623,6 +44371,7 @@ impl Default for BufferDeviceAddressCreateInfoEXT {
     }
 }
 unsafe impl Extendable for BufferDeviceAddressCreateInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -43676,6 +44425,7 @@ impl Default for ValidationFeaturesEXT {
     }
 }
 unsafe impl Extendable for ValidationFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -43741,6 +44491,7 @@ impl Default for CooperativeMatrixPropertiesNV {
     }
 }
 unsafe impl Extendable for CooperativeMatrixPropertiesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -43787,6 +44538,7 @@ impl Default for PhysicalDeviceCooperativeMatrixFeaturesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceCooperativeMatrixFeaturesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -43833,6 +44585,7 @@ impl Default for PhysicalDeviceCooperativeMatrixPropertiesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceCooperativeMatrixPropertiesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -43878,6 +44631,7 @@ impl Default for PhysicalDeviceCoverageReductionModeFeaturesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceCoverageReductionModeFeaturesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -43927,6 +44681,7 @@ impl Default for PipelineCoverageReductionStateCreateInfoNV {
     }
 }
 unsafe impl Extendable for PipelineCoverageReductionStateCreateInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -43981,6 +44736,7 @@ impl Default for FramebufferMixedSamplesCombinationNV {
     }
 }
 unsafe impl Extendable for FramebufferMixedSamplesCombinationNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -44029,6 +44785,7 @@ impl Default for PhysicalDeviceFragmentShaderInterlockFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceFragmentShaderInterlockFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -44075,6 +44832,7 @@ impl Default for PhysicalDeviceYcbcrImageArraysFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceYcbcrImageArraysFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -44123,6 +44881,7 @@ impl Default for PhysicalDeviceProvokingVertexFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceProvokingVertexFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -44171,6 +44930,7 @@ impl Default for PhysicalDeviceProvokingVertexPropertiesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceProvokingVertexPropertiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -44216,6 +44976,7 @@ impl Default for PipelineRasterizationProvokingVertexStateCreateInfoEXT {
     }
 }
 unsafe impl Extendable for PipelineRasterizationProvokingVertexStateCreateInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -44264,6 +45025,7 @@ impl Default for SurfaceFullScreenExclusiveInfoEXT {
     }
 }
 unsafe impl Extendable for SurfaceFullScreenExclusiveInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -44310,6 +45072,7 @@ impl Default for SurfaceCapabilitiesFullScreenExclusiveEXT {
     }
 }
 unsafe impl Extendable for SurfaceCapabilitiesFullScreenExclusiveEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -44355,6 +45118,7 @@ impl Default for SurfaceFullScreenExclusiveWin32InfoEXT {
     }
 }
 unsafe impl Extendable for SurfaceFullScreenExclusiveWin32InfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -44402,6 +45166,7 @@ impl Default for HeadlessSurfaceCreateInfoEXT {
     }
 }
 unsafe impl Extendable for HeadlessSurfaceCreateInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -44468,6 +45233,7 @@ impl Default for PhysicalDeviceShaderAtomicFloatFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderAtomicFloatFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -44514,6 +45280,7 @@ impl Default for PhysicalDeviceExtendedDynamicStateFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceExtendedDynamicStateFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -44564,6 +45331,7 @@ impl Default for PhysicalDeviceMapMemoryPlacedFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceMapMemoryPlacedFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -44610,6 +45378,7 @@ impl Default for PhysicalDeviceMapMemoryPlacedPropertiesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceMapMemoryPlacedPropertiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -44655,6 +45424,7 @@ impl Default for MemoryMapPlacedInfoEXT {
     }
 }
 unsafe impl Extendable for MemoryMapPlacedInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -44722,6 +45492,7 @@ impl Default for PhysicalDeviceShaderAtomicFloat2FeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderAtomicFloat2FeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -44784,6 +45555,7 @@ impl Default for PhysicalDeviceDeviceGeneratedCommandsPropertiesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceDeviceGeneratedCommandsPropertiesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -44832,6 +45604,7 @@ impl Default for PhysicalDeviceDeviceGeneratedCommandsFeaturesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceDeviceGeneratedCommandsFeaturesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -44886,6 +45659,7 @@ impl Default for GraphicsShaderGroupCreateInfoNV {
     }
 }
 unsafe impl Extendable for GraphicsShaderGroupCreateInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -44938,6 +45712,7 @@ impl Default for GraphicsPipelineShaderGroupsCreateInfoNV {
     }
 }
 unsafe impl Extendable for GraphicsPipelineShaderGroupsCreateInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -45138,6 +45913,7 @@ impl Default for IndirectCommandsLayoutTokenNV {
     }
 }
 unsafe impl Extendable for IndirectCommandsLayoutTokenNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -45193,6 +45969,7 @@ impl Default for IndirectCommandsLayoutCreateInfoNV {
     }
 }
 unsafe impl Extendable for IndirectCommandsLayoutCreateInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -45264,6 +46041,7 @@ impl Default for GeneratedCommandsInfoNV {
     }
 }
 unsafe impl Extendable for GeneratedCommandsInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -45315,6 +46093,7 @@ impl Default for GeneratedCommandsMemoryRequirementsInfoNV {
     }
 }
 unsafe impl Extendable for GeneratedCommandsMemoryRequirementsInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -45359,6 +46138,7 @@ impl Default for PhysicalDeviceInheritedViewportScissorFeaturesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceInheritedViewportScissorFeaturesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -45409,6 +46189,7 @@ impl Default for CommandBufferInheritanceViewportScissorInfoNV {
     }
 }
 unsafe impl Extendable for CommandBufferInheritanceViewportScissorInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -45457,6 +46238,7 @@ impl Default for PhysicalDeviceTexelBufferAlignmentFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceTexelBufferAlignmentFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -45503,6 +46285,7 @@ impl Default for RenderPassTransformBeginInfoQCOM {
     }
 }
 unsafe impl Extendable for RenderPassTransformBeginInfoQCOM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -45550,6 +46333,7 @@ impl Default for CommandBufferInheritanceRenderPassTransformInfoQCOM {
     }
 }
 unsafe impl Extendable for CommandBufferInheritanceRenderPassTransformInfoQCOM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -45604,6 +46388,7 @@ impl Default for PhysicalDeviceDepthBiasControlFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceDepthBiasControlFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -45656,6 +46441,7 @@ impl Default for DepthBiasInfoEXT {
     }
 }
 unsafe impl Extendable for DepthBiasInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -45702,6 +46488,7 @@ impl Default for DepthBiasRepresentationInfoEXT {
     }
 }
 unsafe impl Extendable for DepthBiasRepresentationInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -45748,6 +46535,7 @@ impl Default for PhysicalDeviceDeviceMemoryReportFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceDeviceMemoryReportFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -45806,6 +46594,7 @@ impl Default for DeviceMemoryReportCallbackDataEXT {
     }
 }
 unsafe impl Extendable for DeviceMemoryReportCallbackDataEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -45855,6 +46644,7 @@ impl Default for DeviceDeviceMemoryReportCreateInfoEXT {
     }
 }
 unsafe impl Extendable for DeviceDeviceMemoryReportCreateInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -45904,6 +46694,7 @@ impl Default for PhysicalDeviceCustomBorderColorPropertiesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceCustomBorderColorPropertiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -45951,6 +46742,7 @@ impl Default for PhysicalDeviceCustomBorderColorFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceCustomBorderColorFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -45997,6 +46789,7 @@ impl Default for PhysicalDeviceTextureCompressionASTC3DFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceTextureCompressionASTC3DFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -46043,6 +46836,7 @@ impl Default for PhysicalDevicePresentBarrierFeaturesNV {
     }
 }
 unsafe impl Extendable for PhysicalDevicePresentBarrierFeaturesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -46089,6 +46883,7 @@ impl Default for SurfaceCapabilitiesPresentBarrierNV {
     }
 }
 unsafe impl Extendable for SurfaceCapabilitiesPresentBarrierNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -46134,6 +46929,7 @@ impl Default for SwapchainPresentBarrierCreateInfoNV {
     }
 }
 unsafe impl Extendable for SwapchainPresentBarrierCreateInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -46179,6 +46975,7 @@ impl Default for PhysicalDeviceDiagnosticsConfigFeaturesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceDiagnosticsConfigFeaturesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -46226,6 +47023,7 @@ impl Default for DeviceDiagnosticsConfigCreateInfoNV {
     }
 }
 unsafe impl Extendable for DeviceDiagnosticsConfigCreateInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -46273,6 +47071,7 @@ impl Default for PerfHintInfoQCOM {
     }
 }
 unsafe impl Extendable for PerfHintInfoQCOM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -46317,6 +47116,7 @@ impl Default for PhysicalDeviceQueuePerfHintFeaturesQCOM {
     }
 }
 unsafe impl Extendable for PhysicalDeviceQueuePerfHintFeaturesQCOM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -46363,6 +47163,7 @@ impl Default for PhysicalDeviceQueuePerfHintPropertiesQCOM {
     }
 }
 unsafe impl Extendable for PhysicalDeviceQueuePerfHintPropertiesQCOM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -46412,6 +47213,7 @@ impl Default for PhysicalDeviceImageProcessing3FeaturesQCOM {
     }
 }
 unsafe impl Extendable for PhysicalDeviceImageProcessing3FeaturesQCOM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -46458,6 +47260,7 @@ impl Default for PhysicalDeviceShaderMultipleWaitQueuesFeaturesQCOM {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderMultipleWaitQueuesFeaturesQCOM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -46508,6 +47311,7 @@ impl Default for PhysicalDeviceShaderMultipleWaitQueuesPropertiesQCOM {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderMultipleWaitQueuesPropertiesQCOM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -46556,6 +47360,7 @@ impl Default for PhysicalDeviceShaderSplitBarrierFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderSplitBarrierFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -46602,6 +47407,7 @@ impl Default for PhysicalDeviceShaderSplitBarrierPropertiesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderSplitBarrierPropertiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -46649,6 +47455,7 @@ impl Default for CudaModuleCreateInfoNV {
     }
 }
 unsafe impl Extendable for CudaModuleCreateInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -46696,6 +47503,7 @@ impl Default for CudaFunctionCreateInfoNV {
     }
 }
 unsafe impl Extendable for CudaFunctionCreateInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -46764,6 +47572,7 @@ impl Default for CudaLaunchInfoNV {
     }
 }
 unsafe impl Extendable for CudaLaunchInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -46808,6 +47617,7 @@ impl Default for PhysicalDeviceCudaKernelLaunchFeaturesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceCudaKernelLaunchFeaturesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -46856,6 +47666,7 @@ impl Default for PhysicalDeviceCudaKernelLaunchPropertiesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceCudaKernelLaunchPropertiesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -46927,6 +47738,7 @@ impl Default for PhysicalDeviceTileShadingFeaturesQCOM {
     }
 }
 unsafe impl Extendable for PhysicalDeviceTileShadingFeaturesQCOM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -46979,6 +47791,7 @@ impl Default for PhysicalDeviceTileShadingPropertiesQCOM {
     }
 }
 unsafe impl Extendable for PhysicalDeviceTileShadingPropertiesQCOM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -47028,6 +47841,7 @@ impl Default for RenderPassTileShadingCreateInfoQCOM {
     }
 }
 unsafe impl Extendable for RenderPassTileShadingCreateInfoQCOM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -47074,6 +47888,7 @@ impl Default for PerTileBeginInfoQCOM {
     }
 }
 unsafe impl Extendable for PerTileBeginInfoQCOM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -47116,6 +47931,7 @@ impl Default for PerTileEndInfoQCOM {
     }
 }
 unsafe impl Extendable for PerTileEndInfoQCOM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -47158,6 +47974,7 @@ impl Default for DispatchTileInfoQCOM {
     }
 }
 unsafe impl Extendable for DispatchTileInfoQCOM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -47202,6 +48019,7 @@ impl Default for QueryLowLatencySupportNV {
     }
 }
 unsafe impl Extendable for QueryLowLatencySupportNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -47248,6 +48066,7 @@ impl Default for ExportMetalObjectCreateInfoEXT {
     }
 }
 unsafe impl Extendable for ExportMetalObjectCreateInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -47305,6 +48124,7 @@ impl Default for ExportMetalObjectsInfoEXT {
     }
 }
 unsafe impl Extendable for ExportMetalObjectsInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -47349,6 +48169,7 @@ impl Default for ExportMetalDeviceInfoEXT {
     }
 }
 unsafe impl Extendable for ExportMetalDeviceInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -47381,7 +48202,7 @@ pub struct ExportMetalCommandQueueInfoEXT {
     pub s_type: StructureType,
     /// Optional
     pub p_next: *const c_void,
-    pub queue: Queue,
+    pub queue: QueueHandle,
     pub mtl_command_queue: MTLCommandQueue_id,
 }
 impl Default for ExportMetalCommandQueueInfoEXT {
@@ -47396,6 +48217,7 @@ impl Default for ExportMetalCommandQueueInfoEXT {
     }
 }
 unsafe impl Extendable for ExportMetalCommandQueueInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -47444,6 +48266,7 @@ impl Default for ExportMetalBufferInfoEXT {
     }
 }
 unsafe impl Extendable for ExportMetalBufferInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -47490,6 +48313,7 @@ impl Default for ImportMetalBufferInfoEXT {
     }
 }
 unsafe impl Extendable for ImportMetalBufferInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -47546,6 +48370,7 @@ impl Default for ExportMetalTextureInfoEXT {
     }
 }
 unsafe impl Extendable for ExportMetalTextureInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -47594,6 +48419,7 @@ impl Default for ImportMetalTextureInfoEXT {
     }
 }
 unsafe impl Extendable for ImportMetalTextureInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -47642,6 +48468,7 @@ impl Default for ExportMetalIOSurfaceInfoEXT {
     }
 }
 unsafe impl Extendable for ExportMetalIOSurfaceInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -47689,6 +48516,7 @@ impl Default for ImportMetalIOSurfaceInfoEXT {
     }
 }
 unsafe impl Extendable for ImportMetalIOSurfaceInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -47740,6 +48568,7 @@ impl Default for ExportMetalSharedEventInfoEXT {
     }
 }
 unsafe impl Extendable for ExportMetalSharedEventInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -47786,6 +48615,7 @@ impl Default for ImportMetalSharedEventInfoEXT {
     }
 }
 unsafe impl Extendable for ImportMetalSharedEventInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -47896,6 +48726,7 @@ impl Default for PhysicalDeviceDescriptorBufferPropertiesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceDescriptorBufferPropertiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -47947,6 +48778,7 @@ impl Default for PhysicalDeviceDescriptorBufferFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceDescriptorBufferFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -47998,6 +48830,7 @@ impl Default for DescriptorAddressInfoEXT {
     }
 }
 unsafe impl Extendable for DescriptorAddressInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -48048,6 +48881,7 @@ impl Default for DescriptorBufferBindingInfoEXT {
     }
 }
 unsafe impl Extendable for DescriptorBufferBindingInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -48092,6 +48926,7 @@ impl Default for DescriptorBufferBindingPushDescriptorBufferHandleEXT {
     }
 }
 unsafe impl Extendable for DescriptorBufferBindingPushDescriptorBufferHandleEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -48186,6 +49021,7 @@ impl Default for DescriptorGetInfoEXT {
     }
 }
 unsafe impl Extendable for DescriptorGetInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -48230,6 +49066,7 @@ impl Default for BufferCaptureDescriptorDataInfoEXT {
     }
 }
 unsafe impl Extendable for BufferCaptureDescriptorDataInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -48274,6 +49111,7 @@ impl Default for ImageCaptureDescriptorDataInfoEXT {
     }
 }
 unsafe impl Extendable for ImageCaptureDescriptorDataInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -48318,6 +49156,7 @@ impl Default for ImageViewCaptureDescriptorDataInfoEXT {
     }
 }
 unsafe impl Extendable for ImageViewCaptureDescriptorDataInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -48362,6 +49201,7 @@ impl Default for SamplerCaptureDescriptorDataInfoEXT {
     }
 }
 unsafe impl Extendable for SamplerCaptureDescriptorDataInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -48406,6 +49246,7 @@ impl Default for OpaqueCaptureDescriptorDataCreateInfoEXT {
     }
 }
 unsafe impl Extendable for OpaqueCaptureDescriptorDataCreateInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -48472,6 +49313,7 @@ impl Default for AccelerationStructureCaptureDescriptorDataInfoEXT {
     }
 }
 unsafe impl Extendable for AccelerationStructureCaptureDescriptorDataInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -48516,6 +49358,7 @@ impl Default for PhysicalDeviceDescriptorBufferDensityMapPropertiesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceDescriptorBufferDensityMapPropertiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -48564,6 +49407,7 @@ impl Default for PhysicalDeviceGraphicsPipelineLibraryFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceGraphicsPipelineLibraryFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -48612,6 +49456,7 @@ impl Default for PhysicalDeviceGraphicsPipelineLibraryPropertiesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceGraphicsPipelineLibraryPropertiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -48660,6 +49505,7 @@ impl Default for GraphicsPipelineLibraryCreateInfoEXT {
     }
 }
 unsafe impl Extendable for GraphicsPipelineLibraryCreateInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -48706,6 +49552,7 @@ impl Default for PhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -48759,6 +49606,7 @@ impl Default for PhysicalDeviceFragmentShadingRateEnumsFeaturesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceFragmentShadingRateEnumsFeaturesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -48805,6 +49653,7 @@ impl Default for PhysicalDeviceFragmentShadingRateEnumsPropertiesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceFragmentShadingRateEnumsPropertiesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -48857,6 +49706,7 @@ impl Default for PipelineFragmentShadingRateEnumStateCreateInfoNV {
     }
 }
 unsafe impl Extendable for PipelineFragmentShadingRateEnumStateCreateInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -48933,6 +49783,7 @@ impl Default for AccelerationStructureGeometryMotionTrianglesDataNV {
     }
 }
 unsafe impl Extendable for AccelerationStructureGeometryMotionTrianglesDataNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -48984,6 +49835,7 @@ impl Default for AccelerationStructureMotionInfoNV {
     }
 }
 unsafe impl Extendable for AccelerationStructureMotionInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -49213,6 +50065,7 @@ impl Default for PhysicalDeviceRayTracingMotionBlurFeaturesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceRayTracingMotionBlurFeaturesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -49259,6 +50112,7 @@ impl Default for PhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -49305,6 +50159,7 @@ impl Default for PhysicalDeviceFragmentDensityMap2FeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceFragmentDensityMap2FeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -49357,6 +50212,7 @@ impl Default for PhysicalDeviceFragmentDensityMap2PropertiesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceFragmentDensityMap2PropertiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -49402,6 +50258,7 @@ impl Default for CopyCommandTransformInfoQCOM {
     }
 }
 unsafe impl Extendable for CopyCommandTransformInfoQCOM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -49449,6 +50306,7 @@ impl Default for PhysicalDeviceImageCompressionControlFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceImageCompressionControlFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -49500,6 +50358,7 @@ impl Default for ImageCompressionControlEXT {
     }
 }
 unsafe impl Extendable for ImageCompressionControlEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -49549,6 +50408,7 @@ impl Default for ImageCompressionPropertiesEXT {
     }
 }
 unsafe impl Extendable for ImageCompressionPropertiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -49596,6 +50456,7 @@ impl Default for PhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -49647,6 +50508,7 @@ impl Default for PhysicalDevice4444FormatsFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDevice4444FormatsFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -49695,6 +50557,7 @@ impl Default for PhysicalDeviceFaultFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceFaultFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -49748,6 +50611,7 @@ impl Default for DeviceFaultCountsEXT {
     }
 }
 unsafe impl Extendable for DeviceFaultCountsEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -49802,6 +50666,7 @@ impl Default for DeviceFaultInfoEXT {
     }
 }
 unsafe impl Extendable for DeviceFaultInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -49852,6 +50717,7 @@ impl Default for PhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -49906,6 +50772,7 @@ impl Default for PhysicalDeviceRGBA10X6FormatsFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceRGBA10X6FormatsFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -49957,6 +50824,7 @@ impl Default for DirectFBSurfaceCreateInfoEXT {
     }
 }
 unsafe impl Extendable for DirectFBSurfaceCreateInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -50002,6 +50870,7 @@ impl Default for PhysicalDeviceMutableDescriptorTypeFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceMutableDescriptorTypeFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -50082,6 +50951,7 @@ impl Default for MutableDescriptorTypeCreateInfoEXT {
     }
 }
 unsafe impl Extendable for MutableDescriptorTypeCreateInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -50129,6 +50999,7 @@ impl Default for PhysicalDeviceVertexInputDynamicStateFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceVertexInputDynamicStateFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -50182,6 +51053,7 @@ impl Default for VertexInputBindingDescription2EXT {
     }
 }
 unsafe impl Extendable for VertexInputBindingDescription2EXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -50233,6 +51105,7 @@ impl Default for VertexInputAttributeDescription2EXT {
     }
 }
 unsafe impl Extendable for VertexInputAttributeDescription2EXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -50287,6 +51160,7 @@ impl Default for PhysicalDeviceDrmPropertiesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceDrmPropertiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -50332,6 +51206,7 @@ impl Default for PhysicalDeviceAddressBindingReportFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceAddressBindingReportFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -50385,6 +51260,7 @@ impl Default for DeviceAddressBindingCallbackDataEXT {
     }
 }
 unsafe impl Extendable for DeviceAddressBindingCallbackDataEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -50430,6 +51306,7 @@ impl Default for PhysicalDeviceDepthClipControlFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceDepthClipControlFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -50476,6 +51353,7 @@ impl Default for PipelineViewportDepthClipControlCreateInfoEXT {
     }
 }
 unsafe impl Extendable for PipelineViewportDepthClipControlCreateInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -50526,6 +51404,7 @@ impl Default for PhysicalDevicePrimitiveTopologyListRestartFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDevicePrimitiveTopologyListRestartFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -50579,6 +51458,7 @@ impl Default for ImportMemoryZirconHandleInfoFUCHSIA {
     }
 }
 unsafe impl Extendable for ImportMemoryZirconHandleInfoFUCHSIA {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -50624,6 +51504,7 @@ impl Default for MemoryZirconHandlePropertiesFUCHSIA {
     }
 }
 unsafe impl Extendable for MemoryZirconHandlePropertiesFUCHSIA {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -50670,6 +51551,7 @@ impl Default for MemoryGetZirconHandleInfoFUCHSIA {
     }
 }
 unsafe impl Extendable for MemoryGetZirconHandleInfoFUCHSIA {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -50721,6 +51603,7 @@ impl Default for ImportSemaphoreZirconHandleInfoFUCHSIA {
     }
 }
 unsafe impl Extendable for ImportSemaphoreZirconHandleInfoFUCHSIA {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -50767,6 +51650,7 @@ impl Default for SemaphoreGetZirconHandleInfoFUCHSIA {
     }
 }
 unsafe impl Extendable for SemaphoreGetZirconHandleInfoFUCHSIA {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -50811,6 +51695,7 @@ impl Default for BufferCollectionCreateInfoFUCHSIA {
     }
 }
 unsafe impl Extendable for BufferCollectionCreateInfoFUCHSIA {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -50857,6 +51742,7 @@ impl Default for ImportMemoryBufferCollectionFUCHSIA {
     }
 }
 unsafe impl Extendable for ImportMemoryBufferCollectionFUCHSIA {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -50904,6 +51790,7 @@ impl Default for BufferCollectionImageCreateInfoFUCHSIA {
     }
 }
 unsafe impl Extendable for BufferCollectionImageCreateInfoFUCHSIA {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -50957,6 +51844,7 @@ impl Default for BufferCollectionConstraintsInfoFUCHSIA {
     }
 }
 unsafe impl Extendable for BufferCollectionConstraintsInfoFUCHSIA {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -51006,6 +51894,7 @@ impl Default for BufferConstraintsInfoFUCHSIA {
     }
 }
 unsafe impl Extendable for BufferConstraintsInfoFUCHSIA {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -51052,6 +51941,7 @@ impl Default for BufferCollectionBufferCreateInfoFUCHSIA {
     }
 }
 unsafe impl Extendable for BufferCollectionBufferCreateInfoFUCHSIA {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -51097,6 +51987,7 @@ impl Default for SysmemColorSpaceFUCHSIA {
     }
 }
 unsafe impl Extendable for SysmemColorSpaceFUCHSIA {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -51161,6 +52052,7 @@ impl Default for BufferCollectionPropertiesFUCHSIA {
     }
 }
 unsafe impl Extendable for BufferCollectionPropertiesFUCHSIA {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -51217,6 +52109,7 @@ impl Default for ImageFormatConstraintsInfoFUCHSIA {
     }
 }
 unsafe impl Extendable for ImageFormatConstraintsInfoFUCHSIA {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -51268,6 +52161,7 @@ impl Default for ImageConstraintsInfoFUCHSIA {
     }
 }
 unsafe impl Extendable for ImageConstraintsInfoFUCHSIA {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -51314,6 +52208,7 @@ impl Default for SubpassShadingPipelineCreateInfoHUAWEI {
     }
 }
 unsafe impl Extendable for SubpassShadingPipelineCreateInfoHUAWEI {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -51359,6 +52254,7 @@ impl Default for PhysicalDeviceSubpassShadingFeaturesHUAWEI {
     }
 }
 unsafe impl Extendable for PhysicalDeviceSubpassShadingFeaturesHUAWEI {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -51405,6 +52301,7 @@ impl Default for PhysicalDeviceSubpassShadingPropertiesHUAWEI {
     }
 }
 unsafe impl Extendable for PhysicalDeviceSubpassShadingPropertiesHUAWEI {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -51450,6 +52347,7 @@ impl Default for PhysicalDeviceInvocationMaskFeaturesHUAWEI {
     }
 }
 unsafe impl Extendable for PhysicalDeviceInvocationMaskFeaturesHUAWEI {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -51498,6 +52396,7 @@ impl Default for MemoryGetRemoteAddressInfoNV {
     }
 }
 unsafe impl Extendable for MemoryGetRemoteAddressInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -51542,6 +52441,7 @@ impl Default for PhysicalDeviceExternalMemoryRDMAFeaturesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceExternalMemoryRDMAFeaturesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -51588,6 +52488,7 @@ impl Default for PipelinePropertiesIdentifierEXT {
     }
 }
 unsafe impl Extendable for PipelinePropertiesIdentifierEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -51632,6 +52533,7 @@ impl Default for PhysicalDevicePipelinePropertiesFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDevicePipelinePropertiesFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -51678,6 +52580,7 @@ impl Default for PhysicalDeviceFrameBoundaryFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceFrameBoundaryFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -51748,6 +52651,7 @@ impl Default for FrameBoundaryEXT {
     }
 }
 unsafe impl Extendable for FrameBoundaryEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -51797,6 +52701,7 @@ impl Default for PhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -51849,6 +52754,7 @@ impl Default for SubpassResolvePerformanceQueryEXT {
     }
 }
 unsafe impl Extendable for SubpassResolvePerformanceQueryEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -51896,6 +52802,7 @@ impl Default for MultisampledRenderToSingleSampledInfoEXT {
     }
 }
 unsafe impl Extendable for MultisampledRenderToSingleSampledInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -51946,6 +52853,7 @@ impl Default for PhysicalDeviceExtendedDynamicState2FeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceExtendedDynamicState2FeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -51997,6 +52905,7 @@ impl Default for ScreenSurfaceCreateInfoQNX {
     }
 }
 unsafe impl Extendable for ScreenSurfaceCreateInfoQNX {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -52041,6 +52950,7 @@ impl Default for PhysicalDeviceColorWriteEnableFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceColorWriteEnableFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -52090,6 +53000,7 @@ impl Default for PipelineColorWriteCreateInfoEXT {
     }
 }
 unsafe impl Extendable for PipelineColorWriteCreateInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -52139,6 +53050,7 @@ impl Default for PhysicalDevicePrimitivesGeneratedQueryFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDevicePrimitivesGeneratedQueryFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -52185,6 +53097,7 @@ impl Default for PhysicalDeviceVideoEncodeRgbConversionFeaturesVALVE {
     }
 }
 unsafe impl Extendable for PhysicalDeviceVideoEncodeRgbConversionFeaturesVALVE {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -52240,6 +53153,7 @@ impl Default for VideoEncodeRgbConversionCapabilitiesVALVE {
     }
 }
 unsafe impl Extendable for VideoEncodeRgbConversionCapabilitiesVALVE {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -52285,6 +53199,7 @@ impl Default for VideoEncodeProfileRgbConversionInfoVALVE {
     }
 }
 unsafe impl Extendable for VideoEncodeProfileRgbConversionInfoVALVE {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -52336,6 +53251,7 @@ impl Default for VideoEncodeSessionRgbConversionCreateInfoVALVE {
     }
 }
 unsafe impl Extendable for VideoEncodeSessionRgbConversionCreateInfoVALVE {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -52381,6 +53297,7 @@ impl Default for PhysicalDeviceImageViewMinLodFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceImageViewMinLodFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -52427,6 +53344,7 @@ impl Default for ImageViewMinLodCreateInfoEXT {
     }
 }
 unsafe impl Extendable for ImageViewMinLodCreateInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -52472,6 +53390,7 @@ impl Default for PhysicalDeviceMultiDrawFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceMultiDrawFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -52518,6 +53437,7 @@ impl Default for PhysicalDeviceMultiDrawPropertiesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceMultiDrawPropertiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -52617,6 +53537,7 @@ impl Default for PhysicalDeviceImage2DViewOf3DFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceImage2DViewOf3DFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -52667,6 +53588,7 @@ impl Default for PhysicalDeviceShaderTileImageFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderTileImageFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -52717,6 +53639,7 @@ impl Default for PhysicalDeviceShaderTileImagePropertiesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderTileImagePropertiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -52842,6 +53765,7 @@ impl Default for MicromapBuildInfoEXT {
     }
 }
 unsafe impl Extendable for MicromapBuildInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -52898,6 +53822,7 @@ impl Default for MicromapCreateInfoEXT {
     }
 }
 unsafe impl Extendable for MicromapCreateInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -52946,6 +53871,7 @@ impl Default for PhysicalDeviceOpacityMicromapFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceOpacityMicromapFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -52994,6 +53920,7 @@ impl Default for PhysicalDeviceOpacityMicromapPropertiesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceOpacityMicromapPropertiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -53039,6 +53966,7 @@ impl Default for MicromapVersionInfoEXT {
     }
 }
 unsafe impl Extendable for MicromapVersionInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -53087,6 +54015,7 @@ impl Default for CopyMicromapToMemoryInfoEXT {
     }
 }
 unsafe impl Extendable for CopyMicromapToMemoryInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -53135,6 +54064,7 @@ impl Default for CopyMemoryToMicromapInfoEXT {
     }
 }
 unsafe impl Extendable for CopyMemoryToMicromapInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -53183,6 +54113,7 @@ impl Default for CopyMicromapInfoEXT {
     }
 }
 unsafe impl Extendable for CopyMicromapInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -53231,6 +54162,7 @@ impl Default for MicromapBuildSizesInfoEXT {
     }
 }
 unsafe impl Extendable for MicromapBuildSizesInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -53293,6 +54225,7 @@ impl Default for AccelerationStructureTrianglesOpacityMicromapEXT {
     }
 }
 unsafe impl Extendable for AccelerationStructureTrianglesOpacityMicromapEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -53345,6 +54278,7 @@ impl Default for PhysicalDeviceDisplacementMicromapFeaturesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceDisplacementMicromapFeaturesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -53391,6 +54325,7 @@ impl Default for PhysicalDeviceDisplacementMicromapPropertiesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceDisplacementMicromapPropertiesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -53470,6 +54405,7 @@ impl Default for AccelerationStructureTrianglesDisplacementMicromapNV {
     }
 }
 unsafe impl Extendable for AccelerationStructureTrianglesDisplacementMicromapNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -53522,6 +54458,7 @@ impl Default for PhysicalDeviceClusterCullingShaderFeaturesHUAWEI {
     }
 }
 unsafe impl Extendable for PhysicalDeviceClusterCullingShaderFeaturesHUAWEI {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -53574,6 +54511,7 @@ impl Default for PhysicalDeviceClusterCullingShaderPropertiesHUAWEI {
     }
 }
 unsafe impl Extendable for PhysicalDeviceClusterCullingShaderPropertiesHUAWEI {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -53622,6 +54560,7 @@ impl Default for PhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEI {
     }
 }
 unsafe impl Extendable for PhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEI {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -53672,6 +54611,7 @@ impl Default for PhysicalDeviceBorderColorSwizzleFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceBorderColorSwizzleFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -53720,6 +54660,7 @@ impl Default for SamplerBorderColorComponentMappingCreateInfoEXT {
     }
 }
 unsafe impl Extendable for SamplerBorderColorComponentMappingCreateInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -53765,6 +54706,7 @@ impl Default for PhysicalDevicePageableDeviceLocalMemoryFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDevicePageableDeviceLocalMemoryFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -53818,6 +54760,7 @@ impl Default for PhysicalDeviceShaderCorePropertiesARM {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderCorePropertiesARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -53863,6 +54806,7 @@ impl Default for DeviceQueueShaderCoreControlCreateInfoARM {
     }
 }
 unsafe impl Extendable for DeviceQueueShaderCoreControlCreateInfoARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -53909,6 +54853,7 @@ impl Default for PhysicalDeviceSchedulingControlsFeaturesARM {
     }
 }
 unsafe impl Extendable for PhysicalDeviceSchedulingControlsFeaturesARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -53955,6 +54900,7 @@ impl Default for PhysicalDeviceSchedulingControlsPropertiesARM {
     }
 }
 unsafe impl Extendable for PhysicalDeviceSchedulingControlsPropertiesARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -54007,6 +54953,7 @@ impl Default for DispatchParametersARM {
     }
 }
 unsafe impl Extendable for DispatchParametersARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -54055,6 +55002,7 @@ impl Default for PhysicalDeviceSchedulingControlsDispatchParametersPropertiesARM
     }
 }
 unsafe impl Extendable for PhysicalDeviceSchedulingControlsDispatchParametersPropertiesARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -54103,6 +55051,7 @@ impl Default for PhysicalDeviceImageSlicedViewOf3DFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceImageSlicedViewOf3DFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -54151,6 +55100,7 @@ impl Default for ImageViewSlicedCreateInfoEXT {
     }
 }
 unsafe impl Extendable for ImageViewSlicedCreateInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -54196,6 +55146,7 @@ impl Default for PhysicalDeviceDescriptorSetHostMappingFeaturesVALVE {
     }
 }
 unsafe impl Extendable for PhysicalDeviceDescriptorSetHostMappingFeaturesVALVE {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -54247,6 +55198,7 @@ impl Default for DescriptorSetBindingReferenceVALVE {
     }
 }
 unsafe impl Extendable for DescriptorSetBindingReferenceVALVE {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -54293,6 +55245,7 @@ impl Default for DescriptorSetLayoutHostMappingInfoVALVE {
     }
 }
 unsafe impl Extendable for DescriptorSetLayoutHostMappingInfoVALVE {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -54337,6 +55290,7 @@ impl Default for PhysicalDeviceNonSeamlessCubeMapFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceNonSeamlessCubeMapFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -54383,6 +55337,7 @@ impl Default for PhysicalDeviceRenderPassStripedFeaturesARM {
     }
 }
 unsafe impl Extendable for PhysicalDeviceRenderPassStripedFeaturesARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -54431,6 +55386,7 @@ impl Default for PhysicalDeviceRenderPassStripedPropertiesARM {
     }
 }
 unsafe impl Extendable for PhysicalDeviceRenderPassStripedPropertiesARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -54476,6 +55432,7 @@ impl Default for RenderPassStripeInfoARM {
     }
 }
 unsafe impl Extendable for RenderPassStripeInfoARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -54522,6 +55479,7 @@ impl Default for RenderPassStripeBeginInfoARM {
     }
 }
 unsafe impl Extendable for RenderPassStripeBeginInfoARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -54570,6 +55528,7 @@ impl Default for RenderPassStripeSubmitInfoARM {
     }
 }
 unsafe impl Extendable for RenderPassStripeSubmitInfoARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -54616,6 +55575,7 @@ impl Default for PhysicalDeviceFragmentDensityMapOffsetFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceFragmentDensityMapOffsetFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -54665,6 +55625,7 @@ impl Default for PhysicalDeviceFragmentDensityMapOffsetPropertiesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceFragmentDensityMapOffsetPropertiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -54719,6 +55680,7 @@ impl Default for RenderPassFragmentDensityMapOffsetEndInfoEXT {
     }
 }
 unsafe impl Extendable for RenderPassFragmentDensityMapOffsetEndInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -54766,6 +55728,7 @@ impl Default for PhysicalDeviceCopyMemoryIndirectFeaturesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceCopyMemoryIndirectFeaturesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -54844,6 +55807,7 @@ impl Default for PhysicalDeviceMemoryDecompressionFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceMemoryDecompressionFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -54894,6 +55858,7 @@ impl Default for PhysicalDeviceMemoryDecompressionPropertiesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceMemoryDecompressionPropertiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -54945,6 +55910,7 @@ impl Default for PhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -54999,6 +55965,7 @@ impl Default for ComputePipelineIndirectBufferInfoNV {
     }
 }
 unsafe impl Extendable for ComputePipelineIndirectBufferInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -55046,6 +56013,7 @@ impl Default for PipelineIndirectDeviceAddressInfoNV {
     }
 }
 unsafe impl Extendable for PipelineIndirectDeviceAddressInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -55115,6 +56083,7 @@ impl Default for PhysicalDeviceRayTracingLinearSweptSpheresFeaturesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceRayTracingLinearSweptSpheresFeaturesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -55184,6 +56153,7 @@ impl Default for AccelerationStructureGeometryLinearSweptSpheresDataNV {
     }
 }
 unsafe impl Extendable for AccelerationStructureGeometryLinearSweptSpheresDataNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -55248,6 +56218,7 @@ impl Default for AccelerationStructureGeometrySpheresDataNV {
     }
 }
 unsafe impl Extendable for AccelerationStructureGeometrySpheresDataNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -55296,6 +56267,7 @@ impl Default for PhysicalDeviceLinearColorAttachmentFeaturesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceLinearColorAttachmentFeaturesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -55342,6 +56314,7 @@ impl Default for PhysicalDeviceImageCompressionControlSwapchainFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceImageCompressionControlSwapchainFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -55398,6 +56371,7 @@ impl Default for ImageViewSampleWeightCreateInfoQCOM {
     }
 }
 unsafe impl Extendable for ImageViewSampleWeightCreateInfoQCOM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -55447,6 +56421,7 @@ impl Default for PhysicalDeviceImageProcessingFeaturesQCOM {
     }
 }
 unsafe impl Extendable for PhysicalDeviceImageProcessingFeaturesQCOM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -55503,6 +56478,7 @@ impl Default for PhysicalDeviceImageProcessingPropertiesQCOM {
     }
 }
 unsafe impl Extendable for PhysicalDeviceImageProcessingPropertiesQCOM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -55552,6 +56528,7 @@ impl Default for PhysicalDeviceNestedCommandBufferFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceNestedCommandBufferFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -55598,6 +56575,7 @@ impl Default for PhysicalDeviceNestedCommandBufferPropertiesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceNestedCommandBufferPropertiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -55643,6 +56621,7 @@ impl Default for NativeBufferUsageOHOS {
     }
 }
 unsafe impl Extendable for NativeBufferUsageOHOS {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -55692,6 +56671,7 @@ impl Default for NativeBufferPropertiesOHOS {
     }
 }
 unsafe impl Extendable for NativeBufferPropertiesOHOS {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -55750,6 +56730,7 @@ impl Default for NativeBufferFormatPropertiesOHOS {
     }
 }
 unsafe impl Extendable for NativeBufferFormatPropertiesOHOS {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -55795,6 +56776,7 @@ impl Default for ImportNativeBufferInfoOHOS {
     }
 }
 unsafe impl Extendable for ImportNativeBufferInfoOHOS {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -55840,6 +56822,7 @@ impl Default for MemoryGetNativeBufferInfoOHOS {
     }
 }
 unsafe impl Extendable for MemoryGetNativeBufferInfoOHOS {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -55884,6 +56867,7 @@ impl Default for ExternalFormatOHOS {
     }
 }
 unsafe impl Extendable for ExternalFormatOHOS {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -55933,6 +56917,7 @@ impl Default for ExternalMemoryAcquireUnmodifiedEXT {
     }
 }
 unsafe impl Extendable for ExternalMemoryAcquireUnmodifiedEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -56041,6 +57026,7 @@ impl Default for PhysicalDeviceExtendedDynamicState3FeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceExtendedDynamicState3FeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -56087,6 +57073,7 @@ impl Default for PhysicalDeviceExtendedDynamicState3PropertiesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceExtendedDynamicState3PropertiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -56201,6 +57188,7 @@ impl Default for PhysicalDeviceSubpassMergeFeedbackFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceSubpassMergeFeedbackFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -56247,6 +57235,7 @@ impl Default for RenderPassCreationControlEXT {
     }
 }
 unsafe impl Extendable for RenderPassCreationControlEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -56316,6 +57305,7 @@ impl Default for RenderPassCreationFeedbackCreateInfoEXT {
     }
 }
 unsafe impl Extendable for RenderPassCreationFeedbackCreateInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -56389,6 +57379,7 @@ impl Default for RenderPassSubpassFeedbackCreateInfoEXT {
     }
 }
 unsafe impl Extendable for RenderPassSubpassFeedbackCreateInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -56436,6 +57427,7 @@ impl Default for DirectDriverLoadingInfoLUNARG {
     }
 }
 unsafe impl Extendable for DirectDriverLoadingInfoLUNARG {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -56484,6 +57476,7 @@ impl Default for DirectDriverLoadingListLUNARG {
     }
 }
 unsafe impl Extendable for DirectDriverLoadingListLUNARG {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -56540,6 +57533,7 @@ impl Default for TensorDescriptionARM {
     }
 }
 unsafe impl Extendable for TensorDescriptionARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -56601,6 +57595,7 @@ impl Default for TensorCreateInfoARM {
     }
 }
 unsafe impl Extendable for TensorCreateInfoARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -56645,6 +57640,7 @@ impl Default for TensorMemoryRequirementsInfoARM {
     }
 }
 unsafe impl Extendable for TensorMemoryRequirementsInfoARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -56693,6 +57689,7 @@ impl Default for BindTensorMemoryInfoARM {
     }
 }
 unsafe impl Extendable for BindTensorMemoryInfoARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -56739,6 +57736,7 @@ impl Default for WriteDescriptorSetTensorARM {
     }
 }
 unsafe impl Extendable for WriteDescriptorSetTensorARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -56786,6 +57784,7 @@ impl Default for TensorFormatPropertiesARM {
     }
 }
 unsafe impl Extendable for TensorFormatPropertiesARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -56855,6 +57854,7 @@ impl Default for PhysicalDeviceTensorPropertiesARM {
     }
 }
 unsafe impl Extendable for PhysicalDeviceTensorPropertiesARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -56916,6 +57916,7 @@ impl Default for TensorMemoryBarrierARM {
     }
 }
 unsafe impl Extendable for TensorMemoryBarrierARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -56963,6 +57964,7 @@ impl Default for TensorDependencyInfoARM {
     }
 }
 unsafe impl Extendable for TensorDependencyInfoARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -57018,6 +58020,7 @@ impl Default for PhysicalDeviceTensorFeaturesARM {
     }
 }
 unsafe impl Extendable for PhysicalDeviceTensorFeaturesARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -57064,6 +58067,7 @@ impl Default for DeviceTensorMemoryRequirementsARM {
     }
 }
 unsafe impl Extendable for DeviceTensorMemoryRequirementsARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -57118,6 +58122,7 @@ impl Default for TensorCopyARM {
     }
 }
 unsafe impl Extendable for TensorCopyARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -57168,6 +58173,7 @@ impl Default for CopyTensorInfoARM {
     }
 }
 unsafe impl Extendable for CopyTensorInfoARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -57212,6 +58218,7 @@ impl Default for MemoryDedicatedAllocateInfoTensorARM {
     }
 }
 unsafe impl Extendable for MemoryDedicatedAllocateInfoTensorARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -57262,6 +58269,7 @@ impl Default for PhysicalDeviceExternalTensorInfoARM {
     }
 }
 unsafe impl Extendable for PhysicalDeviceExternalTensorInfoARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -57306,6 +58314,7 @@ impl Default for ExternalTensorPropertiesARM {
     }
 }
 unsafe impl Extendable for ExternalTensorPropertiesARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -57351,6 +58360,7 @@ impl Default for ExternalMemoryTensorCreateInfoARM {
     }
 }
 unsafe impl Extendable for ExternalMemoryTensorCreateInfoARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -57396,6 +58406,7 @@ impl Default for PhysicalDeviceDescriptorBufferTensorFeaturesARM {
     }
 }
 unsafe impl Extendable for PhysicalDeviceDescriptorBufferTensorFeaturesARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -57446,6 +58457,7 @@ impl Default for PhysicalDeviceDescriptorBufferTensorPropertiesARM {
     }
 }
 unsafe impl Extendable for PhysicalDeviceDescriptorBufferTensorPropertiesARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -57495,6 +58507,7 @@ impl Default for DescriptorGetTensorInfoARM {
     }
 }
 unsafe impl Extendable for DescriptorGetTensorInfoARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -57540,6 +58553,7 @@ impl Default for TensorCaptureDescriptorDataInfoARM {
     }
 }
 unsafe impl Extendable for TensorCaptureDescriptorDataInfoARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -57584,6 +58598,7 @@ impl Default for TensorViewCaptureDescriptorDataInfoARM {
     }
 }
 unsafe impl Extendable for TensorViewCaptureDescriptorDataInfoARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -57630,6 +58645,7 @@ impl Default for FrameBoundaryTensorsARM {
     }
 }
 unsafe impl Extendable for FrameBoundaryTensorsARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -57678,6 +58694,7 @@ impl Default for PhysicalDeviceShaderModuleIdentifierFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderModuleIdentifierFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -57724,6 +58741,7 @@ impl Default for PhysicalDeviceShaderModuleIdentifierPropertiesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderModuleIdentifierPropertiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -57775,6 +58793,7 @@ impl Default for PipelineShaderStageModuleIdentifierCreateInfoEXT {
     }
 }
 unsafe impl Extendable for PipelineShaderStageModuleIdentifierCreateInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -57825,6 +58844,7 @@ impl Default for ShaderModuleIdentifierEXT {
     }
 }
 unsafe impl Extendable for ShaderModuleIdentifierEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -57869,6 +58889,7 @@ impl Default for PhysicalDeviceOpticalFlowFeaturesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceOpticalFlowFeaturesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -57935,6 +58956,7 @@ impl Default for PhysicalDeviceOpticalFlowPropertiesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceOpticalFlowPropertiesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -57980,6 +59002,7 @@ impl Default for OpticalFlowImageFormatInfoNV {
     }
 }
 unsafe impl Extendable for OpticalFlowImageFormatInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -58026,6 +59049,7 @@ impl Default for OpticalFlowImageFormatPropertiesNV {
     }
 }
 unsafe impl Extendable for OpticalFlowImageFormatPropertiesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -58092,6 +59116,7 @@ impl Default for OpticalFlowSessionCreateInfoNV {
     }
 }
 unsafe impl Extendable for OpticalFlowSessionCreateInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -58140,6 +59165,7 @@ impl Default for OpticalFlowSessionCreatePrivateDataInfoNV {
     }
 }
 unsafe impl Extendable for OpticalFlowSessionCreatePrivateDataInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -58191,6 +59217,7 @@ impl Default for OpticalFlowExecuteInfoNV {
     }
 }
 unsafe impl Extendable for OpticalFlowExecuteInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -58235,6 +59262,7 @@ impl Default for PhysicalDeviceLegacyDitheringFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceLegacyDitheringFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -58281,6 +59309,7 @@ impl Default for PhysicalDeviceExternalFormatResolveFeaturesANDROID {
     }
 }
 unsafe impl Extendable for PhysicalDeviceExternalFormatResolveFeaturesANDROID {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -58334,6 +59363,7 @@ impl Default for PhysicalDeviceExternalFormatResolvePropertiesANDROID {
     }
 }
 unsafe impl Extendable for PhysicalDeviceExternalFormatResolvePropertiesANDROID {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -58382,6 +59412,7 @@ impl Default for AndroidHardwareBufferFormatResolvePropertiesANDROID {
     }
 }
 unsafe impl Extendable for AndroidHardwareBufferFormatResolvePropertiesANDROID {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -58430,6 +59461,7 @@ impl Default for PhysicalDeviceAntiLagFeaturesAMD {
     }
 }
 unsafe impl Extendable for PhysicalDeviceAntiLagFeaturesAMD {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -58478,6 +59510,7 @@ impl Default for AntiLagPresentationInfoAMD {
     }
 }
 unsafe impl Extendable for AntiLagPresentationInfoAMD {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -58527,6 +59560,7 @@ impl Default for AntiLagDataAMD {
     }
 }
 unsafe impl Extendable for AntiLagDataAMD {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -58571,6 +59605,7 @@ impl Default for PhysicalDeviceDenseGeometryFormatFeaturesAMDX {
     }
 }
 unsafe impl Extendable for PhysicalDeviceDenseGeometryFormatFeaturesAMDX {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -58632,6 +59667,7 @@ impl Default for AccelerationStructureDenseGeometryFormatTrianglesDataAMDX {
     }
 }
 unsafe impl Extendable for AccelerationStructureDenseGeometryFormatTrianglesDataAMDX {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -58680,6 +59716,7 @@ impl Default for PhysicalDeviceShaderObjectFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderObjectFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -58728,6 +59765,7 @@ impl Default for PhysicalDeviceShaderObjectPropertiesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderObjectPropertiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -58809,6 +59847,7 @@ impl Default for ShaderCreateInfoEXT {
     }
 }
 unsafe impl Extendable for ShaderCreateInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -58879,6 +59918,7 @@ impl Default for PhysicalDeviceTilePropertiesFeaturesQCOM {
     }
 }
 unsafe impl Extendable for PhysicalDeviceTilePropertiesFeaturesQCOM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -58929,6 +59969,7 @@ impl Default for TilePropertiesQCOM {
     }
 }
 unsafe impl Extendable for TilePropertiesQCOM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -58973,6 +60014,7 @@ impl Default for PhysicalDeviceAmigoProfilingFeaturesSEC {
     }
 }
 unsafe impl Extendable for PhysicalDeviceAmigoProfilingFeaturesSEC {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -59021,6 +60063,7 @@ impl Default for AmigoProfilingSubmitInfoSEC {
     }
 }
 unsafe impl Extendable for AmigoProfilingSubmitInfoSEC {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -59066,6 +60109,7 @@ impl Default for PhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM {
     }
 }
 unsafe impl Extendable for PhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -59115,6 +60159,7 @@ impl Default for PhysicalDeviceRayTracingInvocationReorderPropertiesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceRayTracingInvocationReorderPropertiesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -59163,6 +60208,7 @@ impl Default for PhysicalDeviceRayTracingInvocationReorderFeaturesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceRayTracingInvocationReorderFeaturesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -59218,6 +60264,7 @@ impl Default for PhysicalDeviceCooperativeVectorPropertiesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceCooperativeVectorPropertiesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -59265,6 +60312,7 @@ impl Default for PhysicalDeviceCooperativeVectorFeaturesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceCooperativeVectorFeaturesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -59321,6 +60369,7 @@ impl Default for CooperativeVectorPropertiesNV {
     }
 }
 unsafe impl Extendable for CooperativeVectorPropertiesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -59387,6 +60436,7 @@ impl Default for ConvertCooperativeVectorMatrixInfoNV {
     }
 }
 unsafe impl Extendable for ConvertCooperativeVectorMatrixInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -59431,6 +60481,7 @@ impl Default for PhysicalDeviceExtendedSparseAddressSpaceFeaturesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceExtendedSparseAddressSpaceFeaturesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -59484,6 +60535,7 @@ impl Default for PhysicalDeviceExtendedSparseAddressSpacePropertiesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceExtendedSparseAddressSpacePropertiesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -59532,6 +60584,7 @@ impl Default for PhysicalDeviceLegacyVertexAttributesFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceLegacyVertexAttributesFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -59578,6 +60631,7 @@ impl Default for PhysicalDeviceLegacyVertexAttributesPropertiesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceLegacyVertexAttributesPropertiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -59663,6 +60717,7 @@ impl Default for LayerSettingsCreateInfoEXT {
     }
 }
 unsafe impl Extendable for LayerSettingsCreateInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -59709,6 +60764,7 @@ impl Default for PhysicalDeviceShaderCoreBuiltinsFeaturesARM {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderCoreBuiltinsFeaturesARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -59759,6 +60815,7 @@ impl Default for PhysicalDeviceShaderCoreBuiltinsPropertiesARM {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderCoreBuiltinsPropertiesARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -59805,6 +60862,7 @@ impl Default for PhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -59861,6 +60919,7 @@ impl Default for LatencySleepModeInfoNV {
     }
 }
 unsafe impl Extendable for LatencySleepModeInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -59907,6 +60966,7 @@ impl Default for LatencySleepInfoNV {
     }
 }
 unsafe impl Extendable for LatencySleepInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -59953,6 +61013,7 @@ impl Default for SetLatencyMarkerInfoNV {
     }
 }
 unsafe impl Extendable for SetLatencyMarkerInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -60023,6 +61084,7 @@ impl Default for LatencyTimingsFrameReportNV {
     }
 }
 unsafe impl Extendable for LatencyTimingsFrameReportNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -60071,6 +61133,7 @@ impl Default for GetLatencyMarkerInfoNV {
     }
 }
 unsafe impl Extendable for GetLatencyMarkerInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -60115,6 +61178,7 @@ impl Default for LatencySubmissionPresentIdNV {
     }
 }
 unsafe impl Extendable for LatencySubmissionPresentIdNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -60162,6 +61226,7 @@ impl Default for SwapchainLatencyCreateInfoNV {
     }
 }
 unsafe impl Extendable for SwapchainLatencyCreateInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -60207,6 +61272,7 @@ impl Default for OutOfBandQueueTypeInfoNV {
     }
 }
 unsafe impl Extendable for OutOfBandQueueTypeInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -60255,6 +61321,7 @@ impl Default for LatencySurfaceCapabilitiesNV {
     }
 }
 unsafe impl Extendable for LatencySurfaceCapabilitiesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -60308,6 +61375,7 @@ impl Default for PhysicalDeviceDataGraphFeaturesARM {
     }
 }
 unsafe impl Extendable for PhysicalDeviceDataGraphFeaturesARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -60359,6 +61427,7 @@ impl Default for DataGraphPipelineConstantARM {
     }
 }
 unsafe impl Extendable for DataGraphPipelineConstantARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -60411,6 +61480,7 @@ impl Default for DataGraphPipelineResourceInfoARM {
     }
 }
 unsafe impl Extendable for DataGraphPipelineResourceInfoARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -60456,6 +61526,7 @@ impl Default for DataGraphPipelineCompilerControlCreateInfoARM {
     }
 }
 unsafe impl Extendable for DataGraphPipelineCompilerControlCreateInfoARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -60523,6 +61594,7 @@ impl Default for DataGraphPipelineCreateInfoARM {
     }
 }
 unsafe impl Extendable for DataGraphPipelineCreateInfoARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -60580,6 +61652,7 @@ impl Default for DataGraphPipelineShaderModuleCreateInfoARM {
     }
 }
 unsafe impl Extendable for DataGraphPipelineShaderModuleCreateInfoARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -60630,6 +61703,7 @@ impl Default for DataGraphPipelineSessionCreateInfoARM {
     }
 }
 unsafe impl Extendable for DataGraphPipelineSessionCreateInfoARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -60674,6 +61748,7 @@ impl Default for DataGraphPipelineSessionBindPointRequirementsInfoARM {
     }
 }
 unsafe impl Extendable for DataGraphPipelineSessionBindPointRequirementsInfoARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -60722,6 +61797,7 @@ impl Default for DataGraphPipelineSessionBindPointRequirementARM {
     }
 }
 unsafe impl Extendable for DataGraphPipelineSessionBindPointRequirementARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -60770,6 +61846,7 @@ impl Default for DataGraphPipelineSessionMemoryRequirementsInfoARM {
     }
 }
 unsafe impl Extendable for DataGraphPipelineSessionMemoryRequirementsInfoARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -60822,6 +61899,7 @@ impl Default for BindDataGraphPipelineSessionMemoryInfoARM {
     }
 }
 unsafe impl Extendable for BindDataGraphPipelineSessionMemoryInfoARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -60866,6 +61944,7 @@ impl Default for DataGraphPipelineInfoARM {
     }
 }
 unsafe impl Extendable for DataGraphPipelineInfoARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -60918,6 +61997,7 @@ impl Default for DataGraphPipelinePropertyQueryResultARM {
     }
 }
 unsafe impl Extendable for DataGraphPipelinePropertyQueryResultARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -60964,6 +62044,7 @@ impl Default for DataGraphPipelineIdentifierCreateInfoARM {
     }
 }
 unsafe impl Extendable for DataGraphPipelineIdentifierCreateInfoARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -61012,6 +62093,7 @@ impl Default for DataGraphPipelineDispatchInfoARM {
     }
 }
 unsafe impl Extendable for DataGraphPipelineDispatchInfoARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -61111,6 +62193,7 @@ impl Default for QueueFamilyDataGraphPropertiesARM {
     }
 }
 unsafe impl Extendable for QueueFamilyDataGraphPropertiesARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -61157,6 +62240,7 @@ impl Default for DataGraphProcessingEngineCreateInfoARM {
     }
 }
 unsafe impl Extendable for DataGraphProcessingEngineCreateInfoARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -61207,6 +62291,7 @@ impl Default for PhysicalDeviceQueueFamilyDataGraphProcessingEngineInfoARM {
     }
 }
 unsafe impl Extendable for PhysicalDeviceQueueFamilyDataGraphProcessingEngineInfoARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -61253,6 +62338,7 @@ impl Default for QueueFamilyDataGraphProcessingEnginePropertiesARM {
     }
 }
 unsafe impl Extendable for QueueFamilyDataGraphProcessingEnginePropertiesARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -61302,6 +62388,7 @@ impl Default for DataGraphPipelineConstantTensorSemiStructuredSparsityInfoARM {
     }
 }
 unsafe impl Extendable for DataGraphPipelineConstantTensorSemiStructuredSparsityInfoARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -61388,6 +62475,7 @@ impl Default for QueueFamilyDataGraphTOSAPropertiesARM {
     }
 }
 unsafe impl Extendable for QueueFamilyDataGraphTOSAPropertiesARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -61432,6 +62520,7 @@ impl Default for PhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM {
     }
 }
 unsafe impl Extendable for PhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -61484,6 +62573,7 @@ impl Default for MultiviewPerViewRenderAreasRenderPassBeginInfoQCOM {
     }
 }
 unsafe impl Extendable for MultiviewPerViewRenderAreasRenderPassBeginInfoQCOM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -61532,6 +62622,7 @@ impl Default for PhysicalDevicePerStageDescriptorSetFeaturesNV {
     }
 }
 unsafe impl Extendable for PhysicalDevicePerStageDescriptorSetFeaturesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -61578,6 +62669,7 @@ impl Default for PhysicalDeviceImageProcessing2FeaturesQCOM {
     }
 }
 unsafe impl Extendable for PhysicalDeviceImageProcessing2FeaturesQCOM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -61625,6 +62717,7 @@ impl Default for PhysicalDeviceImageProcessing2PropertiesQCOM {
     }
 }
 unsafe impl Extendable for PhysicalDeviceImageProcessing2PropertiesQCOM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -61672,6 +62765,7 @@ impl Default for SamplerBlockMatchWindowCreateInfoQCOM {
     }
 }
 unsafe impl Extendable for SamplerBlockMatchWindowCreateInfoQCOM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -61717,6 +62811,7 @@ impl Default for PhysicalDeviceCubicWeightsFeaturesQCOM {
     }
 }
 unsafe impl Extendable for PhysicalDeviceCubicWeightsFeaturesQCOM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -61763,6 +62858,7 @@ impl Default for SamplerCubicWeightsCreateInfoQCOM {
     }
 }
 unsafe impl Extendable for SamplerCubicWeightsCreateInfoQCOM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -61808,6 +62904,7 @@ impl Default for BlitImageCubicWeightsInfoQCOM {
     }
 }
 unsafe impl Extendable for BlitImageCubicWeightsInfoQCOM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -61853,6 +62950,7 @@ impl Default for PhysicalDeviceYcbcrDegammaFeaturesQCOM {
     }
 }
 unsafe impl Extendable for PhysicalDeviceYcbcrDegammaFeaturesQCOM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -61901,6 +62999,7 @@ impl Default for SamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM {
     }
 }
 unsafe impl Extendable for SamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -61949,6 +63048,7 @@ impl Default for PhysicalDeviceCubicClampFeaturesQCOM {
     }
 }
 unsafe impl Extendable for PhysicalDeviceCubicClampFeaturesQCOM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -61996,6 +63096,7 @@ impl Default for PhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -62052,6 +63153,7 @@ impl Default for ScreenBufferPropertiesQNX {
     }
 }
 unsafe impl Extendable for ScreenBufferPropertiesQNX {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -62112,6 +63214,7 @@ impl Default for ScreenBufferFormatPropertiesQNX {
     }
 }
 unsafe impl Extendable for ScreenBufferFormatPropertiesQNX {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -62157,6 +63260,7 @@ impl Default for ImportScreenBufferInfoQNX {
     }
 }
 unsafe impl Extendable for ImportScreenBufferInfoQNX {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -62202,6 +63306,7 @@ impl Default for ExternalFormatQNX {
     }
 }
 unsafe impl Extendable for ExternalFormatQNX {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -62248,6 +63353,7 @@ impl Default for PhysicalDeviceExternalMemoryScreenBufferFeaturesQNX {
     }
 }
 unsafe impl Extendable for PhysicalDeviceExternalMemoryScreenBufferFeaturesQNX {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -62297,6 +63403,7 @@ impl Default for PhysicalDeviceLayeredDriverPropertiesMSFT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceLayeredDriverPropertiesMSFT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -62342,6 +63449,7 @@ impl Default for PhysicalDeviceDescriptorPoolOverallocationFeaturesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceDescriptorPoolOverallocationFeaturesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -62391,6 +63499,7 @@ impl Default for PhysicalDeviceTileMemoryHeapFeaturesQCOM {
     }
 }
 unsafe impl Extendable for PhysicalDeviceTileMemoryHeapFeaturesQCOM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -62439,6 +63548,7 @@ impl Default for PhysicalDeviceTileMemoryHeapPropertiesQCOM {
     }
 }
 unsafe impl Extendable for PhysicalDeviceTileMemoryHeapPropertiesQCOM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -62486,6 +63596,7 @@ impl Default for TileMemoryRequirementsQCOM {
     }
 }
 unsafe impl Extendable for TileMemoryRequirementsQCOM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -62531,6 +63642,7 @@ impl Default for TileMemoryBindInfoQCOM {
     }
 }
 unsafe impl Extendable for TileMemoryBindInfoQCOM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -62576,6 +63688,7 @@ impl Default for TileMemorySizeInfoQCOM {
     }
 }
 unsafe impl Extendable for TileMemorySizeInfoQCOM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -62656,6 +63769,7 @@ impl Default for DecompressMemoryInfoEXT {
     }
 }
 unsafe impl Extendable for DecompressMemoryInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -62700,6 +63814,7 @@ impl Default for DisplaySurfaceStereoCreateInfoNV {
     }
 }
 unsafe impl Extendable for DisplaySurfaceStereoCreateInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -62745,6 +63860,7 @@ impl Default for DisplayModeStereoPropertiesNV {
     }
 }
 unsafe impl Extendable for DisplayModeStereoPropertiesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -62790,6 +63906,7 @@ impl Default for PhysicalDeviceRawAccessChainsFeaturesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceRawAccessChainsFeaturesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -62836,6 +63953,7 @@ impl Default for ExternalComputeQueueDeviceCreateInfoNV {
     }
 }
 unsafe impl Extendable for ExternalComputeQueueDeviceCreateInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -62868,7 +63986,7 @@ pub struct ExternalComputeQueueCreateInfoNV {
     pub s_type: StructureType,
     /// Optional
     pub p_next: *const c_void,
-    pub preferred_queue: Queue,
+    pub preferred_queue: QueueHandle,
 }
 impl Default for ExternalComputeQueueCreateInfoNV {
     #[inline(always)]
@@ -62881,6 +63999,7 @@ impl Default for ExternalComputeQueueCreateInfoNV {
     }
 }
 unsafe impl Extendable for ExternalComputeQueueCreateInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -62925,6 +64044,7 @@ impl Default for ExternalComputeQueueDataParamsNV {
     }
 }
 unsafe impl Extendable for ExternalComputeQueueDataParamsNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -62971,6 +64091,7 @@ impl Default for PhysicalDeviceExternalComputeQueuePropertiesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceExternalComputeQueuePropertiesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -63016,6 +64137,7 @@ impl Default for PhysicalDeviceCommandBufferInheritanceFeaturesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceCommandBufferInheritanceFeaturesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -63062,6 +64184,7 @@ impl Default for PhysicalDeviceShaderAtomicFloat16VectorFeaturesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderAtomicFloat16VectorFeaturesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -63108,6 +64231,7 @@ impl Default for PhysicalDeviceShaderReplicatedCompositesFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderReplicatedCompositesFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -63157,6 +64281,7 @@ impl Default for TensorRollingBackingCreateInfoARM {
     }
 }
 unsafe impl Extendable for TensorRollingBackingCreateInfoARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -63210,6 +64335,7 @@ impl Default for TensorExplicitTilingFormatPropertiesARM {
     }
 }
 unsafe impl Extendable for TensorExplicitTilingFormatPropertiesARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -63257,6 +64383,7 @@ impl Default for PhysicalDeviceShaderFloat8FeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderFloat8FeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -63303,6 +64430,7 @@ impl Default for PhysicalDeviceRayTracingValidationFeaturesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceRayTracingValidationFeaturesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -63349,6 +64477,7 @@ impl Default for PhysicalDeviceClusterAccelerationStructureFeaturesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceClusterAccelerationStructureFeaturesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -63412,6 +64541,7 @@ impl Default for PhysicalDeviceClusterAccelerationStructurePropertiesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceClusterAccelerationStructurePropertiesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -63462,6 +64592,7 @@ impl Default for ClusterAccelerationStructureClustersBottomLevelInputNV {
     }
 }
 unsafe impl Extendable for ClusterAccelerationStructureClustersBottomLevelInputNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -63520,6 +64651,7 @@ impl Default for ClusterAccelerationStructureTriangleClusterInputNV {
     }
 }
 unsafe impl Extendable for ClusterAccelerationStructureTriangleClusterInputNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -63568,6 +64700,7 @@ impl Default for ClusterAccelerationStructureMoveObjectsInputNV {
     }
 }
 unsafe impl Extendable for ClusterAccelerationStructureMoveObjectsInputNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -63650,6 +64783,7 @@ impl Default for ClusterAccelerationStructureInputInfoNV {
     }
 }
 unsafe impl Extendable for ClusterAccelerationStructureInputInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -63740,6 +64874,7 @@ impl Default for ClusterAccelerationStructureCommandsInfoNV {
     }
 }
 unsafe impl Extendable for ClusterAccelerationStructureCommandsInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -64069,6 +65204,7 @@ impl Default for AccelerationStructureBuildSizesInfoKHR {
     }
 }
 unsafe impl Extendable for AccelerationStructureBuildSizesInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -64114,6 +65250,7 @@ impl Default for RayTracingPipelineClusterAccelerationStructureCreateInfoNV {
     }
 }
 unsafe impl Extendable for RayTracingPipelineClusterAccelerationStructureCreateInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -64162,6 +65299,7 @@ impl Default for PhysicalDevicePartitionedAccelerationStructureFeaturesNV {
     }
 }
 unsafe impl Extendable for PhysicalDevicePartitionedAccelerationStructureFeaturesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -64211,6 +65349,7 @@ impl Default for PhysicalDevicePartitionedAccelerationStructurePropertiesNV {
     }
 }
 unsafe impl Extendable for PhysicalDevicePartitionedAccelerationStructurePropertiesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -64259,6 +65398,7 @@ impl Default for PartitionedAccelerationStructureFlagsNV {
     }
 }
 unsafe impl Extendable for PartitionedAccelerationStructureFlagsNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -64428,6 +65568,7 @@ impl Default for WriteDescriptorSetPartitionedAccelerationStructureNV {
     }
 }
 unsafe impl Extendable for WriteDescriptorSetPartitionedAccelerationStructureNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -64484,6 +65625,7 @@ impl Default for PartitionedAccelerationStructureInstancesInputNV {
     }
 }
 unsafe impl Extendable for PartitionedAccelerationStructureInstancesInputNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -64539,6 +65681,7 @@ impl Default for BuildPartitionedAccelerationStructureInfoNV {
     }
 }
 unsafe impl Extendable for BuildPartitionedAccelerationStructureInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -64585,6 +65728,7 @@ impl Default for PhysicalDeviceDeviceGeneratedCommandsFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceDeviceGeneratedCommandsFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -64653,6 +65797,7 @@ impl Default for PhysicalDeviceDeviceGeneratedCommandsPropertiesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceDeviceGeneratedCommandsPropertiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -64711,6 +65856,7 @@ impl Default for GeneratedCommandsMemoryRequirementsInfoEXT {
     }
 }
 unsafe impl Extendable for GeneratedCommandsMemoryRequirementsInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -64757,6 +65903,7 @@ impl Default for IndirectExecutionSetPipelineInfoEXT {
     }
 }
 unsafe impl Extendable for IndirectExecutionSetPipelineInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -64804,6 +65951,7 @@ impl Default for IndirectExecutionSetShaderLayoutInfoEXT {
     }
 }
 unsafe impl Extendable for IndirectExecutionSetShaderLayoutInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -64860,6 +66008,7 @@ impl Default for IndirectExecutionSetShaderInfoEXT {
     }
 }
 unsafe impl Extendable for IndirectExecutionSetShaderInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -64934,6 +66083,7 @@ impl Default for IndirectExecutionSetCreateInfoEXT {
     }
 }
 unsafe impl Extendable for IndirectExecutionSetCreateInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -65002,6 +66152,7 @@ impl Default for GeneratedCommandsInfoEXT {
     }
 }
 unsafe impl Extendable for GeneratedCommandsInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -65048,6 +66199,7 @@ impl Default for WriteIndirectExecutionSetPipelineEXT {
     }
 }
 unsafe impl Extendable for WriteIndirectExecutionSetPipelineEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -65222,6 +66374,7 @@ impl Default for IndirectCommandsLayoutTokenEXT {
     }
 }
 unsafe impl Extendable for IndirectCommandsLayoutTokenEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -65280,6 +66433,7 @@ impl Default for IndirectCommandsLayoutCreateInfoEXT {
     }
 }
 unsafe impl Extendable for IndirectCommandsLayoutCreateInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -65405,6 +66559,7 @@ impl Default for GeneratedCommandsPipelineInfoEXT {
     }
 }
 unsafe impl Extendable for GeneratedCommandsPipelineInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -65456,6 +66611,7 @@ impl Default for GeneratedCommandsShaderInfoEXT {
     }
 }
 unsafe impl Extendable for GeneratedCommandsShaderInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -65504,6 +66660,7 @@ impl Default for WriteIndirectExecutionSetShaderEXT {
     }
 }
 unsafe impl Extendable for WriteIndirectExecutionSetShaderEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -65548,6 +66705,7 @@ impl Default for PhysicalDeviceImageAlignmentControlFeaturesMESA {
     }
 }
 unsafe impl Extendable for PhysicalDeviceImageAlignmentControlFeaturesMESA {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -65594,6 +66752,7 @@ impl Default for PhysicalDeviceImageAlignmentControlPropertiesMESA {
     }
 }
 unsafe impl Extendable for PhysicalDeviceImageAlignmentControlPropertiesMESA {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -65642,6 +66801,7 @@ impl Default for ImageAlignmentControlCreateInfoMESA {
     }
 }
 unsafe impl Extendable for ImageAlignmentControlCreateInfoMESA {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -65687,6 +66847,7 @@ impl Default for PushConstantBankInfoNV {
     }
 }
 unsafe impl Extendable for PushConstantBankInfoNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -65735,6 +66896,7 @@ impl Default for PhysicalDevicePushConstantBankFeaturesNV {
     }
 }
 unsafe impl Extendable for PhysicalDevicePushConstantBankFeaturesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -65787,6 +66949,7 @@ impl Default for PhysicalDevicePushConstantBankPropertiesNV {
     }
 }
 unsafe impl Extendable for PhysicalDevicePushConstantBankPropertiesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -65834,6 +66997,7 @@ impl Default for PhysicalDeviceRayTracingInvocationReorderPropertiesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceRayTracingInvocationReorderPropertiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -65882,6 +67046,7 @@ impl Default for PhysicalDeviceRayTracingInvocationReorderFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceRayTracingInvocationReorderFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -65931,6 +67096,7 @@ impl Default for PhysicalDeviceDepthClampControlFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceDepthClampControlFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -65980,6 +67146,7 @@ impl Default for PipelineViewportDepthClampControlCreateInfoEXT {
     }
 }
 unsafe impl Extendable for PipelineViewportDepthClampControlCreateInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -66031,6 +67198,7 @@ impl Default for SurfaceCreateInfoOHOS {
     }
 }
 unsafe impl Extendable for SurfaceCreateInfoOHOS {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -66075,6 +67243,7 @@ impl Default for PhysicalDeviceHdrVividFeaturesHUAWEI {
     }
 }
 unsafe impl Extendable for PhysicalDeviceHdrVividFeaturesHUAWEI {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -66123,6 +67292,7 @@ impl Default for HdrVividDynamicMetadataHUAWEI {
     }
 }
 unsafe impl Extendable for HdrVividDynamicMetadataHUAWEI {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -66186,6 +67356,7 @@ impl Default for CooperativeMatrixFlexibleDimensionsPropertiesNV {
     }
 }
 unsafe impl Extendable for CooperativeMatrixFlexibleDimensionsPropertiesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -66242,6 +67413,7 @@ impl Default for PhysicalDeviceCooperativeMatrix2FeaturesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceCooperativeMatrix2FeaturesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -66292,6 +67464,7 @@ impl Default for PhysicalDeviceCooperativeMatrix2PropertiesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceCooperativeMatrix2PropertiesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -66337,6 +67510,7 @@ impl Default for PhysicalDevicePipelineOpacityMicromapFeaturesARM {
     }
 }
 unsafe impl Extendable for PhysicalDevicePipelineOpacityMicromapFeaturesARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -66387,6 +67561,7 @@ impl Default for ImportMemoryMetalHandleInfoEXT {
     }
 }
 unsafe impl Extendable for ImportMemoryMetalHandleInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -66432,6 +67607,7 @@ impl Default for MemoryMetalHandlePropertiesEXT {
     }
 }
 unsafe impl Extendable for MemoryMetalHandlePropertiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -66478,6 +67654,7 @@ impl Default for MemoryGetMetalHandleInfoEXT {
     }
 }
 unsafe impl Extendable for MemoryGetMetalHandleInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -66522,6 +67699,7 @@ impl Default for PhysicalDevicePerformanceCountersByRegionFeaturesARM {
     }
 }
 unsafe impl Extendable for PhysicalDevicePerformanceCountersByRegionFeaturesARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -66579,6 +67757,7 @@ impl Default for PhysicalDevicePerformanceCountersByRegionPropertiesARM {
     }
 }
 unsafe impl Extendable for PhysicalDevicePerformanceCountersByRegionPropertiesARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -66627,6 +67806,7 @@ impl Default for PerformanceCounterARM {
     }
 }
 unsafe impl Extendable for PerformanceCounterARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -66675,6 +67855,7 @@ impl Default for PerformanceCounterDescriptionARM {
     }
 }
 unsafe impl Extendable for PerformanceCounterDescriptionARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -66727,6 +67908,7 @@ impl Default for RenderPassPerformanceCountersByRegionBeginInfoARM {
     }
 }
 unsafe impl Extendable for RenderPassPerformanceCountersByRegionBeginInfoARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -66773,6 +67955,7 @@ impl Default for PhysicalDeviceShaderInstrumentationFeaturesARM {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderInstrumentationFeaturesARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -66821,6 +68004,7 @@ impl Default for PhysicalDeviceShaderInstrumentationPropertiesARM {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderInstrumentationPropertiesARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -66867,6 +68051,7 @@ impl Default for ShaderInstrumentationCreateInfoARM {
     }
 }
 unsafe impl Extendable for ShaderInstrumentationCreateInfoARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -66915,6 +68100,7 @@ impl Default for ShaderInstrumentationMetricDescriptionARM {
     }
 }
 unsafe impl Extendable for ShaderInstrumentationMetricDescriptionARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -66988,6 +68174,7 @@ impl Default for PhysicalDeviceVertexAttributeRobustnessFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceVertexAttributeRobustnessFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -67037,6 +68224,7 @@ impl Default for PhysicalDeviceFormatPackFeaturesARM {
     }
 }
 unsafe impl Extendable for PhysicalDeviceFormatPackFeaturesARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -67083,6 +68271,7 @@ impl Default for PhysicalDeviceFragmentDensityMapLayeredFeaturesVALVE {
     }
 }
 unsafe impl Extendable for PhysicalDeviceFragmentDensityMapLayeredFeaturesVALVE {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -67132,6 +68321,7 @@ impl Default for PhysicalDeviceFragmentDensityMapLayeredPropertiesVALVE {
     }
 }
 unsafe impl Extendable for PhysicalDeviceFragmentDensityMapLayeredPropertiesVALVE {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -67180,6 +68370,7 @@ impl Default for PipelineFragmentDensityMapLayeredCreateInfoVALVE {
     }
 }
 unsafe impl Extendable for PipelineFragmentDensityMapLayeredCreateInfoVALVE {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -67230,6 +68421,7 @@ impl Default for SetPresentConfigNV {
     }
 }
 unsafe impl Extendable for SetPresentConfigNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -67275,6 +68467,7 @@ impl Default for PhysicalDevicePresentMeteringFeaturesNV {
     }
 }
 unsafe impl Extendable for PhysicalDevicePresentMeteringFeaturesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -67321,6 +68514,7 @@ impl Default for PhysicalDeviceMultisampledRenderToSwapchainFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceMultisampledRenderToSwapchainFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -67371,6 +68565,7 @@ impl Default for SwapchainFlagsSurfaceCapabilitiesEXT {
     }
 }
 unsafe impl Extendable for SwapchainFlagsSurfaceCapabilitiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -67416,6 +68611,7 @@ impl Default for PhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -67465,6 +68661,7 @@ impl Default for PhysicalDeviceShader64BitIndexingFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShader64BitIndexingFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -67511,6 +68708,7 @@ impl Default for PhysicalDeviceCustomResolveFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceCustomResolveFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -67555,6 +68753,7 @@ impl Default for BeginCustomResolveInfoEXT {
     }
 }
 unsafe impl Extendable for BeginCustomResolveInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -67608,6 +68807,7 @@ impl Default for CustomResolveCreateInfoEXT {
     }
 }
 unsafe impl Extendable for CustomResolveCreateInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -67686,6 +68886,7 @@ impl Default for DataGraphPipelineBuiltinModelCreateInfoQCOM {
     }
 }
 unsafe impl Extendable for DataGraphPipelineBuiltinModelCreateInfoQCOM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -67734,6 +68935,7 @@ impl Default for PhysicalDeviceDataGraphModelFeaturesQCOM {
     }
 }
 unsafe impl Extendable for PhysicalDeviceDataGraphModelFeaturesQCOM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -67780,6 +68982,7 @@ impl Default for PhysicalDeviceDataGraphOpticalFlowFeaturesARM {
     }
 }
 unsafe impl Extendable for PhysicalDeviceDataGraphOpticalFlowFeaturesARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -67840,6 +69043,7 @@ impl Default for QueueFamilyDataGraphOpticalFlowPropertiesARM {
     }
 }
 unsafe impl Extendable for QueueFamilyDataGraphOpticalFlowPropertiesARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -67903,6 +69107,7 @@ impl Default for DataGraphPipelineOpticalFlowCreateInfoARM {
     }
 }
 unsafe impl Extendable for DataGraphPipelineOpticalFlowCreateInfoARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -67948,6 +69153,7 @@ impl Default for DataGraphOpticalFlowImageFormatPropertiesARM {
     }
 }
 unsafe impl Extendable for DataGraphOpticalFlowImageFormatPropertiesARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -67992,6 +69198,7 @@ impl Default for DataGraphOpticalFlowImageFormatInfoARM {
     }
 }
 unsafe impl Extendable for DataGraphOpticalFlowImageFormatInfoARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -68042,6 +69249,7 @@ impl Default for DataGraphPipelineOpticalFlowDispatchInfoARM {
     }
 }
 unsafe impl Extendable for DataGraphPipelineOpticalFlowDispatchInfoARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -68090,6 +69298,7 @@ impl Default for DataGraphPipelineResourceInfoImageLayoutARM {
     }
 }
 unsafe impl Extendable for DataGraphPipelineResourceInfoImageLayoutARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -68142,6 +69351,7 @@ impl Default for DataGraphPipelineSingleNodeConnectionARM {
     }
 }
 unsafe impl Extendable for DataGraphPipelineSingleNodeConnectionARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -68190,6 +69400,7 @@ impl Default for DataGraphPipelineSingleNodeCreateInfoARM {
     }
 }
 unsafe impl Extendable for DataGraphPipelineSingleNodeCreateInfoARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -68235,6 +69446,7 @@ impl Default for PhysicalDeviceShaderLongVectorFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderLongVectorFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -68281,6 +69493,7 @@ impl Default for PhysicalDeviceShaderLongVectorPropertiesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderLongVectorPropertiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -68326,6 +69539,7 @@ impl Default for PhysicalDevicePipelineCacheIncrementalModeFeaturesSEC {
     }
 }
 unsafe impl Extendable for PhysicalDevicePipelineCacheIncrementalModeFeaturesSEC {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -68375,6 +69589,7 @@ impl Default for PhysicalDeviceShaderUniformBufferUnsizedArrayFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderUniformBufferUnsizedArrayFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -68426,6 +69641,7 @@ impl Default for ComputeOccupancyPriorityParametersNV {
     }
 }
 unsafe impl Extendable for ComputeOccupancyPriorityParametersNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -68470,6 +69686,7 @@ impl Default for PhysicalDeviceComputeOccupancyPriorityFeaturesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceComputeOccupancyPriorityFeaturesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -68528,6 +69745,7 @@ impl Default for CooperativeMatrixProperties2EXT {
     }
 }
 unsafe impl Extendable for CooperativeMatrixProperties2EXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -68581,6 +69799,7 @@ impl Default for PhysicalDeviceCooperativeMatrixInfo2EXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceCooperativeMatrixInfo2EXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -68633,6 +69852,7 @@ impl Default for PhysicalDeviceCooperativeMatrixMaintenance1FeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceCooperativeMatrixMaintenance1FeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -68682,6 +69902,7 @@ impl Default for PhysicalDeviceShaderSubgroupPartitionedFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderSubgroupPartitionedFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -68736,6 +69957,7 @@ impl Default for UbmSurfaceCreateInfoSEC {
     }
 }
 unsafe impl Extendable for UbmSurfaceCreateInfoSEC {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -68786,6 +70008,7 @@ impl Default for PhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -68841,6 +70064,7 @@ impl Default for PhysicalDeviceShaderMixedFloatDotProductFeaturesVALVE {
     }
 }
 unsafe impl Extendable for PhysicalDeviceShaderMixedFloatDotProductFeaturesVALVE {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -68890,6 +70114,7 @@ impl Default for ThrottleHintSubmitInfoSEC {
     }
 }
 unsafe impl Extendable for ThrottleHintSubmitInfoSEC {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -68935,6 +70160,7 @@ impl Default for PhysicalDeviceThrottleHintFeaturesSEC {
     }
 }
 unsafe impl Extendable for PhysicalDeviceThrottleHintFeaturesSEC {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -68982,6 +70208,7 @@ impl Default for PhysicalDeviceDataGraphNeuralAcceleratorStatisticsFeaturesARM {
     }
 }
 unsafe impl Extendable for PhysicalDeviceDataGraphNeuralAcceleratorStatisticsFeaturesARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -69034,6 +70261,7 @@ impl Default for DataGraphPipelineNeuralStatisticsCreateInfoARM {
     }
 }
 unsafe impl Extendable for DataGraphPipelineNeuralStatisticsCreateInfoARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -69082,6 +70310,7 @@ impl Default for DataGraphPipelineSessionNeuralStatisticsCreateInfoARM {
     }
 }
 unsafe impl Extendable for DataGraphPipelineSessionNeuralStatisticsCreateInfoARM {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -69130,6 +70359,7 @@ impl Default for PhysicalDevicePrimitiveRestartIndexFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDevicePrimitiveRestartIndexFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -69176,6 +70406,7 @@ impl Default for PhysicalDeviceImageTilingControlFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceImageTilingControlFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -69222,6 +70453,7 @@ impl Default for ImageTilingControlCreateInfoEXT {
     }
 }
 unsafe impl Extendable for ImageTilingControlCreateInfoEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -69267,6 +70499,7 @@ impl Default for PhysicalDeviceCooperativeMatrixDecodeVectorFeaturesNV {
     }
 }
 unsafe impl Extendable for PhysicalDeviceCooperativeMatrixDecodeVectorFeaturesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -69316,6 +70549,7 @@ impl Default for PhysicalDevicePrivateDataBaseHandleFeaturesNV {
     }
 }
 unsafe impl Extendable for PhysicalDevicePrivateDataBaseHandleFeaturesNV {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -69362,6 +70596,7 @@ impl Default for PhysicalDeviceBufferDeviceAddressAllocationAlignmentFeaturesVAL
     }
 }
 unsafe impl Extendable for PhysicalDeviceBufferDeviceAddressAllocationAlignmentFeaturesVALVE {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -69414,6 +70649,7 @@ impl Default for PhysicalDeviceBufferDeviceAddressAllocationAlignmentPropertiesV
     }
 }
 unsafe impl Extendable for PhysicalDeviceBufferDeviceAddressAllocationAlignmentPropertiesVALVE {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -69462,6 +70698,7 @@ impl Default for BufferDeviceAddressAlignmentAllocateInfoVALVE {
     }
 }
 unsafe impl Extendable for BufferDeviceAddressAlignmentAllocateInfoVALVE {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -69554,6 +70791,7 @@ impl Default for AccelerationStructureGeometryTrianglesDataKHR {
     }
 }
 unsafe impl Extendable for AccelerationStructureGeometryTrianglesDataKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -69600,6 +70838,7 @@ impl Default for AccelerationStructureGeometryAabbsDataKHR {
     }
 }
 unsafe impl Extendable for AccelerationStructureGeometryAabbsDataKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -69646,6 +70885,7 @@ impl Default for AccelerationStructureGeometryInstancesDataKHR {
     }
 }
 unsafe impl Extendable for AccelerationStructureGeometryInstancesDataKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -69729,6 +70969,7 @@ impl Default for AccelerationStructureGeometryKHR {
     }
 }
 unsafe impl Extendable for AccelerationStructureGeometryKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -69795,6 +71036,7 @@ impl Default for AccelerationStructureBuildGeometryInfoKHR {
     }
 }
 unsafe impl Extendable for AccelerationStructureBuildGeometryInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -69854,6 +71096,7 @@ impl Default for AccelerationStructureCreateInfoKHR {
     }
 }
 unsafe impl Extendable for AccelerationStructureCreateInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -69900,6 +71143,7 @@ impl Default for WriteDescriptorSetAccelerationStructureKHR {
     }
 }
 unsafe impl Extendable for WriteDescriptorSetAccelerationStructureKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -69953,6 +71197,7 @@ impl Default for PhysicalDeviceAccelerationStructureFeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceAccelerationStructureFeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -70013,6 +71258,7 @@ impl Default for PhysicalDeviceAccelerationStructurePropertiesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceAccelerationStructurePropertiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -70061,6 +71307,7 @@ impl Default for AccelerationStructureDeviceAddressInfoKHR {
     }
 }
 unsafe impl Extendable for AccelerationStructureDeviceAddressInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -70105,6 +71352,7 @@ impl Default for AccelerationStructureVersionInfoKHR {
     }
 }
 unsafe impl Extendable for AccelerationStructureVersionInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -70153,6 +71401,7 @@ impl Default for CopyAccelerationStructureToMemoryInfoKHR {
     }
 }
 unsafe impl Extendable for CopyAccelerationStructureToMemoryInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -70201,6 +71450,7 @@ impl Default for CopyMemoryToAccelerationStructureInfoKHR {
     }
 }
 unsafe impl Extendable for CopyMemoryToAccelerationStructureInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -70249,6 +71499,7 @@ impl Default for CopyAccelerationStructureInfoKHR {
     }
 }
 unsafe impl Extendable for CopyAccelerationStructureInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -70306,6 +71557,7 @@ impl Default for RayTracingShaderGroupCreateInfoKHR {
     }
 }
 unsafe impl Extendable for RayTracingShaderGroupCreateInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -70352,6 +71604,7 @@ impl Default for RayTracingPipelineInterfaceCreateInfoKHR {
     }
 }
 unsafe impl Extendable for RayTracingPipelineInterfaceCreateInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -70433,6 +71686,7 @@ impl Default for RayTracingPipelineCreateInfoKHR {
     }
 }
 unsafe impl Extendable for RayTracingPipelineCreateInfoKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -70485,6 +71739,7 @@ impl Default for PhysicalDeviceRayTracingPipelineFeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceRayTracingPipelineFeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -70545,6 +71800,7 @@ impl Default for PhysicalDeviceRayTracingPipelinePropertiesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceRayTracingPipelinePropertiesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -70617,6 +71873,7 @@ impl Default for PhysicalDeviceRayQueryFeaturesKHR {
     }
 }
 unsafe impl Extendable for PhysicalDeviceRayQueryFeaturesKHR {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -70671,6 +71928,7 @@ impl Default for PhysicalDeviceMeshShaderFeaturesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceMeshShaderFeaturesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();
@@ -70771,6 +72029,7 @@ impl Default for PhysicalDeviceMeshShaderPropertiesEXT {
     }
 }
 unsafe impl Extendable for PhysicalDeviceMeshShaderPropertiesEXT {
+    #[inline(always)]
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {
         unsafe {
             let base_next: *mut crate::BaseOutStructure = next.cast();

@@ -45,6 +45,12 @@ class RustType:
             # special
             "void": "c_void",
             "VkResult": "ResultCode",
+            "VkInstance": "InstanceHandle",
+            "VkPhysicalDevice": "PhysicalDeviceHandle",
+            "VkDevice": "DeviceHandle",
+            "VkQueue": "QueueHandle",
+            "VkCommandBuffer": "CommandBufferHandle",
+            "VkExternalComputeQueueNV": "ExternalComputeQueueNVHandle",
         }
 
         rust = mapping.get(type)
