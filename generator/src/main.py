@@ -8,7 +8,7 @@ import textcase
 from vulkan_object import get_vulkan_object
 from vulkan_object import vulkan_object as vkobj
 
-from .rust_types import CTypeParser, RustPointer, RustType
+from rust_types import CTypeParser, RustPointer, RustType
 
 MODULE_PREFIX: str = """ // WARNING: AUTO GENERATED MODULE
 #![allow(nonstandard_style)]
@@ -1021,7 +1021,6 @@ class Context:
         print("Done!")
 
 
-def main() -> None:
-    root = Path(sys.argv[1])
-    ctx = Context(root)
-    ctx.generate()
+root = Path(sys.argv[1])
+ctx = Context(root)
+ctx.generate()

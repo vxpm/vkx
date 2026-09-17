@@ -1,0 +1,12547 @@
+ // WARNING: AUTO GENERATED MODULE
+#![allow(nonstandard_style)]
+#![allow(unused_imports)]
+#![allow(unused_variables)]
+
+use std::ffi::{c_void, c_int, c_uint, c_char};
+use crate::loader::*;
+use crate::platform::*;
+/// Enum containing all extensions.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[non_exhaustive]
+pub enum Extensions {
+    #[doc(alias = "VK_KHR_surface")]
+    KHR_Surface,
+    #[doc(alias = "VK_KHR_swapchain")]
+    KHR_Swapchain,
+    #[doc(alias = "VK_KHR_display")]
+    KHR_Display,
+    #[doc(alias = "VK_KHR_display_swapchain")]
+    KHR_DisplaySwapchain,
+    #[doc(alias = "VK_KHR_xlib_surface")]
+    KHR_XlibSurface,
+    #[doc(alias = "VK_KHR_xcb_surface")]
+    KHR_XcbSurface,
+    #[doc(alias = "VK_KHR_wayland_surface")]
+    KHR_WaylandSurface,
+    #[doc(alias = "VK_KHR_android_surface")]
+    KHR_AndroidSurface,
+    #[doc(alias = "VK_KHR_win32_surface")]
+    KHR_Win32Surface,
+    /// Promoted to core in version 1.2.
+    #[doc(alias = "VK_KHR_sampler_mirror_clamp_to_edge")]
+    KHR_SamplerMirrorClampToEdge,
+    #[doc(alias = "VK_KHR_video_queue")]
+    KHR_VideoQueue,
+    #[doc(alias = "VK_KHR_video_decode_queue")]
+    KHR_VideoDecodeQueue,
+    #[doc(alias = "VK_KHR_video_encode_h264")]
+    KHR_VideoEncodeH264,
+    #[doc(alias = "VK_KHR_video_encode_h265")]
+    KHR_VideoEncodeH265,
+    #[doc(alias = "VK_KHR_video_decode_h264")]
+    KHR_VideoDecodeH264,
+    /// Promoted to core in version 1.3.
+    #[doc(alias = "VK_KHR_dynamic_rendering")]
+    KHR_DynamicRendering,
+    /// Promoted to core in version 1.1.
+    #[doc(alias = "VK_KHR_multiview")]
+    KHR_Multiview,
+    /// Promoted to core in version 1.1.
+    #[doc(alias = "VK_KHR_get_physical_device_properties2")]
+    KHR_GetPhysicalDeviceProperties2,
+    /// Promoted to core in version 1.1.
+    #[doc(alias = "VK_KHR_device_group")]
+    KHR_DeviceGroup,
+    /// Promoted to core in version 1.1.
+    #[doc(alias = "VK_KHR_shader_draw_parameters")]
+    KHR_ShaderDrawParameters,
+    /// Promoted to core in version 1.1.
+    #[doc(alias = "VK_KHR_maintenance1")]
+    KHR_Maintenance1,
+    /// Promoted to core in version 1.1.
+    #[doc(alias = "VK_KHR_device_group_creation")]
+    KHR_DeviceGroupCreation,
+    /// Promoted to core in version 1.1.
+    #[doc(alias = "VK_KHR_external_memory_capabilities")]
+    KHR_ExternalMemoryCapabilities,
+    /// Promoted to core in version 1.1.
+    #[doc(alias = "VK_KHR_external_memory")]
+    KHR_ExternalMemory,
+    #[doc(alias = "VK_KHR_external_memory_win32")]
+    KHR_ExternalMemoryWin32,
+    #[doc(alias = "VK_KHR_external_memory_fd")]
+    KHR_ExternalMemoryFd,
+    #[doc(alias = "VK_KHR_win32_keyed_mutex")]
+    KHR_Win32KeyedMutex,
+    /// Promoted to core in version 1.1.
+    #[doc(alias = "VK_KHR_external_semaphore_capabilities")]
+    KHR_ExternalSemaphoreCapabilities,
+    /// Promoted to core in version 1.1.
+    #[doc(alias = "VK_KHR_external_semaphore")]
+    KHR_ExternalSemaphore,
+    #[doc(alias = "VK_KHR_external_semaphore_win32")]
+    KHR_ExternalSemaphoreWin32,
+    #[doc(alias = "VK_KHR_external_semaphore_fd")]
+    KHR_ExternalSemaphoreFd,
+    /// Promoted to core in version 1.4.
+    #[doc(alias = "VK_KHR_push_descriptor")]
+    KHR_PushDescriptor,
+    /// Promoted to core in version 1.2.
+    #[doc(alias = "VK_KHR_shader_float16_int8")]
+    KHR_ShaderFloat16Int8,
+    /// Promoted to core in version 1.1.
+    #[doc(alias = "VK_KHR_16bit_storage")]
+    KHR_16BitStorage,
+    #[doc(alias = "VK_KHR_incremental_present")]
+    KHR_IncrementalPresent,
+    /// Promoted to core in version 1.1.
+    #[doc(alias = "VK_KHR_descriptor_update_template")]
+    KHR_DescriptorUpdateTemplate,
+    /// Promoted to core in version 1.2.
+    #[doc(alias = "VK_KHR_imageless_framebuffer")]
+    KHR_ImagelessFramebuffer,
+    /// Promoted to core in version 1.2.
+    #[doc(alias = "VK_KHR_create_renderpass2")]
+    KHR_CreateRenderpass2,
+    #[doc(alias = "VK_KHR_shared_presentable_image")]
+    KHR_SharedPresentableImage,
+    /// Promoted to core in version 1.1.
+    #[doc(alias = "VK_KHR_external_fence_capabilities")]
+    KHR_ExternalFenceCapabilities,
+    /// Promoted to core in version 1.1.
+    #[doc(alias = "VK_KHR_external_fence")]
+    KHR_ExternalFence,
+    #[doc(alias = "VK_KHR_external_fence_win32")]
+    KHR_ExternalFenceWin32,
+    #[doc(alias = "VK_KHR_external_fence_fd")]
+    KHR_ExternalFenceFd,
+    /// Intended for development tooling.
+    #[doc(alias = "VK_KHR_performance_query")]
+    KHR_PerformanceQuery,
+    /// Promoted to core in version 1.1.
+    #[doc(alias = "VK_KHR_maintenance2")]
+    KHR_Maintenance2,
+    #[doc(alias = "VK_KHR_get_surface_capabilities2")]
+    KHR_GetSurfaceCapabilities2,
+    /// Promoted to core in version 1.1.
+    #[doc(alias = "VK_KHR_variable_pointers")]
+    KHR_VariablePointers,
+    #[doc(alias = "VK_KHR_get_display_properties2")]
+    KHR_GetDisplayProperties2,
+    /// Promoted to core in version 1.1.
+    #[doc(alias = "VK_KHR_dedicated_allocation")]
+    KHR_DedicatedAllocation,
+    /// Promoted to core in version 1.1.
+    #[doc(alias = "VK_KHR_storage_buffer_storage_class")]
+    KHR_StorageBufferStorageClass,
+    #[doc(alias = "VK_KHR_shader_bfloat16")]
+    KHR_ShaderBfloat16,
+    /// Promoted to core in version 1.1.
+    #[doc(alias = "VK_KHR_relaxed_block_layout")]
+    KHR_RelaxedBlockLayout,
+    /// Promoted to core in version 1.1.
+    #[doc(alias = "VK_KHR_get_memory_requirements2")]
+    KHR_GetMemoryRequirements2,
+    /// Promoted to core in version 1.2.
+    #[doc(alias = "VK_KHR_image_format_list")]
+    KHR_ImageFormatList,
+    /// Promoted to core in version 1.1.
+    #[doc(alias = "VK_KHR_sampler_ycbcr_conversion")]
+    KHR_SamplerYcbcrConversion,
+    /// Promoted to core in version 1.1.
+    #[doc(alias = "VK_KHR_bind_memory2")]
+    KHR_BindMemory2,
+    #[doc(alias = "VK_KHR_portability_subset")]
+    KHR_PortabilitySubset,
+    /// Promoted to core in version 1.1.
+    #[doc(alias = "VK_KHR_maintenance3")]
+    KHR_Maintenance3,
+    /// Promoted to core in version 1.2.
+    #[doc(alias = "VK_KHR_draw_indirect_count")]
+    KHR_DrawIndirectCount,
+    /// Promoted to core in version 1.2.
+    #[doc(alias = "VK_KHR_shader_subgroup_extended_types")]
+    KHR_ShaderSubgroupExtendedTypes,
+    /// Promoted to core in version 1.2.
+    #[doc(alias = "VK_KHR_8bit_storage")]
+    KHR_8BitStorage,
+    /// Promoted to core in version 1.2.
+    #[doc(alias = "VK_KHR_shader_atomic_int64")]
+    KHR_ShaderAtomicInt64,
+    #[doc(alias = "VK_KHR_shader_clock")]
+    KHR_ShaderClock,
+    #[doc(alias = "VK_KHR_video_decode_h265")]
+    KHR_VideoDecodeH265,
+    /// Promoted to core in version 1.4.
+    #[doc(alias = "VK_KHR_global_priority")]
+    KHR_GlobalPriority,
+    /// Promoted to core in version 1.2.
+    #[doc(alias = "VK_KHR_driver_properties")]
+    KHR_DriverProperties,
+    /// Promoted to core in version 1.2.
+    #[doc(alias = "VK_KHR_shader_float_controls")]
+    KHR_ShaderFloatControls,
+    /// Promoted to core in version 1.2.
+    #[doc(alias = "VK_KHR_depth_stencil_resolve")]
+    KHR_DepthStencilResolve,
+    #[doc(alias = "VK_KHR_swapchain_mutable_format")]
+    KHR_SwapchainMutableFormat,
+    /// Promoted to core in version 1.2.
+    #[doc(alias = "VK_KHR_timeline_semaphore")]
+    KHR_TimelineSemaphore,
+    /// Promoted to core in version 1.2.
+    #[doc(alias = "VK_KHR_vulkan_memory_model")]
+    KHR_VulkanMemoryModel,
+    /// Promoted to core in version 1.3.
+    #[doc(alias = "VK_KHR_shader_terminate_invocation")]
+    KHR_ShaderTerminateInvocation,
+    #[doc(alias = "VK_KHR_fragment_shading_rate")]
+    KHR_FragmentShadingRate,
+    #[doc(alias = "VK_KHR_shader_constant_data")]
+    KHR_ShaderConstantData,
+    /// Promoted to core in version 1.4.
+    #[doc(alias = "VK_KHR_dynamic_rendering_local_read")]
+    KHR_DynamicRenderingLocalRead,
+    #[doc(alias = "VK_KHR_shader_abort")]
+    KHR_ShaderAbort,
+    #[doc(alias = "VK_KHR_shader_quad_control")]
+    KHR_ShaderQuadControl,
+    /// Promoted to core in version 1.2.
+    #[doc(alias = "VK_KHR_spirv_1_4")]
+    KHR_Spirv14,
+    #[doc(alias = "VK_KHR_surface_protected_capabilities")]
+    KHR_SurfaceProtectedCapabilities,
+    /// Promoted to core in version 1.2.
+    #[doc(alias = "VK_KHR_separate_depth_stencil_layouts")]
+    KHR_SeparateDepthStencilLayouts,
+    #[doc(alias = "VK_KHR_present_wait")]
+    KHR_PresentWait,
+    /// Promoted to core in version 1.2.
+    #[doc(alias = "VK_KHR_uniform_buffer_standard_layout")]
+    KHR_UniformBufferStandardLayout,
+    /// Promoted to core in version 1.2.
+    #[doc(alias = "VK_KHR_buffer_device_address")]
+    KHR_BufferDeviceAddress,
+    #[doc(alias = "VK_KHR_deferred_host_operations")]
+    KHR_DeferredHostOperations,
+    /// Intended for development tooling.
+    #[doc(alias = "VK_KHR_pipeline_executable_properties")]
+    KHR_PipelineExecutableProperties,
+    /// Promoted to core in version 1.4.
+    #[doc(alias = "VK_KHR_map_memory2")]
+    KHR_MapMemory2,
+    /// Promoted to core in version 1.3.
+    #[doc(alias = "VK_KHR_shader_integer_dot_product")]
+    KHR_ShaderIntegerDotProduct,
+    #[doc(alias = "VK_KHR_pipeline_library")]
+    KHR_PipelineLibrary,
+    /// Promoted to core in version 1.3.
+    #[doc(alias = "VK_KHR_shader_non_semantic_info")]
+    KHR_ShaderNonSemanticInfo,
+    #[doc(alias = "VK_KHR_present_id")]
+    KHR_PresentId,
+    #[doc(alias = "VK_KHR_video_encode_queue")]
+    KHR_VideoEncodeQueue,
+    /// Promoted to core in version 1.3.
+    #[doc(alias = "VK_KHR_synchronization2")]
+    KHR_Synchronization2,
+    #[doc(alias = "VK_KHR_device_address_commands")]
+    KHR_DeviceAddressCommands,
+    #[doc(alias = "VK_KHR_fragment_shader_barycentric")]
+    KHR_FragmentShaderBarycentric,
+    #[doc(alias = "VK_KHR_shader_subgroup_uniform_control_flow")]
+    KHR_ShaderSubgroupUniformControlFlow,
+    /// Promoted to core in version 1.3.
+    #[doc(alias = "VK_KHR_zero_initialize_workgroup_memory")]
+    KHR_ZeroInitializeWorkgroupMemory,
+    #[doc(alias = "VK_KHR_workgroup_memory_explicit_layout")]
+    KHR_WorkgroupMemoryExplicitLayout,
+    /// Promoted to core in version 1.3.
+    #[doc(alias = "VK_KHR_copy_commands2")]
+    KHR_CopyCommands2,
+    /// Promoted to core in version 1.3.
+    #[doc(alias = "VK_KHR_format_feature_flags2")]
+    KHR_FormatFeatureFlags2,
+    #[doc(alias = "VK_KHR_ray_tracing_maintenance1")]
+    KHR_RayTracingMaintenance1,
+    #[doc(alias = "VK_KHR_shader_untyped_pointers")]
+    KHR_ShaderUntypedPointers,
+    #[doc(alias = "VK_KHR_portability_enumeration")]
+    KHR_PortabilityEnumeration,
+    /// Promoted to core in version 1.3.
+    #[doc(alias = "VK_KHR_maintenance4")]
+    KHR_Maintenance4,
+    /// Promoted to core in version 1.4.
+    #[doc(alias = "VK_KHR_shader_subgroup_rotate")]
+    KHR_ShaderSubgroupRotate,
+    #[doc(alias = "VK_KHR_shader_maximal_reconvergence")]
+    KHR_ShaderMaximalReconvergence,
+    /// Promoted to core in version 1.4.
+    #[doc(alias = "VK_KHR_maintenance5")]
+    KHR_Maintenance5,
+    #[doc(alias = "VK_KHR_present_id2")]
+    KHR_PresentId2,
+    #[doc(alias = "VK_KHR_present_wait2")]
+    KHR_PresentWait2,
+    #[doc(alias = "VK_KHR_ray_tracing_position_fetch")]
+    KHR_RayTracingPositionFetch,
+    #[doc(alias = "VK_KHR_pipeline_binary")]
+    KHR_PipelineBinary,
+    #[doc(alias = "VK_KHR_surface_maintenance1")]
+    KHR_SurfaceMaintenance1,
+    #[doc(alias = "VK_KHR_swapchain_maintenance1")]
+    KHR_SwapchainMaintenance1,
+    #[doc(alias = "VK_KHR_internally_synchronized_queues")]
+    KHR_InternallySynchronizedQueues,
+    #[doc(alias = "VK_KHR_cooperative_matrix")]
+    KHR_CooperativeMatrix,
+    #[doc(alias = "VK_KHR_compute_shader_derivatives")]
+    KHR_ComputeShaderDerivatives,
+    #[doc(alias = "VK_KHR_video_decode_av1")]
+    KHR_VideoDecodeAv1,
+    #[doc(alias = "VK_KHR_video_encode_av1")]
+    KHR_VideoEncodeAv1,
+    #[doc(alias = "VK_KHR_video_decode_vp9")]
+    KHR_VideoDecodeVp9,
+    #[doc(alias = "VK_KHR_video_maintenance1")]
+    KHR_VideoMaintenance1,
+    /// Promoted to core in version 1.4.
+    #[doc(alias = "VK_KHR_vertex_attribute_divisor")]
+    KHR_VertexAttributeDivisor,
+    /// Promoted to core in version 1.4.
+    #[doc(alias = "VK_KHR_load_store_op_none")]
+    KHR_LoadStoreOpNone,
+    #[doc(alias = "VK_KHR_unified_image_layouts")]
+    KHR_UnifiedImageLayouts,
+    /// Promoted to core in version 1.4.
+    #[doc(alias = "VK_KHR_shader_float_controls2")]
+    KHR_ShaderFloatControls2,
+    /// Promoted to core in version 1.4.
+    #[doc(alias = "VK_KHR_index_type_uint8")]
+    KHR_IndexTypeUint8,
+    /// Promoted to core in version 1.4.
+    #[doc(alias = "VK_KHR_line_rasterization")]
+    KHR_LineRasterization,
+    #[doc(alias = "VK_KHR_calibrated_timestamps")]
+    KHR_CalibratedTimestamps,
+    /// Promoted to core in version 1.4.
+    #[doc(alias = "VK_KHR_shader_expect_assume")]
+    KHR_ShaderExpectAssume,
+    /// Promoted to core in version 1.4.
+    #[doc(alias = "VK_KHR_maintenance6")]
+    KHR_Maintenance6,
+    #[doc(alias = "VK_KHR_copy_memory_indirect")]
+    KHR_CopyMemoryIndirect,
+    #[doc(alias = "VK_KHR_video_encode_intra_refresh")]
+    KHR_VideoEncodeIntraRefresh,
+    #[doc(alias = "VK_KHR_video_encode_quantization_map")]
+    KHR_VideoEncodeQuantizationMap,
+    #[doc(alias = "VK_KHR_shader_relaxed_extended_instruction")]
+    KHR_ShaderRelaxedExtendedInstruction,
+    #[doc(alias = "VK_KHR_maintenance7")]
+    KHR_Maintenance7,
+    #[doc(alias = "VK_KHR_device_fault")]
+    KHR_DeviceFault,
+    #[doc(alias = "VK_KHR_maintenance8")]
+    KHR_Maintenance8,
+    #[doc(alias = "VK_KHR_shader_fma")]
+    KHR_ShaderFma,
+    #[doc(alias = "VK_KHR_maintenance9")]
+    KHR_Maintenance9,
+    #[doc(alias = "VK_KHR_video_maintenance2")]
+    KHR_VideoMaintenance2,
+    #[doc(alias = "VK_KHR_video_encode_feedback2")]
+    KHR_VideoEncodeFeedback2,
+    #[doc(alias = "VK_KHR_depth_clamp_zero_one")]
+    KHR_DepthClampZeroOne,
+    #[doc(alias = "VK_KHR_robustness2")]
+    KHR_Robustness2,
+    #[doc(alias = "VK_KHR_present_mode_fifo_latest_ready")]
+    KHR_PresentModeFifoLatestReady,
+    #[doc(alias = "VK_KHR_opacity_micromap")]
+    KHR_OpacityMicromap,
+    #[doc(alias = "VK_KHR_maintenance10")]
+    KHR_Maintenance10,
+    #[doc(alias = "VK_KHR_pipeline_library_group_handles")]
+    KHR_PipelineLibraryGroupHandles,
+    #[doc(alias = "VK_KHR_maintenance11")]
+    KHR_Maintenance11,
+    #[doc(alias = "VK_KHR_extended_flags")]
+    KHR_ExtendedFlags,
+    /// Deprecated by [`Self::EXT_DebugUtils`].
+    /// Intended for debugging.
+    #[doc(alias = "VK_EXT_debug_report")]
+    EXT_DebugReport,
+    #[doc(alias = "VK_NV_glsl_shader")]
+    NV_GlslShader,
+    #[doc(alias = "VK_EXT_depth_range_unrestricted")]
+    EXT_DepthRangeUnrestricted,
+    #[doc(alias = "VK_IMG_filter_cubic")]
+    IMG_FilterCubic,
+    #[doc(alias = "VK_AMD_rasterization_order")]
+    AMD_RasterizationOrder,
+    #[doc(alias = "VK_AMD_shader_trinary_minmax")]
+    AMD_ShaderTrinaryMinmax,
+    #[doc(alias = "VK_AMD_shader_explicit_vertex_parameter")]
+    AMD_ShaderExplicitVertexParameter,
+    /// Promoted to [`Self::EXT_DebugUtils`].
+    /// Intended for debugging.
+    #[doc(alias = "VK_EXT_debug_marker")]
+    EXT_DebugMarker,
+    #[doc(alias = "VK_AMD_gcn_shader")]
+    AMD_GcnShader,
+    /// Deprecated by [`Self::KHR_DedicatedAllocation`].
+    #[doc(alias = "VK_NV_dedicated_allocation")]
+    NV_DedicatedAllocation,
+    /// Intended for OpenGL emulation, Direct3D emulation, development tooling.
+    #[doc(alias = "VK_EXT_transform_feedback")]
+    EXT_TransformFeedback,
+    #[doc(alias = "VK_NVX_binary_import")]
+    NVX_BinaryImport,
+    #[doc(alias = "VK_NVX_image_view_handle")]
+    NVX_ImageViewHandle,
+    /// Promoted to [`Self::KHR_DrawIndirectCount`].
+    #[doc(alias = "VK_AMD_draw_indirect_count")]
+    AMD_DrawIndirectCount,
+    #[doc(alias = "VK_AMD_negative_viewport_height")]
+    AMD_NegativeViewportHeight,
+    /// Deprecated by [`Self::KHR_ShaderFloat16Int8`].
+    #[doc(alias = "VK_AMD_gpu_shader_half_float")]
+    AMD_GpuShaderHalfFloat,
+    #[doc(alias = "VK_AMD_shader_ballot")]
+    AMD_ShaderBallot,
+    #[doc(alias = "VK_AMD_texture_gather_bias_lod")]
+    AMD_TextureGatherBiasLod,
+    /// Intended for development tooling.
+    #[doc(alias = "VK_AMD_shader_info")]
+    AMD_ShaderInfo,
+    #[doc(alias = "VK_AMD_shader_image_load_store_lod")]
+    AMD_ShaderImageLoadStoreLod,
+    #[doc(alias = "VK_GGP_stream_descriptor_surface")]
+    GGP_StreamDescriptorSurface,
+    #[doc(alias = "VK_NV_corner_sampled_image")]
+    NV_CornerSampledImage,
+    #[doc(alias = "VK_IMG_format_pvrtc")]
+    IMG_FormatPvrtc,
+    /// Deprecated by [`Self::KHR_ExternalMemoryCapabilities`].
+    #[doc(alias = "VK_NV_external_memory_capabilities")]
+    NV_ExternalMemoryCapabilities,
+    /// Deprecated by [`Self::KHR_ExternalMemory`].
+    #[doc(alias = "VK_NV_external_memory")]
+    NV_ExternalMemory,
+    /// Deprecated by [`Self::KHR_ExternalMemoryWin32`].
+    #[doc(alias = "VK_NV_external_memory_win32")]
+    NV_ExternalMemoryWin32,
+    /// Promoted to [`Self::KHR_Win32KeyedMutex`].
+    #[doc(alias = "VK_NV_win32_keyed_mutex")]
+    NV_Win32KeyedMutex,
+    /// Deprecated by [`Self::EXT_LayerSettings`].
+    /// Intended for debugging.
+    #[doc(alias = "VK_EXT_validation_flags")]
+    EXT_ValidationFlags,
+    #[doc(alias = "VK_NN_vi_surface")]
+    NN_ViSurface,
+    /// Deprecated by 1.2.
+    #[doc(alias = "VK_EXT_shader_subgroup_ballot")]
+    EXT_ShaderSubgroupBallot,
+    /// Deprecated by 1.1.
+    #[doc(alias = "VK_EXT_shader_subgroup_vote")]
+    EXT_ShaderSubgroupVote,
+    /// Promoted to core in version 1.3.
+    #[doc(alias = "VK_EXT_texture_compression_astc_hdr")]
+    EXT_TextureCompressionAstcHdr,
+    #[doc(alias = "VK_EXT_astc_decode_mode")]
+    EXT_AstcDecodeMode,
+    /// Promoted to core in version 1.4.
+    #[doc(alias = "VK_EXT_pipeline_robustness")]
+    EXT_PipelineRobustness,
+    #[doc(alias = "VK_EXT_conditional_rendering")]
+    EXT_ConditionalRendering,
+    #[doc(alias = "VK_NV_clip_space_w_scaling")]
+    NV_ClipSpaceWScaling,
+    #[doc(alias = "VK_EXT_direct_mode_display")]
+    EXT_DirectModeDisplay,
+    #[doc(alias = "VK_EXT_acquire_xlib_display")]
+    EXT_AcquireXlibDisplay,
+    #[doc(alias = "VK_EXT_display_surface_counter")]
+    EXT_DisplaySurfaceCounter,
+    #[doc(alias = "VK_EXT_display_control")]
+    EXT_DisplayControl,
+    #[doc(alias = "VK_GOOGLE_display_timing")]
+    GOOGLE_DisplayTiming,
+    #[doc(alias = "VK_NV_sample_mask_override_coverage")]
+    NV_SampleMaskOverrideCoverage,
+    #[doc(alias = "VK_NV_geometry_shader_passthrough")]
+    NV_GeometryShaderPassthrough,
+    #[doc(alias = "VK_NV_viewport_array2")]
+    NV_ViewportArray2,
+    #[doc(alias = "VK_NVX_multiview_per_view_attributes")]
+    NVX_MultiviewPerViewAttributes,
+    #[doc(alias = "VK_NV_viewport_swizzle")]
+    NV_ViewportSwizzle,
+    #[doc(alias = "VK_EXT_discard_rectangles")]
+    EXT_DiscardRectangles,
+    #[doc(alias = "VK_EXT_conservative_rasterization")]
+    EXT_ConservativeRasterization,
+    /// Intended for Direct3D emulation.
+    #[doc(alias = "VK_EXT_depth_clip_enable")]
+    EXT_DepthClipEnable,
+    #[doc(alias = "VK_EXT_swapchain_colorspace")]
+    EXT_SwapchainColorspace,
+    #[doc(alias = "VK_EXT_hdr_metadata")]
+    EXT_HdrMetadata,
+    /// Intended for OpenGL emulation.
+    #[doc(alias = "VK_IMG_relaxed_line_rasterization")]
+    IMG_RelaxedLineRasterization,
+    /// Deprecated by [`Self::EXT_MetalSurface`].
+    #[doc(alias = "VK_MVK_ios_surface")]
+    MVK_IosSurface,
+    /// Deprecated by [`Self::EXT_MetalSurface`].
+    #[doc(alias = "VK_MVK_macos_surface")]
+    MVK_MacosSurface,
+    #[doc(alias = "VK_EXT_external_memory_dma_buf")]
+    EXT_ExternalMemoryDmaBuf,
+    #[doc(alias = "VK_EXT_queue_family_foreign")]
+    EXT_QueueFamilyForeign,
+    /// Intended for debugging.
+    #[doc(alias = "VK_EXT_debug_utils")]
+    EXT_DebugUtils,
+    #[doc(alias = "VK_ANDROID_external_memory_android_hardware_buffer")]
+    ANDROID_ExternalMemoryAndroidHardwareBuffer,
+    /// Promoted to core in version 1.2.
+    #[doc(alias = "VK_EXT_sampler_filter_minmax")]
+    EXT_SamplerFilterMinmax,
+    /// Deprecated by [`Self::KHR_ShaderFloat16Int8`].
+    #[doc(alias = "VK_AMD_gpu_shader_int16")]
+    AMD_GpuShaderInt16,
+    #[doc(alias = "VK_AMD_gpa_interface")]
+    AMD_GpaInterface,
+    #[doc(alias = "VK_AMDX_shader_enqueue")]
+    AMDX_ShaderEnqueue,
+    #[doc(alias = "VK_EXT_descriptor_heap")]
+    EXT_DescriptorHeap,
+    #[doc(alias = "VK_AMD_mixed_attachment_samples")]
+    AMD_MixedAttachmentSamples,
+    #[doc(alias = "VK_AMD_shader_fragment_mask")]
+    AMD_ShaderFragmentMask,
+    /// Promoted to core in version 1.3.
+    #[doc(alias = "VK_EXT_inline_uniform_block")]
+    EXT_InlineUniformBlock,
+    #[doc(alias = "VK_EXT_shader_stencil_export")]
+    EXT_ShaderStencilExport,
+    #[doc(alias = "VK_EXT_sample_locations")]
+    EXT_SampleLocations,
+    #[doc(alias = "VK_EXT_blend_operation_advanced")]
+    EXT_BlendOperationAdvanced,
+    #[doc(alias = "VK_NV_fragment_coverage_to_color")]
+    NV_FragmentCoverageToColor,
+    #[doc(alias = "VK_NV_framebuffer_mixed_samples")]
+    NV_FramebufferMixedSamples,
+    #[doc(alias = "VK_NV_fill_rectangle")]
+    NV_FillRectangle,
+    #[doc(alias = "VK_NV_shader_sm_builtins")]
+    NV_ShaderSmBuiltins,
+    #[doc(alias = "VK_EXT_post_depth_coverage")]
+    EXT_PostDepthCoverage,
+    #[doc(alias = "VK_EXT_image_drm_format_modifier")]
+    EXT_ImageDrmFormatModifier,
+    #[doc(alias = "VK_EXT_validation_cache")]
+    EXT_ValidationCache,
+    /// Promoted to core in version 1.2.
+    #[doc(alias = "VK_EXT_descriptor_indexing")]
+    EXT_DescriptorIndexing,
+    /// Promoted to core in version 1.2.
+    #[doc(alias = "VK_EXT_shader_viewport_index_layer")]
+    EXT_ShaderViewportIndexLayer,
+    #[doc(alias = "VK_NV_shading_rate_image")]
+    NV_ShadingRateImage,
+    /// Deprecated by [`Self::KHR_RayTracingPipeline`].
+    #[doc(alias = "VK_NV_ray_tracing")]
+    NV_RayTracing,
+    #[doc(alias = "VK_NV_representative_fragment_test")]
+    NV_RepresentativeFragmentTest,
+    #[doc(alias = "VK_EXT_filter_cubic")]
+    EXT_FilterCubic,
+    /// Promoted to [`Self::EXT_CustomResolve`].
+    #[doc(alias = "VK_QCOM_render_pass_shader_resolve")]
+    QCOM_RenderPassShaderResolve,
+    #[doc(alias = "VK_QCOM_cooperative_matrix_conversion")]
+    QCOM_CooperativeMatrixConversion,
+    #[doc(alias = "VK_QCOM_elapsed_timer_query")]
+    QCOM_ElapsedTimerQuery,
+    /// Promoted to [`Self::KHR_GlobalPriority`].
+    #[doc(alias = "VK_EXT_global_priority")]
+    EXT_GlobalPriority,
+    #[doc(alias = "VK_EXT_external_memory_host")]
+    EXT_ExternalMemoryHost,
+    /// Intended for development tooling.
+    #[doc(alias = "VK_AMD_buffer_marker")]
+    AMD_BufferMarker,
+    #[doc(alias = "VK_AMD_pipeline_compiler_control")]
+    AMD_PipelineCompilerControl,
+    /// Promoted to [`Self::KHR_CalibratedTimestamps`].
+    #[doc(alias = "VK_EXT_calibrated_timestamps")]
+    EXT_CalibratedTimestamps,
+    #[doc(alias = "VK_AMD_shader_core_properties")]
+    AMD_ShaderCoreProperties,
+    #[doc(alias = "VK_AMD_memory_overallocation_behavior")]
+    AMD_MemoryOverallocationBehavior,
+    /// Promoted to [`Self::KHR_VertexAttributeDivisor`].
+    #[doc(alias = "VK_EXT_vertex_attribute_divisor")]
+    EXT_VertexAttributeDivisor,
+    #[doc(alias = "VK_GGP_frame_token")]
+    GGP_FrameToken,
+    /// Promoted to core in version 1.3.
+    /// Intended for development tooling.
+    #[doc(alias = "VK_EXT_pipeline_creation_feedback")]
+    EXT_PipelineCreationFeedback,
+    /// Promoted to [`Self::EXT_ShaderSubgroupPartitioned`].
+    #[doc(alias = "VK_NV_shader_subgroup_partitioned")]
+    NV_ShaderSubgroupPartitioned,
+    /// Promoted to [`Self::KHR_ComputeShaderDerivatives`].
+    #[doc(alias = "VK_NV_compute_shader_derivatives")]
+    NV_ComputeShaderDerivatives,
+    #[doc(alias = "VK_NV_mesh_shader")]
+    NV_MeshShader,
+    /// Promoted to [`Self::KHR_FragmentShaderBarycentric`].
+    #[doc(alias = "VK_NV_fragment_shader_barycentric")]
+    NV_FragmentShaderBarycentric,
+    #[doc(alias = "VK_NV_shader_image_footprint")]
+    NV_ShaderImageFootprint,
+    #[doc(alias = "VK_NV_scissor_exclusive")]
+    NV_ScissorExclusive,
+    #[doc(alias = "VK_NV_device_diagnostic_checkpoints")]
+    NV_DeviceDiagnosticCheckpoints,
+    #[doc(alias = "VK_EXT_present_timing")]
+    EXT_PresentTiming,
+    #[doc(alias = "VK_INTEL_shader_integer_functions2")]
+    INTEL_ShaderIntegerFunctions2,
+    /// Intended for development tooling.
+    #[doc(alias = "VK_INTEL_performance_query")]
+    INTEL_PerformanceQuery,
+    #[doc(alias = "VK_EXT_pci_bus_info")]
+    EXT_PciBusInfo,
+    #[doc(alias = "VK_AMD_display_native_hdr")]
+    AMD_DisplayNativeHdr,
+    #[doc(alias = "VK_FUCHSIA_imagepipe_surface")]
+    FUCHSIA_ImagepipeSurface,
+    #[doc(alias = "VK_EXT_metal_surface")]
+    EXT_MetalSurface,
+    #[doc(alias = "VK_EXT_fragment_density_map")]
+    EXT_FragmentDensityMap,
+    /// Promoted to core in version 1.2.
+    #[doc(alias = "VK_EXT_scalar_block_layout")]
+    EXT_ScalarBlockLayout,
+    #[doc(alias = "VK_GOOGLE_hlsl_functionality1")]
+    GOOGLE_HlslFunctionality1,
+    #[doc(alias = "VK_GOOGLE_decorate_string")]
+    GOOGLE_DecorateString,
+    /// Promoted to core in version 1.3.
+    #[doc(alias = "VK_EXT_subgroup_size_control")]
+    EXT_SubgroupSizeControl,
+    #[doc(alias = "VK_AMD_shader_core_properties2")]
+    AMD_ShaderCoreProperties2,
+    #[doc(alias = "VK_AMD_device_coherent_memory")]
+    AMD_DeviceCoherentMemory,
+    #[doc(alias = "VK_EXT_shader_image_atomic_int64")]
+    EXT_ShaderImageAtomicInt64,
+    #[doc(alias = "VK_EXT_memory_budget")]
+    EXT_MemoryBudget,
+    #[doc(alias = "VK_EXT_memory_priority")]
+    EXT_MemoryPriority,
+    #[doc(alias = "VK_NV_dedicated_allocation_image_aliasing")]
+    NV_DedicatedAllocationImageAliasing,
+    /// Deprecated by [`Self::KHR_BufferDeviceAddress`].
+    #[doc(alias = "VK_EXT_buffer_device_address")]
+    EXT_BufferDeviceAddress,
+    /// Promoted to core in version 1.3.
+    #[doc(alias = "VK_EXT_tooling_info")]
+    EXT_ToolingInfo,
+    /// Promoted to core in version 1.2.
+    #[doc(alias = "VK_EXT_separate_stencil_usage")]
+    EXT_SeparateStencilUsage,
+    /// Deprecated by [`Self::EXT_LayerSettings`].
+    /// Intended for debugging.
+    #[doc(alias = "VK_EXT_validation_features")]
+    EXT_ValidationFeatures,
+    #[doc(alias = "VK_NV_cooperative_matrix")]
+    NV_CooperativeMatrix,
+    #[doc(alias = "VK_NV_coverage_reduction_mode")]
+    NV_CoverageReductionMode,
+    #[doc(alias = "VK_EXT_fragment_shader_interlock")]
+    EXT_FragmentShaderInterlock,
+    #[doc(alias = "VK_EXT_ycbcr_image_arrays")]
+    EXT_YcbcrImageArrays,
+    /// Intended for OpenGL emulation.
+    #[doc(alias = "VK_EXT_provoking_vertex")]
+    EXT_ProvokingVertex,
+    #[doc(alias = "VK_EXT_full_screen_exclusive")]
+    EXT_FullScreenExclusive,
+    #[doc(alias = "VK_EXT_headless_surface")]
+    EXT_HeadlessSurface,
+    /// Promoted to [`Self::KHR_LineRasterization`].
+    /// Intended for cadsupport.
+    #[doc(alias = "VK_EXT_line_rasterization")]
+    EXT_LineRasterization,
+    #[doc(alias = "VK_EXT_shader_atomic_float")]
+    EXT_ShaderAtomicFloat,
+    /// Promoted to core in version 1.2.
+    #[doc(alias = "VK_EXT_host_query_reset")]
+    EXT_HostQueryReset,
+    /// Promoted to [`Self::KHR_IndexTypeUint8`].
+    #[doc(alias = "VK_EXT_index_type_uint8")]
+    EXT_IndexTypeUint8,
+    /// Promoted to core in version 1.3.
+    #[doc(alias = "VK_EXT_extended_dynamic_state")]
+    EXT_ExtendedDynamicState,
+    /// Promoted to core in version 1.4.
+    #[doc(alias = "VK_EXT_host_image_copy")]
+    EXT_HostImageCopy,
+    #[doc(alias = "VK_EXT_map_memory_placed")]
+    EXT_MapMemoryPlaced,
+    #[doc(alias = "VK_EXT_shader_atomic_float2")]
+    EXT_ShaderAtomicFloat2,
+    /// Promoted to [`Self::KHR_SurfaceMaintenance1`].
+    #[doc(alias = "VK_EXT_surface_maintenance1")]
+    EXT_SurfaceMaintenance1,
+    /// Promoted to [`Self::KHR_SwapchainMaintenance1`].
+    #[doc(alias = "VK_EXT_swapchain_maintenance1")]
+    EXT_SwapchainMaintenance1,
+    /// Promoted to core in version 1.3.
+    #[doc(alias = "VK_EXT_shader_demote_to_helper_invocation")]
+    EXT_ShaderDemoteToHelperInvocation,
+    #[doc(alias = "VK_NV_device_generated_commands")]
+    NV_DeviceGeneratedCommands,
+    #[doc(alias = "VK_NV_inherited_viewport_scissor")]
+    NV_InheritedViewportScissor,
+    /// Promoted to core in version 1.3.
+    #[doc(alias = "VK_EXT_texel_buffer_alignment")]
+    EXT_TexelBufferAlignment,
+    #[doc(alias = "VK_QCOM_render_pass_transform")]
+    QCOM_RenderPassTransform,
+    /// Intended for Direct3D emulation.
+    #[doc(alias = "VK_EXT_depth_bias_control")]
+    EXT_DepthBiasControl,
+    /// Intended for development tooling.
+    #[doc(alias = "VK_EXT_device_memory_report")]
+    EXT_DeviceMemoryReport,
+    #[doc(alias = "VK_EXT_acquire_drm_display")]
+    EXT_AcquireDrmDisplay,
+    /// Promoted to [`Self::KHR_Robustness2`].
+    #[doc(alias = "VK_EXT_robustness2")]
+    EXT_Robustness2,
+    /// Intended for OpenGL emulation, Direct3D emulation.
+    #[doc(alias = "VK_EXT_custom_border_color")]
+    EXT_CustomBorderColor,
+    #[doc(alias = "VK_EXT_texture_compression_astc_3d")]
+    EXT_TextureCompressionAstc3D,
+    #[doc(alias = "VK_GOOGLE_user_type")]
+    GOOGLE_UserType,
+    #[doc(alias = "VK_NV_present_barrier")]
+    NV_PresentBarrier,
+    /// Promoted to core in version 1.3.
+    #[doc(alias = "VK_EXT_private_data")]
+    EXT_PrivateData,
+    /// Promoted to core in version 1.3.
+    #[doc(alias = "VK_EXT_pipeline_creation_cache_control")]
+    EXT_PipelineCreationCacheControl,
+    #[doc(alias = "VK_NV_device_diagnostics_config")]
+    NV_DeviceDiagnosticsConfig,
+    #[doc(alias = "VK_QCOM_render_pass_store_ops")]
+    QCOM_RenderPassStoreOps,
+    #[doc(alias = "VK_QCOM_queue_perf_hint")]
+    QCOM_QueuePerfHint,
+    #[doc(alias = "VK_QCOM_image_processing3")]
+    QCOM_ImageProcessing3,
+    #[doc(alias = "VK_QCOM_shader_multiple_wait_queues")]
+    QCOM_ShaderMultipleWaitQueues,
+    #[doc(alias = "VK_EXT_shader_split_barrier")]
+    EXT_ShaderSplitBarrier,
+    #[doc(alias = "VK_NV_cuda_kernel_launch")]
+    NV_CudaKernelLaunch,
+    #[doc(alias = "VK_QCOM_tile_shading")]
+    QCOM_TileShading,
+    /// Deprecated by [`Self::NV_LowLatency2`].
+    #[doc(alias = "VK_NV_low_latency")]
+    NV_LowLatency,
+    #[doc(alias = "VK_EXT_metal_objects")]
+    EXT_MetalObjects,
+    /// Deprecated by [`Self::EXT_DescriptorHeap`].
+    #[doc(alias = "VK_EXT_descriptor_buffer")]
+    EXT_DescriptorBuffer,
+    #[doc(alias = "VK_EXT_graphics_pipeline_library")]
+    EXT_GraphicsPipelineLibrary,
+    #[doc(alias = "VK_AMD_shader_early_and_late_fragment_tests")]
+    AMD_ShaderEarlyAndLateFragmentTests,
+    #[doc(alias = "VK_NV_fragment_shading_rate_enums")]
+    NV_FragmentShadingRateEnums,
+    #[doc(alias = "VK_NV_ray_tracing_motion_blur")]
+    NV_RayTracingMotionBlur,
+    /// Promoted to core in version 1.3.
+    #[doc(alias = "VK_EXT_ycbcr_2plane_444_formats")]
+    EXT_Ycbcr2Plane444Formats,
+    #[doc(alias = "VK_EXT_fragment_density_map2")]
+    EXT_FragmentDensityMap2,
+    #[doc(alias = "VK_QCOM_rotated_copy_commands")]
+    QCOM_RotatedCopyCommands,
+    /// Promoted to core in version 1.3.
+    #[doc(alias = "VK_EXT_image_robustness")]
+    EXT_ImageRobustness,
+    #[doc(alias = "VK_EXT_image_compression_control")]
+    EXT_ImageCompressionControl,
+    /// Intended for OpenGL emulation, Direct3D emulation.
+    #[doc(alias = "VK_EXT_attachment_feedback_loop_layout")]
+    EXT_AttachmentFeedbackLoopLayout,
+    /// Promoted to core in version 1.3.
+    #[doc(alias = "VK_EXT_4444_formats")]
+    EXT_4444Formats,
+    /// Promoted to [`Self::KHR_DeviceFault`].
+    #[doc(alias = "VK_EXT_device_fault")]
+    EXT_DeviceFault,
+    /// Promoted to [`Self::EXT_RasterizationOrderAttachmentAccess`].
+    #[doc(alias = "VK_ARM_rasterization_order_attachment_access")]
+    ARM_RasterizationOrderAttachmentAccess,
+    #[doc(alias = "VK_EXT_rgba10x6_formats")]
+    EXT_Rgba10X6Formats,
+    #[doc(alias = "VK_NV_acquire_winrt_display")]
+    NV_AcquireWinrtDisplay,
+    #[doc(alias = "VK_EXT_directfb_surface")]
+    EXT_DirectfbSurface,
+    /// Promoted to [`Self::EXT_MutableDescriptorType`].
+    /// Intended for Direct3D emulation.
+    #[doc(alias = "VK_VALVE_mutable_descriptor_type")]
+    VALVE_MutableDescriptorType,
+    #[doc(alias = "VK_EXT_vertex_input_dynamic_state")]
+    EXT_VertexInputDynamicState,
+    #[doc(alias = "VK_EXT_physical_device_drm")]
+    EXT_PhysicalDeviceDrm,
+    /// Intended for debugging, development tooling.
+    #[doc(alias = "VK_EXT_device_address_binding_report")]
+    EXT_DeviceAddressBindingReport,
+    /// Intended for OpenGL emulation.
+    #[doc(alias = "VK_EXT_depth_clip_control")]
+    EXT_DepthClipControl,
+    /// Intended for OpenGL emulation.
+    #[doc(alias = "VK_EXT_primitive_topology_list_restart")]
+    EXT_PrimitiveTopologyListRestart,
+    /// Promoted to [`Self::KHR_PresentModeFifoLatestReady`].
+    #[doc(alias = "VK_EXT_present_mode_fifo_latest_ready")]
+    EXT_PresentModeFifoLatestReady,
+    #[doc(alias = "VK_FUCHSIA_external_memory")]
+    FUCHSIA_ExternalMemory,
+    #[doc(alias = "VK_FUCHSIA_external_semaphore")]
+    FUCHSIA_ExternalSemaphore,
+    #[doc(alias = "VK_FUCHSIA_buffer_collection")]
+    FUCHSIA_BufferCollection,
+    #[doc(alias = "VK_HUAWEI_subpass_shading")]
+    HUAWEI_SubpassShading,
+    #[doc(alias = "VK_HUAWEI_invocation_mask")]
+    HUAWEI_InvocationMask,
+    #[doc(alias = "VK_NV_external_memory_rdma")]
+    NV_ExternalMemoryRdma,
+    #[doc(alias = "VK_EXT_pipeline_properties")]
+    EXT_PipelineProperties,
+    #[doc(alias = "VK_EXT_frame_boundary")]
+    EXT_FrameBoundary,
+    #[doc(alias = "VK_EXT_multisampled_render_to_single_sampled")]
+    EXT_MultisampledRenderToSingleSampled,
+    /// Promoted to core in version 1.3.
+    #[doc(alias = "VK_EXT_extended_dynamic_state2")]
+    EXT_ExtendedDynamicState2,
+    #[doc(alias = "VK_QNX_screen_surface")]
+    QNX_ScreenSurface,
+    #[doc(alias = "VK_EXT_color_write_enable")]
+    EXT_ColorWriteEnable,
+    /// Intended for OpenGL emulation.
+    #[doc(alias = "VK_EXT_primitives_generated_query")]
+    EXT_PrimitivesGeneratedQuery,
+    /// Promoted to [`Self::KHR_GlobalPriority`].
+    #[doc(alias = "VK_EXT_global_priority_query")]
+    EXT_GlobalPriorityQuery,
+    #[doc(alias = "VK_VALVE_video_encode_rgb_conversion")]
+    VALVE_VideoEncodeRgbConversion,
+    #[doc(alias = "VK_EXT_image_view_min_lod")]
+    EXT_ImageViewMinLod,
+    #[doc(alias = "VK_EXT_multi_draw")]
+    EXT_MultiDraw,
+    /// Intended for OpenGL emulation.
+    #[doc(alias = "VK_EXT_image_2d_view_of_3d")]
+    EXT_Image2DViewOf3D,
+    #[doc(alias = "VK_EXT_shader_tile_image")]
+    EXT_ShaderTileImage,
+    /// Promoted to [`Self::KHR_OpacityMicromap`].
+    #[doc(alias = "VK_EXT_opacity_micromap")]
+    EXT_OpacityMicromap,
+    /// Deprecated by [`Self::NV_ClusterAccelerationStructure`].
+    #[doc(alias = "VK_NV_displacement_micromap")]
+    NV_DisplacementMicromap,
+    /// Promoted to [`Self::KHR_LoadStoreOpNone`].
+    #[doc(alias = "VK_EXT_load_store_op_none")]
+    EXT_LoadStoreOpNone,
+    #[doc(alias = "VK_HUAWEI_cluster_culling_shader")]
+    HUAWEI_ClusterCullingShader,
+    /// Intended for OpenGL emulation, Direct3D emulation.
+    #[doc(alias = "VK_EXT_border_color_swizzle")]
+    EXT_BorderColorSwizzle,
+    #[doc(alias = "VK_EXT_pageable_device_local_memory")]
+    EXT_PageableDeviceLocalMemory,
+    #[doc(alias = "VK_ARM_shader_core_properties")]
+    ARM_ShaderCoreProperties,
+    #[doc(alias = "VK_ARM_scheduling_controls")]
+    ARM_SchedulingControls,
+    /// Intended for Direct3D emulation.
+    #[doc(alias = "VK_EXT_image_sliced_view_of_3d")]
+    EXT_ImageSlicedViewOf3D,
+    /// Intended for Direct3D emulation.
+    #[doc(alias = "VK_VALVE_descriptor_set_host_mapping")]
+    VALVE_DescriptorSetHostMapping,
+    /// Promoted to [`Self::KHR_DepthClampZeroOne`].
+    #[doc(alias = "VK_EXT_depth_clamp_zero_one")]
+    EXT_DepthClampZeroOne,
+    /// Intended for Direct3D emulation, OpenGL emulation.
+    #[doc(alias = "VK_EXT_non_seamless_cube_map")]
+    EXT_NonSeamlessCubeMap,
+    #[doc(alias = "VK_ARM_render_pass_striped")]
+    ARM_RenderPassStriped,
+    /// Promoted to [`Self::EXT_FragmentDensityMapOffset`].
+    #[doc(alias = "VK_QCOM_fragment_density_map_offset")]
+    QCOM_FragmentDensityMapOffset,
+    /// Promoted to [`Self::KHR_CopyMemoryIndirect`].
+    #[doc(alias = "VK_NV_copy_memory_indirect")]
+    NV_CopyMemoryIndirect,
+    /// Promoted to [`Self::EXT_MemoryDecompression`].
+    #[doc(alias = "VK_NV_memory_decompression")]
+    NV_MemoryDecompression,
+    #[doc(alias = "VK_NV_device_generated_commands_compute")]
+    NV_DeviceGeneratedCommandsCompute,
+    #[doc(alias = "VK_NV_ray_tracing_linear_swept_spheres")]
+    NV_RayTracingLinearSweptSpheres,
+    #[doc(alias = "VK_NV_linear_color_attachment")]
+    NV_LinearColorAttachment,
+    /// Intended for OpenGL emulation.
+    #[doc(alias = "VK_GOOGLE_surfaceless_query")]
+    GOOGLE_SurfacelessQuery,
+    #[doc(alias = "VK_EXT_image_compression_control_swapchain")]
+    EXT_ImageCompressionControlSwapchain,
+    #[doc(alias = "VK_QCOM_image_processing")]
+    QCOM_ImageProcessing,
+    #[doc(alias = "VK_EXT_nested_command_buffer")]
+    EXT_NestedCommandBuffer,
+    #[doc(alias = "VK_OHOS_external_memory")]
+    OHOS_ExternalMemory,
+    #[doc(alias = "VK_EXT_external_memory_acquire_unmodified")]
+    EXT_ExternalMemoryAcquireUnmodified,
+    #[doc(alias = "VK_EXT_extended_dynamic_state3")]
+    EXT_ExtendedDynamicState3,
+    #[doc(alias = "VK_EXT_subpass_merge_feedback")]
+    EXT_SubpassMergeFeedback,
+    #[doc(alias = "VK_LUNARG_direct_driver_loading")]
+    LUNARG_DirectDriverLoading,
+    #[doc(alias = "VK_ARM_tensors")]
+    ARM_Tensors,
+    #[doc(alias = "VK_EXT_shader_module_identifier")]
+    EXT_ShaderModuleIdentifier,
+    #[doc(alias = "VK_EXT_rasterization_order_attachment_access")]
+    EXT_RasterizationOrderAttachmentAccess,
+    #[doc(alias = "VK_NV_optical_flow")]
+    NV_OpticalFlow,
+    /// Intended for OpenGL emulation.
+    #[doc(alias = "VK_EXT_legacy_dithering")]
+    EXT_LegacyDithering,
+    /// Promoted to core in version 1.4.
+    #[doc(alias = "VK_EXT_pipeline_protected_access")]
+    EXT_PipelineProtectedAccess,
+    /// Intended for OpenGL emulation.
+    #[doc(alias = "VK_ANDROID_external_format_resolve")]
+    ANDROID_ExternalFormatResolve,
+    #[doc(alias = "VK_AMD_anti_lag")]
+    AMD_AntiLag,
+    #[doc(alias = "VK_AMDX_dense_geometry_format")]
+    AMDX_DenseGeometryFormat,
+    #[doc(alias = "VK_EXT_shader_object")]
+    EXT_ShaderObject,
+    #[doc(alias = "VK_QCOM_tile_properties")]
+    QCOM_TileProperties,
+    #[doc(alias = "VK_SEC_amigo_profiling")]
+    SEC_AmigoProfiling,
+    #[doc(alias = "VK_QCOM_multiview_per_view_viewports")]
+    QCOM_MultiviewPerViewViewports,
+    /// Promoted to [`Self::EXT_RayTracingInvocationReorder`].
+    #[doc(alias = "VK_NV_ray_tracing_invocation_reorder")]
+    NV_RayTracingInvocationReorder,
+    #[doc(alias = "VK_NV_cooperative_vector")]
+    NV_CooperativeVector,
+    #[doc(alias = "VK_NV_extended_sparse_address_space")]
+    NV_ExtendedSparseAddressSpace,
+    /// Intended for Direct3D emulation.
+    #[doc(alias = "VK_EXT_mutable_descriptor_type")]
+    EXT_MutableDescriptorType,
+    /// Intended for OpenGL emulation.
+    #[doc(alias = "VK_EXT_legacy_vertex_attributes")]
+    EXT_LegacyVertexAttributes,
+    #[doc(alias = "VK_EXT_layer_settings")]
+    EXT_LayerSettings,
+    #[doc(alias = "VK_ARM_shader_core_builtins")]
+    ARM_ShaderCoreBuiltins,
+    /// Promoted to [`Self::KHR_PipelineLibraryGroupHandles`].
+    #[doc(alias = "VK_EXT_pipeline_library_group_handles")]
+    EXT_PipelineLibraryGroupHandles,
+    #[doc(alias = "VK_EXT_dynamic_rendering_unused_attachments")]
+    EXT_DynamicRenderingUnusedAttachments,
+    #[doc(alias = "VK_NV_low_latency2")]
+    NV_LowLatency2,
+    #[doc(alias = "VK_ARM_data_graph")]
+    ARM_DataGraph,
+    #[doc(alias = "VK_ARM_data_graph_instruction_set_tosa")]
+    ARM_DataGraphInstructionSetTosa,
+    #[doc(alias = "VK_QCOM_multiview_per_view_render_areas")]
+    QCOM_MultiviewPerViewRenderAreas,
+    /// Deprecated by [`Self::EXT_DescriptorHeap`].
+    #[doc(alias = "VK_NV_per_stage_descriptor_set")]
+    NV_PerStageDescriptorSet,
+    #[doc(alias = "VK_QCOM_image_processing2")]
+    QCOM_ImageProcessing2,
+    #[doc(alias = "VK_QCOM_filter_cubic_weights")]
+    QCOM_FilterCubicWeights,
+    #[doc(alias = "VK_QCOM_ycbcr_degamma")]
+    QCOM_YcbcrDegamma,
+    #[doc(alias = "VK_QCOM_filter_cubic_clamp")]
+    QCOM_FilterCubicClamp,
+    /// Intended for OpenGL emulation, Direct3D emulation.
+    #[doc(alias = "VK_EXT_attachment_feedback_loop_dynamic_state")]
+    EXT_AttachmentFeedbackLoopDynamicState,
+    #[doc(alias = "VK_QNX_external_memory_screen_buffer")]
+    QNX_ExternalMemoryScreenBuffer,
+    #[doc(alias = "VK_MSFT_layered_driver")]
+    MSFT_LayeredDriver,
+    #[doc(alias = "VK_NV_descriptor_pool_overallocation")]
+    NV_DescriptorPoolOverallocation,
+    #[doc(alias = "VK_QCOM_tile_memory_heap")]
+    QCOM_TileMemoryHeap,
+    #[doc(alias = "VK_EXT_memory_decompression")]
+    EXT_MemoryDecompression,
+    #[doc(alias = "VK_NV_display_stereo")]
+    NV_DisplayStereo,
+    #[doc(alias = "VK_NV_raw_access_chains")]
+    NV_RawAccessChains,
+    #[doc(alias = "VK_NV_external_compute_queue")]
+    NV_ExternalComputeQueue,
+    #[doc(alias = "VK_NV_command_buffer_inheritance")]
+    NV_CommandBufferInheritance,
+    #[doc(alias = "VK_NV_shader_atomic_float16_vector")]
+    NV_ShaderAtomicFloat16Vector,
+    #[doc(alias = "VK_EXT_shader_replicated_composites")]
+    EXT_ShaderReplicatedComposites,
+    #[doc(alias = "VK_ARM_tensor_controls")]
+    ARM_TensorControls,
+    #[doc(alias = "VK_EXT_shader_float8")]
+    EXT_ShaderFloat8,
+    #[doc(alias = "VK_NV_ray_tracing_validation")]
+    NV_RayTracingValidation,
+    #[doc(alias = "VK_NV_cluster_acceleration_structure")]
+    NV_ClusterAccelerationStructure,
+    #[doc(alias = "VK_NV_partitioned_acceleration_structure")]
+    NV_PartitionedAccelerationStructure,
+    #[doc(alias = "VK_EXT_device_generated_commands")]
+    EXT_DeviceGeneratedCommands,
+    /// Intended for Direct3D emulation.
+    #[doc(alias = "VK_MESA_image_alignment_control")]
+    MESA_ImageAlignmentControl,
+    #[doc(alias = "VK_NV_push_constant_bank")]
+    NV_PushConstantBank,
+    #[doc(alias = "VK_EXT_ray_tracing_invocation_reorder")]
+    EXT_RayTracingInvocationReorder,
+    #[doc(alias = "VK_EXT_depth_clamp_control")]
+    EXT_DepthClampControl,
+    #[doc(alias = "VK_OHOS_surface")]
+    OHOS_Surface,
+    #[doc(alias = "VK_HUAWEI_hdr_vivid")]
+    HUAWEI_HdrVivid,
+    #[doc(alias = "VK_NV_cooperative_matrix2")]
+    NV_CooperativeMatrix2,
+    #[doc(alias = "VK_ARM_pipeline_opacity_micromap")]
+    ARM_PipelineOpacityMicromap,
+    #[doc(alias = "VK_IMG_filter_linear_2d")]
+    IMG_FilterLinear2D,
+    #[doc(alias = "VK_EXT_external_memory_metal")]
+    EXT_ExternalMemoryMetal,
+    /// Intended for development tooling.
+    #[doc(alias = "VK_ARM_performance_counters_by_region")]
+    ARM_PerformanceCountersByRegion,
+    /// Intended for development tooling.
+    #[doc(alias = "VK_ARM_shader_instrumentation")]
+    ARM_ShaderInstrumentation,
+    /// Promoted to [`Self::KHR_Maintenance9`].
+    #[doc(alias = "VK_EXT_vertex_attribute_robustness")]
+    EXT_VertexAttributeRobustness,
+    #[doc(alias = "VK_ARM_format_pack")]
+    ARM_FormatPack,
+    #[doc(alias = "VK_VALVE_fragment_density_map_layered")]
+    VALVE_FragmentDensityMapLayered,
+    #[doc(alias = "VK_NV_present_metering")]
+    NV_PresentMetering,
+    #[doc(alias = "VK_EXT_multisampled_render_to_swapchain")]
+    EXT_MultisampledRenderToSwapchain,
+    #[doc(alias = "VK_EXT_fragment_density_map_offset")]
+    EXT_FragmentDensityMapOffset,
+    #[doc(alias = "VK_EXT_zero_initialize_device_memory")]
+    EXT_ZeroInitializeDeviceMemory,
+    #[doc(alias = "VK_EXT_shader_64bit_indexing")]
+    EXT_Shader64BitIndexing,
+    #[doc(alias = "VK_EXT_custom_resolve")]
+    EXT_CustomResolve,
+    #[doc(alias = "VK_QCOM_data_graph_model")]
+    QCOM_DataGraphModel,
+    #[doc(alias = "VK_ARM_data_graph_optical_flow")]
+    ARM_DataGraphOpticalFlow,
+    #[doc(alias = "VK_EXT_shader_long_vector")]
+    EXT_ShaderLongVector,
+    #[doc(alias = "VK_SEC_pipeline_cache_incremental_mode")]
+    SEC_PipelineCacheIncrementalMode,
+    #[doc(alias = "VK_EXT_shader_uniform_buffer_unsized_array")]
+    EXT_ShaderUniformBufferUnsizedArray,
+    #[doc(alias = "VK_NV_compute_occupancy_priority")]
+    NV_ComputeOccupancyPriority,
+    #[doc(alias = "VK_EXT_cooperative_matrix_maintenance1")]
+    EXT_CooperativeMatrixMaintenance1,
+    #[doc(alias = "VK_EXT_shader_subgroup_partitioned")]
+    EXT_ShaderSubgroupPartitioned,
+    #[doc(alias = "VK_SEC_ubm_surface")]
+    SEC_UbmSurface,
+    #[doc(alias = "VK_EXT_shader_ocp_microscaling_types")]
+    EXT_ShaderOcpMicroscalingTypes,
+    #[doc(alias = "VK_VALVE_shader_mixed_float_dot_product")]
+    VALVE_ShaderMixedFloatDotProduct,
+    #[doc(alias = "VK_SEC_throttle_hint")]
+    SEC_ThrottleHint,
+    #[doc(alias = "VK_ARM_data_graph_neural_accelerator_statistics")]
+    ARM_DataGraphNeuralAcceleratorStatistics,
+    /// Intended for OpenGL emulation.
+    #[doc(alias = "VK_EXT_primitive_restart_index")]
+    EXT_PrimitiveRestartIndex,
+    #[doc(alias = "VK_EXT_image_tiling_control")]
+    EXT_ImageTilingControl,
+    #[doc(alias = "VK_NV_cooperative_matrix_decode_vector")]
+    NV_CooperativeMatrixDecodeVector,
+    #[doc(alias = "VK_NV_private_data_base_handle")]
+    NV_PrivateDataBaseHandle,
+    /// Intended for Direct3D emulation.
+    #[doc(alias = "VK_VALVE_buffer_device_address_allocation_alignment")]
+    VALVE_BufferDeviceAddressAllocationAlignment,
+    #[doc(alias = "VK_KHR_acceleration_structure")]
+    KHR_AccelerationStructure,
+    #[doc(alias = "VK_KHR_ray_tracing_pipeline")]
+    KHR_RayTracingPipeline,
+    #[doc(alias = "VK_KHR_ray_query")]
+    KHR_RayQuery,
+    #[doc(alias = "VK_EXT_mesh_shader")]
+    EXT_MeshShader,
+}
+impl Extensions {
+    pub fn name(self) -> &'static std::ffi::CStr {
+        match self {
+            Self::KHR_Surface => c"VK_KHR_surface",
+            Self::KHR_Swapchain => c"VK_KHR_swapchain",
+            Self::KHR_Display => c"VK_KHR_display",
+            Self::KHR_DisplaySwapchain => c"VK_KHR_display_swapchain",
+            Self::KHR_XlibSurface => c"VK_KHR_xlib_surface",
+            Self::KHR_XcbSurface => c"VK_KHR_xcb_surface",
+            Self::KHR_WaylandSurface => c"VK_KHR_wayland_surface",
+            Self::KHR_AndroidSurface => c"VK_KHR_android_surface",
+            Self::KHR_Win32Surface => c"VK_KHR_win32_surface",
+            Self::KHR_SamplerMirrorClampToEdge => c"VK_KHR_sampler_mirror_clamp_to_edge",
+            Self::KHR_VideoQueue => c"VK_KHR_video_queue",
+            Self::KHR_VideoDecodeQueue => c"VK_KHR_video_decode_queue",
+            Self::KHR_VideoEncodeH264 => c"VK_KHR_video_encode_h264",
+            Self::KHR_VideoEncodeH265 => c"VK_KHR_video_encode_h265",
+            Self::KHR_VideoDecodeH264 => c"VK_KHR_video_decode_h264",
+            Self::KHR_DynamicRendering => c"VK_KHR_dynamic_rendering",
+            Self::KHR_Multiview => c"VK_KHR_multiview",
+            Self::KHR_GetPhysicalDeviceProperties2 => c"VK_KHR_get_physical_device_properties2",
+            Self::KHR_DeviceGroup => c"VK_KHR_device_group",
+            Self::KHR_ShaderDrawParameters => c"VK_KHR_shader_draw_parameters",
+            Self::KHR_Maintenance1 => c"VK_KHR_maintenance1",
+            Self::KHR_DeviceGroupCreation => c"VK_KHR_device_group_creation",
+            Self::KHR_ExternalMemoryCapabilities => c"VK_KHR_external_memory_capabilities",
+            Self::KHR_ExternalMemory => c"VK_KHR_external_memory",
+            Self::KHR_ExternalMemoryWin32 => c"VK_KHR_external_memory_win32",
+            Self::KHR_ExternalMemoryFd => c"VK_KHR_external_memory_fd",
+            Self::KHR_Win32KeyedMutex => c"VK_KHR_win32_keyed_mutex",
+            Self::KHR_ExternalSemaphoreCapabilities => c"VK_KHR_external_semaphore_capabilities",
+            Self::KHR_ExternalSemaphore => c"VK_KHR_external_semaphore",
+            Self::KHR_ExternalSemaphoreWin32 => c"VK_KHR_external_semaphore_win32",
+            Self::KHR_ExternalSemaphoreFd => c"VK_KHR_external_semaphore_fd",
+            Self::KHR_PushDescriptor => c"VK_KHR_push_descriptor",
+            Self::KHR_ShaderFloat16Int8 => c"VK_KHR_shader_float16_int8",
+            Self::KHR_16BitStorage => c"VK_KHR_16bit_storage",
+            Self::KHR_IncrementalPresent => c"VK_KHR_incremental_present",
+            Self::KHR_DescriptorUpdateTemplate => c"VK_KHR_descriptor_update_template",
+            Self::KHR_ImagelessFramebuffer => c"VK_KHR_imageless_framebuffer",
+            Self::KHR_CreateRenderpass2 => c"VK_KHR_create_renderpass2",
+            Self::KHR_SharedPresentableImage => c"VK_KHR_shared_presentable_image",
+            Self::KHR_ExternalFenceCapabilities => c"VK_KHR_external_fence_capabilities",
+            Self::KHR_ExternalFence => c"VK_KHR_external_fence",
+            Self::KHR_ExternalFenceWin32 => c"VK_KHR_external_fence_win32",
+            Self::KHR_ExternalFenceFd => c"VK_KHR_external_fence_fd",
+            Self::KHR_PerformanceQuery => c"VK_KHR_performance_query",
+            Self::KHR_Maintenance2 => c"VK_KHR_maintenance2",
+            Self::KHR_GetSurfaceCapabilities2 => c"VK_KHR_get_surface_capabilities2",
+            Self::KHR_VariablePointers => c"VK_KHR_variable_pointers",
+            Self::KHR_GetDisplayProperties2 => c"VK_KHR_get_display_properties2",
+            Self::KHR_DedicatedAllocation => c"VK_KHR_dedicated_allocation",
+            Self::KHR_StorageBufferStorageClass => c"VK_KHR_storage_buffer_storage_class",
+            Self::KHR_ShaderBfloat16 => c"VK_KHR_shader_bfloat16",
+            Self::KHR_RelaxedBlockLayout => c"VK_KHR_relaxed_block_layout",
+            Self::KHR_GetMemoryRequirements2 => c"VK_KHR_get_memory_requirements2",
+            Self::KHR_ImageFormatList => c"VK_KHR_image_format_list",
+            Self::KHR_SamplerYcbcrConversion => c"VK_KHR_sampler_ycbcr_conversion",
+            Self::KHR_BindMemory2 => c"VK_KHR_bind_memory2",
+            Self::KHR_PortabilitySubset => c"VK_KHR_portability_subset",
+            Self::KHR_Maintenance3 => c"VK_KHR_maintenance3",
+            Self::KHR_DrawIndirectCount => c"VK_KHR_draw_indirect_count",
+            Self::KHR_ShaderSubgroupExtendedTypes => c"VK_KHR_shader_subgroup_extended_types",
+            Self::KHR_8BitStorage => c"VK_KHR_8bit_storage",
+            Self::KHR_ShaderAtomicInt64 => c"VK_KHR_shader_atomic_int64",
+            Self::KHR_ShaderClock => c"VK_KHR_shader_clock",
+            Self::KHR_VideoDecodeH265 => c"VK_KHR_video_decode_h265",
+            Self::KHR_GlobalPriority => c"VK_KHR_global_priority",
+            Self::KHR_DriverProperties => c"VK_KHR_driver_properties",
+            Self::KHR_ShaderFloatControls => c"VK_KHR_shader_float_controls",
+            Self::KHR_DepthStencilResolve => c"VK_KHR_depth_stencil_resolve",
+            Self::KHR_SwapchainMutableFormat => c"VK_KHR_swapchain_mutable_format",
+            Self::KHR_TimelineSemaphore => c"VK_KHR_timeline_semaphore",
+            Self::KHR_VulkanMemoryModel => c"VK_KHR_vulkan_memory_model",
+            Self::KHR_ShaderTerminateInvocation => c"VK_KHR_shader_terminate_invocation",
+            Self::KHR_FragmentShadingRate => c"VK_KHR_fragment_shading_rate",
+            Self::KHR_ShaderConstantData => c"VK_KHR_shader_constant_data",
+            Self::KHR_DynamicRenderingLocalRead => c"VK_KHR_dynamic_rendering_local_read",
+            Self::KHR_ShaderAbort => c"VK_KHR_shader_abort",
+            Self::KHR_ShaderQuadControl => c"VK_KHR_shader_quad_control",
+            Self::KHR_Spirv14 => c"VK_KHR_spirv_1_4",
+            Self::KHR_SurfaceProtectedCapabilities => c"VK_KHR_surface_protected_capabilities",
+            Self::KHR_SeparateDepthStencilLayouts => c"VK_KHR_separate_depth_stencil_layouts",
+            Self::KHR_PresentWait => c"VK_KHR_present_wait",
+            Self::KHR_UniformBufferStandardLayout => c"VK_KHR_uniform_buffer_standard_layout",
+            Self::KHR_BufferDeviceAddress => c"VK_KHR_buffer_device_address",
+            Self::KHR_DeferredHostOperations => c"VK_KHR_deferred_host_operations",
+            Self::KHR_PipelineExecutableProperties => c"VK_KHR_pipeline_executable_properties",
+            Self::KHR_MapMemory2 => c"VK_KHR_map_memory2",
+            Self::KHR_ShaderIntegerDotProduct => c"VK_KHR_shader_integer_dot_product",
+            Self::KHR_PipelineLibrary => c"VK_KHR_pipeline_library",
+            Self::KHR_ShaderNonSemanticInfo => c"VK_KHR_shader_non_semantic_info",
+            Self::KHR_PresentId => c"VK_KHR_present_id",
+            Self::KHR_VideoEncodeQueue => c"VK_KHR_video_encode_queue",
+            Self::KHR_Synchronization2 => c"VK_KHR_synchronization2",
+            Self::KHR_DeviceAddressCommands => c"VK_KHR_device_address_commands",
+            Self::KHR_FragmentShaderBarycentric => c"VK_KHR_fragment_shader_barycentric",
+            Self::KHR_ShaderSubgroupUniformControlFlow => c"VK_KHR_shader_subgroup_uniform_control_flow",
+            Self::KHR_ZeroInitializeWorkgroupMemory => c"VK_KHR_zero_initialize_workgroup_memory",
+            Self::KHR_WorkgroupMemoryExplicitLayout => c"VK_KHR_workgroup_memory_explicit_layout",
+            Self::KHR_CopyCommands2 => c"VK_KHR_copy_commands2",
+            Self::KHR_FormatFeatureFlags2 => c"VK_KHR_format_feature_flags2",
+            Self::KHR_RayTracingMaintenance1 => c"VK_KHR_ray_tracing_maintenance1",
+            Self::KHR_ShaderUntypedPointers => c"VK_KHR_shader_untyped_pointers",
+            Self::KHR_PortabilityEnumeration => c"VK_KHR_portability_enumeration",
+            Self::KHR_Maintenance4 => c"VK_KHR_maintenance4",
+            Self::KHR_ShaderSubgroupRotate => c"VK_KHR_shader_subgroup_rotate",
+            Self::KHR_ShaderMaximalReconvergence => c"VK_KHR_shader_maximal_reconvergence",
+            Self::KHR_Maintenance5 => c"VK_KHR_maintenance5",
+            Self::KHR_PresentId2 => c"VK_KHR_present_id2",
+            Self::KHR_PresentWait2 => c"VK_KHR_present_wait2",
+            Self::KHR_RayTracingPositionFetch => c"VK_KHR_ray_tracing_position_fetch",
+            Self::KHR_PipelineBinary => c"VK_KHR_pipeline_binary",
+            Self::KHR_SurfaceMaintenance1 => c"VK_KHR_surface_maintenance1",
+            Self::KHR_SwapchainMaintenance1 => c"VK_KHR_swapchain_maintenance1",
+            Self::KHR_InternallySynchronizedQueues => c"VK_KHR_internally_synchronized_queues",
+            Self::KHR_CooperativeMatrix => c"VK_KHR_cooperative_matrix",
+            Self::KHR_ComputeShaderDerivatives => c"VK_KHR_compute_shader_derivatives",
+            Self::KHR_VideoDecodeAv1 => c"VK_KHR_video_decode_av1",
+            Self::KHR_VideoEncodeAv1 => c"VK_KHR_video_encode_av1",
+            Self::KHR_VideoDecodeVp9 => c"VK_KHR_video_decode_vp9",
+            Self::KHR_VideoMaintenance1 => c"VK_KHR_video_maintenance1",
+            Self::KHR_VertexAttributeDivisor => c"VK_KHR_vertex_attribute_divisor",
+            Self::KHR_LoadStoreOpNone => c"VK_KHR_load_store_op_none",
+            Self::KHR_UnifiedImageLayouts => c"VK_KHR_unified_image_layouts",
+            Self::KHR_ShaderFloatControls2 => c"VK_KHR_shader_float_controls2",
+            Self::KHR_IndexTypeUint8 => c"VK_KHR_index_type_uint8",
+            Self::KHR_LineRasterization => c"VK_KHR_line_rasterization",
+            Self::KHR_CalibratedTimestamps => c"VK_KHR_calibrated_timestamps",
+            Self::KHR_ShaderExpectAssume => c"VK_KHR_shader_expect_assume",
+            Self::KHR_Maintenance6 => c"VK_KHR_maintenance6",
+            Self::KHR_CopyMemoryIndirect => c"VK_KHR_copy_memory_indirect",
+            Self::KHR_VideoEncodeIntraRefresh => c"VK_KHR_video_encode_intra_refresh",
+            Self::KHR_VideoEncodeQuantizationMap => c"VK_KHR_video_encode_quantization_map",
+            Self::KHR_ShaderRelaxedExtendedInstruction => c"VK_KHR_shader_relaxed_extended_instruction",
+            Self::KHR_Maintenance7 => c"VK_KHR_maintenance7",
+            Self::KHR_DeviceFault => c"VK_KHR_device_fault",
+            Self::KHR_Maintenance8 => c"VK_KHR_maintenance8",
+            Self::KHR_ShaderFma => c"VK_KHR_shader_fma",
+            Self::KHR_Maintenance9 => c"VK_KHR_maintenance9",
+            Self::KHR_VideoMaintenance2 => c"VK_KHR_video_maintenance2",
+            Self::KHR_VideoEncodeFeedback2 => c"VK_KHR_video_encode_feedback2",
+            Self::KHR_DepthClampZeroOne => c"VK_KHR_depth_clamp_zero_one",
+            Self::KHR_Robustness2 => c"VK_KHR_robustness2",
+            Self::KHR_PresentModeFifoLatestReady => c"VK_KHR_present_mode_fifo_latest_ready",
+            Self::KHR_OpacityMicromap => c"VK_KHR_opacity_micromap",
+            Self::KHR_Maintenance10 => c"VK_KHR_maintenance10",
+            Self::KHR_PipelineLibraryGroupHandles => c"VK_KHR_pipeline_library_group_handles",
+            Self::KHR_Maintenance11 => c"VK_KHR_maintenance11",
+            Self::KHR_ExtendedFlags => c"VK_KHR_extended_flags",
+            Self::EXT_DebugReport => c"VK_EXT_debug_report",
+            Self::NV_GlslShader => c"VK_NV_glsl_shader",
+            Self::EXT_DepthRangeUnrestricted => c"VK_EXT_depth_range_unrestricted",
+            Self::IMG_FilterCubic => c"VK_IMG_filter_cubic",
+            Self::AMD_RasterizationOrder => c"VK_AMD_rasterization_order",
+            Self::AMD_ShaderTrinaryMinmax => c"VK_AMD_shader_trinary_minmax",
+            Self::AMD_ShaderExplicitVertexParameter => c"VK_AMD_shader_explicit_vertex_parameter",
+            Self::EXT_DebugMarker => c"VK_EXT_debug_marker",
+            Self::AMD_GcnShader => c"VK_AMD_gcn_shader",
+            Self::NV_DedicatedAllocation => c"VK_NV_dedicated_allocation",
+            Self::EXT_TransformFeedback => c"VK_EXT_transform_feedback",
+            Self::NVX_BinaryImport => c"VK_NVX_binary_import",
+            Self::NVX_ImageViewHandle => c"VK_NVX_image_view_handle",
+            Self::AMD_DrawIndirectCount => c"VK_AMD_draw_indirect_count",
+            Self::AMD_NegativeViewportHeight => c"VK_AMD_negative_viewport_height",
+            Self::AMD_GpuShaderHalfFloat => c"VK_AMD_gpu_shader_half_float",
+            Self::AMD_ShaderBallot => c"VK_AMD_shader_ballot",
+            Self::AMD_TextureGatherBiasLod => c"VK_AMD_texture_gather_bias_lod",
+            Self::AMD_ShaderInfo => c"VK_AMD_shader_info",
+            Self::AMD_ShaderImageLoadStoreLod => c"VK_AMD_shader_image_load_store_lod",
+            Self::GGP_StreamDescriptorSurface => c"VK_GGP_stream_descriptor_surface",
+            Self::NV_CornerSampledImage => c"VK_NV_corner_sampled_image",
+            Self::IMG_FormatPvrtc => c"VK_IMG_format_pvrtc",
+            Self::NV_ExternalMemoryCapabilities => c"VK_NV_external_memory_capabilities",
+            Self::NV_ExternalMemory => c"VK_NV_external_memory",
+            Self::NV_ExternalMemoryWin32 => c"VK_NV_external_memory_win32",
+            Self::NV_Win32KeyedMutex => c"VK_NV_win32_keyed_mutex",
+            Self::EXT_ValidationFlags => c"VK_EXT_validation_flags",
+            Self::NN_ViSurface => c"VK_NN_vi_surface",
+            Self::EXT_ShaderSubgroupBallot => c"VK_EXT_shader_subgroup_ballot",
+            Self::EXT_ShaderSubgroupVote => c"VK_EXT_shader_subgroup_vote",
+            Self::EXT_TextureCompressionAstcHdr => c"VK_EXT_texture_compression_astc_hdr",
+            Self::EXT_AstcDecodeMode => c"VK_EXT_astc_decode_mode",
+            Self::EXT_PipelineRobustness => c"VK_EXT_pipeline_robustness",
+            Self::EXT_ConditionalRendering => c"VK_EXT_conditional_rendering",
+            Self::NV_ClipSpaceWScaling => c"VK_NV_clip_space_w_scaling",
+            Self::EXT_DirectModeDisplay => c"VK_EXT_direct_mode_display",
+            Self::EXT_AcquireXlibDisplay => c"VK_EXT_acquire_xlib_display",
+            Self::EXT_DisplaySurfaceCounter => c"VK_EXT_display_surface_counter",
+            Self::EXT_DisplayControl => c"VK_EXT_display_control",
+            Self::GOOGLE_DisplayTiming => c"VK_GOOGLE_display_timing",
+            Self::NV_SampleMaskOverrideCoverage => c"VK_NV_sample_mask_override_coverage",
+            Self::NV_GeometryShaderPassthrough => c"VK_NV_geometry_shader_passthrough",
+            Self::NV_ViewportArray2 => c"VK_NV_viewport_array2",
+            Self::NVX_MultiviewPerViewAttributes => c"VK_NVX_multiview_per_view_attributes",
+            Self::NV_ViewportSwizzle => c"VK_NV_viewport_swizzle",
+            Self::EXT_DiscardRectangles => c"VK_EXT_discard_rectangles",
+            Self::EXT_ConservativeRasterization => c"VK_EXT_conservative_rasterization",
+            Self::EXT_DepthClipEnable => c"VK_EXT_depth_clip_enable",
+            Self::EXT_SwapchainColorspace => c"VK_EXT_swapchain_colorspace",
+            Self::EXT_HdrMetadata => c"VK_EXT_hdr_metadata",
+            Self::IMG_RelaxedLineRasterization => c"VK_IMG_relaxed_line_rasterization",
+            Self::MVK_IosSurface => c"VK_MVK_ios_surface",
+            Self::MVK_MacosSurface => c"VK_MVK_macos_surface",
+            Self::EXT_ExternalMemoryDmaBuf => c"VK_EXT_external_memory_dma_buf",
+            Self::EXT_QueueFamilyForeign => c"VK_EXT_queue_family_foreign",
+            Self::EXT_DebugUtils => c"VK_EXT_debug_utils",
+            Self::ANDROID_ExternalMemoryAndroidHardwareBuffer => c"VK_ANDROID_external_memory_android_hardware_buffer",
+            Self::EXT_SamplerFilterMinmax => c"VK_EXT_sampler_filter_minmax",
+            Self::AMD_GpuShaderInt16 => c"VK_AMD_gpu_shader_int16",
+            Self::AMD_GpaInterface => c"VK_AMD_gpa_interface",
+            Self::AMDX_ShaderEnqueue => c"VK_AMDX_shader_enqueue",
+            Self::EXT_DescriptorHeap => c"VK_EXT_descriptor_heap",
+            Self::AMD_MixedAttachmentSamples => c"VK_AMD_mixed_attachment_samples",
+            Self::AMD_ShaderFragmentMask => c"VK_AMD_shader_fragment_mask",
+            Self::EXT_InlineUniformBlock => c"VK_EXT_inline_uniform_block",
+            Self::EXT_ShaderStencilExport => c"VK_EXT_shader_stencil_export",
+            Self::EXT_SampleLocations => c"VK_EXT_sample_locations",
+            Self::EXT_BlendOperationAdvanced => c"VK_EXT_blend_operation_advanced",
+            Self::NV_FragmentCoverageToColor => c"VK_NV_fragment_coverage_to_color",
+            Self::NV_FramebufferMixedSamples => c"VK_NV_framebuffer_mixed_samples",
+            Self::NV_FillRectangle => c"VK_NV_fill_rectangle",
+            Self::NV_ShaderSmBuiltins => c"VK_NV_shader_sm_builtins",
+            Self::EXT_PostDepthCoverage => c"VK_EXT_post_depth_coverage",
+            Self::EXT_ImageDrmFormatModifier => c"VK_EXT_image_drm_format_modifier",
+            Self::EXT_ValidationCache => c"VK_EXT_validation_cache",
+            Self::EXT_DescriptorIndexing => c"VK_EXT_descriptor_indexing",
+            Self::EXT_ShaderViewportIndexLayer => c"VK_EXT_shader_viewport_index_layer",
+            Self::NV_ShadingRateImage => c"VK_NV_shading_rate_image",
+            Self::NV_RayTracing => c"VK_NV_ray_tracing",
+            Self::NV_RepresentativeFragmentTest => c"VK_NV_representative_fragment_test",
+            Self::EXT_FilterCubic => c"VK_EXT_filter_cubic",
+            Self::QCOM_RenderPassShaderResolve => c"VK_QCOM_render_pass_shader_resolve",
+            Self::QCOM_CooperativeMatrixConversion => c"VK_QCOM_cooperative_matrix_conversion",
+            Self::QCOM_ElapsedTimerQuery => c"VK_QCOM_elapsed_timer_query",
+            Self::EXT_GlobalPriority => c"VK_EXT_global_priority",
+            Self::EXT_ExternalMemoryHost => c"VK_EXT_external_memory_host",
+            Self::AMD_BufferMarker => c"VK_AMD_buffer_marker",
+            Self::AMD_PipelineCompilerControl => c"VK_AMD_pipeline_compiler_control",
+            Self::EXT_CalibratedTimestamps => c"VK_EXT_calibrated_timestamps",
+            Self::AMD_ShaderCoreProperties => c"VK_AMD_shader_core_properties",
+            Self::AMD_MemoryOverallocationBehavior => c"VK_AMD_memory_overallocation_behavior",
+            Self::EXT_VertexAttributeDivisor => c"VK_EXT_vertex_attribute_divisor",
+            Self::GGP_FrameToken => c"VK_GGP_frame_token",
+            Self::EXT_PipelineCreationFeedback => c"VK_EXT_pipeline_creation_feedback",
+            Self::NV_ShaderSubgroupPartitioned => c"VK_NV_shader_subgroup_partitioned",
+            Self::NV_ComputeShaderDerivatives => c"VK_NV_compute_shader_derivatives",
+            Self::NV_MeshShader => c"VK_NV_mesh_shader",
+            Self::NV_FragmentShaderBarycentric => c"VK_NV_fragment_shader_barycentric",
+            Self::NV_ShaderImageFootprint => c"VK_NV_shader_image_footprint",
+            Self::NV_ScissorExclusive => c"VK_NV_scissor_exclusive",
+            Self::NV_DeviceDiagnosticCheckpoints => c"VK_NV_device_diagnostic_checkpoints",
+            Self::EXT_PresentTiming => c"VK_EXT_present_timing",
+            Self::INTEL_ShaderIntegerFunctions2 => c"VK_INTEL_shader_integer_functions2",
+            Self::INTEL_PerformanceQuery => c"VK_INTEL_performance_query",
+            Self::EXT_PciBusInfo => c"VK_EXT_pci_bus_info",
+            Self::AMD_DisplayNativeHdr => c"VK_AMD_display_native_hdr",
+            Self::FUCHSIA_ImagepipeSurface => c"VK_FUCHSIA_imagepipe_surface",
+            Self::EXT_MetalSurface => c"VK_EXT_metal_surface",
+            Self::EXT_FragmentDensityMap => c"VK_EXT_fragment_density_map",
+            Self::EXT_ScalarBlockLayout => c"VK_EXT_scalar_block_layout",
+            Self::GOOGLE_HlslFunctionality1 => c"VK_GOOGLE_hlsl_functionality1",
+            Self::GOOGLE_DecorateString => c"VK_GOOGLE_decorate_string",
+            Self::EXT_SubgroupSizeControl => c"VK_EXT_subgroup_size_control",
+            Self::AMD_ShaderCoreProperties2 => c"VK_AMD_shader_core_properties2",
+            Self::AMD_DeviceCoherentMemory => c"VK_AMD_device_coherent_memory",
+            Self::EXT_ShaderImageAtomicInt64 => c"VK_EXT_shader_image_atomic_int64",
+            Self::EXT_MemoryBudget => c"VK_EXT_memory_budget",
+            Self::EXT_MemoryPriority => c"VK_EXT_memory_priority",
+            Self::NV_DedicatedAllocationImageAliasing => c"VK_NV_dedicated_allocation_image_aliasing",
+            Self::EXT_BufferDeviceAddress => c"VK_EXT_buffer_device_address",
+            Self::EXT_ToolingInfo => c"VK_EXT_tooling_info",
+            Self::EXT_SeparateStencilUsage => c"VK_EXT_separate_stencil_usage",
+            Self::EXT_ValidationFeatures => c"VK_EXT_validation_features",
+            Self::NV_CooperativeMatrix => c"VK_NV_cooperative_matrix",
+            Self::NV_CoverageReductionMode => c"VK_NV_coverage_reduction_mode",
+            Self::EXT_FragmentShaderInterlock => c"VK_EXT_fragment_shader_interlock",
+            Self::EXT_YcbcrImageArrays => c"VK_EXT_ycbcr_image_arrays",
+            Self::EXT_ProvokingVertex => c"VK_EXT_provoking_vertex",
+            Self::EXT_FullScreenExclusive => c"VK_EXT_full_screen_exclusive",
+            Self::EXT_HeadlessSurface => c"VK_EXT_headless_surface",
+            Self::EXT_LineRasterization => c"VK_EXT_line_rasterization",
+            Self::EXT_ShaderAtomicFloat => c"VK_EXT_shader_atomic_float",
+            Self::EXT_HostQueryReset => c"VK_EXT_host_query_reset",
+            Self::EXT_IndexTypeUint8 => c"VK_EXT_index_type_uint8",
+            Self::EXT_ExtendedDynamicState => c"VK_EXT_extended_dynamic_state",
+            Self::EXT_HostImageCopy => c"VK_EXT_host_image_copy",
+            Self::EXT_MapMemoryPlaced => c"VK_EXT_map_memory_placed",
+            Self::EXT_ShaderAtomicFloat2 => c"VK_EXT_shader_atomic_float2",
+            Self::EXT_SurfaceMaintenance1 => c"VK_EXT_surface_maintenance1",
+            Self::EXT_SwapchainMaintenance1 => c"VK_EXT_swapchain_maintenance1",
+            Self::EXT_ShaderDemoteToHelperInvocation => c"VK_EXT_shader_demote_to_helper_invocation",
+            Self::NV_DeviceGeneratedCommands => c"VK_NV_device_generated_commands",
+            Self::NV_InheritedViewportScissor => c"VK_NV_inherited_viewport_scissor",
+            Self::EXT_TexelBufferAlignment => c"VK_EXT_texel_buffer_alignment",
+            Self::QCOM_RenderPassTransform => c"VK_QCOM_render_pass_transform",
+            Self::EXT_DepthBiasControl => c"VK_EXT_depth_bias_control",
+            Self::EXT_DeviceMemoryReport => c"VK_EXT_device_memory_report",
+            Self::EXT_AcquireDrmDisplay => c"VK_EXT_acquire_drm_display",
+            Self::EXT_Robustness2 => c"VK_EXT_robustness2",
+            Self::EXT_CustomBorderColor => c"VK_EXT_custom_border_color",
+            Self::EXT_TextureCompressionAstc3D => c"VK_EXT_texture_compression_astc_3d",
+            Self::GOOGLE_UserType => c"VK_GOOGLE_user_type",
+            Self::NV_PresentBarrier => c"VK_NV_present_barrier",
+            Self::EXT_PrivateData => c"VK_EXT_private_data",
+            Self::EXT_PipelineCreationCacheControl => c"VK_EXT_pipeline_creation_cache_control",
+            Self::NV_DeviceDiagnosticsConfig => c"VK_NV_device_diagnostics_config",
+            Self::QCOM_RenderPassStoreOps => c"VK_QCOM_render_pass_store_ops",
+            Self::QCOM_QueuePerfHint => c"VK_QCOM_queue_perf_hint",
+            Self::QCOM_ImageProcessing3 => c"VK_QCOM_image_processing3",
+            Self::QCOM_ShaderMultipleWaitQueues => c"VK_QCOM_shader_multiple_wait_queues",
+            Self::EXT_ShaderSplitBarrier => c"VK_EXT_shader_split_barrier",
+            Self::NV_CudaKernelLaunch => c"VK_NV_cuda_kernel_launch",
+            Self::QCOM_TileShading => c"VK_QCOM_tile_shading",
+            Self::NV_LowLatency => c"VK_NV_low_latency",
+            Self::EXT_MetalObjects => c"VK_EXT_metal_objects",
+            Self::EXT_DescriptorBuffer => c"VK_EXT_descriptor_buffer",
+            Self::EXT_GraphicsPipelineLibrary => c"VK_EXT_graphics_pipeline_library",
+            Self::AMD_ShaderEarlyAndLateFragmentTests => c"VK_AMD_shader_early_and_late_fragment_tests",
+            Self::NV_FragmentShadingRateEnums => c"VK_NV_fragment_shading_rate_enums",
+            Self::NV_RayTracingMotionBlur => c"VK_NV_ray_tracing_motion_blur",
+            Self::EXT_Ycbcr2Plane444Formats => c"VK_EXT_ycbcr_2plane_444_formats",
+            Self::EXT_FragmentDensityMap2 => c"VK_EXT_fragment_density_map2",
+            Self::QCOM_RotatedCopyCommands => c"VK_QCOM_rotated_copy_commands",
+            Self::EXT_ImageRobustness => c"VK_EXT_image_robustness",
+            Self::EXT_ImageCompressionControl => c"VK_EXT_image_compression_control",
+            Self::EXT_AttachmentFeedbackLoopLayout => c"VK_EXT_attachment_feedback_loop_layout",
+            Self::EXT_4444Formats => c"VK_EXT_4444_formats",
+            Self::EXT_DeviceFault => c"VK_EXT_device_fault",
+            Self::ARM_RasterizationOrderAttachmentAccess => c"VK_ARM_rasterization_order_attachment_access",
+            Self::EXT_Rgba10X6Formats => c"VK_EXT_rgba10x6_formats",
+            Self::NV_AcquireWinrtDisplay => c"VK_NV_acquire_winrt_display",
+            Self::EXT_DirectfbSurface => c"VK_EXT_directfb_surface",
+            Self::VALVE_MutableDescriptorType => c"VK_VALVE_mutable_descriptor_type",
+            Self::EXT_VertexInputDynamicState => c"VK_EXT_vertex_input_dynamic_state",
+            Self::EXT_PhysicalDeviceDrm => c"VK_EXT_physical_device_drm",
+            Self::EXT_DeviceAddressBindingReport => c"VK_EXT_device_address_binding_report",
+            Self::EXT_DepthClipControl => c"VK_EXT_depth_clip_control",
+            Self::EXT_PrimitiveTopologyListRestart => c"VK_EXT_primitive_topology_list_restart",
+            Self::EXT_PresentModeFifoLatestReady => c"VK_EXT_present_mode_fifo_latest_ready",
+            Self::FUCHSIA_ExternalMemory => c"VK_FUCHSIA_external_memory",
+            Self::FUCHSIA_ExternalSemaphore => c"VK_FUCHSIA_external_semaphore",
+            Self::FUCHSIA_BufferCollection => c"VK_FUCHSIA_buffer_collection",
+            Self::HUAWEI_SubpassShading => c"VK_HUAWEI_subpass_shading",
+            Self::HUAWEI_InvocationMask => c"VK_HUAWEI_invocation_mask",
+            Self::NV_ExternalMemoryRdma => c"VK_NV_external_memory_rdma",
+            Self::EXT_PipelineProperties => c"VK_EXT_pipeline_properties",
+            Self::EXT_FrameBoundary => c"VK_EXT_frame_boundary",
+            Self::EXT_MultisampledRenderToSingleSampled => c"VK_EXT_multisampled_render_to_single_sampled",
+            Self::EXT_ExtendedDynamicState2 => c"VK_EXT_extended_dynamic_state2",
+            Self::QNX_ScreenSurface => c"VK_QNX_screen_surface",
+            Self::EXT_ColorWriteEnable => c"VK_EXT_color_write_enable",
+            Self::EXT_PrimitivesGeneratedQuery => c"VK_EXT_primitives_generated_query",
+            Self::EXT_GlobalPriorityQuery => c"VK_EXT_global_priority_query",
+            Self::VALVE_VideoEncodeRgbConversion => c"VK_VALVE_video_encode_rgb_conversion",
+            Self::EXT_ImageViewMinLod => c"VK_EXT_image_view_min_lod",
+            Self::EXT_MultiDraw => c"VK_EXT_multi_draw",
+            Self::EXT_Image2DViewOf3D => c"VK_EXT_image_2d_view_of_3d",
+            Self::EXT_ShaderTileImage => c"VK_EXT_shader_tile_image",
+            Self::EXT_OpacityMicromap => c"VK_EXT_opacity_micromap",
+            Self::NV_DisplacementMicromap => c"VK_NV_displacement_micromap",
+            Self::EXT_LoadStoreOpNone => c"VK_EXT_load_store_op_none",
+            Self::HUAWEI_ClusterCullingShader => c"VK_HUAWEI_cluster_culling_shader",
+            Self::EXT_BorderColorSwizzle => c"VK_EXT_border_color_swizzle",
+            Self::EXT_PageableDeviceLocalMemory => c"VK_EXT_pageable_device_local_memory",
+            Self::ARM_ShaderCoreProperties => c"VK_ARM_shader_core_properties",
+            Self::ARM_SchedulingControls => c"VK_ARM_scheduling_controls",
+            Self::EXT_ImageSlicedViewOf3D => c"VK_EXT_image_sliced_view_of_3d",
+            Self::VALVE_DescriptorSetHostMapping => c"VK_VALVE_descriptor_set_host_mapping",
+            Self::EXT_DepthClampZeroOne => c"VK_EXT_depth_clamp_zero_one",
+            Self::EXT_NonSeamlessCubeMap => c"VK_EXT_non_seamless_cube_map",
+            Self::ARM_RenderPassStriped => c"VK_ARM_render_pass_striped",
+            Self::QCOM_FragmentDensityMapOffset => c"VK_QCOM_fragment_density_map_offset",
+            Self::NV_CopyMemoryIndirect => c"VK_NV_copy_memory_indirect",
+            Self::NV_MemoryDecompression => c"VK_NV_memory_decompression",
+            Self::NV_DeviceGeneratedCommandsCompute => c"VK_NV_device_generated_commands_compute",
+            Self::NV_RayTracingLinearSweptSpheres => c"VK_NV_ray_tracing_linear_swept_spheres",
+            Self::NV_LinearColorAttachment => c"VK_NV_linear_color_attachment",
+            Self::GOOGLE_SurfacelessQuery => c"VK_GOOGLE_surfaceless_query",
+            Self::EXT_ImageCompressionControlSwapchain => c"VK_EXT_image_compression_control_swapchain",
+            Self::QCOM_ImageProcessing => c"VK_QCOM_image_processing",
+            Self::EXT_NestedCommandBuffer => c"VK_EXT_nested_command_buffer",
+            Self::OHOS_ExternalMemory => c"VK_OHOS_external_memory",
+            Self::EXT_ExternalMemoryAcquireUnmodified => c"VK_EXT_external_memory_acquire_unmodified",
+            Self::EXT_ExtendedDynamicState3 => c"VK_EXT_extended_dynamic_state3",
+            Self::EXT_SubpassMergeFeedback => c"VK_EXT_subpass_merge_feedback",
+            Self::LUNARG_DirectDriverLoading => c"VK_LUNARG_direct_driver_loading",
+            Self::ARM_Tensors => c"VK_ARM_tensors",
+            Self::EXT_ShaderModuleIdentifier => c"VK_EXT_shader_module_identifier",
+            Self::EXT_RasterizationOrderAttachmentAccess => c"VK_EXT_rasterization_order_attachment_access",
+            Self::NV_OpticalFlow => c"VK_NV_optical_flow",
+            Self::EXT_LegacyDithering => c"VK_EXT_legacy_dithering",
+            Self::EXT_PipelineProtectedAccess => c"VK_EXT_pipeline_protected_access",
+            Self::ANDROID_ExternalFormatResolve => c"VK_ANDROID_external_format_resolve",
+            Self::AMD_AntiLag => c"VK_AMD_anti_lag",
+            Self::AMDX_DenseGeometryFormat => c"VK_AMDX_dense_geometry_format",
+            Self::EXT_ShaderObject => c"VK_EXT_shader_object",
+            Self::QCOM_TileProperties => c"VK_QCOM_tile_properties",
+            Self::SEC_AmigoProfiling => c"VK_SEC_amigo_profiling",
+            Self::QCOM_MultiviewPerViewViewports => c"VK_QCOM_multiview_per_view_viewports",
+            Self::NV_RayTracingInvocationReorder => c"VK_NV_ray_tracing_invocation_reorder",
+            Self::NV_CooperativeVector => c"VK_NV_cooperative_vector",
+            Self::NV_ExtendedSparseAddressSpace => c"VK_NV_extended_sparse_address_space",
+            Self::EXT_MutableDescriptorType => c"VK_EXT_mutable_descriptor_type",
+            Self::EXT_LegacyVertexAttributes => c"VK_EXT_legacy_vertex_attributes",
+            Self::EXT_LayerSettings => c"VK_EXT_layer_settings",
+            Self::ARM_ShaderCoreBuiltins => c"VK_ARM_shader_core_builtins",
+            Self::EXT_PipelineLibraryGroupHandles => c"VK_EXT_pipeline_library_group_handles",
+            Self::EXT_DynamicRenderingUnusedAttachments => c"VK_EXT_dynamic_rendering_unused_attachments",
+            Self::NV_LowLatency2 => c"VK_NV_low_latency2",
+            Self::ARM_DataGraph => c"VK_ARM_data_graph",
+            Self::ARM_DataGraphInstructionSetTosa => c"VK_ARM_data_graph_instruction_set_tosa",
+            Self::QCOM_MultiviewPerViewRenderAreas => c"VK_QCOM_multiview_per_view_render_areas",
+            Self::NV_PerStageDescriptorSet => c"VK_NV_per_stage_descriptor_set",
+            Self::QCOM_ImageProcessing2 => c"VK_QCOM_image_processing2",
+            Self::QCOM_FilterCubicWeights => c"VK_QCOM_filter_cubic_weights",
+            Self::QCOM_YcbcrDegamma => c"VK_QCOM_ycbcr_degamma",
+            Self::QCOM_FilterCubicClamp => c"VK_QCOM_filter_cubic_clamp",
+            Self::EXT_AttachmentFeedbackLoopDynamicState => c"VK_EXT_attachment_feedback_loop_dynamic_state",
+            Self::QNX_ExternalMemoryScreenBuffer => c"VK_QNX_external_memory_screen_buffer",
+            Self::MSFT_LayeredDriver => c"VK_MSFT_layered_driver",
+            Self::NV_DescriptorPoolOverallocation => c"VK_NV_descriptor_pool_overallocation",
+            Self::QCOM_TileMemoryHeap => c"VK_QCOM_tile_memory_heap",
+            Self::EXT_MemoryDecompression => c"VK_EXT_memory_decompression",
+            Self::NV_DisplayStereo => c"VK_NV_display_stereo",
+            Self::NV_RawAccessChains => c"VK_NV_raw_access_chains",
+            Self::NV_ExternalComputeQueue => c"VK_NV_external_compute_queue",
+            Self::NV_CommandBufferInheritance => c"VK_NV_command_buffer_inheritance",
+            Self::NV_ShaderAtomicFloat16Vector => c"VK_NV_shader_atomic_float16_vector",
+            Self::EXT_ShaderReplicatedComposites => c"VK_EXT_shader_replicated_composites",
+            Self::ARM_TensorControls => c"VK_ARM_tensor_controls",
+            Self::EXT_ShaderFloat8 => c"VK_EXT_shader_float8",
+            Self::NV_RayTracingValidation => c"VK_NV_ray_tracing_validation",
+            Self::NV_ClusterAccelerationStructure => c"VK_NV_cluster_acceleration_structure",
+            Self::NV_PartitionedAccelerationStructure => c"VK_NV_partitioned_acceleration_structure",
+            Self::EXT_DeviceGeneratedCommands => c"VK_EXT_device_generated_commands",
+            Self::MESA_ImageAlignmentControl => c"VK_MESA_image_alignment_control",
+            Self::NV_PushConstantBank => c"VK_NV_push_constant_bank",
+            Self::EXT_RayTracingInvocationReorder => c"VK_EXT_ray_tracing_invocation_reorder",
+            Self::EXT_DepthClampControl => c"VK_EXT_depth_clamp_control",
+            Self::OHOS_Surface => c"VK_OHOS_surface",
+            Self::HUAWEI_HdrVivid => c"VK_HUAWEI_hdr_vivid",
+            Self::NV_CooperativeMatrix2 => c"VK_NV_cooperative_matrix2",
+            Self::ARM_PipelineOpacityMicromap => c"VK_ARM_pipeline_opacity_micromap",
+            Self::IMG_FilterLinear2D => c"VK_IMG_filter_linear_2d",
+            Self::EXT_ExternalMemoryMetal => c"VK_EXT_external_memory_metal",
+            Self::ARM_PerformanceCountersByRegion => c"VK_ARM_performance_counters_by_region",
+            Self::ARM_ShaderInstrumentation => c"VK_ARM_shader_instrumentation",
+            Self::EXT_VertexAttributeRobustness => c"VK_EXT_vertex_attribute_robustness",
+            Self::ARM_FormatPack => c"VK_ARM_format_pack",
+            Self::VALVE_FragmentDensityMapLayered => c"VK_VALVE_fragment_density_map_layered",
+            Self::NV_PresentMetering => c"VK_NV_present_metering",
+            Self::EXT_MultisampledRenderToSwapchain => c"VK_EXT_multisampled_render_to_swapchain",
+            Self::EXT_FragmentDensityMapOffset => c"VK_EXT_fragment_density_map_offset",
+            Self::EXT_ZeroInitializeDeviceMemory => c"VK_EXT_zero_initialize_device_memory",
+            Self::EXT_Shader64BitIndexing => c"VK_EXT_shader_64bit_indexing",
+            Self::EXT_CustomResolve => c"VK_EXT_custom_resolve",
+            Self::QCOM_DataGraphModel => c"VK_QCOM_data_graph_model",
+            Self::ARM_DataGraphOpticalFlow => c"VK_ARM_data_graph_optical_flow",
+            Self::EXT_ShaderLongVector => c"VK_EXT_shader_long_vector",
+            Self::SEC_PipelineCacheIncrementalMode => c"VK_SEC_pipeline_cache_incremental_mode",
+            Self::EXT_ShaderUniformBufferUnsizedArray => c"VK_EXT_shader_uniform_buffer_unsized_array",
+            Self::NV_ComputeOccupancyPriority => c"VK_NV_compute_occupancy_priority",
+            Self::EXT_CooperativeMatrixMaintenance1 => c"VK_EXT_cooperative_matrix_maintenance1",
+            Self::EXT_ShaderSubgroupPartitioned => c"VK_EXT_shader_subgroup_partitioned",
+            Self::SEC_UbmSurface => c"VK_SEC_ubm_surface",
+            Self::EXT_ShaderOcpMicroscalingTypes => c"VK_EXT_shader_ocp_microscaling_types",
+            Self::VALVE_ShaderMixedFloatDotProduct => c"VK_VALVE_shader_mixed_float_dot_product",
+            Self::SEC_ThrottleHint => c"VK_SEC_throttle_hint",
+            Self::ARM_DataGraphNeuralAcceleratorStatistics => c"VK_ARM_data_graph_neural_accelerator_statistics",
+            Self::EXT_PrimitiveRestartIndex => c"VK_EXT_primitive_restart_index",
+            Self::EXT_ImageTilingControl => c"VK_EXT_image_tiling_control",
+            Self::NV_CooperativeMatrixDecodeVector => c"VK_NV_cooperative_matrix_decode_vector",
+            Self::NV_PrivateDataBaseHandle => c"VK_NV_private_data_base_handle",
+            Self::VALVE_BufferDeviceAddressAllocationAlignment => c"VK_VALVE_buffer_device_address_allocation_alignment",
+            Self::KHR_AccelerationStructure => c"VK_KHR_acceleration_structure",
+            Self::KHR_RayTracingPipeline => c"VK_KHR_ray_tracing_pipeline",
+            Self::KHR_RayQuery => c"VK_KHR_ray_query",
+            Self::EXT_MeshShader => c"VK_EXT_mesh_shader",
+        }
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub(crate) enum GlobalCommands {
+    vkCreateInstance,
+    vkEnumerateInstanceExtensionProperties,
+    vkEnumerateInstanceLayerProperties,
+    vkEnumerateInstanceVersion,
+    vkGetExternalComputeQueueDataNV,
+}
+impl GlobalCommands {
+    pub const VARIANTS: &[Self; 5] = &[Self::vkCreateInstance, Self::vkEnumerateInstanceExtensionProperties, Self::vkEnumerateInstanceLayerProperties, Self::vkEnumerateInstanceVersion, Self::vkGetExternalComputeQueueDataNV];
+    pub fn name(self) -> &'static std::ffi::CStr {
+        match self {
+            Self::vkCreateInstance => c"vkCreateInstance",
+            Self::vkEnumerateInstanceExtensionProperties => c"vkEnumerateInstanceExtensionProperties",
+            Self::vkEnumerateInstanceLayerProperties => c"vkEnumerateInstanceLayerProperties",
+            Self::vkEnumerateInstanceVersion => c"vkEnumerateInstanceVersion",
+            Self::vkGetExternalComputeQueueDataNV => c"vkGetExternalComputeQueueDataNV",
+        }
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub(crate) enum InstanceCommands {
+    vkDestroyInstance,
+    vkEnumeratePhysicalDevices,
+    vkGetPhysicalDeviceFeatures,
+    vkGetPhysicalDeviceFormatProperties,
+    vkGetPhysicalDeviceImageFormatProperties,
+    vkGetPhysicalDeviceProperties,
+    vkGetPhysicalDeviceQueueFamilyProperties,
+    vkGetPhysicalDeviceMemoryProperties,
+    vkGetInstanceProcAddr,
+    vkGetDeviceProcAddr,
+    vkCreateDevice,
+    vkDestroyDevice,
+    vkEnumerateDeviceExtensionProperties,
+    vkEnumerateDeviceLayerProperties,
+    vkGetDeviceQueue,
+    vkQueueSubmit,
+    vkQueueWaitIdle,
+    vkDeviceWaitIdle,
+    vkAllocateMemory,
+    vkFreeMemory,
+    vkMapMemory,
+    vkUnmapMemory,
+    vkFlushMappedMemoryRanges,
+    vkInvalidateMappedMemoryRanges,
+    vkGetDeviceMemoryCommitment,
+    vkBindBufferMemory,
+    vkBindImageMemory,
+    vkGetBufferMemoryRequirements,
+    vkGetImageMemoryRequirements,
+    vkGetImageSparseMemoryRequirements,
+    vkGetPhysicalDeviceSparseImageFormatProperties,
+    vkQueueBindSparse,
+    vkCreateFence,
+    vkDestroyFence,
+    vkResetFences,
+    vkGetFenceStatus,
+    vkWaitForFences,
+    vkCreateSemaphore,
+    vkDestroySemaphore,
+    vkCreateQueryPool,
+    vkDestroyQueryPool,
+    vkGetQueryPoolResults,
+    vkCreateBuffer,
+    vkDestroyBuffer,
+    vkCreateImage,
+    vkDestroyImage,
+    vkGetImageSubresourceLayout,
+    vkCreateImageView,
+    vkDestroyImageView,
+    vkCreateCommandPool,
+    vkDestroyCommandPool,
+    vkResetCommandPool,
+    vkAllocateCommandBuffers,
+    vkFreeCommandBuffers,
+    vkBeginCommandBuffer,
+    vkEndCommandBuffer,
+    vkResetCommandBuffer,
+    vkCmdCopyBuffer,
+    vkCmdCopyImage,
+    vkCmdCopyBufferToImage,
+    vkCmdCopyImageToBuffer,
+    vkCmdUpdateBuffer,
+    vkCmdFillBuffer,
+    vkCmdPipelineBarrier,
+    vkCmdBeginQuery,
+    vkCmdEndQuery,
+    vkCmdResetQueryPool,
+    vkCmdWriteTimestamp,
+    vkCmdCopyQueryPoolResults,
+    vkCmdExecuteCommands,
+    vkCreateEvent,
+    vkDestroyEvent,
+    vkGetEventStatus,
+    vkSetEvent,
+    vkResetEvent,
+    vkCreateBufferView,
+    vkDestroyBufferView,
+    vkCreateShaderModule,
+    vkDestroyShaderModule,
+    vkCreatePipelineCache,
+    vkDestroyPipelineCache,
+    vkGetPipelineCacheData,
+    vkMergePipelineCaches,
+    vkCreateComputePipelines,
+    vkDestroyPipeline,
+    vkCreatePipelineLayout,
+    vkDestroyPipelineLayout,
+    vkCreateSampler,
+    vkDestroySampler,
+    vkCreateDescriptorSetLayout,
+    vkDestroyDescriptorSetLayout,
+    vkCreateDescriptorPool,
+    vkDestroyDescriptorPool,
+    vkResetDescriptorPool,
+    vkAllocateDescriptorSets,
+    vkFreeDescriptorSets,
+    vkUpdateDescriptorSets,
+    vkCmdBindPipeline,
+    vkCmdBindDescriptorSets,
+    vkCmdClearColorImage,
+    vkCmdDispatch,
+    vkCmdDispatchIndirect,
+    vkCmdSetEvent,
+    vkCmdResetEvent,
+    vkCmdWaitEvents,
+    vkCmdPushConstants,
+    vkCreateGraphicsPipelines,
+    vkCreateFramebuffer,
+    vkDestroyFramebuffer,
+    vkCreateRenderPass,
+    vkDestroyRenderPass,
+    vkGetRenderAreaGranularity,
+    vkCmdSetViewport,
+    vkCmdSetScissor,
+    vkCmdSetLineWidth,
+    vkCmdSetDepthBias,
+    vkCmdSetBlendConstants,
+    vkCmdSetDepthBounds,
+    vkCmdSetStencilCompareMask,
+    vkCmdSetStencilWriteMask,
+    vkCmdSetStencilReference,
+    vkCmdBindIndexBuffer,
+    vkCmdBindVertexBuffers,
+    vkCmdDraw,
+    vkCmdDrawIndexed,
+    vkCmdDrawIndirect,
+    vkCmdDrawIndexedIndirect,
+    vkCmdBlitImage,
+    vkCmdClearDepthStencilImage,
+    vkCmdClearAttachments,
+    vkCmdResolveImage,
+    vkCmdBeginRenderPass,
+    vkCmdNextSubpass,
+    vkCmdEndRenderPass,
+    vkBindBufferMemory2,
+    vkBindImageMemory2,
+    vkGetDeviceGroupPeerMemoryFeatures,
+    vkCmdSetDeviceMask,
+    vkEnumeratePhysicalDeviceGroups,
+    vkGetImageMemoryRequirements2,
+    vkGetBufferMemoryRequirements2,
+    vkGetImageSparseMemoryRequirements2,
+    vkGetPhysicalDeviceFeatures2,
+    vkGetPhysicalDeviceProperties2,
+    vkGetPhysicalDeviceFormatProperties2,
+    vkGetPhysicalDeviceImageFormatProperties2,
+    vkGetPhysicalDeviceQueueFamilyProperties2,
+    vkGetPhysicalDeviceMemoryProperties2,
+    vkGetPhysicalDeviceSparseImageFormatProperties2,
+    vkTrimCommandPool,
+    vkGetDeviceQueue2,
+    vkGetPhysicalDeviceExternalBufferProperties,
+    vkGetPhysicalDeviceExternalFenceProperties,
+    vkGetPhysicalDeviceExternalSemaphoreProperties,
+    vkCmdDispatchBase,
+    vkCreateDescriptorUpdateTemplate,
+    vkDestroyDescriptorUpdateTemplate,
+    vkUpdateDescriptorSetWithTemplate,
+    vkGetDescriptorSetLayoutSupport,
+    vkCreateSamplerYcbcrConversion,
+    vkDestroySamplerYcbcrConversion,
+    vkResetQueryPool,
+    vkGetSemaphoreCounterValue,
+    vkWaitSemaphores,
+    vkSignalSemaphore,
+    vkGetBufferDeviceAddress,
+    vkGetBufferOpaqueCaptureAddress,
+    vkGetDeviceMemoryOpaqueCaptureAddress,
+    vkCmdDrawIndirectCount,
+    vkCmdDrawIndexedIndirectCount,
+    vkCreateRenderPass2,
+    vkCmdBeginRenderPass2,
+    vkCmdNextSubpass2,
+    vkCmdEndRenderPass2,
+    vkGetPhysicalDeviceToolProperties,
+    vkCreatePrivateDataSlot,
+    vkDestroyPrivateDataSlot,
+    vkSetPrivateData,
+    vkGetPrivateData,
+    vkCmdPipelineBarrier2,
+    vkCmdWriteTimestamp2,
+    vkQueueSubmit2,
+    vkCmdCopyBuffer2,
+    vkCmdCopyImage2,
+    vkCmdCopyBufferToImage2,
+    vkCmdCopyImageToBuffer2,
+    vkGetDeviceBufferMemoryRequirements,
+    vkGetDeviceImageMemoryRequirements,
+    vkGetDeviceImageSparseMemoryRequirements,
+    vkCmdSetEvent2,
+    vkCmdResetEvent2,
+    vkCmdWaitEvents2,
+    vkCmdBlitImage2,
+    vkCmdResolveImage2,
+    vkCmdBeginRendering,
+    vkCmdEndRendering,
+    vkCmdSetCullMode,
+    vkCmdSetFrontFace,
+    vkCmdSetPrimitiveTopology,
+    vkCmdSetViewportWithCount,
+    vkCmdSetScissorWithCount,
+    vkCmdBindVertexBuffers2,
+    vkCmdSetDepthTestEnable,
+    vkCmdSetDepthWriteEnable,
+    vkCmdSetDepthCompareOp,
+    vkCmdSetDepthBoundsTestEnable,
+    vkCmdSetStencilTestEnable,
+    vkCmdSetStencilOp,
+    vkCmdSetRasterizerDiscardEnable,
+    vkCmdSetDepthBiasEnable,
+    vkCmdSetPrimitiveRestartEnable,
+    vkMapMemory2,
+    vkUnmapMemory2,
+    vkGetDeviceImageSubresourceLayout,
+    vkGetImageSubresourceLayout2,
+    vkCopyMemoryToImage,
+    vkCopyImageToMemory,
+    vkCopyImageToImage,
+    vkTransitionImageLayout,
+    vkCmdPushDescriptorSet,
+    vkCmdPushDescriptorSetWithTemplate,
+    vkCmdBindDescriptorSets2,
+    vkCmdPushConstants2,
+    vkCmdPushDescriptorSet2,
+    vkCmdPushDescriptorSetWithTemplate2,
+    vkCmdSetLineStipple,
+    vkCmdBindIndexBuffer2,
+    vkGetRenderingAreaGranularity,
+    vkCmdSetRenderingAttachmentLocations,
+    vkCmdSetRenderingInputAttachmentIndices,
+    vkDestroySurfaceKHR,
+    vkGetPhysicalDeviceSurfaceSupportKHR,
+    vkGetPhysicalDeviceSurfaceCapabilitiesKHR,
+    vkGetPhysicalDeviceSurfaceFormatsKHR,
+    vkGetPhysicalDeviceSurfacePresentModesKHR,
+    vkCreateSwapchainKHR,
+    vkDestroySwapchainKHR,
+    vkGetSwapchainImagesKHR,
+    vkAcquireNextImageKHR,
+    vkQueuePresentKHR,
+    vkGetDeviceGroupPresentCapabilitiesKHR,
+    vkGetDeviceGroupSurfacePresentModesKHR,
+    vkGetPhysicalDevicePresentRectanglesKHR,
+    vkAcquireNextImage2KHR,
+    vkGetPhysicalDeviceDisplayPropertiesKHR,
+    vkGetPhysicalDeviceDisplayPlanePropertiesKHR,
+    vkGetDisplayPlaneSupportedDisplaysKHR,
+    vkGetDisplayModePropertiesKHR,
+    vkCreateDisplayModeKHR,
+    vkGetDisplayPlaneCapabilitiesKHR,
+    vkCreateDisplayPlaneSurfaceKHR,
+    vkCreateSharedSwapchainsKHR,
+    vkCreateXlibSurfaceKHR,
+    vkGetPhysicalDeviceXlibPresentationSupportKHR,
+    vkCreateXcbSurfaceKHR,
+    vkGetPhysicalDeviceXcbPresentationSupportKHR,
+    vkCreateWaylandSurfaceKHR,
+    vkGetPhysicalDeviceWaylandPresentationSupportKHR,
+    vkCreateAndroidSurfaceKHR,
+    vkCreateWin32SurfaceKHR,
+    vkGetPhysicalDeviceWin32PresentationSupportKHR,
+    vkGetPhysicalDeviceVideoCapabilitiesKHR,
+    vkGetPhysicalDeviceVideoFormatPropertiesKHR,
+    vkCreateVideoSessionKHR,
+    vkDestroyVideoSessionKHR,
+    vkGetVideoSessionMemoryRequirementsKHR,
+    vkBindVideoSessionMemoryKHR,
+    vkCreateVideoSessionParametersKHR,
+    vkUpdateVideoSessionParametersKHR,
+    vkDestroyVideoSessionParametersKHR,
+    vkCmdBeginVideoCodingKHR,
+    vkCmdEndVideoCodingKHR,
+    vkCmdControlVideoCodingKHR,
+    vkCmdDecodeVideoKHR,
+    vkCmdBeginRenderingKHR,
+    vkCmdEndRenderingKHR,
+    vkGetPhysicalDeviceFeatures2KHR,
+    vkGetPhysicalDeviceProperties2KHR,
+    vkGetPhysicalDeviceFormatProperties2KHR,
+    vkGetPhysicalDeviceImageFormatProperties2KHR,
+    vkGetPhysicalDeviceQueueFamilyProperties2KHR,
+    vkGetPhysicalDeviceMemoryProperties2KHR,
+    vkGetPhysicalDeviceSparseImageFormatProperties2KHR,
+    vkGetDeviceGroupPeerMemoryFeaturesKHR,
+    vkCmdSetDeviceMaskKHR,
+    vkCmdDispatchBaseKHR,
+    vkTrimCommandPoolKHR,
+    vkEnumeratePhysicalDeviceGroupsKHR,
+    vkGetPhysicalDeviceExternalBufferPropertiesKHR,
+    vkGetMemoryWin32HandleKHR,
+    vkGetMemoryWin32HandlePropertiesKHR,
+    vkGetMemoryFdKHR,
+    vkGetMemoryFdPropertiesKHR,
+    vkGetPhysicalDeviceExternalSemaphorePropertiesKHR,
+    vkImportSemaphoreWin32HandleKHR,
+    vkGetSemaphoreWin32HandleKHR,
+    vkImportSemaphoreFdKHR,
+    vkGetSemaphoreFdKHR,
+    vkCmdPushDescriptorSetKHR,
+    vkCmdPushDescriptorSetWithTemplateKHR,
+    vkCreateDescriptorUpdateTemplateKHR,
+    vkDestroyDescriptorUpdateTemplateKHR,
+    vkUpdateDescriptorSetWithTemplateKHR,
+    vkCreateRenderPass2KHR,
+    vkCmdBeginRenderPass2KHR,
+    vkCmdNextSubpass2KHR,
+    vkCmdEndRenderPass2KHR,
+    vkGetSwapchainStatusKHR,
+    vkGetPhysicalDeviceExternalFencePropertiesKHR,
+    vkImportFenceWin32HandleKHR,
+    vkGetFenceWin32HandleKHR,
+    vkImportFenceFdKHR,
+    vkGetFenceFdKHR,
+    vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR,
+    vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR,
+    vkAcquireProfilingLockKHR,
+    vkReleaseProfilingLockKHR,
+    vkGetPhysicalDeviceSurfaceCapabilities2KHR,
+    vkGetPhysicalDeviceSurfaceFormats2KHR,
+    vkGetPhysicalDeviceDisplayProperties2KHR,
+    vkGetPhysicalDeviceDisplayPlaneProperties2KHR,
+    vkGetDisplayModeProperties2KHR,
+    vkGetDisplayPlaneCapabilities2KHR,
+    vkGetImageMemoryRequirements2KHR,
+    vkGetBufferMemoryRequirements2KHR,
+    vkGetImageSparseMemoryRequirements2KHR,
+    vkCreateSamplerYcbcrConversionKHR,
+    vkDestroySamplerYcbcrConversionKHR,
+    vkBindBufferMemory2KHR,
+    vkBindImageMemory2KHR,
+    vkGetDescriptorSetLayoutSupportKHR,
+    vkCmdDrawIndirectCountKHR,
+    vkCmdDrawIndexedIndirectCountKHR,
+    vkGetSemaphoreCounterValueKHR,
+    vkWaitSemaphoresKHR,
+    vkSignalSemaphoreKHR,
+    vkGetPhysicalDeviceFragmentShadingRatesKHR,
+    vkCmdSetFragmentShadingRateKHR,
+    vkCmdSetRenderingAttachmentLocationsKHR,
+    vkCmdSetRenderingInputAttachmentIndicesKHR,
+    vkWaitForPresentKHR,
+    vkGetBufferDeviceAddressKHR,
+    vkGetBufferOpaqueCaptureAddressKHR,
+    vkGetDeviceMemoryOpaqueCaptureAddressKHR,
+    vkCreateDeferredOperationKHR,
+    vkDestroyDeferredOperationKHR,
+    vkGetDeferredOperationMaxConcurrencyKHR,
+    vkGetDeferredOperationResultKHR,
+    vkDeferredOperationJoinKHR,
+    vkGetPipelineExecutablePropertiesKHR,
+    vkGetPipelineExecutableStatisticsKHR,
+    vkGetPipelineExecutableInternalRepresentationsKHR,
+    vkMapMemory2KHR,
+    vkUnmapMemory2KHR,
+    vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR,
+    vkGetEncodedVideoSessionParametersKHR,
+    vkCmdEncodeVideoKHR,
+    vkCmdSetEvent2KHR,
+    vkCmdResetEvent2KHR,
+    vkCmdWaitEvents2KHR,
+    vkCmdPipelineBarrier2KHR,
+    vkCmdWriteTimestamp2KHR,
+    vkQueueSubmit2KHR,
+    vkCmdBindIndexBuffer3KHR,
+    vkCmdBindVertexBuffers3KHR,
+    vkCmdDrawIndirect2KHR,
+    vkCmdDrawIndexedIndirect2KHR,
+    vkCmdDispatchIndirect2KHR,
+    vkCmdCopyMemoryKHR,
+    vkCmdCopyMemoryToImageKHR,
+    vkCmdCopyImageToMemoryKHR,
+    vkCmdUpdateMemoryKHR,
+    vkCmdFillMemoryKHR,
+    vkCmdCopyQueryPoolResultsToMemoryKHR,
+    vkCmdDrawIndirectCount2KHR,
+    vkCmdDrawIndexedIndirectCount2KHR,
+    vkCmdBeginConditionalRendering2EXT,
+    vkCmdBindTransformFeedbackBuffers2EXT,
+    vkCmdBeginTransformFeedback2EXT,
+    vkCmdEndTransformFeedback2EXT,
+    vkCmdDrawIndirectByteCount2EXT,
+    vkCmdDrawMeshTasksIndirect2EXT,
+    vkCmdDrawMeshTasksIndirectCount2EXT,
+    vkCmdWriteMarkerToMemoryAMD,
+    vkCreateAccelerationStructure2KHR,
+    vkCmdCopyBuffer2KHR,
+    vkCmdCopyImage2KHR,
+    vkCmdCopyBufferToImage2KHR,
+    vkCmdCopyImageToBuffer2KHR,
+    vkCmdBlitImage2KHR,
+    vkCmdResolveImage2KHR,
+    vkCmdTraceRaysIndirect2KHR,
+    vkGetDeviceBufferMemoryRequirementsKHR,
+    vkGetDeviceImageMemoryRequirementsKHR,
+    vkGetDeviceImageSparseMemoryRequirementsKHR,
+    vkCmdBindIndexBuffer2KHR,
+    vkGetRenderingAreaGranularityKHR,
+    vkGetDeviceImageSubresourceLayoutKHR,
+    vkGetImageSubresourceLayout2KHR,
+    vkWaitForPresent2KHR,
+    vkCreatePipelineBinariesKHR,
+    vkDestroyPipelineBinaryKHR,
+    vkGetPipelineKeyKHR,
+    vkGetPipelineBinaryDataKHR,
+    vkReleaseCapturedPipelineDataKHR,
+    vkReleaseSwapchainImagesKHR,
+    vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR,
+    vkCmdSetLineStippleKHR,
+    vkGetPhysicalDeviceCalibrateableTimeDomainsKHR,
+    vkGetCalibratedTimestampsKHR,
+    vkCmdBindDescriptorSets2KHR,
+    vkCmdPushConstants2KHR,
+    vkCmdPushDescriptorSet2KHR,
+    vkCmdPushDescriptorSetWithTemplate2KHR,
+    vkCmdSetDescriptorBufferOffsets2EXT,
+    vkCmdBindDescriptorBufferEmbeddedSamplers2EXT,
+    vkCmdCopyMemoryIndirectKHR,
+    vkCmdCopyMemoryToImageIndirectKHR,
+    vkGetDeviceFaultReportsKHR,
+    vkGetDeviceFaultDebugInfoKHR,
+    vkCmdEndRendering2KHR,
+    vkCreateDebugReportCallbackEXT,
+    vkDestroyDebugReportCallbackEXT,
+    vkDebugReportMessageEXT,
+    vkDebugMarkerSetObjectTagEXT,
+    vkDebugMarkerSetObjectNameEXT,
+    vkCmdDebugMarkerBeginEXT,
+    vkCmdDebugMarkerEndEXT,
+    vkCmdDebugMarkerInsertEXT,
+    vkCmdBindTransformFeedbackBuffersEXT,
+    vkCmdBeginTransformFeedbackEXT,
+    vkCmdEndTransformFeedbackEXT,
+    vkCmdBeginQueryIndexedEXT,
+    vkCmdEndQueryIndexedEXT,
+    vkCmdDrawIndirectByteCountEXT,
+    vkCreateCuModuleNVX,
+    vkCreateCuFunctionNVX,
+    vkDestroyCuModuleNVX,
+    vkDestroyCuFunctionNVX,
+    vkCmdCuLaunchKernelNVX,
+    vkGetImageViewHandleNVX,
+    vkGetImageViewHandle64NVX,
+    vkGetImageViewAddressNVX,
+    vkGetDeviceCombinedImageSamplerIndexNVX,
+    vkCmdDrawIndirectCountAMD,
+    vkCmdDrawIndexedIndirectCountAMD,
+    vkGetShaderInfoAMD,
+    vkCreateStreamDescriptorSurfaceGGP,
+    vkGetPhysicalDeviceExternalImageFormatPropertiesNV,
+    vkGetMemoryWin32HandleNV,
+    vkCreateViSurfaceNN,
+    vkCmdBeginConditionalRenderingEXT,
+    vkCmdEndConditionalRenderingEXT,
+    vkCmdSetViewportWScalingNV,
+    vkReleaseDisplayEXT,
+    vkAcquireXlibDisplayEXT,
+    vkGetRandROutputDisplayEXT,
+    vkGetPhysicalDeviceSurfaceCapabilities2EXT,
+    vkDisplayPowerControlEXT,
+    vkRegisterDeviceEventEXT,
+    vkRegisterDisplayEventEXT,
+    vkGetSwapchainCounterEXT,
+    vkGetRefreshCycleDurationGOOGLE,
+    vkGetPastPresentationTimingGOOGLE,
+    vkCmdSetDiscardRectangleEXT,
+    vkCmdSetDiscardRectangleEnableEXT,
+    vkCmdSetDiscardRectangleModeEXT,
+    vkSetHdrMetadataEXT,
+    vkCreateIOSSurfaceMVK,
+    vkCreateMacOSSurfaceMVK,
+    vkSetDebugUtilsObjectNameEXT,
+    vkSetDebugUtilsObjectTagEXT,
+    vkQueueBeginDebugUtilsLabelEXT,
+    vkQueueEndDebugUtilsLabelEXT,
+    vkQueueInsertDebugUtilsLabelEXT,
+    vkCmdBeginDebugUtilsLabelEXT,
+    vkCmdEndDebugUtilsLabelEXT,
+    vkCmdInsertDebugUtilsLabelEXT,
+    vkCreateDebugUtilsMessengerEXT,
+    vkDestroyDebugUtilsMessengerEXT,
+    vkSubmitDebugUtilsMessageEXT,
+    vkGetAndroidHardwareBufferPropertiesANDROID,
+    vkGetMemoryAndroidHardwareBufferANDROID,
+    vkCreateGpaSessionAMD,
+    vkDestroyGpaSessionAMD,
+    vkSetGpaDeviceClockModeAMD,
+    vkGetGpaDeviceClockInfoAMD,
+    vkCmdBeginGpaSessionAMD,
+    vkCmdEndGpaSessionAMD,
+    vkCmdBeginGpaSampleAMD,
+    vkCmdEndGpaSampleAMD,
+    vkGetGpaSessionStatusAMD,
+    vkGetGpaSessionResultsAMD,
+    vkResetGpaSessionAMD,
+    vkCmdCopyGpaSessionResultsAMD,
+    vkCreateExecutionGraphPipelinesAMDX,
+    vkGetExecutionGraphPipelineScratchSizeAMDX,
+    vkGetExecutionGraphPipelineNodeIndexAMDX,
+    vkCmdInitializeGraphScratchMemoryAMDX,
+    vkCmdDispatchGraphAMDX,
+    vkCmdDispatchGraphIndirectAMDX,
+    vkCmdDispatchGraphIndirectCountAMDX,
+    vkWriteSamplerDescriptorsEXT,
+    vkWriteResourceDescriptorsEXT,
+    vkCmdBindSamplerHeapEXT,
+    vkCmdBindResourceHeapEXT,
+    vkCmdPushDataEXT,
+    vkGetImageOpaqueCaptureDataEXT,
+    vkGetPhysicalDeviceDescriptorSizeEXT,
+    vkRegisterCustomBorderColorEXT,
+    vkUnregisterCustomBorderColorEXT,
+    vkGetTensorOpaqueCaptureDataARM,
+    vkCmdSetSampleLocationsEXT,
+    vkGetPhysicalDeviceMultisamplePropertiesEXT,
+    vkGetImageDrmFormatModifierPropertiesEXT,
+    vkCreateValidationCacheEXT,
+    vkDestroyValidationCacheEXT,
+    vkMergeValidationCachesEXT,
+    vkGetValidationCacheDataEXT,
+    vkCmdBindShadingRateImageNV,
+    vkCmdSetViewportShadingRatePaletteNV,
+    vkCmdSetCoarseSampleOrderNV,
+    vkCreateAccelerationStructureNV,
+    vkDestroyAccelerationStructureNV,
+    vkGetAccelerationStructureMemoryRequirementsNV,
+    vkBindAccelerationStructureMemoryNV,
+    vkCmdBuildAccelerationStructureNV,
+    vkCmdCopyAccelerationStructureNV,
+    vkCmdTraceRaysNV,
+    vkCreateRayTracingPipelinesNV,
+    vkGetRayTracingShaderGroupHandlesKHR,
+    vkGetRayTracingShaderGroupHandlesNV,
+    vkGetAccelerationStructureHandleNV,
+    vkCmdWriteAccelerationStructuresPropertiesNV,
+    vkCompileDeferredNV,
+    vkGetMemoryHostPointerPropertiesEXT,
+    vkCmdWriteBufferMarkerAMD,
+    vkCmdWriteBufferMarker2AMD,
+    vkGetPhysicalDeviceCalibrateableTimeDomainsEXT,
+    vkGetCalibratedTimestampsEXT,
+    vkCmdDrawMeshTasksNV,
+    vkCmdDrawMeshTasksIndirectNV,
+    vkCmdDrawMeshTasksIndirectCountNV,
+    vkCmdSetExclusiveScissorEnableNV,
+    vkCmdSetExclusiveScissorNV,
+    vkCmdSetCheckpointNV,
+    vkGetQueueCheckpointDataNV,
+    vkGetQueueCheckpointData2NV,
+    vkSetSwapchainPresentTimingQueueSizeEXT,
+    vkGetSwapchainTimingPropertiesEXT,
+    vkGetSwapchainTimeDomainPropertiesEXT,
+    vkGetPastPresentationTimingEXT,
+    vkInitializePerformanceApiINTEL,
+    vkUninitializePerformanceApiINTEL,
+    vkCmdSetPerformanceMarkerINTEL,
+    vkCmdSetPerformanceStreamMarkerINTEL,
+    vkCmdSetPerformanceOverrideINTEL,
+    vkAcquirePerformanceConfigurationINTEL,
+    vkReleasePerformanceConfigurationINTEL,
+    vkQueueSetPerformanceConfigurationINTEL,
+    vkGetPerformanceParameterINTEL,
+    vkSetLocalDimmingAMD,
+    vkCreateImagePipeSurfaceFUCHSIA,
+    vkCreateMetalSurfaceEXT,
+    vkGetBufferDeviceAddressEXT,
+    vkGetPhysicalDeviceToolPropertiesEXT,
+    vkGetPhysicalDeviceCooperativeMatrixPropertiesNV,
+    vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV,
+    vkGetPhysicalDeviceSurfacePresentModes2EXT,
+    vkAcquireFullScreenExclusiveModeEXT,
+    vkReleaseFullScreenExclusiveModeEXT,
+    vkGetDeviceGroupSurfacePresentModes2EXT,
+    vkCreateHeadlessSurfaceEXT,
+    vkCmdSetLineStippleEXT,
+    vkResetQueryPoolEXT,
+    vkCmdSetCullModeEXT,
+    vkCmdSetFrontFaceEXT,
+    vkCmdSetPrimitiveTopologyEXT,
+    vkCmdSetViewportWithCountEXT,
+    vkCmdSetScissorWithCountEXT,
+    vkCmdBindVertexBuffers2EXT,
+    vkCmdSetDepthTestEnableEXT,
+    vkCmdSetDepthWriteEnableEXT,
+    vkCmdSetDepthCompareOpEXT,
+    vkCmdSetDepthBoundsTestEnableEXT,
+    vkCmdSetStencilTestEnableEXT,
+    vkCmdSetStencilOpEXT,
+    vkCopyMemoryToImageEXT,
+    vkCopyImageToMemoryEXT,
+    vkCopyImageToImageEXT,
+    vkTransitionImageLayoutEXT,
+    vkGetImageSubresourceLayout2EXT,
+    vkReleaseSwapchainImagesEXT,
+    vkGetGeneratedCommandsMemoryRequirementsNV,
+    vkCmdPreprocessGeneratedCommandsNV,
+    vkCmdExecuteGeneratedCommandsNV,
+    vkCmdBindPipelineShaderGroupNV,
+    vkCreateIndirectCommandsLayoutNV,
+    vkDestroyIndirectCommandsLayoutNV,
+    vkCmdSetDepthBias2EXT,
+    vkAcquireDrmDisplayEXT,
+    vkGetDrmDisplayEXT,
+    vkCreatePrivateDataSlotEXT,
+    vkDestroyPrivateDataSlotEXT,
+    vkSetPrivateDataEXT,
+    vkGetPrivateDataEXT,
+    vkQueueSetPerfHintQCOM,
+    vkCreateCudaModuleNV,
+    vkGetCudaModuleCacheNV,
+    vkCreateCudaFunctionNV,
+    vkDestroyCudaModuleNV,
+    vkDestroyCudaFunctionNV,
+    vkCmdCudaLaunchKernelNV,
+    vkCmdDispatchTileQCOM,
+    vkCmdBeginPerTileExecutionQCOM,
+    vkCmdEndPerTileExecutionQCOM,
+    vkSetLatencySleepModeLegacyNV,
+    vkLatencySleepLegacyNV,
+    vkSetLatencyMarkerLegacyNV,
+    vkGetLatencyTimingsLegacyNV,
+    vkQueueNotifyOutOfBandLegacyNV,
+    vkGetSleepStatusLegacyNV,
+    vkShutdownLatencyDeviceLegacyNV,
+    vkExportMetalObjectsEXT,
+    vkGetDescriptorSetLayoutSizeEXT,
+    vkGetDescriptorSetLayoutBindingOffsetEXT,
+    vkGetDescriptorEXT,
+    vkCmdBindDescriptorBuffersEXT,
+    vkCmdSetDescriptorBufferOffsetsEXT,
+    vkCmdBindDescriptorBufferEmbeddedSamplersEXT,
+    vkGetBufferOpaqueCaptureDescriptorDataEXT,
+    vkGetImageOpaqueCaptureDescriptorDataEXT,
+    vkGetImageViewOpaqueCaptureDescriptorDataEXT,
+    vkGetSamplerOpaqueCaptureDescriptorDataEXT,
+    vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT,
+    vkCmdSetFragmentShadingRateEnumNV,
+    vkGetDeviceFaultInfoEXT,
+    vkAcquireWinrtDisplayNV,
+    vkGetWinrtDisplayNV,
+    vkCreateDirectFBSurfaceEXT,
+    vkGetPhysicalDeviceDirectFBPresentationSupportEXT,
+    vkCmdSetVertexInputEXT,
+    vkGetMemoryZirconHandleFUCHSIA,
+    vkGetMemoryZirconHandlePropertiesFUCHSIA,
+    vkImportSemaphoreZirconHandleFUCHSIA,
+    vkGetSemaphoreZirconHandleFUCHSIA,
+    vkCreateBufferCollectionFUCHSIA,
+    vkSetBufferCollectionImageConstraintsFUCHSIA,
+    vkSetBufferCollectionBufferConstraintsFUCHSIA,
+    vkDestroyBufferCollectionFUCHSIA,
+    vkGetBufferCollectionPropertiesFUCHSIA,
+    vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI,
+    vkCmdSubpassShadingHUAWEI,
+    vkCmdBindInvocationMaskHUAWEI,
+    vkGetMemoryRemoteAddressNV,
+    vkGetPipelinePropertiesEXT,
+    vkCmdSetPatchControlPointsEXT,
+    vkCmdSetRasterizerDiscardEnableEXT,
+    vkCmdSetDepthBiasEnableEXT,
+    vkCmdSetLogicOpEXT,
+    vkCmdSetPrimitiveRestartEnableEXT,
+    vkCreateScreenSurfaceQNX,
+    vkGetPhysicalDeviceScreenPresentationSupportQNX,
+    vkCmdSetColorWriteEnableEXT,
+    vkCmdDrawMultiEXT,
+    vkCmdDrawMultiIndexedEXT,
+    vkCreateMicromapEXT,
+    vkDestroyMicromapEXT,
+    vkCmdBuildMicromapsEXT,
+    vkBuildMicromapsEXT,
+    vkCopyMicromapEXT,
+    vkCopyMicromapToMemoryEXT,
+    vkCopyMemoryToMicromapEXT,
+    vkWriteMicromapsPropertiesEXT,
+    vkCmdCopyMicromapEXT,
+    vkCmdCopyMicromapToMemoryEXT,
+    vkCmdCopyMemoryToMicromapEXT,
+    vkCmdWriteMicromapsPropertiesEXT,
+    vkGetDeviceMicromapCompatibilityEXT,
+    vkGetMicromapBuildSizesEXT,
+    vkCmdDrawClusterHUAWEI,
+    vkCmdDrawClusterIndirectHUAWEI,
+    vkSetDeviceMemoryPriorityEXT,
+    vkCmdSetDispatchParametersARM,
+    vkGetDescriptorSetLayoutHostMappingInfoVALVE,
+    vkGetDescriptorSetHostMappingVALVE,
+    vkCmdCopyMemoryIndirectNV,
+    vkCmdCopyMemoryToImageIndirectNV,
+    vkCmdDecompressMemoryNV,
+    vkCmdDecompressMemoryIndirectCountNV,
+    vkGetPipelineIndirectMemoryRequirementsNV,
+    vkCmdUpdatePipelineIndirectBufferNV,
+    vkGetPipelineIndirectDeviceAddressNV,
+    vkGetNativeBufferPropertiesOHOS,
+    vkGetMemoryNativeBufferOHOS,
+    vkCmdSetDepthClampEnableEXT,
+    vkCmdSetPolygonModeEXT,
+    vkCmdSetRasterizationSamplesEXT,
+    vkCmdSetSampleMaskEXT,
+    vkCmdSetAlphaToCoverageEnableEXT,
+    vkCmdSetAlphaToOneEnableEXT,
+    vkCmdSetLogicOpEnableEXT,
+    vkCmdSetColorBlendEnableEXT,
+    vkCmdSetColorBlendEquationEXT,
+    vkCmdSetColorWriteMaskEXT,
+    vkCmdSetTessellationDomainOriginEXT,
+    vkCmdSetRasterizationStreamEXT,
+    vkCmdSetConservativeRasterizationModeEXT,
+    vkCmdSetExtraPrimitiveOverestimationSizeEXT,
+    vkCmdSetDepthClipEnableEXT,
+    vkCmdSetSampleLocationsEnableEXT,
+    vkCmdSetColorBlendAdvancedEXT,
+    vkCmdSetProvokingVertexModeEXT,
+    vkCmdSetLineRasterizationModeEXT,
+    vkCmdSetLineStippleEnableEXT,
+    vkCmdSetDepthClipNegativeOneToOneEXT,
+    vkCmdSetViewportWScalingEnableNV,
+    vkCmdSetViewportSwizzleNV,
+    vkCmdSetCoverageToColorEnableNV,
+    vkCmdSetCoverageToColorLocationNV,
+    vkCmdSetCoverageModulationModeNV,
+    vkCmdSetCoverageModulationTableEnableNV,
+    vkCmdSetCoverageModulationTableNV,
+    vkCmdSetShadingRateImageEnableNV,
+    vkCmdSetRepresentativeFragmentTestEnableNV,
+    vkCmdSetCoverageReductionModeNV,
+    vkCreateTensorARM,
+    vkDestroyTensorARM,
+    vkCreateTensorViewARM,
+    vkDestroyTensorViewARM,
+    vkGetTensorMemoryRequirementsARM,
+    vkBindTensorMemoryARM,
+    vkGetDeviceTensorMemoryRequirementsARM,
+    vkCmdCopyTensorARM,
+    vkGetPhysicalDeviceExternalTensorPropertiesARM,
+    vkGetTensorOpaqueCaptureDescriptorDataARM,
+    vkGetTensorViewOpaqueCaptureDescriptorDataARM,
+    vkGetShaderModuleIdentifierEXT,
+    vkGetShaderModuleCreateInfoIdentifierEXT,
+    vkGetPhysicalDeviceOpticalFlowImageFormatsNV,
+    vkCreateOpticalFlowSessionNV,
+    vkDestroyOpticalFlowSessionNV,
+    vkBindOpticalFlowSessionImageNV,
+    vkCmdOpticalFlowExecuteNV,
+    vkAntiLagUpdateAMD,
+    vkCreateShadersEXT,
+    vkDestroyShaderEXT,
+    vkGetShaderBinaryDataEXT,
+    vkCmdBindShadersEXT,
+    vkCmdSetDepthClampRangeEXT,
+    vkGetFramebufferTilePropertiesQCOM,
+    vkGetDynamicRenderingTilePropertiesQCOM,
+    vkGetPhysicalDeviceCooperativeVectorPropertiesNV,
+    vkConvertCooperativeVectorMatrixNV,
+    vkCmdConvertCooperativeVectorMatrixNV,
+    vkSetLatencySleepModeNV,
+    vkLatencySleepNV,
+    vkSetLatencyMarkerNV,
+    vkGetLatencyTimingsNV,
+    vkQueueNotifyOutOfBandNV,
+    vkCreateDataGraphPipelinesARM,
+    vkCreateDataGraphPipelineSessionARM,
+    vkGetDataGraphPipelineSessionBindPointRequirementsARM,
+    vkGetDataGraphPipelineSessionMemoryRequirementsARM,
+    vkBindDataGraphPipelineSessionMemoryARM,
+    vkDestroyDataGraphPipelineSessionARM,
+    vkCmdDispatchDataGraphARM,
+    vkGetDataGraphPipelineAvailablePropertiesARM,
+    vkGetDataGraphPipelinePropertiesARM,
+    vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM,
+    vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM,
+    vkGetPhysicalDeviceQueueFamilyDataGraphEngineOperationPropertiesARM,
+    vkCmdSetAttachmentFeedbackLoopEnableEXT,
+    vkGetScreenBufferPropertiesQNX,
+    vkCmdBindTileMemoryQCOM,
+    vkCmdDecompressMemoryEXT,
+    vkCmdDecompressMemoryIndirectCountEXT,
+    vkCreateExternalComputeQueueNV,
+    vkDestroyExternalComputeQueueNV,
+    vkGetClusterAccelerationStructureBuildSizesNV,
+    vkCmdBuildClusterAccelerationStructureIndirectNV,
+    vkGetPartitionedAccelerationStructuresBuildSizesNV,
+    vkCmdBuildPartitionedAccelerationStructuresNV,
+    vkGetGeneratedCommandsMemoryRequirementsEXT,
+    vkCmdPreprocessGeneratedCommandsEXT,
+    vkCmdExecuteGeneratedCommandsEXT,
+    vkCreateIndirectCommandsLayoutEXT,
+    vkDestroyIndirectCommandsLayoutEXT,
+    vkCreateIndirectExecutionSetEXT,
+    vkDestroyIndirectExecutionSetEXT,
+    vkUpdateIndirectExecutionSetPipelineEXT,
+    vkUpdateIndirectExecutionSetShaderEXT,
+    vkCreateSurfaceOHOS,
+    vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV,
+    vkGetMemoryMetalHandleEXT,
+    vkGetMemoryMetalHandlePropertiesEXT,
+    vkEnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM,
+    vkEnumeratePhysicalDeviceShaderInstrumentationMetricsARM,
+    vkCreateShaderInstrumentationARM,
+    vkDestroyShaderInstrumentationARM,
+    vkCmdBeginShaderInstrumentationARM,
+    vkCmdEndShaderInstrumentationARM,
+    vkGetShaderInstrumentationValuesARM,
+    vkClearShaderInstrumentationMetricsARM,
+    vkCmdEndRendering2EXT,
+    vkCmdBeginCustomResolveEXT,
+    vkGetPhysicalDeviceQueueFamilyDataGraphOpticalFlowImageFormatsARM,
+    vkCmdSetComputeOccupancyPriorityNV,
+    vkGetPhysicalDeviceCooperativeMatrixProperties2EXT,
+    vkCreateUbmSurfaceSEC,
+    vkGetPhysicalDeviceUbmPresentationSupportSEC,
+    vkCmdSetPrimitiveRestartIndexEXT,
+    vkCreateAccelerationStructureKHR,
+    vkDestroyAccelerationStructureKHR,
+    vkCmdBuildAccelerationStructuresKHR,
+    vkCmdBuildAccelerationStructuresIndirectKHR,
+    vkBuildAccelerationStructuresKHR,
+    vkCopyAccelerationStructureKHR,
+    vkCopyAccelerationStructureToMemoryKHR,
+    vkCopyMemoryToAccelerationStructureKHR,
+    vkWriteAccelerationStructuresPropertiesKHR,
+    vkCmdCopyAccelerationStructureKHR,
+    vkCmdCopyAccelerationStructureToMemoryKHR,
+    vkCmdCopyMemoryToAccelerationStructureKHR,
+    vkGetAccelerationStructureDeviceAddressKHR,
+    vkCmdWriteAccelerationStructuresPropertiesKHR,
+    vkGetDeviceAccelerationStructureCompatibilityKHR,
+    vkGetAccelerationStructureBuildSizesKHR,
+    vkCmdTraceRaysKHR,
+    vkCreateRayTracingPipelinesKHR,
+    vkGetRayTracingCaptureReplayShaderGroupHandlesKHR,
+    vkCmdTraceRaysIndirectKHR,
+    vkGetRayTracingShaderGroupStackSizeKHR,
+    vkCmdSetRayTracingPipelineStackSizeKHR,
+    vkCmdDrawMeshTasksEXT,
+    vkCmdDrawMeshTasksIndirectEXT,
+    vkCmdDrawMeshTasksIndirectCountEXT,
+}
+impl InstanceCommands {
+    pub const VARIANTS: &[Self; 837] = &[Self::vkDestroyInstance, Self::vkEnumeratePhysicalDevices, Self::vkGetPhysicalDeviceFeatures, Self::vkGetPhysicalDeviceFormatProperties, Self::vkGetPhysicalDeviceImageFormatProperties, Self::vkGetPhysicalDeviceProperties, Self::vkGetPhysicalDeviceQueueFamilyProperties, Self::vkGetPhysicalDeviceMemoryProperties, Self::vkGetInstanceProcAddr, Self::vkGetDeviceProcAddr, Self::vkCreateDevice, Self::vkDestroyDevice, Self::vkEnumerateDeviceExtensionProperties, Self::vkEnumerateDeviceLayerProperties, Self::vkGetDeviceQueue, Self::vkQueueSubmit, Self::vkQueueWaitIdle, Self::vkDeviceWaitIdle, Self::vkAllocateMemory, Self::vkFreeMemory, Self::vkMapMemory, Self::vkUnmapMemory, Self::vkFlushMappedMemoryRanges, Self::vkInvalidateMappedMemoryRanges, Self::vkGetDeviceMemoryCommitment, Self::vkBindBufferMemory, Self::vkBindImageMemory, Self::vkGetBufferMemoryRequirements, Self::vkGetImageMemoryRequirements, Self::vkGetImageSparseMemoryRequirements, Self::vkGetPhysicalDeviceSparseImageFormatProperties, Self::vkQueueBindSparse, Self::vkCreateFence, Self::vkDestroyFence, Self::vkResetFences, Self::vkGetFenceStatus, Self::vkWaitForFences, Self::vkCreateSemaphore, Self::vkDestroySemaphore, Self::vkCreateQueryPool, Self::vkDestroyQueryPool, Self::vkGetQueryPoolResults, Self::vkCreateBuffer, Self::vkDestroyBuffer, Self::vkCreateImage, Self::vkDestroyImage, Self::vkGetImageSubresourceLayout, Self::vkCreateImageView, Self::vkDestroyImageView, Self::vkCreateCommandPool, Self::vkDestroyCommandPool, Self::vkResetCommandPool, Self::vkAllocateCommandBuffers, Self::vkFreeCommandBuffers, Self::vkBeginCommandBuffer, Self::vkEndCommandBuffer, Self::vkResetCommandBuffer, Self::vkCmdCopyBuffer, Self::vkCmdCopyImage, Self::vkCmdCopyBufferToImage, Self::vkCmdCopyImageToBuffer, Self::vkCmdUpdateBuffer, Self::vkCmdFillBuffer, Self::vkCmdPipelineBarrier, Self::vkCmdBeginQuery, Self::vkCmdEndQuery, Self::vkCmdResetQueryPool, Self::vkCmdWriteTimestamp, Self::vkCmdCopyQueryPoolResults, Self::vkCmdExecuteCommands, Self::vkCreateEvent, Self::vkDestroyEvent, Self::vkGetEventStatus, Self::vkSetEvent, Self::vkResetEvent, Self::vkCreateBufferView, Self::vkDestroyBufferView, Self::vkCreateShaderModule, Self::vkDestroyShaderModule, Self::vkCreatePipelineCache, Self::vkDestroyPipelineCache, Self::vkGetPipelineCacheData, Self::vkMergePipelineCaches, Self::vkCreateComputePipelines, Self::vkDestroyPipeline, Self::vkCreatePipelineLayout, Self::vkDestroyPipelineLayout, Self::vkCreateSampler, Self::vkDestroySampler, Self::vkCreateDescriptorSetLayout, Self::vkDestroyDescriptorSetLayout, Self::vkCreateDescriptorPool, Self::vkDestroyDescriptorPool, Self::vkResetDescriptorPool, Self::vkAllocateDescriptorSets, Self::vkFreeDescriptorSets, Self::vkUpdateDescriptorSets, Self::vkCmdBindPipeline, Self::vkCmdBindDescriptorSets, Self::vkCmdClearColorImage, Self::vkCmdDispatch, Self::vkCmdDispatchIndirect, Self::vkCmdSetEvent, Self::vkCmdResetEvent, Self::vkCmdWaitEvents, Self::vkCmdPushConstants, Self::vkCreateGraphicsPipelines, Self::vkCreateFramebuffer, Self::vkDestroyFramebuffer, Self::vkCreateRenderPass, Self::vkDestroyRenderPass, Self::vkGetRenderAreaGranularity, Self::vkCmdSetViewport, Self::vkCmdSetScissor, Self::vkCmdSetLineWidth, Self::vkCmdSetDepthBias, Self::vkCmdSetBlendConstants, Self::vkCmdSetDepthBounds, Self::vkCmdSetStencilCompareMask, Self::vkCmdSetStencilWriteMask, Self::vkCmdSetStencilReference, Self::vkCmdBindIndexBuffer, Self::vkCmdBindVertexBuffers, Self::vkCmdDraw, Self::vkCmdDrawIndexed, Self::vkCmdDrawIndirect, Self::vkCmdDrawIndexedIndirect, Self::vkCmdBlitImage, Self::vkCmdClearDepthStencilImage, Self::vkCmdClearAttachments, Self::vkCmdResolveImage, Self::vkCmdBeginRenderPass, Self::vkCmdNextSubpass, Self::vkCmdEndRenderPass, Self::vkBindBufferMemory2, Self::vkBindImageMemory2, Self::vkGetDeviceGroupPeerMemoryFeatures, Self::vkCmdSetDeviceMask, Self::vkEnumeratePhysicalDeviceGroups, Self::vkGetImageMemoryRequirements2, Self::vkGetBufferMemoryRequirements2, Self::vkGetImageSparseMemoryRequirements2, Self::vkGetPhysicalDeviceFeatures2, Self::vkGetPhysicalDeviceProperties2, Self::vkGetPhysicalDeviceFormatProperties2, Self::vkGetPhysicalDeviceImageFormatProperties2, Self::vkGetPhysicalDeviceQueueFamilyProperties2, Self::vkGetPhysicalDeviceMemoryProperties2, Self::vkGetPhysicalDeviceSparseImageFormatProperties2, Self::vkTrimCommandPool, Self::vkGetDeviceQueue2, Self::vkGetPhysicalDeviceExternalBufferProperties, Self::vkGetPhysicalDeviceExternalFenceProperties, Self::vkGetPhysicalDeviceExternalSemaphoreProperties, Self::vkCmdDispatchBase, Self::vkCreateDescriptorUpdateTemplate, Self::vkDestroyDescriptorUpdateTemplate, Self::vkUpdateDescriptorSetWithTemplate, Self::vkGetDescriptorSetLayoutSupport, Self::vkCreateSamplerYcbcrConversion, Self::vkDestroySamplerYcbcrConversion, Self::vkResetQueryPool, Self::vkGetSemaphoreCounterValue, Self::vkWaitSemaphores, Self::vkSignalSemaphore, Self::vkGetBufferDeviceAddress, Self::vkGetBufferOpaqueCaptureAddress, Self::vkGetDeviceMemoryOpaqueCaptureAddress, Self::vkCmdDrawIndirectCount, Self::vkCmdDrawIndexedIndirectCount, Self::vkCreateRenderPass2, Self::vkCmdBeginRenderPass2, Self::vkCmdNextSubpass2, Self::vkCmdEndRenderPass2, Self::vkGetPhysicalDeviceToolProperties, Self::vkCreatePrivateDataSlot, Self::vkDestroyPrivateDataSlot, Self::vkSetPrivateData, Self::vkGetPrivateData, Self::vkCmdPipelineBarrier2, Self::vkCmdWriteTimestamp2, Self::vkQueueSubmit2, Self::vkCmdCopyBuffer2, Self::vkCmdCopyImage2, Self::vkCmdCopyBufferToImage2, Self::vkCmdCopyImageToBuffer2, Self::vkGetDeviceBufferMemoryRequirements, Self::vkGetDeviceImageMemoryRequirements, Self::vkGetDeviceImageSparseMemoryRequirements, Self::vkCmdSetEvent2, Self::vkCmdResetEvent2, Self::vkCmdWaitEvents2, Self::vkCmdBlitImage2, Self::vkCmdResolveImage2, Self::vkCmdBeginRendering, Self::vkCmdEndRendering, Self::vkCmdSetCullMode, Self::vkCmdSetFrontFace, Self::vkCmdSetPrimitiveTopology, Self::vkCmdSetViewportWithCount, Self::vkCmdSetScissorWithCount, Self::vkCmdBindVertexBuffers2, Self::vkCmdSetDepthTestEnable, Self::vkCmdSetDepthWriteEnable, Self::vkCmdSetDepthCompareOp, Self::vkCmdSetDepthBoundsTestEnable, Self::vkCmdSetStencilTestEnable, Self::vkCmdSetStencilOp, Self::vkCmdSetRasterizerDiscardEnable, Self::vkCmdSetDepthBiasEnable, Self::vkCmdSetPrimitiveRestartEnable, Self::vkMapMemory2, Self::vkUnmapMemory2, Self::vkGetDeviceImageSubresourceLayout, Self::vkGetImageSubresourceLayout2, Self::vkCopyMemoryToImage, Self::vkCopyImageToMemory, Self::vkCopyImageToImage, Self::vkTransitionImageLayout, Self::vkCmdPushDescriptorSet, Self::vkCmdPushDescriptorSetWithTemplate, Self::vkCmdBindDescriptorSets2, Self::vkCmdPushConstants2, Self::vkCmdPushDescriptorSet2, Self::vkCmdPushDescriptorSetWithTemplate2, Self::vkCmdSetLineStipple, Self::vkCmdBindIndexBuffer2, Self::vkGetRenderingAreaGranularity, Self::vkCmdSetRenderingAttachmentLocations, Self::vkCmdSetRenderingInputAttachmentIndices, Self::vkDestroySurfaceKHR, Self::vkGetPhysicalDeviceSurfaceSupportKHR, Self::vkGetPhysicalDeviceSurfaceCapabilitiesKHR, Self::vkGetPhysicalDeviceSurfaceFormatsKHR, Self::vkGetPhysicalDeviceSurfacePresentModesKHR, Self::vkCreateSwapchainKHR, Self::vkDestroySwapchainKHR, Self::vkGetSwapchainImagesKHR, Self::vkAcquireNextImageKHR, Self::vkQueuePresentKHR, Self::vkGetDeviceGroupPresentCapabilitiesKHR, Self::vkGetDeviceGroupSurfacePresentModesKHR, Self::vkGetPhysicalDevicePresentRectanglesKHR, Self::vkAcquireNextImage2KHR, Self::vkGetPhysicalDeviceDisplayPropertiesKHR, Self::vkGetPhysicalDeviceDisplayPlanePropertiesKHR, Self::vkGetDisplayPlaneSupportedDisplaysKHR, Self::vkGetDisplayModePropertiesKHR, Self::vkCreateDisplayModeKHR, Self::vkGetDisplayPlaneCapabilitiesKHR, Self::vkCreateDisplayPlaneSurfaceKHR, Self::vkCreateSharedSwapchainsKHR, Self::vkCreateXlibSurfaceKHR, Self::vkGetPhysicalDeviceXlibPresentationSupportKHR, Self::vkCreateXcbSurfaceKHR, Self::vkGetPhysicalDeviceXcbPresentationSupportKHR, Self::vkCreateWaylandSurfaceKHR, Self::vkGetPhysicalDeviceWaylandPresentationSupportKHR, Self::vkCreateAndroidSurfaceKHR, Self::vkCreateWin32SurfaceKHR, Self::vkGetPhysicalDeviceWin32PresentationSupportKHR, Self::vkGetPhysicalDeviceVideoCapabilitiesKHR, Self::vkGetPhysicalDeviceVideoFormatPropertiesKHR, Self::vkCreateVideoSessionKHR, Self::vkDestroyVideoSessionKHR, Self::vkGetVideoSessionMemoryRequirementsKHR, Self::vkBindVideoSessionMemoryKHR, Self::vkCreateVideoSessionParametersKHR, Self::vkUpdateVideoSessionParametersKHR, Self::vkDestroyVideoSessionParametersKHR, Self::vkCmdBeginVideoCodingKHR, Self::vkCmdEndVideoCodingKHR, Self::vkCmdControlVideoCodingKHR, Self::vkCmdDecodeVideoKHR, Self::vkCmdBeginRenderingKHR, Self::vkCmdEndRenderingKHR, Self::vkGetPhysicalDeviceFeatures2KHR, Self::vkGetPhysicalDeviceProperties2KHR, Self::vkGetPhysicalDeviceFormatProperties2KHR, Self::vkGetPhysicalDeviceImageFormatProperties2KHR, Self::vkGetPhysicalDeviceQueueFamilyProperties2KHR, Self::vkGetPhysicalDeviceMemoryProperties2KHR, Self::vkGetPhysicalDeviceSparseImageFormatProperties2KHR, Self::vkGetDeviceGroupPeerMemoryFeaturesKHR, Self::vkCmdSetDeviceMaskKHR, Self::vkCmdDispatchBaseKHR, Self::vkTrimCommandPoolKHR, Self::vkEnumeratePhysicalDeviceGroupsKHR, Self::vkGetPhysicalDeviceExternalBufferPropertiesKHR, Self::vkGetMemoryWin32HandleKHR, Self::vkGetMemoryWin32HandlePropertiesKHR, Self::vkGetMemoryFdKHR, Self::vkGetMemoryFdPropertiesKHR, Self::vkGetPhysicalDeviceExternalSemaphorePropertiesKHR, Self::vkImportSemaphoreWin32HandleKHR, Self::vkGetSemaphoreWin32HandleKHR, Self::vkImportSemaphoreFdKHR, Self::vkGetSemaphoreFdKHR, Self::vkCmdPushDescriptorSetKHR, Self::vkCmdPushDescriptorSetWithTemplateKHR, Self::vkCreateDescriptorUpdateTemplateKHR, Self::vkDestroyDescriptorUpdateTemplateKHR, Self::vkUpdateDescriptorSetWithTemplateKHR, Self::vkCreateRenderPass2KHR, Self::vkCmdBeginRenderPass2KHR, Self::vkCmdNextSubpass2KHR, Self::vkCmdEndRenderPass2KHR, Self::vkGetSwapchainStatusKHR, Self::vkGetPhysicalDeviceExternalFencePropertiesKHR, Self::vkImportFenceWin32HandleKHR, Self::vkGetFenceWin32HandleKHR, Self::vkImportFenceFdKHR, Self::vkGetFenceFdKHR, Self::vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR, Self::vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR, Self::vkAcquireProfilingLockKHR, Self::vkReleaseProfilingLockKHR, Self::vkGetPhysicalDeviceSurfaceCapabilities2KHR, Self::vkGetPhysicalDeviceSurfaceFormats2KHR, Self::vkGetPhysicalDeviceDisplayProperties2KHR, Self::vkGetPhysicalDeviceDisplayPlaneProperties2KHR, Self::vkGetDisplayModeProperties2KHR, Self::vkGetDisplayPlaneCapabilities2KHR, Self::vkGetImageMemoryRequirements2KHR, Self::vkGetBufferMemoryRequirements2KHR, Self::vkGetImageSparseMemoryRequirements2KHR, Self::vkCreateSamplerYcbcrConversionKHR, Self::vkDestroySamplerYcbcrConversionKHR, Self::vkBindBufferMemory2KHR, Self::vkBindImageMemory2KHR, Self::vkGetDescriptorSetLayoutSupportKHR, Self::vkCmdDrawIndirectCountKHR, Self::vkCmdDrawIndexedIndirectCountKHR, Self::vkGetSemaphoreCounterValueKHR, Self::vkWaitSemaphoresKHR, Self::vkSignalSemaphoreKHR, Self::vkGetPhysicalDeviceFragmentShadingRatesKHR, Self::vkCmdSetFragmentShadingRateKHR, Self::vkCmdSetRenderingAttachmentLocationsKHR, Self::vkCmdSetRenderingInputAttachmentIndicesKHR, Self::vkWaitForPresentKHR, Self::vkGetBufferDeviceAddressKHR, Self::vkGetBufferOpaqueCaptureAddressKHR, Self::vkGetDeviceMemoryOpaqueCaptureAddressKHR, Self::vkCreateDeferredOperationKHR, Self::vkDestroyDeferredOperationKHR, Self::vkGetDeferredOperationMaxConcurrencyKHR, Self::vkGetDeferredOperationResultKHR, Self::vkDeferredOperationJoinKHR, Self::vkGetPipelineExecutablePropertiesKHR, Self::vkGetPipelineExecutableStatisticsKHR, Self::vkGetPipelineExecutableInternalRepresentationsKHR, Self::vkMapMemory2KHR, Self::vkUnmapMemory2KHR, Self::vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR, Self::vkGetEncodedVideoSessionParametersKHR, Self::vkCmdEncodeVideoKHR, Self::vkCmdSetEvent2KHR, Self::vkCmdResetEvent2KHR, Self::vkCmdWaitEvents2KHR, Self::vkCmdPipelineBarrier2KHR, Self::vkCmdWriteTimestamp2KHR, Self::vkQueueSubmit2KHR, Self::vkCmdBindIndexBuffer3KHR, Self::vkCmdBindVertexBuffers3KHR, Self::vkCmdDrawIndirect2KHR, Self::vkCmdDrawIndexedIndirect2KHR, Self::vkCmdDispatchIndirect2KHR, Self::vkCmdCopyMemoryKHR, Self::vkCmdCopyMemoryToImageKHR, Self::vkCmdCopyImageToMemoryKHR, Self::vkCmdUpdateMemoryKHR, Self::vkCmdFillMemoryKHR, Self::vkCmdCopyQueryPoolResultsToMemoryKHR, Self::vkCmdDrawIndirectCount2KHR, Self::vkCmdDrawIndexedIndirectCount2KHR, Self::vkCmdBeginConditionalRendering2EXT, Self::vkCmdBindTransformFeedbackBuffers2EXT, Self::vkCmdBeginTransformFeedback2EXT, Self::vkCmdEndTransformFeedback2EXT, Self::vkCmdDrawIndirectByteCount2EXT, Self::vkCmdDrawMeshTasksIndirect2EXT, Self::vkCmdDrawMeshTasksIndirectCount2EXT, Self::vkCmdWriteMarkerToMemoryAMD, Self::vkCreateAccelerationStructure2KHR, Self::vkCmdCopyBuffer2KHR, Self::vkCmdCopyImage2KHR, Self::vkCmdCopyBufferToImage2KHR, Self::vkCmdCopyImageToBuffer2KHR, Self::vkCmdBlitImage2KHR, Self::vkCmdResolveImage2KHR, Self::vkCmdTraceRaysIndirect2KHR, Self::vkGetDeviceBufferMemoryRequirementsKHR, Self::vkGetDeviceImageMemoryRequirementsKHR, Self::vkGetDeviceImageSparseMemoryRequirementsKHR, Self::vkCmdBindIndexBuffer2KHR, Self::vkGetRenderingAreaGranularityKHR, Self::vkGetDeviceImageSubresourceLayoutKHR, Self::vkGetImageSubresourceLayout2KHR, Self::vkWaitForPresent2KHR, Self::vkCreatePipelineBinariesKHR, Self::vkDestroyPipelineBinaryKHR, Self::vkGetPipelineKeyKHR, Self::vkGetPipelineBinaryDataKHR, Self::vkReleaseCapturedPipelineDataKHR, Self::vkReleaseSwapchainImagesKHR, Self::vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR, Self::vkCmdSetLineStippleKHR, Self::vkGetPhysicalDeviceCalibrateableTimeDomainsKHR, Self::vkGetCalibratedTimestampsKHR, Self::vkCmdBindDescriptorSets2KHR, Self::vkCmdPushConstants2KHR, Self::vkCmdPushDescriptorSet2KHR, Self::vkCmdPushDescriptorSetWithTemplate2KHR, Self::vkCmdSetDescriptorBufferOffsets2EXT, Self::vkCmdBindDescriptorBufferEmbeddedSamplers2EXT, Self::vkCmdCopyMemoryIndirectKHR, Self::vkCmdCopyMemoryToImageIndirectKHR, Self::vkGetDeviceFaultReportsKHR, Self::vkGetDeviceFaultDebugInfoKHR, Self::vkCmdEndRendering2KHR, Self::vkCreateDebugReportCallbackEXT, Self::vkDestroyDebugReportCallbackEXT, Self::vkDebugReportMessageEXT, Self::vkDebugMarkerSetObjectTagEXT, Self::vkDebugMarkerSetObjectNameEXT, Self::vkCmdDebugMarkerBeginEXT, Self::vkCmdDebugMarkerEndEXT, Self::vkCmdDebugMarkerInsertEXT, Self::vkCmdBindTransformFeedbackBuffersEXT, Self::vkCmdBeginTransformFeedbackEXT, Self::vkCmdEndTransformFeedbackEXT, Self::vkCmdBeginQueryIndexedEXT, Self::vkCmdEndQueryIndexedEXT, Self::vkCmdDrawIndirectByteCountEXT, Self::vkCreateCuModuleNVX, Self::vkCreateCuFunctionNVX, Self::vkDestroyCuModuleNVX, Self::vkDestroyCuFunctionNVX, Self::vkCmdCuLaunchKernelNVX, Self::vkGetImageViewHandleNVX, Self::vkGetImageViewHandle64NVX, Self::vkGetImageViewAddressNVX, Self::vkGetDeviceCombinedImageSamplerIndexNVX, Self::vkCmdDrawIndirectCountAMD, Self::vkCmdDrawIndexedIndirectCountAMD, Self::vkGetShaderInfoAMD, Self::vkCreateStreamDescriptorSurfaceGGP, Self::vkGetPhysicalDeviceExternalImageFormatPropertiesNV, Self::vkGetMemoryWin32HandleNV, Self::vkCreateViSurfaceNN, Self::vkCmdBeginConditionalRenderingEXT, Self::vkCmdEndConditionalRenderingEXT, Self::vkCmdSetViewportWScalingNV, Self::vkReleaseDisplayEXT, Self::vkAcquireXlibDisplayEXT, Self::vkGetRandROutputDisplayEXT, Self::vkGetPhysicalDeviceSurfaceCapabilities2EXT, Self::vkDisplayPowerControlEXT, Self::vkRegisterDeviceEventEXT, Self::vkRegisterDisplayEventEXT, Self::vkGetSwapchainCounterEXT, Self::vkGetRefreshCycleDurationGOOGLE, Self::vkGetPastPresentationTimingGOOGLE, Self::vkCmdSetDiscardRectangleEXT, Self::vkCmdSetDiscardRectangleEnableEXT, Self::vkCmdSetDiscardRectangleModeEXT, Self::vkSetHdrMetadataEXT, Self::vkCreateIOSSurfaceMVK, Self::vkCreateMacOSSurfaceMVK, Self::vkSetDebugUtilsObjectNameEXT, Self::vkSetDebugUtilsObjectTagEXT, Self::vkQueueBeginDebugUtilsLabelEXT, Self::vkQueueEndDebugUtilsLabelEXT, Self::vkQueueInsertDebugUtilsLabelEXT, Self::vkCmdBeginDebugUtilsLabelEXT, Self::vkCmdEndDebugUtilsLabelEXT, Self::vkCmdInsertDebugUtilsLabelEXT, Self::vkCreateDebugUtilsMessengerEXT, Self::vkDestroyDebugUtilsMessengerEXT, Self::vkSubmitDebugUtilsMessageEXT, Self::vkGetAndroidHardwareBufferPropertiesANDROID, Self::vkGetMemoryAndroidHardwareBufferANDROID, Self::vkCreateGpaSessionAMD, Self::vkDestroyGpaSessionAMD, Self::vkSetGpaDeviceClockModeAMD, Self::vkGetGpaDeviceClockInfoAMD, Self::vkCmdBeginGpaSessionAMD, Self::vkCmdEndGpaSessionAMD, Self::vkCmdBeginGpaSampleAMD, Self::vkCmdEndGpaSampleAMD, Self::vkGetGpaSessionStatusAMD, Self::vkGetGpaSessionResultsAMD, Self::vkResetGpaSessionAMD, Self::vkCmdCopyGpaSessionResultsAMD, Self::vkCreateExecutionGraphPipelinesAMDX, Self::vkGetExecutionGraphPipelineScratchSizeAMDX, Self::vkGetExecutionGraphPipelineNodeIndexAMDX, Self::vkCmdInitializeGraphScratchMemoryAMDX, Self::vkCmdDispatchGraphAMDX, Self::vkCmdDispatchGraphIndirectAMDX, Self::vkCmdDispatchGraphIndirectCountAMDX, Self::vkWriteSamplerDescriptorsEXT, Self::vkWriteResourceDescriptorsEXT, Self::vkCmdBindSamplerHeapEXT, Self::vkCmdBindResourceHeapEXT, Self::vkCmdPushDataEXT, Self::vkGetImageOpaqueCaptureDataEXT, Self::vkGetPhysicalDeviceDescriptorSizeEXT, Self::vkRegisterCustomBorderColorEXT, Self::vkUnregisterCustomBorderColorEXT, Self::vkGetTensorOpaqueCaptureDataARM, Self::vkCmdSetSampleLocationsEXT, Self::vkGetPhysicalDeviceMultisamplePropertiesEXT, Self::vkGetImageDrmFormatModifierPropertiesEXT, Self::vkCreateValidationCacheEXT, Self::vkDestroyValidationCacheEXT, Self::vkMergeValidationCachesEXT, Self::vkGetValidationCacheDataEXT, Self::vkCmdBindShadingRateImageNV, Self::vkCmdSetViewportShadingRatePaletteNV, Self::vkCmdSetCoarseSampleOrderNV, Self::vkCreateAccelerationStructureNV, Self::vkDestroyAccelerationStructureNV, Self::vkGetAccelerationStructureMemoryRequirementsNV, Self::vkBindAccelerationStructureMemoryNV, Self::vkCmdBuildAccelerationStructureNV, Self::vkCmdCopyAccelerationStructureNV, Self::vkCmdTraceRaysNV, Self::vkCreateRayTracingPipelinesNV, Self::vkGetRayTracingShaderGroupHandlesKHR, Self::vkGetRayTracingShaderGroupHandlesNV, Self::vkGetAccelerationStructureHandleNV, Self::vkCmdWriteAccelerationStructuresPropertiesNV, Self::vkCompileDeferredNV, Self::vkGetMemoryHostPointerPropertiesEXT, Self::vkCmdWriteBufferMarkerAMD, Self::vkCmdWriteBufferMarker2AMD, Self::vkGetPhysicalDeviceCalibrateableTimeDomainsEXT, Self::vkGetCalibratedTimestampsEXT, Self::vkCmdDrawMeshTasksNV, Self::vkCmdDrawMeshTasksIndirectNV, Self::vkCmdDrawMeshTasksIndirectCountNV, Self::vkCmdSetExclusiveScissorEnableNV, Self::vkCmdSetExclusiveScissorNV, Self::vkCmdSetCheckpointNV, Self::vkGetQueueCheckpointDataNV, Self::vkGetQueueCheckpointData2NV, Self::vkSetSwapchainPresentTimingQueueSizeEXT, Self::vkGetSwapchainTimingPropertiesEXT, Self::vkGetSwapchainTimeDomainPropertiesEXT, Self::vkGetPastPresentationTimingEXT, Self::vkInitializePerformanceApiINTEL, Self::vkUninitializePerformanceApiINTEL, Self::vkCmdSetPerformanceMarkerINTEL, Self::vkCmdSetPerformanceStreamMarkerINTEL, Self::vkCmdSetPerformanceOverrideINTEL, Self::vkAcquirePerformanceConfigurationINTEL, Self::vkReleasePerformanceConfigurationINTEL, Self::vkQueueSetPerformanceConfigurationINTEL, Self::vkGetPerformanceParameterINTEL, Self::vkSetLocalDimmingAMD, Self::vkCreateImagePipeSurfaceFUCHSIA, Self::vkCreateMetalSurfaceEXT, Self::vkGetBufferDeviceAddressEXT, Self::vkGetPhysicalDeviceToolPropertiesEXT, Self::vkGetPhysicalDeviceCooperativeMatrixPropertiesNV, Self::vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV, Self::vkGetPhysicalDeviceSurfacePresentModes2EXT, Self::vkAcquireFullScreenExclusiveModeEXT, Self::vkReleaseFullScreenExclusiveModeEXT, Self::vkGetDeviceGroupSurfacePresentModes2EXT, Self::vkCreateHeadlessSurfaceEXT, Self::vkCmdSetLineStippleEXT, Self::vkResetQueryPoolEXT, Self::vkCmdSetCullModeEXT, Self::vkCmdSetFrontFaceEXT, Self::vkCmdSetPrimitiveTopologyEXT, Self::vkCmdSetViewportWithCountEXT, Self::vkCmdSetScissorWithCountEXT, Self::vkCmdBindVertexBuffers2EXT, Self::vkCmdSetDepthTestEnableEXT, Self::vkCmdSetDepthWriteEnableEXT, Self::vkCmdSetDepthCompareOpEXT, Self::vkCmdSetDepthBoundsTestEnableEXT, Self::vkCmdSetStencilTestEnableEXT, Self::vkCmdSetStencilOpEXT, Self::vkCopyMemoryToImageEXT, Self::vkCopyImageToMemoryEXT, Self::vkCopyImageToImageEXT, Self::vkTransitionImageLayoutEXT, Self::vkGetImageSubresourceLayout2EXT, Self::vkReleaseSwapchainImagesEXT, Self::vkGetGeneratedCommandsMemoryRequirementsNV, Self::vkCmdPreprocessGeneratedCommandsNV, Self::vkCmdExecuteGeneratedCommandsNV, Self::vkCmdBindPipelineShaderGroupNV, Self::vkCreateIndirectCommandsLayoutNV, Self::vkDestroyIndirectCommandsLayoutNV, Self::vkCmdSetDepthBias2EXT, Self::vkAcquireDrmDisplayEXT, Self::vkGetDrmDisplayEXT, Self::vkCreatePrivateDataSlotEXT, Self::vkDestroyPrivateDataSlotEXT, Self::vkSetPrivateDataEXT, Self::vkGetPrivateDataEXT, Self::vkQueueSetPerfHintQCOM, Self::vkCreateCudaModuleNV, Self::vkGetCudaModuleCacheNV, Self::vkCreateCudaFunctionNV, Self::vkDestroyCudaModuleNV, Self::vkDestroyCudaFunctionNV, Self::vkCmdCudaLaunchKernelNV, Self::vkCmdDispatchTileQCOM, Self::vkCmdBeginPerTileExecutionQCOM, Self::vkCmdEndPerTileExecutionQCOM, Self::vkSetLatencySleepModeLegacyNV, Self::vkLatencySleepLegacyNV, Self::vkSetLatencyMarkerLegacyNV, Self::vkGetLatencyTimingsLegacyNV, Self::vkQueueNotifyOutOfBandLegacyNV, Self::vkGetSleepStatusLegacyNV, Self::vkShutdownLatencyDeviceLegacyNV, Self::vkExportMetalObjectsEXT, Self::vkGetDescriptorSetLayoutSizeEXT, Self::vkGetDescriptorSetLayoutBindingOffsetEXT, Self::vkGetDescriptorEXT, Self::vkCmdBindDescriptorBuffersEXT, Self::vkCmdSetDescriptorBufferOffsetsEXT, Self::vkCmdBindDescriptorBufferEmbeddedSamplersEXT, Self::vkGetBufferOpaqueCaptureDescriptorDataEXT, Self::vkGetImageOpaqueCaptureDescriptorDataEXT, Self::vkGetImageViewOpaqueCaptureDescriptorDataEXT, Self::vkGetSamplerOpaqueCaptureDescriptorDataEXT, Self::vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT, Self::vkCmdSetFragmentShadingRateEnumNV, Self::vkGetDeviceFaultInfoEXT, Self::vkAcquireWinrtDisplayNV, Self::vkGetWinrtDisplayNV, Self::vkCreateDirectFBSurfaceEXT, Self::vkGetPhysicalDeviceDirectFBPresentationSupportEXT, Self::vkCmdSetVertexInputEXT, Self::vkGetMemoryZirconHandleFUCHSIA, Self::vkGetMemoryZirconHandlePropertiesFUCHSIA, Self::vkImportSemaphoreZirconHandleFUCHSIA, Self::vkGetSemaphoreZirconHandleFUCHSIA, Self::vkCreateBufferCollectionFUCHSIA, Self::vkSetBufferCollectionImageConstraintsFUCHSIA, Self::vkSetBufferCollectionBufferConstraintsFUCHSIA, Self::vkDestroyBufferCollectionFUCHSIA, Self::vkGetBufferCollectionPropertiesFUCHSIA, Self::vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI, Self::vkCmdSubpassShadingHUAWEI, Self::vkCmdBindInvocationMaskHUAWEI, Self::vkGetMemoryRemoteAddressNV, Self::vkGetPipelinePropertiesEXT, Self::vkCmdSetPatchControlPointsEXT, Self::vkCmdSetRasterizerDiscardEnableEXT, Self::vkCmdSetDepthBiasEnableEXT, Self::vkCmdSetLogicOpEXT, Self::vkCmdSetPrimitiveRestartEnableEXT, Self::vkCreateScreenSurfaceQNX, Self::vkGetPhysicalDeviceScreenPresentationSupportQNX, Self::vkCmdSetColorWriteEnableEXT, Self::vkCmdDrawMultiEXT, Self::vkCmdDrawMultiIndexedEXT, Self::vkCreateMicromapEXT, Self::vkDestroyMicromapEXT, Self::vkCmdBuildMicromapsEXT, Self::vkBuildMicromapsEXT, Self::vkCopyMicromapEXT, Self::vkCopyMicromapToMemoryEXT, Self::vkCopyMemoryToMicromapEXT, Self::vkWriteMicromapsPropertiesEXT, Self::vkCmdCopyMicromapEXT, Self::vkCmdCopyMicromapToMemoryEXT, Self::vkCmdCopyMemoryToMicromapEXT, Self::vkCmdWriteMicromapsPropertiesEXT, Self::vkGetDeviceMicromapCompatibilityEXT, Self::vkGetMicromapBuildSizesEXT, Self::vkCmdDrawClusterHUAWEI, Self::vkCmdDrawClusterIndirectHUAWEI, Self::vkSetDeviceMemoryPriorityEXT, Self::vkCmdSetDispatchParametersARM, Self::vkGetDescriptorSetLayoutHostMappingInfoVALVE, Self::vkGetDescriptorSetHostMappingVALVE, Self::vkCmdCopyMemoryIndirectNV, Self::vkCmdCopyMemoryToImageIndirectNV, Self::vkCmdDecompressMemoryNV, Self::vkCmdDecompressMemoryIndirectCountNV, Self::vkGetPipelineIndirectMemoryRequirementsNV, Self::vkCmdUpdatePipelineIndirectBufferNV, Self::vkGetPipelineIndirectDeviceAddressNV, Self::vkGetNativeBufferPropertiesOHOS, Self::vkGetMemoryNativeBufferOHOS, Self::vkCmdSetDepthClampEnableEXT, Self::vkCmdSetPolygonModeEXT, Self::vkCmdSetRasterizationSamplesEXT, Self::vkCmdSetSampleMaskEXT, Self::vkCmdSetAlphaToCoverageEnableEXT, Self::vkCmdSetAlphaToOneEnableEXT, Self::vkCmdSetLogicOpEnableEXT, Self::vkCmdSetColorBlendEnableEXT, Self::vkCmdSetColorBlendEquationEXT, Self::vkCmdSetColorWriteMaskEXT, Self::vkCmdSetTessellationDomainOriginEXT, Self::vkCmdSetRasterizationStreamEXT, Self::vkCmdSetConservativeRasterizationModeEXT, Self::vkCmdSetExtraPrimitiveOverestimationSizeEXT, Self::vkCmdSetDepthClipEnableEXT, Self::vkCmdSetSampleLocationsEnableEXT, Self::vkCmdSetColorBlendAdvancedEXT, Self::vkCmdSetProvokingVertexModeEXT, Self::vkCmdSetLineRasterizationModeEXT, Self::vkCmdSetLineStippleEnableEXT, Self::vkCmdSetDepthClipNegativeOneToOneEXT, Self::vkCmdSetViewportWScalingEnableNV, Self::vkCmdSetViewportSwizzleNV, Self::vkCmdSetCoverageToColorEnableNV, Self::vkCmdSetCoverageToColorLocationNV, Self::vkCmdSetCoverageModulationModeNV, Self::vkCmdSetCoverageModulationTableEnableNV, Self::vkCmdSetCoverageModulationTableNV, Self::vkCmdSetShadingRateImageEnableNV, Self::vkCmdSetRepresentativeFragmentTestEnableNV, Self::vkCmdSetCoverageReductionModeNV, Self::vkCreateTensorARM, Self::vkDestroyTensorARM, Self::vkCreateTensorViewARM, Self::vkDestroyTensorViewARM, Self::vkGetTensorMemoryRequirementsARM, Self::vkBindTensorMemoryARM, Self::vkGetDeviceTensorMemoryRequirementsARM, Self::vkCmdCopyTensorARM, Self::vkGetPhysicalDeviceExternalTensorPropertiesARM, Self::vkGetTensorOpaqueCaptureDescriptorDataARM, Self::vkGetTensorViewOpaqueCaptureDescriptorDataARM, Self::vkGetShaderModuleIdentifierEXT, Self::vkGetShaderModuleCreateInfoIdentifierEXT, Self::vkGetPhysicalDeviceOpticalFlowImageFormatsNV, Self::vkCreateOpticalFlowSessionNV, Self::vkDestroyOpticalFlowSessionNV, Self::vkBindOpticalFlowSessionImageNV, Self::vkCmdOpticalFlowExecuteNV, Self::vkAntiLagUpdateAMD, Self::vkCreateShadersEXT, Self::vkDestroyShaderEXT, Self::vkGetShaderBinaryDataEXT, Self::vkCmdBindShadersEXT, Self::vkCmdSetDepthClampRangeEXT, Self::vkGetFramebufferTilePropertiesQCOM, Self::vkGetDynamicRenderingTilePropertiesQCOM, Self::vkGetPhysicalDeviceCooperativeVectorPropertiesNV, Self::vkConvertCooperativeVectorMatrixNV, Self::vkCmdConvertCooperativeVectorMatrixNV, Self::vkSetLatencySleepModeNV, Self::vkLatencySleepNV, Self::vkSetLatencyMarkerNV, Self::vkGetLatencyTimingsNV, Self::vkQueueNotifyOutOfBandNV, Self::vkCreateDataGraphPipelinesARM, Self::vkCreateDataGraphPipelineSessionARM, Self::vkGetDataGraphPipelineSessionBindPointRequirementsARM, Self::vkGetDataGraphPipelineSessionMemoryRequirementsARM, Self::vkBindDataGraphPipelineSessionMemoryARM, Self::vkDestroyDataGraphPipelineSessionARM, Self::vkCmdDispatchDataGraphARM, Self::vkGetDataGraphPipelineAvailablePropertiesARM, Self::vkGetDataGraphPipelinePropertiesARM, Self::vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM, Self::vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM, Self::vkGetPhysicalDeviceQueueFamilyDataGraphEngineOperationPropertiesARM, Self::vkCmdSetAttachmentFeedbackLoopEnableEXT, Self::vkGetScreenBufferPropertiesQNX, Self::vkCmdBindTileMemoryQCOM, Self::vkCmdDecompressMemoryEXT, Self::vkCmdDecompressMemoryIndirectCountEXT, Self::vkCreateExternalComputeQueueNV, Self::vkDestroyExternalComputeQueueNV, Self::vkGetClusterAccelerationStructureBuildSizesNV, Self::vkCmdBuildClusterAccelerationStructureIndirectNV, Self::vkGetPartitionedAccelerationStructuresBuildSizesNV, Self::vkCmdBuildPartitionedAccelerationStructuresNV, Self::vkGetGeneratedCommandsMemoryRequirementsEXT, Self::vkCmdPreprocessGeneratedCommandsEXT, Self::vkCmdExecuteGeneratedCommandsEXT, Self::vkCreateIndirectCommandsLayoutEXT, Self::vkDestroyIndirectCommandsLayoutEXT, Self::vkCreateIndirectExecutionSetEXT, Self::vkDestroyIndirectExecutionSetEXT, Self::vkUpdateIndirectExecutionSetPipelineEXT, Self::vkUpdateIndirectExecutionSetShaderEXT, Self::vkCreateSurfaceOHOS, Self::vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV, Self::vkGetMemoryMetalHandleEXT, Self::vkGetMemoryMetalHandlePropertiesEXT, Self::vkEnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM, Self::vkEnumeratePhysicalDeviceShaderInstrumentationMetricsARM, Self::vkCreateShaderInstrumentationARM, Self::vkDestroyShaderInstrumentationARM, Self::vkCmdBeginShaderInstrumentationARM, Self::vkCmdEndShaderInstrumentationARM, Self::vkGetShaderInstrumentationValuesARM, Self::vkClearShaderInstrumentationMetricsARM, Self::vkCmdEndRendering2EXT, Self::vkCmdBeginCustomResolveEXT, Self::vkGetPhysicalDeviceQueueFamilyDataGraphOpticalFlowImageFormatsARM, Self::vkCmdSetComputeOccupancyPriorityNV, Self::vkGetPhysicalDeviceCooperativeMatrixProperties2EXT, Self::vkCreateUbmSurfaceSEC, Self::vkGetPhysicalDeviceUbmPresentationSupportSEC, Self::vkCmdSetPrimitiveRestartIndexEXT, Self::vkCreateAccelerationStructureKHR, Self::vkDestroyAccelerationStructureKHR, Self::vkCmdBuildAccelerationStructuresKHR, Self::vkCmdBuildAccelerationStructuresIndirectKHR, Self::vkBuildAccelerationStructuresKHR, Self::vkCopyAccelerationStructureKHR, Self::vkCopyAccelerationStructureToMemoryKHR, Self::vkCopyMemoryToAccelerationStructureKHR, Self::vkWriteAccelerationStructuresPropertiesKHR, Self::vkCmdCopyAccelerationStructureKHR, Self::vkCmdCopyAccelerationStructureToMemoryKHR, Self::vkCmdCopyMemoryToAccelerationStructureKHR, Self::vkGetAccelerationStructureDeviceAddressKHR, Self::vkCmdWriteAccelerationStructuresPropertiesKHR, Self::vkGetDeviceAccelerationStructureCompatibilityKHR, Self::vkGetAccelerationStructureBuildSizesKHR, Self::vkCmdTraceRaysKHR, Self::vkCreateRayTracingPipelinesKHR, Self::vkGetRayTracingCaptureReplayShaderGroupHandlesKHR, Self::vkCmdTraceRaysIndirectKHR, Self::vkGetRayTracingShaderGroupStackSizeKHR, Self::vkCmdSetRayTracingPipelineStackSizeKHR, Self::vkCmdDrawMeshTasksEXT, Self::vkCmdDrawMeshTasksIndirectEXT, Self::vkCmdDrawMeshTasksIndirectCountEXT];
+    pub fn name(self) -> &'static std::ffi::CStr {
+        match self {
+            Self::vkDestroyInstance => c"vkDestroyInstance",
+            Self::vkEnumeratePhysicalDevices => c"vkEnumeratePhysicalDevices",
+            Self::vkGetPhysicalDeviceFeatures => c"vkGetPhysicalDeviceFeatures",
+            Self::vkGetPhysicalDeviceFormatProperties => c"vkGetPhysicalDeviceFormatProperties",
+            Self::vkGetPhysicalDeviceImageFormatProperties => c"vkGetPhysicalDeviceImageFormatProperties",
+            Self::vkGetPhysicalDeviceProperties => c"vkGetPhysicalDeviceProperties",
+            Self::vkGetPhysicalDeviceQueueFamilyProperties => c"vkGetPhysicalDeviceQueueFamilyProperties",
+            Self::vkGetPhysicalDeviceMemoryProperties => c"vkGetPhysicalDeviceMemoryProperties",
+            Self::vkGetInstanceProcAddr => c"vkGetInstanceProcAddr",
+            Self::vkGetDeviceProcAddr => c"vkGetDeviceProcAddr",
+            Self::vkCreateDevice => c"vkCreateDevice",
+            Self::vkDestroyDevice => c"vkDestroyDevice",
+            Self::vkEnumerateDeviceExtensionProperties => c"vkEnumerateDeviceExtensionProperties",
+            Self::vkEnumerateDeviceLayerProperties => c"vkEnumerateDeviceLayerProperties",
+            Self::vkGetDeviceQueue => c"vkGetDeviceQueue",
+            Self::vkQueueSubmit => c"vkQueueSubmit",
+            Self::vkQueueWaitIdle => c"vkQueueWaitIdle",
+            Self::vkDeviceWaitIdle => c"vkDeviceWaitIdle",
+            Self::vkAllocateMemory => c"vkAllocateMemory",
+            Self::vkFreeMemory => c"vkFreeMemory",
+            Self::vkMapMemory => c"vkMapMemory",
+            Self::vkUnmapMemory => c"vkUnmapMemory",
+            Self::vkFlushMappedMemoryRanges => c"vkFlushMappedMemoryRanges",
+            Self::vkInvalidateMappedMemoryRanges => c"vkInvalidateMappedMemoryRanges",
+            Self::vkGetDeviceMemoryCommitment => c"vkGetDeviceMemoryCommitment",
+            Self::vkBindBufferMemory => c"vkBindBufferMemory",
+            Self::vkBindImageMemory => c"vkBindImageMemory",
+            Self::vkGetBufferMemoryRequirements => c"vkGetBufferMemoryRequirements",
+            Self::vkGetImageMemoryRequirements => c"vkGetImageMemoryRequirements",
+            Self::vkGetImageSparseMemoryRequirements => c"vkGetImageSparseMemoryRequirements",
+            Self::vkGetPhysicalDeviceSparseImageFormatProperties => c"vkGetPhysicalDeviceSparseImageFormatProperties",
+            Self::vkQueueBindSparse => c"vkQueueBindSparse",
+            Self::vkCreateFence => c"vkCreateFence",
+            Self::vkDestroyFence => c"vkDestroyFence",
+            Self::vkResetFences => c"vkResetFences",
+            Self::vkGetFenceStatus => c"vkGetFenceStatus",
+            Self::vkWaitForFences => c"vkWaitForFences",
+            Self::vkCreateSemaphore => c"vkCreateSemaphore",
+            Self::vkDestroySemaphore => c"vkDestroySemaphore",
+            Self::vkCreateQueryPool => c"vkCreateQueryPool",
+            Self::vkDestroyQueryPool => c"vkDestroyQueryPool",
+            Self::vkGetQueryPoolResults => c"vkGetQueryPoolResults",
+            Self::vkCreateBuffer => c"vkCreateBuffer",
+            Self::vkDestroyBuffer => c"vkDestroyBuffer",
+            Self::vkCreateImage => c"vkCreateImage",
+            Self::vkDestroyImage => c"vkDestroyImage",
+            Self::vkGetImageSubresourceLayout => c"vkGetImageSubresourceLayout",
+            Self::vkCreateImageView => c"vkCreateImageView",
+            Self::vkDestroyImageView => c"vkDestroyImageView",
+            Self::vkCreateCommandPool => c"vkCreateCommandPool",
+            Self::vkDestroyCommandPool => c"vkDestroyCommandPool",
+            Self::vkResetCommandPool => c"vkResetCommandPool",
+            Self::vkAllocateCommandBuffers => c"vkAllocateCommandBuffers",
+            Self::vkFreeCommandBuffers => c"vkFreeCommandBuffers",
+            Self::vkBeginCommandBuffer => c"vkBeginCommandBuffer",
+            Self::vkEndCommandBuffer => c"vkEndCommandBuffer",
+            Self::vkResetCommandBuffer => c"vkResetCommandBuffer",
+            Self::vkCmdCopyBuffer => c"vkCmdCopyBuffer",
+            Self::vkCmdCopyImage => c"vkCmdCopyImage",
+            Self::vkCmdCopyBufferToImage => c"vkCmdCopyBufferToImage",
+            Self::vkCmdCopyImageToBuffer => c"vkCmdCopyImageToBuffer",
+            Self::vkCmdUpdateBuffer => c"vkCmdUpdateBuffer",
+            Self::vkCmdFillBuffer => c"vkCmdFillBuffer",
+            Self::vkCmdPipelineBarrier => c"vkCmdPipelineBarrier",
+            Self::vkCmdBeginQuery => c"vkCmdBeginQuery",
+            Self::vkCmdEndQuery => c"vkCmdEndQuery",
+            Self::vkCmdResetQueryPool => c"vkCmdResetQueryPool",
+            Self::vkCmdWriteTimestamp => c"vkCmdWriteTimestamp",
+            Self::vkCmdCopyQueryPoolResults => c"vkCmdCopyQueryPoolResults",
+            Self::vkCmdExecuteCommands => c"vkCmdExecuteCommands",
+            Self::vkCreateEvent => c"vkCreateEvent",
+            Self::vkDestroyEvent => c"vkDestroyEvent",
+            Self::vkGetEventStatus => c"vkGetEventStatus",
+            Self::vkSetEvent => c"vkSetEvent",
+            Self::vkResetEvent => c"vkResetEvent",
+            Self::vkCreateBufferView => c"vkCreateBufferView",
+            Self::vkDestroyBufferView => c"vkDestroyBufferView",
+            Self::vkCreateShaderModule => c"vkCreateShaderModule",
+            Self::vkDestroyShaderModule => c"vkDestroyShaderModule",
+            Self::vkCreatePipelineCache => c"vkCreatePipelineCache",
+            Self::vkDestroyPipelineCache => c"vkDestroyPipelineCache",
+            Self::vkGetPipelineCacheData => c"vkGetPipelineCacheData",
+            Self::vkMergePipelineCaches => c"vkMergePipelineCaches",
+            Self::vkCreateComputePipelines => c"vkCreateComputePipelines",
+            Self::vkDestroyPipeline => c"vkDestroyPipeline",
+            Self::vkCreatePipelineLayout => c"vkCreatePipelineLayout",
+            Self::vkDestroyPipelineLayout => c"vkDestroyPipelineLayout",
+            Self::vkCreateSampler => c"vkCreateSampler",
+            Self::vkDestroySampler => c"vkDestroySampler",
+            Self::vkCreateDescriptorSetLayout => c"vkCreateDescriptorSetLayout",
+            Self::vkDestroyDescriptorSetLayout => c"vkDestroyDescriptorSetLayout",
+            Self::vkCreateDescriptorPool => c"vkCreateDescriptorPool",
+            Self::vkDestroyDescriptorPool => c"vkDestroyDescriptorPool",
+            Self::vkResetDescriptorPool => c"vkResetDescriptorPool",
+            Self::vkAllocateDescriptorSets => c"vkAllocateDescriptorSets",
+            Self::vkFreeDescriptorSets => c"vkFreeDescriptorSets",
+            Self::vkUpdateDescriptorSets => c"vkUpdateDescriptorSets",
+            Self::vkCmdBindPipeline => c"vkCmdBindPipeline",
+            Self::vkCmdBindDescriptorSets => c"vkCmdBindDescriptorSets",
+            Self::vkCmdClearColorImage => c"vkCmdClearColorImage",
+            Self::vkCmdDispatch => c"vkCmdDispatch",
+            Self::vkCmdDispatchIndirect => c"vkCmdDispatchIndirect",
+            Self::vkCmdSetEvent => c"vkCmdSetEvent",
+            Self::vkCmdResetEvent => c"vkCmdResetEvent",
+            Self::vkCmdWaitEvents => c"vkCmdWaitEvents",
+            Self::vkCmdPushConstants => c"vkCmdPushConstants",
+            Self::vkCreateGraphicsPipelines => c"vkCreateGraphicsPipelines",
+            Self::vkCreateFramebuffer => c"vkCreateFramebuffer",
+            Self::vkDestroyFramebuffer => c"vkDestroyFramebuffer",
+            Self::vkCreateRenderPass => c"vkCreateRenderPass",
+            Self::vkDestroyRenderPass => c"vkDestroyRenderPass",
+            Self::vkGetRenderAreaGranularity => c"vkGetRenderAreaGranularity",
+            Self::vkCmdSetViewport => c"vkCmdSetViewport",
+            Self::vkCmdSetScissor => c"vkCmdSetScissor",
+            Self::vkCmdSetLineWidth => c"vkCmdSetLineWidth",
+            Self::vkCmdSetDepthBias => c"vkCmdSetDepthBias",
+            Self::vkCmdSetBlendConstants => c"vkCmdSetBlendConstants",
+            Self::vkCmdSetDepthBounds => c"vkCmdSetDepthBounds",
+            Self::vkCmdSetStencilCompareMask => c"vkCmdSetStencilCompareMask",
+            Self::vkCmdSetStencilWriteMask => c"vkCmdSetStencilWriteMask",
+            Self::vkCmdSetStencilReference => c"vkCmdSetStencilReference",
+            Self::vkCmdBindIndexBuffer => c"vkCmdBindIndexBuffer",
+            Self::vkCmdBindVertexBuffers => c"vkCmdBindVertexBuffers",
+            Self::vkCmdDraw => c"vkCmdDraw",
+            Self::vkCmdDrawIndexed => c"vkCmdDrawIndexed",
+            Self::vkCmdDrawIndirect => c"vkCmdDrawIndirect",
+            Self::vkCmdDrawIndexedIndirect => c"vkCmdDrawIndexedIndirect",
+            Self::vkCmdBlitImage => c"vkCmdBlitImage",
+            Self::vkCmdClearDepthStencilImage => c"vkCmdClearDepthStencilImage",
+            Self::vkCmdClearAttachments => c"vkCmdClearAttachments",
+            Self::vkCmdResolveImage => c"vkCmdResolveImage",
+            Self::vkCmdBeginRenderPass => c"vkCmdBeginRenderPass",
+            Self::vkCmdNextSubpass => c"vkCmdNextSubpass",
+            Self::vkCmdEndRenderPass => c"vkCmdEndRenderPass",
+            Self::vkBindBufferMemory2 => c"vkBindBufferMemory2",
+            Self::vkBindImageMemory2 => c"vkBindImageMemory2",
+            Self::vkGetDeviceGroupPeerMemoryFeatures => c"vkGetDeviceGroupPeerMemoryFeatures",
+            Self::vkCmdSetDeviceMask => c"vkCmdSetDeviceMask",
+            Self::vkEnumeratePhysicalDeviceGroups => c"vkEnumeratePhysicalDeviceGroups",
+            Self::vkGetImageMemoryRequirements2 => c"vkGetImageMemoryRequirements2",
+            Self::vkGetBufferMemoryRequirements2 => c"vkGetBufferMemoryRequirements2",
+            Self::vkGetImageSparseMemoryRequirements2 => c"vkGetImageSparseMemoryRequirements2",
+            Self::vkGetPhysicalDeviceFeatures2 => c"vkGetPhysicalDeviceFeatures2",
+            Self::vkGetPhysicalDeviceProperties2 => c"vkGetPhysicalDeviceProperties2",
+            Self::vkGetPhysicalDeviceFormatProperties2 => c"vkGetPhysicalDeviceFormatProperties2",
+            Self::vkGetPhysicalDeviceImageFormatProperties2 => c"vkGetPhysicalDeviceImageFormatProperties2",
+            Self::vkGetPhysicalDeviceQueueFamilyProperties2 => c"vkGetPhysicalDeviceQueueFamilyProperties2",
+            Self::vkGetPhysicalDeviceMemoryProperties2 => c"vkGetPhysicalDeviceMemoryProperties2",
+            Self::vkGetPhysicalDeviceSparseImageFormatProperties2 => c"vkGetPhysicalDeviceSparseImageFormatProperties2",
+            Self::vkTrimCommandPool => c"vkTrimCommandPool",
+            Self::vkGetDeviceQueue2 => c"vkGetDeviceQueue2",
+            Self::vkGetPhysicalDeviceExternalBufferProperties => c"vkGetPhysicalDeviceExternalBufferProperties",
+            Self::vkGetPhysicalDeviceExternalFenceProperties => c"vkGetPhysicalDeviceExternalFenceProperties",
+            Self::vkGetPhysicalDeviceExternalSemaphoreProperties => c"vkGetPhysicalDeviceExternalSemaphoreProperties",
+            Self::vkCmdDispatchBase => c"vkCmdDispatchBase",
+            Self::vkCreateDescriptorUpdateTemplate => c"vkCreateDescriptorUpdateTemplate",
+            Self::vkDestroyDescriptorUpdateTemplate => c"vkDestroyDescriptorUpdateTemplate",
+            Self::vkUpdateDescriptorSetWithTemplate => c"vkUpdateDescriptorSetWithTemplate",
+            Self::vkGetDescriptorSetLayoutSupport => c"vkGetDescriptorSetLayoutSupport",
+            Self::vkCreateSamplerYcbcrConversion => c"vkCreateSamplerYcbcrConversion",
+            Self::vkDestroySamplerYcbcrConversion => c"vkDestroySamplerYcbcrConversion",
+            Self::vkResetQueryPool => c"vkResetQueryPool",
+            Self::vkGetSemaphoreCounterValue => c"vkGetSemaphoreCounterValue",
+            Self::vkWaitSemaphores => c"vkWaitSemaphores",
+            Self::vkSignalSemaphore => c"vkSignalSemaphore",
+            Self::vkGetBufferDeviceAddress => c"vkGetBufferDeviceAddress",
+            Self::vkGetBufferOpaqueCaptureAddress => c"vkGetBufferOpaqueCaptureAddress",
+            Self::vkGetDeviceMemoryOpaqueCaptureAddress => c"vkGetDeviceMemoryOpaqueCaptureAddress",
+            Self::vkCmdDrawIndirectCount => c"vkCmdDrawIndirectCount",
+            Self::vkCmdDrawIndexedIndirectCount => c"vkCmdDrawIndexedIndirectCount",
+            Self::vkCreateRenderPass2 => c"vkCreateRenderPass2",
+            Self::vkCmdBeginRenderPass2 => c"vkCmdBeginRenderPass2",
+            Self::vkCmdNextSubpass2 => c"vkCmdNextSubpass2",
+            Self::vkCmdEndRenderPass2 => c"vkCmdEndRenderPass2",
+            Self::vkGetPhysicalDeviceToolProperties => c"vkGetPhysicalDeviceToolProperties",
+            Self::vkCreatePrivateDataSlot => c"vkCreatePrivateDataSlot",
+            Self::vkDestroyPrivateDataSlot => c"vkDestroyPrivateDataSlot",
+            Self::vkSetPrivateData => c"vkSetPrivateData",
+            Self::vkGetPrivateData => c"vkGetPrivateData",
+            Self::vkCmdPipelineBarrier2 => c"vkCmdPipelineBarrier2",
+            Self::vkCmdWriteTimestamp2 => c"vkCmdWriteTimestamp2",
+            Self::vkQueueSubmit2 => c"vkQueueSubmit2",
+            Self::vkCmdCopyBuffer2 => c"vkCmdCopyBuffer2",
+            Self::vkCmdCopyImage2 => c"vkCmdCopyImage2",
+            Self::vkCmdCopyBufferToImage2 => c"vkCmdCopyBufferToImage2",
+            Self::vkCmdCopyImageToBuffer2 => c"vkCmdCopyImageToBuffer2",
+            Self::vkGetDeviceBufferMemoryRequirements => c"vkGetDeviceBufferMemoryRequirements",
+            Self::vkGetDeviceImageMemoryRequirements => c"vkGetDeviceImageMemoryRequirements",
+            Self::vkGetDeviceImageSparseMemoryRequirements => c"vkGetDeviceImageSparseMemoryRequirements",
+            Self::vkCmdSetEvent2 => c"vkCmdSetEvent2",
+            Self::vkCmdResetEvent2 => c"vkCmdResetEvent2",
+            Self::vkCmdWaitEvents2 => c"vkCmdWaitEvents2",
+            Self::vkCmdBlitImage2 => c"vkCmdBlitImage2",
+            Self::vkCmdResolveImage2 => c"vkCmdResolveImage2",
+            Self::vkCmdBeginRendering => c"vkCmdBeginRendering",
+            Self::vkCmdEndRendering => c"vkCmdEndRendering",
+            Self::vkCmdSetCullMode => c"vkCmdSetCullMode",
+            Self::vkCmdSetFrontFace => c"vkCmdSetFrontFace",
+            Self::vkCmdSetPrimitiveTopology => c"vkCmdSetPrimitiveTopology",
+            Self::vkCmdSetViewportWithCount => c"vkCmdSetViewportWithCount",
+            Self::vkCmdSetScissorWithCount => c"vkCmdSetScissorWithCount",
+            Self::vkCmdBindVertexBuffers2 => c"vkCmdBindVertexBuffers2",
+            Self::vkCmdSetDepthTestEnable => c"vkCmdSetDepthTestEnable",
+            Self::vkCmdSetDepthWriteEnable => c"vkCmdSetDepthWriteEnable",
+            Self::vkCmdSetDepthCompareOp => c"vkCmdSetDepthCompareOp",
+            Self::vkCmdSetDepthBoundsTestEnable => c"vkCmdSetDepthBoundsTestEnable",
+            Self::vkCmdSetStencilTestEnable => c"vkCmdSetStencilTestEnable",
+            Self::vkCmdSetStencilOp => c"vkCmdSetStencilOp",
+            Self::vkCmdSetRasterizerDiscardEnable => c"vkCmdSetRasterizerDiscardEnable",
+            Self::vkCmdSetDepthBiasEnable => c"vkCmdSetDepthBiasEnable",
+            Self::vkCmdSetPrimitiveRestartEnable => c"vkCmdSetPrimitiveRestartEnable",
+            Self::vkMapMemory2 => c"vkMapMemory2",
+            Self::vkUnmapMemory2 => c"vkUnmapMemory2",
+            Self::vkGetDeviceImageSubresourceLayout => c"vkGetDeviceImageSubresourceLayout",
+            Self::vkGetImageSubresourceLayout2 => c"vkGetImageSubresourceLayout2",
+            Self::vkCopyMemoryToImage => c"vkCopyMemoryToImage",
+            Self::vkCopyImageToMemory => c"vkCopyImageToMemory",
+            Self::vkCopyImageToImage => c"vkCopyImageToImage",
+            Self::vkTransitionImageLayout => c"vkTransitionImageLayout",
+            Self::vkCmdPushDescriptorSet => c"vkCmdPushDescriptorSet",
+            Self::vkCmdPushDescriptorSetWithTemplate => c"vkCmdPushDescriptorSetWithTemplate",
+            Self::vkCmdBindDescriptorSets2 => c"vkCmdBindDescriptorSets2",
+            Self::vkCmdPushConstants2 => c"vkCmdPushConstants2",
+            Self::vkCmdPushDescriptorSet2 => c"vkCmdPushDescriptorSet2",
+            Self::vkCmdPushDescriptorSetWithTemplate2 => c"vkCmdPushDescriptorSetWithTemplate2",
+            Self::vkCmdSetLineStipple => c"vkCmdSetLineStipple",
+            Self::vkCmdBindIndexBuffer2 => c"vkCmdBindIndexBuffer2",
+            Self::vkGetRenderingAreaGranularity => c"vkGetRenderingAreaGranularity",
+            Self::vkCmdSetRenderingAttachmentLocations => c"vkCmdSetRenderingAttachmentLocations",
+            Self::vkCmdSetRenderingInputAttachmentIndices => c"vkCmdSetRenderingInputAttachmentIndices",
+            Self::vkDestroySurfaceKHR => c"vkDestroySurfaceKHR",
+            Self::vkGetPhysicalDeviceSurfaceSupportKHR => c"vkGetPhysicalDeviceSurfaceSupportKHR",
+            Self::vkGetPhysicalDeviceSurfaceCapabilitiesKHR => c"vkGetPhysicalDeviceSurfaceCapabilitiesKHR",
+            Self::vkGetPhysicalDeviceSurfaceFormatsKHR => c"vkGetPhysicalDeviceSurfaceFormatsKHR",
+            Self::vkGetPhysicalDeviceSurfacePresentModesKHR => c"vkGetPhysicalDeviceSurfacePresentModesKHR",
+            Self::vkCreateSwapchainKHR => c"vkCreateSwapchainKHR",
+            Self::vkDestroySwapchainKHR => c"vkDestroySwapchainKHR",
+            Self::vkGetSwapchainImagesKHR => c"vkGetSwapchainImagesKHR",
+            Self::vkAcquireNextImageKHR => c"vkAcquireNextImageKHR",
+            Self::vkQueuePresentKHR => c"vkQueuePresentKHR",
+            Self::vkGetDeviceGroupPresentCapabilitiesKHR => c"vkGetDeviceGroupPresentCapabilitiesKHR",
+            Self::vkGetDeviceGroupSurfacePresentModesKHR => c"vkGetDeviceGroupSurfacePresentModesKHR",
+            Self::vkGetPhysicalDevicePresentRectanglesKHR => c"vkGetPhysicalDevicePresentRectanglesKHR",
+            Self::vkAcquireNextImage2KHR => c"vkAcquireNextImage2KHR",
+            Self::vkGetPhysicalDeviceDisplayPropertiesKHR => c"vkGetPhysicalDeviceDisplayPropertiesKHR",
+            Self::vkGetPhysicalDeviceDisplayPlanePropertiesKHR => c"vkGetPhysicalDeviceDisplayPlanePropertiesKHR",
+            Self::vkGetDisplayPlaneSupportedDisplaysKHR => c"vkGetDisplayPlaneSupportedDisplaysKHR",
+            Self::vkGetDisplayModePropertiesKHR => c"vkGetDisplayModePropertiesKHR",
+            Self::vkCreateDisplayModeKHR => c"vkCreateDisplayModeKHR",
+            Self::vkGetDisplayPlaneCapabilitiesKHR => c"vkGetDisplayPlaneCapabilitiesKHR",
+            Self::vkCreateDisplayPlaneSurfaceKHR => c"vkCreateDisplayPlaneSurfaceKHR",
+            Self::vkCreateSharedSwapchainsKHR => c"vkCreateSharedSwapchainsKHR",
+            Self::vkCreateXlibSurfaceKHR => c"vkCreateXlibSurfaceKHR",
+            Self::vkGetPhysicalDeviceXlibPresentationSupportKHR => c"vkGetPhysicalDeviceXlibPresentationSupportKHR",
+            Self::vkCreateXcbSurfaceKHR => c"vkCreateXcbSurfaceKHR",
+            Self::vkGetPhysicalDeviceXcbPresentationSupportKHR => c"vkGetPhysicalDeviceXcbPresentationSupportKHR",
+            Self::vkCreateWaylandSurfaceKHR => c"vkCreateWaylandSurfaceKHR",
+            Self::vkGetPhysicalDeviceWaylandPresentationSupportKHR => c"vkGetPhysicalDeviceWaylandPresentationSupportKHR",
+            Self::vkCreateAndroidSurfaceKHR => c"vkCreateAndroidSurfaceKHR",
+            Self::vkCreateWin32SurfaceKHR => c"vkCreateWin32SurfaceKHR",
+            Self::vkGetPhysicalDeviceWin32PresentationSupportKHR => c"vkGetPhysicalDeviceWin32PresentationSupportKHR",
+            Self::vkGetPhysicalDeviceVideoCapabilitiesKHR => c"vkGetPhysicalDeviceVideoCapabilitiesKHR",
+            Self::vkGetPhysicalDeviceVideoFormatPropertiesKHR => c"vkGetPhysicalDeviceVideoFormatPropertiesKHR",
+            Self::vkCreateVideoSessionKHR => c"vkCreateVideoSessionKHR",
+            Self::vkDestroyVideoSessionKHR => c"vkDestroyVideoSessionKHR",
+            Self::vkGetVideoSessionMemoryRequirementsKHR => c"vkGetVideoSessionMemoryRequirementsKHR",
+            Self::vkBindVideoSessionMemoryKHR => c"vkBindVideoSessionMemoryKHR",
+            Self::vkCreateVideoSessionParametersKHR => c"vkCreateVideoSessionParametersKHR",
+            Self::vkUpdateVideoSessionParametersKHR => c"vkUpdateVideoSessionParametersKHR",
+            Self::vkDestroyVideoSessionParametersKHR => c"vkDestroyVideoSessionParametersKHR",
+            Self::vkCmdBeginVideoCodingKHR => c"vkCmdBeginVideoCodingKHR",
+            Self::vkCmdEndVideoCodingKHR => c"vkCmdEndVideoCodingKHR",
+            Self::vkCmdControlVideoCodingKHR => c"vkCmdControlVideoCodingKHR",
+            Self::vkCmdDecodeVideoKHR => c"vkCmdDecodeVideoKHR",
+            Self::vkCmdBeginRenderingKHR => c"vkCmdBeginRenderingKHR",
+            Self::vkCmdEndRenderingKHR => c"vkCmdEndRenderingKHR",
+            Self::vkGetPhysicalDeviceFeatures2KHR => c"vkGetPhysicalDeviceFeatures2KHR",
+            Self::vkGetPhysicalDeviceProperties2KHR => c"vkGetPhysicalDeviceProperties2KHR",
+            Self::vkGetPhysicalDeviceFormatProperties2KHR => c"vkGetPhysicalDeviceFormatProperties2KHR",
+            Self::vkGetPhysicalDeviceImageFormatProperties2KHR => c"vkGetPhysicalDeviceImageFormatProperties2KHR",
+            Self::vkGetPhysicalDeviceQueueFamilyProperties2KHR => c"vkGetPhysicalDeviceQueueFamilyProperties2KHR",
+            Self::vkGetPhysicalDeviceMemoryProperties2KHR => c"vkGetPhysicalDeviceMemoryProperties2KHR",
+            Self::vkGetPhysicalDeviceSparseImageFormatProperties2KHR => c"vkGetPhysicalDeviceSparseImageFormatProperties2KHR",
+            Self::vkGetDeviceGroupPeerMemoryFeaturesKHR => c"vkGetDeviceGroupPeerMemoryFeaturesKHR",
+            Self::vkCmdSetDeviceMaskKHR => c"vkCmdSetDeviceMaskKHR",
+            Self::vkCmdDispatchBaseKHR => c"vkCmdDispatchBaseKHR",
+            Self::vkTrimCommandPoolKHR => c"vkTrimCommandPoolKHR",
+            Self::vkEnumeratePhysicalDeviceGroupsKHR => c"vkEnumeratePhysicalDeviceGroupsKHR",
+            Self::vkGetPhysicalDeviceExternalBufferPropertiesKHR => c"vkGetPhysicalDeviceExternalBufferPropertiesKHR",
+            Self::vkGetMemoryWin32HandleKHR => c"vkGetMemoryWin32HandleKHR",
+            Self::vkGetMemoryWin32HandlePropertiesKHR => c"vkGetMemoryWin32HandlePropertiesKHR",
+            Self::vkGetMemoryFdKHR => c"vkGetMemoryFdKHR",
+            Self::vkGetMemoryFdPropertiesKHR => c"vkGetMemoryFdPropertiesKHR",
+            Self::vkGetPhysicalDeviceExternalSemaphorePropertiesKHR => c"vkGetPhysicalDeviceExternalSemaphorePropertiesKHR",
+            Self::vkImportSemaphoreWin32HandleKHR => c"vkImportSemaphoreWin32HandleKHR",
+            Self::vkGetSemaphoreWin32HandleKHR => c"vkGetSemaphoreWin32HandleKHR",
+            Self::vkImportSemaphoreFdKHR => c"vkImportSemaphoreFdKHR",
+            Self::vkGetSemaphoreFdKHR => c"vkGetSemaphoreFdKHR",
+            Self::vkCmdPushDescriptorSetKHR => c"vkCmdPushDescriptorSetKHR",
+            Self::vkCmdPushDescriptorSetWithTemplateKHR => c"vkCmdPushDescriptorSetWithTemplateKHR",
+            Self::vkCreateDescriptorUpdateTemplateKHR => c"vkCreateDescriptorUpdateTemplateKHR",
+            Self::vkDestroyDescriptorUpdateTemplateKHR => c"vkDestroyDescriptorUpdateTemplateKHR",
+            Self::vkUpdateDescriptorSetWithTemplateKHR => c"vkUpdateDescriptorSetWithTemplateKHR",
+            Self::vkCreateRenderPass2KHR => c"vkCreateRenderPass2KHR",
+            Self::vkCmdBeginRenderPass2KHR => c"vkCmdBeginRenderPass2KHR",
+            Self::vkCmdNextSubpass2KHR => c"vkCmdNextSubpass2KHR",
+            Self::vkCmdEndRenderPass2KHR => c"vkCmdEndRenderPass2KHR",
+            Self::vkGetSwapchainStatusKHR => c"vkGetSwapchainStatusKHR",
+            Self::vkGetPhysicalDeviceExternalFencePropertiesKHR => c"vkGetPhysicalDeviceExternalFencePropertiesKHR",
+            Self::vkImportFenceWin32HandleKHR => c"vkImportFenceWin32HandleKHR",
+            Self::vkGetFenceWin32HandleKHR => c"vkGetFenceWin32HandleKHR",
+            Self::vkImportFenceFdKHR => c"vkImportFenceFdKHR",
+            Self::vkGetFenceFdKHR => c"vkGetFenceFdKHR",
+            Self::vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR => c"vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR",
+            Self::vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR => c"vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR",
+            Self::vkAcquireProfilingLockKHR => c"vkAcquireProfilingLockKHR",
+            Self::vkReleaseProfilingLockKHR => c"vkReleaseProfilingLockKHR",
+            Self::vkGetPhysicalDeviceSurfaceCapabilities2KHR => c"vkGetPhysicalDeviceSurfaceCapabilities2KHR",
+            Self::vkGetPhysicalDeviceSurfaceFormats2KHR => c"vkGetPhysicalDeviceSurfaceFormats2KHR",
+            Self::vkGetPhysicalDeviceDisplayProperties2KHR => c"vkGetPhysicalDeviceDisplayProperties2KHR",
+            Self::vkGetPhysicalDeviceDisplayPlaneProperties2KHR => c"vkGetPhysicalDeviceDisplayPlaneProperties2KHR",
+            Self::vkGetDisplayModeProperties2KHR => c"vkGetDisplayModeProperties2KHR",
+            Self::vkGetDisplayPlaneCapabilities2KHR => c"vkGetDisplayPlaneCapabilities2KHR",
+            Self::vkGetImageMemoryRequirements2KHR => c"vkGetImageMemoryRequirements2KHR",
+            Self::vkGetBufferMemoryRequirements2KHR => c"vkGetBufferMemoryRequirements2KHR",
+            Self::vkGetImageSparseMemoryRequirements2KHR => c"vkGetImageSparseMemoryRequirements2KHR",
+            Self::vkCreateSamplerYcbcrConversionKHR => c"vkCreateSamplerYcbcrConversionKHR",
+            Self::vkDestroySamplerYcbcrConversionKHR => c"vkDestroySamplerYcbcrConversionKHR",
+            Self::vkBindBufferMemory2KHR => c"vkBindBufferMemory2KHR",
+            Self::vkBindImageMemory2KHR => c"vkBindImageMemory2KHR",
+            Self::vkGetDescriptorSetLayoutSupportKHR => c"vkGetDescriptorSetLayoutSupportKHR",
+            Self::vkCmdDrawIndirectCountKHR => c"vkCmdDrawIndirectCountKHR",
+            Self::vkCmdDrawIndexedIndirectCountKHR => c"vkCmdDrawIndexedIndirectCountKHR",
+            Self::vkGetSemaphoreCounterValueKHR => c"vkGetSemaphoreCounterValueKHR",
+            Self::vkWaitSemaphoresKHR => c"vkWaitSemaphoresKHR",
+            Self::vkSignalSemaphoreKHR => c"vkSignalSemaphoreKHR",
+            Self::vkGetPhysicalDeviceFragmentShadingRatesKHR => c"vkGetPhysicalDeviceFragmentShadingRatesKHR",
+            Self::vkCmdSetFragmentShadingRateKHR => c"vkCmdSetFragmentShadingRateKHR",
+            Self::vkCmdSetRenderingAttachmentLocationsKHR => c"vkCmdSetRenderingAttachmentLocationsKHR",
+            Self::vkCmdSetRenderingInputAttachmentIndicesKHR => c"vkCmdSetRenderingInputAttachmentIndicesKHR",
+            Self::vkWaitForPresentKHR => c"vkWaitForPresentKHR",
+            Self::vkGetBufferDeviceAddressKHR => c"vkGetBufferDeviceAddressKHR",
+            Self::vkGetBufferOpaqueCaptureAddressKHR => c"vkGetBufferOpaqueCaptureAddressKHR",
+            Self::vkGetDeviceMemoryOpaqueCaptureAddressKHR => c"vkGetDeviceMemoryOpaqueCaptureAddressKHR",
+            Self::vkCreateDeferredOperationKHR => c"vkCreateDeferredOperationKHR",
+            Self::vkDestroyDeferredOperationKHR => c"vkDestroyDeferredOperationKHR",
+            Self::vkGetDeferredOperationMaxConcurrencyKHR => c"vkGetDeferredOperationMaxConcurrencyKHR",
+            Self::vkGetDeferredOperationResultKHR => c"vkGetDeferredOperationResultKHR",
+            Self::vkDeferredOperationJoinKHR => c"vkDeferredOperationJoinKHR",
+            Self::vkGetPipelineExecutablePropertiesKHR => c"vkGetPipelineExecutablePropertiesKHR",
+            Self::vkGetPipelineExecutableStatisticsKHR => c"vkGetPipelineExecutableStatisticsKHR",
+            Self::vkGetPipelineExecutableInternalRepresentationsKHR => c"vkGetPipelineExecutableInternalRepresentationsKHR",
+            Self::vkMapMemory2KHR => c"vkMapMemory2KHR",
+            Self::vkUnmapMemory2KHR => c"vkUnmapMemory2KHR",
+            Self::vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR => c"vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR",
+            Self::vkGetEncodedVideoSessionParametersKHR => c"vkGetEncodedVideoSessionParametersKHR",
+            Self::vkCmdEncodeVideoKHR => c"vkCmdEncodeVideoKHR",
+            Self::vkCmdSetEvent2KHR => c"vkCmdSetEvent2KHR",
+            Self::vkCmdResetEvent2KHR => c"vkCmdResetEvent2KHR",
+            Self::vkCmdWaitEvents2KHR => c"vkCmdWaitEvents2KHR",
+            Self::vkCmdPipelineBarrier2KHR => c"vkCmdPipelineBarrier2KHR",
+            Self::vkCmdWriteTimestamp2KHR => c"vkCmdWriteTimestamp2KHR",
+            Self::vkQueueSubmit2KHR => c"vkQueueSubmit2KHR",
+            Self::vkCmdBindIndexBuffer3KHR => c"vkCmdBindIndexBuffer3KHR",
+            Self::vkCmdBindVertexBuffers3KHR => c"vkCmdBindVertexBuffers3KHR",
+            Self::vkCmdDrawIndirect2KHR => c"vkCmdDrawIndirect2KHR",
+            Self::vkCmdDrawIndexedIndirect2KHR => c"vkCmdDrawIndexedIndirect2KHR",
+            Self::vkCmdDispatchIndirect2KHR => c"vkCmdDispatchIndirect2KHR",
+            Self::vkCmdCopyMemoryKHR => c"vkCmdCopyMemoryKHR",
+            Self::vkCmdCopyMemoryToImageKHR => c"vkCmdCopyMemoryToImageKHR",
+            Self::vkCmdCopyImageToMemoryKHR => c"vkCmdCopyImageToMemoryKHR",
+            Self::vkCmdUpdateMemoryKHR => c"vkCmdUpdateMemoryKHR",
+            Self::vkCmdFillMemoryKHR => c"vkCmdFillMemoryKHR",
+            Self::vkCmdCopyQueryPoolResultsToMemoryKHR => c"vkCmdCopyQueryPoolResultsToMemoryKHR",
+            Self::vkCmdDrawIndirectCount2KHR => c"vkCmdDrawIndirectCount2KHR",
+            Self::vkCmdDrawIndexedIndirectCount2KHR => c"vkCmdDrawIndexedIndirectCount2KHR",
+            Self::vkCmdBeginConditionalRendering2EXT => c"vkCmdBeginConditionalRendering2EXT",
+            Self::vkCmdBindTransformFeedbackBuffers2EXT => c"vkCmdBindTransformFeedbackBuffers2EXT",
+            Self::vkCmdBeginTransformFeedback2EXT => c"vkCmdBeginTransformFeedback2EXT",
+            Self::vkCmdEndTransformFeedback2EXT => c"vkCmdEndTransformFeedback2EXT",
+            Self::vkCmdDrawIndirectByteCount2EXT => c"vkCmdDrawIndirectByteCount2EXT",
+            Self::vkCmdDrawMeshTasksIndirect2EXT => c"vkCmdDrawMeshTasksIndirect2EXT",
+            Self::vkCmdDrawMeshTasksIndirectCount2EXT => c"vkCmdDrawMeshTasksIndirectCount2EXT",
+            Self::vkCmdWriteMarkerToMemoryAMD => c"vkCmdWriteMarkerToMemoryAMD",
+            Self::vkCreateAccelerationStructure2KHR => c"vkCreateAccelerationStructure2KHR",
+            Self::vkCmdCopyBuffer2KHR => c"vkCmdCopyBuffer2KHR",
+            Self::vkCmdCopyImage2KHR => c"vkCmdCopyImage2KHR",
+            Self::vkCmdCopyBufferToImage2KHR => c"vkCmdCopyBufferToImage2KHR",
+            Self::vkCmdCopyImageToBuffer2KHR => c"vkCmdCopyImageToBuffer2KHR",
+            Self::vkCmdBlitImage2KHR => c"vkCmdBlitImage2KHR",
+            Self::vkCmdResolveImage2KHR => c"vkCmdResolveImage2KHR",
+            Self::vkCmdTraceRaysIndirect2KHR => c"vkCmdTraceRaysIndirect2KHR",
+            Self::vkGetDeviceBufferMemoryRequirementsKHR => c"vkGetDeviceBufferMemoryRequirementsKHR",
+            Self::vkGetDeviceImageMemoryRequirementsKHR => c"vkGetDeviceImageMemoryRequirementsKHR",
+            Self::vkGetDeviceImageSparseMemoryRequirementsKHR => c"vkGetDeviceImageSparseMemoryRequirementsKHR",
+            Self::vkCmdBindIndexBuffer2KHR => c"vkCmdBindIndexBuffer2KHR",
+            Self::vkGetRenderingAreaGranularityKHR => c"vkGetRenderingAreaGranularityKHR",
+            Self::vkGetDeviceImageSubresourceLayoutKHR => c"vkGetDeviceImageSubresourceLayoutKHR",
+            Self::vkGetImageSubresourceLayout2KHR => c"vkGetImageSubresourceLayout2KHR",
+            Self::vkWaitForPresent2KHR => c"vkWaitForPresent2KHR",
+            Self::vkCreatePipelineBinariesKHR => c"vkCreatePipelineBinariesKHR",
+            Self::vkDestroyPipelineBinaryKHR => c"vkDestroyPipelineBinaryKHR",
+            Self::vkGetPipelineKeyKHR => c"vkGetPipelineKeyKHR",
+            Self::vkGetPipelineBinaryDataKHR => c"vkGetPipelineBinaryDataKHR",
+            Self::vkReleaseCapturedPipelineDataKHR => c"vkReleaseCapturedPipelineDataKHR",
+            Self::vkReleaseSwapchainImagesKHR => c"vkReleaseSwapchainImagesKHR",
+            Self::vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR => c"vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR",
+            Self::vkCmdSetLineStippleKHR => c"vkCmdSetLineStippleKHR",
+            Self::vkGetPhysicalDeviceCalibrateableTimeDomainsKHR => c"vkGetPhysicalDeviceCalibrateableTimeDomainsKHR",
+            Self::vkGetCalibratedTimestampsKHR => c"vkGetCalibratedTimestampsKHR",
+            Self::vkCmdBindDescriptorSets2KHR => c"vkCmdBindDescriptorSets2KHR",
+            Self::vkCmdPushConstants2KHR => c"vkCmdPushConstants2KHR",
+            Self::vkCmdPushDescriptorSet2KHR => c"vkCmdPushDescriptorSet2KHR",
+            Self::vkCmdPushDescriptorSetWithTemplate2KHR => c"vkCmdPushDescriptorSetWithTemplate2KHR",
+            Self::vkCmdSetDescriptorBufferOffsets2EXT => c"vkCmdSetDescriptorBufferOffsets2EXT",
+            Self::vkCmdBindDescriptorBufferEmbeddedSamplers2EXT => c"vkCmdBindDescriptorBufferEmbeddedSamplers2EXT",
+            Self::vkCmdCopyMemoryIndirectKHR => c"vkCmdCopyMemoryIndirectKHR",
+            Self::vkCmdCopyMemoryToImageIndirectKHR => c"vkCmdCopyMemoryToImageIndirectKHR",
+            Self::vkGetDeviceFaultReportsKHR => c"vkGetDeviceFaultReportsKHR",
+            Self::vkGetDeviceFaultDebugInfoKHR => c"vkGetDeviceFaultDebugInfoKHR",
+            Self::vkCmdEndRendering2KHR => c"vkCmdEndRendering2KHR",
+            Self::vkCreateDebugReportCallbackEXT => c"vkCreateDebugReportCallbackEXT",
+            Self::vkDestroyDebugReportCallbackEXT => c"vkDestroyDebugReportCallbackEXT",
+            Self::vkDebugReportMessageEXT => c"vkDebugReportMessageEXT",
+            Self::vkDebugMarkerSetObjectTagEXT => c"vkDebugMarkerSetObjectTagEXT",
+            Self::vkDebugMarkerSetObjectNameEXT => c"vkDebugMarkerSetObjectNameEXT",
+            Self::vkCmdDebugMarkerBeginEXT => c"vkCmdDebugMarkerBeginEXT",
+            Self::vkCmdDebugMarkerEndEXT => c"vkCmdDebugMarkerEndEXT",
+            Self::vkCmdDebugMarkerInsertEXT => c"vkCmdDebugMarkerInsertEXT",
+            Self::vkCmdBindTransformFeedbackBuffersEXT => c"vkCmdBindTransformFeedbackBuffersEXT",
+            Self::vkCmdBeginTransformFeedbackEXT => c"vkCmdBeginTransformFeedbackEXT",
+            Self::vkCmdEndTransformFeedbackEXT => c"vkCmdEndTransformFeedbackEXT",
+            Self::vkCmdBeginQueryIndexedEXT => c"vkCmdBeginQueryIndexedEXT",
+            Self::vkCmdEndQueryIndexedEXT => c"vkCmdEndQueryIndexedEXT",
+            Self::vkCmdDrawIndirectByteCountEXT => c"vkCmdDrawIndirectByteCountEXT",
+            Self::vkCreateCuModuleNVX => c"vkCreateCuModuleNVX",
+            Self::vkCreateCuFunctionNVX => c"vkCreateCuFunctionNVX",
+            Self::vkDestroyCuModuleNVX => c"vkDestroyCuModuleNVX",
+            Self::vkDestroyCuFunctionNVX => c"vkDestroyCuFunctionNVX",
+            Self::vkCmdCuLaunchKernelNVX => c"vkCmdCuLaunchKernelNVX",
+            Self::vkGetImageViewHandleNVX => c"vkGetImageViewHandleNVX",
+            Self::vkGetImageViewHandle64NVX => c"vkGetImageViewHandle64NVX",
+            Self::vkGetImageViewAddressNVX => c"vkGetImageViewAddressNVX",
+            Self::vkGetDeviceCombinedImageSamplerIndexNVX => c"vkGetDeviceCombinedImageSamplerIndexNVX",
+            Self::vkCmdDrawIndirectCountAMD => c"vkCmdDrawIndirectCountAMD",
+            Self::vkCmdDrawIndexedIndirectCountAMD => c"vkCmdDrawIndexedIndirectCountAMD",
+            Self::vkGetShaderInfoAMD => c"vkGetShaderInfoAMD",
+            Self::vkCreateStreamDescriptorSurfaceGGP => c"vkCreateStreamDescriptorSurfaceGGP",
+            Self::vkGetPhysicalDeviceExternalImageFormatPropertiesNV => c"vkGetPhysicalDeviceExternalImageFormatPropertiesNV",
+            Self::vkGetMemoryWin32HandleNV => c"vkGetMemoryWin32HandleNV",
+            Self::vkCreateViSurfaceNN => c"vkCreateViSurfaceNN",
+            Self::vkCmdBeginConditionalRenderingEXT => c"vkCmdBeginConditionalRenderingEXT",
+            Self::vkCmdEndConditionalRenderingEXT => c"vkCmdEndConditionalRenderingEXT",
+            Self::vkCmdSetViewportWScalingNV => c"vkCmdSetViewportWScalingNV",
+            Self::vkReleaseDisplayEXT => c"vkReleaseDisplayEXT",
+            Self::vkAcquireXlibDisplayEXT => c"vkAcquireXlibDisplayEXT",
+            Self::vkGetRandROutputDisplayEXT => c"vkGetRandROutputDisplayEXT",
+            Self::vkGetPhysicalDeviceSurfaceCapabilities2EXT => c"vkGetPhysicalDeviceSurfaceCapabilities2EXT",
+            Self::vkDisplayPowerControlEXT => c"vkDisplayPowerControlEXT",
+            Self::vkRegisterDeviceEventEXT => c"vkRegisterDeviceEventEXT",
+            Self::vkRegisterDisplayEventEXT => c"vkRegisterDisplayEventEXT",
+            Self::vkGetSwapchainCounterEXT => c"vkGetSwapchainCounterEXT",
+            Self::vkGetRefreshCycleDurationGOOGLE => c"vkGetRefreshCycleDurationGOOGLE",
+            Self::vkGetPastPresentationTimingGOOGLE => c"vkGetPastPresentationTimingGOOGLE",
+            Self::vkCmdSetDiscardRectangleEXT => c"vkCmdSetDiscardRectangleEXT",
+            Self::vkCmdSetDiscardRectangleEnableEXT => c"vkCmdSetDiscardRectangleEnableEXT",
+            Self::vkCmdSetDiscardRectangleModeEXT => c"vkCmdSetDiscardRectangleModeEXT",
+            Self::vkSetHdrMetadataEXT => c"vkSetHdrMetadataEXT",
+            Self::vkCreateIOSSurfaceMVK => c"vkCreateIOSSurfaceMVK",
+            Self::vkCreateMacOSSurfaceMVK => c"vkCreateMacOSSurfaceMVK",
+            Self::vkSetDebugUtilsObjectNameEXT => c"vkSetDebugUtilsObjectNameEXT",
+            Self::vkSetDebugUtilsObjectTagEXT => c"vkSetDebugUtilsObjectTagEXT",
+            Self::vkQueueBeginDebugUtilsLabelEXT => c"vkQueueBeginDebugUtilsLabelEXT",
+            Self::vkQueueEndDebugUtilsLabelEXT => c"vkQueueEndDebugUtilsLabelEXT",
+            Self::vkQueueInsertDebugUtilsLabelEXT => c"vkQueueInsertDebugUtilsLabelEXT",
+            Self::vkCmdBeginDebugUtilsLabelEXT => c"vkCmdBeginDebugUtilsLabelEXT",
+            Self::vkCmdEndDebugUtilsLabelEXT => c"vkCmdEndDebugUtilsLabelEXT",
+            Self::vkCmdInsertDebugUtilsLabelEXT => c"vkCmdInsertDebugUtilsLabelEXT",
+            Self::vkCreateDebugUtilsMessengerEXT => c"vkCreateDebugUtilsMessengerEXT",
+            Self::vkDestroyDebugUtilsMessengerEXT => c"vkDestroyDebugUtilsMessengerEXT",
+            Self::vkSubmitDebugUtilsMessageEXT => c"vkSubmitDebugUtilsMessageEXT",
+            Self::vkGetAndroidHardwareBufferPropertiesANDROID => c"vkGetAndroidHardwareBufferPropertiesANDROID",
+            Self::vkGetMemoryAndroidHardwareBufferANDROID => c"vkGetMemoryAndroidHardwareBufferANDROID",
+            Self::vkCreateGpaSessionAMD => c"vkCreateGpaSessionAMD",
+            Self::vkDestroyGpaSessionAMD => c"vkDestroyGpaSessionAMD",
+            Self::vkSetGpaDeviceClockModeAMD => c"vkSetGpaDeviceClockModeAMD",
+            Self::vkGetGpaDeviceClockInfoAMD => c"vkGetGpaDeviceClockInfoAMD",
+            Self::vkCmdBeginGpaSessionAMD => c"vkCmdBeginGpaSessionAMD",
+            Self::vkCmdEndGpaSessionAMD => c"vkCmdEndGpaSessionAMD",
+            Self::vkCmdBeginGpaSampleAMD => c"vkCmdBeginGpaSampleAMD",
+            Self::vkCmdEndGpaSampleAMD => c"vkCmdEndGpaSampleAMD",
+            Self::vkGetGpaSessionStatusAMD => c"vkGetGpaSessionStatusAMD",
+            Self::vkGetGpaSessionResultsAMD => c"vkGetGpaSessionResultsAMD",
+            Self::vkResetGpaSessionAMD => c"vkResetGpaSessionAMD",
+            Self::vkCmdCopyGpaSessionResultsAMD => c"vkCmdCopyGpaSessionResultsAMD",
+            Self::vkCreateExecutionGraphPipelinesAMDX => c"vkCreateExecutionGraphPipelinesAMDX",
+            Self::vkGetExecutionGraphPipelineScratchSizeAMDX => c"vkGetExecutionGraphPipelineScratchSizeAMDX",
+            Self::vkGetExecutionGraphPipelineNodeIndexAMDX => c"vkGetExecutionGraphPipelineNodeIndexAMDX",
+            Self::vkCmdInitializeGraphScratchMemoryAMDX => c"vkCmdInitializeGraphScratchMemoryAMDX",
+            Self::vkCmdDispatchGraphAMDX => c"vkCmdDispatchGraphAMDX",
+            Self::vkCmdDispatchGraphIndirectAMDX => c"vkCmdDispatchGraphIndirectAMDX",
+            Self::vkCmdDispatchGraphIndirectCountAMDX => c"vkCmdDispatchGraphIndirectCountAMDX",
+            Self::vkWriteSamplerDescriptorsEXT => c"vkWriteSamplerDescriptorsEXT",
+            Self::vkWriteResourceDescriptorsEXT => c"vkWriteResourceDescriptorsEXT",
+            Self::vkCmdBindSamplerHeapEXT => c"vkCmdBindSamplerHeapEXT",
+            Self::vkCmdBindResourceHeapEXT => c"vkCmdBindResourceHeapEXT",
+            Self::vkCmdPushDataEXT => c"vkCmdPushDataEXT",
+            Self::vkGetImageOpaqueCaptureDataEXT => c"vkGetImageOpaqueCaptureDataEXT",
+            Self::vkGetPhysicalDeviceDescriptorSizeEXT => c"vkGetPhysicalDeviceDescriptorSizeEXT",
+            Self::vkRegisterCustomBorderColorEXT => c"vkRegisterCustomBorderColorEXT",
+            Self::vkUnregisterCustomBorderColorEXT => c"vkUnregisterCustomBorderColorEXT",
+            Self::vkGetTensorOpaqueCaptureDataARM => c"vkGetTensorOpaqueCaptureDataARM",
+            Self::vkCmdSetSampleLocationsEXT => c"vkCmdSetSampleLocationsEXT",
+            Self::vkGetPhysicalDeviceMultisamplePropertiesEXT => c"vkGetPhysicalDeviceMultisamplePropertiesEXT",
+            Self::vkGetImageDrmFormatModifierPropertiesEXT => c"vkGetImageDrmFormatModifierPropertiesEXT",
+            Self::vkCreateValidationCacheEXT => c"vkCreateValidationCacheEXT",
+            Self::vkDestroyValidationCacheEXT => c"vkDestroyValidationCacheEXT",
+            Self::vkMergeValidationCachesEXT => c"vkMergeValidationCachesEXT",
+            Self::vkGetValidationCacheDataEXT => c"vkGetValidationCacheDataEXT",
+            Self::vkCmdBindShadingRateImageNV => c"vkCmdBindShadingRateImageNV",
+            Self::vkCmdSetViewportShadingRatePaletteNV => c"vkCmdSetViewportShadingRatePaletteNV",
+            Self::vkCmdSetCoarseSampleOrderNV => c"vkCmdSetCoarseSampleOrderNV",
+            Self::vkCreateAccelerationStructureNV => c"vkCreateAccelerationStructureNV",
+            Self::vkDestroyAccelerationStructureNV => c"vkDestroyAccelerationStructureNV",
+            Self::vkGetAccelerationStructureMemoryRequirementsNV => c"vkGetAccelerationStructureMemoryRequirementsNV",
+            Self::vkBindAccelerationStructureMemoryNV => c"vkBindAccelerationStructureMemoryNV",
+            Self::vkCmdBuildAccelerationStructureNV => c"vkCmdBuildAccelerationStructureNV",
+            Self::vkCmdCopyAccelerationStructureNV => c"vkCmdCopyAccelerationStructureNV",
+            Self::vkCmdTraceRaysNV => c"vkCmdTraceRaysNV",
+            Self::vkCreateRayTracingPipelinesNV => c"vkCreateRayTracingPipelinesNV",
+            Self::vkGetRayTracingShaderGroupHandlesKHR => c"vkGetRayTracingShaderGroupHandlesKHR",
+            Self::vkGetRayTracingShaderGroupHandlesNV => c"vkGetRayTracingShaderGroupHandlesNV",
+            Self::vkGetAccelerationStructureHandleNV => c"vkGetAccelerationStructureHandleNV",
+            Self::vkCmdWriteAccelerationStructuresPropertiesNV => c"vkCmdWriteAccelerationStructuresPropertiesNV",
+            Self::vkCompileDeferredNV => c"vkCompileDeferredNV",
+            Self::vkGetMemoryHostPointerPropertiesEXT => c"vkGetMemoryHostPointerPropertiesEXT",
+            Self::vkCmdWriteBufferMarkerAMD => c"vkCmdWriteBufferMarkerAMD",
+            Self::vkCmdWriteBufferMarker2AMD => c"vkCmdWriteBufferMarker2AMD",
+            Self::vkGetPhysicalDeviceCalibrateableTimeDomainsEXT => c"vkGetPhysicalDeviceCalibrateableTimeDomainsEXT",
+            Self::vkGetCalibratedTimestampsEXT => c"vkGetCalibratedTimestampsEXT",
+            Self::vkCmdDrawMeshTasksNV => c"vkCmdDrawMeshTasksNV",
+            Self::vkCmdDrawMeshTasksIndirectNV => c"vkCmdDrawMeshTasksIndirectNV",
+            Self::vkCmdDrawMeshTasksIndirectCountNV => c"vkCmdDrawMeshTasksIndirectCountNV",
+            Self::vkCmdSetExclusiveScissorEnableNV => c"vkCmdSetExclusiveScissorEnableNV",
+            Self::vkCmdSetExclusiveScissorNV => c"vkCmdSetExclusiveScissorNV",
+            Self::vkCmdSetCheckpointNV => c"vkCmdSetCheckpointNV",
+            Self::vkGetQueueCheckpointDataNV => c"vkGetQueueCheckpointDataNV",
+            Self::vkGetQueueCheckpointData2NV => c"vkGetQueueCheckpointData2NV",
+            Self::vkSetSwapchainPresentTimingQueueSizeEXT => c"vkSetSwapchainPresentTimingQueueSizeEXT",
+            Self::vkGetSwapchainTimingPropertiesEXT => c"vkGetSwapchainTimingPropertiesEXT",
+            Self::vkGetSwapchainTimeDomainPropertiesEXT => c"vkGetSwapchainTimeDomainPropertiesEXT",
+            Self::vkGetPastPresentationTimingEXT => c"vkGetPastPresentationTimingEXT",
+            Self::vkInitializePerformanceApiINTEL => c"vkInitializePerformanceApiINTEL",
+            Self::vkUninitializePerformanceApiINTEL => c"vkUninitializePerformanceApiINTEL",
+            Self::vkCmdSetPerformanceMarkerINTEL => c"vkCmdSetPerformanceMarkerINTEL",
+            Self::vkCmdSetPerformanceStreamMarkerINTEL => c"vkCmdSetPerformanceStreamMarkerINTEL",
+            Self::vkCmdSetPerformanceOverrideINTEL => c"vkCmdSetPerformanceOverrideINTEL",
+            Self::vkAcquirePerformanceConfigurationINTEL => c"vkAcquirePerformanceConfigurationINTEL",
+            Self::vkReleasePerformanceConfigurationINTEL => c"vkReleasePerformanceConfigurationINTEL",
+            Self::vkQueueSetPerformanceConfigurationINTEL => c"vkQueueSetPerformanceConfigurationINTEL",
+            Self::vkGetPerformanceParameterINTEL => c"vkGetPerformanceParameterINTEL",
+            Self::vkSetLocalDimmingAMD => c"vkSetLocalDimmingAMD",
+            Self::vkCreateImagePipeSurfaceFUCHSIA => c"vkCreateImagePipeSurfaceFUCHSIA",
+            Self::vkCreateMetalSurfaceEXT => c"vkCreateMetalSurfaceEXT",
+            Self::vkGetBufferDeviceAddressEXT => c"vkGetBufferDeviceAddressEXT",
+            Self::vkGetPhysicalDeviceToolPropertiesEXT => c"vkGetPhysicalDeviceToolPropertiesEXT",
+            Self::vkGetPhysicalDeviceCooperativeMatrixPropertiesNV => c"vkGetPhysicalDeviceCooperativeMatrixPropertiesNV",
+            Self::vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV => c"vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV",
+            Self::vkGetPhysicalDeviceSurfacePresentModes2EXT => c"vkGetPhysicalDeviceSurfacePresentModes2EXT",
+            Self::vkAcquireFullScreenExclusiveModeEXT => c"vkAcquireFullScreenExclusiveModeEXT",
+            Self::vkReleaseFullScreenExclusiveModeEXT => c"vkReleaseFullScreenExclusiveModeEXT",
+            Self::vkGetDeviceGroupSurfacePresentModes2EXT => c"vkGetDeviceGroupSurfacePresentModes2EXT",
+            Self::vkCreateHeadlessSurfaceEXT => c"vkCreateHeadlessSurfaceEXT",
+            Self::vkCmdSetLineStippleEXT => c"vkCmdSetLineStippleEXT",
+            Self::vkResetQueryPoolEXT => c"vkResetQueryPoolEXT",
+            Self::vkCmdSetCullModeEXT => c"vkCmdSetCullModeEXT",
+            Self::vkCmdSetFrontFaceEXT => c"vkCmdSetFrontFaceEXT",
+            Self::vkCmdSetPrimitiveTopologyEXT => c"vkCmdSetPrimitiveTopologyEXT",
+            Self::vkCmdSetViewportWithCountEXT => c"vkCmdSetViewportWithCountEXT",
+            Self::vkCmdSetScissorWithCountEXT => c"vkCmdSetScissorWithCountEXT",
+            Self::vkCmdBindVertexBuffers2EXT => c"vkCmdBindVertexBuffers2EXT",
+            Self::vkCmdSetDepthTestEnableEXT => c"vkCmdSetDepthTestEnableEXT",
+            Self::vkCmdSetDepthWriteEnableEXT => c"vkCmdSetDepthWriteEnableEXT",
+            Self::vkCmdSetDepthCompareOpEXT => c"vkCmdSetDepthCompareOpEXT",
+            Self::vkCmdSetDepthBoundsTestEnableEXT => c"vkCmdSetDepthBoundsTestEnableEXT",
+            Self::vkCmdSetStencilTestEnableEXT => c"vkCmdSetStencilTestEnableEXT",
+            Self::vkCmdSetStencilOpEXT => c"vkCmdSetStencilOpEXT",
+            Self::vkCopyMemoryToImageEXT => c"vkCopyMemoryToImageEXT",
+            Self::vkCopyImageToMemoryEXT => c"vkCopyImageToMemoryEXT",
+            Self::vkCopyImageToImageEXT => c"vkCopyImageToImageEXT",
+            Self::vkTransitionImageLayoutEXT => c"vkTransitionImageLayoutEXT",
+            Self::vkGetImageSubresourceLayout2EXT => c"vkGetImageSubresourceLayout2EXT",
+            Self::vkReleaseSwapchainImagesEXT => c"vkReleaseSwapchainImagesEXT",
+            Self::vkGetGeneratedCommandsMemoryRequirementsNV => c"vkGetGeneratedCommandsMemoryRequirementsNV",
+            Self::vkCmdPreprocessGeneratedCommandsNV => c"vkCmdPreprocessGeneratedCommandsNV",
+            Self::vkCmdExecuteGeneratedCommandsNV => c"vkCmdExecuteGeneratedCommandsNV",
+            Self::vkCmdBindPipelineShaderGroupNV => c"vkCmdBindPipelineShaderGroupNV",
+            Self::vkCreateIndirectCommandsLayoutNV => c"vkCreateIndirectCommandsLayoutNV",
+            Self::vkDestroyIndirectCommandsLayoutNV => c"vkDestroyIndirectCommandsLayoutNV",
+            Self::vkCmdSetDepthBias2EXT => c"vkCmdSetDepthBias2EXT",
+            Self::vkAcquireDrmDisplayEXT => c"vkAcquireDrmDisplayEXT",
+            Self::vkGetDrmDisplayEXT => c"vkGetDrmDisplayEXT",
+            Self::vkCreatePrivateDataSlotEXT => c"vkCreatePrivateDataSlotEXT",
+            Self::vkDestroyPrivateDataSlotEXT => c"vkDestroyPrivateDataSlotEXT",
+            Self::vkSetPrivateDataEXT => c"vkSetPrivateDataEXT",
+            Self::vkGetPrivateDataEXT => c"vkGetPrivateDataEXT",
+            Self::vkQueueSetPerfHintQCOM => c"vkQueueSetPerfHintQCOM",
+            Self::vkCreateCudaModuleNV => c"vkCreateCudaModuleNV",
+            Self::vkGetCudaModuleCacheNV => c"vkGetCudaModuleCacheNV",
+            Self::vkCreateCudaFunctionNV => c"vkCreateCudaFunctionNV",
+            Self::vkDestroyCudaModuleNV => c"vkDestroyCudaModuleNV",
+            Self::vkDestroyCudaFunctionNV => c"vkDestroyCudaFunctionNV",
+            Self::vkCmdCudaLaunchKernelNV => c"vkCmdCudaLaunchKernelNV",
+            Self::vkCmdDispatchTileQCOM => c"vkCmdDispatchTileQCOM",
+            Self::vkCmdBeginPerTileExecutionQCOM => c"vkCmdBeginPerTileExecutionQCOM",
+            Self::vkCmdEndPerTileExecutionQCOM => c"vkCmdEndPerTileExecutionQCOM",
+            Self::vkSetLatencySleepModeLegacyNV => c"vkSetLatencySleepModeLegacyNV",
+            Self::vkLatencySleepLegacyNV => c"vkLatencySleepLegacyNV",
+            Self::vkSetLatencyMarkerLegacyNV => c"vkSetLatencyMarkerLegacyNV",
+            Self::vkGetLatencyTimingsLegacyNV => c"vkGetLatencyTimingsLegacyNV",
+            Self::vkQueueNotifyOutOfBandLegacyNV => c"vkQueueNotifyOutOfBandLegacyNV",
+            Self::vkGetSleepStatusLegacyNV => c"vkGetSleepStatusLegacyNV",
+            Self::vkShutdownLatencyDeviceLegacyNV => c"vkShutdownLatencyDeviceLegacyNV",
+            Self::vkExportMetalObjectsEXT => c"vkExportMetalObjectsEXT",
+            Self::vkGetDescriptorSetLayoutSizeEXT => c"vkGetDescriptorSetLayoutSizeEXT",
+            Self::vkGetDescriptorSetLayoutBindingOffsetEXT => c"vkGetDescriptorSetLayoutBindingOffsetEXT",
+            Self::vkGetDescriptorEXT => c"vkGetDescriptorEXT",
+            Self::vkCmdBindDescriptorBuffersEXT => c"vkCmdBindDescriptorBuffersEXT",
+            Self::vkCmdSetDescriptorBufferOffsetsEXT => c"vkCmdSetDescriptorBufferOffsetsEXT",
+            Self::vkCmdBindDescriptorBufferEmbeddedSamplersEXT => c"vkCmdBindDescriptorBufferEmbeddedSamplersEXT",
+            Self::vkGetBufferOpaqueCaptureDescriptorDataEXT => c"vkGetBufferOpaqueCaptureDescriptorDataEXT",
+            Self::vkGetImageOpaqueCaptureDescriptorDataEXT => c"vkGetImageOpaqueCaptureDescriptorDataEXT",
+            Self::vkGetImageViewOpaqueCaptureDescriptorDataEXT => c"vkGetImageViewOpaqueCaptureDescriptorDataEXT",
+            Self::vkGetSamplerOpaqueCaptureDescriptorDataEXT => c"vkGetSamplerOpaqueCaptureDescriptorDataEXT",
+            Self::vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT => c"vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT",
+            Self::vkCmdSetFragmentShadingRateEnumNV => c"vkCmdSetFragmentShadingRateEnumNV",
+            Self::vkGetDeviceFaultInfoEXT => c"vkGetDeviceFaultInfoEXT",
+            Self::vkAcquireWinrtDisplayNV => c"vkAcquireWinrtDisplayNV",
+            Self::vkGetWinrtDisplayNV => c"vkGetWinrtDisplayNV",
+            Self::vkCreateDirectFBSurfaceEXT => c"vkCreateDirectFBSurfaceEXT",
+            Self::vkGetPhysicalDeviceDirectFBPresentationSupportEXT => c"vkGetPhysicalDeviceDirectFBPresentationSupportEXT",
+            Self::vkCmdSetVertexInputEXT => c"vkCmdSetVertexInputEXT",
+            Self::vkGetMemoryZirconHandleFUCHSIA => c"vkGetMemoryZirconHandleFUCHSIA",
+            Self::vkGetMemoryZirconHandlePropertiesFUCHSIA => c"vkGetMemoryZirconHandlePropertiesFUCHSIA",
+            Self::vkImportSemaphoreZirconHandleFUCHSIA => c"vkImportSemaphoreZirconHandleFUCHSIA",
+            Self::vkGetSemaphoreZirconHandleFUCHSIA => c"vkGetSemaphoreZirconHandleFUCHSIA",
+            Self::vkCreateBufferCollectionFUCHSIA => c"vkCreateBufferCollectionFUCHSIA",
+            Self::vkSetBufferCollectionImageConstraintsFUCHSIA => c"vkSetBufferCollectionImageConstraintsFUCHSIA",
+            Self::vkSetBufferCollectionBufferConstraintsFUCHSIA => c"vkSetBufferCollectionBufferConstraintsFUCHSIA",
+            Self::vkDestroyBufferCollectionFUCHSIA => c"vkDestroyBufferCollectionFUCHSIA",
+            Self::vkGetBufferCollectionPropertiesFUCHSIA => c"vkGetBufferCollectionPropertiesFUCHSIA",
+            Self::vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI => c"vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI",
+            Self::vkCmdSubpassShadingHUAWEI => c"vkCmdSubpassShadingHUAWEI",
+            Self::vkCmdBindInvocationMaskHUAWEI => c"vkCmdBindInvocationMaskHUAWEI",
+            Self::vkGetMemoryRemoteAddressNV => c"vkGetMemoryRemoteAddressNV",
+            Self::vkGetPipelinePropertiesEXT => c"vkGetPipelinePropertiesEXT",
+            Self::vkCmdSetPatchControlPointsEXT => c"vkCmdSetPatchControlPointsEXT",
+            Self::vkCmdSetRasterizerDiscardEnableEXT => c"vkCmdSetRasterizerDiscardEnableEXT",
+            Self::vkCmdSetDepthBiasEnableEXT => c"vkCmdSetDepthBiasEnableEXT",
+            Self::vkCmdSetLogicOpEXT => c"vkCmdSetLogicOpEXT",
+            Self::vkCmdSetPrimitiveRestartEnableEXT => c"vkCmdSetPrimitiveRestartEnableEXT",
+            Self::vkCreateScreenSurfaceQNX => c"vkCreateScreenSurfaceQNX",
+            Self::vkGetPhysicalDeviceScreenPresentationSupportQNX => c"vkGetPhysicalDeviceScreenPresentationSupportQNX",
+            Self::vkCmdSetColorWriteEnableEXT => c"vkCmdSetColorWriteEnableEXT",
+            Self::vkCmdDrawMultiEXT => c"vkCmdDrawMultiEXT",
+            Self::vkCmdDrawMultiIndexedEXT => c"vkCmdDrawMultiIndexedEXT",
+            Self::vkCreateMicromapEXT => c"vkCreateMicromapEXT",
+            Self::vkDestroyMicromapEXT => c"vkDestroyMicromapEXT",
+            Self::vkCmdBuildMicromapsEXT => c"vkCmdBuildMicromapsEXT",
+            Self::vkBuildMicromapsEXT => c"vkBuildMicromapsEXT",
+            Self::vkCopyMicromapEXT => c"vkCopyMicromapEXT",
+            Self::vkCopyMicromapToMemoryEXT => c"vkCopyMicromapToMemoryEXT",
+            Self::vkCopyMemoryToMicromapEXT => c"vkCopyMemoryToMicromapEXT",
+            Self::vkWriteMicromapsPropertiesEXT => c"vkWriteMicromapsPropertiesEXT",
+            Self::vkCmdCopyMicromapEXT => c"vkCmdCopyMicromapEXT",
+            Self::vkCmdCopyMicromapToMemoryEXT => c"vkCmdCopyMicromapToMemoryEXT",
+            Self::vkCmdCopyMemoryToMicromapEXT => c"vkCmdCopyMemoryToMicromapEXT",
+            Self::vkCmdWriteMicromapsPropertiesEXT => c"vkCmdWriteMicromapsPropertiesEXT",
+            Self::vkGetDeviceMicromapCompatibilityEXT => c"vkGetDeviceMicromapCompatibilityEXT",
+            Self::vkGetMicromapBuildSizesEXT => c"vkGetMicromapBuildSizesEXT",
+            Self::vkCmdDrawClusterHUAWEI => c"vkCmdDrawClusterHUAWEI",
+            Self::vkCmdDrawClusterIndirectHUAWEI => c"vkCmdDrawClusterIndirectHUAWEI",
+            Self::vkSetDeviceMemoryPriorityEXT => c"vkSetDeviceMemoryPriorityEXT",
+            Self::vkCmdSetDispatchParametersARM => c"vkCmdSetDispatchParametersARM",
+            Self::vkGetDescriptorSetLayoutHostMappingInfoVALVE => c"vkGetDescriptorSetLayoutHostMappingInfoVALVE",
+            Self::vkGetDescriptorSetHostMappingVALVE => c"vkGetDescriptorSetHostMappingVALVE",
+            Self::vkCmdCopyMemoryIndirectNV => c"vkCmdCopyMemoryIndirectNV",
+            Self::vkCmdCopyMemoryToImageIndirectNV => c"vkCmdCopyMemoryToImageIndirectNV",
+            Self::vkCmdDecompressMemoryNV => c"vkCmdDecompressMemoryNV",
+            Self::vkCmdDecompressMemoryIndirectCountNV => c"vkCmdDecompressMemoryIndirectCountNV",
+            Self::vkGetPipelineIndirectMemoryRequirementsNV => c"vkGetPipelineIndirectMemoryRequirementsNV",
+            Self::vkCmdUpdatePipelineIndirectBufferNV => c"vkCmdUpdatePipelineIndirectBufferNV",
+            Self::vkGetPipelineIndirectDeviceAddressNV => c"vkGetPipelineIndirectDeviceAddressNV",
+            Self::vkGetNativeBufferPropertiesOHOS => c"vkGetNativeBufferPropertiesOHOS",
+            Self::vkGetMemoryNativeBufferOHOS => c"vkGetMemoryNativeBufferOHOS",
+            Self::vkCmdSetDepthClampEnableEXT => c"vkCmdSetDepthClampEnableEXT",
+            Self::vkCmdSetPolygonModeEXT => c"vkCmdSetPolygonModeEXT",
+            Self::vkCmdSetRasterizationSamplesEXT => c"vkCmdSetRasterizationSamplesEXT",
+            Self::vkCmdSetSampleMaskEXT => c"vkCmdSetSampleMaskEXT",
+            Self::vkCmdSetAlphaToCoverageEnableEXT => c"vkCmdSetAlphaToCoverageEnableEXT",
+            Self::vkCmdSetAlphaToOneEnableEXT => c"vkCmdSetAlphaToOneEnableEXT",
+            Self::vkCmdSetLogicOpEnableEXT => c"vkCmdSetLogicOpEnableEXT",
+            Self::vkCmdSetColorBlendEnableEXT => c"vkCmdSetColorBlendEnableEXT",
+            Self::vkCmdSetColorBlendEquationEXT => c"vkCmdSetColorBlendEquationEXT",
+            Self::vkCmdSetColorWriteMaskEXT => c"vkCmdSetColorWriteMaskEXT",
+            Self::vkCmdSetTessellationDomainOriginEXT => c"vkCmdSetTessellationDomainOriginEXT",
+            Self::vkCmdSetRasterizationStreamEXT => c"vkCmdSetRasterizationStreamEXT",
+            Self::vkCmdSetConservativeRasterizationModeEXT => c"vkCmdSetConservativeRasterizationModeEXT",
+            Self::vkCmdSetExtraPrimitiveOverestimationSizeEXT => c"vkCmdSetExtraPrimitiveOverestimationSizeEXT",
+            Self::vkCmdSetDepthClipEnableEXT => c"vkCmdSetDepthClipEnableEXT",
+            Self::vkCmdSetSampleLocationsEnableEXT => c"vkCmdSetSampleLocationsEnableEXT",
+            Self::vkCmdSetColorBlendAdvancedEXT => c"vkCmdSetColorBlendAdvancedEXT",
+            Self::vkCmdSetProvokingVertexModeEXT => c"vkCmdSetProvokingVertexModeEXT",
+            Self::vkCmdSetLineRasterizationModeEXT => c"vkCmdSetLineRasterizationModeEXT",
+            Self::vkCmdSetLineStippleEnableEXT => c"vkCmdSetLineStippleEnableEXT",
+            Self::vkCmdSetDepthClipNegativeOneToOneEXT => c"vkCmdSetDepthClipNegativeOneToOneEXT",
+            Self::vkCmdSetViewportWScalingEnableNV => c"vkCmdSetViewportWScalingEnableNV",
+            Self::vkCmdSetViewportSwizzleNV => c"vkCmdSetViewportSwizzleNV",
+            Self::vkCmdSetCoverageToColorEnableNV => c"vkCmdSetCoverageToColorEnableNV",
+            Self::vkCmdSetCoverageToColorLocationNV => c"vkCmdSetCoverageToColorLocationNV",
+            Self::vkCmdSetCoverageModulationModeNV => c"vkCmdSetCoverageModulationModeNV",
+            Self::vkCmdSetCoverageModulationTableEnableNV => c"vkCmdSetCoverageModulationTableEnableNV",
+            Self::vkCmdSetCoverageModulationTableNV => c"vkCmdSetCoverageModulationTableNV",
+            Self::vkCmdSetShadingRateImageEnableNV => c"vkCmdSetShadingRateImageEnableNV",
+            Self::vkCmdSetRepresentativeFragmentTestEnableNV => c"vkCmdSetRepresentativeFragmentTestEnableNV",
+            Self::vkCmdSetCoverageReductionModeNV => c"vkCmdSetCoverageReductionModeNV",
+            Self::vkCreateTensorARM => c"vkCreateTensorARM",
+            Self::vkDestroyTensorARM => c"vkDestroyTensorARM",
+            Self::vkCreateTensorViewARM => c"vkCreateTensorViewARM",
+            Self::vkDestroyTensorViewARM => c"vkDestroyTensorViewARM",
+            Self::vkGetTensorMemoryRequirementsARM => c"vkGetTensorMemoryRequirementsARM",
+            Self::vkBindTensorMemoryARM => c"vkBindTensorMemoryARM",
+            Self::vkGetDeviceTensorMemoryRequirementsARM => c"vkGetDeviceTensorMemoryRequirementsARM",
+            Self::vkCmdCopyTensorARM => c"vkCmdCopyTensorARM",
+            Self::vkGetPhysicalDeviceExternalTensorPropertiesARM => c"vkGetPhysicalDeviceExternalTensorPropertiesARM",
+            Self::vkGetTensorOpaqueCaptureDescriptorDataARM => c"vkGetTensorOpaqueCaptureDescriptorDataARM",
+            Self::vkGetTensorViewOpaqueCaptureDescriptorDataARM => c"vkGetTensorViewOpaqueCaptureDescriptorDataARM",
+            Self::vkGetShaderModuleIdentifierEXT => c"vkGetShaderModuleIdentifierEXT",
+            Self::vkGetShaderModuleCreateInfoIdentifierEXT => c"vkGetShaderModuleCreateInfoIdentifierEXT",
+            Self::vkGetPhysicalDeviceOpticalFlowImageFormatsNV => c"vkGetPhysicalDeviceOpticalFlowImageFormatsNV",
+            Self::vkCreateOpticalFlowSessionNV => c"vkCreateOpticalFlowSessionNV",
+            Self::vkDestroyOpticalFlowSessionNV => c"vkDestroyOpticalFlowSessionNV",
+            Self::vkBindOpticalFlowSessionImageNV => c"vkBindOpticalFlowSessionImageNV",
+            Self::vkCmdOpticalFlowExecuteNV => c"vkCmdOpticalFlowExecuteNV",
+            Self::vkAntiLagUpdateAMD => c"vkAntiLagUpdateAMD",
+            Self::vkCreateShadersEXT => c"vkCreateShadersEXT",
+            Self::vkDestroyShaderEXT => c"vkDestroyShaderEXT",
+            Self::vkGetShaderBinaryDataEXT => c"vkGetShaderBinaryDataEXT",
+            Self::vkCmdBindShadersEXT => c"vkCmdBindShadersEXT",
+            Self::vkCmdSetDepthClampRangeEXT => c"vkCmdSetDepthClampRangeEXT",
+            Self::vkGetFramebufferTilePropertiesQCOM => c"vkGetFramebufferTilePropertiesQCOM",
+            Self::vkGetDynamicRenderingTilePropertiesQCOM => c"vkGetDynamicRenderingTilePropertiesQCOM",
+            Self::vkGetPhysicalDeviceCooperativeVectorPropertiesNV => c"vkGetPhysicalDeviceCooperativeVectorPropertiesNV",
+            Self::vkConvertCooperativeVectorMatrixNV => c"vkConvertCooperativeVectorMatrixNV",
+            Self::vkCmdConvertCooperativeVectorMatrixNV => c"vkCmdConvertCooperativeVectorMatrixNV",
+            Self::vkSetLatencySleepModeNV => c"vkSetLatencySleepModeNV",
+            Self::vkLatencySleepNV => c"vkLatencySleepNV",
+            Self::vkSetLatencyMarkerNV => c"vkSetLatencyMarkerNV",
+            Self::vkGetLatencyTimingsNV => c"vkGetLatencyTimingsNV",
+            Self::vkQueueNotifyOutOfBandNV => c"vkQueueNotifyOutOfBandNV",
+            Self::vkCreateDataGraphPipelinesARM => c"vkCreateDataGraphPipelinesARM",
+            Self::vkCreateDataGraphPipelineSessionARM => c"vkCreateDataGraphPipelineSessionARM",
+            Self::vkGetDataGraphPipelineSessionBindPointRequirementsARM => c"vkGetDataGraphPipelineSessionBindPointRequirementsARM",
+            Self::vkGetDataGraphPipelineSessionMemoryRequirementsARM => c"vkGetDataGraphPipelineSessionMemoryRequirementsARM",
+            Self::vkBindDataGraphPipelineSessionMemoryARM => c"vkBindDataGraphPipelineSessionMemoryARM",
+            Self::vkDestroyDataGraphPipelineSessionARM => c"vkDestroyDataGraphPipelineSessionARM",
+            Self::vkCmdDispatchDataGraphARM => c"vkCmdDispatchDataGraphARM",
+            Self::vkGetDataGraphPipelineAvailablePropertiesARM => c"vkGetDataGraphPipelineAvailablePropertiesARM",
+            Self::vkGetDataGraphPipelinePropertiesARM => c"vkGetDataGraphPipelinePropertiesARM",
+            Self::vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM => c"vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM",
+            Self::vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM => c"vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM",
+            Self::vkGetPhysicalDeviceQueueFamilyDataGraphEngineOperationPropertiesARM => c"vkGetPhysicalDeviceQueueFamilyDataGraphEngineOperationPropertiesARM",
+            Self::vkCmdSetAttachmentFeedbackLoopEnableEXT => c"vkCmdSetAttachmentFeedbackLoopEnableEXT",
+            Self::vkGetScreenBufferPropertiesQNX => c"vkGetScreenBufferPropertiesQNX",
+            Self::vkCmdBindTileMemoryQCOM => c"vkCmdBindTileMemoryQCOM",
+            Self::vkCmdDecompressMemoryEXT => c"vkCmdDecompressMemoryEXT",
+            Self::vkCmdDecompressMemoryIndirectCountEXT => c"vkCmdDecompressMemoryIndirectCountEXT",
+            Self::vkCreateExternalComputeQueueNV => c"vkCreateExternalComputeQueueNV",
+            Self::vkDestroyExternalComputeQueueNV => c"vkDestroyExternalComputeQueueNV",
+            Self::vkGetClusterAccelerationStructureBuildSizesNV => c"vkGetClusterAccelerationStructureBuildSizesNV",
+            Self::vkCmdBuildClusterAccelerationStructureIndirectNV => c"vkCmdBuildClusterAccelerationStructureIndirectNV",
+            Self::vkGetPartitionedAccelerationStructuresBuildSizesNV => c"vkGetPartitionedAccelerationStructuresBuildSizesNV",
+            Self::vkCmdBuildPartitionedAccelerationStructuresNV => c"vkCmdBuildPartitionedAccelerationStructuresNV",
+            Self::vkGetGeneratedCommandsMemoryRequirementsEXT => c"vkGetGeneratedCommandsMemoryRequirementsEXT",
+            Self::vkCmdPreprocessGeneratedCommandsEXT => c"vkCmdPreprocessGeneratedCommandsEXT",
+            Self::vkCmdExecuteGeneratedCommandsEXT => c"vkCmdExecuteGeneratedCommandsEXT",
+            Self::vkCreateIndirectCommandsLayoutEXT => c"vkCreateIndirectCommandsLayoutEXT",
+            Self::vkDestroyIndirectCommandsLayoutEXT => c"vkDestroyIndirectCommandsLayoutEXT",
+            Self::vkCreateIndirectExecutionSetEXT => c"vkCreateIndirectExecutionSetEXT",
+            Self::vkDestroyIndirectExecutionSetEXT => c"vkDestroyIndirectExecutionSetEXT",
+            Self::vkUpdateIndirectExecutionSetPipelineEXT => c"vkUpdateIndirectExecutionSetPipelineEXT",
+            Self::vkUpdateIndirectExecutionSetShaderEXT => c"vkUpdateIndirectExecutionSetShaderEXT",
+            Self::vkCreateSurfaceOHOS => c"vkCreateSurfaceOHOS",
+            Self::vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV => c"vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV",
+            Self::vkGetMemoryMetalHandleEXT => c"vkGetMemoryMetalHandleEXT",
+            Self::vkGetMemoryMetalHandlePropertiesEXT => c"vkGetMemoryMetalHandlePropertiesEXT",
+            Self::vkEnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM => c"vkEnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM",
+            Self::vkEnumeratePhysicalDeviceShaderInstrumentationMetricsARM => c"vkEnumeratePhysicalDeviceShaderInstrumentationMetricsARM",
+            Self::vkCreateShaderInstrumentationARM => c"vkCreateShaderInstrumentationARM",
+            Self::vkDestroyShaderInstrumentationARM => c"vkDestroyShaderInstrumentationARM",
+            Self::vkCmdBeginShaderInstrumentationARM => c"vkCmdBeginShaderInstrumentationARM",
+            Self::vkCmdEndShaderInstrumentationARM => c"vkCmdEndShaderInstrumentationARM",
+            Self::vkGetShaderInstrumentationValuesARM => c"vkGetShaderInstrumentationValuesARM",
+            Self::vkClearShaderInstrumentationMetricsARM => c"vkClearShaderInstrumentationMetricsARM",
+            Self::vkCmdEndRendering2EXT => c"vkCmdEndRendering2EXT",
+            Self::vkCmdBeginCustomResolveEXT => c"vkCmdBeginCustomResolveEXT",
+            Self::vkGetPhysicalDeviceQueueFamilyDataGraphOpticalFlowImageFormatsARM => c"vkGetPhysicalDeviceQueueFamilyDataGraphOpticalFlowImageFormatsARM",
+            Self::vkCmdSetComputeOccupancyPriorityNV => c"vkCmdSetComputeOccupancyPriorityNV",
+            Self::vkGetPhysicalDeviceCooperativeMatrixProperties2EXT => c"vkGetPhysicalDeviceCooperativeMatrixProperties2EXT",
+            Self::vkCreateUbmSurfaceSEC => c"vkCreateUbmSurfaceSEC",
+            Self::vkGetPhysicalDeviceUbmPresentationSupportSEC => c"vkGetPhysicalDeviceUbmPresentationSupportSEC",
+            Self::vkCmdSetPrimitiveRestartIndexEXT => c"vkCmdSetPrimitiveRestartIndexEXT",
+            Self::vkCreateAccelerationStructureKHR => c"vkCreateAccelerationStructureKHR",
+            Self::vkDestroyAccelerationStructureKHR => c"vkDestroyAccelerationStructureKHR",
+            Self::vkCmdBuildAccelerationStructuresKHR => c"vkCmdBuildAccelerationStructuresKHR",
+            Self::vkCmdBuildAccelerationStructuresIndirectKHR => c"vkCmdBuildAccelerationStructuresIndirectKHR",
+            Self::vkBuildAccelerationStructuresKHR => c"vkBuildAccelerationStructuresKHR",
+            Self::vkCopyAccelerationStructureKHR => c"vkCopyAccelerationStructureKHR",
+            Self::vkCopyAccelerationStructureToMemoryKHR => c"vkCopyAccelerationStructureToMemoryKHR",
+            Self::vkCopyMemoryToAccelerationStructureKHR => c"vkCopyMemoryToAccelerationStructureKHR",
+            Self::vkWriteAccelerationStructuresPropertiesKHR => c"vkWriteAccelerationStructuresPropertiesKHR",
+            Self::vkCmdCopyAccelerationStructureKHR => c"vkCmdCopyAccelerationStructureKHR",
+            Self::vkCmdCopyAccelerationStructureToMemoryKHR => c"vkCmdCopyAccelerationStructureToMemoryKHR",
+            Self::vkCmdCopyMemoryToAccelerationStructureKHR => c"vkCmdCopyMemoryToAccelerationStructureKHR",
+            Self::vkGetAccelerationStructureDeviceAddressKHR => c"vkGetAccelerationStructureDeviceAddressKHR",
+            Self::vkCmdWriteAccelerationStructuresPropertiesKHR => c"vkCmdWriteAccelerationStructuresPropertiesKHR",
+            Self::vkGetDeviceAccelerationStructureCompatibilityKHR => c"vkGetDeviceAccelerationStructureCompatibilityKHR",
+            Self::vkGetAccelerationStructureBuildSizesKHR => c"vkGetAccelerationStructureBuildSizesKHR",
+            Self::vkCmdTraceRaysKHR => c"vkCmdTraceRaysKHR",
+            Self::vkCreateRayTracingPipelinesKHR => c"vkCreateRayTracingPipelinesKHR",
+            Self::vkGetRayTracingCaptureReplayShaderGroupHandlesKHR => c"vkGetRayTracingCaptureReplayShaderGroupHandlesKHR",
+            Self::vkCmdTraceRaysIndirectKHR => c"vkCmdTraceRaysIndirectKHR",
+            Self::vkGetRayTracingShaderGroupStackSizeKHR => c"vkGetRayTracingShaderGroupStackSizeKHR",
+            Self::vkCmdSetRayTracingPipelineStackSizeKHR => c"vkCmdSetRayTracingPipelineStackSizeKHR",
+            Self::vkCmdDrawMeshTasksEXT => c"vkCmdDrawMeshTasksEXT",
+            Self::vkCmdDrawMeshTasksIndirectEXT => c"vkCmdDrawMeshTasksIndirectEXT",
+            Self::vkCmdDrawMeshTasksIndirectCountEXT => c"vkCmdDrawMeshTasksIndirectCountEXT",
+        }
+    }
+}
+
+/// [`VkResult`](https://docs.vulkan.org/refpages/latest/refpages/source/VkResult.html)
+///
+#[doc(alias = "VkResult")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum ResultCode {
+    #[default]
+    #[doc(alias = "VK_SUCCESS")]
+    SUCCESS = 0,
+    #[doc(alias = "VK_NOT_READY")]
+    NOT_READY = 1,
+    #[doc(alias = "VK_TIMEOUT")]
+    TIMEOUT = 2,
+    #[doc(alias = "VK_EVENT_SET")]
+    EVENT_SET = 3,
+    #[doc(alias = "VK_EVENT_RESET")]
+    EVENT_RESET = 4,
+    #[doc(alias = "VK_INCOMPLETE")]
+    INCOMPLETE = 5,
+    #[doc(alias = "VK_ERROR_OUT_OF_HOST_MEMORY")]
+    ERROR_OUT_OF_HOST_MEMORY = -1,
+    #[doc(alias = "VK_ERROR_OUT_OF_DEVICE_MEMORY")]
+    ERROR_OUT_OF_DEVICE_MEMORY = -2,
+    #[doc(alias = "VK_ERROR_INITIALIZATION_FAILED")]
+    ERROR_INITIALIZATION_FAILED = -3,
+    #[doc(alias = "VK_ERROR_DEVICE_LOST")]
+    ERROR_DEVICE_LOST = -4,
+    #[doc(alias = "VK_ERROR_MEMORY_MAP_FAILED")]
+    ERROR_MEMORY_MAP_FAILED = -5,
+    #[doc(alias = "VK_ERROR_LAYER_NOT_PRESENT")]
+    ERROR_LAYER_NOT_PRESENT = -6,
+    #[doc(alias = "VK_ERROR_EXTENSION_NOT_PRESENT")]
+    ERROR_EXTENSION_NOT_PRESENT = -7,
+    #[doc(alias = "VK_ERROR_FEATURE_NOT_PRESENT")]
+    ERROR_FEATURE_NOT_PRESENT = -8,
+    #[doc(alias = "VK_ERROR_INCOMPATIBLE_DRIVER")]
+    ERROR_INCOMPATIBLE_DRIVER = -9,
+    #[doc(alias = "VK_ERROR_TOO_MANY_OBJECTS")]
+    ERROR_TOO_MANY_OBJECTS = -10,
+    #[doc(alias = "VK_ERROR_FORMAT_NOT_SUPPORTED")]
+    ERROR_FORMAT_NOT_SUPPORTED = -11,
+    #[doc(alias = "VK_ERROR_FRAGMENTED_POOL")]
+    ERROR_FRAGMENTED_POOL = -12,
+    #[doc(alias = "VK_ERROR_UNKNOWN")]
+    ERROR_UNKNOWN = -13,
+    #[doc(alias = "VK_ERROR_VALIDATION_FAILED")]
+    ERROR_VALIDATION_FAILED = -1000011001,
+    #[doc(alias = "VK_ERROR_OUT_OF_POOL_MEMORY")]
+    ERROR_OUT_OF_POOL_MEMORY = -1000069000,
+    #[doc(alias = "VK_ERROR_INVALID_EXTERNAL_HANDLE")]
+    ERROR_INVALID_EXTERNAL_HANDLE = -1000072003,
+    #[doc(alias = "VK_ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS")]
+    ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS = -1000257000,
+    #[doc(alias = "VK_ERROR_FRAGMENTATION")]
+    ERROR_FRAGMENTATION = -1000161000,
+    #[doc(alias = "VK_PIPELINE_COMPILE_REQUIRED")]
+    PIPELINE_COMPILE_REQUIRED = 1000297000,
+    #[doc(alias = "VK_ERROR_NOT_PERMITTED")]
+    ERROR_NOT_PERMITTED = -1000174001,
+    #[doc(alias = "VK_ERROR_SURFACE_LOST_KHR")]
+    ERROR_SURFACE_LOST_KHR = -1000000000,
+    #[doc(alias = "VK_ERROR_NATIVE_WINDOW_IN_USE_KHR")]
+    ERROR_NATIVE_WINDOW_IN_USE_KHR = -1000000001,
+    #[doc(alias = "VK_SUBOPTIMAL_KHR")]
+    SUBOPTIMAL_KHR = 1000001003,
+    #[doc(alias = "VK_ERROR_OUT_OF_DATE_KHR")]
+    ERROR_OUT_OF_DATE_KHR = -1000001004,
+    #[doc(alias = "VK_ERROR_INCOMPATIBLE_DISPLAY_KHR")]
+    ERROR_INCOMPATIBLE_DISPLAY_KHR = -1000003001,
+    #[doc(alias = "VK_ERROR_INVALID_SHADER_NV")]
+    ERROR_INVALID_SHADER_NV = -1000012000,
+    #[doc(alias = "VK_ERROR_IMAGE_USAGE_NOT_SUPPORTED_KHR")]
+    ERROR_IMAGE_USAGE_NOT_SUPPORTED_KHR = -1000023000,
+    #[doc(alias = "VK_ERROR_VIDEO_PICTURE_LAYOUT_NOT_SUPPORTED_KHR")]
+    ERROR_VIDEO_PICTURE_LAYOUT_NOT_SUPPORTED_KHR = -1000023001,
+    #[doc(alias = "VK_ERROR_VIDEO_PROFILE_OPERATION_NOT_SUPPORTED_KHR")]
+    ERROR_VIDEO_PROFILE_OPERATION_NOT_SUPPORTED_KHR = -1000023002,
+    #[doc(alias = "VK_ERROR_VIDEO_PROFILE_FORMAT_NOT_SUPPORTED_KHR")]
+    ERROR_VIDEO_PROFILE_FORMAT_NOT_SUPPORTED_KHR = -1000023003,
+    #[doc(alias = "VK_ERROR_VIDEO_PROFILE_CODEC_NOT_SUPPORTED_KHR")]
+    ERROR_VIDEO_PROFILE_CODEC_NOT_SUPPORTED_KHR = -1000023004,
+    #[doc(alias = "VK_ERROR_VIDEO_STD_VERSION_NOT_SUPPORTED_KHR")]
+    ERROR_VIDEO_STD_VERSION_NOT_SUPPORTED_KHR = -1000023005,
+    #[doc(alias = "VK_ERROR_INVALID_DRM_FORMAT_MODIFIER_PLANE_LAYOUT_EXT")]
+    ERROR_INVALID_DRM_FORMAT_MODIFIER_PLANE_LAYOUT_EXT = -1000158000,
+    #[doc(alias = "VK_ERROR_PRESENT_TIMING_QUEUE_FULL_EXT")]
+    ERROR_PRESENT_TIMING_QUEUE_FULL_EXT = -1000208000,
+    #[doc(alias = "VK_ERROR_FULL_SCREEN_EXCLUSIVE_MODE_LOST_EXT")]
+    ERROR_FULL_SCREEN_EXCLUSIVE_MODE_LOST_EXT = -1000255000,
+    #[doc(alias = "VK_THREAD_IDLE_KHR")]
+    THREAD_IDLE_KHR = 1000268000,
+    #[doc(alias = "VK_THREAD_DONE_KHR")]
+    THREAD_DONE_KHR = 1000268001,
+    #[doc(alias = "VK_OPERATION_DEFERRED_KHR")]
+    OPERATION_DEFERRED_KHR = 1000268002,
+    #[doc(alias = "VK_OPERATION_NOT_DEFERRED_KHR")]
+    OPERATION_NOT_DEFERRED_KHR = 1000268003,
+    #[doc(alias = "VK_ERROR_INVALID_VIDEO_STD_PARAMETERS_KHR")]
+    ERROR_INVALID_VIDEO_STD_PARAMETERS_KHR = -1000299000,
+    #[doc(alias = "VK_ERROR_COMPRESSION_EXHAUSTED_EXT")]
+    ERROR_COMPRESSION_EXHAUSTED_EXT = -1000338000,
+    #[doc(alias = "VK_INCOMPATIBLE_SHADER_BINARY_EXT")]
+    INCOMPATIBLE_SHADER_BINARY_EXT = 1000482000,
+    #[doc(alias = "VK_PIPELINE_BINARY_MISSING_KHR")]
+    PIPELINE_BINARY_MISSING_KHR = 1000483000,
+    #[doc(alias = "VK_ERROR_NOT_ENOUGH_SPACE_KHR")]
+    ERROR_NOT_ENOUGH_SPACE_KHR = -1000483000,
+}
+impl ResultCode {
+    #[doc(alias = "VK_ERROR_VALIDATION_FAILED_EXT")]
+    pub const ERROR_VALIDATION_FAILED_EXT: Self = Self::ERROR_VALIDATION_FAILED;
+    #[doc(alias = "VK_ERROR_OUT_OF_POOL_MEMORY_KHR")]
+    pub const ERROR_OUT_OF_POOL_MEMORY_KHR: Self = Self::ERROR_OUT_OF_POOL_MEMORY;
+    #[doc(alias = "VK_ERROR_INVALID_EXTERNAL_HANDLE_KHR")]
+    pub const ERROR_INVALID_EXTERNAL_HANDLE_KHR: Self = Self::ERROR_INVALID_EXTERNAL_HANDLE;
+    #[doc(alias = "VK_ERROR_INVALID_DEVICE_ADDRESS_EXT")]
+    pub const ERROR_INVALID_DEVICE_ADDRESS_EXT: Self = Self::ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS;
+    #[doc(alias = "VK_ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS_KHR")]
+    pub const ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS_KHR: Self = Self::ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS;
+    #[doc(alias = "VK_ERROR_FRAGMENTATION_EXT")]
+    pub const ERROR_FRAGMENTATION_EXT: Self = Self::ERROR_FRAGMENTATION;
+    #[doc(alias = "VK_PIPELINE_COMPILE_REQUIRED_EXT")]
+    pub const PIPELINE_COMPILE_REQUIRED_EXT: Self = Self::PIPELINE_COMPILE_REQUIRED;
+    #[doc(alias = "VK_ERROR_PIPELINE_COMPILE_REQUIRED_EXT")]
+    pub const ERROR_PIPELINE_COMPILE_REQUIRED_EXT: Self = Self::PIPELINE_COMPILE_REQUIRED;
+    #[doc(alias = "VK_ERROR_NOT_PERMITTED_EXT")]
+    pub const ERROR_NOT_PERMITTED_EXT: Self = Self::ERROR_NOT_PERMITTED;
+    #[doc(alias = "VK_ERROR_NOT_PERMITTED_KHR")]
+    pub const ERROR_NOT_PERMITTED_KHR: Self = Self::ERROR_NOT_PERMITTED;
+    #[doc(alias = "VK_ERROR_INCOMPATIBLE_SHADER_BINARY_EXT")]
+    pub const ERROR_INCOMPATIBLE_SHADER_BINARY_EXT: Self = Self::INCOMPATIBLE_SHADER_BINARY_EXT;
+}
+
+/// [`VkStructureType`](https://docs.vulkan.org/refpages/latest/refpages/source/VkStructureType.html)
+///
+#[doc(alias = "VkStructureType")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum StructureType {
+    #[default]
+    #[doc(alias = "VK_STRUCTURE_TYPE_APPLICATION_INFO")]
+    APPLICATION_INFO = 0,
+    #[doc(alias = "VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO")]
+    INSTANCE_CREATE_INFO = 1,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_QUEUE_CREATE_INFO")]
+    DEVICE_QUEUE_CREATE_INFO = 2,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO")]
+    DEVICE_CREATE_INFO = 3,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SUBMIT_INFO")]
+    SUBMIT_INFO = 4,
+    #[doc(alias = "VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO")]
+    MEMORY_ALLOCATE_INFO = 5,
+    #[doc(alias = "VK_STRUCTURE_TYPE_MAPPED_MEMORY_RANGE")]
+    MAPPED_MEMORY_RANGE = 6,
+    #[doc(alias = "VK_STRUCTURE_TYPE_BIND_SPARSE_INFO")]
+    BIND_SPARSE_INFO = 7,
+    #[doc(alias = "VK_STRUCTURE_TYPE_FENCE_CREATE_INFO")]
+    FENCE_CREATE_INFO = 8,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SEMAPHORE_CREATE_INFO")]
+    SEMAPHORE_CREATE_INFO = 9,
+    #[doc(alias = "VK_STRUCTURE_TYPE_EVENT_CREATE_INFO")]
+    EVENT_CREATE_INFO = 10,
+    #[doc(alias = "VK_STRUCTURE_TYPE_QUERY_POOL_CREATE_INFO")]
+    QUERY_POOL_CREATE_INFO = 11,
+    #[doc(alias = "VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO")]
+    BUFFER_CREATE_INFO = 12,
+    #[doc(alias = "VK_STRUCTURE_TYPE_BUFFER_VIEW_CREATE_INFO")]
+    BUFFER_VIEW_CREATE_INFO = 13,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO")]
+    IMAGE_CREATE_INFO = 14,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_VIEW_CREATE_INFO")]
+    IMAGE_VIEW_CREATE_INFO = 15,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO")]
+    SHADER_MODULE_CREATE_INFO = 16,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_CACHE_CREATE_INFO")]
+    PIPELINE_CACHE_CREATE_INFO = 17,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO")]
+    PIPELINE_SHADER_STAGE_CREATE_INFO = 18,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_STATE_CREATE_INFO")]
+    PIPELINE_VERTEX_INPUT_STATE_CREATE_INFO = 19,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_INPUT_ASSEMBLY_STATE_CREATE_INFO")]
+    PIPELINE_INPUT_ASSEMBLY_STATE_CREATE_INFO = 20,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_TESSELLATION_STATE_CREATE_INFO")]
+    PIPELINE_TESSELLATION_STATE_CREATE_INFO = 21,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_STATE_CREATE_INFO")]
+    PIPELINE_VIEWPORT_STATE_CREATE_INFO = 22,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_CREATE_INFO")]
+    PIPELINE_RASTERIZATION_STATE_CREATE_INFO = 23,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_MULTISAMPLE_STATE_CREATE_INFO")]
+    PIPELINE_MULTISAMPLE_STATE_CREATE_INFO = 24,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_DEPTH_STENCIL_STATE_CREATE_INFO")]
+    PIPELINE_DEPTH_STENCIL_STATE_CREATE_INFO = 25,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_STATE_CREATE_INFO")]
+    PIPELINE_COLOR_BLEND_STATE_CREATE_INFO = 26,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_DYNAMIC_STATE_CREATE_INFO")]
+    PIPELINE_DYNAMIC_STATE_CREATE_INFO = 27,
+    #[doc(alias = "VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO")]
+    GRAPHICS_PIPELINE_CREATE_INFO = 28,
+    #[doc(alias = "VK_STRUCTURE_TYPE_COMPUTE_PIPELINE_CREATE_INFO")]
+    COMPUTE_PIPELINE_CREATE_INFO = 29,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO")]
+    PIPELINE_LAYOUT_CREATE_INFO = 30,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SAMPLER_CREATE_INFO")]
+    SAMPLER_CREATE_INFO = 31,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO")]
+    DESCRIPTOR_SET_LAYOUT_CREATE_INFO = 32,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_CREATE_INFO")]
+    DESCRIPTOR_POOL_CREATE_INFO = 33,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO")]
+    DESCRIPTOR_SET_ALLOCATE_INFO = 34,
+    #[doc(alias = "VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET")]
+    WRITE_DESCRIPTOR_SET = 35,
+    #[doc(alias = "VK_STRUCTURE_TYPE_COPY_DESCRIPTOR_SET")]
+    COPY_DESCRIPTOR_SET = 36,
+    #[doc(alias = "VK_STRUCTURE_TYPE_FRAMEBUFFER_CREATE_INFO")]
+    FRAMEBUFFER_CREATE_INFO = 37,
+    #[doc(alias = "VK_STRUCTURE_TYPE_RENDER_PASS_CREATE_INFO")]
+    RENDER_PASS_CREATE_INFO = 38,
+    #[doc(alias = "VK_STRUCTURE_TYPE_COMMAND_POOL_CREATE_INFO")]
+    COMMAND_POOL_CREATE_INFO = 39,
+    #[doc(alias = "VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO")]
+    COMMAND_BUFFER_ALLOCATE_INFO = 40,
+    #[doc(alias = "VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_INFO")]
+    COMMAND_BUFFER_INHERITANCE_INFO = 41,
+    #[doc(alias = "VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO")]
+    COMMAND_BUFFER_BEGIN_INFO = 42,
+    #[doc(alias = "VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO")]
+    RENDER_PASS_BEGIN_INFO = 43,
+    #[doc(alias = "VK_STRUCTURE_TYPE_BUFFER_MEMORY_BARRIER")]
+    BUFFER_MEMORY_BARRIER = 44,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER")]
+    IMAGE_MEMORY_BARRIER = 45,
+    #[doc(alias = "VK_STRUCTURE_TYPE_MEMORY_BARRIER")]
+    MEMORY_BARRIER = 46,
+    #[doc(alias = "VK_STRUCTURE_TYPE_LOADER_INSTANCE_CREATE_INFO")]
+    LOADER_INSTANCE_CREATE_INFO = 47,
+    #[doc(alias = "VK_STRUCTURE_TYPE_LOADER_DEVICE_CREATE_INFO")]
+    LOADER_DEVICE_CREATE_INFO = 48,
+    #[doc(alias = "VK_STRUCTURE_TYPE_BIND_BUFFER_MEMORY_INFO")]
+    BIND_BUFFER_MEMORY_INFO = 1000157000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_BIND_IMAGE_MEMORY_INFO")]
+    BIND_IMAGE_MEMORY_INFO = 1000157001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_MEMORY_DEDICATED_REQUIREMENTS")]
+    MEMORY_DEDICATED_REQUIREMENTS = 1000127000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_MEMORY_DEDICATED_ALLOCATE_INFO")]
+    MEMORY_DEDICATED_ALLOCATE_INFO = 1000127001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_FLAGS_INFO")]
+    MEMORY_ALLOCATE_FLAGS_INFO = 1000060000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_GROUP_COMMAND_BUFFER_BEGIN_INFO")]
+    DEVICE_GROUP_COMMAND_BUFFER_BEGIN_INFO = 1000060004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_GROUP_SUBMIT_INFO")]
+    DEVICE_GROUP_SUBMIT_INFO = 1000060005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_GROUP_BIND_SPARSE_INFO")]
+    DEVICE_GROUP_BIND_SPARSE_INFO = 1000060006,
+    #[doc(alias = "VK_STRUCTURE_TYPE_BIND_BUFFER_MEMORY_DEVICE_GROUP_INFO")]
+    BIND_BUFFER_MEMORY_DEVICE_GROUP_INFO = 1000060013,
+    #[doc(alias = "VK_STRUCTURE_TYPE_BIND_IMAGE_MEMORY_DEVICE_GROUP_INFO")]
+    BIND_IMAGE_MEMORY_DEVICE_GROUP_INFO = 1000060014,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_GROUP_PROPERTIES")]
+    PHYSICAL_DEVICE_GROUP_PROPERTIES = 1000070000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_GROUP_DEVICE_CREATE_INFO")]
+    DEVICE_GROUP_DEVICE_CREATE_INFO = 1000070001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_BUFFER_MEMORY_REQUIREMENTS_INFO_2")]
+    BUFFER_MEMORY_REQUIREMENTS_INFO_2 = 1000146000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_MEMORY_REQUIREMENTS_INFO_2")]
+    IMAGE_MEMORY_REQUIREMENTS_INFO_2 = 1000146001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_SPARSE_MEMORY_REQUIREMENTS_INFO_2")]
+    IMAGE_SPARSE_MEMORY_REQUIREMENTS_INFO_2 = 1000146002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_MEMORY_REQUIREMENTS_2")]
+    MEMORY_REQUIREMENTS_2 = 1000146003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SPARSE_IMAGE_MEMORY_REQUIREMENTS_2")]
+    SPARSE_IMAGE_MEMORY_REQUIREMENTS_2 = 1000146004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FEATURES_2")]
+    PHYSICAL_DEVICE_FEATURES_2 = 1000059000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PROPERTIES_2")]
+    PHYSICAL_DEVICE_PROPERTIES_2 = 1000059001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_FORMAT_PROPERTIES_2")]
+    FORMAT_PROPERTIES_2 = 1000059002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_FORMAT_PROPERTIES_2")]
+    IMAGE_FORMAT_PROPERTIES_2 = 1000059003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_FORMAT_INFO_2")]
+    PHYSICAL_DEVICE_IMAGE_FORMAT_INFO_2 = 1000059004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_QUEUE_FAMILY_PROPERTIES_2")]
+    QUEUE_FAMILY_PROPERTIES_2 = 1000059005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_PROPERTIES_2")]
+    PHYSICAL_DEVICE_MEMORY_PROPERTIES_2 = 1000059006,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SPARSE_IMAGE_FORMAT_PROPERTIES_2")]
+    SPARSE_IMAGE_FORMAT_PROPERTIES_2 = 1000059007,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SPARSE_IMAGE_FORMAT_INFO_2")]
+    PHYSICAL_DEVICE_SPARSE_IMAGE_FORMAT_INFO_2 = 1000059008,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_VIEW_USAGE_CREATE_INFO")]
+    IMAGE_VIEW_USAGE_CREATE_INFO = 1000117002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PROTECTED_SUBMIT_INFO")]
+    PROTECTED_SUBMIT_INFO = 1000145000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PROTECTED_MEMORY_FEATURES")]
+    PHYSICAL_DEVICE_PROTECTED_MEMORY_FEATURES = 1000145001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PROTECTED_MEMORY_PROPERTIES")]
+    PHYSICAL_DEVICE_PROTECTED_MEMORY_PROPERTIES = 1000145002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_QUEUE_INFO_2")]
+    DEVICE_QUEUE_INFO_2 = 1000145003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_IMAGE_FORMAT_INFO")]
+    PHYSICAL_DEVICE_EXTERNAL_IMAGE_FORMAT_INFO = 1000071000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_EXTERNAL_IMAGE_FORMAT_PROPERTIES")]
+    EXTERNAL_IMAGE_FORMAT_PROPERTIES = 1000071001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_BUFFER_INFO")]
+    PHYSICAL_DEVICE_EXTERNAL_BUFFER_INFO = 1000071002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_EXTERNAL_BUFFER_PROPERTIES")]
+    EXTERNAL_BUFFER_PROPERTIES = 1000071003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ID_PROPERTIES")]
+    PHYSICAL_DEVICE_ID_PROPERTIES = 1000071004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_BUFFER_CREATE_INFO")]
+    EXTERNAL_MEMORY_BUFFER_CREATE_INFO = 1000072000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_IMAGE_CREATE_INFO")]
+    EXTERNAL_MEMORY_IMAGE_CREATE_INFO = 1000072001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_EXPORT_MEMORY_ALLOCATE_INFO")]
+    EXPORT_MEMORY_ALLOCATE_INFO = 1000072002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_FENCE_INFO")]
+    PHYSICAL_DEVICE_EXTERNAL_FENCE_INFO = 1000112000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_EXTERNAL_FENCE_PROPERTIES")]
+    EXTERNAL_FENCE_PROPERTIES = 1000112001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_EXPORT_FENCE_CREATE_INFO")]
+    EXPORT_FENCE_CREATE_INFO = 1000113000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_EXPORT_SEMAPHORE_CREATE_INFO")]
+    EXPORT_SEMAPHORE_CREATE_INFO = 1000077000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_SEMAPHORE_INFO")]
+    PHYSICAL_DEVICE_EXTERNAL_SEMAPHORE_INFO = 1000076000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_EXTERNAL_SEMAPHORE_PROPERTIES")]
+    EXTERNAL_SEMAPHORE_PROPERTIES = 1000076001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBGROUP_PROPERTIES")]
+    PHYSICAL_DEVICE_SUBGROUP_PROPERTIES = 1000094000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_16BIT_STORAGE_FEATURES")]
+    PHYSICAL_DEVICE_16BIT_STORAGE_FEATURES = 1000083000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VARIABLE_POINTERS_FEATURES")]
+    PHYSICAL_DEVICE_VARIABLE_POINTERS_FEATURES = 1000120000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_CREATE_INFO")]
+    DESCRIPTOR_UPDATE_TEMPLATE_CREATE_INFO = 1000085000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_3_PROPERTIES")]
+    PHYSICAL_DEVICE_MAINTENANCE_3_PROPERTIES = 1000168000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_SUPPORT")]
+    DESCRIPTOR_SET_LAYOUT_SUPPORT = 1000168001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SAMPLER_YCBCR_CONVERSION_CREATE_INFO")]
+    SAMPLER_YCBCR_CONVERSION_CREATE_INFO = 1000156000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SAMPLER_YCBCR_CONVERSION_INFO")]
+    SAMPLER_YCBCR_CONVERSION_INFO = 1000156001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_BIND_IMAGE_PLANE_MEMORY_INFO")]
+    BIND_IMAGE_PLANE_MEMORY_INFO = 1000156002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_PLANE_MEMORY_REQUIREMENTS_INFO")]
+    IMAGE_PLANE_MEMORY_REQUIREMENTS_INFO = 1000156003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SAMPLER_YCBCR_CONVERSION_FEATURES")]
+    PHYSICAL_DEVICE_SAMPLER_YCBCR_CONVERSION_FEATURES = 1000156004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SAMPLER_YCBCR_CONVERSION_IMAGE_FORMAT_PROPERTIES")]
+    SAMPLER_YCBCR_CONVERSION_IMAGE_FORMAT_PROPERTIES = 1000156005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_GROUP_RENDER_PASS_BEGIN_INFO")]
+    DEVICE_GROUP_RENDER_PASS_BEGIN_INFO = 1000060003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_POINT_CLIPPING_PROPERTIES")]
+    PHYSICAL_DEVICE_POINT_CLIPPING_PROPERTIES = 1000117000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_RENDER_PASS_INPUT_ATTACHMENT_ASPECT_CREATE_INFO")]
+    RENDER_PASS_INPUT_ATTACHMENT_ASPECT_CREATE_INFO = 1000117001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_TESSELLATION_DOMAIN_ORIGIN_STATE_CREATE_INFO")]
+    PIPELINE_TESSELLATION_DOMAIN_ORIGIN_STATE_CREATE_INFO = 1000117003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_RENDER_PASS_MULTIVIEW_CREATE_INFO")]
+    RENDER_PASS_MULTIVIEW_CREATE_INFO = 1000053000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_FEATURES")]
+    PHYSICAL_DEVICE_MULTIVIEW_FEATURES = 1000053001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PROPERTIES")]
+    PHYSICAL_DEVICE_MULTIVIEW_PROPERTIES = 1000053002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_DRAW_PARAMETERS_FEATURES")]
+    PHYSICAL_DEVICE_SHADER_DRAW_PARAMETERS_FEATURES = 1000063000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DRIVER_PROPERTIES")]
+    PHYSICAL_DEVICE_DRIVER_PROPERTIES = 1000196000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_1_FEATURES")]
+    PHYSICAL_DEVICE_VULKAN_1_1_FEATURES = 49,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_1_PROPERTIES")]
+    PHYSICAL_DEVICE_VULKAN_1_1_PROPERTIES = 50,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_2_FEATURES")]
+    PHYSICAL_DEVICE_VULKAN_1_2_FEATURES = 51,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_2_PROPERTIES")]
+    PHYSICAL_DEVICE_VULKAN_1_2_PROPERTIES = 52,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_FORMAT_LIST_CREATE_INFO")]
+    IMAGE_FORMAT_LIST_CREATE_INFO = 1000147000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_MEMORY_MODEL_FEATURES")]
+    PHYSICAL_DEVICE_VULKAN_MEMORY_MODEL_FEATURES = 1000211000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_HOST_QUERY_RESET_FEATURES")]
+    PHYSICAL_DEVICE_HOST_QUERY_RESET_FEATURES = 1000261000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TIMELINE_SEMAPHORE_FEATURES")]
+    PHYSICAL_DEVICE_TIMELINE_SEMAPHORE_FEATURES = 1000207000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TIMELINE_SEMAPHORE_PROPERTIES")]
+    PHYSICAL_DEVICE_TIMELINE_SEMAPHORE_PROPERTIES = 1000207001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SEMAPHORE_TYPE_CREATE_INFO")]
+    SEMAPHORE_TYPE_CREATE_INFO = 1000207002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_TIMELINE_SEMAPHORE_SUBMIT_INFO")]
+    TIMELINE_SEMAPHORE_SUBMIT_INFO = 1000207003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SEMAPHORE_WAIT_INFO")]
+    SEMAPHORE_WAIT_INFO = 1000207004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SEMAPHORE_SIGNAL_INFO")]
+    SEMAPHORE_SIGNAL_INFO = 1000207005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BUFFER_DEVICE_ADDRESS_FEATURES")]
+    PHYSICAL_DEVICE_BUFFER_DEVICE_ADDRESS_FEATURES = 1000257000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_BUFFER_DEVICE_ADDRESS_INFO")]
+    BUFFER_DEVICE_ADDRESS_INFO = 1000244001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_BUFFER_OPAQUE_CAPTURE_ADDRESS_CREATE_INFO")]
+    BUFFER_OPAQUE_CAPTURE_ADDRESS_CREATE_INFO = 1000257002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_MEMORY_OPAQUE_CAPTURE_ADDRESS_ALLOCATE_INFO")]
+    MEMORY_OPAQUE_CAPTURE_ADDRESS_ALLOCATE_INFO = 1000257003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_MEMORY_OPAQUE_CAPTURE_ADDRESS_INFO")]
+    DEVICE_MEMORY_OPAQUE_CAPTURE_ADDRESS_INFO = 1000257004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_8BIT_STORAGE_FEATURES")]
+    PHYSICAL_DEVICE_8BIT_STORAGE_FEATURES = 1000177000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ATOMIC_INT64_FEATURES")]
+    PHYSICAL_DEVICE_SHADER_ATOMIC_INT64_FEATURES = 1000180000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_FLOAT16_INT8_FEATURES")]
+    PHYSICAL_DEVICE_SHADER_FLOAT16_INT8_FEATURES = 1000082000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FLOAT_CONTROLS_PROPERTIES")]
+    PHYSICAL_DEVICE_FLOAT_CONTROLS_PROPERTIES = 1000197000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_BINDING_FLAGS_CREATE_INFO")]
+    DESCRIPTOR_SET_LAYOUT_BINDING_FLAGS_CREATE_INFO = 1000161000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_INDEXING_FEATURES")]
+    PHYSICAL_DEVICE_DESCRIPTOR_INDEXING_FEATURES = 1000161001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_INDEXING_PROPERTIES")]
+    PHYSICAL_DEVICE_DESCRIPTOR_INDEXING_PROPERTIES = 1000161002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DESCRIPTOR_SET_VARIABLE_DESCRIPTOR_COUNT_ALLOCATE_INFO")]
+    DESCRIPTOR_SET_VARIABLE_DESCRIPTOR_COUNT_ALLOCATE_INFO = 1000161003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DESCRIPTOR_SET_VARIABLE_DESCRIPTOR_COUNT_LAYOUT_SUPPORT")]
+    DESCRIPTOR_SET_VARIABLE_DESCRIPTOR_COUNT_LAYOUT_SUPPORT = 1000161004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SCALAR_BLOCK_LAYOUT_FEATURES")]
+    PHYSICAL_DEVICE_SCALAR_BLOCK_LAYOUT_FEATURES = 1000221000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SAMPLER_FILTER_MINMAX_PROPERTIES")]
+    PHYSICAL_DEVICE_SAMPLER_FILTER_MINMAX_PROPERTIES = 1000130000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SAMPLER_REDUCTION_MODE_CREATE_INFO")]
+    SAMPLER_REDUCTION_MODE_CREATE_INFO = 1000130001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_UNIFORM_BUFFER_STANDARD_LAYOUT_FEATURES")]
+    PHYSICAL_DEVICE_UNIFORM_BUFFER_STANDARD_LAYOUT_FEATURES = 1000253000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_SUBGROUP_EXTENDED_TYPES_FEATURES")]
+    PHYSICAL_DEVICE_SHADER_SUBGROUP_EXTENDED_TYPES_FEATURES = 1000175000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_ATTACHMENT_DESCRIPTION_2")]
+    ATTACHMENT_DESCRIPTION_2 = 1000109000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_ATTACHMENT_REFERENCE_2")]
+    ATTACHMENT_REFERENCE_2 = 1000109001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SUBPASS_DESCRIPTION_2")]
+    SUBPASS_DESCRIPTION_2 = 1000109002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SUBPASS_DEPENDENCY_2")]
+    SUBPASS_DEPENDENCY_2 = 1000109003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_RENDER_PASS_CREATE_INFO_2")]
+    RENDER_PASS_CREATE_INFO_2 = 1000109004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SUBPASS_BEGIN_INFO")]
+    SUBPASS_BEGIN_INFO = 1000109005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SUBPASS_END_INFO")]
+    SUBPASS_END_INFO = 1000109006,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEPTH_STENCIL_RESOLVE_PROPERTIES")]
+    PHYSICAL_DEVICE_DEPTH_STENCIL_RESOLVE_PROPERTIES = 1000199000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SUBPASS_DESCRIPTION_DEPTH_STENCIL_RESOLVE")]
+    SUBPASS_DESCRIPTION_DEPTH_STENCIL_RESOLVE = 1000199001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_STENCIL_USAGE_CREATE_INFO")]
+    IMAGE_STENCIL_USAGE_CREATE_INFO = 1000246000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGELESS_FRAMEBUFFER_FEATURES")]
+    PHYSICAL_DEVICE_IMAGELESS_FRAMEBUFFER_FEATURES = 1000108000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_FRAMEBUFFER_ATTACHMENTS_CREATE_INFO")]
+    FRAMEBUFFER_ATTACHMENTS_CREATE_INFO = 1000108001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_FRAMEBUFFER_ATTACHMENT_IMAGE_INFO")]
+    FRAMEBUFFER_ATTACHMENT_IMAGE_INFO = 1000108002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_RENDER_PASS_ATTACHMENT_BEGIN_INFO")]
+    RENDER_PASS_ATTACHMENT_BEGIN_INFO = 1000108003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SEPARATE_DEPTH_STENCIL_LAYOUTS_FEATURES")]
+    PHYSICAL_DEVICE_SEPARATE_DEPTH_STENCIL_LAYOUTS_FEATURES = 1000241000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_ATTACHMENT_REFERENCE_STENCIL_LAYOUT")]
+    ATTACHMENT_REFERENCE_STENCIL_LAYOUT = 1000241001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_ATTACHMENT_DESCRIPTION_STENCIL_LAYOUT")]
+    ATTACHMENT_DESCRIPTION_STENCIL_LAYOUT = 1000241002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_3_FEATURES")]
+    PHYSICAL_DEVICE_VULKAN_1_3_FEATURES = 53,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_3_PROPERTIES")]
+    PHYSICAL_DEVICE_VULKAN_1_3_PROPERTIES = 54,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TOOL_PROPERTIES")]
+    PHYSICAL_DEVICE_TOOL_PROPERTIES = 1000245000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRIVATE_DATA_FEATURES")]
+    PHYSICAL_DEVICE_PRIVATE_DATA_FEATURES = 1000295000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_PRIVATE_DATA_CREATE_INFO")]
+    DEVICE_PRIVATE_DATA_CREATE_INFO = 1000295001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PRIVATE_DATA_SLOT_CREATE_INFO")]
+    PRIVATE_DATA_SLOT_CREATE_INFO = 1000295002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_MEMORY_BARRIER_2")]
+    MEMORY_BARRIER_2 = 1000314000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_BUFFER_MEMORY_BARRIER_2")]
+    BUFFER_MEMORY_BARRIER_2 = 1000314001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER_2")]
+    IMAGE_MEMORY_BARRIER_2 = 1000314002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEPENDENCY_INFO")]
+    DEPENDENCY_INFO = 1000314003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SUBMIT_INFO_2")]
+    SUBMIT_INFO_2 = 1000314004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SEMAPHORE_SUBMIT_INFO")]
+    SEMAPHORE_SUBMIT_INFO = 1000314005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_COMMAND_BUFFER_SUBMIT_INFO")]
+    COMMAND_BUFFER_SUBMIT_INFO = 1000314006,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SYNCHRONIZATION_2_FEATURES")]
+    PHYSICAL_DEVICE_SYNCHRONIZATION_2_FEATURES = 1000314007,
+    #[doc(alias = "VK_STRUCTURE_TYPE_COPY_BUFFER_INFO_2")]
+    COPY_BUFFER_INFO_2 = 1000337000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_COPY_IMAGE_INFO_2")]
+    COPY_IMAGE_INFO_2 = 1000337001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_COPY_BUFFER_TO_IMAGE_INFO_2")]
+    COPY_BUFFER_TO_IMAGE_INFO_2 = 1000337002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_COPY_IMAGE_TO_BUFFER_INFO_2")]
+    COPY_IMAGE_TO_BUFFER_INFO_2 = 1000337003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_BUFFER_COPY_2")]
+    BUFFER_COPY_2 = 1000337006,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_COPY_2")]
+    IMAGE_COPY_2 = 1000337007,
+    #[doc(alias = "VK_STRUCTURE_TYPE_BUFFER_IMAGE_COPY_2")]
+    BUFFER_IMAGE_COPY_2 = 1000337009,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TEXTURE_COMPRESSION_ASTC_HDR_FEATURES")]
+    PHYSICAL_DEVICE_TEXTURE_COMPRESSION_ASTC_HDR_FEATURES = 1000066000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_FORMAT_PROPERTIES_3")]
+    FORMAT_PROPERTIES_3 = 1000360000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_4_FEATURES")]
+    PHYSICAL_DEVICE_MAINTENANCE_4_FEATURES = 1000413000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_4_PROPERTIES")]
+    PHYSICAL_DEVICE_MAINTENANCE_4_PROPERTIES = 1000413001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_BUFFER_MEMORY_REQUIREMENTS")]
+    DEVICE_BUFFER_MEMORY_REQUIREMENTS = 1000413002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_IMAGE_MEMORY_REQUIREMENTS")]
+    DEVICE_IMAGE_MEMORY_REQUIREMENTS = 1000413003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_CREATION_FEEDBACK_CREATE_INFO")]
+    PIPELINE_CREATION_FEEDBACK_CREATE_INFO = 1000192000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_TERMINATE_INVOCATION_FEATURES")]
+    PHYSICAL_DEVICE_SHADER_TERMINATE_INVOCATION_FEATURES = 1000215000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_DEMOTE_TO_HELPER_INVOCATION_FEATURES")]
+    PHYSICAL_DEVICE_SHADER_DEMOTE_TO_HELPER_INVOCATION_FEATURES = 1000276000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_CREATION_CACHE_CONTROL_FEATURES")]
+    PHYSICAL_DEVICE_PIPELINE_CREATION_CACHE_CONTROL_FEATURES = 1000297000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ZERO_INITIALIZE_WORKGROUP_MEMORY_FEATURES")]
+    PHYSICAL_DEVICE_ZERO_INITIALIZE_WORKGROUP_MEMORY_FEATURES = 1000325000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_ROBUSTNESS_FEATURES")]
+    PHYSICAL_DEVICE_IMAGE_ROBUSTNESS_FEATURES = 1000335000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBGROUP_SIZE_CONTROL_PROPERTIES")]
+    PHYSICAL_DEVICE_SUBGROUP_SIZE_CONTROL_PROPERTIES = 1000225000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_REQUIRED_SUBGROUP_SIZE_CREATE_INFO")]
+    PIPELINE_SHADER_STAGE_REQUIRED_SUBGROUP_SIZE_CREATE_INFO = 1000225001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBGROUP_SIZE_CONTROL_FEATURES")]
+    PHYSICAL_DEVICE_SUBGROUP_SIZE_CONTROL_FEATURES = 1000225002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_INLINE_UNIFORM_BLOCK_FEATURES")]
+    PHYSICAL_DEVICE_INLINE_UNIFORM_BLOCK_FEATURES = 1000138000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_INLINE_UNIFORM_BLOCK_PROPERTIES")]
+    PHYSICAL_DEVICE_INLINE_UNIFORM_BLOCK_PROPERTIES = 1000138001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET_INLINE_UNIFORM_BLOCK")]
+    WRITE_DESCRIPTOR_SET_INLINE_UNIFORM_BLOCK = 1000138002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_INLINE_UNIFORM_BLOCK_CREATE_INFO")]
+    DESCRIPTOR_POOL_INLINE_UNIFORM_BLOCK_CREATE_INFO = 1000138003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_INTEGER_DOT_PRODUCT_FEATURES")]
+    PHYSICAL_DEVICE_SHADER_INTEGER_DOT_PRODUCT_FEATURES = 1000280000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_INTEGER_DOT_PRODUCT_PROPERTIES")]
+    PHYSICAL_DEVICE_SHADER_INTEGER_DOT_PRODUCT_PROPERTIES = 1000280001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TEXEL_BUFFER_ALIGNMENT_PROPERTIES")]
+    PHYSICAL_DEVICE_TEXEL_BUFFER_ALIGNMENT_PROPERTIES = 1000281001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_BLIT_IMAGE_INFO_2")]
+    BLIT_IMAGE_INFO_2 = 1000337004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_RESOLVE_IMAGE_INFO_2")]
+    RESOLVE_IMAGE_INFO_2 = 1000337005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_BLIT_2")]
+    IMAGE_BLIT_2 = 1000337008,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_RESOLVE_2")]
+    IMAGE_RESOLVE_2 = 1000337010,
+    #[doc(alias = "VK_STRUCTURE_TYPE_RENDERING_INFO")]
+    RENDERING_INFO = 1000044000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_RENDERING_ATTACHMENT_INFO")]
+    RENDERING_ATTACHMENT_INFO = 1000044001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_RENDERING_CREATE_INFO")]
+    PIPELINE_RENDERING_CREATE_INFO = 1000044002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DYNAMIC_RENDERING_FEATURES")]
+    PHYSICAL_DEVICE_DYNAMIC_RENDERING_FEATURES = 1000044003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_RENDERING_INFO")]
+    COMMAND_BUFFER_INHERITANCE_RENDERING_INFO = 1000044004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_4_FEATURES")]
+    PHYSICAL_DEVICE_VULKAN_1_4_FEATURES = 55,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_4_PROPERTIES")]
+    PHYSICAL_DEVICE_VULKAN_1_4_PROPERTIES = 56,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_QUEUE_GLOBAL_PRIORITY_CREATE_INFO")]
+    DEVICE_QUEUE_GLOBAL_PRIORITY_CREATE_INFO = 1000174000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_GLOBAL_PRIORITY_QUERY_FEATURES")]
+    PHYSICAL_DEVICE_GLOBAL_PRIORITY_QUERY_FEATURES = 1000388000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_QUEUE_FAMILY_GLOBAL_PRIORITY_PROPERTIES")]
+    QUEUE_FAMILY_GLOBAL_PRIORITY_PROPERTIES = 1000388001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_INDEX_TYPE_UINT8_FEATURES")]
+    PHYSICAL_DEVICE_INDEX_TYPE_UINT8_FEATURES = 1000265000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_MEMORY_MAP_INFO")]
+    MEMORY_MAP_INFO = 1000271000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_MEMORY_UNMAP_INFO")]
+    MEMORY_UNMAP_INFO = 1000271001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_5_FEATURES")]
+    PHYSICAL_DEVICE_MAINTENANCE_5_FEATURES = 1000470000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_5_PROPERTIES")]
+    PHYSICAL_DEVICE_MAINTENANCE_5_PROPERTIES = 1000470001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_IMAGE_SUBRESOURCE_INFO")]
+    DEVICE_IMAGE_SUBRESOURCE_INFO = 1000470004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SUBRESOURCE_LAYOUT_2")]
+    SUBRESOURCE_LAYOUT_2 = 1000338002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_SUBRESOURCE_2")]
+    IMAGE_SUBRESOURCE_2 = 1000338003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_BUFFER_USAGE_FLAGS_2_CREATE_INFO")]
+    BUFFER_USAGE_FLAGS_2_CREATE_INFO = 1000470006,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_6_FEATURES")]
+    PHYSICAL_DEVICE_MAINTENANCE_6_FEATURES = 1000545000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_6_PROPERTIES")]
+    PHYSICAL_DEVICE_MAINTENANCE_6_PROPERTIES = 1000545001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_BIND_MEMORY_STATUS")]
+    BIND_MEMORY_STATUS = 1000545002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_HOST_IMAGE_COPY_FEATURES")]
+    PHYSICAL_DEVICE_HOST_IMAGE_COPY_FEATURES = 1000270000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_HOST_IMAGE_COPY_PROPERTIES")]
+    PHYSICAL_DEVICE_HOST_IMAGE_COPY_PROPERTIES = 1000270001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_MEMORY_TO_IMAGE_COPY")]
+    MEMORY_TO_IMAGE_COPY = 1000270002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_TO_MEMORY_COPY")]
+    IMAGE_TO_MEMORY_COPY = 1000270003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_COPY_IMAGE_TO_MEMORY_INFO")]
+    COPY_IMAGE_TO_MEMORY_INFO = 1000270004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_COPY_MEMORY_TO_IMAGE_INFO")]
+    COPY_MEMORY_TO_IMAGE_INFO = 1000270005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_HOST_IMAGE_LAYOUT_TRANSITION_INFO")]
+    HOST_IMAGE_LAYOUT_TRANSITION_INFO = 1000270006,
+    #[doc(alias = "VK_STRUCTURE_TYPE_COPY_IMAGE_TO_IMAGE_INFO")]
+    COPY_IMAGE_TO_IMAGE_INFO = 1000270007,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SUBRESOURCE_HOST_MEMCPY_SIZE")]
+    SUBRESOURCE_HOST_MEMCPY_SIZE = 1000270008,
+    #[doc(alias = "VK_STRUCTURE_TYPE_HOST_IMAGE_COPY_DEVICE_PERFORMANCE_QUERY")]
+    HOST_IMAGE_COPY_DEVICE_PERFORMANCE_QUERY = 1000270009,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_SUBGROUP_ROTATE_FEATURES")]
+    PHYSICAL_DEVICE_SHADER_SUBGROUP_ROTATE_FEATURES = 1000416000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_FLOAT_CONTROLS_2_FEATURES")]
+    PHYSICAL_DEVICE_SHADER_FLOAT_CONTROLS_2_FEATURES = 1000528000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_EXPECT_ASSUME_FEATURES")]
+    PHYSICAL_DEVICE_SHADER_EXPECT_ASSUME_FEATURES = 1000544000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_CREATE_FLAGS_2_CREATE_INFO")]
+    PIPELINE_CREATE_FLAGS_2_CREATE_INFO = 1000470005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PUSH_DESCRIPTOR_PROPERTIES")]
+    PHYSICAL_DEVICE_PUSH_DESCRIPTOR_PROPERTIES = 1000080000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_BIND_DESCRIPTOR_SETS_INFO")]
+    BIND_DESCRIPTOR_SETS_INFO = 1000545003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PUSH_CONSTANTS_INFO")]
+    PUSH_CONSTANTS_INFO = 1000545004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PUSH_DESCRIPTOR_SET_INFO")]
+    PUSH_DESCRIPTOR_SET_INFO = 1000545005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PUSH_DESCRIPTOR_SET_WITH_TEMPLATE_INFO")]
+    PUSH_DESCRIPTOR_SET_WITH_TEMPLATE_INFO = 1000545006,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_PROTECTED_ACCESS_FEATURES")]
+    PHYSICAL_DEVICE_PIPELINE_PROTECTED_ACCESS_FEATURES = 1000466000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_ROBUSTNESS_CREATE_INFO")]
+    PIPELINE_ROBUSTNESS_CREATE_INFO = 1000068000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_ROBUSTNESS_FEATURES")]
+    PHYSICAL_DEVICE_PIPELINE_ROBUSTNESS_FEATURES = 1000068001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_ROBUSTNESS_PROPERTIES")]
+    PHYSICAL_DEVICE_PIPELINE_ROBUSTNESS_PROPERTIES = 1000068002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LINE_RASTERIZATION_FEATURES")]
+    PHYSICAL_DEVICE_LINE_RASTERIZATION_FEATURES = 1000259000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_LINE_STATE_CREATE_INFO")]
+    PIPELINE_RASTERIZATION_LINE_STATE_CREATE_INFO = 1000259001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LINE_RASTERIZATION_PROPERTIES")]
+    PHYSICAL_DEVICE_LINE_RASTERIZATION_PROPERTIES = 1000259002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_DIVISOR_PROPERTIES")]
+    PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_DIVISOR_PROPERTIES = 1000525000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_DIVISOR_STATE_CREATE_INFO")]
+    PIPELINE_VERTEX_INPUT_DIVISOR_STATE_CREATE_INFO = 1000190001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_DIVISOR_FEATURES")]
+    PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_DIVISOR_FEATURES = 1000190002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_RENDERING_AREA_INFO")]
+    RENDERING_AREA_INFO = 1000470003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DYNAMIC_RENDERING_LOCAL_READ_FEATURES")]
+    PHYSICAL_DEVICE_DYNAMIC_RENDERING_LOCAL_READ_FEATURES = 1000232000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_RENDERING_ATTACHMENT_LOCATION_INFO")]
+    RENDERING_ATTACHMENT_LOCATION_INFO = 1000232001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_RENDERING_INPUT_ATTACHMENT_INDEX_INFO")]
+    RENDERING_INPUT_ATTACHMENT_INDEX_INFO = 1000232002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SWAPCHAIN_CREATE_INFO_KHR")]
+    SWAPCHAIN_CREATE_INFO_KHR = 1000001000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PRESENT_INFO_KHR")]
+    PRESENT_INFO_KHR = 1000001001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_GROUP_PRESENT_CAPABILITIES_KHR")]
+    DEVICE_GROUP_PRESENT_CAPABILITIES_KHR = 1000060007,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_SWAPCHAIN_CREATE_INFO_KHR")]
+    IMAGE_SWAPCHAIN_CREATE_INFO_KHR = 1000060008,
+    #[doc(alias = "VK_STRUCTURE_TYPE_BIND_IMAGE_MEMORY_SWAPCHAIN_INFO_KHR")]
+    BIND_IMAGE_MEMORY_SWAPCHAIN_INFO_KHR = 1000060009,
+    #[doc(alias = "VK_STRUCTURE_TYPE_ACQUIRE_NEXT_IMAGE_INFO_KHR")]
+    ACQUIRE_NEXT_IMAGE_INFO_KHR = 1000060010,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_GROUP_PRESENT_INFO_KHR")]
+    DEVICE_GROUP_PRESENT_INFO_KHR = 1000060011,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_GROUP_SWAPCHAIN_CREATE_INFO_KHR")]
+    DEVICE_GROUP_SWAPCHAIN_CREATE_INFO_KHR = 1000060012,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DISPLAY_MODE_CREATE_INFO_KHR")]
+    DISPLAY_MODE_CREATE_INFO_KHR = 1000002000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DISPLAY_SURFACE_CREATE_INFO_KHR")]
+    DISPLAY_SURFACE_CREATE_INFO_KHR = 1000002001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DISPLAY_PRESENT_INFO_KHR")]
+    DISPLAY_PRESENT_INFO_KHR = 1000003000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_XLIB_SURFACE_CREATE_INFO_KHR")]
+    XLIB_SURFACE_CREATE_INFO_KHR = 1000004000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_XCB_SURFACE_CREATE_INFO_KHR")]
+    XCB_SURFACE_CREATE_INFO_KHR = 1000005000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_WAYLAND_SURFACE_CREATE_INFO_KHR")]
+    WAYLAND_SURFACE_CREATE_INFO_KHR = 1000006000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_ANDROID_SURFACE_CREATE_INFO_KHR")]
+    ANDROID_SURFACE_CREATE_INFO_KHR = 1000008000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_WIN32_SURFACE_CREATE_INFO_KHR")]
+    WIN32_SURFACE_CREATE_INFO_KHR = 1000009000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT")]
+    DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT = 1000011000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_RASTERIZATION_ORDER_AMD")]
+    PIPELINE_RASTERIZATION_STATE_RASTERIZATION_ORDER_AMD = 1000018000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEBUG_MARKER_OBJECT_NAME_INFO_EXT")]
+    DEBUG_MARKER_OBJECT_NAME_INFO_EXT = 1000022000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEBUG_MARKER_OBJECT_TAG_INFO_EXT")]
+    DEBUG_MARKER_OBJECT_TAG_INFO_EXT = 1000022001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEBUG_MARKER_MARKER_INFO_EXT")]
+    DEBUG_MARKER_MARKER_INFO_EXT = 1000022002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_PROFILE_INFO_KHR")]
+    VIDEO_PROFILE_INFO_KHR = 1000023000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_CAPABILITIES_KHR")]
+    VIDEO_CAPABILITIES_KHR = 1000023001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_PICTURE_RESOURCE_INFO_KHR")]
+    VIDEO_PICTURE_RESOURCE_INFO_KHR = 1000023002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_SESSION_MEMORY_REQUIREMENTS_KHR")]
+    VIDEO_SESSION_MEMORY_REQUIREMENTS_KHR = 1000023003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_BIND_VIDEO_SESSION_MEMORY_INFO_KHR")]
+    BIND_VIDEO_SESSION_MEMORY_INFO_KHR = 1000023004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_SESSION_CREATE_INFO_KHR")]
+    VIDEO_SESSION_CREATE_INFO_KHR = 1000023005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_SESSION_PARAMETERS_CREATE_INFO_KHR")]
+    VIDEO_SESSION_PARAMETERS_CREATE_INFO_KHR = 1000023006,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_SESSION_PARAMETERS_UPDATE_INFO_KHR")]
+    VIDEO_SESSION_PARAMETERS_UPDATE_INFO_KHR = 1000023007,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_BEGIN_CODING_INFO_KHR")]
+    VIDEO_BEGIN_CODING_INFO_KHR = 1000023008,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_END_CODING_INFO_KHR")]
+    VIDEO_END_CODING_INFO_KHR = 1000023009,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_CODING_CONTROL_INFO_KHR")]
+    VIDEO_CODING_CONTROL_INFO_KHR = 1000023010,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_REFERENCE_SLOT_INFO_KHR")]
+    VIDEO_REFERENCE_SLOT_INFO_KHR = 1000023011,
+    #[doc(alias = "VK_STRUCTURE_TYPE_QUEUE_FAMILY_VIDEO_PROPERTIES_KHR")]
+    QUEUE_FAMILY_VIDEO_PROPERTIES_KHR = 1000023012,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_PROFILE_LIST_INFO_KHR")]
+    VIDEO_PROFILE_LIST_INFO_KHR = 1000023013,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VIDEO_FORMAT_INFO_KHR")]
+    PHYSICAL_DEVICE_VIDEO_FORMAT_INFO_KHR = 1000023014,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_FORMAT_PROPERTIES_KHR")]
+    VIDEO_FORMAT_PROPERTIES_KHR = 1000023015,
+    #[doc(alias = "VK_STRUCTURE_TYPE_QUEUE_FAMILY_QUERY_RESULT_STATUS_PROPERTIES_KHR")]
+    QUEUE_FAMILY_QUERY_RESULT_STATUS_PROPERTIES_KHR = 1000023016,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_DECODE_INFO_KHR")]
+    VIDEO_DECODE_INFO_KHR = 1000024000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_DECODE_CAPABILITIES_KHR")]
+    VIDEO_DECODE_CAPABILITIES_KHR = 1000024001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_DECODE_USAGE_INFO_KHR")]
+    VIDEO_DECODE_USAGE_INFO_KHR = 1000024002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_IMAGE_CREATE_INFO_NV")]
+    DEDICATED_ALLOCATION_IMAGE_CREATE_INFO_NV = 1000026000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_BUFFER_CREATE_INFO_NV")]
+    DEDICATED_ALLOCATION_BUFFER_CREATE_INFO_NV = 1000026001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_MEMORY_ALLOCATE_INFO_NV")]
+    DEDICATED_ALLOCATION_MEMORY_ALLOCATE_INFO_NV = 1000026002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TRANSFORM_FEEDBACK_FEATURES_EXT")]
+    PHYSICAL_DEVICE_TRANSFORM_FEEDBACK_FEATURES_EXT = 1000028000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TRANSFORM_FEEDBACK_PROPERTIES_EXT")]
+    PHYSICAL_DEVICE_TRANSFORM_FEEDBACK_PROPERTIES_EXT = 1000028001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_STREAM_CREATE_INFO_EXT")]
+    PIPELINE_RASTERIZATION_STATE_STREAM_CREATE_INFO_EXT = 1000028002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_CU_MODULE_CREATE_INFO_NVX")]
+    CU_MODULE_CREATE_INFO_NVX = 1000029000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_CU_FUNCTION_CREATE_INFO_NVX")]
+    CU_FUNCTION_CREATE_INFO_NVX = 1000029001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_CU_LAUNCH_INFO_NVX")]
+    CU_LAUNCH_INFO_NVX = 1000029002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_CU_MODULE_TEXTURING_MODE_CREATE_INFO_NVX")]
+    CU_MODULE_TEXTURING_MODE_CREATE_INFO_NVX = 1000029004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_VIEW_HANDLE_INFO_NVX")]
+    IMAGE_VIEW_HANDLE_INFO_NVX = 1000030000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_VIEW_ADDRESS_PROPERTIES_NVX")]
+    IMAGE_VIEW_ADDRESS_PROPERTIES_NVX = 1000030001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_CAPABILITIES_KHR")]
+    VIDEO_ENCODE_H264_CAPABILITIES_KHR = 1000038000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_SESSION_PARAMETERS_CREATE_INFO_KHR")]
+    VIDEO_ENCODE_H264_SESSION_PARAMETERS_CREATE_INFO_KHR = 1000038001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_SESSION_PARAMETERS_ADD_INFO_KHR")]
+    VIDEO_ENCODE_H264_SESSION_PARAMETERS_ADD_INFO_KHR = 1000038002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_PICTURE_INFO_KHR")]
+    VIDEO_ENCODE_H264_PICTURE_INFO_KHR = 1000038003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_DPB_SLOT_INFO_KHR")]
+    VIDEO_ENCODE_H264_DPB_SLOT_INFO_KHR = 1000038004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_NALU_SLICE_INFO_KHR")]
+    VIDEO_ENCODE_H264_NALU_SLICE_INFO_KHR = 1000038005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_GOP_REMAINING_FRAME_INFO_KHR")]
+    VIDEO_ENCODE_H264_GOP_REMAINING_FRAME_INFO_KHR = 1000038006,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_PROFILE_INFO_KHR")]
+    VIDEO_ENCODE_H264_PROFILE_INFO_KHR = 1000038007,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_RATE_CONTROL_INFO_KHR")]
+    VIDEO_ENCODE_H264_RATE_CONTROL_INFO_KHR = 1000038008,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_RATE_CONTROL_LAYER_INFO_KHR")]
+    VIDEO_ENCODE_H264_RATE_CONTROL_LAYER_INFO_KHR = 1000038009,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_SESSION_CREATE_INFO_KHR")]
+    VIDEO_ENCODE_H264_SESSION_CREATE_INFO_KHR = 1000038010,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_QUALITY_LEVEL_PROPERTIES_KHR")]
+    VIDEO_ENCODE_H264_QUALITY_LEVEL_PROPERTIES_KHR = 1000038011,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_SESSION_PARAMETERS_GET_INFO_KHR")]
+    VIDEO_ENCODE_H264_SESSION_PARAMETERS_GET_INFO_KHR = 1000038012,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_SESSION_PARAMETERS_FEEDBACK_INFO_KHR")]
+    VIDEO_ENCODE_H264_SESSION_PARAMETERS_FEEDBACK_INFO_KHR = 1000038013,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_CAPABILITIES_KHR")]
+    VIDEO_ENCODE_H265_CAPABILITIES_KHR = 1000039000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_SESSION_PARAMETERS_CREATE_INFO_KHR")]
+    VIDEO_ENCODE_H265_SESSION_PARAMETERS_CREATE_INFO_KHR = 1000039001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_SESSION_PARAMETERS_ADD_INFO_KHR")]
+    VIDEO_ENCODE_H265_SESSION_PARAMETERS_ADD_INFO_KHR = 1000039002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_PICTURE_INFO_KHR")]
+    VIDEO_ENCODE_H265_PICTURE_INFO_KHR = 1000039003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_DPB_SLOT_INFO_KHR")]
+    VIDEO_ENCODE_H265_DPB_SLOT_INFO_KHR = 1000039004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_NALU_SLICE_SEGMENT_INFO_KHR")]
+    VIDEO_ENCODE_H265_NALU_SLICE_SEGMENT_INFO_KHR = 1000039005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_GOP_REMAINING_FRAME_INFO_KHR")]
+    VIDEO_ENCODE_H265_GOP_REMAINING_FRAME_INFO_KHR = 1000039006,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_PROFILE_INFO_KHR")]
+    VIDEO_ENCODE_H265_PROFILE_INFO_KHR = 1000039007,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_RATE_CONTROL_INFO_KHR")]
+    VIDEO_ENCODE_H265_RATE_CONTROL_INFO_KHR = 1000039009,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_RATE_CONTROL_LAYER_INFO_KHR")]
+    VIDEO_ENCODE_H265_RATE_CONTROL_LAYER_INFO_KHR = 1000039010,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_SESSION_CREATE_INFO_KHR")]
+    VIDEO_ENCODE_H265_SESSION_CREATE_INFO_KHR = 1000039011,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_QUALITY_LEVEL_PROPERTIES_KHR")]
+    VIDEO_ENCODE_H265_QUALITY_LEVEL_PROPERTIES_KHR = 1000039012,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_SESSION_PARAMETERS_GET_INFO_KHR")]
+    VIDEO_ENCODE_H265_SESSION_PARAMETERS_GET_INFO_KHR = 1000039013,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_SESSION_PARAMETERS_FEEDBACK_INFO_KHR")]
+    VIDEO_ENCODE_H265_SESSION_PARAMETERS_FEEDBACK_INFO_KHR = 1000039014,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_CAPABILITIES_KHR")]
+    VIDEO_DECODE_H264_CAPABILITIES_KHR = 1000040000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_PICTURE_INFO_KHR")]
+    VIDEO_DECODE_H264_PICTURE_INFO_KHR = 1000040001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_PROFILE_INFO_KHR")]
+    VIDEO_DECODE_H264_PROFILE_INFO_KHR = 1000040003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_SESSION_PARAMETERS_CREATE_INFO_KHR")]
+    VIDEO_DECODE_H264_SESSION_PARAMETERS_CREATE_INFO_KHR = 1000040004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_SESSION_PARAMETERS_ADD_INFO_KHR")]
+    VIDEO_DECODE_H264_SESSION_PARAMETERS_ADD_INFO_KHR = 1000040005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_DPB_SLOT_INFO_KHR")]
+    VIDEO_DECODE_H264_DPB_SLOT_INFO_KHR = 1000040006,
+    #[doc(alias = "VK_STRUCTURE_TYPE_TEXTURE_LOD_GATHER_FORMAT_PROPERTIES_AMD")]
+    TEXTURE_LOD_GATHER_FORMAT_PROPERTIES_AMD = 1000041000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_STREAM_DESCRIPTOR_SURFACE_CREATE_INFO_GGP")]
+    STREAM_DESCRIPTOR_SURFACE_CREATE_INFO_GGP = 1000049000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CORNER_SAMPLED_IMAGE_FEATURES_NV")]
+    PHYSICAL_DEVICE_CORNER_SAMPLED_IMAGE_FEATURES_NV = 1000050000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_IMAGE_CREATE_INFO_NV")]
+    EXTERNAL_MEMORY_IMAGE_CREATE_INFO_NV = 1000056000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_EXPORT_MEMORY_ALLOCATE_INFO_NV")]
+    EXPORT_MEMORY_ALLOCATE_INFO_NV = 1000056001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMPORT_MEMORY_WIN32_HANDLE_INFO_NV")]
+    IMPORT_MEMORY_WIN32_HANDLE_INFO_NV = 1000057000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_EXPORT_MEMORY_WIN32_HANDLE_INFO_NV")]
+    EXPORT_MEMORY_WIN32_HANDLE_INFO_NV = 1000057001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_WIN32_KEYED_MUTEX_ACQUIRE_RELEASE_INFO_NV")]
+    WIN32_KEYED_MUTEX_ACQUIRE_RELEASE_INFO_NV = 1000058000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VALIDATION_FLAGS_EXT")]
+    VALIDATION_FLAGS_EXT = 1000061000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VI_SURFACE_CREATE_INFO_NN")]
+    VI_SURFACE_CREATE_INFO_NN = 1000062000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_VIEW_ASTC_DECODE_MODE_EXT")]
+    IMAGE_VIEW_ASTC_DECODE_MODE_EXT = 1000067000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ASTC_DECODE_FEATURES_EXT")]
+    PHYSICAL_DEVICE_ASTC_DECODE_FEATURES_EXT = 1000067001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMPORT_MEMORY_WIN32_HANDLE_INFO_KHR")]
+    IMPORT_MEMORY_WIN32_HANDLE_INFO_KHR = 1000073000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_EXPORT_MEMORY_WIN32_HANDLE_INFO_KHR")]
+    EXPORT_MEMORY_WIN32_HANDLE_INFO_KHR = 1000073001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_MEMORY_WIN32_HANDLE_PROPERTIES_KHR")]
+    MEMORY_WIN32_HANDLE_PROPERTIES_KHR = 1000073002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_MEMORY_GET_WIN32_HANDLE_INFO_KHR")]
+    MEMORY_GET_WIN32_HANDLE_INFO_KHR = 1000073003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMPORT_MEMORY_FD_INFO_KHR")]
+    IMPORT_MEMORY_FD_INFO_KHR = 1000074000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_MEMORY_FD_PROPERTIES_KHR")]
+    MEMORY_FD_PROPERTIES_KHR = 1000074001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_MEMORY_GET_FD_INFO_KHR")]
+    MEMORY_GET_FD_INFO_KHR = 1000074002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_WIN32_KEYED_MUTEX_ACQUIRE_RELEASE_INFO_KHR")]
+    WIN32_KEYED_MUTEX_ACQUIRE_RELEASE_INFO_KHR = 1000075000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMPORT_SEMAPHORE_WIN32_HANDLE_INFO_KHR")]
+    IMPORT_SEMAPHORE_WIN32_HANDLE_INFO_KHR = 1000078000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_EXPORT_SEMAPHORE_WIN32_HANDLE_INFO_KHR")]
+    EXPORT_SEMAPHORE_WIN32_HANDLE_INFO_KHR = 1000078001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_D3D12_FENCE_SUBMIT_INFO_KHR")]
+    D3D12_FENCE_SUBMIT_INFO_KHR = 1000078002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SEMAPHORE_GET_WIN32_HANDLE_INFO_KHR")]
+    SEMAPHORE_GET_WIN32_HANDLE_INFO_KHR = 1000078003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMPORT_SEMAPHORE_FD_INFO_KHR")]
+    IMPORT_SEMAPHORE_FD_INFO_KHR = 1000079000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SEMAPHORE_GET_FD_INFO_KHR")]
+    SEMAPHORE_GET_FD_INFO_KHR = 1000079001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_CONDITIONAL_RENDERING_INFO_EXT")]
+    COMMAND_BUFFER_INHERITANCE_CONDITIONAL_RENDERING_INFO_EXT = 1000081000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CONDITIONAL_RENDERING_FEATURES_EXT")]
+    PHYSICAL_DEVICE_CONDITIONAL_RENDERING_FEATURES_EXT = 1000081001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_CONDITIONAL_RENDERING_BEGIN_INFO_EXT")]
+    CONDITIONAL_RENDERING_BEGIN_INFO_EXT = 1000081002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PRESENT_REGIONS_KHR")]
+    PRESENT_REGIONS_KHR = 1000084000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_W_SCALING_STATE_CREATE_INFO_NV")]
+    PIPELINE_VIEWPORT_W_SCALING_STATE_CREATE_INFO_NV = 1000087000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES_2_EXT")]
+    SURFACE_CAPABILITIES_2_EXT = 1000090000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DISPLAY_POWER_INFO_EXT")]
+    DISPLAY_POWER_INFO_EXT = 1000091000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_EVENT_INFO_EXT")]
+    DEVICE_EVENT_INFO_EXT = 1000091001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DISPLAY_EVENT_INFO_EXT")]
+    DISPLAY_EVENT_INFO_EXT = 1000091002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SWAPCHAIN_COUNTER_CREATE_INFO_EXT")]
+    SWAPCHAIN_COUNTER_CREATE_INFO_EXT = 1000091003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PRESENT_TIMES_INFO_GOOGLE")]
+    PRESENT_TIMES_INFO_GOOGLE = 1000092000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_ATTRIBUTES_PROPERTIES_NVX")]
+    PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_ATTRIBUTES_PROPERTIES_NVX = 1000097000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_MULTIVIEW_PER_VIEW_ATTRIBUTES_INFO_NVX")]
+    MULTIVIEW_PER_VIEW_ATTRIBUTES_INFO_NVX = 1000044009,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_SWIZZLE_STATE_CREATE_INFO_NV")]
+    PIPELINE_VIEWPORT_SWIZZLE_STATE_CREATE_INFO_NV = 1000098000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DISCARD_RECTANGLE_PROPERTIES_EXT")]
+    PHYSICAL_DEVICE_DISCARD_RECTANGLE_PROPERTIES_EXT = 1000099000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_DISCARD_RECTANGLE_STATE_CREATE_INFO_EXT")]
+    PIPELINE_DISCARD_RECTANGLE_STATE_CREATE_INFO_EXT = 1000099001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CONSERVATIVE_RASTERIZATION_PROPERTIES_EXT")]
+    PHYSICAL_DEVICE_CONSERVATIVE_RASTERIZATION_PROPERTIES_EXT = 1000101000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_CONSERVATIVE_STATE_CREATE_INFO_EXT")]
+    PIPELINE_RASTERIZATION_CONSERVATIVE_STATE_CREATE_INFO_EXT = 1000101001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEPTH_CLIP_ENABLE_FEATURES_EXT")]
+    PHYSICAL_DEVICE_DEPTH_CLIP_ENABLE_FEATURES_EXT = 1000102000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_DEPTH_CLIP_STATE_CREATE_INFO_EXT")]
+    PIPELINE_RASTERIZATION_DEPTH_CLIP_STATE_CREATE_INFO_EXT = 1000102001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_HDR_METADATA_EXT")]
+    HDR_METADATA_EXT = 1000105000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RELAXED_LINE_RASTERIZATION_FEATURES_IMG")]
+    PHYSICAL_DEVICE_RELAXED_LINE_RASTERIZATION_FEATURES_IMG = 1000110000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SHARED_PRESENT_SURFACE_CAPABILITIES_KHR")]
+    SHARED_PRESENT_SURFACE_CAPABILITIES_KHR = 1000111000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMPORT_FENCE_WIN32_HANDLE_INFO_KHR")]
+    IMPORT_FENCE_WIN32_HANDLE_INFO_KHR = 1000114000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_EXPORT_FENCE_WIN32_HANDLE_INFO_KHR")]
+    EXPORT_FENCE_WIN32_HANDLE_INFO_KHR = 1000114001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_FENCE_GET_WIN32_HANDLE_INFO_KHR")]
+    FENCE_GET_WIN32_HANDLE_INFO_KHR = 1000114002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMPORT_FENCE_FD_INFO_KHR")]
+    IMPORT_FENCE_FD_INFO_KHR = 1000115000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_FENCE_GET_FD_INFO_KHR")]
+    FENCE_GET_FD_INFO_KHR = 1000115001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PERFORMANCE_QUERY_FEATURES_KHR")]
+    PHYSICAL_DEVICE_PERFORMANCE_QUERY_FEATURES_KHR = 1000116000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PERFORMANCE_QUERY_PROPERTIES_KHR")]
+    PHYSICAL_DEVICE_PERFORMANCE_QUERY_PROPERTIES_KHR = 1000116001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_QUERY_POOL_PERFORMANCE_CREATE_INFO_KHR")]
+    QUERY_POOL_PERFORMANCE_CREATE_INFO_KHR = 1000116002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PERFORMANCE_QUERY_SUBMIT_INFO_KHR")]
+    PERFORMANCE_QUERY_SUBMIT_INFO_KHR = 1000116003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_ACQUIRE_PROFILING_LOCK_INFO_KHR")]
+    ACQUIRE_PROFILING_LOCK_INFO_KHR = 1000116004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PERFORMANCE_COUNTER_KHR")]
+    PERFORMANCE_COUNTER_KHR = 1000116005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PERFORMANCE_COUNTER_DESCRIPTION_KHR")]
+    PERFORMANCE_COUNTER_DESCRIPTION_KHR = 1000116006,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SURFACE_INFO_2_KHR")]
+    PHYSICAL_DEVICE_SURFACE_INFO_2_KHR = 1000119000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES_2_KHR")]
+    SURFACE_CAPABILITIES_2_KHR = 1000119001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SURFACE_FORMAT_2_KHR")]
+    SURFACE_FORMAT_2_KHR = 1000119002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DISPLAY_PROPERTIES_2_KHR")]
+    DISPLAY_PROPERTIES_2_KHR = 1000121000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DISPLAY_PLANE_PROPERTIES_2_KHR")]
+    DISPLAY_PLANE_PROPERTIES_2_KHR = 1000121001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DISPLAY_MODE_PROPERTIES_2_KHR")]
+    DISPLAY_MODE_PROPERTIES_2_KHR = 1000121002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DISPLAY_PLANE_INFO_2_KHR")]
+    DISPLAY_PLANE_INFO_2_KHR = 1000121003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DISPLAY_PLANE_CAPABILITIES_2_KHR")]
+    DISPLAY_PLANE_CAPABILITIES_2_KHR = 1000121004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IOS_SURFACE_CREATE_INFO_MVK")]
+    IOS_SURFACE_CREATE_INFO_MVK = 1000122000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_MACOS_SURFACE_CREATE_INFO_MVK")]
+    MACOS_SURFACE_CREATE_INFO_MVK = 1000123000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEBUG_UTILS_OBJECT_NAME_INFO_EXT")]
+    DEBUG_UTILS_OBJECT_NAME_INFO_EXT = 1000128000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEBUG_UTILS_OBJECT_TAG_INFO_EXT")]
+    DEBUG_UTILS_OBJECT_TAG_INFO_EXT = 1000128001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEBUG_UTILS_LABEL_EXT")]
+    DEBUG_UTILS_LABEL_EXT = 1000128002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEBUG_UTILS_MESSENGER_CALLBACK_DATA_EXT")]
+    DEBUG_UTILS_MESSENGER_CALLBACK_DATA_EXT = 1000128003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEBUG_UTILS_MESSENGER_CREATE_INFO_EXT")]
+    DEBUG_UTILS_MESSENGER_CREATE_INFO_EXT = 1000128004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_ANDROID_HARDWARE_BUFFER_USAGE_ANDROID")]
+    ANDROID_HARDWARE_BUFFER_USAGE_ANDROID = 1000129000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_ANDROID_HARDWARE_BUFFER_PROPERTIES_ANDROID")]
+    ANDROID_HARDWARE_BUFFER_PROPERTIES_ANDROID = 1000129001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_ANDROID_HARDWARE_BUFFER_FORMAT_PROPERTIES_ANDROID")]
+    ANDROID_HARDWARE_BUFFER_FORMAT_PROPERTIES_ANDROID = 1000129002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMPORT_ANDROID_HARDWARE_BUFFER_INFO_ANDROID")]
+    IMPORT_ANDROID_HARDWARE_BUFFER_INFO_ANDROID = 1000129003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_MEMORY_GET_ANDROID_HARDWARE_BUFFER_INFO_ANDROID")]
+    MEMORY_GET_ANDROID_HARDWARE_BUFFER_INFO_ANDROID = 1000129004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_EXTERNAL_FORMAT_ANDROID")]
+    EXTERNAL_FORMAT_ANDROID = 1000129005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_ANDROID_HARDWARE_BUFFER_FORMAT_PROPERTIES_2_ANDROID")]
+    ANDROID_HARDWARE_BUFFER_FORMAT_PROPERTIES_2_ANDROID = 1000129006,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_GPA_FEATURES_AMD")]
+    PHYSICAL_DEVICE_GPA_FEATURES_AMD = 1000133000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_GPA_PROPERTIES_AMD")]
+    PHYSICAL_DEVICE_GPA_PROPERTIES_AMD = 1000133001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_GPA_SAMPLE_BEGIN_INFO_AMD")]
+    GPA_SAMPLE_BEGIN_INFO_AMD = 1000133002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_GPA_SESSION_CREATE_INFO_AMD")]
+    GPA_SESSION_CREATE_INFO_AMD = 1000133003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_GPA_DEVICE_CLOCK_MODE_INFO_AMD")]
+    GPA_DEVICE_CLOCK_MODE_INFO_AMD = 1000133004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_GPA_PROPERTIES_2_AMD")]
+    PHYSICAL_DEVICE_GPA_PROPERTIES_2_AMD = 1000133005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_GPA_DEVICE_GET_CLOCK_INFO_AMD")]
+    GPA_DEVICE_GET_CLOCK_INFO_AMD = 1000133006,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ENQUEUE_FEATURES_AMDX")]
+    PHYSICAL_DEVICE_SHADER_ENQUEUE_FEATURES_AMDX = 1000134000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ENQUEUE_PROPERTIES_AMDX")]
+    PHYSICAL_DEVICE_SHADER_ENQUEUE_PROPERTIES_AMDX = 1000134001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_EXECUTION_GRAPH_PIPELINE_SCRATCH_SIZE_AMDX")]
+    EXECUTION_GRAPH_PIPELINE_SCRATCH_SIZE_AMDX = 1000134002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_EXECUTION_GRAPH_PIPELINE_CREATE_INFO_AMDX")]
+    EXECUTION_GRAPH_PIPELINE_CREATE_INFO_AMDX = 1000134003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_NODE_CREATE_INFO_AMDX")]
+    PIPELINE_SHADER_STAGE_NODE_CREATE_INFO_AMDX = 1000134004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_TEXEL_BUFFER_DESCRIPTOR_INFO_EXT")]
+    TEXEL_BUFFER_DESCRIPTOR_INFO_EXT = 1000135000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_DESCRIPTOR_INFO_EXT")]
+    IMAGE_DESCRIPTOR_INFO_EXT = 1000135001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_RESOURCE_DESCRIPTOR_INFO_EXT")]
+    RESOURCE_DESCRIPTOR_INFO_EXT = 1000135002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_BIND_HEAP_INFO_EXT")]
+    BIND_HEAP_INFO_EXT = 1000135003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PUSH_DATA_INFO_EXT")]
+    PUSH_DATA_INFO_EXT = 1000135004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DESCRIPTOR_SET_AND_BINDING_MAPPING_EXT")]
+    DESCRIPTOR_SET_AND_BINDING_MAPPING_EXT = 1000135005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SHADER_DESCRIPTOR_SET_AND_BINDING_MAPPING_INFO_EXT")]
+    SHADER_DESCRIPTOR_SET_AND_BINDING_MAPPING_INFO_EXT = 1000135006,
+    #[doc(alias = "VK_STRUCTURE_TYPE_OPAQUE_CAPTURE_DATA_CREATE_INFO_EXT")]
+    OPAQUE_CAPTURE_DATA_CREATE_INFO_EXT = 1000135007,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_HEAP_PROPERTIES_EXT")]
+    PHYSICAL_DEVICE_DESCRIPTOR_HEAP_PROPERTIES_EXT = 1000135008,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_HEAP_FEATURES_EXT")]
+    PHYSICAL_DEVICE_DESCRIPTOR_HEAP_FEATURES_EXT = 1000135009,
+    #[doc(alias = "VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_DESCRIPTOR_HEAP_INFO_EXT")]
+    COMMAND_BUFFER_INHERITANCE_DESCRIPTOR_HEAP_INFO_EXT = 1000135010,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SAMPLER_CUSTOM_BORDER_COLOR_INDEX_CREATE_INFO_EXT")]
+    SAMPLER_CUSTOM_BORDER_COLOR_INDEX_CREATE_INFO_EXT = 1000135011,
+    #[doc(alias = "VK_STRUCTURE_TYPE_INDIRECT_COMMANDS_LAYOUT_PUSH_DATA_TOKEN_NV")]
+    INDIRECT_COMMANDS_LAYOUT_PUSH_DATA_TOKEN_NV = 1000135012,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SUBSAMPLED_IMAGE_FORMAT_PROPERTIES_EXT")]
+    SUBSAMPLED_IMAGE_FORMAT_PROPERTIES_EXT = 1000135013,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_HEAP_TENSOR_PROPERTIES_ARM")]
+    PHYSICAL_DEVICE_DESCRIPTOR_HEAP_TENSOR_PROPERTIES_ARM = 1000135014,
+    #[doc(alias = "VK_STRUCTURE_TYPE_ATTACHMENT_SAMPLE_COUNT_INFO_AMD")]
+    ATTACHMENT_SAMPLE_COUNT_INFO_AMD = 1000044008,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_BFLOAT16_FEATURES_KHR")]
+    PHYSICAL_DEVICE_SHADER_BFLOAT16_FEATURES_KHR = 1000141000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SAMPLE_LOCATIONS_INFO_EXT")]
+    SAMPLE_LOCATIONS_INFO_EXT = 1000143000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_RENDER_PASS_SAMPLE_LOCATIONS_BEGIN_INFO_EXT")]
+    RENDER_PASS_SAMPLE_LOCATIONS_BEGIN_INFO_EXT = 1000143001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_SAMPLE_LOCATIONS_STATE_CREATE_INFO_EXT")]
+    PIPELINE_SAMPLE_LOCATIONS_STATE_CREATE_INFO_EXT = 1000143002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SAMPLE_LOCATIONS_PROPERTIES_EXT")]
+    PHYSICAL_DEVICE_SAMPLE_LOCATIONS_PROPERTIES_EXT = 1000143003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_MULTISAMPLE_PROPERTIES_EXT")]
+    MULTISAMPLE_PROPERTIES_EXT = 1000143004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BLEND_OPERATION_ADVANCED_FEATURES_EXT")]
+    PHYSICAL_DEVICE_BLEND_OPERATION_ADVANCED_FEATURES_EXT = 1000148000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BLEND_OPERATION_ADVANCED_PROPERTIES_EXT")]
+    PHYSICAL_DEVICE_BLEND_OPERATION_ADVANCED_PROPERTIES_EXT = 1000148001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_ADVANCED_STATE_CREATE_INFO_EXT")]
+    PIPELINE_COLOR_BLEND_ADVANCED_STATE_CREATE_INFO_EXT = 1000148002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_COVERAGE_TO_COLOR_STATE_CREATE_INFO_NV")]
+    PIPELINE_COVERAGE_TO_COLOR_STATE_CREATE_INFO_NV = 1000149000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET_ACCELERATION_STRUCTURE_KHR")]
+    WRITE_DESCRIPTOR_SET_ACCELERATION_STRUCTURE_KHR = 1000150007,
+    #[doc(alias = "VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_BUILD_GEOMETRY_INFO_KHR")]
+    ACCELERATION_STRUCTURE_BUILD_GEOMETRY_INFO_KHR = 1000150000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_DEVICE_ADDRESS_INFO_KHR")]
+    ACCELERATION_STRUCTURE_DEVICE_ADDRESS_INFO_KHR = 1000150002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_GEOMETRY_AABBS_DATA_KHR")]
+    ACCELERATION_STRUCTURE_GEOMETRY_AABBS_DATA_KHR = 1000150003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_GEOMETRY_INSTANCES_DATA_KHR")]
+    ACCELERATION_STRUCTURE_GEOMETRY_INSTANCES_DATA_KHR = 1000150004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_GEOMETRY_TRIANGLES_DATA_KHR")]
+    ACCELERATION_STRUCTURE_GEOMETRY_TRIANGLES_DATA_KHR = 1000150005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_GEOMETRY_KHR")]
+    ACCELERATION_STRUCTURE_GEOMETRY_KHR = 1000150006,
+    #[doc(alias = "VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_VERSION_INFO_KHR")]
+    ACCELERATION_STRUCTURE_VERSION_INFO_KHR = 1000150009,
+    #[doc(alias = "VK_STRUCTURE_TYPE_COPY_ACCELERATION_STRUCTURE_INFO_KHR")]
+    COPY_ACCELERATION_STRUCTURE_INFO_KHR = 1000150010,
+    #[doc(alias = "VK_STRUCTURE_TYPE_COPY_ACCELERATION_STRUCTURE_TO_MEMORY_INFO_KHR")]
+    COPY_ACCELERATION_STRUCTURE_TO_MEMORY_INFO_KHR = 1000150011,
+    #[doc(alias = "VK_STRUCTURE_TYPE_COPY_MEMORY_TO_ACCELERATION_STRUCTURE_INFO_KHR")]
+    COPY_MEMORY_TO_ACCELERATION_STRUCTURE_INFO_KHR = 1000150012,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ACCELERATION_STRUCTURE_FEATURES_KHR")]
+    PHYSICAL_DEVICE_ACCELERATION_STRUCTURE_FEATURES_KHR = 1000150013,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ACCELERATION_STRUCTURE_PROPERTIES_KHR")]
+    PHYSICAL_DEVICE_ACCELERATION_STRUCTURE_PROPERTIES_KHR = 1000150014,
+    #[doc(alias = "VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_CREATE_INFO_KHR")]
+    ACCELERATION_STRUCTURE_CREATE_INFO_KHR = 1000150017,
+    #[doc(alias = "VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_BUILD_SIZES_INFO_KHR")]
+    ACCELERATION_STRUCTURE_BUILD_SIZES_INFO_KHR = 1000150020,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_PIPELINE_FEATURES_KHR")]
+    PHYSICAL_DEVICE_RAY_TRACING_PIPELINE_FEATURES_KHR = 1000347000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_PIPELINE_PROPERTIES_KHR")]
+    PHYSICAL_DEVICE_RAY_TRACING_PIPELINE_PROPERTIES_KHR = 1000347001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_RAY_TRACING_PIPELINE_CREATE_INFO_KHR")]
+    RAY_TRACING_PIPELINE_CREATE_INFO_KHR = 1000150015,
+    #[doc(alias = "VK_STRUCTURE_TYPE_RAY_TRACING_SHADER_GROUP_CREATE_INFO_KHR")]
+    RAY_TRACING_SHADER_GROUP_CREATE_INFO_KHR = 1000150016,
+    #[doc(alias = "VK_STRUCTURE_TYPE_RAY_TRACING_PIPELINE_INTERFACE_CREATE_INFO_KHR")]
+    RAY_TRACING_PIPELINE_INTERFACE_CREATE_INFO_KHR = 1000150018,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_QUERY_FEATURES_KHR")]
+    PHYSICAL_DEVICE_RAY_QUERY_FEATURES_KHR = 1000348013,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_COVERAGE_MODULATION_STATE_CREATE_INFO_NV")]
+    PIPELINE_COVERAGE_MODULATION_STATE_CREATE_INFO_NV = 1000152000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_SM_BUILTINS_FEATURES_NV")]
+    PHYSICAL_DEVICE_SHADER_SM_BUILTINS_FEATURES_NV = 1000154000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_SM_BUILTINS_PROPERTIES_NV")]
+    PHYSICAL_DEVICE_SHADER_SM_BUILTINS_PROPERTIES_NV = 1000154001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DRM_FORMAT_MODIFIER_PROPERTIES_LIST_EXT")]
+    DRM_FORMAT_MODIFIER_PROPERTIES_LIST_EXT = 1000158000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_DRM_FORMAT_MODIFIER_INFO_EXT")]
+    PHYSICAL_DEVICE_IMAGE_DRM_FORMAT_MODIFIER_INFO_EXT = 1000158002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_DRM_FORMAT_MODIFIER_LIST_CREATE_INFO_EXT")]
+    IMAGE_DRM_FORMAT_MODIFIER_LIST_CREATE_INFO_EXT = 1000158003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_DRM_FORMAT_MODIFIER_EXPLICIT_CREATE_INFO_EXT")]
+    IMAGE_DRM_FORMAT_MODIFIER_EXPLICIT_CREATE_INFO_EXT = 1000158004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_DRM_FORMAT_MODIFIER_PROPERTIES_EXT")]
+    IMAGE_DRM_FORMAT_MODIFIER_PROPERTIES_EXT = 1000158005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DRM_FORMAT_MODIFIER_PROPERTIES_LIST_2_EXT")]
+    DRM_FORMAT_MODIFIER_PROPERTIES_LIST_2_EXT = 1000158006,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VALIDATION_CACHE_CREATE_INFO_EXT")]
+    VALIDATION_CACHE_CREATE_INFO_EXT = 1000160000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SHADER_MODULE_VALIDATION_CACHE_CREATE_INFO_EXT")]
+    SHADER_MODULE_VALIDATION_CACHE_CREATE_INFO_EXT = 1000160001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PORTABILITY_SUBSET_FEATURES_KHR")]
+    PHYSICAL_DEVICE_PORTABILITY_SUBSET_FEATURES_KHR = 1000163000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PORTABILITY_SUBSET_PROPERTIES_KHR")]
+    PHYSICAL_DEVICE_PORTABILITY_SUBSET_PROPERTIES_KHR = 1000163001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_SHADING_RATE_IMAGE_STATE_CREATE_INFO_NV")]
+    PIPELINE_VIEWPORT_SHADING_RATE_IMAGE_STATE_CREATE_INFO_NV = 1000164000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADING_RATE_IMAGE_FEATURES_NV")]
+    PHYSICAL_DEVICE_SHADING_RATE_IMAGE_FEATURES_NV = 1000164001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADING_RATE_IMAGE_PROPERTIES_NV")]
+    PHYSICAL_DEVICE_SHADING_RATE_IMAGE_PROPERTIES_NV = 1000164002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_COARSE_SAMPLE_ORDER_STATE_CREATE_INFO_NV")]
+    PIPELINE_VIEWPORT_COARSE_SAMPLE_ORDER_STATE_CREATE_INFO_NV = 1000164005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_RAY_TRACING_PIPELINE_CREATE_INFO_NV")]
+    RAY_TRACING_PIPELINE_CREATE_INFO_NV = 1000165000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_CREATE_INFO_NV")]
+    ACCELERATION_STRUCTURE_CREATE_INFO_NV = 1000165001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_GEOMETRY_NV")]
+    GEOMETRY_NV = 1000165003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_GEOMETRY_TRIANGLES_NV")]
+    GEOMETRY_TRIANGLES_NV = 1000165004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_GEOMETRY_AABB_NV")]
+    GEOMETRY_AABB_NV = 1000165005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_BIND_ACCELERATION_STRUCTURE_MEMORY_INFO_NV")]
+    BIND_ACCELERATION_STRUCTURE_MEMORY_INFO_NV = 1000165006,
+    #[doc(alias = "VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET_ACCELERATION_STRUCTURE_NV")]
+    WRITE_DESCRIPTOR_SET_ACCELERATION_STRUCTURE_NV = 1000165007,
+    #[doc(alias = "VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_MEMORY_REQUIREMENTS_INFO_NV")]
+    ACCELERATION_STRUCTURE_MEMORY_REQUIREMENTS_INFO_NV = 1000165008,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_PROPERTIES_NV")]
+    PHYSICAL_DEVICE_RAY_TRACING_PROPERTIES_NV = 1000165009,
+    #[doc(alias = "VK_STRUCTURE_TYPE_RAY_TRACING_SHADER_GROUP_CREATE_INFO_NV")]
+    RAY_TRACING_SHADER_GROUP_CREATE_INFO_NV = 1000165011,
+    #[doc(alias = "VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_INFO_NV")]
+    ACCELERATION_STRUCTURE_INFO_NV = 1000165012,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_REPRESENTATIVE_FRAGMENT_TEST_FEATURES_NV")]
+    PHYSICAL_DEVICE_REPRESENTATIVE_FRAGMENT_TEST_FEATURES_NV = 1000166000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_REPRESENTATIVE_FRAGMENT_TEST_STATE_CREATE_INFO_NV")]
+    PIPELINE_REPRESENTATIVE_FRAGMENT_TEST_STATE_CREATE_INFO_NV = 1000166001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_VIEW_IMAGE_FORMAT_INFO_EXT")]
+    PHYSICAL_DEVICE_IMAGE_VIEW_IMAGE_FORMAT_INFO_EXT = 1000170000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_FILTER_CUBIC_IMAGE_VIEW_IMAGE_FORMAT_PROPERTIES_EXT")]
+    FILTER_CUBIC_IMAGE_VIEW_IMAGE_FORMAT_PROPERTIES_EXT = 1000170001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_CONVERSION_FEATURES_QCOM")]
+    PHYSICAL_DEVICE_COOPERATIVE_MATRIX_CONVERSION_FEATURES_QCOM = 1000172000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ELAPSED_TIMER_QUERY_FEATURES_QCOM")]
+    PHYSICAL_DEVICE_ELAPSED_TIMER_QUERY_FEATURES_QCOM = 1000173000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMPORT_MEMORY_HOST_POINTER_INFO_EXT")]
+    IMPORT_MEMORY_HOST_POINTER_INFO_EXT = 1000178000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_MEMORY_HOST_POINTER_PROPERTIES_EXT")]
+    MEMORY_HOST_POINTER_PROPERTIES_EXT = 1000178001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_MEMORY_HOST_PROPERTIES_EXT")]
+    PHYSICAL_DEVICE_EXTERNAL_MEMORY_HOST_PROPERTIES_EXT = 1000178002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CLOCK_FEATURES_KHR")]
+    PHYSICAL_DEVICE_SHADER_CLOCK_FEATURES_KHR = 1000181000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_COMPILER_CONTROL_CREATE_INFO_AMD")]
+    PIPELINE_COMPILER_CONTROL_CREATE_INFO_AMD = 1000183000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CORE_PROPERTIES_AMD")]
+    PHYSICAL_DEVICE_SHADER_CORE_PROPERTIES_AMD = 1000185000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_DECODE_H265_CAPABILITIES_KHR")]
+    VIDEO_DECODE_H265_CAPABILITIES_KHR = 1000187000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_DECODE_H265_SESSION_PARAMETERS_CREATE_INFO_KHR")]
+    VIDEO_DECODE_H265_SESSION_PARAMETERS_CREATE_INFO_KHR = 1000187001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_DECODE_H265_SESSION_PARAMETERS_ADD_INFO_KHR")]
+    VIDEO_DECODE_H265_SESSION_PARAMETERS_ADD_INFO_KHR = 1000187002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_DECODE_H265_PROFILE_INFO_KHR")]
+    VIDEO_DECODE_H265_PROFILE_INFO_KHR = 1000187003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_DECODE_H265_PICTURE_INFO_KHR")]
+    VIDEO_DECODE_H265_PICTURE_INFO_KHR = 1000187004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_DECODE_H265_DPB_SLOT_INFO_KHR")]
+    VIDEO_DECODE_H265_DPB_SLOT_INFO_KHR = 1000187005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_MEMORY_OVERALLOCATION_CREATE_INFO_AMD")]
+    DEVICE_MEMORY_OVERALLOCATION_CREATE_INFO_AMD = 1000189000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_DIVISOR_PROPERTIES_EXT")]
+    PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_DIVISOR_PROPERTIES_EXT = 1000190000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PRESENT_FRAME_TOKEN_GGP")]
+    PRESENT_FRAME_TOKEN_GGP = 1000191000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MESH_SHADER_FEATURES_NV")]
+    PHYSICAL_DEVICE_MESH_SHADER_FEATURES_NV = 1000202000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MESH_SHADER_PROPERTIES_NV")]
+    PHYSICAL_DEVICE_MESH_SHADER_PROPERTIES_NV = 1000202001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_IMAGE_FOOTPRINT_FEATURES_NV")]
+    PHYSICAL_DEVICE_SHADER_IMAGE_FOOTPRINT_FEATURES_NV = 1000204000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_EXCLUSIVE_SCISSOR_STATE_CREATE_INFO_NV")]
+    PIPELINE_VIEWPORT_EXCLUSIVE_SCISSOR_STATE_CREATE_INFO_NV = 1000205000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXCLUSIVE_SCISSOR_FEATURES_NV")]
+    PHYSICAL_DEVICE_EXCLUSIVE_SCISSOR_FEATURES_NV = 1000205002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_CHECKPOINT_DATA_NV")]
+    CHECKPOINT_DATA_NV = 1000206000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_QUEUE_FAMILY_CHECKPOINT_PROPERTIES_NV")]
+    QUEUE_FAMILY_CHECKPOINT_PROPERTIES_NV = 1000206001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_QUEUE_FAMILY_CHECKPOINT_PROPERTIES_2_NV")]
+    QUEUE_FAMILY_CHECKPOINT_PROPERTIES_2_NV = 1000314008,
+    #[doc(alias = "VK_STRUCTURE_TYPE_CHECKPOINT_DATA_2_NV")]
+    CHECKPOINT_DATA_2_NV = 1000314009,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_TIMING_FEATURES_EXT")]
+    PHYSICAL_DEVICE_PRESENT_TIMING_FEATURES_EXT = 1000208000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SWAPCHAIN_TIMING_PROPERTIES_EXT")]
+    SWAPCHAIN_TIMING_PROPERTIES_EXT = 1000208001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SWAPCHAIN_TIME_DOMAIN_PROPERTIES_EXT")]
+    SWAPCHAIN_TIME_DOMAIN_PROPERTIES_EXT = 1000208002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PRESENT_TIMINGS_INFO_EXT")]
+    PRESENT_TIMINGS_INFO_EXT = 1000208003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PRESENT_TIMING_INFO_EXT")]
+    PRESENT_TIMING_INFO_EXT = 1000208004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PAST_PRESENTATION_TIMING_INFO_EXT")]
+    PAST_PRESENTATION_TIMING_INFO_EXT = 1000208005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PAST_PRESENTATION_TIMING_PROPERTIES_EXT")]
+    PAST_PRESENTATION_TIMING_PROPERTIES_EXT = 1000208006,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PAST_PRESENTATION_TIMING_EXT")]
+    PAST_PRESENTATION_TIMING_EXT = 1000208007,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PRESENT_TIMING_SURFACE_CAPABILITIES_EXT")]
+    PRESENT_TIMING_SURFACE_CAPABILITIES_EXT = 1000208008,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SWAPCHAIN_CALIBRATED_TIMESTAMP_INFO_EXT")]
+    SWAPCHAIN_CALIBRATED_TIMESTAMP_INFO_EXT = 1000208009,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_INTEGER_FUNCTIONS_2_FEATURES_INTEL")]
+    PHYSICAL_DEVICE_SHADER_INTEGER_FUNCTIONS_2_FEATURES_INTEL = 1000209000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_QUERY_POOL_PERFORMANCE_QUERY_CREATE_INFO_INTEL")]
+    QUERY_POOL_PERFORMANCE_QUERY_CREATE_INFO_INTEL = 1000210000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_INITIALIZE_PERFORMANCE_API_INFO_INTEL")]
+    INITIALIZE_PERFORMANCE_API_INFO_INTEL = 1000210001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PERFORMANCE_MARKER_INFO_INTEL")]
+    PERFORMANCE_MARKER_INFO_INTEL = 1000210002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PERFORMANCE_STREAM_MARKER_INFO_INTEL")]
+    PERFORMANCE_STREAM_MARKER_INFO_INTEL = 1000210003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PERFORMANCE_OVERRIDE_INFO_INTEL")]
+    PERFORMANCE_OVERRIDE_INFO_INTEL = 1000210004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PERFORMANCE_CONFIGURATION_ACQUIRE_INFO_INTEL")]
+    PERFORMANCE_CONFIGURATION_ACQUIRE_INFO_INTEL = 1000210005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PCI_BUS_INFO_PROPERTIES_EXT")]
+    PHYSICAL_DEVICE_PCI_BUS_INFO_PROPERTIES_EXT = 1000212000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DISPLAY_NATIVE_HDR_SURFACE_CAPABILITIES_AMD")]
+    DISPLAY_NATIVE_HDR_SURFACE_CAPABILITIES_AMD = 1000213000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SWAPCHAIN_DISPLAY_NATIVE_HDR_CREATE_INFO_AMD")]
+    SWAPCHAIN_DISPLAY_NATIVE_HDR_CREATE_INFO_AMD = 1000213001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGEPIPE_SURFACE_CREATE_INFO_FUCHSIA")]
+    IMAGEPIPE_SURFACE_CREATE_INFO_FUCHSIA = 1000214000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_METAL_SURFACE_CREATE_INFO_EXT")]
+    METAL_SURFACE_CREATE_INFO_EXT = 1000217000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_FEATURES_EXT")]
+    PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_FEATURES_EXT = 1000218000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_PROPERTIES_EXT")]
+    PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_PROPERTIES_EXT = 1000218001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_RENDER_PASS_FRAGMENT_DENSITY_MAP_CREATE_INFO_EXT")]
+    RENDER_PASS_FRAGMENT_DENSITY_MAP_CREATE_INFO_EXT = 1000218002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_RENDERING_FRAGMENT_DENSITY_MAP_ATTACHMENT_INFO_EXT")]
+    RENDERING_FRAGMENT_DENSITY_MAP_ATTACHMENT_INFO_EXT = 1000044007,
+    #[doc(alias = "VK_STRUCTURE_TYPE_FRAGMENT_SHADING_RATE_ATTACHMENT_INFO_KHR")]
+    FRAGMENT_SHADING_RATE_ATTACHMENT_INFO_KHR = 1000226000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_FRAGMENT_SHADING_RATE_STATE_CREATE_INFO_KHR")]
+    PIPELINE_FRAGMENT_SHADING_RATE_STATE_CREATE_INFO_KHR = 1000226001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_PROPERTIES_KHR")]
+    PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_PROPERTIES_KHR = 1000226002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_FEATURES_KHR")]
+    PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_FEATURES_KHR = 1000226003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_KHR")]
+    PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_KHR = 1000226004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_RENDERING_FRAGMENT_SHADING_RATE_ATTACHMENT_INFO_KHR")]
+    RENDERING_FRAGMENT_SHADING_RATE_ATTACHMENT_INFO_KHR = 1000044006,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CORE_PROPERTIES_2_AMD")]
+    PHYSICAL_DEVICE_SHADER_CORE_PROPERTIES_2_AMD = 1000227000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COHERENT_MEMORY_FEATURES_AMD")]
+    PHYSICAL_DEVICE_COHERENT_MEMORY_FEATURES_AMD = 1000229000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CONSTANT_DATA_FEATURES_KHR")]
+    PHYSICAL_DEVICE_SHADER_CONSTANT_DATA_FEATURES_KHR = 1000231000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ABORT_FEATURES_KHR")]
+    PHYSICAL_DEVICE_SHADER_ABORT_FEATURES_KHR = 1000233000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_FAULT_SHADER_ABORT_MESSAGE_INFO_KHR")]
+    DEVICE_FAULT_SHADER_ABORT_MESSAGE_INFO_KHR = 1000233001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ABORT_PROPERTIES_KHR")]
+    PHYSICAL_DEVICE_SHADER_ABORT_PROPERTIES_KHR = 1000233002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_IMAGE_ATOMIC_INT64_FEATURES_EXT")]
+    PHYSICAL_DEVICE_SHADER_IMAGE_ATOMIC_INT64_FEATURES_EXT = 1000234000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_QUAD_CONTROL_FEATURES_KHR")]
+    PHYSICAL_DEVICE_SHADER_QUAD_CONTROL_FEATURES_KHR = 1000235000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_BUDGET_PROPERTIES_EXT")]
+    PHYSICAL_DEVICE_MEMORY_BUDGET_PROPERTIES_EXT = 1000237000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_PRIORITY_FEATURES_EXT")]
+    PHYSICAL_DEVICE_MEMORY_PRIORITY_FEATURES_EXT = 1000238000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_MEMORY_PRIORITY_ALLOCATE_INFO_EXT")]
+    MEMORY_PRIORITY_ALLOCATE_INFO_EXT = 1000238001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SURFACE_PROTECTED_CAPABILITIES_KHR")]
+    SURFACE_PROTECTED_CAPABILITIES_KHR = 1000239000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEDICATED_ALLOCATION_IMAGE_ALIASING_FEATURES_NV")]
+    PHYSICAL_DEVICE_DEDICATED_ALLOCATION_IMAGE_ALIASING_FEATURES_NV = 1000240000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BUFFER_DEVICE_ADDRESS_FEATURES_EXT")]
+    PHYSICAL_DEVICE_BUFFER_DEVICE_ADDRESS_FEATURES_EXT = 1000244000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_BUFFER_DEVICE_ADDRESS_CREATE_INFO_EXT")]
+    BUFFER_DEVICE_ADDRESS_CREATE_INFO_EXT = 1000244002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VALIDATION_FEATURES_EXT")]
+    VALIDATION_FEATURES_EXT = 1000247000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_WAIT_FEATURES_KHR")]
+    PHYSICAL_DEVICE_PRESENT_WAIT_FEATURES_KHR = 1000248000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_FEATURES_NV")]
+    PHYSICAL_DEVICE_COOPERATIVE_MATRIX_FEATURES_NV = 1000249000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_COOPERATIVE_MATRIX_PROPERTIES_NV")]
+    COOPERATIVE_MATRIX_PROPERTIES_NV = 1000249001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_PROPERTIES_NV")]
+    PHYSICAL_DEVICE_COOPERATIVE_MATRIX_PROPERTIES_NV = 1000249002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COVERAGE_REDUCTION_MODE_FEATURES_NV")]
+    PHYSICAL_DEVICE_COVERAGE_REDUCTION_MODE_FEATURES_NV = 1000250000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_COVERAGE_REDUCTION_STATE_CREATE_INFO_NV")]
+    PIPELINE_COVERAGE_REDUCTION_STATE_CREATE_INFO_NV = 1000250001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_FRAMEBUFFER_MIXED_SAMPLES_COMBINATION_NV")]
+    FRAMEBUFFER_MIXED_SAMPLES_COMBINATION_NV = 1000250002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADER_INTERLOCK_FEATURES_EXT")]
+    PHYSICAL_DEVICE_FRAGMENT_SHADER_INTERLOCK_FEATURES_EXT = 1000251000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_YCBCR_IMAGE_ARRAYS_FEATURES_EXT")]
+    PHYSICAL_DEVICE_YCBCR_IMAGE_ARRAYS_FEATURES_EXT = 1000252000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PROVOKING_VERTEX_FEATURES_EXT")]
+    PHYSICAL_DEVICE_PROVOKING_VERTEX_FEATURES_EXT = 1000254000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_PROVOKING_VERTEX_STATE_CREATE_INFO_EXT")]
+    PIPELINE_RASTERIZATION_PROVOKING_VERTEX_STATE_CREATE_INFO_EXT = 1000254001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PROVOKING_VERTEX_PROPERTIES_EXT")]
+    PHYSICAL_DEVICE_PROVOKING_VERTEX_PROPERTIES_EXT = 1000254002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SURFACE_FULL_SCREEN_EXCLUSIVE_INFO_EXT")]
+    SURFACE_FULL_SCREEN_EXCLUSIVE_INFO_EXT = 1000255000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES_FULL_SCREEN_EXCLUSIVE_EXT")]
+    SURFACE_CAPABILITIES_FULL_SCREEN_EXCLUSIVE_EXT = 1000255002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SURFACE_FULL_SCREEN_EXCLUSIVE_WIN32_INFO_EXT")]
+    SURFACE_FULL_SCREEN_EXCLUSIVE_WIN32_INFO_EXT = 1000255001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_HEADLESS_SURFACE_CREATE_INFO_EXT")]
+    HEADLESS_SURFACE_CREATE_INFO_EXT = 1000256000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ATOMIC_FLOAT_FEATURES_EXT")]
+    PHYSICAL_DEVICE_SHADER_ATOMIC_FLOAT_FEATURES_EXT = 1000260000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_FEATURES_EXT")]
+    PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_FEATURES_EXT = 1000267000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_EXECUTABLE_PROPERTIES_FEATURES_KHR")]
+    PHYSICAL_DEVICE_PIPELINE_EXECUTABLE_PROPERTIES_FEATURES_KHR = 1000269000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_INFO_KHR")]
+    PIPELINE_INFO_KHR = 1000269001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_EXECUTABLE_PROPERTIES_KHR")]
+    PIPELINE_EXECUTABLE_PROPERTIES_KHR = 1000269002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_EXECUTABLE_INFO_KHR")]
+    PIPELINE_EXECUTABLE_INFO_KHR = 1000269003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_EXECUTABLE_STATISTIC_KHR")]
+    PIPELINE_EXECUTABLE_STATISTIC_KHR = 1000269004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_EXECUTABLE_INTERNAL_REPRESENTATION_KHR")]
+    PIPELINE_EXECUTABLE_INTERNAL_REPRESENTATION_KHR = 1000269005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAP_MEMORY_PLACED_FEATURES_EXT")]
+    PHYSICAL_DEVICE_MAP_MEMORY_PLACED_FEATURES_EXT = 1000272000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAP_MEMORY_PLACED_PROPERTIES_EXT")]
+    PHYSICAL_DEVICE_MAP_MEMORY_PLACED_PROPERTIES_EXT = 1000272001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_MEMORY_MAP_PLACED_INFO_EXT")]
+    MEMORY_MAP_PLACED_INFO_EXT = 1000272002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ATOMIC_FLOAT_2_FEATURES_EXT")]
+    PHYSICAL_DEVICE_SHADER_ATOMIC_FLOAT_2_FEATURES_EXT = 1000273000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_PROPERTIES_NV")]
+    PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_PROPERTIES_NV = 1000277000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_GRAPHICS_SHADER_GROUP_CREATE_INFO_NV")]
+    GRAPHICS_SHADER_GROUP_CREATE_INFO_NV = 1000277001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_SHADER_GROUPS_CREATE_INFO_NV")]
+    GRAPHICS_PIPELINE_SHADER_GROUPS_CREATE_INFO_NV = 1000277002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_INDIRECT_COMMANDS_LAYOUT_TOKEN_NV")]
+    INDIRECT_COMMANDS_LAYOUT_TOKEN_NV = 1000277003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_INDIRECT_COMMANDS_LAYOUT_CREATE_INFO_NV")]
+    INDIRECT_COMMANDS_LAYOUT_CREATE_INFO_NV = 1000277004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_GENERATED_COMMANDS_INFO_NV")]
+    GENERATED_COMMANDS_INFO_NV = 1000277005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_GENERATED_COMMANDS_MEMORY_REQUIREMENTS_INFO_NV")]
+    GENERATED_COMMANDS_MEMORY_REQUIREMENTS_INFO_NV = 1000277006,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_FEATURES_NV")]
+    PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_FEATURES_NV = 1000277007,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_INHERITED_VIEWPORT_SCISSOR_FEATURES_NV")]
+    PHYSICAL_DEVICE_INHERITED_VIEWPORT_SCISSOR_FEATURES_NV = 1000278000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_VIEWPORT_SCISSOR_INFO_NV")]
+    COMMAND_BUFFER_INHERITANCE_VIEWPORT_SCISSOR_INFO_NV = 1000278001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TEXEL_BUFFER_ALIGNMENT_FEATURES_EXT")]
+    PHYSICAL_DEVICE_TEXEL_BUFFER_ALIGNMENT_FEATURES_EXT = 1000281000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_RENDER_PASS_TRANSFORM_INFO_QCOM")]
+    COMMAND_BUFFER_INHERITANCE_RENDER_PASS_TRANSFORM_INFO_QCOM = 1000282000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_RENDER_PASS_TRANSFORM_BEGIN_INFO_QCOM")]
+    RENDER_PASS_TRANSFORM_BEGIN_INFO_QCOM = 1000282001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEPTH_BIAS_CONTROL_FEATURES_EXT")]
+    PHYSICAL_DEVICE_DEPTH_BIAS_CONTROL_FEATURES_EXT = 1000283000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEPTH_BIAS_INFO_EXT")]
+    DEPTH_BIAS_INFO_EXT = 1000283001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEPTH_BIAS_REPRESENTATION_INFO_EXT")]
+    DEPTH_BIAS_REPRESENTATION_INFO_EXT = 1000283002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEVICE_MEMORY_REPORT_FEATURES_EXT")]
+    PHYSICAL_DEVICE_DEVICE_MEMORY_REPORT_FEATURES_EXT = 1000284000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_DEVICE_MEMORY_REPORT_CREATE_INFO_EXT")]
+    DEVICE_DEVICE_MEMORY_REPORT_CREATE_INFO_EXT = 1000284001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_MEMORY_REPORT_CALLBACK_DATA_EXT")]
+    DEVICE_MEMORY_REPORT_CALLBACK_DATA_EXT = 1000284002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SAMPLER_CUSTOM_BORDER_COLOR_CREATE_INFO_EXT")]
+    SAMPLER_CUSTOM_BORDER_COLOR_CREATE_INFO_EXT = 1000287000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUSTOM_BORDER_COLOR_PROPERTIES_EXT")]
+    PHYSICAL_DEVICE_CUSTOM_BORDER_COLOR_PROPERTIES_EXT = 1000287001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUSTOM_BORDER_COLOR_FEATURES_EXT")]
+    PHYSICAL_DEVICE_CUSTOM_BORDER_COLOR_FEATURES_EXT = 1000287002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TEXTURE_COMPRESSION_ASTC_3D_FEATURES_EXT")]
+    PHYSICAL_DEVICE_TEXTURE_COMPRESSION_ASTC_3D_FEATURES_EXT = 1000288000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_LIBRARY_CREATE_INFO_KHR")]
+    PIPELINE_LIBRARY_CREATE_INFO_KHR = 1000290000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_BARRIER_FEATURES_NV")]
+    PHYSICAL_DEVICE_PRESENT_BARRIER_FEATURES_NV = 1000292000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES_PRESENT_BARRIER_NV")]
+    SURFACE_CAPABILITIES_PRESENT_BARRIER_NV = 1000292001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_BARRIER_CREATE_INFO_NV")]
+    SWAPCHAIN_PRESENT_BARRIER_CREATE_INFO_NV = 1000292002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PRESENT_ID_KHR")]
+    PRESENT_ID_KHR = 1000294000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_ID_FEATURES_KHR")]
+    PHYSICAL_DEVICE_PRESENT_ID_FEATURES_KHR = 1000294001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_INFO_KHR")]
+    VIDEO_ENCODE_INFO_KHR = 1000299000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_RATE_CONTROL_INFO_KHR")]
+    VIDEO_ENCODE_RATE_CONTROL_INFO_KHR = 1000299001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_RATE_CONTROL_LAYER_INFO_KHR")]
+    VIDEO_ENCODE_RATE_CONTROL_LAYER_INFO_KHR = 1000299002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_CAPABILITIES_KHR")]
+    VIDEO_ENCODE_CAPABILITIES_KHR = 1000299003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_USAGE_INFO_KHR")]
+    VIDEO_ENCODE_USAGE_INFO_KHR = 1000299004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_QUERY_POOL_VIDEO_ENCODE_FEEDBACK_CREATE_INFO_KHR")]
+    QUERY_POOL_VIDEO_ENCODE_FEEDBACK_CREATE_INFO_KHR = 1000299005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VIDEO_ENCODE_QUALITY_LEVEL_INFO_KHR")]
+    PHYSICAL_DEVICE_VIDEO_ENCODE_QUALITY_LEVEL_INFO_KHR = 1000299006,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_QUALITY_LEVEL_PROPERTIES_KHR")]
+    VIDEO_ENCODE_QUALITY_LEVEL_PROPERTIES_KHR = 1000299007,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_QUALITY_LEVEL_INFO_KHR")]
+    VIDEO_ENCODE_QUALITY_LEVEL_INFO_KHR = 1000299008,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_SESSION_PARAMETERS_GET_INFO_KHR")]
+    VIDEO_ENCODE_SESSION_PARAMETERS_GET_INFO_KHR = 1000299009,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_SESSION_PARAMETERS_FEEDBACK_INFO_KHR")]
+    VIDEO_ENCODE_SESSION_PARAMETERS_FEEDBACK_INFO_KHR = 1000299010,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DIAGNOSTICS_CONFIG_FEATURES_NV")]
+    PHYSICAL_DEVICE_DIAGNOSTICS_CONFIG_FEATURES_NV = 1000300000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_DIAGNOSTICS_CONFIG_CREATE_INFO_NV")]
+    DEVICE_DIAGNOSTICS_CONFIG_CREATE_INFO_NV = 1000300001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PERF_HINT_INFO_QCOM")]
+    PERF_HINT_INFO_QCOM = 1000302000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_QUEUE_PERF_HINT_FEATURES_QCOM")]
+    PHYSICAL_DEVICE_QUEUE_PERF_HINT_FEATURES_QCOM = 1000302001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_QUEUE_PERF_HINT_PROPERTIES_QCOM")]
+    PHYSICAL_DEVICE_QUEUE_PERF_HINT_PROPERTIES_QCOM = 1000302002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_PROCESSING_3_FEATURES_QCOM")]
+    PHYSICAL_DEVICE_IMAGE_PROCESSING_3_FEATURES_QCOM = 1000303000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_MULTIPLE_WAIT_QUEUES_FEATURES_QCOM")]
+    PHYSICAL_DEVICE_SHADER_MULTIPLE_WAIT_QUEUES_FEATURES_QCOM = 1000304000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_MULTIPLE_WAIT_QUEUES_PROPERTIES_QCOM")]
+    PHYSICAL_DEVICE_SHADER_MULTIPLE_WAIT_QUEUES_PROPERTIES_QCOM = 1000304001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_SPLIT_BARRIER_FEATURES_EXT")]
+    PHYSICAL_DEVICE_SHADER_SPLIT_BARRIER_FEATURES_EXT = 1000305000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_SPLIT_BARRIER_PROPERTIES_EXT")]
+    PHYSICAL_DEVICE_SHADER_SPLIT_BARRIER_PROPERTIES_EXT = 1000305001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_CUDA_MODULE_CREATE_INFO_NV")]
+    CUDA_MODULE_CREATE_INFO_NV = 1000307000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_CUDA_FUNCTION_CREATE_INFO_NV")]
+    CUDA_FUNCTION_CREATE_INFO_NV = 1000307001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_CUDA_LAUNCH_INFO_NV")]
+    CUDA_LAUNCH_INFO_NV = 1000307002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUDA_KERNEL_LAUNCH_FEATURES_NV")]
+    PHYSICAL_DEVICE_CUDA_KERNEL_LAUNCH_FEATURES_NV = 1000307003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUDA_KERNEL_LAUNCH_PROPERTIES_NV")]
+    PHYSICAL_DEVICE_CUDA_KERNEL_LAUNCH_PROPERTIES_NV = 1000307004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TILE_SHADING_FEATURES_QCOM")]
+    PHYSICAL_DEVICE_TILE_SHADING_FEATURES_QCOM = 1000309000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TILE_SHADING_PROPERTIES_QCOM")]
+    PHYSICAL_DEVICE_TILE_SHADING_PROPERTIES_QCOM = 1000309001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_RENDER_PASS_TILE_SHADING_CREATE_INFO_QCOM")]
+    RENDER_PASS_TILE_SHADING_CREATE_INFO_QCOM = 1000309002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PER_TILE_BEGIN_INFO_QCOM")]
+    PER_TILE_BEGIN_INFO_QCOM = 1000309003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PER_TILE_END_INFO_QCOM")]
+    PER_TILE_END_INFO_QCOM = 1000309004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DISPATCH_TILE_INFO_QCOM")]
+    DISPATCH_TILE_INFO_QCOM = 1000309005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_QUERY_LOW_LATENCY_SUPPORT_NV")]
+    QUERY_LOW_LATENCY_SUPPORT_NV = 1000310000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_EXPORT_METAL_OBJECT_CREATE_INFO_EXT")]
+    EXPORT_METAL_OBJECT_CREATE_INFO_EXT = 1000311000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_EXPORT_METAL_OBJECTS_INFO_EXT")]
+    EXPORT_METAL_OBJECTS_INFO_EXT = 1000311001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_EXPORT_METAL_DEVICE_INFO_EXT")]
+    EXPORT_METAL_DEVICE_INFO_EXT = 1000311002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_EXPORT_METAL_COMMAND_QUEUE_INFO_EXT")]
+    EXPORT_METAL_COMMAND_QUEUE_INFO_EXT = 1000311003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_EXPORT_METAL_BUFFER_INFO_EXT")]
+    EXPORT_METAL_BUFFER_INFO_EXT = 1000311004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMPORT_METAL_BUFFER_INFO_EXT")]
+    IMPORT_METAL_BUFFER_INFO_EXT = 1000311005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_EXPORT_METAL_TEXTURE_INFO_EXT")]
+    EXPORT_METAL_TEXTURE_INFO_EXT = 1000311006,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMPORT_METAL_TEXTURE_INFO_EXT")]
+    IMPORT_METAL_TEXTURE_INFO_EXT = 1000311007,
+    #[doc(alias = "VK_STRUCTURE_TYPE_EXPORT_METAL_IO_SURFACE_INFO_EXT")]
+    EXPORT_METAL_IO_SURFACE_INFO_EXT = 1000311008,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMPORT_METAL_IO_SURFACE_INFO_EXT")]
+    IMPORT_METAL_IO_SURFACE_INFO_EXT = 1000311009,
+    #[doc(alias = "VK_STRUCTURE_TYPE_EXPORT_METAL_SHARED_EVENT_INFO_EXT")]
+    EXPORT_METAL_SHARED_EVENT_INFO_EXT = 1000311010,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMPORT_METAL_SHARED_EVENT_INFO_EXT")]
+    IMPORT_METAL_SHARED_EVENT_INFO_EXT = 1000311011,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_PROPERTIES_EXT")]
+    PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_PROPERTIES_EXT = 1000316000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_DENSITY_MAP_PROPERTIES_EXT")]
+    PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_DENSITY_MAP_PROPERTIES_EXT = 1000316001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_FEATURES_EXT")]
+    PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_FEATURES_EXT = 1000316002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DESCRIPTOR_ADDRESS_INFO_EXT")]
+    DESCRIPTOR_ADDRESS_INFO_EXT = 1000316003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DESCRIPTOR_GET_INFO_EXT")]
+    DESCRIPTOR_GET_INFO_EXT = 1000316004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_BUFFER_CAPTURE_DESCRIPTOR_DATA_INFO_EXT")]
+    BUFFER_CAPTURE_DESCRIPTOR_DATA_INFO_EXT = 1000316005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_CAPTURE_DESCRIPTOR_DATA_INFO_EXT")]
+    IMAGE_CAPTURE_DESCRIPTOR_DATA_INFO_EXT = 1000316006,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_VIEW_CAPTURE_DESCRIPTOR_DATA_INFO_EXT")]
+    IMAGE_VIEW_CAPTURE_DESCRIPTOR_DATA_INFO_EXT = 1000316007,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SAMPLER_CAPTURE_DESCRIPTOR_DATA_INFO_EXT")]
+    SAMPLER_CAPTURE_DESCRIPTOR_DATA_INFO_EXT = 1000316008,
+    #[doc(alias = "VK_STRUCTURE_TYPE_OPAQUE_CAPTURE_DESCRIPTOR_DATA_CREATE_INFO_EXT")]
+    OPAQUE_CAPTURE_DESCRIPTOR_DATA_CREATE_INFO_EXT = 1000316010,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DESCRIPTOR_BUFFER_BINDING_INFO_EXT")]
+    DESCRIPTOR_BUFFER_BINDING_INFO_EXT = 1000316011,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DESCRIPTOR_BUFFER_BINDING_PUSH_DESCRIPTOR_BUFFER_HANDLE_EXT")]
+    DESCRIPTOR_BUFFER_BINDING_PUSH_DESCRIPTOR_BUFFER_HANDLE_EXT = 1000316012,
+    #[doc(alias = "VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_CAPTURE_DESCRIPTOR_DATA_INFO_EXT")]
+    ACCELERATION_STRUCTURE_CAPTURE_DESCRIPTOR_DATA_INFO_EXT = 1000316009,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_MEMORY_COPY_KHR")]
+    DEVICE_MEMORY_COPY_KHR = 1000318000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_COPY_DEVICE_MEMORY_INFO_KHR")]
+    COPY_DEVICE_MEMORY_INFO_KHR = 1000318001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_MEMORY_IMAGE_COPY_KHR")]
+    DEVICE_MEMORY_IMAGE_COPY_KHR = 1000318002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_COPY_DEVICE_MEMORY_IMAGE_INFO_KHR")]
+    COPY_DEVICE_MEMORY_IMAGE_INFO_KHR = 1000318003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_MEMORY_RANGE_BARRIERS_INFO_KHR")]
+    MEMORY_RANGE_BARRIERS_INFO_KHR = 1000318004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_MEMORY_RANGE_BARRIER_KHR")]
+    MEMORY_RANGE_BARRIER_KHR = 1000318005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEVICE_ADDRESS_COMMANDS_FEATURES_KHR")]
+    PHYSICAL_DEVICE_DEVICE_ADDRESS_COMMANDS_FEATURES_KHR = 1000318006,
+    #[doc(alias = "VK_STRUCTURE_TYPE_BIND_INDEX_BUFFER_3_INFO_KHR")]
+    BIND_INDEX_BUFFER_3_INFO_KHR = 1000318007,
+    #[doc(alias = "VK_STRUCTURE_TYPE_BIND_VERTEX_BUFFER_3_INFO_KHR")]
+    BIND_VERTEX_BUFFER_3_INFO_KHR = 1000318008,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DRAW_INDIRECT_2_INFO_KHR")]
+    DRAW_INDIRECT_2_INFO_KHR = 1000318009,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DRAW_INDIRECT_COUNT_2_INFO_KHR")]
+    DRAW_INDIRECT_COUNT_2_INFO_KHR = 1000318010,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DISPATCH_INDIRECT_2_INFO_KHR")]
+    DISPATCH_INDIRECT_2_INFO_KHR = 1000318011,
+    #[doc(alias = "VK_STRUCTURE_TYPE_CONDITIONAL_RENDERING_BEGIN_INFO_2_EXT")]
+    CONDITIONAL_RENDERING_BEGIN_INFO_2_EXT = 1000318012,
+    #[doc(alias = "VK_STRUCTURE_TYPE_BIND_TRANSFORM_FEEDBACK_BUFFER_2_INFO_EXT")]
+    BIND_TRANSFORM_FEEDBACK_BUFFER_2_INFO_EXT = 1000318013,
+    #[doc(alias = "VK_STRUCTURE_TYPE_MEMORY_MARKER_INFO_AMD")]
+    MEMORY_MARKER_INFO_AMD = 1000318014,
+    #[doc(alias = "VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_CREATE_INFO_2_KHR")]
+    ACCELERATION_STRUCTURE_CREATE_INFO_2_KHR = 1000318015,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_GRAPHICS_PIPELINE_LIBRARY_FEATURES_EXT")]
+    PHYSICAL_DEVICE_GRAPHICS_PIPELINE_LIBRARY_FEATURES_EXT = 1000320000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_GRAPHICS_PIPELINE_LIBRARY_PROPERTIES_EXT")]
+    PHYSICAL_DEVICE_GRAPHICS_PIPELINE_LIBRARY_PROPERTIES_EXT = 1000320001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_LIBRARY_CREATE_INFO_EXT")]
+    GRAPHICS_PIPELINE_LIBRARY_CREATE_INFO_EXT = 1000320002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_EARLY_AND_LATE_FRAGMENT_TESTS_FEATURES_AMD")]
+    PHYSICAL_DEVICE_SHADER_EARLY_AND_LATE_FRAGMENT_TESTS_FEATURES_AMD = 1000321000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADER_BARYCENTRIC_FEATURES_KHR")]
+    PHYSICAL_DEVICE_FRAGMENT_SHADER_BARYCENTRIC_FEATURES_KHR = 1000203000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADER_BARYCENTRIC_PROPERTIES_KHR")]
+    PHYSICAL_DEVICE_FRAGMENT_SHADER_BARYCENTRIC_PROPERTIES_KHR = 1000322000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_SUBGROUP_UNIFORM_CONTROL_FLOW_FEATURES_KHR")]
+    PHYSICAL_DEVICE_SHADER_SUBGROUP_UNIFORM_CONTROL_FLOW_FEATURES_KHR = 1000323000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_ENUMS_PROPERTIES_NV")]
+    PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_ENUMS_PROPERTIES_NV = 1000326000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_ENUMS_FEATURES_NV")]
+    PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_ENUMS_FEATURES_NV = 1000326001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_FRAGMENT_SHADING_RATE_ENUM_STATE_CREATE_INFO_NV")]
+    PIPELINE_FRAGMENT_SHADING_RATE_ENUM_STATE_CREATE_INFO_NV = 1000326002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_GEOMETRY_MOTION_TRIANGLES_DATA_NV")]
+    ACCELERATION_STRUCTURE_GEOMETRY_MOTION_TRIANGLES_DATA_NV = 1000327000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_MOTION_BLUR_FEATURES_NV")]
+    PHYSICAL_DEVICE_RAY_TRACING_MOTION_BLUR_FEATURES_NV = 1000327001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_MOTION_INFO_NV")]
+    ACCELERATION_STRUCTURE_MOTION_INFO_NV = 1000327002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MESH_SHADER_FEATURES_EXT")]
+    PHYSICAL_DEVICE_MESH_SHADER_FEATURES_EXT = 1000328000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MESH_SHADER_PROPERTIES_EXT")]
+    PHYSICAL_DEVICE_MESH_SHADER_PROPERTIES_EXT = 1000328001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_YCBCR_2_PLANE_444_FORMATS_FEATURES_EXT")]
+    PHYSICAL_DEVICE_YCBCR_2_PLANE_444_FORMATS_FEATURES_EXT = 1000330000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_2_FEATURES_EXT")]
+    PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_2_FEATURES_EXT = 1000332000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_2_PROPERTIES_EXT")]
+    PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_2_PROPERTIES_EXT = 1000332001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_COPY_COMMAND_TRANSFORM_INFO_QCOM")]
+    COPY_COMMAND_TRANSFORM_INFO_QCOM = 1000333000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_WORKGROUP_MEMORY_EXPLICIT_LAYOUT_FEATURES_KHR")]
+    PHYSICAL_DEVICE_WORKGROUP_MEMORY_EXPLICIT_LAYOUT_FEATURES_KHR = 1000336000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_COMPRESSION_CONTROL_FEATURES_EXT")]
+    PHYSICAL_DEVICE_IMAGE_COMPRESSION_CONTROL_FEATURES_EXT = 1000338000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_COMPRESSION_CONTROL_EXT")]
+    IMAGE_COMPRESSION_CONTROL_EXT = 1000338001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_COMPRESSION_PROPERTIES_EXT")]
+    IMAGE_COMPRESSION_PROPERTIES_EXT = 1000338004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ATTACHMENT_FEEDBACK_LOOP_LAYOUT_FEATURES_EXT")]
+    PHYSICAL_DEVICE_ATTACHMENT_FEEDBACK_LOOP_LAYOUT_FEATURES_EXT = 1000339000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_4444_FORMATS_FEATURES_EXT")]
+    PHYSICAL_DEVICE_4444_FORMATS_FEATURES_EXT = 1000340000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FAULT_FEATURES_EXT")]
+    PHYSICAL_DEVICE_FAULT_FEATURES_EXT = 1000341000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_FAULT_COUNTS_EXT")]
+    DEVICE_FAULT_COUNTS_EXT = 1000341001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_FAULT_INFO_EXT")]
+    DEVICE_FAULT_INFO_EXT = 1000341002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RGBA10X6_FORMATS_FEATURES_EXT")]
+    PHYSICAL_DEVICE_RGBA10X6_FORMATS_FEATURES_EXT = 1000344000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DIRECTFB_SURFACE_CREATE_INFO_EXT")]
+    DIRECTFB_SURFACE_CREATE_INFO_EXT = 1000346000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VERTEX_INPUT_DYNAMIC_STATE_FEATURES_EXT")]
+    PHYSICAL_DEVICE_VERTEX_INPUT_DYNAMIC_STATE_FEATURES_EXT = 1000352000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VERTEX_INPUT_BINDING_DESCRIPTION_2_EXT")]
+    VERTEX_INPUT_BINDING_DESCRIPTION_2_EXT = 1000352001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VERTEX_INPUT_ATTRIBUTE_DESCRIPTION_2_EXT")]
+    VERTEX_INPUT_ATTRIBUTE_DESCRIPTION_2_EXT = 1000352002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DRM_PROPERTIES_EXT")]
+    PHYSICAL_DEVICE_DRM_PROPERTIES_EXT = 1000353000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ADDRESS_BINDING_REPORT_FEATURES_EXT")]
+    PHYSICAL_DEVICE_ADDRESS_BINDING_REPORT_FEATURES_EXT = 1000354000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_ADDRESS_BINDING_CALLBACK_DATA_EXT")]
+    DEVICE_ADDRESS_BINDING_CALLBACK_DATA_EXT = 1000354001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEPTH_CLIP_CONTROL_FEATURES_EXT")]
+    PHYSICAL_DEVICE_DEPTH_CLIP_CONTROL_FEATURES_EXT = 1000355000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_DEPTH_CLIP_CONTROL_CREATE_INFO_EXT")]
+    PIPELINE_VIEWPORT_DEPTH_CLIP_CONTROL_CREATE_INFO_EXT = 1000355001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRIMITIVE_TOPOLOGY_LIST_RESTART_FEATURES_EXT")]
+    PHYSICAL_DEVICE_PRIMITIVE_TOPOLOGY_LIST_RESTART_FEATURES_EXT = 1000356000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMPORT_MEMORY_ZIRCON_HANDLE_INFO_FUCHSIA")]
+    IMPORT_MEMORY_ZIRCON_HANDLE_INFO_FUCHSIA = 1000364000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_MEMORY_ZIRCON_HANDLE_PROPERTIES_FUCHSIA")]
+    MEMORY_ZIRCON_HANDLE_PROPERTIES_FUCHSIA = 1000364001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_MEMORY_GET_ZIRCON_HANDLE_INFO_FUCHSIA")]
+    MEMORY_GET_ZIRCON_HANDLE_INFO_FUCHSIA = 1000364002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMPORT_SEMAPHORE_ZIRCON_HANDLE_INFO_FUCHSIA")]
+    IMPORT_SEMAPHORE_ZIRCON_HANDLE_INFO_FUCHSIA = 1000365000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SEMAPHORE_GET_ZIRCON_HANDLE_INFO_FUCHSIA")]
+    SEMAPHORE_GET_ZIRCON_HANDLE_INFO_FUCHSIA = 1000365001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_BUFFER_COLLECTION_CREATE_INFO_FUCHSIA")]
+    BUFFER_COLLECTION_CREATE_INFO_FUCHSIA = 1000366000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMPORT_MEMORY_BUFFER_COLLECTION_FUCHSIA")]
+    IMPORT_MEMORY_BUFFER_COLLECTION_FUCHSIA = 1000366001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_BUFFER_COLLECTION_IMAGE_CREATE_INFO_FUCHSIA")]
+    BUFFER_COLLECTION_IMAGE_CREATE_INFO_FUCHSIA = 1000366002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_BUFFER_COLLECTION_PROPERTIES_FUCHSIA")]
+    BUFFER_COLLECTION_PROPERTIES_FUCHSIA = 1000366003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_BUFFER_CONSTRAINTS_INFO_FUCHSIA")]
+    BUFFER_CONSTRAINTS_INFO_FUCHSIA = 1000366004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_BUFFER_COLLECTION_BUFFER_CREATE_INFO_FUCHSIA")]
+    BUFFER_COLLECTION_BUFFER_CREATE_INFO_FUCHSIA = 1000366005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_CONSTRAINTS_INFO_FUCHSIA")]
+    IMAGE_CONSTRAINTS_INFO_FUCHSIA = 1000366006,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_FORMAT_CONSTRAINTS_INFO_FUCHSIA")]
+    IMAGE_FORMAT_CONSTRAINTS_INFO_FUCHSIA = 1000366007,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SYSMEM_COLOR_SPACE_FUCHSIA")]
+    SYSMEM_COLOR_SPACE_FUCHSIA = 1000366008,
+    #[doc(alias = "VK_STRUCTURE_TYPE_BUFFER_COLLECTION_CONSTRAINTS_INFO_FUCHSIA")]
+    BUFFER_COLLECTION_CONSTRAINTS_INFO_FUCHSIA = 1000366009,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SUBPASS_SHADING_PIPELINE_CREATE_INFO_HUAWEI")]
+    SUBPASS_SHADING_PIPELINE_CREATE_INFO_HUAWEI = 1000369000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBPASS_SHADING_FEATURES_HUAWEI")]
+    PHYSICAL_DEVICE_SUBPASS_SHADING_FEATURES_HUAWEI = 1000369001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBPASS_SHADING_PROPERTIES_HUAWEI")]
+    PHYSICAL_DEVICE_SUBPASS_SHADING_PROPERTIES_HUAWEI = 1000369002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_INVOCATION_MASK_FEATURES_HUAWEI")]
+    PHYSICAL_DEVICE_INVOCATION_MASK_FEATURES_HUAWEI = 1000370000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_MEMORY_GET_REMOTE_ADDRESS_INFO_NV")]
+    MEMORY_GET_REMOTE_ADDRESS_INFO_NV = 1000371000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_MEMORY_RDMA_FEATURES_NV")]
+    PHYSICAL_DEVICE_EXTERNAL_MEMORY_RDMA_FEATURES_NV = 1000371001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_PROPERTIES_IDENTIFIER_EXT")]
+    PIPELINE_PROPERTIES_IDENTIFIER_EXT = 1000372000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_PROPERTIES_FEATURES_EXT")]
+    PHYSICAL_DEVICE_PIPELINE_PROPERTIES_FEATURES_EXT = 1000372001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAME_BOUNDARY_FEATURES_EXT")]
+    PHYSICAL_DEVICE_FRAME_BOUNDARY_FEATURES_EXT = 1000375000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_FRAME_BOUNDARY_EXT")]
+    FRAME_BOUNDARY_EXT = 1000375001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTISAMPLED_RENDER_TO_SINGLE_SAMPLED_FEATURES_EXT")]
+    PHYSICAL_DEVICE_MULTISAMPLED_RENDER_TO_SINGLE_SAMPLED_FEATURES_EXT = 1000376000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SUBPASS_RESOLVE_PERFORMANCE_QUERY_EXT")]
+    SUBPASS_RESOLVE_PERFORMANCE_QUERY_EXT = 1000376001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_MULTISAMPLED_RENDER_TO_SINGLE_SAMPLED_INFO_EXT")]
+    MULTISAMPLED_RENDER_TO_SINGLE_SAMPLED_INFO_EXT = 1000376002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_2_FEATURES_EXT")]
+    PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_2_FEATURES_EXT = 1000377000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SCREEN_SURFACE_CREATE_INFO_QNX")]
+    SCREEN_SURFACE_CREATE_INFO_QNX = 1000378000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COLOR_WRITE_ENABLE_FEATURES_EXT")]
+    PHYSICAL_DEVICE_COLOR_WRITE_ENABLE_FEATURES_EXT = 1000381000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_COLOR_WRITE_CREATE_INFO_EXT")]
+    PIPELINE_COLOR_WRITE_CREATE_INFO_EXT = 1000381001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRIMITIVES_GENERATED_QUERY_FEATURES_EXT")]
+    PHYSICAL_DEVICE_PRIMITIVES_GENERATED_QUERY_FEATURES_EXT = 1000382000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_MAINTENANCE_1_FEATURES_KHR")]
+    PHYSICAL_DEVICE_RAY_TRACING_MAINTENANCE_1_FEATURES_KHR = 1000386000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_UNTYPED_POINTERS_FEATURES_KHR")]
+    PHYSICAL_DEVICE_SHADER_UNTYPED_POINTERS_FEATURES_KHR = 1000387000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VIDEO_ENCODE_RGB_CONVERSION_FEATURES_VALVE")]
+    PHYSICAL_DEVICE_VIDEO_ENCODE_RGB_CONVERSION_FEATURES_VALVE = 1000390000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_RGB_CONVERSION_CAPABILITIES_VALVE")]
+    VIDEO_ENCODE_RGB_CONVERSION_CAPABILITIES_VALVE = 1000390001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_PROFILE_RGB_CONVERSION_INFO_VALVE")]
+    VIDEO_ENCODE_PROFILE_RGB_CONVERSION_INFO_VALVE = 1000390002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_SESSION_RGB_CONVERSION_CREATE_INFO_VALVE")]
+    VIDEO_ENCODE_SESSION_RGB_CONVERSION_CREATE_INFO_VALVE = 1000390003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_VIEW_MIN_LOD_FEATURES_EXT")]
+    PHYSICAL_DEVICE_IMAGE_VIEW_MIN_LOD_FEATURES_EXT = 1000391000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_VIEW_MIN_LOD_CREATE_INFO_EXT")]
+    IMAGE_VIEW_MIN_LOD_CREATE_INFO_EXT = 1000391001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTI_DRAW_FEATURES_EXT")]
+    PHYSICAL_DEVICE_MULTI_DRAW_FEATURES_EXT = 1000392000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTI_DRAW_PROPERTIES_EXT")]
+    PHYSICAL_DEVICE_MULTI_DRAW_PROPERTIES_EXT = 1000392001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_2D_VIEW_OF_3D_FEATURES_EXT")]
+    PHYSICAL_DEVICE_IMAGE_2D_VIEW_OF_3D_FEATURES_EXT = 1000393000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_TILE_IMAGE_FEATURES_EXT")]
+    PHYSICAL_DEVICE_SHADER_TILE_IMAGE_FEATURES_EXT = 1000395000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_TILE_IMAGE_PROPERTIES_EXT")]
+    PHYSICAL_DEVICE_SHADER_TILE_IMAGE_PROPERTIES_EXT = 1000395001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_MICROMAP_BUILD_INFO_EXT")]
+    MICROMAP_BUILD_INFO_EXT = 1000396000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_MICROMAP_VERSION_INFO_EXT")]
+    MICROMAP_VERSION_INFO_EXT = 1000396001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_COPY_MICROMAP_INFO_EXT")]
+    COPY_MICROMAP_INFO_EXT = 1000396002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_COPY_MICROMAP_TO_MEMORY_INFO_EXT")]
+    COPY_MICROMAP_TO_MEMORY_INFO_EXT = 1000396003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_COPY_MEMORY_TO_MICROMAP_INFO_EXT")]
+    COPY_MEMORY_TO_MICROMAP_INFO_EXT = 1000396004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_OPACITY_MICROMAP_FEATURES_EXT")]
+    PHYSICAL_DEVICE_OPACITY_MICROMAP_FEATURES_EXT = 1000396005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_OPACITY_MICROMAP_PROPERTIES_EXT")]
+    PHYSICAL_DEVICE_OPACITY_MICROMAP_PROPERTIES_EXT = 1000396006,
+    #[doc(alias = "VK_STRUCTURE_TYPE_MICROMAP_CREATE_INFO_EXT")]
+    MICROMAP_CREATE_INFO_EXT = 1000396007,
+    #[doc(alias = "VK_STRUCTURE_TYPE_MICROMAP_BUILD_SIZES_INFO_EXT")]
+    MICROMAP_BUILD_SIZES_INFO_EXT = 1000396008,
+    #[doc(alias = "VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_TRIANGLES_OPACITY_MICROMAP_EXT")]
+    ACCELERATION_STRUCTURE_TRIANGLES_OPACITY_MICROMAP_EXT = 1000396009,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DISPLACEMENT_MICROMAP_FEATURES_NV")]
+    PHYSICAL_DEVICE_DISPLACEMENT_MICROMAP_FEATURES_NV = 1000397000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DISPLACEMENT_MICROMAP_PROPERTIES_NV")]
+    PHYSICAL_DEVICE_DISPLACEMENT_MICROMAP_PROPERTIES_NV = 1000397001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_TRIANGLES_DISPLACEMENT_MICROMAP_NV")]
+    ACCELERATION_STRUCTURE_TRIANGLES_DISPLACEMENT_MICROMAP_NV = 1000397002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CLUSTER_CULLING_SHADER_FEATURES_HUAWEI")]
+    PHYSICAL_DEVICE_CLUSTER_CULLING_SHADER_FEATURES_HUAWEI = 1000404000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CLUSTER_CULLING_SHADER_PROPERTIES_HUAWEI")]
+    PHYSICAL_DEVICE_CLUSTER_CULLING_SHADER_PROPERTIES_HUAWEI = 1000404001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CLUSTER_CULLING_SHADER_VRS_FEATURES_HUAWEI")]
+    PHYSICAL_DEVICE_CLUSTER_CULLING_SHADER_VRS_FEATURES_HUAWEI = 1000404002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BORDER_COLOR_SWIZZLE_FEATURES_EXT")]
+    PHYSICAL_DEVICE_BORDER_COLOR_SWIZZLE_FEATURES_EXT = 1000411000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SAMPLER_BORDER_COLOR_COMPONENT_MAPPING_CREATE_INFO_EXT")]
+    SAMPLER_BORDER_COLOR_COMPONENT_MAPPING_CREATE_INFO_EXT = 1000411001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PAGEABLE_DEVICE_LOCAL_MEMORY_FEATURES_EXT")]
+    PHYSICAL_DEVICE_PAGEABLE_DEVICE_LOCAL_MEMORY_FEATURES_EXT = 1000412000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CORE_PROPERTIES_ARM")]
+    PHYSICAL_DEVICE_SHADER_CORE_PROPERTIES_ARM = 1000415000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_QUEUE_SHADER_CORE_CONTROL_CREATE_INFO_ARM")]
+    DEVICE_QUEUE_SHADER_CORE_CONTROL_CREATE_INFO_ARM = 1000417000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SCHEDULING_CONTROLS_FEATURES_ARM")]
+    PHYSICAL_DEVICE_SCHEDULING_CONTROLS_FEATURES_ARM = 1000417001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SCHEDULING_CONTROLS_PROPERTIES_ARM")]
+    PHYSICAL_DEVICE_SCHEDULING_CONTROLS_PROPERTIES_ARM = 1000417002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DISPATCH_PARAMETERS_ARM")]
+    DISPATCH_PARAMETERS_ARM = 1000417003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SCHEDULING_CONTROLS_DISPATCH_PARAMETERS_PROPERTIES_ARM")]
+    PHYSICAL_DEVICE_SCHEDULING_CONTROLS_DISPATCH_PARAMETERS_PROPERTIES_ARM = 1000417004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_SLICED_VIEW_OF_3D_FEATURES_EXT")]
+    PHYSICAL_DEVICE_IMAGE_SLICED_VIEW_OF_3D_FEATURES_EXT = 1000418000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_VIEW_SLICED_CREATE_INFO_EXT")]
+    IMAGE_VIEW_SLICED_CREATE_INFO_EXT = 1000418001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_SET_HOST_MAPPING_FEATURES_VALVE")]
+    PHYSICAL_DEVICE_DESCRIPTOR_SET_HOST_MAPPING_FEATURES_VALVE = 1000420000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DESCRIPTOR_SET_BINDING_REFERENCE_VALVE")]
+    DESCRIPTOR_SET_BINDING_REFERENCE_VALVE = 1000420001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_HOST_MAPPING_INFO_VALVE")]
+    DESCRIPTOR_SET_LAYOUT_HOST_MAPPING_INFO_VALVE = 1000420002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_NON_SEAMLESS_CUBE_MAP_FEATURES_EXT")]
+    PHYSICAL_DEVICE_NON_SEAMLESS_CUBE_MAP_FEATURES_EXT = 1000422000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RENDER_PASS_STRIPED_FEATURES_ARM")]
+    PHYSICAL_DEVICE_RENDER_PASS_STRIPED_FEATURES_ARM = 1000424000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RENDER_PASS_STRIPED_PROPERTIES_ARM")]
+    PHYSICAL_DEVICE_RENDER_PASS_STRIPED_PROPERTIES_ARM = 1000424001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_RENDER_PASS_STRIPE_BEGIN_INFO_ARM")]
+    RENDER_PASS_STRIPE_BEGIN_INFO_ARM = 1000424002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_RENDER_PASS_STRIPE_INFO_ARM")]
+    RENDER_PASS_STRIPE_INFO_ARM = 1000424003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_RENDER_PASS_STRIPE_SUBMIT_INFO_ARM")]
+    RENDER_PASS_STRIPE_SUBMIT_INFO_ARM = 1000424004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COPY_MEMORY_INDIRECT_FEATURES_NV")]
+    PHYSICAL_DEVICE_COPY_MEMORY_INDIRECT_FEATURES_NV = 1000426000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_COMPUTE_FEATURES_NV")]
+    PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_COMPUTE_FEATURES_NV = 1000428000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_COMPUTE_PIPELINE_INDIRECT_BUFFER_INFO_NV")]
+    COMPUTE_PIPELINE_INDIRECT_BUFFER_INFO_NV = 1000428001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_INDIRECT_DEVICE_ADDRESS_INFO_NV")]
+    PIPELINE_INDIRECT_DEVICE_ADDRESS_INFO_NV = 1000428002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_LINEAR_SWEPT_SPHERES_FEATURES_NV")]
+    PHYSICAL_DEVICE_RAY_TRACING_LINEAR_SWEPT_SPHERES_FEATURES_NV = 1000429008,
+    #[doc(alias = "VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_GEOMETRY_LINEAR_SWEPT_SPHERES_DATA_NV")]
+    ACCELERATION_STRUCTURE_GEOMETRY_LINEAR_SWEPT_SPHERES_DATA_NV = 1000429009,
+    #[doc(alias = "VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_GEOMETRY_SPHERES_DATA_NV")]
+    ACCELERATION_STRUCTURE_GEOMETRY_SPHERES_DATA_NV = 1000429010,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LINEAR_COLOR_ATTACHMENT_FEATURES_NV")]
+    PHYSICAL_DEVICE_LINEAR_COLOR_ATTACHMENT_FEATURES_NV = 1000430000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_MAXIMAL_RECONVERGENCE_FEATURES_KHR")]
+    PHYSICAL_DEVICE_SHADER_MAXIMAL_RECONVERGENCE_FEATURES_KHR = 1000434000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_COMPRESSION_CONTROL_SWAPCHAIN_FEATURES_EXT")]
+    PHYSICAL_DEVICE_IMAGE_COMPRESSION_CONTROL_SWAPCHAIN_FEATURES_EXT = 1000437000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_PROCESSING_FEATURES_QCOM")]
+    PHYSICAL_DEVICE_IMAGE_PROCESSING_FEATURES_QCOM = 1000440000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_PROCESSING_PROPERTIES_QCOM")]
+    PHYSICAL_DEVICE_IMAGE_PROCESSING_PROPERTIES_QCOM = 1000440001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_VIEW_SAMPLE_WEIGHT_CREATE_INFO_QCOM")]
+    IMAGE_VIEW_SAMPLE_WEIGHT_CREATE_INFO_QCOM = 1000440002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_NESTED_COMMAND_BUFFER_FEATURES_EXT")]
+    PHYSICAL_DEVICE_NESTED_COMMAND_BUFFER_FEATURES_EXT = 1000451000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_NESTED_COMMAND_BUFFER_PROPERTIES_EXT")]
+    PHYSICAL_DEVICE_NESTED_COMMAND_BUFFER_PROPERTIES_EXT = 1000451001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_NATIVE_BUFFER_USAGE_OHOS")]
+    NATIVE_BUFFER_USAGE_OHOS = 1000452000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_NATIVE_BUFFER_PROPERTIES_OHOS")]
+    NATIVE_BUFFER_PROPERTIES_OHOS = 1000452001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_NATIVE_BUFFER_FORMAT_PROPERTIES_OHOS")]
+    NATIVE_BUFFER_FORMAT_PROPERTIES_OHOS = 1000452002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMPORT_NATIVE_BUFFER_INFO_OHOS")]
+    IMPORT_NATIVE_BUFFER_INFO_OHOS = 1000452003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_MEMORY_GET_NATIVE_BUFFER_INFO_OHOS")]
+    MEMORY_GET_NATIVE_BUFFER_INFO_OHOS = 1000452004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_EXTERNAL_FORMAT_OHOS")]
+    EXTERNAL_FORMAT_OHOS = 1000452005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_ACQUIRE_UNMODIFIED_EXT")]
+    EXTERNAL_MEMORY_ACQUIRE_UNMODIFIED_EXT = 1000453000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_3_FEATURES_EXT")]
+    PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_3_FEATURES_EXT = 1000455000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_3_PROPERTIES_EXT")]
+    PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_3_PROPERTIES_EXT = 1000455001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBPASS_MERGE_FEEDBACK_FEATURES_EXT")]
+    PHYSICAL_DEVICE_SUBPASS_MERGE_FEEDBACK_FEATURES_EXT = 1000458000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_RENDER_PASS_CREATION_CONTROL_EXT")]
+    RENDER_PASS_CREATION_CONTROL_EXT = 1000458001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_RENDER_PASS_CREATION_FEEDBACK_CREATE_INFO_EXT")]
+    RENDER_PASS_CREATION_FEEDBACK_CREATE_INFO_EXT = 1000458002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_RENDER_PASS_SUBPASS_FEEDBACK_CREATE_INFO_EXT")]
+    RENDER_PASS_SUBPASS_FEEDBACK_CREATE_INFO_EXT = 1000458003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DIRECT_DRIVER_LOADING_INFO_LUNARG")]
+    DIRECT_DRIVER_LOADING_INFO_LUNARG = 1000459000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DIRECT_DRIVER_LOADING_LIST_LUNARG")]
+    DIRECT_DRIVER_LOADING_LIST_LUNARG = 1000459001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_TENSOR_CREATE_INFO_ARM")]
+    TENSOR_CREATE_INFO_ARM = 1000460000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_TENSOR_VIEW_CREATE_INFO_ARM")]
+    TENSOR_VIEW_CREATE_INFO_ARM = 1000460001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_BIND_TENSOR_MEMORY_INFO_ARM")]
+    BIND_TENSOR_MEMORY_INFO_ARM = 1000460002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET_TENSOR_ARM")]
+    WRITE_DESCRIPTOR_SET_TENSOR_ARM = 1000460003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TENSOR_PROPERTIES_ARM")]
+    PHYSICAL_DEVICE_TENSOR_PROPERTIES_ARM = 1000460004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_TENSOR_FORMAT_PROPERTIES_ARM")]
+    TENSOR_FORMAT_PROPERTIES_ARM = 1000460005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_TENSOR_DESCRIPTION_ARM")]
+    TENSOR_DESCRIPTION_ARM = 1000460006,
+    #[doc(alias = "VK_STRUCTURE_TYPE_TENSOR_MEMORY_REQUIREMENTS_INFO_ARM")]
+    TENSOR_MEMORY_REQUIREMENTS_INFO_ARM = 1000460007,
+    #[doc(alias = "VK_STRUCTURE_TYPE_TENSOR_MEMORY_BARRIER_ARM")]
+    TENSOR_MEMORY_BARRIER_ARM = 1000460008,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TENSOR_FEATURES_ARM")]
+    PHYSICAL_DEVICE_TENSOR_FEATURES_ARM = 1000460009,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_TENSOR_MEMORY_REQUIREMENTS_ARM")]
+    DEVICE_TENSOR_MEMORY_REQUIREMENTS_ARM = 1000460010,
+    #[doc(alias = "VK_STRUCTURE_TYPE_COPY_TENSOR_INFO_ARM")]
+    COPY_TENSOR_INFO_ARM = 1000460011,
+    #[doc(alias = "VK_STRUCTURE_TYPE_TENSOR_COPY_ARM")]
+    TENSOR_COPY_ARM = 1000460012,
+    #[doc(alias = "VK_STRUCTURE_TYPE_TENSOR_DEPENDENCY_INFO_ARM")]
+    TENSOR_DEPENDENCY_INFO_ARM = 1000460013,
+    #[doc(alias = "VK_STRUCTURE_TYPE_MEMORY_DEDICATED_ALLOCATE_INFO_TENSOR_ARM")]
+    MEMORY_DEDICATED_ALLOCATE_INFO_TENSOR_ARM = 1000460014,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_TENSOR_INFO_ARM")]
+    PHYSICAL_DEVICE_EXTERNAL_TENSOR_INFO_ARM = 1000460015,
+    #[doc(alias = "VK_STRUCTURE_TYPE_EXTERNAL_TENSOR_PROPERTIES_ARM")]
+    EXTERNAL_TENSOR_PROPERTIES_ARM = 1000460016,
+    #[doc(alias = "VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_TENSOR_CREATE_INFO_ARM")]
+    EXTERNAL_MEMORY_TENSOR_CREATE_INFO_ARM = 1000460017,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_TENSOR_FEATURES_ARM")]
+    PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_TENSOR_FEATURES_ARM = 1000460018,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_TENSOR_PROPERTIES_ARM")]
+    PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_TENSOR_PROPERTIES_ARM = 1000460019,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DESCRIPTOR_GET_TENSOR_INFO_ARM")]
+    DESCRIPTOR_GET_TENSOR_INFO_ARM = 1000460020,
+    #[doc(alias = "VK_STRUCTURE_TYPE_TENSOR_CAPTURE_DESCRIPTOR_DATA_INFO_ARM")]
+    TENSOR_CAPTURE_DESCRIPTOR_DATA_INFO_ARM = 1000460021,
+    #[doc(alias = "VK_STRUCTURE_TYPE_TENSOR_VIEW_CAPTURE_DESCRIPTOR_DATA_INFO_ARM")]
+    TENSOR_VIEW_CAPTURE_DESCRIPTOR_DATA_INFO_ARM = 1000460022,
+    #[doc(alias = "VK_STRUCTURE_TYPE_FRAME_BOUNDARY_TENSORS_ARM")]
+    FRAME_BOUNDARY_TENSORS_ARM = 1000460023,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_MODULE_IDENTIFIER_FEATURES_EXT")]
+    PHYSICAL_DEVICE_SHADER_MODULE_IDENTIFIER_FEATURES_EXT = 1000462000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_MODULE_IDENTIFIER_PROPERTIES_EXT")]
+    PHYSICAL_DEVICE_SHADER_MODULE_IDENTIFIER_PROPERTIES_EXT = 1000462001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_MODULE_IDENTIFIER_CREATE_INFO_EXT")]
+    PIPELINE_SHADER_STAGE_MODULE_IDENTIFIER_CREATE_INFO_EXT = 1000462002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SHADER_MODULE_IDENTIFIER_EXT")]
+    SHADER_MODULE_IDENTIFIER_EXT = 1000462003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RASTERIZATION_ORDER_ATTACHMENT_ACCESS_FEATURES_EXT")]
+    PHYSICAL_DEVICE_RASTERIZATION_ORDER_ATTACHMENT_ACCESS_FEATURES_EXT = 1000342000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_OPTICAL_FLOW_FEATURES_NV")]
+    PHYSICAL_DEVICE_OPTICAL_FLOW_FEATURES_NV = 1000464000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_OPTICAL_FLOW_PROPERTIES_NV")]
+    PHYSICAL_DEVICE_OPTICAL_FLOW_PROPERTIES_NV = 1000464001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_OPTICAL_FLOW_IMAGE_FORMAT_INFO_NV")]
+    OPTICAL_FLOW_IMAGE_FORMAT_INFO_NV = 1000464002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_OPTICAL_FLOW_IMAGE_FORMAT_PROPERTIES_NV")]
+    OPTICAL_FLOW_IMAGE_FORMAT_PROPERTIES_NV = 1000464003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_OPTICAL_FLOW_SESSION_CREATE_INFO_NV")]
+    OPTICAL_FLOW_SESSION_CREATE_INFO_NV = 1000464004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_OPTICAL_FLOW_EXECUTE_INFO_NV")]
+    OPTICAL_FLOW_EXECUTE_INFO_NV = 1000464005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_OPTICAL_FLOW_SESSION_CREATE_PRIVATE_DATA_INFO_NV")]
+    OPTICAL_FLOW_SESSION_CREATE_PRIVATE_DATA_INFO_NV = 1000464010,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LEGACY_DITHERING_FEATURES_EXT")]
+    PHYSICAL_DEVICE_LEGACY_DITHERING_FEATURES_EXT = 1000465000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_FORMAT_RESOLVE_FEATURES_ANDROID")]
+    PHYSICAL_DEVICE_EXTERNAL_FORMAT_RESOLVE_FEATURES_ANDROID = 1000468000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_FORMAT_RESOLVE_PROPERTIES_ANDROID")]
+    PHYSICAL_DEVICE_EXTERNAL_FORMAT_RESOLVE_PROPERTIES_ANDROID = 1000468001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_ANDROID_HARDWARE_BUFFER_FORMAT_RESOLVE_PROPERTIES_ANDROID")]
+    ANDROID_HARDWARE_BUFFER_FORMAT_RESOLVE_PROPERTIES_ANDROID = 1000468002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ANTI_LAG_FEATURES_AMD")]
+    PHYSICAL_DEVICE_ANTI_LAG_FEATURES_AMD = 1000476000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_ANTI_LAG_DATA_AMD")]
+    ANTI_LAG_DATA_AMD = 1000476001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_ANTI_LAG_PRESENTATION_INFO_AMD")]
+    ANTI_LAG_PRESENTATION_INFO_AMD = 1000476002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DENSE_GEOMETRY_FORMAT_FEATURES_AMDX")]
+    PHYSICAL_DEVICE_DENSE_GEOMETRY_FORMAT_FEATURES_AMDX = 1000478000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_DENSE_GEOMETRY_FORMAT_TRIANGLES_DATA_AMDX")]
+    ACCELERATION_STRUCTURE_DENSE_GEOMETRY_FORMAT_TRIANGLES_DATA_AMDX = 1000478001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES_PRESENT_ID_2_KHR")]
+    SURFACE_CAPABILITIES_PRESENT_ID_2_KHR = 1000479000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PRESENT_ID_2_KHR")]
+    PRESENT_ID_2_KHR = 1000479001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_ID_2_FEATURES_KHR")]
+    PHYSICAL_DEVICE_PRESENT_ID_2_FEATURES_KHR = 1000479002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES_PRESENT_WAIT_2_KHR")]
+    SURFACE_CAPABILITIES_PRESENT_WAIT_2_KHR = 1000480000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_WAIT_2_FEATURES_KHR")]
+    PHYSICAL_DEVICE_PRESENT_WAIT_2_FEATURES_KHR = 1000480001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PRESENT_WAIT_2_INFO_KHR")]
+    PRESENT_WAIT_2_INFO_KHR = 1000480002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_POSITION_FETCH_FEATURES_KHR")]
+    PHYSICAL_DEVICE_RAY_TRACING_POSITION_FETCH_FEATURES_KHR = 1000481000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_OBJECT_FEATURES_EXT")]
+    PHYSICAL_DEVICE_SHADER_OBJECT_FEATURES_EXT = 1000482000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_OBJECT_PROPERTIES_EXT")]
+    PHYSICAL_DEVICE_SHADER_OBJECT_PROPERTIES_EXT = 1000482001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SHADER_CREATE_INFO_EXT")]
+    SHADER_CREATE_INFO_EXT = 1000482002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_BINARY_FEATURES_KHR")]
+    PHYSICAL_DEVICE_PIPELINE_BINARY_FEATURES_KHR = 1000483000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_BINARY_CREATE_INFO_KHR")]
+    PIPELINE_BINARY_CREATE_INFO_KHR = 1000483001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_BINARY_INFO_KHR")]
+    PIPELINE_BINARY_INFO_KHR = 1000483002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_BINARY_KEY_KHR")]
+    PIPELINE_BINARY_KEY_KHR = 1000483003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_BINARY_PROPERTIES_KHR")]
+    PHYSICAL_DEVICE_PIPELINE_BINARY_PROPERTIES_KHR = 1000483004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_RELEASE_CAPTURED_PIPELINE_DATA_INFO_KHR")]
+    RELEASE_CAPTURED_PIPELINE_DATA_INFO_KHR = 1000483005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_BINARY_DATA_INFO_KHR")]
+    PIPELINE_BINARY_DATA_INFO_KHR = 1000483006,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_CREATE_INFO_KHR")]
+    PIPELINE_CREATE_INFO_KHR = 1000483007,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_PIPELINE_BINARY_INTERNAL_CACHE_CONTROL_KHR")]
+    DEVICE_PIPELINE_BINARY_INTERNAL_CACHE_CONTROL_KHR = 1000483008,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_BINARY_HANDLES_INFO_KHR")]
+    PIPELINE_BINARY_HANDLES_INFO_KHR = 1000483009,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TILE_PROPERTIES_FEATURES_QCOM")]
+    PHYSICAL_DEVICE_TILE_PROPERTIES_FEATURES_QCOM = 1000484000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_TILE_PROPERTIES_QCOM")]
+    TILE_PROPERTIES_QCOM = 1000484001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_AMIGO_PROFILING_FEATURES_SEC")]
+    PHYSICAL_DEVICE_AMIGO_PROFILING_FEATURES_SEC = 1000485000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_AMIGO_PROFILING_SUBMIT_INFO_SEC")]
+    AMIGO_PROFILING_SUBMIT_INFO_SEC = 1000485001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SURFACE_PRESENT_MODE_KHR")]
+    SURFACE_PRESENT_MODE_KHR = 1000274000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SURFACE_PRESENT_SCALING_CAPABILITIES_KHR")]
+    SURFACE_PRESENT_SCALING_CAPABILITIES_KHR = 1000274001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SURFACE_PRESENT_MODE_COMPATIBILITY_KHR")]
+    SURFACE_PRESENT_MODE_COMPATIBILITY_KHR = 1000274002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SWAPCHAIN_MAINTENANCE_1_FEATURES_KHR")]
+    PHYSICAL_DEVICE_SWAPCHAIN_MAINTENANCE_1_FEATURES_KHR = 1000275000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_FENCE_INFO_KHR")]
+    SWAPCHAIN_PRESENT_FENCE_INFO_KHR = 1000275001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_MODES_CREATE_INFO_KHR")]
+    SWAPCHAIN_PRESENT_MODES_CREATE_INFO_KHR = 1000275002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_MODE_INFO_KHR")]
+    SWAPCHAIN_PRESENT_MODE_INFO_KHR = 1000275003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_SCALING_CREATE_INFO_KHR")]
+    SWAPCHAIN_PRESENT_SCALING_CREATE_INFO_KHR = 1000275004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_RELEASE_SWAPCHAIN_IMAGES_INFO_KHR")]
+    RELEASE_SWAPCHAIN_IMAGES_INFO_KHR = 1000275005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_VIEWPORTS_FEATURES_QCOM")]
+    PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_VIEWPORTS_FEATURES_QCOM = 1000488000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_INVOCATION_REORDER_FEATURES_NV")]
+    PHYSICAL_DEVICE_RAY_TRACING_INVOCATION_REORDER_FEATURES_NV = 1000490000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_INVOCATION_REORDER_PROPERTIES_NV")]
+    PHYSICAL_DEVICE_RAY_TRACING_INVOCATION_REORDER_PROPERTIES_NV = 1000490001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_VECTOR_FEATURES_NV")]
+    PHYSICAL_DEVICE_COOPERATIVE_VECTOR_FEATURES_NV = 1000491000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_VECTOR_PROPERTIES_NV")]
+    PHYSICAL_DEVICE_COOPERATIVE_VECTOR_PROPERTIES_NV = 1000491001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_COOPERATIVE_VECTOR_PROPERTIES_NV")]
+    COOPERATIVE_VECTOR_PROPERTIES_NV = 1000491002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_CONVERT_COOPERATIVE_VECTOR_MATRIX_INFO_NV")]
+    CONVERT_COOPERATIVE_VECTOR_MATRIX_INFO_NV = 1000491004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTENDED_SPARSE_ADDRESS_SPACE_FEATURES_NV")]
+    PHYSICAL_DEVICE_EXTENDED_SPARSE_ADDRESS_SPACE_FEATURES_NV = 1000492000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTENDED_SPARSE_ADDRESS_SPACE_PROPERTIES_NV")]
+    PHYSICAL_DEVICE_EXTENDED_SPARSE_ADDRESS_SPACE_PROPERTIES_NV = 1000492001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MUTABLE_DESCRIPTOR_TYPE_FEATURES_EXT")]
+    PHYSICAL_DEVICE_MUTABLE_DESCRIPTOR_TYPE_FEATURES_EXT = 1000351000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_MUTABLE_DESCRIPTOR_TYPE_CREATE_INFO_EXT")]
+    MUTABLE_DESCRIPTOR_TYPE_CREATE_INFO_EXT = 1000351002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LEGACY_VERTEX_ATTRIBUTES_FEATURES_EXT")]
+    PHYSICAL_DEVICE_LEGACY_VERTEX_ATTRIBUTES_FEATURES_EXT = 1000495000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LEGACY_VERTEX_ATTRIBUTES_PROPERTIES_EXT")]
+    PHYSICAL_DEVICE_LEGACY_VERTEX_ATTRIBUTES_PROPERTIES_EXT = 1000495001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_LAYER_SETTINGS_CREATE_INFO_EXT")]
+    LAYER_SETTINGS_CREATE_INFO_EXT = 1000496000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CORE_BUILTINS_FEATURES_ARM")]
+    PHYSICAL_DEVICE_SHADER_CORE_BUILTINS_FEATURES_ARM = 1000497000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CORE_BUILTINS_PROPERTIES_ARM")]
+    PHYSICAL_DEVICE_SHADER_CORE_BUILTINS_PROPERTIES_ARM = 1000497001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DYNAMIC_RENDERING_UNUSED_ATTACHMENTS_FEATURES_EXT")]
+    PHYSICAL_DEVICE_DYNAMIC_RENDERING_UNUSED_ATTACHMENTS_FEATURES_EXT = 1000499000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_INTERNALLY_SYNCHRONIZED_QUEUES_FEATURES_KHR")]
+    PHYSICAL_DEVICE_INTERNALLY_SYNCHRONIZED_QUEUES_FEATURES_KHR = 1000504000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_LATENCY_SLEEP_MODE_INFO_NV")]
+    LATENCY_SLEEP_MODE_INFO_NV = 1000505000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_LATENCY_SLEEP_INFO_NV")]
+    LATENCY_SLEEP_INFO_NV = 1000505001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SET_LATENCY_MARKER_INFO_NV")]
+    SET_LATENCY_MARKER_INFO_NV = 1000505002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_GET_LATENCY_MARKER_INFO_NV")]
+    GET_LATENCY_MARKER_INFO_NV = 1000505003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_LATENCY_TIMINGS_FRAME_REPORT_NV")]
+    LATENCY_TIMINGS_FRAME_REPORT_NV = 1000505004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_LATENCY_SUBMISSION_PRESENT_ID_NV")]
+    LATENCY_SUBMISSION_PRESENT_ID_NV = 1000505005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_OUT_OF_BAND_QUEUE_TYPE_INFO_NV")]
+    OUT_OF_BAND_QUEUE_TYPE_INFO_NV = 1000505006,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SWAPCHAIN_LATENCY_CREATE_INFO_NV")]
+    SWAPCHAIN_LATENCY_CREATE_INFO_NV = 1000505007,
+    #[doc(alias = "VK_STRUCTURE_TYPE_LATENCY_SURFACE_CAPABILITIES_NV")]
+    LATENCY_SURFACE_CAPABILITIES_NV = 1000505008,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_FEATURES_KHR")]
+    PHYSICAL_DEVICE_COOPERATIVE_MATRIX_FEATURES_KHR = 1000506000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_COOPERATIVE_MATRIX_PROPERTIES_KHR")]
+    COOPERATIVE_MATRIX_PROPERTIES_KHR = 1000506001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_PROPERTIES_KHR")]
+    PHYSICAL_DEVICE_COOPERATIVE_MATRIX_PROPERTIES_KHR = 1000506002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_CREATE_INFO_ARM")]
+    DATA_GRAPH_PIPELINE_CREATE_INFO_ARM = 1000507000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_SESSION_CREATE_INFO_ARM")]
+    DATA_GRAPH_PIPELINE_SESSION_CREATE_INFO_ARM = 1000507001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_RESOURCE_INFO_ARM")]
+    DATA_GRAPH_PIPELINE_RESOURCE_INFO_ARM = 1000507002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_CONSTANT_ARM")]
+    DATA_GRAPH_PIPELINE_CONSTANT_ARM = 1000507003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_SESSION_MEMORY_REQUIREMENTS_INFO_ARM")]
+    DATA_GRAPH_PIPELINE_SESSION_MEMORY_REQUIREMENTS_INFO_ARM = 1000507004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_BIND_DATA_GRAPH_PIPELINE_SESSION_MEMORY_INFO_ARM")]
+    BIND_DATA_GRAPH_PIPELINE_SESSION_MEMORY_INFO_ARM = 1000507005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DATA_GRAPH_FEATURES_ARM")]
+    PHYSICAL_DEVICE_DATA_GRAPH_FEATURES_ARM = 1000507006,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_SHADER_MODULE_CREATE_INFO_ARM")]
+    DATA_GRAPH_PIPELINE_SHADER_MODULE_CREATE_INFO_ARM = 1000507007,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_PROPERTY_QUERY_RESULT_ARM")]
+    DATA_GRAPH_PIPELINE_PROPERTY_QUERY_RESULT_ARM = 1000507008,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_INFO_ARM")]
+    DATA_GRAPH_PIPELINE_INFO_ARM = 1000507009,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_COMPILER_CONTROL_CREATE_INFO_ARM")]
+    DATA_GRAPH_PIPELINE_COMPILER_CONTROL_CREATE_INFO_ARM = 1000507010,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_SESSION_BIND_POINT_REQUIREMENTS_INFO_ARM")]
+    DATA_GRAPH_PIPELINE_SESSION_BIND_POINT_REQUIREMENTS_INFO_ARM = 1000507011,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_SESSION_BIND_POINT_REQUIREMENT_ARM")]
+    DATA_GRAPH_PIPELINE_SESSION_BIND_POINT_REQUIREMENT_ARM = 1000507012,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_IDENTIFIER_CREATE_INFO_ARM")]
+    DATA_GRAPH_PIPELINE_IDENTIFIER_CREATE_INFO_ARM = 1000507013,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_DISPATCH_INFO_ARM")]
+    DATA_GRAPH_PIPELINE_DISPATCH_INFO_ARM = 1000507014,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DATA_GRAPH_PROCESSING_ENGINE_CREATE_INFO_ARM")]
+    DATA_GRAPH_PROCESSING_ENGINE_CREATE_INFO_ARM = 1000507016,
+    #[doc(alias = "VK_STRUCTURE_TYPE_QUEUE_FAMILY_DATA_GRAPH_PROCESSING_ENGINE_PROPERTIES_ARM")]
+    QUEUE_FAMILY_DATA_GRAPH_PROCESSING_ENGINE_PROPERTIES_ARM = 1000507017,
+    #[doc(alias = "VK_STRUCTURE_TYPE_QUEUE_FAMILY_DATA_GRAPH_PROPERTIES_ARM")]
+    QUEUE_FAMILY_DATA_GRAPH_PROPERTIES_ARM = 1000507018,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_QUEUE_FAMILY_DATA_GRAPH_PROCESSING_ENGINE_INFO_ARM")]
+    PHYSICAL_DEVICE_QUEUE_FAMILY_DATA_GRAPH_PROCESSING_ENGINE_INFO_ARM = 1000507019,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_CONSTANT_TENSOR_SEMI_STRUCTURED_SPARSITY_INFO_ARM")]
+    DATA_GRAPH_PIPELINE_CONSTANT_TENSOR_SEMI_STRUCTURED_SPARSITY_INFO_ARM = 1000507015,
+    #[doc(alias = "VK_STRUCTURE_TYPE_QUEUE_FAMILY_DATA_GRAPH_TOSA_PROPERTIES_ARM")]
+    QUEUE_FAMILY_DATA_GRAPH_TOSA_PROPERTIES_ARM = 1000508000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_RENDER_AREAS_FEATURES_QCOM")]
+    PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_RENDER_AREAS_FEATURES_QCOM = 1000510000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_MULTIVIEW_PER_VIEW_RENDER_AREAS_RENDER_PASS_BEGIN_INFO_QCOM")]
+    MULTIVIEW_PER_VIEW_RENDER_AREAS_RENDER_PASS_BEGIN_INFO_QCOM = 1000510001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COMPUTE_SHADER_DERIVATIVES_FEATURES_KHR")]
+    PHYSICAL_DEVICE_COMPUTE_SHADER_DERIVATIVES_FEATURES_KHR = 1000201000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COMPUTE_SHADER_DERIVATIVES_PROPERTIES_KHR")]
+    PHYSICAL_DEVICE_COMPUTE_SHADER_DERIVATIVES_PROPERTIES_KHR = 1000511000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_DECODE_AV1_CAPABILITIES_KHR")]
+    VIDEO_DECODE_AV1_CAPABILITIES_KHR = 1000512000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_DECODE_AV1_PICTURE_INFO_KHR")]
+    VIDEO_DECODE_AV1_PICTURE_INFO_KHR = 1000512001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_DECODE_AV1_PROFILE_INFO_KHR")]
+    VIDEO_DECODE_AV1_PROFILE_INFO_KHR = 1000512003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_DECODE_AV1_SESSION_PARAMETERS_CREATE_INFO_KHR")]
+    VIDEO_DECODE_AV1_SESSION_PARAMETERS_CREATE_INFO_KHR = 1000512004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_DECODE_AV1_DPB_SLOT_INFO_KHR")]
+    VIDEO_DECODE_AV1_DPB_SLOT_INFO_KHR = 1000512005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_AV1_CAPABILITIES_KHR")]
+    VIDEO_ENCODE_AV1_CAPABILITIES_KHR = 1000513000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_AV1_SESSION_PARAMETERS_CREATE_INFO_KHR")]
+    VIDEO_ENCODE_AV1_SESSION_PARAMETERS_CREATE_INFO_KHR = 1000513001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_AV1_PICTURE_INFO_KHR")]
+    VIDEO_ENCODE_AV1_PICTURE_INFO_KHR = 1000513002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_AV1_DPB_SLOT_INFO_KHR")]
+    VIDEO_ENCODE_AV1_DPB_SLOT_INFO_KHR = 1000513003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VIDEO_ENCODE_AV1_FEATURES_KHR")]
+    PHYSICAL_DEVICE_VIDEO_ENCODE_AV1_FEATURES_KHR = 1000513004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_AV1_PROFILE_INFO_KHR")]
+    VIDEO_ENCODE_AV1_PROFILE_INFO_KHR = 1000513005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_AV1_RATE_CONTROL_INFO_KHR")]
+    VIDEO_ENCODE_AV1_RATE_CONTROL_INFO_KHR = 1000513006,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_AV1_RATE_CONTROL_LAYER_INFO_KHR")]
+    VIDEO_ENCODE_AV1_RATE_CONTROL_LAYER_INFO_KHR = 1000513007,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_AV1_QUALITY_LEVEL_PROPERTIES_KHR")]
+    VIDEO_ENCODE_AV1_QUALITY_LEVEL_PROPERTIES_KHR = 1000513008,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_AV1_SESSION_CREATE_INFO_KHR")]
+    VIDEO_ENCODE_AV1_SESSION_CREATE_INFO_KHR = 1000513009,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_AV1_GOP_REMAINING_FRAME_INFO_KHR")]
+    VIDEO_ENCODE_AV1_GOP_REMAINING_FRAME_INFO_KHR = 1000513010,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VIDEO_DECODE_VP9_FEATURES_KHR")]
+    PHYSICAL_DEVICE_VIDEO_DECODE_VP9_FEATURES_KHR = 1000514000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_DECODE_VP9_CAPABILITIES_KHR")]
+    VIDEO_DECODE_VP9_CAPABILITIES_KHR = 1000514001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_DECODE_VP9_PICTURE_INFO_KHR")]
+    VIDEO_DECODE_VP9_PICTURE_INFO_KHR = 1000514002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_DECODE_VP9_PROFILE_INFO_KHR")]
+    VIDEO_DECODE_VP9_PROFILE_INFO_KHR = 1000514003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VIDEO_MAINTENANCE_1_FEATURES_KHR")]
+    PHYSICAL_DEVICE_VIDEO_MAINTENANCE_1_FEATURES_KHR = 1000515000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_INLINE_QUERY_INFO_KHR")]
+    VIDEO_INLINE_QUERY_INFO_KHR = 1000515001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PER_STAGE_DESCRIPTOR_SET_FEATURES_NV")]
+    PHYSICAL_DEVICE_PER_STAGE_DESCRIPTOR_SET_FEATURES_NV = 1000516000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_PROCESSING_2_FEATURES_QCOM")]
+    PHYSICAL_DEVICE_IMAGE_PROCESSING_2_FEATURES_QCOM = 1000518000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_PROCESSING_2_PROPERTIES_QCOM")]
+    PHYSICAL_DEVICE_IMAGE_PROCESSING_2_PROPERTIES_QCOM = 1000518001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SAMPLER_BLOCK_MATCH_WINDOW_CREATE_INFO_QCOM")]
+    SAMPLER_BLOCK_MATCH_WINDOW_CREATE_INFO_QCOM = 1000518002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SAMPLER_CUBIC_WEIGHTS_CREATE_INFO_QCOM")]
+    SAMPLER_CUBIC_WEIGHTS_CREATE_INFO_QCOM = 1000519000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUBIC_WEIGHTS_FEATURES_QCOM")]
+    PHYSICAL_DEVICE_CUBIC_WEIGHTS_FEATURES_QCOM = 1000519001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_BLIT_IMAGE_CUBIC_WEIGHTS_INFO_QCOM")]
+    BLIT_IMAGE_CUBIC_WEIGHTS_INFO_QCOM = 1000519002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_YCBCR_DEGAMMA_FEATURES_QCOM")]
+    PHYSICAL_DEVICE_YCBCR_DEGAMMA_FEATURES_QCOM = 1000520000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SAMPLER_YCBCR_CONVERSION_YCBCR_DEGAMMA_CREATE_INFO_QCOM")]
+    SAMPLER_YCBCR_CONVERSION_YCBCR_DEGAMMA_CREATE_INFO_QCOM = 1000520001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUBIC_CLAMP_FEATURES_QCOM")]
+    PHYSICAL_DEVICE_CUBIC_CLAMP_FEATURES_QCOM = 1000521000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ATTACHMENT_FEEDBACK_LOOP_DYNAMIC_STATE_FEATURES_EXT")]
+    PHYSICAL_DEVICE_ATTACHMENT_FEEDBACK_LOOP_DYNAMIC_STATE_FEATURES_EXT = 1000524000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_UNIFIED_IMAGE_LAYOUTS_FEATURES_KHR")]
+    PHYSICAL_DEVICE_UNIFIED_IMAGE_LAYOUTS_FEATURES_KHR = 1000527000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_ATTACHMENT_FEEDBACK_LOOP_INFO_EXT")]
+    ATTACHMENT_FEEDBACK_LOOP_INFO_EXT = 1000527001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SCREEN_BUFFER_PROPERTIES_QNX")]
+    SCREEN_BUFFER_PROPERTIES_QNX = 1000529000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SCREEN_BUFFER_FORMAT_PROPERTIES_QNX")]
+    SCREEN_BUFFER_FORMAT_PROPERTIES_QNX = 1000529001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMPORT_SCREEN_BUFFER_INFO_QNX")]
+    IMPORT_SCREEN_BUFFER_INFO_QNX = 1000529002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_EXTERNAL_FORMAT_QNX")]
+    EXTERNAL_FORMAT_QNX = 1000529003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_MEMORY_SCREEN_BUFFER_FEATURES_QNX")]
+    PHYSICAL_DEVICE_EXTERNAL_MEMORY_SCREEN_BUFFER_FEATURES_QNX = 1000529004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LAYERED_DRIVER_PROPERTIES_MSFT")]
+    PHYSICAL_DEVICE_LAYERED_DRIVER_PROPERTIES_MSFT = 1000530000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_CALIBRATED_TIMESTAMP_INFO_KHR")]
+    CALIBRATED_TIMESTAMP_INFO_KHR = 1000184000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SET_DESCRIPTOR_BUFFER_OFFSETS_INFO_EXT")]
+    SET_DESCRIPTOR_BUFFER_OFFSETS_INFO_EXT = 1000545007,
+    #[doc(alias = "VK_STRUCTURE_TYPE_BIND_DESCRIPTOR_BUFFER_EMBEDDED_SAMPLERS_INFO_EXT")]
+    BIND_DESCRIPTOR_BUFFER_EMBEDDED_SAMPLERS_INFO_EXT = 1000545008,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_POOL_OVERALLOCATION_FEATURES_NV")]
+    PHYSICAL_DEVICE_DESCRIPTOR_POOL_OVERALLOCATION_FEATURES_NV = 1000546000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TILE_MEMORY_HEAP_FEATURES_QCOM")]
+    PHYSICAL_DEVICE_TILE_MEMORY_HEAP_FEATURES_QCOM = 1000547000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TILE_MEMORY_HEAP_PROPERTIES_QCOM")]
+    PHYSICAL_DEVICE_TILE_MEMORY_HEAP_PROPERTIES_QCOM = 1000547001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_TILE_MEMORY_REQUIREMENTS_QCOM")]
+    TILE_MEMORY_REQUIREMENTS_QCOM = 1000547002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_TILE_MEMORY_BIND_INFO_QCOM")]
+    TILE_MEMORY_BIND_INFO_QCOM = 1000547003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_TILE_MEMORY_SIZE_INFO_QCOM")]
+    TILE_MEMORY_SIZE_INFO_QCOM = 1000547004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COPY_MEMORY_INDIRECT_FEATURES_KHR")]
+    PHYSICAL_DEVICE_COPY_MEMORY_INDIRECT_FEATURES_KHR = 1000549000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COPY_MEMORY_INDIRECT_PROPERTIES_KHR")]
+    PHYSICAL_DEVICE_COPY_MEMORY_INDIRECT_PROPERTIES_KHR = 1000426001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_COPY_MEMORY_INDIRECT_INFO_KHR")]
+    COPY_MEMORY_INDIRECT_INFO_KHR = 1000549002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_COPY_MEMORY_TO_IMAGE_INDIRECT_INFO_KHR")]
+    COPY_MEMORY_TO_IMAGE_INDIRECT_INFO_KHR = 1000549003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_DECOMPRESSION_FEATURES_EXT")]
+    PHYSICAL_DEVICE_MEMORY_DECOMPRESSION_FEATURES_EXT = 1000427000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_DECOMPRESSION_PROPERTIES_EXT")]
+    PHYSICAL_DEVICE_MEMORY_DECOMPRESSION_PROPERTIES_EXT = 1000427001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DECOMPRESS_MEMORY_INFO_EXT")]
+    DECOMPRESS_MEMORY_INFO_EXT = 1000550002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DISPLAY_SURFACE_STEREO_CREATE_INFO_NV")]
+    DISPLAY_SURFACE_STEREO_CREATE_INFO_NV = 1000551000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DISPLAY_MODE_STEREO_PROPERTIES_NV")]
+    DISPLAY_MODE_STEREO_PROPERTIES_NV = 1000551001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_INTRA_REFRESH_CAPABILITIES_KHR")]
+    VIDEO_ENCODE_INTRA_REFRESH_CAPABILITIES_KHR = 1000552000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_SESSION_INTRA_REFRESH_CREATE_INFO_KHR")]
+    VIDEO_ENCODE_SESSION_INTRA_REFRESH_CREATE_INFO_KHR = 1000552001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_INTRA_REFRESH_INFO_KHR")]
+    VIDEO_ENCODE_INTRA_REFRESH_INFO_KHR = 1000552002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_REFERENCE_INTRA_REFRESH_INFO_KHR")]
+    VIDEO_REFERENCE_INTRA_REFRESH_INFO_KHR = 1000552003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VIDEO_ENCODE_INTRA_REFRESH_FEATURES_KHR")]
+    PHYSICAL_DEVICE_VIDEO_ENCODE_INTRA_REFRESH_FEATURES_KHR = 1000552004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_QUANTIZATION_MAP_CAPABILITIES_KHR")]
+    VIDEO_ENCODE_QUANTIZATION_MAP_CAPABILITIES_KHR = 1000553000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_FORMAT_QUANTIZATION_MAP_PROPERTIES_KHR")]
+    VIDEO_FORMAT_QUANTIZATION_MAP_PROPERTIES_KHR = 1000553001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_QUANTIZATION_MAP_INFO_KHR")]
+    VIDEO_ENCODE_QUANTIZATION_MAP_INFO_KHR = 1000553002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_QUANTIZATION_MAP_SESSION_PARAMETERS_CREATE_INFO_KHR")]
+    VIDEO_ENCODE_QUANTIZATION_MAP_SESSION_PARAMETERS_CREATE_INFO_KHR = 1000553005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VIDEO_ENCODE_QUANTIZATION_MAP_FEATURES_KHR")]
+    PHYSICAL_DEVICE_VIDEO_ENCODE_QUANTIZATION_MAP_FEATURES_KHR = 1000553009,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_QUANTIZATION_MAP_CAPABILITIES_KHR")]
+    VIDEO_ENCODE_H264_QUANTIZATION_MAP_CAPABILITIES_KHR = 1000553003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_QUANTIZATION_MAP_CAPABILITIES_KHR")]
+    VIDEO_ENCODE_H265_QUANTIZATION_MAP_CAPABILITIES_KHR = 1000553004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_FORMAT_H265_QUANTIZATION_MAP_PROPERTIES_KHR")]
+    VIDEO_FORMAT_H265_QUANTIZATION_MAP_PROPERTIES_KHR = 1000553006,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_AV1_QUANTIZATION_MAP_CAPABILITIES_KHR")]
+    VIDEO_ENCODE_AV1_QUANTIZATION_MAP_CAPABILITIES_KHR = 1000553007,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_FORMAT_AV1_QUANTIZATION_MAP_PROPERTIES_KHR")]
+    VIDEO_FORMAT_AV1_QUANTIZATION_MAP_PROPERTIES_KHR = 1000553008,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAW_ACCESS_CHAINS_FEATURES_NV")]
+    PHYSICAL_DEVICE_RAW_ACCESS_CHAINS_FEATURES_NV = 1000555000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_EXTERNAL_COMPUTE_QUEUE_DEVICE_CREATE_INFO_NV")]
+    EXTERNAL_COMPUTE_QUEUE_DEVICE_CREATE_INFO_NV = 1000556000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_EXTERNAL_COMPUTE_QUEUE_CREATE_INFO_NV")]
+    EXTERNAL_COMPUTE_QUEUE_CREATE_INFO_NV = 1000556001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_EXTERNAL_COMPUTE_QUEUE_DATA_PARAMS_NV")]
+    EXTERNAL_COMPUTE_QUEUE_DATA_PARAMS_NV = 1000556002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_COMPUTE_QUEUE_PROPERTIES_NV")]
+    PHYSICAL_DEVICE_EXTERNAL_COMPUTE_QUEUE_PROPERTIES_NV = 1000556003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_RELAXED_EXTENDED_INSTRUCTION_FEATURES_KHR")]
+    PHYSICAL_DEVICE_SHADER_RELAXED_EXTENDED_INSTRUCTION_FEATURES_KHR = 1000558000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COMMAND_BUFFER_INHERITANCE_FEATURES_NV")]
+    PHYSICAL_DEVICE_COMMAND_BUFFER_INHERITANCE_FEATURES_NV = 1000559000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_7_FEATURES_KHR")]
+    PHYSICAL_DEVICE_MAINTENANCE_7_FEATURES_KHR = 1000562000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_7_PROPERTIES_KHR")]
+    PHYSICAL_DEVICE_MAINTENANCE_7_PROPERTIES_KHR = 1000562001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LAYERED_API_PROPERTIES_LIST_KHR")]
+    PHYSICAL_DEVICE_LAYERED_API_PROPERTIES_LIST_KHR = 1000562002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LAYERED_API_PROPERTIES_KHR")]
+    PHYSICAL_DEVICE_LAYERED_API_PROPERTIES_KHR = 1000562003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LAYERED_API_VULKAN_PROPERTIES_KHR")]
+    PHYSICAL_DEVICE_LAYERED_API_VULKAN_PROPERTIES_KHR = 1000562004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ATOMIC_FLOAT16_VECTOR_FEATURES_NV")]
+    PHYSICAL_DEVICE_SHADER_ATOMIC_FLOAT16_VECTOR_FEATURES_NV = 1000563000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_REPLICATED_COMPOSITES_FEATURES_EXT")]
+    PHYSICAL_DEVICE_SHADER_REPLICATED_COMPOSITES_FEATURES_EXT = 1000564000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_TENSOR_EXPLICIT_TILING_FORMAT_PROPERTIES_ARM")]
+    TENSOR_EXPLICIT_TILING_FORMAT_PROPERTIES_ARM = 1000565000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_TENSOR_ROLLING_BACKING_CREATE_INFO_ARM")]
+    TENSOR_ROLLING_BACKING_CREATE_INFO_ARM = 1000565001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_FLOAT8_FEATURES_EXT")]
+    PHYSICAL_DEVICE_SHADER_FLOAT8_FEATURES_EXT = 1000567000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_VALIDATION_FEATURES_NV")]
+    PHYSICAL_DEVICE_RAY_TRACING_VALIDATION_FEATURES_NV = 1000568000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CLUSTER_ACCELERATION_STRUCTURE_FEATURES_NV")]
+    PHYSICAL_DEVICE_CLUSTER_ACCELERATION_STRUCTURE_FEATURES_NV = 1000569000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CLUSTER_ACCELERATION_STRUCTURE_PROPERTIES_NV")]
+    PHYSICAL_DEVICE_CLUSTER_ACCELERATION_STRUCTURE_PROPERTIES_NV = 1000569001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_CLUSTER_ACCELERATION_STRUCTURE_CLUSTERS_BOTTOM_LEVEL_INPUT_NV")]
+    CLUSTER_ACCELERATION_STRUCTURE_CLUSTERS_BOTTOM_LEVEL_INPUT_NV = 1000569002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_CLUSTER_ACCELERATION_STRUCTURE_TRIANGLE_CLUSTER_INPUT_NV")]
+    CLUSTER_ACCELERATION_STRUCTURE_TRIANGLE_CLUSTER_INPUT_NV = 1000569003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_CLUSTER_ACCELERATION_STRUCTURE_MOVE_OBJECTS_INPUT_NV")]
+    CLUSTER_ACCELERATION_STRUCTURE_MOVE_OBJECTS_INPUT_NV = 1000569004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_CLUSTER_ACCELERATION_STRUCTURE_INPUT_INFO_NV")]
+    CLUSTER_ACCELERATION_STRUCTURE_INPUT_INFO_NV = 1000569005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_CLUSTER_ACCELERATION_STRUCTURE_COMMANDS_INFO_NV")]
+    CLUSTER_ACCELERATION_STRUCTURE_COMMANDS_INFO_NV = 1000569006,
+    #[doc(alias = "VK_STRUCTURE_TYPE_RAY_TRACING_PIPELINE_CLUSTER_ACCELERATION_STRUCTURE_CREATE_INFO_NV")]
+    RAY_TRACING_PIPELINE_CLUSTER_ACCELERATION_STRUCTURE_CREATE_INFO_NV = 1000569007,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PARTITIONED_ACCELERATION_STRUCTURE_FEATURES_NV")]
+    PHYSICAL_DEVICE_PARTITIONED_ACCELERATION_STRUCTURE_FEATURES_NV = 1000570000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PARTITIONED_ACCELERATION_STRUCTURE_PROPERTIES_NV")]
+    PHYSICAL_DEVICE_PARTITIONED_ACCELERATION_STRUCTURE_PROPERTIES_NV = 1000570001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET_PARTITIONED_ACCELERATION_STRUCTURE_NV")]
+    WRITE_DESCRIPTOR_SET_PARTITIONED_ACCELERATION_STRUCTURE_NV = 1000570002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PARTITIONED_ACCELERATION_STRUCTURE_INSTANCES_INPUT_NV")]
+    PARTITIONED_ACCELERATION_STRUCTURE_INSTANCES_INPUT_NV = 1000570003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_BUILD_PARTITIONED_ACCELERATION_STRUCTURE_INFO_NV")]
+    BUILD_PARTITIONED_ACCELERATION_STRUCTURE_INFO_NV = 1000570004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PARTITIONED_ACCELERATION_STRUCTURE_FLAGS_NV")]
+    PARTITIONED_ACCELERATION_STRUCTURE_FLAGS_NV = 1000570005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_FEATURES_EXT")]
+    PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_FEATURES_EXT = 1000572000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_PROPERTIES_EXT")]
+    PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_PROPERTIES_EXT = 1000572001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_GENERATED_COMMANDS_MEMORY_REQUIREMENTS_INFO_EXT")]
+    GENERATED_COMMANDS_MEMORY_REQUIREMENTS_INFO_EXT = 1000572002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_INDIRECT_EXECUTION_SET_CREATE_INFO_EXT")]
+    INDIRECT_EXECUTION_SET_CREATE_INFO_EXT = 1000572003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_GENERATED_COMMANDS_INFO_EXT")]
+    GENERATED_COMMANDS_INFO_EXT = 1000572004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_INDIRECT_COMMANDS_LAYOUT_CREATE_INFO_EXT")]
+    INDIRECT_COMMANDS_LAYOUT_CREATE_INFO_EXT = 1000572006,
+    #[doc(alias = "VK_STRUCTURE_TYPE_INDIRECT_COMMANDS_LAYOUT_TOKEN_EXT")]
+    INDIRECT_COMMANDS_LAYOUT_TOKEN_EXT = 1000572007,
+    #[doc(alias = "VK_STRUCTURE_TYPE_WRITE_INDIRECT_EXECUTION_SET_PIPELINE_EXT")]
+    WRITE_INDIRECT_EXECUTION_SET_PIPELINE_EXT = 1000572008,
+    #[doc(alias = "VK_STRUCTURE_TYPE_WRITE_INDIRECT_EXECUTION_SET_SHADER_EXT")]
+    WRITE_INDIRECT_EXECUTION_SET_SHADER_EXT = 1000572009,
+    #[doc(alias = "VK_STRUCTURE_TYPE_INDIRECT_EXECUTION_SET_PIPELINE_INFO_EXT")]
+    INDIRECT_EXECUTION_SET_PIPELINE_INFO_EXT = 1000572010,
+    #[doc(alias = "VK_STRUCTURE_TYPE_INDIRECT_EXECUTION_SET_SHADER_INFO_EXT")]
+    INDIRECT_EXECUTION_SET_SHADER_INFO_EXT = 1000572011,
+    #[doc(alias = "VK_STRUCTURE_TYPE_INDIRECT_EXECUTION_SET_SHADER_LAYOUT_INFO_EXT")]
+    INDIRECT_EXECUTION_SET_SHADER_LAYOUT_INFO_EXT = 1000572012,
+    #[doc(alias = "VK_STRUCTURE_TYPE_GENERATED_COMMANDS_PIPELINE_INFO_EXT")]
+    GENERATED_COMMANDS_PIPELINE_INFO_EXT = 1000572013,
+    #[doc(alias = "VK_STRUCTURE_TYPE_GENERATED_COMMANDS_SHADER_INFO_EXT")]
+    GENERATED_COMMANDS_SHADER_INFO_EXT = 1000572014,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FAULT_FEATURES_KHR")]
+    PHYSICAL_DEVICE_FAULT_FEATURES_KHR = 1000573000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FAULT_PROPERTIES_KHR")]
+    PHYSICAL_DEVICE_FAULT_PROPERTIES_KHR = 1000573001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_FAULT_INFO_KHR")]
+    DEVICE_FAULT_INFO_KHR = 1000573002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_FAULT_DEBUG_INFO_KHR")]
+    DEVICE_FAULT_DEBUG_INFO_KHR = 1000573003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_8_FEATURES_KHR")]
+    PHYSICAL_DEVICE_MAINTENANCE_8_FEATURES_KHR = 1000574000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_MEMORY_BARRIER_ACCESS_FLAGS_3_KHR")]
+    MEMORY_BARRIER_ACCESS_FLAGS_3_KHR = 1000574002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_ALIGNMENT_CONTROL_FEATURES_MESA")]
+    PHYSICAL_DEVICE_IMAGE_ALIGNMENT_CONTROL_FEATURES_MESA = 1000575000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_ALIGNMENT_CONTROL_PROPERTIES_MESA")]
+    PHYSICAL_DEVICE_IMAGE_ALIGNMENT_CONTROL_PROPERTIES_MESA = 1000575001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_ALIGNMENT_CONTROL_CREATE_INFO_MESA")]
+    IMAGE_ALIGNMENT_CONTROL_CREATE_INFO_MESA = 1000575002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_FMA_FEATURES_KHR")]
+    PHYSICAL_DEVICE_SHADER_FMA_FEATURES_KHR = 1000579000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PUSH_CONSTANT_BANK_INFO_NV")]
+    PUSH_CONSTANT_BANK_INFO_NV = 1000580000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PUSH_CONSTANT_BANK_FEATURES_NV")]
+    PHYSICAL_DEVICE_PUSH_CONSTANT_BANK_FEATURES_NV = 1000580001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PUSH_CONSTANT_BANK_PROPERTIES_NV")]
+    PHYSICAL_DEVICE_PUSH_CONSTANT_BANK_PROPERTIES_NV = 1000580002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_INVOCATION_REORDER_FEATURES_EXT")]
+    PHYSICAL_DEVICE_RAY_TRACING_INVOCATION_REORDER_FEATURES_EXT = 1000581000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_INVOCATION_REORDER_PROPERTIES_EXT")]
+    PHYSICAL_DEVICE_RAY_TRACING_INVOCATION_REORDER_PROPERTIES_EXT = 1000581001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEPTH_CLAMP_CONTROL_FEATURES_EXT")]
+    PHYSICAL_DEVICE_DEPTH_CLAMP_CONTROL_FEATURES_EXT = 1000582000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_DEPTH_CLAMP_CONTROL_CREATE_INFO_EXT")]
+    PIPELINE_VIEWPORT_DEPTH_CLAMP_CONTROL_CREATE_INFO_EXT = 1000582001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_9_FEATURES_KHR")]
+    PHYSICAL_DEVICE_MAINTENANCE_9_FEATURES_KHR = 1000584000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_9_PROPERTIES_KHR")]
+    PHYSICAL_DEVICE_MAINTENANCE_9_PROPERTIES_KHR = 1000584001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_QUEUE_FAMILY_OWNERSHIP_TRANSFER_PROPERTIES_KHR")]
+    QUEUE_FAMILY_OWNERSHIP_TRANSFER_PROPERTIES_KHR = 1000584002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VIDEO_MAINTENANCE_2_FEATURES_KHR")]
+    PHYSICAL_DEVICE_VIDEO_MAINTENANCE_2_FEATURES_KHR = 1000586000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_INLINE_SESSION_PARAMETERS_INFO_KHR")]
+    VIDEO_DECODE_H264_INLINE_SESSION_PARAMETERS_INFO_KHR = 1000586001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_DECODE_H265_INLINE_SESSION_PARAMETERS_INFO_KHR")]
+    VIDEO_DECODE_H265_INLINE_SESSION_PARAMETERS_INFO_KHR = 1000586002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_DECODE_AV1_INLINE_SESSION_PARAMETERS_INFO_KHR")]
+    VIDEO_DECODE_AV1_INLINE_SESSION_PARAMETERS_INFO_KHR = 1000586003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SURFACE_CREATE_INFO_OHOS")]
+    SURFACE_CREATE_INFO_OHOS = 1000685000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_HDR_VIVID_FEATURES_HUAWEI")]
+    PHYSICAL_DEVICE_HDR_VIVID_FEATURES_HUAWEI = 1000590000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_HDR_VIVID_DYNAMIC_METADATA_HUAWEI")]
+    HDR_VIVID_DYNAMIC_METADATA_HUAWEI = 1000590001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_2_FEATURES_NV")]
+    PHYSICAL_DEVICE_COOPERATIVE_MATRIX_2_FEATURES_NV = 1000593000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_COOPERATIVE_MATRIX_FLEXIBLE_DIMENSIONS_PROPERTIES_NV")]
+    COOPERATIVE_MATRIX_FLEXIBLE_DIMENSIONS_PROPERTIES_NV = 1000593001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_2_PROPERTIES_NV")]
+    PHYSICAL_DEVICE_COOPERATIVE_MATRIX_2_PROPERTIES_NV = 1000593002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_OPACITY_MICROMAP_FEATURES_ARM")]
+    PHYSICAL_DEVICE_PIPELINE_OPACITY_MICROMAP_FEATURES_ARM = 1000596000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VIDEO_ENCODE_FEEDBACK_2_FEATURES_KHR")]
+    PHYSICAL_DEVICE_VIDEO_ENCODE_FEEDBACK_2_FEATURES_KHR = 1000598000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_VIDEO_ENCODE_FEEDBACK_2_CAPABILITIES_KHR")]
+    VIDEO_ENCODE_FEEDBACK_2_CAPABILITIES_KHR = 1000598001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_QUERY_POOL_VIDEO_ENCODE_PER_PARTITION_FEEDBACK_CREATE_INFO_KHR")]
+    QUERY_POOL_VIDEO_ENCODE_PER_PARTITION_FEEDBACK_CREATE_INFO_KHR = 1000598002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMPORT_MEMORY_METAL_HANDLE_INFO_EXT")]
+    IMPORT_MEMORY_METAL_HANDLE_INFO_EXT = 1000602000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_MEMORY_METAL_HANDLE_PROPERTIES_EXT")]
+    MEMORY_METAL_HANDLE_PROPERTIES_EXT = 1000602001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_MEMORY_GET_METAL_HANDLE_INFO_EXT")]
+    MEMORY_GET_METAL_HANDLE_INFO_EXT = 1000602002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEPTH_CLAMP_ZERO_ONE_FEATURES_KHR")]
+    PHYSICAL_DEVICE_DEPTH_CLAMP_ZERO_ONE_FEATURES_KHR = 1000421000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PERFORMANCE_COUNTERS_BY_REGION_FEATURES_ARM")]
+    PHYSICAL_DEVICE_PERFORMANCE_COUNTERS_BY_REGION_FEATURES_ARM = 1000605000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PERFORMANCE_COUNTERS_BY_REGION_PROPERTIES_ARM")]
+    PHYSICAL_DEVICE_PERFORMANCE_COUNTERS_BY_REGION_PROPERTIES_ARM = 1000605001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PERFORMANCE_COUNTER_ARM")]
+    PERFORMANCE_COUNTER_ARM = 1000605002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PERFORMANCE_COUNTER_DESCRIPTION_ARM")]
+    PERFORMANCE_COUNTER_DESCRIPTION_ARM = 1000605003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_RENDER_PASS_PERFORMANCE_COUNTERS_BY_REGION_BEGIN_INFO_ARM")]
+    RENDER_PASS_PERFORMANCE_COUNTERS_BY_REGION_BEGIN_INFO_ARM = 1000605004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_INSTRUMENTATION_FEATURES_ARM")]
+    PHYSICAL_DEVICE_SHADER_INSTRUMENTATION_FEATURES_ARM = 1000607000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_INSTRUMENTATION_PROPERTIES_ARM")]
+    PHYSICAL_DEVICE_SHADER_INSTRUMENTATION_PROPERTIES_ARM = 1000607001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SHADER_INSTRUMENTATION_CREATE_INFO_ARM")]
+    SHADER_INSTRUMENTATION_CREATE_INFO_ARM = 1000607002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SHADER_INSTRUMENTATION_METRIC_DESCRIPTION_ARM")]
+    SHADER_INSTRUMENTATION_METRIC_DESCRIPTION_ARM = 1000607003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_ROBUSTNESS_FEATURES_EXT")]
+    PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_ROBUSTNESS_FEATURES_EXT = 1000608000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FORMAT_PACK_FEATURES_ARM")]
+    PHYSICAL_DEVICE_FORMAT_PACK_FEATURES_ARM = 1000609000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_LAYERED_FEATURES_VALVE")]
+    PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_LAYERED_FEATURES_VALVE = 1000611000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_LAYERED_PROPERTIES_VALVE")]
+    PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_LAYERED_PROPERTIES_VALVE = 1000611001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_FRAGMENT_DENSITY_MAP_LAYERED_CREATE_INFO_VALVE")]
+    PIPELINE_FRAGMENT_DENSITY_MAP_LAYERED_CREATE_INFO_VALVE = 1000611002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ROBUSTNESS_2_FEATURES_KHR")]
+    PHYSICAL_DEVICE_ROBUSTNESS_2_FEATURES_KHR = 1000286000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ROBUSTNESS_2_PROPERTIES_KHR")]
+    PHYSICAL_DEVICE_ROBUSTNESS_2_PROPERTIES_KHR = 1000286001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SET_PRESENT_CONFIG_NV")]
+    SET_PRESENT_CONFIG_NV = 1000613000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_METERING_FEATURES_NV")]
+    PHYSICAL_DEVICE_PRESENT_METERING_FEATURES_NV = 1000613001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTISAMPLED_RENDER_TO_SWAPCHAIN_FEATURES_EXT")]
+    PHYSICAL_DEVICE_MULTISAMPLED_RENDER_TO_SWAPCHAIN_FEATURES_EXT = 1000616000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SWAPCHAIN_FLAGS_SURFACE_CAPABILITIES_EXT")]
+    SWAPCHAIN_FLAGS_SURFACE_CAPABILITIES_EXT = 1000616001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_OFFSET_FEATURES_EXT")]
+    PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_OFFSET_FEATURES_EXT = 1000425000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_OFFSET_PROPERTIES_EXT")]
+    PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_OFFSET_PROPERTIES_EXT = 1000425001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_RENDER_PASS_FRAGMENT_DENSITY_MAP_OFFSET_END_INFO_EXT")]
+    RENDER_PASS_FRAGMENT_DENSITY_MAP_OFFSET_END_INFO_EXT = 1000425002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ZERO_INITIALIZE_DEVICE_MEMORY_FEATURES_EXT")]
+    PHYSICAL_DEVICE_ZERO_INITIALIZE_DEVICE_MEMORY_FEATURES_EXT = 1000620000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_MODE_FIFO_LATEST_READY_FEATURES_KHR")]
+    PHYSICAL_DEVICE_PRESENT_MODE_FIFO_LATEST_READY_FEATURES_KHR = 1000361000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_OPACITY_MICROMAP_FEATURES_KHR")]
+    PHYSICAL_DEVICE_OPACITY_MICROMAP_FEATURES_KHR = 1000623000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_OPACITY_MICROMAP_PROPERTIES_KHR")]
+    PHYSICAL_DEVICE_OPACITY_MICROMAP_PROPERTIES_KHR = 1000623001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_GEOMETRY_MICROMAP_DATA_KHR")]
+    ACCELERATION_STRUCTURE_GEOMETRY_MICROMAP_DATA_KHR = 1000623002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_TRIANGLES_OPACITY_MICROMAP_KHR")]
+    ACCELERATION_STRUCTURE_TRIANGLES_OPACITY_MICROMAP_KHR = 1000623003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_64_BIT_INDEXING_FEATURES_EXT")]
+    PHYSICAL_DEVICE_SHADER_64_BIT_INDEXING_FEATURES_EXT = 1000627000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUSTOM_RESOLVE_FEATURES_EXT")]
+    PHYSICAL_DEVICE_CUSTOM_RESOLVE_FEATURES_EXT = 1000628000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_BEGIN_CUSTOM_RESOLVE_INFO_EXT")]
+    BEGIN_CUSTOM_RESOLVE_INFO_EXT = 1000628001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_CUSTOM_RESOLVE_CREATE_INFO_EXT")]
+    CUSTOM_RESOLVE_CREATE_INFO_EXT = 1000628002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DATA_GRAPH_MODEL_FEATURES_QCOM")]
+    PHYSICAL_DEVICE_DATA_GRAPH_MODEL_FEATURES_QCOM = 1000629000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_BUILTIN_MODEL_CREATE_INFO_QCOM")]
+    DATA_GRAPH_PIPELINE_BUILTIN_MODEL_CREATE_INFO_QCOM = 1000629001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_10_FEATURES_KHR")]
+    PHYSICAL_DEVICE_MAINTENANCE_10_FEATURES_KHR = 1000630000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_10_PROPERTIES_KHR")]
+    PHYSICAL_DEVICE_MAINTENANCE_10_PROPERTIES_KHR = 1000630001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_RENDERING_ATTACHMENT_FLAGS_INFO_KHR")]
+    RENDERING_ATTACHMENT_FLAGS_INFO_KHR = 1000630002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_RENDERING_END_INFO_KHR")]
+    RENDERING_END_INFO_KHR = 1000619003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_RESOLVE_IMAGE_MODE_INFO_KHR")]
+    RESOLVE_IMAGE_MODE_INFO_KHR = 1000630004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DATA_GRAPH_OPTICAL_FLOW_FEATURES_ARM")]
+    PHYSICAL_DEVICE_DATA_GRAPH_OPTICAL_FLOW_FEATURES_ARM = 1000631000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_QUEUE_FAMILY_DATA_GRAPH_OPTICAL_FLOW_PROPERTIES_ARM")]
+    QUEUE_FAMILY_DATA_GRAPH_OPTICAL_FLOW_PROPERTIES_ARM = 1000631001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DATA_GRAPH_OPTICAL_FLOW_IMAGE_FORMAT_INFO_ARM")]
+    DATA_GRAPH_OPTICAL_FLOW_IMAGE_FORMAT_INFO_ARM = 1000631003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DATA_GRAPH_OPTICAL_FLOW_IMAGE_FORMAT_PROPERTIES_ARM")]
+    DATA_GRAPH_OPTICAL_FLOW_IMAGE_FORMAT_PROPERTIES_ARM = 1000631004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_OPTICAL_FLOW_DISPATCH_INFO_ARM")]
+    DATA_GRAPH_PIPELINE_OPTICAL_FLOW_DISPATCH_INFO_ARM = 1000631005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_OPTICAL_FLOW_CREATE_INFO_ARM")]
+    DATA_GRAPH_PIPELINE_OPTICAL_FLOW_CREATE_INFO_ARM = 1000631002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_RESOURCE_INFO_IMAGE_LAYOUT_ARM")]
+    DATA_GRAPH_PIPELINE_RESOURCE_INFO_IMAGE_LAYOUT_ARM = 1000631006,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_SINGLE_NODE_CREATE_INFO_ARM")]
+    DATA_GRAPH_PIPELINE_SINGLE_NODE_CREATE_INFO_ARM = 1000631007,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_SINGLE_NODE_CONNECTION_ARM")]
+    DATA_GRAPH_PIPELINE_SINGLE_NODE_CONNECTION_ARM = 1000631008,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_LONG_VECTOR_FEATURES_EXT")]
+    PHYSICAL_DEVICE_SHADER_LONG_VECTOR_FEATURES_EXT = 1000635000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_LONG_VECTOR_PROPERTIES_EXT")]
+    PHYSICAL_DEVICE_SHADER_LONG_VECTOR_PROPERTIES_EXT = 1000635001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_CACHE_INCREMENTAL_MODE_FEATURES_SEC")]
+    PHYSICAL_DEVICE_PIPELINE_CACHE_INCREMENTAL_MODE_FEATURES_SEC = 1000637000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_UNIFORM_BUFFER_UNSIZED_ARRAY_FEATURES_EXT")]
+    PHYSICAL_DEVICE_SHADER_UNIFORM_BUFFER_UNSIZED_ARRAY_FEATURES_EXT = 1000642000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_COMPUTE_OCCUPANCY_PRIORITY_PARAMETERS_NV")]
+    COMPUTE_OCCUPANCY_PRIORITY_PARAMETERS_NV = 1000645000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COMPUTE_OCCUPANCY_PRIORITY_FEATURES_NV")]
+    PHYSICAL_DEVICE_COMPUTE_OCCUPANCY_PRIORITY_FEATURES_NV = 1000645001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_LIBRARY_GROUP_HANDLES_FEATURES_KHR")]
+    PHYSICAL_DEVICE_PIPELINE_LIBRARY_GROUP_HANDLES_FEATURES_KHR = 1000498000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_11_FEATURES_KHR")]
+    PHYSICAL_DEVICE_MAINTENANCE_11_FEATURES_KHR = 1000657000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_QUEUE_FAMILY_OPTIMAL_IMAGE_TRANSFER_GRANULARITY_PROPERTIES_KHR")]
+    QUEUE_FAMILY_OPTIMAL_IMAGE_TRANSFER_GRANULARITY_PROPERTIES_KHR = 1000657001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_MAINTENANCE_1_FEATURES_EXT")]
+    PHYSICAL_DEVICE_COOPERATIVE_MATRIX_MAINTENANCE_1_FEATURES_EXT = 1000659000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_INFO_2_EXT")]
+    PHYSICAL_DEVICE_COOPERATIVE_MATRIX_INFO_2_EXT = 1000659001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_COOPERATIVE_MATRIX_PROPERTIES_2_EXT")]
+    COOPERATIVE_MATRIX_PROPERTIES_2_EXT = 1000659002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_SUBGROUP_PARTITIONED_FEATURES_EXT")]
+    PHYSICAL_DEVICE_SHADER_SUBGROUP_PARTITIONED_FEATURES_EXT = 1000662000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_UBM_SURFACE_CREATE_INFO_SEC")]
+    UBM_SURFACE_CREATE_INFO_SEC = 1000664000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_FORMAT_PROPERTIES_4_KHR")]
+    FORMAT_PROPERTIES_4_KHR = 1000668000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_CREATE_FLAGS_2_CREATE_INFO_KHR")]
+    IMAGE_CREATE_FLAGS_2_CREATE_INFO_KHR = 1000668001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_USAGE_FLAGS_2_CREATE_INFO_KHR")]
+    IMAGE_USAGE_FLAGS_2_CREATE_INFO_KHR = 1000668002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_VIEW_USAGE_2_CREATE_INFO_KHR")]
+    IMAGE_VIEW_USAGE_2_CREATE_INFO_KHR = 1000668003,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTENDED_FLAGS_FEATURES_KHR")]
+    PHYSICAL_DEVICE_EXTENDED_FLAGS_FEATURES_KHR = 1000668004,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_STENCIL_USAGE_2_CREATE_INFO_KHR")]
+    IMAGE_STENCIL_USAGE_2_CREATE_INFO_KHR = 1000668005,
+    #[doc(alias = "VK_STRUCTURE_TYPE_SHARED_PRESENT_SURFACE_CAPABILITIES_2_KHR")]
+    SHARED_PRESENT_SURFACE_CAPABILITIES_2_KHR = 1000668006,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_OCP_MICROSCALING_TYPES_FEATURES_EXT")]
+    PHYSICAL_DEVICE_SHADER_OCP_MICROSCALING_TYPES_FEATURES_EXT = 1000672000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_MIXED_FLOAT_DOT_PRODUCT_FEATURES_VALVE")]
+    PHYSICAL_DEVICE_SHADER_MIXED_FLOAT_DOT_PRODUCT_FEATURES_VALVE = 1000673000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_THROTTLE_HINT_FEATURES_SEC")]
+    PHYSICAL_DEVICE_THROTTLE_HINT_FEATURES_SEC = 1000674000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_THROTTLE_HINT_SUBMIT_INFO_SEC")]
+    THROTTLE_HINT_SUBMIT_INFO_SEC = 1000674001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_NEURAL_STATISTICS_CREATE_INFO_ARM")]
+    DATA_GRAPH_PIPELINE_NEURAL_STATISTICS_CREATE_INFO_ARM = 1000676000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_SESSION_NEURAL_STATISTICS_CREATE_INFO_ARM")]
+    DATA_GRAPH_PIPELINE_SESSION_NEURAL_STATISTICS_CREATE_INFO_ARM = 1000676001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DATA_GRAPH_NEURAL_ACCELERATOR_STATISTICS_FEATURES_ARM")]
+    PHYSICAL_DEVICE_DATA_GRAPH_NEURAL_ACCELERATOR_STATISTICS_FEATURES_ARM = 1000676002,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRIMITIVE_RESTART_INDEX_FEATURES_EXT")]
+    PHYSICAL_DEVICE_PRIMITIVE_RESTART_INDEX_FEATURES_EXT = 1000678000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_TILING_CONTROL_FEATURES_EXT")]
+    PHYSICAL_DEVICE_IMAGE_TILING_CONTROL_FEATURES_EXT = 1000687000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_TILING_CONTROL_CREATE_INFO_EXT")]
+    IMAGE_TILING_CONTROL_CREATE_INFO_EXT = 1000687001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_DECODE_VECTOR_FEATURES_NV")]
+    PHYSICAL_DEVICE_COOPERATIVE_MATRIX_DECODE_VECTOR_FEATURES_NV = 1000689000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRIVATE_DATA_BASE_HANDLE_FEATURES_NV")]
+    PHYSICAL_DEVICE_PRIVATE_DATA_BASE_HANDLE_FEATURES_NV = 1000707000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BUFFER_DEVICE_ADDRESS_ALLOCATION_ALIGNMENT_FEATURES_VALVE")]
+    PHYSICAL_DEVICE_BUFFER_DEVICE_ADDRESS_ALLOCATION_ALIGNMENT_FEATURES_VALVE = 1000709000,
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BUFFER_DEVICE_ADDRESS_ALLOCATION_ALIGNMENT_PROPERTIES_VALVE")]
+    PHYSICAL_DEVICE_BUFFER_DEVICE_ADDRESS_ALLOCATION_ALIGNMENT_PROPERTIES_VALVE = 1000709001,
+    #[doc(alias = "VK_STRUCTURE_TYPE_BUFFER_DEVICE_ADDRESS_ALIGNMENT_ALLOCATE_INFO_VALVE")]
+    BUFFER_DEVICE_ADDRESS_ALIGNMENT_ALLOCATE_INFO_VALVE = 1000709002,
+}
+impl StructureType {
+    #[doc(alias = "VK_STRUCTURE_TYPE_BIND_BUFFER_MEMORY_INFO_KHR")]
+    pub const BIND_BUFFER_MEMORY_INFO_KHR: Self = Self::BIND_BUFFER_MEMORY_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_BIND_IMAGE_MEMORY_INFO_KHR")]
+    pub const BIND_IMAGE_MEMORY_INFO_KHR: Self = Self::BIND_IMAGE_MEMORY_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_MEMORY_DEDICATED_REQUIREMENTS_KHR")]
+    pub const MEMORY_DEDICATED_REQUIREMENTS_KHR: Self = Self::MEMORY_DEDICATED_REQUIREMENTS;
+    #[doc(alias = "VK_STRUCTURE_TYPE_MEMORY_DEDICATED_ALLOCATE_INFO_KHR")]
+    pub const MEMORY_DEDICATED_ALLOCATE_INFO_KHR: Self = Self::MEMORY_DEDICATED_ALLOCATE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_FLAGS_INFO_KHR")]
+    pub const MEMORY_ALLOCATE_FLAGS_INFO_KHR: Self = Self::MEMORY_ALLOCATE_FLAGS_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_GROUP_COMMAND_BUFFER_BEGIN_INFO_KHR")]
+    pub const DEVICE_GROUP_COMMAND_BUFFER_BEGIN_INFO_KHR: Self = Self::DEVICE_GROUP_COMMAND_BUFFER_BEGIN_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_GROUP_SUBMIT_INFO_KHR")]
+    pub const DEVICE_GROUP_SUBMIT_INFO_KHR: Self = Self::DEVICE_GROUP_SUBMIT_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_GROUP_BIND_SPARSE_INFO_KHR")]
+    pub const DEVICE_GROUP_BIND_SPARSE_INFO_KHR: Self = Self::DEVICE_GROUP_BIND_SPARSE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_BIND_BUFFER_MEMORY_DEVICE_GROUP_INFO_KHR")]
+    pub const BIND_BUFFER_MEMORY_DEVICE_GROUP_INFO_KHR: Self = Self::BIND_BUFFER_MEMORY_DEVICE_GROUP_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_BIND_IMAGE_MEMORY_DEVICE_GROUP_INFO_KHR")]
+    pub const BIND_IMAGE_MEMORY_DEVICE_GROUP_INFO_KHR: Self = Self::BIND_IMAGE_MEMORY_DEVICE_GROUP_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_GROUP_PROPERTIES_KHR")]
+    pub const PHYSICAL_DEVICE_GROUP_PROPERTIES_KHR: Self = Self::PHYSICAL_DEVICE_GROUP_PROPERTIES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_GROUP_DEVICE_CREATE_INFO_KHR")]
+    pub const DEVICE_GROUP_DEVICE_CREATE_INFO_KHR: Self = Self::DEVICE_GROUP_DEVICE_CREATE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_BUFFER_MEMORY_REQUIREMENTS_INFO_2_KHR")]
+    pub const BUFFER_MEMORY_REQUIREMENTS_INFO_2_KHR: Self = Self::BUFFER_MEMORY_REQUIREMENTS_INFO_2;
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_MEMORY_REQUIREMENTS_INFO_2_KHR")]
+    pub const IMAGE_MEMORY_REQUIREMENTS_INFO_2_KHR: Self = Self::IMAGE_MEMORY_REQUIREMENTS_INFO_2;
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_SPARSE_MEMORY_REQUIREMENTS_INFO_2_KHR")]
+    pub const IMAGE_SPARSE_MEMORY_REQUIREMENTS_INFO_2_KHR: Self = Self::IMAGE_SPARSE_MEMORY_REQUIREMENTS_INFO_2;
+    #[doc(alias = "VK_STRUCTURE_TYPE_MEMORY_REQUIREMENTS_2_KHR")]
+    pub const MEMORY_REQUIREMENTS_2_KHR: Self = Self::MEMORY_REQUIREMENTS_2;
+    #[doc(alias = "VK_STRUCTURE_TYPE_SPARSE_IMAGE_MEMORY_REQUIREMENTS_2_KHR")]
+    pub const SPARSE_IMAGE_MEMORY_REQUIREMENTS_2_KHR: Self = Self::SPARSE_IMAGE_MEMORY_REQUIREMENTS_2;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FEATURES_2_KHR")]
+    pub const PHYSICAL_DEVICE_FEATURES_2_KHR: Self = Self::PHYSICAL_DEVICE_FEATURES_2;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PROPERTIES_2_KHR")]
+    pub const PHYSICAL_DEVICE_PROPERTIES_2_KHR: Self = Self::PHYSICAL_DEVICE_PROPERTIES_2;
+    #[doc(alias = "VK_STRUCTURE_TYPE_FORMAT_PROPERTIES_2_KHR")]
+    pub const FORMAT_PROPERTIES_2_KHR: Self = Self::FORMAT_PROPERTIES_2;
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_FORMAT_PROPERTIES_2_KHR")]
+    pub const IMAGE_FORMAT_PROPERTIES_2_KHR: Self = Self::IMAGE_FORMAT_PROPERTIES_2;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_FORMAT_INFO_2_KHR")]
+    pub const PHYSICAL_DEVICE_IMAGE_FORMAT_INFO_2_KHR: Self = Self::PHYSICAL_DEVICE_IMAGE_FORMAT_INFO_2;
+    #[doc(alias = "VK_STRUCTURE_TYPE_QUEUE_FAMILY_PROPERTIES_2_KHR")]
+    pub const QUEUE_FAMILY_PROPERTIES_2_KHR: Self = Self::QUEUE_FAMILY_PROPERTIES_2;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_PROPERTIES_2_KHR")]
+    pub const PHYSICAL_DEVICE_MEMORY_PROPERTIES_2_KHR: Self = Self::PHYSICAL_DEVICE_MEMORY_PROPERTIES_2;
+    #[doc(alias = "VK_STRUCTURE_TYPE_SPARSE_IMAGE_FORMAT_PROPERTIES_2_KHR")]
+    pub const SPARSE_IMAGE_FORMAT_PROPERTIES_2_KHR: Self = Self::SPARSE_IMAGE_FORMAT_PROPERTIES_2;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SPARSE_IMAGE_FORMAT_INFO_2_KHR")]
+    pub const PHYSICAL_DEVICE_SPARSE_IMAGE_FORMAT_INFO_2_KHR: Self = Self::PHYSICAL_DEVICE_SPARSE_IMAGE_FORMAT_INFO_2;
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_VIEW_USAGE_CREATE_INFO_KHR")]
+    pub const IMAGE_VIEW_USAGE_CREATE_INFO_KHR: Self = Self::IMAGE_VIEW_USAGE_CREATE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_IMAGE_FORMAT_INFO_KHR")]
+    pub const PHYSICAL_DEVICE_EXTERNAL_IMAGE_FORMAT_INFO_KHR: Self = Self::PHYSICAL_DEVICE_EXTERNAL_IMAGE_FORMAT_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_EXTERNAL_IMAGE_FORMAT_PROPERTIES_KHR")]
+    pub const EXTERNAL_IMAGE_FORMAT_PROPERTIES_KHR: Self = Self::EXTERNAL_IMAGE_FORMAT_PROPERTIES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_BUFFER_INFO_KHR")]
+    pub const PHYSICAL_DEVICE_EXTERNAL_BUFFER_INFO_KHR: Self = Self::PHYSICAL_DEVICE_EXTERNAL_BUFFER_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_EXTERNAL_BUFFER_PROPERTIES_KHR")]
+    pub const EXTERNAL_BUFFER_PROPERTIES_KHR: Self = Self::EXTERNAL_BUFFER_PROPERTIES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ID_PROPERTIES_KHR")]
+    pub const PHYSICAL_DEVICE_ID_PROPERTIES_KHR: Self = Self::PHYSICAL_DEVICE_ID_PROPERTIES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_BUFFER_CREATE_INFO_KHR")]
+    pub const EXTERNAL_MEMORY_BUFFER_CREATE_INFO_KHR: Self = Self::EXTERNAL_MEMORY_BUFFER_CREATE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_IMAGE_CREATE_INFO_KHR")]
+    pub const EXTERNAL_MEMORY_IMAGE_CREATE_INFO_KHR: Self = Self::EXTERNAL_MEMORY_IMAGE_CREATE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_EXPORT_MEMORY_ALLOCATE_INFO_KHR")]
+    pub const EXPORT_MEMORY_ALLOCATE_INFO_KHR: Self = Self::EXPORT_MEMORY_ALLOCATE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_FENCE_INFO_KHR")]
+    pub const PHYSICAL_DEVICE_EXTERNAL_FENCE_INFO_KHR: Self = Self::PHYSICAL_DEVICE_EXTERNAL_FENCE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_EXTERNAL_FENCE_PROPERTIES_KHR")]
+    pub const EXTERNAL_FENCE_PROPERTIES_KHR: Self = Self::EXTERNAL_FENCE_PROPERTIES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_EXPORT_FENCE_CREATE_INFO_KHR")]
+    pub const EXPORT_FENCE_CREATE_INFO_KHR: Self = Self::EXPORT_FENCE_CREATE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_EXPORT_SEMAPHORE_CREATE_INFO_KHR")]
+    pub const EXPORT_SEMAPHORE_CREATE_INFO_KHR: Self = Self::EXPORT_SEMAPHORE_CREATE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_SEMAPHORE_INFO_KHR")]
+    pub const PHYSICAL_DEVICE_EXTERNAL_SEMAPHORE_INFO_KHR: Self = Self::PHYSICAL_DEVICE_EXTERNAL_SEMAPHORE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_EXTERNAL_SEMAPHORE_PROPERTIES_KHR")]
+    pub const EXTERNAL_SEMAPHORE_PROPERTIES_KHR: Self = Self::EXTERNAL_SEMAPHORE_PROPERTIES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_16BIT_STORAGE_FEATURES_KHR")]
+    pub const PHYSICAL_DEVICE_16BIT_STORAGE_FEATURES_KHR: Self = Self::PHYSICAL_DEVICE_16BIT_STORAGE_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VARIABLE_POINTER_FEATURES")]
+    pub const PHYSICAL_DEVICE_VARIABLE_POINTER_FEATURES: Self = Self::PHYSICAL_DEVICE_VARIABLE_POINTERS_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VARIABLE_POINTERS_FEATURES_KHR")]
+    pub const PHYSICAL_DEVICE_VARIABLE_POINTERS_FEATURES_KHR: Self = Self::PHYSICAL_DEVICE_VARIABLE_POINTERS_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VARIABLE_POINTER_FEATURES_KHR")]
+    pub const PHYSICAL_DEVICE_VARIABLE_POINTER_FEATURES_KHR: Self = Self::PHYSICAL_DEVICE_VARIABLE_POINTERS_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_CREATE_INFO_KHR")]
+    pub const DESCRIPTOR_UPDATE_TEMPLATE_CREATE_INFO_KHR: Self = Self::DESCRIPTOR_UPDATE_TEMPLATE_CREATE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_3_PROPERTIES_KHR")]
+    pub const PHYSICAL_DEVICE_MAINTENANCE_3_PROPERTIES_KHR: Self = Self::PHYSICAL_DEVICE_MAINTENANCE_3_PROPERTIES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_SUPPORT_KHR")]
+    pub const DESCRIPTOR_SET_LAYOUT_SUPPORT_KHR: Self = Self::DESCRIPTOR_SET_LAYOUT_SUPPORT;
+    #[doc(alias = "VK_STRUCTURE_TYPE_SAMPLER_YCBCR_CONVERSION_CREATE_INFO_KHR")]
+    pub const SAMPLER_YCBCR_CONVERSION_CREATE_INFO_KHR: Self = Self::SAMPLER_YCBCR_CONVERSION_CREATE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_SAMPLER_YCBCR_CONVERSION_INFO_KHR")]
+    pub const SAMPLER_YCBCR_CONVERSION_INFO_KHR: Self = Self::SAMPLER_YCBCR_CONVERSION_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_BIND_IMAGE_PLANE_MEMORY_INFO_KHR")]
+    pub const BIND_IMAGE_PLANE_MEMORY_INFO_KHR: Self = Self::BIND_IMAGE_PLANE_MEMORY_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_PLANE_MEMORY_REQUIREMENTS_INFO_KHR")]
+    pub const IMAGE_PLANE_MEMORY_REQUIREMENTS_INFO_KHR: Self = Self::IMAGE_PLANE_MEMORY_REQUIREMENTS_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SAMPLER_YCBCR_CONVERSION_FEATURES_KHR")]
+    pub const PHYSICAL_DEVICE_SAMPLER_YCBCR_CONVERSION_FEATURES_KHR: Self = Self::PHYSICAL_DEVICE_SAMPLER_YCBCR_CONVERSION_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_SAMPLER_YCBCR_CONVERSION_IMAGE_FORMAT_PROPERTIES_KHR")]
+    pub const SAMPLER_YCBCR_CONVERSION_IMAGE_FORMAT_PROPERTIES_KHR: Self = Self::SAMPLER_YCBCR_CONVERSION_IMAGE_FORMAT_PROPERTIES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_GROUP_RENDER_PASS_BEGIN_INFO_KHR")]
+    pub const DEVICE_GROUP_RENDER_PASS_BEGIN_INFO_KHR: Self = Self::DEVICE_GROUP_RENDER_PASS_BEGIN_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_POINT_CLIPPING_PROPERTIES_KHR")]
+    pub const PHYSICAL_DEVICE_POINT_CLIPPING_PROPERTIES_KHR: Self = Self::PHYSICAL_DEVICE_POINT_CLIPPING_PROPERTIES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_RENDER_PASS_INPUT_ATTACHMENT_ASPECT_CREATE_INFO_KHR")]
+    pub const RENDER_PASS_INPUT_ATTACHMENT_ASPECT_CREATE_INFO_KHR: Self = Self::RENDER_PASS_INPUT_ATTACHMENT_ASPECT_CREATE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_TESSELLATION_DOMAIN_ORIGIN_STATE_CREATE_INFO_KHR")]
+    pub const PIPELINE_TESSELLATION_DOMAIN_ORIGIN_STATE_CREATE_INFO_KHR: Self = Self::PIPELINE_TESSELLATION_DOMAIN_ORIGIN_STATE_CREATE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_RENDER_PASS_MULTIVIEW_CREATE_INFO_KHR")]
+    pub const RENDER_PASS_MULTIVIEW_CREATE_INFO_KHR: Self = Self::RENDER_PASS_MULTIVIEW_CREATE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_FEATURES_KHR")]
+    pub const PHYSICAL_DEVICE_MULTIVIEW_FEATURES_KHR: Self = Self::PHYSICAL_DEVICE_MULTIVIEW_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PROPERTIES_KHR")]
+    pub const PHYSICAL_DEVICE_MULTIVIEW_PROPERTIES_KHR: Self = Self::PHYSICAL_DEVICE_MULTIVIEW_PROPERTIES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_DRAW_PARAMETER_FEATURES")]
+    pub const PHYSICAL_DEVICE_SHADER_DRAW_PARAMETER_FEATURES: Self = Self::PHYSICAL_DEVICE_SHADER_DRAW_PARAMETERS_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DRIVER_PROPERTIES_KHR")]
+    pub const PHYSICAL_DEVICE_DRIVER_PROPERTIES_KHR: Self = Self::PHYSICAL_DEVICE_DRIVER_PROPERTIES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_FORMAT_LIST_CREATE_INFO_KHR")]
+    pub const IMAGE_FORMAT_LIST_CREATE_INFO_KHR: Self = Self::IMAGE_FORMAT_LIST_CREATE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_MEMORY_MODEL_FEATURES_KHR")]
+    pub const PHYSICAL_DEVICE_VULKAN_MEMORY_MODEL_FEATURES_KHR: Self = Self::PHYSICAL_DEVICE_VULKAN_MEMORY_MODEL_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_HOST_QUERY_RESET_FEATURES_EXT")]
+    pub const PHYSICAL_DEVICE_HOST_QUERY_RESET_FEATURES_EXT: Self = Self::PHYSICAL_DEVICE_HOST_QUERY_RESET_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TIMELINE_SEMAPHORE_FEATURES_KHR")]
+    pub const PHYSICAL_DEVICE_TIMELINE_SEMAPHORE_FEATURES_KHR: Self = Self::PHYSICAL_DEVICE_TIMELINE_SEMAPHORE_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TIMELINE_SEMAPHORE_PROPERTIES_KHR")]
+    pub const PHYSICAL_DEVICE_TIMELINE_SEMAPHORE_PROPERTIES_KHR: Self = Self::PHYSICAL_DEVICE_TIMELINE_SEMAPHORE_PROPERTIES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_SEMAPHORE_TYPE_CREATE_INFO_KHR")]
+    pub const SEMAPHORE_TYPE_CREATE_INFO_KHR: Self = Self::SEMAPHORE_TYPE_CREATE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_TIMELINE_SEMAPHORE_SUBMIT_INFO_KHR")]
+    pub const TIMELINE_SEMAPHORE_SUBMIT_INFO_KHR: Self = Self::TIMELINE_SEMAPHORE_SUBMIT_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_SEMAPHORE_WAIT_INFO_KHR")]
+    pub const SEMAPHORE_WAIT_INFO_KHR: Self = Self::SEMAPHORE_WAIT_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_SEMAPHORE_SIGNAL_INFO_KHR")]
+    pub const SEMAPHORE_SIGNAL_INFO_KHR: Self = Self::SEMAPHORE_SIGNAL_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BUFFER_DEVICE_ADDRESS_FEATURES_KHR")]
+    pub const PHYSICAL_DEVICE_BUFFER_DEVICE_ADDRESS_FEATURES_KHR: Self = Self::PHYSICAL_DEVICE_BUFFER_DEVICE_ADDRESS_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_BUFFER_DEVICE_ADDRESS_INFO_EXT")]
+    pub const BUFFER_DEVICE_ADDRESS_INFO_EXT: Self = Self::BUFFER_DEVICE_ADDRESS_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_BUFFER_DEVICE_ADDRESS_INFO_KHR")]
+    pub const BUFFER_DEVICE_ADDRESS_INFO_KHR: Self = Self::BUFFER_DEVICE_ADDRESS_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_BUFFER_OPAQUE_CAPTURE_ADDRESS_CREATE_INFO_KHR")]
+    pub const BUFFER_OPAQUE_CAPTURE_ADDRESS_CREATE_INFO_KHR: Self = Self::BUFFER_OPAQUE_CAPTURE_ADDRESS_CREATE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_MEMORY_OPAQUE_CAPTURE_ADDRESS_ALLOCATE_INFO_KHR")]
+    pub const MEMORY_OPAQUE_CAPTURE_ADDRESS_ALLOCATE_INFO_KHR: Self = Self::MEMORY_OPAQUE_CAPTURE_ADDRESS_ALLOCATE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_MEMORY_OPAQUE_CAPTURE_ADDRESS_INFO_KHR")]
+    pub const DEVICE_MEMORY_OPAQUE_CAPTURE_ADDRESS_INFO_KHR: Self = Self::DEVICE_MEMORY_OPAQUE_CAPTURE_ADDRESS_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_8BIT_STORAGE_FEATURES_KHR")]
+    pub const PHYSICAL_DEVICE_8BIT_STORAGE_FEATURES_KHR: Self = Self::PHYSICAL_DEVICE_8BIT_STORAGE_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ATOMIC_INT64_FEATURES_KHR")]
+    pub const PHYSICAL_DEVICE_SHADER_ATOMIC_INT64_FEATURES_KHR: Self = Self::PHYSICAL_DEVICE_SHADER_ATOMIC_INT64_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_FLOAT16_INT8_FEATURES_KHR")]
+    pub const PHYSICAL_DEVICE_SHADER_FLOAT16_INT8_FEATURES_KHR: Self = Self::PHYSICAL_DEVICE_SHADER_FLOAT16_INT8_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FLOAT16_INT8_FEATURES_KHR")]
+    pub const PHYSICAL_DEVICE_FLOAT16_INT8_FEATURES_KHR: Self = Self::PHYSICAL_DEVICE_SHADER_FLOAT16_INT8_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FLOAT_CONTROLS_PROPERTIES_KHR")]
+    pub const PHYSICAL_DEVICE_FLOAT_CONTROLS_PROPERTIES_KHR: Self = Self::PHYSICAL_DEVICE_FLOAT_CONTROLS_PROPERTIES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_BINDING_FLAGS_CREATE_INFO_EXT")]
+    pub const DESCRIPTOR_SET_LAYOUT_BINDING_FLAGS_CREATE_INFO_EXT: Self = Self::DESCRIPTOR_SET_LAYOUT_BINDING_FLAGS_CREATE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_INDEXING_FEATURES_EXT")]
+    pub const PHYSICAL_DEVICE_DESCRIPTOR_INDEXING_FEATURES_EXT: Self = Self::PHYSICAL_DEVICE_DESCRIPTOR_INDEXING_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_INDEXING_PROPERTIES_EXT")]
+    pub const PHYSICAL_DEVICE_DESCRIPTOR_INDEXING_PROPERTIES_EXT: Self = Self::PHYSICAL_DEVICE_DESCRIPTOR_INDEXING_PROPERTIES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_DESCRIPTOR_SET_VARIABLE_DESCRIPTOR_COUNT_ALLOCATE_INFO_EXT")]
+    pub const DESCRIPTOR_SET_VARIABLE_DESCRIPTOR_COUNT_ALLOCATE_INFO_EXT: Self = Self::DESCRIPTOR_SET_VARIABLE_DESCRIPTOR_COUNT_ALLOCATE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_DESCRIPTOR_SET_VARIABLE_DESCRIPTOR_COUNT_LAYOUT_SUPPORT_EXT")]
+    pub const DESCRIPTOR_SET_VARIABLE_DESCRIPTOR_COUNT_LAYOUT_SUPPORT_EXT: Self = Self::DESCRIPTOR_SET_VARIABLE_DESCRIPTOR_COUNT_LAYOUT_SUPPORT;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SCALAR_BLOCK_LAYOUT_FEATURES_EXT")]
+    pub const PHYSICAL_DEVICE_SCALAR_BLOCK_LAYOUT_FEATURES_EXT: Self = Self::PHYSICAL_DEVICE_SCALAR_BLOCK_LAYOUT_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SAMPLER_FILTER_MINMAX_PROPERTIES_EXT")]
+    pub const PHYSICAL_DEVICE_SAMPLER_FILTER_MINMAX_PROPERTIES_EXT: Self = Self::PHYSICAL_DEVICE_SAMPLER_FILTER_MINMAX_PROPERTIES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_SAMPLER_REDUCTION_MODE_CREATE_INFO_EXT")]
+    pub const SAMPLER_REDUCTION_MODE_CREATE_INFO_EXT: Self = Self::SAMPLER_REDUCTION_MODE_CREATE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_UNIFORM_BUFFER_STANDARD_LAYOUT_FEATURES_KHR")]
+    pub const PHYSICAL_DEVICE_UNIFORM_BUFFER_STANDARD_LAYOUT_FEATURES_KHR: Self = Self::PHYSICAL_DEVICE_UNIFORM_BUFFER_STANDARD_LAYOUT_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_SUBGROUP_EXTENDED_TYPES_FEATURES_KHR")]
+    pub const PHYSICAL_DEVICE_SHADER_SUBGROUP_EXTENDED_TYPES_FEATURES_KHR: Self = Self::PHYSICAL_DEVICE_SHADER_SUBGROUP_EXTENDED_TYPES_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_ATTACHMENT_DESCRIPTION_2_KHR")]
+    pub const ATTACHMENT_DESCRIPTION_2_KHR: Self = Self::ATTACHMENT_DESCRIPTION_2;
+    #[doc(alias = "VK_STRUCTURE_TYPE_ATTACHMENT_REFERENCE_2_KHR")]
+    pub const ATTACHMENT_REFERENCE_2_KHR: Self = Self::ATTACHMENT_REFERENCE_2;
+    #[doc(alias = "VK_STRUCTURE_TYPE_SUBPASS_DESCRIPTION_2_KHR")]
+    pub const SUBPASS_DESCRIPTION_2_KHR: Self = Self::SUBPASS_DESCRIPTION_2;
+    #[doc(alias = "VK_STRUCTURE_TYPE_SUBPASS_DEPENDENCY_2_KHR")]
+    pub const SUBPASS_DEPENDENCY_2_KHR: Self = Self::SUBPASS_DEPENDENCY_2;
+    #[doc(alias = "VK_STRUCTURE_TYPE_RENDER_PASS_CREATE_INFO_2_KHR")]
+    pub const RENDER_PASS_CREATE_INFO_2_KHR: Self = Self::RENDER_PASS_CREATE_INFO_2;
+    #[doc(alias = "VK_STRUCTURE_TYPE_SUBPASS_BEGIN_INFO_KHR")]
+    pub const SUBPASS_BEGIN_INFO_KHR: Self = Self::SUBPASS_BEGIN_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_SUBPASS_END_INFO_KHR")]
+    pub const SUBPASS_END_INFO_KHR: Self = Self::SUBPASS_END_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEPTH_STENCIL_RESOLVE_PROPERTIES_KHR")]
+    pub const PHYSICAL_DEVICE_DEPTH_STENCIL_RESOLVE_PROPERTIES_KHR: Self = Self::PHYSICAL_DEVICE_DEPTH_STENCIL_RESOLVE_PROPERTIES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_SUBPASS_DESCRIPTION_DEPTH_STENCIL_RESOLVE_KHR")]
+    pub const SUBPASS_DESCRIPTION_DEPTH_STENCIL_RESOLVE_KHR: Self = Self::SUBPASS_DESCRIPTION_DEPTH_STENCIL_RESOLVE;
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_STENCIL_USAGE_CREATE_INFO_EXT")]
+    pub const IMAGE_STENCIL_USAGE_CREATE_INFO_EXT: Self = Self::IMAGE_STENCIL_USAGE_CREATE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGELESS_FRAMEBUFFER_FEATURES_KHR")]
+    pub const PHYSICAL_DEVICE_IMAGELESS_FRAMEBUFFER_FEATURES_KHR: Self = Self::PHYSICAL_DEVICE_IMAGELESS_FRAMEBUFFER_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_FRAMEBUFFER_ATTACHMENTS_CREATE_INFO_KHR")]
+    pub const FRAMEBUFFER_ATTACHMENTS_CREATE_INFO_KHR: Self = Self::FRAMEBUFFER_ATTACHMENTS_CREATE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_FRAMEBUFFER_ATTACHMENT_IMAGE_INFO_KHR")]
+    pub const FRAMEBUFFER_ATTACHMENT_IMAGE_INFO_KHR: Self = Self::FRAMEBUFFER_ATTACHMENT_IMAGE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_RENDER_PASS_ATTACHMENT_BEGIN_INFO_KHR")]
+    pub const RENDER_PASS_ATTACHMENT_BEGIN_INFO_KHR: Self = Self::RENDER_PASS_ATTACHMENT_BEGIN_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SEPARATE_DEPTH_STENCIL_LAYOUTS_FEATURES_KHR")]
+    pub const PHYSICAL_DEVICE_SEPARATE_DEPTH_STENCIL_LAYOUTS_FEATURES_KHR: Self = Self::PHYSICAL_DEVICE_SEPARATE_DEPTH_STENCIL_LAYOUTS_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_ATTACHMENT_REFERENCE_STENCIL_LAYOUT_KHR")]
+    pub const ATTACHMENT_REFERENCE_STENCIL_LAYOUT_KHR: Self = Self::ATTACHMENT_REFERENCE_STENCIL_LAYOUT;
+    #[doc(alias = "VK_STRUCTURE_TYPE_ATTACHMENT_DESCRIPTION_STENCIL_LAYOUT_KHR")]
+    pub const ATTACHMENT_DESCRIPTION_STENCIL_LAYOUT_KHR: Self = Self::ATTACHMENT_DESCRIPTION_STENCIL_LAYOUT;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TOOL_PROPERTIES_EXT")]
+    pub const PHYSICAL_DEVICE_TOOL_PROPERTIES_EXT: Self = Self::PHYSICAL_DEVICE_TOOL_PROPERTIES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRIVATE_DATA_FEATURES_EXT")]
+    pub const PHYSICAL_DEVICE_PRIVATE_DATA_FEATURES_EXT: Self = Self::PHYSICAL_DEVICE_PRIVATE_DATA_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_PRIVATE_DATA_CREATE_INFO_EXT")]
+    pub const DEVICE_PRIVATE_DATA_CREATE_INFO_EXT: Self = Self::DEVICE_PRIVATE_DATA_CREATE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PRIVATE_DATA_SLOT_CREATE_INFO_EXT")]
+    pub const PRIVATE_DATA_SLOT_CREATE_INFO_EXT: Self = Self::PRIVATE_DATA_SLOT_CREATE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_MEMORY_BARRIER_2_KHR")]
+    pub const MEMORY_BARRIER_2_KHR: Self = Self::MEMORY_BARRIER_2;
+    #[doc(alias = "VK_STRUCTURE_TYPE_BUFFER_MEMORY_BARRIER_2_KHR")]
+    pub const BUFFER_MEMORY_BARRIER_2_KHR: Self = Self::BUFFER_MEMORY_BARRIER_2;
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER_2_KHR")]
+    pub const IMAGE_MEMORY_BARRIER_2_KHR: Self = Self::IMAGE_MEMORY_BARRIER_2;
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEPENDENCY_INFO_KHR")]
+    pub const DEPENDENCY_INFO_KHR: Self = Self::DEPENDENCY_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_SUBMIT_INFO_2_KHR")]
+    pub const SUBMIT_INFO_2_KHR: Self = Self::SUBMIT_INFO_2;
+    #[doc(alias = "VK_STRUCTURE_TYPE_SEMAPHORE_SUBMIT_INFO_KHR")]
+    pub const SEMAPHORE_SUBMIT_INFO_KHR: Self = Self::SEMAPHORE_SUBMIT_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_COMMAND_BUFFER_SUBMIT_INFO_KHR")]
+    pub const COMMAND_BUFFER_SUBMIT_INFO_KHR: Self = Self::COMMAND_BUFFER_SUBMIT_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SYNCHRONIZATION_2_FEATURES_KHR")]
+    pub const PHYSICAL_DEVICE_SYNCHRONIZATION_2_FEATURES_KHR: Self = Self::PHYSICAL_DEVICE_SYNCHRONIZATION_2_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_COPY_BUFFER_INFO_2_KHR")]
+    pub const COPY_BUFFER_INFO_2_KHR: Self = Self::COPY_BUFFER_INFO_2;
+    #[doc(alias = "VK_STRUCTURE_TYPE_COPY_IMAGE_INFO_2_KHR")]
+    pub const COPY_IMAGE_INFO_2_KHR: Self = Self::COPY_IMAGE_INFO_2;
+    #[doc(alias = "VK_STRUCTURE_TYPE_COPY_BUFFER_TO_IMAGE_INFO_2_KHR")]
+    pub const COPY_BUFFER_TO_IMAGE_INFO_2_KHR: Self = Self::COPY_BUFFER_TO_IMAGE_INFO_2;
+    #[doc(alias = "VK_STRUCTURE_TYPE_COPY_IMAGE_TO_BUFFER_INFO_2_KHR")]
+    pub const COPY_IMAGE_TO_BUFFER_INFO_2_KHR: Self = Self::COPY_IMAGE_TO_BUFFER_INFO_2;
+    #[doc(alias = "VK_STRUCTURE_TYPE_BUFFER_COPY_2_KHR")]
+    pub const BUFFER_COPY_2_KHR: Self = Self::BUFFER_COPY_2;
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_COPY_2_KHR")]
+    pub const IMAGE_COPY_2_KHR: Self = Self::IMAGE_COPY_2;
+    #[doc(alias = "VK_STRUCTURE_TYPE_BUFFER_IMAGE_COPY_2_KHR")]
+    pub const BUFFER_IMAGE_COPY_2_KHR: Self = Self::BUFFER_IMAGE_COPY_2;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TEXTURE_COMPRESSION_ASTC_HDR_FEATURES_EXT")]
+    pub const PHYSICAL_DEVICE_TEXTURE_COMPRESSION_ASTC_HDR_FEATURES_EXT: Self = Self::PHYSICAL_DEVICE_TEXTURE_COMPRESSION_ASTC_HDR_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_FORMAT_PROPERTIES_3_KHR")]
+    pub const FORMAT_PROPERTIES_3_KHR: Self = Self::FORMAT_PROPERTIES_3;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_4_FEATURES_KHR")]
+    pub const PHYSICAL_DEVICE_MAINTENANCE_4_FEATURES_KHR: Self = Self::PHYSICAL_DEVICE_MAINTENANCE_4_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_4_PROPERTIES_KHR")]
+    pub const PHYSICAL_DEVICE_MAINTENANCE_4_PROPERTIES_KHR: Self = Self::PHYSICAL_DEVICE_MAINTENANCE_4_PROPERTIES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_BUFFER_MEMORY_REQUIREMENTS_KHR")]
+    pub const DEVICE_BUFFER_MEMORY_REQUIREMENTS_KHR: Self = Self::DEVICE_BUFFER_MEMORY_REQUIREMENTS;
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_IMAGE_MEMORY_REQUIREMENTS_KHR")]
+    pub const DEVICE_IMAGE_MEMORY_REQUIREMENTS_KHR: Self = Self::DEVICE_IMAGE_MEMORY_REQUIREMENTS;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_CREATION_FEEDBACK_CREATE_INFO_EXT")]
+    pub const PIPELINE_CREATION_FEEDBACK_CREATE_INFO_EXT: Self = Self::PIPELINE_CREATION_FEEDBACK_CREATE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_TERMINATE_INVOCATION_FEATURES_KHR")]
+    pub const PHYSICAL_DEVICE_SHADER_TERMINATE_INVOCATION_FEATURES_KHR: Self = Self::PHYSICAL_DEVICE_SHADER_TERMINATE_INVOCATION_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_DEMOTE_TO_HELPER_INVOCATION_FEATURES_EXT")]
+    pub const PHYSICAL_DEVICE_SHADER_DEMOTE_TO_HELPER_INVOCATION_FEATURES_EXT: Self = Self::PHYSICAL_DEVICE_SHADER_DEMOTE_TO_HELPER_INVOCATION_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_CREATION_CACHE_CONTROL_FEATURES_EXT")]
+    pub const PHYSICAL_DEVICE_PIPELINE_CREATION_CACHE_CONTROL_FEATURES_EXT: Self = Self::PHYSICAL_DEVICE_PIPELINE_CREATION_CACHE_CONTROL_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ZERO_INITIALIZE_WORKGROUP_MEMORY_FEATURES_KHR")]
+    pub const PHYSICAL_DEVICE_ZERO_INITIALIZE_WORKGROUP_MEMORY_FEATURES_KHR: Self = Self::PHYSICAL_DEVICE_ZERO_INITIALIZE_WORKGROUP_MEMORY_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_ROBUSTNESS_FEATURES_EXT")]
+    pub const PHYSICAL_DEVICE_IMAGE_ROBUSTNESS_FEATURES_EXT: Self = Self::PHYSICAL_DEVICE_IMAGE_ROBUSTNESS_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBGROUP_SIZE_CONTROL_PROPERTIES_EXT")]
+    pub const PHYSICAL_DEVICE_SUBGROUP_SIZE_CONTROL_PROPERTIES_EXT: Self = Self::PHYSICAL_DEVICE_SUBGROUP_SIZE_CONTROL_PROPERTIES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_REQUIRED_SUBGROUP_SIZE_CREATE_INFO_EXT")]
+    pub const PIPELINE_SHADER_STAGE_REQUIRED_SUBGROUP_SIZE_CREATE_INFO_EXT: Self = Self::PIPELINE_SHADER_STAGE_REQUIRED_SUBGROUP_SIZE_CREATE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_SHADER_REQUIRED_SUBGROUP_SIZE_CREATE_INFO_EXT")]
+    pub const SHADER_REQUIRED_SUBGROUP_SIZE_CREATE_INFO_EXT: Self = Self::PIPELINE_SHADER_STAGE_REQUIRED_SUBGROUP_SIZE_CREATE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBGROUP_SIZE_CONTROL_FEATURES_EXT")]
+    pub const PHYSICAL_DEVICE_SUBGROUP_SIZE_CONTROL_FEATURES_EXT: Self = Self::PHYSICAL_DEVICE_SUBGROUP_SIZE_CONTROL_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_INLINE_UNIFORM_BLOCK_FEATURES_EXT")]
+    pub const PHYSICAL_DEVICE_INLINE_UNIFORM_BLOCK_FEATURES_EXT: Self = Self::PHYSICAL_DEVICE_INLINE_UNIFORM_BLOCK_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_INLINE_UNIFORM_BLOCK_PROPERTIES_EXT")]
+    pub const PHYSICAL_DEVICE_INLINE_UNIFORM_BLOCK_PROPERTIES_EXT: Self = Self::PHYSICAL_DEVICE_INLINE_UNIFORM_BLOCK_PROPERTIES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET_INLINE_UNIFORM_BLOCK_EXT")]
+    pub const WRITE_DESCRIPTOR_SET_INLINE_UNIFORM_BLOCK_EXT: Self = Self::WRITE_DESCRIPTOR_SET_INLINE_UNIFORM_BLOCK;
+    #[doc(alias = "VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_INLINE_UNIFORM_BLOCK_CREATE_INFO_EXT")]
+    pub const DESCRIPTOR_POOL_INLINE_UNIFORM_BLOCK_CREATE_INFO_EXT: Self = Self::DESCRIPTOR_POOL_INLINE_UNIFORM_BLOCK_CREATE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_INTEGER_DOT_PRODUCT_FEATURES_KHR")]
+    pub const PHYSICAL_DEVICE_SHADER_INTEGER_DOT_PRODUCT_FEATURES_KHR: Self = Self::PHYSICAL_DEVICE_SHADER_INTEGER_DOT_PRODUCT_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_INTEGER_DOT_PRODUCT_PROPERTIES_KHR")]
+    pub const PHYSICAL_DEVICE_SHADER_INTEGER_DOT_PRODUCT_PROPERTIES_KHR: Self = Self::PHYSICAL_DEVICE_SHADER_INTEGER_DOT_PRODUCT_PROPERTIES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TEXEL_BUFFER_ALIGNMENT_PROPERTIES_EXT")]
+    pub const PHYSICAL_DEVICE_TEXEL_BUFFER_ALIGNMENT_PROPERTIES_EXT: Self = Self::PHYSICAL_DEVICE_TEXEL_BUFFER_ALIGNMENT_PROPERTIES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_BLIT_IMAGE_INFO_2_KHR")]
+    pub const BLIT_IMAGE_INFO_2_KHR: Self = Self::BLIT_IMAGE_INFO_2;
+    #[doc(alias = "VK_STRUCTURE_TYPE_RESOLVE_IMAGE_INFO_2_KHR")]
+    pub const RESOLVE_IMAGE_INFO_2_KHR: Self = Self::RESOLVE_IMAGE_INFO_2;
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_BLIT_2_KHR")]
+    pub const IMAGE_BLIT_2_KHR: Self = Self::IMAGE_BLIT_2;
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_RESOLVE_2_KHR")]
+    pub const IMAGE_RESOLVE_2_KHR: Self = Self::IMAGE_RESOLVE_2;
+    #[doc(alias = "VK_STRUCTURE_TYPE_RENDERING_INFO_KHR")]
+    pub const RENDERING_INFO_KHR: Self = Self::RENDERING_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_RENDERING_ATTACHMENT_INFO_KHR")]
+    pub const RENDERING_ATTACHMENT_INFO_KHR: Self = Self::RENDERING_ATTACHMENT_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_RENDERING_CREATE_INFO_KHR")]
+    pub const PIPELINE_RENDERING_CREATE_INFO_KHR: Self = Self::PIPELINE_RENDERING_CREATE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DYNAMIC_RENDERING_FEATURES_KHR")]
+    pub const PHYSICAL_DEVICE_DYNAMIC_RENDERING_FEATURES_KHR: Self = Self::PHYSICAL_DEVICE_DYNAMIC_RENDERING_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_RENDERING_INFO_KHR")]
+    pub const COMMAND_BUFFER_INHERITANCE_RENDERING_INFO_KHR: Self = Self::COMMAND_BUFFER_INHERITANCE_RENDERING_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_QUEUE_GLOBAL_PRIORITY_CREATE_INFO_EXT")]
+    pub const DEVICE_QUEUE_GLOBAL_PRIORITY_CREATE_INFO_EXT: Self = Self::DEVICE_QUEUE_GLOBAL_PRIORITY_CREATE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_QUEUE_GLOBAL_PRIORITY_CREATE_INFO_KHR")]
+    pub const DEVICE_QUEUE_GLOBAL_PRIORITY_CREATE_INFO_KHR: Self = Self::DEVICE_QUEUE_GLOBAL_PRIORITY_CREATE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_GLOBAL_PRIORITY_QUERY_FEATURES_KHR")]
+    pub const PHYSICAL_DEVICE_GLOBAL_PRIORITY_QUERY_FEATURES_KHR: Self = Self::PHYSICAL_DEVICE_GLOBAL_PRIORITY_QUERY_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_GLOBAL_PRIORITY_QUERY_FEATURES_EXT")]
+    pub const PHYSICAL_DEVICE_GLOBAL_PRIORITY_QUERY_FEATURES_EXT: Self = Self::PHYSICAL_DEVICE_GLOBAL_PRIORITY_QUERY_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_QUEUE_FAMILY_GLOBAL_PRIORITY_PROPERTIES_KHR")]
+    pub const QUEUE_FAMILY_GLOBAL_PRIORITY_PROPERTIES_KHR: Self = Self::QUEUE_FAMILY_GLOBAL_PRIORITY_PROPERTIES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_QUEUE_FAMILY_GLOBAL_PRIORITY_PROPERTIES_EXT")]
+    pub const QUEUE_FAMILY_GLOBAL_PRIORITY_PROPERTIES_EXT: Self = Self::QUEUE_FAMILY_GLOBAL_PRIORITY_PROPERTIES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_INDEX_TYPE_UINT8_FEATURES_EXT")]
+    pub const PHYSICAL_DEVICE_INDEX_TYPE_UINT8_FEATURES_EXT: Self = Self::PHYSICAL_DEVICE_INDEX_TYPE_UINT8_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_INDEX_TYPE_UINT8_FEATURES_KHR")]
+    pub const PHYSICAL_DEVICE_INDEX_TYPE_UINT8_FEATURES_KHR: Self = Self::PHYSICAL_DEVICE_INDEX_TYPE_UINT8_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_MEMORY_MAP_INFO_KHR")]
+    pub const MEMORY_MAP_INFO_KHR: Self = Self::MEMORY_MAP_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_MEMORY_UNMAP_INFO_KHR")]
+    pub const MEMORY_UNMAP_INFO_KHR: Self = Self::MEMORY_UNMAP_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_5_FEATURES_KHR")]
+    pub const PHYSICAL_DEVICE_MAINTENANCE_5_FEATURES_KHR: Self = Self::PHYSICAL_DEVICE_MAINTENANCE_5_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_5_PROPERTIES_KHR")]
+    pub const PHYSICAL_DEVICE_MAINTENANCE_5_PROPERTIES_KHR: Self = Self::PHYSICAL_DEVICE_MAINTENANCE_5_PROPERTIES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEVICE_IMAGE_SUBRESOURCE_INFO_KHR")]
+    pub const DEVICE_IMAGE_SUBRESOURCE_INFO_KHR: Self = Self::DEVICE_IMAGE_SUBRESOURCE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_SUBRESOURCE_LAYOUT_2_EXT")]
+    pub const SUBRESOURCE_LAYOUT_2_EXT: Self = Self::SUBRESOURCE_LAYOUT_2;
+    #[doc(alias = "VK_STRUCTURE_TYPE_SUBRESOURCE_LAYOUT_2_KHR")]
+    pub const SUBRESOURCE_LAYOUT_2_KHR: Self = Self::SUBRESOURCE_LAYOUT_2;
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_SUBRESOURCE_2_EXT")]
+    pub const IMAGE_SUBRESOURCE_2_EXT: Self = Self::IMAGE_SUBRESOURCE_2;
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_SUBRESOURCE_2_KHR")]
+    pub const IMAGE_SUBRESOURCE_2_KHR: Self = Self::IMAGE_SUBRESOURCE_2;
+    #[doc(alias = "VK_STRUCTURE_TYPE_BUFFER_USAGE_FLAGS_2_CREATE_INFO_KHR")]
+    pub const BUFFER_USAGE_FLAGS_2_CREATE_INFO_KHR: Self = Self::BUFFER_USAGE_FLAGS_2_CREATE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_6_FEATURES_KHR")]
+    pub const PHYSICAL_DEVICE_MAINTENANCE_6_FEATURES_KHR: Self = Self::PHYSICAL_DEVICE_MAINTENANCE_6_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_6_PROPERTIES_KHR")]
+    pub const PHYSICAL_DEVICE_MAINTENANCE_6_PROPERTIES_KHR: Self = Self::PHYSICAL_DEVICE_MAINTENANCE_6_PROPERTIES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_BIND_MEMORY_STATUS_KHR")]
+    pub const BIND_MEMORY_STATUS_KHR: Self = Self::BIND_MEMORY_STATUS;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_HOST_IMAGE_COPY_FEATURES_EXT")]
+    pub const PHYSICAL_DEVICE_HOST_IMAGE_COPY_FEATURES_EXT: Self = Self::PHYSICAL_DEVICE_HOST_IMAGE_COPY_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_HOST_IMAGE_COPY_PROPERTIES_EXT")]
+    pub const PHYSICAL_DEVICE_HOST_IMAGE_COPY_PROPERTIES_EXT: Self = Self::PHYSICAL_DEVICE_HOST_IMAGE_COPY_PROPERTIES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_MEMORY_TO_IMAGE_COPY_EXT")]
+    pub const MEMORY_TO_IMAGE_COPY_EXT: Self = Self::MEMORY_TO_IMAGE_COPY;
+    #[doc(alias = "VK_STRUCTURE_TYPE_IMAGE_TO_MEMORY_COPY_EXT")]
+    pub const IMAGE_TO_MEMORY_COPY_EXT: Self = Self::IMAGE_TO_MEMORY_COPY;
+    #[doc(alias = "VK_STRUCTURE_TYPE_COPY_IMAGE_TO_MEMORY_INFO_EXT")]
+    pub const COPY_IMAGE_TO_MEMORY_INFO_EXT: Self = Self::COPY_IMAGE_TO_MEMORY_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_COPY_MEMORY_TO_IMAGE_INFO_EXT")]
+    pub const COPY_MEMORY_TO_IMAGE_INFO_EXT: Self = Self::COPY_MEMORY_TO_IMAGE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_HOST_IMAGE_LAYOUT_TRANSITION_INFO_EXT")]
+    pub const HOST_IMAGE_LAYOUT_TRANSITION_INFO_EXT: Self = Self::HOST_IMAGE_LAYOUT_TRANSITION_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_COPY_IMAGE_TO_IMAGE_INFO_EXT")]
+    pub const COPY_IMAGE_TO_IMAGE_INFO_EXT: Self = Self::COPY_IMAGE_TO_IMAGE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_SUBRESOURCE_HOST_MEMCPY_SIZE_EXT")]
+    pub const SUBRESOURCE_HOST_MEMCPY_SIZE_EXT: Self = Self::SUBRESOURCE_HOST_MEMCPY_SIZE;
+    #[doc(alias = "VK_STRUCTURE_TYPE_HOST_IMAGE_COPY_DEVICE_PERFORMANCE_QUERY_EXT")]
+    pub const HOST_IMAGE_COPY_DEVICE_PERFORMANCE_QUERY_EXT: Self = Self::HOST_IMAGE_COPY_DEVICE_PERFORMANCE_QUERY;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_SUBGROUP_ROTATE_FEATURES_KHR")]
+    pub const PHYSICAL_DEVICE_SHADER_SUBGROUP_ROTATE_FEATURES_KHR: Self = Self::PHYSICAL_DEVICE_SHADER_SUBGROUP_ROTATE_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_FLOAT_CONTROLS_2_FEATURES_KHR")]
+    pub const PHYSICAL_DEVICE_SHADER_FLOAT_CONTROLS_2_FEATURES_KHR: Self = Self::PHYSICAL_DEVICE_SHADER_FLOAT_CONTROLS_2_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_EXPECT_ASSUME_FEATURES_KHR")]
+    pub const PHYSICAL_DEVICE_SHADER_EXPECT_ASSUME_FEATURES_KHR: Self = Self::PHYSICAL_DEVICE_SHADER_EXPECT_ASSUME_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_CREATE_FLAGS_2_CREATE_INFO_KHR")]
+    pub const PIPELINE_CREATE_FLAGS_2_CREATE_INFO_KHR: Self = Self::PIPELINE_CREATE_FLAGS_2_CREATE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PUSH_DESCRIPTOR_PROPERTIES_KHR")]
+    pub const PHYSICAL_DEVICE_PUSH_DESCRIPTOR_PROPERTIES_KHR: Self = Self::PHYSICAL_DEVICE_PUSH_DESCRIPTOR_PROPERTIES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_BIND_DESCRIPTOR_SETS_INFO_KHR")]
+    pub const BIND_DESCRIPTOR_SETS_INFO_KHR: Self = Self::BIND_DESCRIPTOR_SETS_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PUSH_CONSTANTS_INFO_KHR")]
+    pub const PUSH_CONSTANTS_INFO_KHR: Self = Self::PUSH_CONSTANTS_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PUSH_DESCRIPTOR_SET_INFO_KHR")]
+    pub const PUSH_DESCRIPTOR_SET_INFO_KHR: Self = Self::PUSH_DESCRIPTOR_SET_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PUSH_DESCRIPTOR_SET_WITH_TEMPLATE_INFO_KHR")]
+    pub const PUSH_DESCRIPTOR_SET_WITH_TEMPLATE_INFO_KHR: Self = Self::PUSH_DESCRIPTOR_SET_WITH_TEMPLATE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_PROTECTED_ACCESS_FEATURES_EXT")]
+    pub const PHYSICAL_DEVICE_PIPELINE_PROTECTED_ACCESS_FEATURES_EXT: Self = Self::PHYSICAL_DEVICE_PIPELINE_PROTECTED_ACCESS_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_ROBUSTNESS_CREATE_INFO_EXT")]
+    pub const PIPELINE_ROBUSTNESS_CREATE_INFO_EXT: Self = Self::PIPELINE_ROBUSTNESS_CREATE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_ROBUSTNESS_FEATURES_EXT")]
+    pub const PHYSICAL_DEVICE_PIPELINE_ROBUSTNESS_FEATURES_EXT: Self = Self::PHYSICAL_DEVICE_PIPELINE_ROBUSTNESS_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_ROBUSTNESS_PROPERTIES_EXT")]
+    pub const PHYSICAL_DEVICE_PIPELINE_ROBUSTNESS_PROPERTIES_EXT: Self = Self::PHYSICAL_DEVICE_PIPELINE_ROBUSTNESS_PROPERTIES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LINE_RASTERIZATION_FEATURES_EXT")]
+    pub const PHYSICAL_DEVICE_LINE_RASTERIZATION_FEATURES_EXT: Self = Self::PHYSICAL_DEVICE_LINE_RASTERIZATION_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LINE_RASTERIZATION_FEATURES_KHR")]
+    pub const PHYSICAL_DEVICE_LINE_RASTERIZATION_FEATURES_KHR: Self = Self::PHYSICAL_DEVICE_LINE_RASTERIZATION_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_LINE_STATE_CREATE_INFO_EXT")]
+    pub const PIPELINE_RASTERIZATION_LINE_STATE_CREATE_INFO_EXT: Self = Self::PIPELINE_RASTERIZATION_LINE_STATE_CREATE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_LINE_STATE_CREATE_INFO_KHR")]
+    pub const PIPELINE_RASTERIZATION_LINE_STATE_CREATE_INFO_KHR: Self = Self::PIPELINE_RASTERIZATION_LINE_STATE_CREATE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LINE_RASTERIZATION_PROPERTIES_EXT")]
+    pub const PHYSICAL_DEVICE_LINE_RASTERIZATION_PROPERTIES_EXT: Self = Self::PHYSICAL_DEVICE_LINE_RASTERIZATION_PROPERTIES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LINE_RASTERIZATION_PROPERTIES_KHR")]
+    pub const PHYSICAL_DEVICE_LINE_RASTERIZATION_PROPERTIES_KHR: Self = Self::PHYSICAL_DEVICE_LINE_RASTERIZATION_PROPERTIES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_DIVISOR_PROPERTIES_KHR")]
+    pub const PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_DIVISOR_PROPERTIES_KHR: Self = Self::PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_DIVISOR_PROPERTIES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_DIVISOR_STATE_CREATE_INFO_EXT")]
+    pub const PIPELINE_VERTEX_INPUT_DIVISOR_STATE_CREATE_INFO_EXT: Self = Self::PIPELINE_VERTEX_INPUT_DIVISOR_STATE_CREATE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_DIVISOR_STATE_CREATE_INFO_KHR")]
+    pub const PIPELINE_VERTEX_INPUT_DIVISOR_STATE_CREATE_INFO_KHR: Self = Self::PIPELINE_VERTEX_INPUT_DIVISOR_STATE_CREATE_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_DIVISOR_FEATURES_EXT")]
+    pub const PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_DIVISOR_FEATURES_EXT: Self = Self::PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_DIVISOR_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_DIVISOR_FEATURES_KHR")]
+    pub const PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_DIVISOR_FEATURES_KHR: Self = Self::PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_DIVISOR_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_RENDERING_AREA_INFO_KHR")]
+    pub const RENDERING_AREA_INFO_KHR: Self = Self::RENDERING_AREA_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DYNAMIC_RENDERING_LOCAL_READ_FEATURES_KHR")]
+    pub const PHYSICAL_DEVICE_DYNAMIC_RENDERING_LOCAL_READ_FEATURES_KHR: Self = Self::PHYSICAL_DEVICE_DYNAMIC_RENDERING_LOCAL_READ_FEATURES;
+    #[doc(alias = "VK_STRUCTURE_TYPE_RENDERING_ATTACHMENT_LOCATION_INFO_KHR")]
+    pub const RENDERING_ATTACHMENT_LOCATION_INFO_KHR: Self = Self::RENDERING_ATTACHMENT_LOCATION_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_RENDERING_INPUT_ATTACHMENT_INDEX_INFO_KHR")]
+    pub const RENDERING_INPUT_ATTACHMENT_INDEX_INFO_KHR: Self = Self::RENDERING_INPUT_ATTACHMENT_INDEX_INFO;
+    #[doc(alias = "VK_STRUCTURE_TYPE_DEBUG_REPORT_CREATE_INFO_EXT")]
+    pub const DEBUG_REPORT_CREATE_INFO_EXT: Self = Self::DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT;
+    #[doc(alias = "VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES2_EXT")]
+    pub const SURFACE_CAPABILITIES2_EXT: Self = Self::SURFACE_CAPABILITIES_2_EXT;
+    #[doc(alias = "VK_STRUCTURE_TYPE_ATTACHMENT_SAMPLE_COUNT_INFO_NV")]
+    pub const ATTACHMENT_SAMPLE_COUNT_INFO_NV: Self = Self::ATTACHMENT_SAMPLE_COUNT_INFO_AMD;
+    #[doc(alias = "VK_STRUCTURE_TYPE_QUERY_POOL_CREATE_INFO_INTEL")]
+    pub const QUERY_POOL_CREATE_INFO_INTEL: Self = Self::QUERY_POOL_PERFORMANCE_QUERY_CREATE_INFO_INTEL;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BUFFER_ADDRESS_FEATURES_EXT")]
+    pub const PHYSICAL_DEVICE_BUFFER_ADDRESS_FEATURES_EXT: Self = Self::PHYSICAL_DEVICE_BUFFER_DEVICE_ADDRESS_FEATURES_EXT;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PIPELINE_INFO_EXT")]
+    pub const PIPELINE_INFO_EXT: Self = Self::PIPELINE_INFO_KHR;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADER_BARYCENTRIC_FEATURES_NV")]
+    pub const PHYSICAL_DEVICE_FRAGMENT_SHADER_BARYCENTRIC_FEATURES_NV: Self = Self::PHYSICAL_DEVICE_FRAGMENT_SHADER_BARYCENTRIC_FEATURES_KHR;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RASTERIZATION_ORDER_ATTACHMENT_ACCESS_FEATURES_ARM")]
+    pub const PHYSICAL_DEVICE_RASTERIZATION_ORDER_ATTACHMENT_ACCESS_FEATURES_ARM: Self = Self::PHYSICAL_DEVICE_RASTERIZATION_ORDER_ATTACHMENT_ACCESS_FEATURES_EXT;
+    #[doc(alias = "VK_STRUCTURE_TYPE_SURFACE_PRESENT_MODE_EXT")]
+    pub const SURFACE_PRESENT_MODE_EXT: Self = Self::SURFACE_PRESENT_MODE_KHR;
+    #[doc(alias = "VK_STRUCTURE_TYPE_SURFACE_PRESENT_SCALING_CAPABILITIES_EXT")]
+    pub const SURFACE_PRESENT_SCALING_CAPABILITIES_EXT: Self = Self::SURFACE_PRESENT_SCALING_CAPABILITIES_KHR;
+    #[doc(alias = "VK_STRUCTURE_TYPE_SURFACE_PRESENT_MODE_COMPATIBILITY_EXT")]
+    pub const SURFACE_PRESENT_MODE_COMPATIBILITY_EXT: Self = Self::SURFACE_PRESENT_MODE_COMPATIBILITY_KHR;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SWAPCHAIN_MAINTENANCE_1_FEATURES_EXT")]
+    pub const PHYSICAL_DEVICE_SWAPCHAIN_MAINTENANCE_1_FEATURES_EXT: Self = Self::PHYSICAL_DEVICE_SWAPCHAIN_MAINTENANCE_1_FEATURES_KHR;
+    #[doc(alias = "VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_FENCE_INFO_EXT")]
+    pub const SWAPCHAIN_PRESENT_FENCE_INFO_EXT: Self = Self::SWAPCHAIN_PRESENT_FENCE_INFO_KHR;
+    #[doc(alias = "VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_MODES_CREATE_INFO_EXT")]
+    pub const SWAPCHAIN_PRESENT_MODES_CREATE_INFO_EXT: Self = Self::SWAPCHAIN_PRESENT_MODES_CREATE_INFO_KHR;
+    #[doc(alias = "VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_MODE_INFO_EXT")]
+    pub const SWAPCHAIN_PRESENT_MODE_INFO_EXT: Self = Self::SWAPCHAIN_PRESENT_MODE_INFO_KHR;
+    #[doc(alias = "VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_SCALING_CREATE_INFO_EXT")]
+    pub const SWAPCHAIN_PRESENT_SCALING_CREATE_INFO_EXT: Self = Self::SWAPCHAIN_PRESENT_SCALING_CREATE_INFO_KHR;
+    #[doc(alias = "VK_STRUCTURE_TYPE_RELEASE_SWAPCHAIN_IMAGES_INFO_EXT")]
+    pub const RELEASE_SWAPCHAIN_IMAGES_INFO_EXT: Self = Self::RELEASE_SWAPCHAIN_IMAGES_INFO_KHR;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MUTABLE_DESCRIPTOR_TYPE_FEATURES_VALVE")]
+    pub const PHYSICAL_DEVICE_MUTABLE_DESCRIPTOR_TYPE_FEATURES_VALVE: Self = Self::PHYSICAL_DEVICE_MUTABLE_DESCRIPTOR_TYPE_FEATURES_EXT;
+    #[doc(alias = "VK_STRUCTURE_TYPE_MUTABLE_DESCRIPTOR_TYPE_CREATE_INFO_VALVE")]
+    pub const MUTABLE_DESCRIPTOR_TYPE_CREATE_INFO_VALVE: Self = Self::MUTABLE_DESCRIPTOR_TYPE_CREATE_INFO_EXT;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COMPUTE_SHADER_DERIVATIVES_FEATURES_NV")]
+    pub const PHYSICAL_DEVICE_COMPUTE_SHADER_DERIVATIVES_FEATURES_NV: Self = Self::PHYSICAL_DEVICE_COMPUTE_SHADER_DERIVATIVES_FEATURES_KHR;
+    #[doc(alias = "VK_STRUCTURE_TYPE_CALIBRATED_TIMESTAMP_INFO_EXT")]
+    pub const CALIBRATED_TIMESTAMP_INFO_EXT: Self = Self::CALIBRATED_TIMESTAMP_INFO_KHR;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COPY_MEMORY_INDIRECT_PROPERTIES_NV")]
+    pub const PHYSICAL_DEVICE_COPY_MEMORY_INDIRECT_PROPERTIES_NV: Self = Self::PHYSICAL_DEVICE_COPY_MEMORY_INDIRECT_PROPERTIES_KHR;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_DECOMPRESSION_FEATURES_NV")]
+    pub const PHYSICAL_DEVICE_MEMORY_DECOMPRESSION_FEATURES_NV: Self = Self::PHYSICAL_DEVICE_MEMORY_DECOMPRESSION_FEATURES_EXT;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_DECOMPRESSION_PROPERTIES_NV")]
+    pub const PHYSICAL_DEVICE_MEMORY_DECOMPRESSION_PROPERTIES_NV: Self = Self::PHYSICAL_DEVICE_MEMORY_DECOMPRESSION_PROPERTIES_EXT;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEPTH_CLAMP_ZERO_ONE_FEATURES_EXT")]
+    pub const PHYSICAL_DEVICE_DEPTH_CLAMP_ZERO_ONE_FEATURES_EXT: Self = Self::PHYSICAL_DEVICE_DEPTH_CLAMP_ZERO_ONE_FEATURES_KHR;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ROBUSTNESS_2_FEATURES_EXT")]
+    pub const PHYSICAL_DEVICE_ROBUSTNESS_2_FEATURES_EXT: Self = Self::PHYSICAL_DEVICE_ROBUSTNESS_2_FEATURES_KHR;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ROBUSTNESS_2_PROPERTIES_EXT")]
+    pub const PHYSICAL_DEVICE_ROBUSTNESS_2_PROPERTIES_EXT: Self = Self::PHYSICAL_DEVICE_ROBUSTNESS_2_PROPERTIES_KHR;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_OFFSET_FEATURES_QCOM")]
+    pub const PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_OFFSET_FEATURES_QCOM: Self = Self::PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_OFFSET_FEATURES_EXT;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_OFFSET_PROPERTIES_QCOM")]
+    pub const PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_OFFSET_PROPERTIES_QCOM: Self = Self::PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_OFFSET_PROPERTIES_EXT;
+    #[doc(alias = "VK_STRUCTURE_TYPE_SUBPASS_FRAGMENT_DENSITY_MAP_OFFSET_END_INFO_QCOM")]
+    pub const SUBPASS_FRAGMENT_DENSITY_MAP_OFFSET_END_INFO_QCOM: Self = Self::RENDER_PASS_FRAGMENT_DENSITY_MAP_OFFSET_END_INFO_EXT;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_MODE_FIFO_LATEST_READY_FEATURES_EXT")]
+    pub const PHYSICAL_DEVICE_PRESENT_MODE_FIFO_LATEST_READY_FEATURES_EXT: Self = Self::PHYSICAL_DEVICE_PRESENT_MODE_FIFO_LATEST_READY_FEATURES_KHR;
+    #[doc(alias = "VK_STRUCTURE_TYPE_RENDERING_END_INFO_EXT")]
+    pub const RENDERING_END_INFO_EXT: Self = Self::RENDERING_END_INFO_KHR;
+    #[doc(alias = "VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_LIBRARY_GROUP_HANDLES_FEATURES_EXT")]
+    pub const PHYSICAL_DEVICE_PIPELINE_LIBRARY_GROUP_HANDLES_FEATURES_EXT: Self = Self::PHYSICAL_DEVICE_PIPELINE_LIBRARY_GROUP_HANDLES_FEATURES_KHR;
+}
+
+/// [`VkObjectType`](https://docs.vulkan.org/refpages/latest/refpages/source/VkObjectType.html)
+///
+#[doc(alias = "VkObjectType")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum ObjectType {
+    #[default]
+    #[doc(alias = "VK_OBJECT_TYPE_UNKNOWN")]
+    UNKNOWN = 0,
+    #[doc(alias = "VK_OBJECT_TYPE_INSTANCE")]
+    INSTANCE = 1,
+    #[doc(alias = "VK_OBJECT_TYPE_PHYSICAL_DEVICE")]
+    PHYSICAL_DEVICE = 2,
+    #[doc(alias = "VK_OBJECT_TYPE_DEVICE")]
+    DEVICE = 3,
+    #[doc(alias = "VK_OBJECT_TYPE_QUEUE")]
+    QUEUE = 4,
+    #[doc(alias = "VK_OBJECT_TYPE_SEMAPHORE")]
+    SEMAPHORE = 5,
+    #[doc(alias = "VK_OBJECT_TYPE_COMMAND_BUFFER")]
+    COMMAND_BUFFER = 6,
+    #[doc(alias = "VK_OBJECT_TYPE_FENCE")]
+    FENCE = 7,
+    #[doc(alias = "VK_OBJECT_TYPE_DEVICE_MEMORY")]
+    DEVICE_MEMORY = 8,
+    #[doc(alias = "VK_OBJECT_TYPE_BUFFER")]
+    BUFFER = 9,
+    #[doc(alias = "VK_OBJECT_TYPE_IMAGE")]
+    IMAGE = 10,
+    #[doc(alias = "VK_OBJECT_TYPE_EVENT")]
+    EVENT = 11,
+    #[doc(alias = "VK_OBJECT_TYPE_QUERY_POOL")]
+    QUERY_POOL = 12,
+    #[doc(alias = "VK_OBJECT_TYPE_BUFFER_VIEW")]
+    BUFFER_VIEW = 13,
+    #[doc(alias = "VK_OBJECT_TYPE_IMAGE_VIEW")]
+    IMAGE_VIEW = 14,
+    #[doc(alias = "VK_OBJECT_TYPE_SHADER_MODULE")]
+    SHADER_MODULE = 15,
+    #[doc(alias = "VK_OBJECT_TYPE_PIPELINE_CACHE")]
+    PIPELINE_CACHE = 16,
+    #[doc(alias = "VK_OBJECT_TYPE_PIPELINE_LAYOUT")]
+    PIPELINE_LAYOUT = 17,
+    #[doc(alias = "VK_OBJECT_TYPE_RENDER_PASS")]
+    RENDER_PASS = 18,
+    #[doc(alias = "VK_OBJECT_TYPE_PIPELINE")]
+    PIPELINE = 19,
+    #[doc(alias = "VK_OBJECT_TYPE_DESCRIPTOR_SET_LAYOUT")]
+    DESCRIPTOR_SET_LAYOUT = 20,
+    #[doc(alias = "VK_OBJECT_TYPE_SAMPLER")]
+    SAMPLER = 21,
+    #[doc(alias = "VK_OBJECT_TYPE_DESCRIPTOR_POOL")]
+    DESCRIPTOR_POOL = 22,
+    #[doc(alias = "VK_OBJECT_TYPE_DESCRIPTOR_SET")]
+    DESCRIPTOR_SET = 23,
+    #[doc(alias = "VK_OBJECT_TYPE_FRAMEBUFFER")]
+    FRAMEBUFFER = 24,
+    #[doc(alias = "VK_OBJECT_TYPE_COMMAND_POOL")]
+    COMMAND_POOL = 25,
+    #[doc(alias = "VK_OBJECT_TYPE_DESCRIPTOR_UPDATE_TEMPLATE")]
+    DESCRIPTOR_UPDATE_TEMPLATE = 1000085000,
+    #[doc(alias = "VK_OBJECT_TYPE_SAMPLER_YCBCR_CONVERSION")]
+    SAMPLER_YCBCR_CONVERSION = 1000156000,
+    #[doc(alias = "VK_OBJECT_TYPE_PRIVATE_DATA_SLOT")]
+    PRIVATE_DATA_SLOT = 1000295000,
+    #[doc(alias = "VK_OBJECT_TYPE_SURFACE_KHR")]
+    SURFACE_KHR = 1000000000,
+    #[doc(alias = "VK_OBJECT_TYPE_SWAPCHAIN_KHR")]
+    SWAPCHAIN_KHR = 1000001000,
+    #[doc(alias = "VK_OBJECT_TYPE_DISPLAY_KHR")]
+    DISPLAY_KHR = 1000002000,
+    #[doc(alias = "VK_OBJECT_TYPE_DISPLAY_MODE_KHR")]
+    DISPLAY_MODE_KHR = 1000002001,
+    #[doc(alias = "VK_OBJECT_TYPE_DEBUG_REPORT_CALLBACK_EXT")]
+    DEBUG_REPORT_CALLBACK_EXT = 1000011000,
+    #[doc(alias = "VK_OBJECT_TYPE_VIDEO_SESSION_KHR")]
+    VIDEO_SESSION_KHR = 1000023000,
+    #[doc(alias = "VK_OBJECT_TYPE_VIDEO_SESSION_PARAMETERS_KHR")]
+    VIDEO_SESSION_PARAMETERS_KHR = 1000023001,
+    #[doc(alias = "VK_OBJECT_TYPE_CU_MODULE_NVX")]
+    CU_MODULE_NVX = 1000029000,
+    #[doc(alias = "VK_OBJECT_TYPE_CU_FUNCTION_NVX")]
+    CU_FUNCTION_NVX = 1000029001,
+    #[doc(alias = "VK_OBJECT_TYPE_DEBUG_UTILS_MESSENGER_EXT")]
+    DEBUG_UTILS_MESSENGER_EXT = 1000128000,
+    #[doc(alias = "VK_OBJECT_TYPE_GPA_SESSION_AMD")]
+    GPA_SESSION_AMD = 1000133000,
+    #[doc(alias = "VK_OBJECT_TYPE_ACCELERATION_STRUCTURE_KHR")]
+    ACCELERATION_STRUCTURE_KHR = 1000150000,
+    #[doc(alias = "VK_OBJECT_TYPE_VALIDATION_CACHE_EXT")]
+    VALIDATION_CACHE_EXT = 1000160000,
+    #[doc(alias = "VK_OBJECT_TYPE_ACCELERATION_STRUCTURE_NV")]
+    ACCELERATION_STRUCTURE_NV = 1000165000,
+    #[doc(alias = "VK_OBJECT_TYPE_PERFORMANCE_CONFIGURATION_INTEL")]
+    PERFORMANCE_CONFIGURATION_INTEL = 1000210000,
+    #[doc(alias = "VK_OBJECT_TYPE_DEFERRED_OPERATION_KHR")]
+    DEFERRED_OPERATION_KHR = 1000268000,
+    #[doc(alias = "VK_OBJECT_TYPE_INDIRECT_COMMANDS_LAYOUT_NV")]
+    INDIRECT_COMMANDS_LAYOUT_NV = 1000277000,
+    #[doc(alias = "VK_OBJECT_TYPE_CUDA_MODULE_NV")]
+    CUDA_MODULE_NV = 1000307000,
+    #[doc(alias = "VK_OBJECT_TYPE_CUDA_FUNCTION_NV")]
+    CUDA_FUNCTION_NV = 1000307001,
+    #[doc(alias = "VK_OBJECT_TYPE_BUFFER_COLLECTION_FUCHSIA")]
+    BUFFER_COLLECTION_FUCHSIA = 1000366000,
+    #[doc(alias = "VK_OBJECT_TYPE_MICROMAP_EXT")]
+    MICROMAP_EXT = 1000396000,
+    #[doc(alias = "VK_OBJECT_TYPE_TENSOR_ARM")]
+    TENSOR_ARM = 1000460000,
+    #[doc(alias = "VK_OBJECT_TYPE_TENSOR_VIEW_ARM")]
+    TENSOR_VIEW_ARM = 1000460001,
+    #[doc(alias = "VK_OBJECT_TYPE_OPTICAL_FLOW_SESSION_NV")]
+    OPTICAL_FLOW_SESSION_NV = 1000464000,
+    #[doc(alias = "VK_OBJECT_TYPE_SHADER_EXT")]
+    SHADER_EXT = 1000482000,
+    #[doc(alias = "VK_OBJECT_TYPE_PIPELINE_BINARY_KHR")]
+    PIPELINE_BINARY_KHR = 1000483000,
+    #[doc(alias = "VK_OBJECT_TYPE_DATA_GRAPH_PIPELINE_SESSION_ARM")]
+    DATA_GRAPH_PIPELINE_SESSION_ARM = 1000507000,
+    #[doc(alias = "VK_OBJECT_TYPE_EXTERNAL_COMPUTE_QUEUE_NV")]
+    EXTERNAL_COMPUTE_QUEUE_NV = 1000556000,
+    #[doc(alias = "VK_OBJECT_TYPE_INDIRECT_COMMANDS_LAYOUT_EXT")]
+    INDIRECT_COMMANDS_LAYOUT_EXT = 1000572000,
+    #[doc(alias = "VK_OBJECT_TYPE_INDIRECT_EXECUTION_SET_EXT")]
+    INDIRECT_EXECUTION_SET_EXT = 1000572001,
+    #[doc(alias = "VK_OBJECT_TYPE_SHADER_INSTRUMENTATION_ARM")]
+    SHADER_INSTRUMENTATION_ARM = 1000607000,
+}
+impl ObjectType {
+    #[doc(alias = "VK_OBJECT_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_KHR")]
+    pub const DESCRIPTOR_UPDATE_TEMPLATE_KHR: Self = Self::DESCRIPTOR_UPDATE_TEMPLATE;
+    #[doc(alias = "VK_OBJECT_TYPE_SAMPLER_YCBCR_CONVERSION_KHR")]
+    pub const SAMPLER_YCBCR_CONVERSION_KHR: Self = Self::SAMPLER_YCBCR_CONVERSION;
+    #[doc(alias = "VK_OBJECT_TYPE_PRIVATE_DATA_SLOT_EXT")]
+    pub const PRIVATE_DATA_SLOT_EXT: Self = Self::PRIVATE_DATA_SLOT;
+}
+
+/// [`VkVendorId`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVendorId.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "VkVendorId")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum VendorId {
+    #[default]
+    #[doc(alias = "VK_VENDOR_ID_KHRONOS")]
+    KHRONOS = 65536,
+    #[doc(alias = "VK_VENDOR_ID_VIV")]
+    VIV = 65537,
+    #[doc(alias = "VK_VENDOR_ID_VSI")]
+    VSI = 65538,
+    #[doc(alias = "VK_VENDOR_ID_KAZAN")]
+    KAZAN = 65539,
+    #[doc(alias = "VK_VENDOR_ID_CODEPLAY")]
+    CODEPLAY = 65540,
+    #[doc(alias = "VK_VENDOR_ID_MESA")]
+    MESA = 65541,
+    #[doc(alias = "VK_VENDOR_ID_POCL")]
+    POCL = 65542,
+    #[doc(alias = "VK_VENDOR_ID_MOBILEYE")]
+    MOBILEYE = 65543,
+    #[doc(alias = "VK_VENDOR_ID_APE")]
+    APE = 65544,
+}
+
+/// [`VkSystemAllocationScope`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSystemAllocationScope.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "VkSystemAllocationScope")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum SystemAllocationScope {
+    #[default]
+    #[doc(alias = "VK_SYSTEM_ALLOCATION_SCOPE_COMMAND")]
+    COMMAND = 0,
+    #[doc(alias = "VK_SYSTEM_ALLOCATION_SCOPE_OBJECT")]
+    OBJECT = 1,
+    #[doc(alias = "VK_SYSTEM_ALLOCATION_SCOPE_CACHE")]
+    CACHE = 2,
+    #[doc(alias = "VK_SYSTEM_ALLOCATION_SCOPE_DEVICE")]
+    DEVICE = 3,
+    #[doc(alias = "VK_SYSTEM_ALLOCATION_SCOPE_INSTANCE")]
+    INSTANCE = 4,
+}
+
+/// [`VkInternalAllocationType`](https://docs.vulkan.org/refpages/latest/refpages/source/VkInternalAllocationType.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "VkInternalAllocationType")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum InternalAllocationType {
+    #[default]
+    #[doc(alias = "VK_INTERNAL_ALLOCATION_TYPE_EXECUTABLE")]
+    EXECUTABLE = 0,
+}
+
+/// [`VkFormat`](https://docs.vulkan.org/refpages/latest/refpages/source/VkFormat.html)
+///
+#[doc(alias = "VkFormat")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum Format {
+    #[default]
+    #[doc(alias = "VK_FORMAT_UNDEFINED")]
+    UNDEFINED = 0,
+    #[doc(alias = "VK_FORMAT_R4G4_UNORM_PACK8")]
+    R4G4_UNORM_PACK8 = 1,
+    #[doc(alias = "VK_FORMAT_R4G4B4A4_UNORM_PACK16")]
+    R4G4B4A4_UNORM_PACK16 = 2,
+    #[doc(alias = "VK_FORMAT_B4G4R4A4_UNORM_PACK16")]
+    B4G4R4A4_UNORM_PACK16 = 3,
+    #[doc(alias = "VK_FORMAT_R5G6B5_UNORM_PACK16")]
+    R5G6B5_UNORM_PACK16 = 4,
+    #[doc(alias = "VK_FORMAT_B5G6R5_UNORM_PACK16")]
+    B5G6R5_UNORM_PACK16 = 5,
+    #[doc(alias = "VK_FORMAT_R5G5B5A1_UNORM_PACK16")]
+    R5G5B5A1_UNORM_PACK16 = 6,
+    #[doc(alias = "VK_FORMAT_B5G5R5A1_UNORM_PACK16")]
+    B5G5R5A1_UNORM_PACK16 = 7,
+    #[doc(alias = "VK_FORMAT_A1R5G5B5_UNORM_PACK16")]
+    A1R5G5B5_UNORM_PACK16 = 8,
+    #[doc(alias = "VK_FORMAT_R8_UNORM")]
+    R8_UNORM = 9,
+    #[doc(alias = "VK_FORMAT_R8_SNORM")]
+    R8_SNORM = 10,
+    #[doc(alias = "VK_FORMAT_R8_USCALED")]
+    R8_USCALED = 11,
+    #[doc(alias = "VK_FORMAT_R8_SSCALED")]
+    R8_SSCALED = 12,
+    #[doc(alias = "VK_FORMAT_R8_UINT")]
+    R8_UINT = 13,
+    #[doc(alias = "VK_FORMAT_R8_SINT")]
+    R8_SINT = 14,
+    #[doc(alias = "VK_FORMAT_R8_SRGB")]
+    R8_SRGB = 15,
+    #[doc(alias = "VK_FORMAT_R8G8_UNORM")]
+    R8G8_UNORM = 16,
+    #[doc(alias = "VK_FORMAT_R8G8_SNORM")]
+    R8G8_SNORM = 17,
+    #[doc(alias = "VK_FORMAT_R8G8_USCALED")]
+    R8G8_USCALED = 18,
+    #[doc(alias = "VK_FORMAT_R8G8_SSCALED")]
+    R8G8_SSCALED = 19,
+    #[doc(alias = "VK_FORMAT_R8G8_UINT")]
+    R8G8_UINT = 20,
+    #[doc(alias = "VK_FORMAT_R8G8_SINT")]
+    R8G8_SINT = 21,
+    #[doc(alias = "VK_FORMAT_R8G8_SRGB")]
+    R8G8_SRGB = 22,
+    #[doc(alias = "VK_FORMAT_R8G8B8_UNORM")]
+    R8G8B8_UNORM = 23,
+    #[doc(alias = "VK_FORMAT_R8G8B8_SNORM")]
+    R8G8B8_SNORM = 24,
+    #[doc(alias = "VK_FORMAT_R8G8B8_USCALED")]
+    R8G8B8_USCALED = 25,
+    #[doc(alias = "VK_FORMAT_R8G8B8_SSCALED")]
+    R8G8B8_SSCALED = 26,
+    #[doc(alias = "VK_FORMAT_R8G8B8_UINT")]
+    R8G8B8_UINT = 27,
+    #[doc(alias = "VK_FORMAT_R8G8B8_SINT")]
+    R8G8B8_SINT = 28,
+    #[doc(alias = "VK_FORMAT_R8G8B8_SRGB")]
+    R8G8B8_SRGB = 29,
+    #[doc(alias = "VK_FORMAT_B8G8R8_UNORM")]
+    B8G8R8_UNORM = 30,
+    #[doc(alias = "VK_FORMAT_B8G8R8_SNORM")]
+    B8G8R8_SNORM = 31,
+    #[doc(alias = "VK_FORMAT_B8G8R8_USCALED")]
+    B8G8R8_USCALED = 32,
+    #[doc(alias = "VK_FORMAT_B8G8R8_SSCALED")]
+    B8G8R8_SSCALED = 33,
+    #[doc(alias = "VK_FORMAT_B8G8R8_UINT")]
+    B8G8R8_UINT = 34,
+    #[doc(alias = "VK_FORMAT_B8G8R8_SINT")]
+    B8G8R8_SINT = 35,
+    #[doc(alias = "VK_FORMAT_B8G8R8_SRGB")]
+    B8G8R8_SRGB = 36,
+    #[doc(alias = "VK_FORMAT_R8G8B8A8_UNORM")]
+    R8G8B8A8_UNORM = 37,
+    #[doc(alias = "VK_FORMAT_R8G8B8A8_SNORM")]
+    R8G8B8A8_SNORM = 38,
+    #[doc(alias = "VK_FORMAT_R8G8B8A8_USCALED")]
+    R8G8B8A8_USCALED = 39,
+    #[doc(alias = "VK_FORMAT_R8G8B8A8_SSCALED")]
+    R8G8B8A8_SSCALED = 40,
+    #[doc(alias = "VK_FORMAT_R8G8B8A8_UINT")]
+    R8G8B8A8_UINT = 41,
+    #[doc(alias = "VK_FORMAT_R8G8B8A8_SINT")]
+    R8G8B8A8_SINT = 42,
+    #[doc(alias = "VK_FORMAT_R8G8B8A8_SRGB")]
+    R8G8B8A8_SRGB = 43,
+    #[doc(alias = "VK_FORMAT_B8G8R8A8_UNORM")]
+    B8G8R8A8_UNORM = 44,
+    #[doc(alias = "VK_FORMAT_B8G8R8A8_SNORM")]
+    B8G8R8A8_SNORM = 45,
+    #[doc(alias = "VK_FORMAT_B8G8R8A8_USCALED")]
+    B8G8R8A8_USCALED = 46,
+    #[doc(alias = "VK_FORMAT_B8G8R8A8_SSCALED")]
+    B8G8R8A8_SSCALED = 47,
+    #[doc(alias = "VK_FORMAT_B8G8R8A8_UINT")]
+    B8G8R8A8_UINT = 48,
+    #[doc(alias = "VK_FORMAT_B8G8R8A8_SINT")]
+    B8G8R8A8_SINT = 49,
+    #[doc(alias = "VK_FORMAT_B8G8R8A8_SRGB")]
+    B8G8R8A8_SRGB = 50,
+    #[doc(alias = "VK_FORMAT_A8B8G8R8_UNORM_PACK32")]
+    A8B8G8R8_UNORM_PACK32 = 51,
+    #[doc(alias = "VK_FORMAT_A8B8G8R8_SNORM_PACK32")]
+    A8B8G8R8_SNORM_PACK32 = 52,
+    #[doc(alias = "VK_FORMAT_A8B8G8R8_USCALED_PACK32")]
+    A8B8G8R8_USCALED_PACK32 = 53,
+    #[doc(alias = "VK_FORMAT_A8B8G8R8_SSCALED_PACK32")]
+    A8B8G8R8_SSCALED_PACK32 = 54,
+    #[doc(alias = "VK_FORMAT_A8B8G8R8_UINT_PACK32")]
+    A8B8G8R8_UINT_PACK32 = 55,
+    #[doc(alias = "VK_FORMAT_A8B8G8R8_SINT_PACK32")]
+    A8B8G8R8_SINT_PACK32 = 56,
+    #[doc(alias = "VK_FORMAT_A8B8G8R8_SRGB_PACK32")]
+    A8B8G8R8_SRGB_PACK32 = 57,
+    #[doc(alias = "VK_FORMAT_A2R10G10B10_UNORM_PACK32")]
+    A2R10G10B10_UNORM_PACK32 = 58,
+    #[doc(alias = "VK_FORMAT_A2R10G10B10_SNORM_PACK32")]
+    A2R10G10B10_SNORM_PACK32 = 59,
+    #[doc(alias = "VK_FORMAT_A2R10G10B10_USCALED_PACK32")]
+    A2R10G10B10_USCALED_PACK32 = 60,
+    #[doc(alias = "VK_FORMAT_A2R10G10B10_SSCALED_PACK32")]
+    A2R10G10B10_SSCALED_PACK32 = 61,
+    #[doc(alias = "VK_FORMAT_A2R10G10B10_UINT_PACK32")]
+    A2R10G10B10_UINT_PACK32 = 62,
+    #[doc(alias = "VK_FORMAT_A2R10G10B10_SINT_PACK32")]
+    A2R10G10B10_SINT_PACK32 = 63,
+    #[doc(alias = "VK_FORMAT_A2B10G10R10_UNORM_PACK32")]
+    A2B10G10R10_UNORM_PACK32 = 64,
+    #[doc(alias = "VK_FORMAT_A2B10G10R10_SNORM_PACK32")]
+    A2B10G10R10_SNORM_PACK32 = 65,
+    #[doc(alias = "VK_FORMAT_A2B10G10R10_USCALED_PACK32")]
+    A2B10G10R10_USCALED_PACK32 = 66,
+    #[doc(alias = "VK_FORMAT_A2B10G10R10_SSCALED_PACK32")]
+    A2B10G10R10_SSCALED_PACK32 = 67,
+    #[doc(alias = "VK_FORMAT_A2B10G10R10_UINT_PACK32")]
+    A2B10G10R10_UINT_PACK32 = 68,
+    #[doc(alias = "VK_FORMAT_A2B10G10R10_SINT_PACK32")]
+    A2B10G10R10_SINT_PACK32 = 69,
+    #[doc(alias = "VK_FORMAT_R16_UNORM")]
+    R16_UNORM = 70,
+    #[doc(alias = "VK_FORMAT_R16_SNORM")]
+    R16_SNORM = 71,
+    #[doc(alias = "VK_FORMAT_R16_USCALED")]
+    R16_USCALED = 72,
+    #[doc(alias = "VK_FORMAT_R16_SSCALED")]
+    R16_SSCALED = 73,
+    #[doc(alias = "VK_FORMAT_R16_UINT")]
+    R16_UINT = 74,
+    #[doc(alias = "VK_FORMAT_R16_SINT")]
+    R16_SINT = 75,
+    #[doc(alias = "VK_FORMAT_R16_SFLOAT")]
+    R16_SFLOAT = 76,
+    #[doc(alias = "VK_FORMAT_R16G16_UNORM")]
+    R16G16_UNORM = 77,
+    #[doc(alias = "VK_FORMAT_R16G16_SNORM")]
+    R16G16_SNORM = 78,
+    #[doc(alias = "VK_FORMAT_R16G16_USCALED")]
+    R16G16_USCALED = 79,
+    #[doc(alias = "VK_FORMAT_R16G16_SSCALED")]
+    R16G16_SSCALED = 80,
+    #[doc(alias = "VK_FORMAT_R16G16_UINT")]
+    R16G16_UINT = 81,
+    #[doc(alias = "VK_FORMAT_R16G16_SINT")]
+    R16G16_SINT = 82,
+    #[doc(alias = "VK_FORMAT_R16G16_SFLOAT")]
+    R16G16_SFLOAT = 83,
+    #[doc(alias = "VK_FORMAT_R16G16B16_UNORM")]
+    R16G16B16_UNORM = 84,
+    #[doc(alias = "VK_FORMAT_R16G16B16_SNORM")]
+    R16G16B16_SNORM = 85,
+    #[doc(alias = "VK_FORMAT_R16G16B16_USCALED")]
+    R16G16B16_USCALED = 86,
+    #[doc(alias = "VK_FORMAT_R16G16B16_SSCALED")]
+    R16G16B16_SSCALED = 87,
+    #[doc(alias = "VK_FORMAT_R16G16B16_UINT")]
+    R16G16B16_UINT = 88,
+    #[doc(alias = "VK_FORMAT_R16G16B16_SINT")]
+    R16G16B16_SINT = 89,
+    #[doc(alias = "VK_FORMAT_R16G16B16_SFLOAT")]
+    R16G16B16_SFLOAT = 90,
+    #[doc(alias = "VK_FORMAT_R16G16B16A16_UNORM")]
+    R16G16B16A16_UNORM = 91,
+    #[doc(alias = "VK_FORMAT_R16G16B16A16_SNORM")]
+    R16G16B16A16_SNORM = 92,
+    #[doc(alias = "VK_FORMAT_R16G16B16A16_USCALED")]
+    R16G16B16A16_USCALED = 93,
+    #[doc(alias = "VK_FORMAT_R16G16B16A16_SSCALED")]
+    R16G16B16A16_SSCALED = 94,
+    #[doc(alias = "VK_FORMAT_R16G16B16A16_UINT")]
+    R16G16B16A16_UINT = 95,
+    #[doc(alias = "VK_FORMAT_R16G16B16A16_SINT")]
+    R16G16B16A16_SINT = 96,
+    #[doc(alias = "VK_FORMAT_R16G16B16A16_SFLOAT")]
+    R16G16B16A16_SFLOAT = 97,
+    #[doc(alias = "VK_FORMAT_R32_UINT")]
+    R32_UINT = 98,
+    #[doc(alias = "VK_FORMAT_R32_SINT")]
+    R32_SINT = 99,
+    #[doc(alias = "VK_FORMAT_R32_SFLOAT")]
+    R32_SFLOAT = 100,
+    #[doc(alias = "VK_FORMAT_R32G32_UINT")]
+    R32G32_UINT = 101,
+    #[doc(alias = "VK_FORMAT_R32G32_SINT")]
+    R32G32_SINT = 102,
+    #[doc(alias = "VK_FORMAT_R32G32_SFLOAT")]
+    R32G32_SFLOAT = 103,
+    #[doc(alias = "VK_FORMAT_R32G32B32_UINT")]
+    R32G32B32_UINT = 104,
+    #[doc(alias = "VK_FORMAT_R32G32B32_SINT")]
+    R32G32B32_SINT = 105,
+    #[doc(alias = "VK_FORMAT_R32G32B32_SFLOAT")]
+    R32G32B32_SFLOAT = 106,
+    #[doc(alias = "VK_FORMAT_R32G32B32A32_UINT")]
+    R32G32B32A32_UINT = 107,
+    #[doc(alias = "VK_FORMAT_R32G32B32A32_SINT")]
+    R32G32B32A32_SINT = 108,
+    #[doc(alias = "VK_FORMAT_R32G32B32A32_SFLOAT")]
+    R32G32B32A32_SFLOAT = 109,
+    #[doc(alias = "VK_FORMAT_R64_UINT")]
+    R64_UINT = 110,
+    #[doc(alias = "VK_FORMAT_R64_SINT")]
+    R64_SINT = 111,
+    #[doc(alias = "VK_FORMAT_R64_SFLOAT")]
+    R64_SFLOAT = 112,
+    #[doc(alias = "VK_FORMAT_R64G64_UINT")]
+    R64G64_UINT = 113,
+    #[doc(alias = "VK_FORMAT_R64G64_SINT")]
+    R64G64_SINT = 114,
+    #[doc(alias = "VK_FORMAT_R64G64_SFLOAT")]
+    R64G64_SFLOAT = 115,
+    #[doc(alias = "VK_FORMAT_R64G64B64_UINT")]
+    R64G64B64_UINT = 116,
+    #[doc(alias = "VK_FORMAT_R64G64B64_SINT")]
+    R64G64B64_SINT = 117,
+    #[doc(alias = "VK_FORMAT_R64G64B64_SFLOAT")]
+    R64G64B64_SFLOAT = 118,
+    #[doc(alias = "VK_FORMAT_R64G64B64A64_UINT")]
+    R64G64B64A64_UINT = 119,
+    #[doc(alias = "VK_FORMAT_R64G64B64A64_SINT")]
+    R64G64B64A64_SINT = 120,
+    #[doc(alias = "VK_FORMAT_R64G64B64A64_SFLOAT")]
+    R64G64B64A64_SFLOAT = 121,
+    #[doc(alias = "VK_FORMAT_B10G11R11_UFLOAT_PACK32")]
+    B10G11R11_UFLOAT_PACK32 = 122,
+    #[doc(alias = "VK_FORMAT_E5B9G9R9_UFLOAT_PACK32")]
+    E5B9G9R9_UFLOAT_PACK32 = 123,
+    #[doc(alias = "VK_FORMAT_D16_UNORM")]
+    D16_UNORM = 124,
+    #[doc(alias = "VK_FORMAT_X8_D24_UNORM_PACK32")]
+    X8_D24_UNORM_PACK32 = 125,
+    #[doc(alias = "VK_FORMAT_D32_SFLOAT")]
+    D32_SFLOAT = 126,
+    #[doc(alias = "VK_FORMAT_S8_UINT")]
+    S8_UINT = 127,
+    #[doc(alias = "VK_FORMAT_D16_UNORM_S8_UINT")]
+    D16_UNORM_S8_UINT = 128,
+    #[doc(alias = "VK_FORMAT_D24_UNORM_S8_UINT")]
+    D24_UNORM_S8_UINT = 129,
+    #[doc(alias = "VK_FORMAT_D32_SFLOAT_S8_UINT")]
+    D32_SFLOAT_S8_UINT = 130,
+    #[doc(alias = "VK_FORMAT_BC1_RGB_UNORM_BLOCK")]
+    BC1_RGB_UNORM_BLOCK = 131,
+    #[doc(alias = "VK_FORMAT_BC1_RGB_SRGB_BLOCK")]
+    BC1_RGB_SRGB_BLOCK = 132,
+    #[doc(alias = "VK_FORMAT_BC1_RGBA_UNORM_BLOCK")]
+    BC1_RGBA_UNORM_BLOCK = 133,
+    #[doc(alias = "VK_FORMAT_BC1_RGBA_SRGB_BLOCK")]
+    BC1_RGBA_SRGB_BLOCK = 134,
+    #[doc(alias = "VK_FORMAT_BC2_UNORM_BLOCK")]
+    BC2_UNORM_BLOCK = 135,
+    #[doc(alias = "VK_FORMAT_BC2_SRGB_BLOCK")]
+    BC2_SRGB_BLOCK = 136,
+    #[doc(alias = "VK_FORMAT_BC3_UNORM_BLOCK")]
+    BC3_UNORM_BLOCK = 137,
+    #[doc(alias = "VK_FORMAT_BC3_SRGB_BLOCK")]
+    BC3_SRGB_BLOCK = 138,
+    #[doc(alias = "VK_FORMAT_BC4_UNORM_BLOCK")]
+    BC4_UNORM_BLOCK = 139,
+    #[doc(alias = "VK_FORMAT_BC4_SNORM_BLOCK")]
+    BC4_SNORM_BLOCK = 140,
+    #[doc(alias = "VK_FORMAT_BC5_UNORM_BLOCK")]
+    BC5_UNORM_BLOCK = 141,
+    #[doc(alias = "VK_FORMAT_BC5_SNORM_BLOCK")]
+    BC5_SNORM_BLOCK = 142,
+    #[doc(alias = "VK_FORMAT_BC6H_UFLOAT_BLOCK")]
+    BC6H_UFLOAT_BLOCK = 143,
+    #[doc(alias = "VK_FORMAT_BC6H_SFLOAT_BLOCK")]
+    BC6H_SFLOAT_BLOCK = 144,
+    #[doc(alias = "VK_FORMAT_BC7_UNORM_BLOCK")]
+    BC7_UNORM_BLOCK = 145,
+    #[doc(alias = "VK_FORMAT_BC7_SRGB_BLOCK")]
+    BC7_SRGB_BLOCK = 146,
+    #[doc(alias = "VK_FORMAT_ETC2_R8G8B8_UNORM_BLOCK")]
+    ETC2_R8G8B8_UNORM_BLOCK = 147,
+    #[doc(alias = "VK_FORMAT_ETC2_R8G8B8_SRGB_BLOCK")]
+    ETC2_R8G8B8_SRGB_BLOCK = 148,
+    #[doc(alias = "VK_FORMAT_ETC2_R8G8B8A1_UNORM_BLOCK")]
+    ETC2_R8G8B8A1_UNORM_BLOCK = 149,
+    #[doc(alias = "VK_FORMAT_ETC2_R8G8B8A1_SRGB_BLOCK")]
+    ETC2_R8G8B8A1_SRGB_BLOCK = 150,
+    #[doc(alias = "VK_FORMAT_ETC2_R8G8B8A8_UNORM_BLOCK")]
+    ETC2_R8G8B8A8_UNORM_BLOCK = 151,
+    #[doc(alias = "VK_FORMAT_ETC2_R8G8B8A8_SRGB_BLOCK")]
+    ETC2_R8G8B8A8_SRGB_BLOCK = 152,
+    #[doc(alias = "VK_FORMAT_EAC_R11_UNORM_BLOCK")]
+    EAC_R11_UNORM_BLOCK = 153,
+    #[doc(alias = "VK_FORMAT_EAC_R11_SNORM_BLOCK")]
+    EAC_R11_SNORM_BLOCK = 154,
+    #[doc(alias = "VK_FORMAT_EAC_R11G11_UNORM_BLOCK")]
+    EAC_R11G11_UNORM_BLOCK = 155,
+    #[doc(alias = "VK_FORMAT_EAC_R11G11_SNORM_BLOCK")]
+    EAC_R11G11_SNORM_BLOCK = 156,
+    #[doc(alias = "VK_FORMAT_ASTC_4x4_UNORM_BLOCK")]
+    ASTC_4x4_UNORM_BLOCK = 157,
+    #[doc(alias = "VK_FORMAT_ASTC_4x4_SRGB_BLOCK")]
+    ASTC_4x4_SRGB_BLOCK = 158,
+    #[doc(alias = "VK_FORMAT_ASTC_5x4_UNORM_BLOCK")]
+    ASTC_5x4_UNORM_BLOCK = 159,
+    #[doc(alias = "VK_FORMAT_ASTC_5x4_SRGB_BLOCK")]
+    ASTC_5x4_SRGB_BLOCK = 160,
+    #[doc(alias = "VK_FORMAT_ASTC_5x5_UNORM_BLOCK")]
+    ASTC_5x5_UNORM_BLOCK = 161,
+    #[doc(alias = "VK_FORMAT_ASTC_5x5_SRGB_BLOCK")]
+    ASTC_5x5_SRGB_BLOCK = 162,
+    #[doc(alias = "VK_FORMAT_ASTC_6x5_UNORM_BLOCK")]
+    ASTC_6x5_UNORM_BLOCK = 163,
+    #[doc(alias = "VK_FORMAT_ASTC_6x5_SRGB_BLOCK")]
+    ASTC_6x5_SRGB_BLOCK = 164,
+    #[doc(alias = "VK_FORMAT_ASTC_6x6_UNORM_BLOCK")]
+    ASTC_6x6_UNORM_BLOCK = 165,
+    #[doc(alias = "VK_FORMAT_ASTC_6x6_SRGB_BLOCK")]
+    ASTC_6x6_SRGB_BLOCK = 166,
+    #[doc(alias = "VK_FORMAT_ASTC_8x5_UNORM_BLOCK")]
+    ASTC_8x5_UNORM_BLOCK = 167,
+    #[doc(alias = "VK_FORMAT_ASTC_8x5_SRGB_BLOCK")]
+    ASTC_8x5_SRGB_BLOCK = 168,
+    #[doc(alias = "VK_FORMAT_ASTC_8x6_UNORM_BLOCK")]
+    ASTC_8x6_UNORM_BLOCK = 169,
+    #[doc(alias = "VK_FORMAT_ASTC_8x6_SRGB_BLOCK")]
+    ASTC_8x6_SRGB_BLOCK = 170,
+    #[doc(alias = "VK_FORMAT_ASTC_8x8_UNORM_BLOCK")]
+    ASTC_8x8_UNORM_BLOCK = 171,
+    #[doc(alias = "VK_FORMAT_ASTC_8x8_SRGB_BLOCK")]
+    ASTC_8x8_SRGB_BLOCK = 172,
+    #[doc(alias = "VK_FORMAT_ASTC_10x5_UNORM_BLOCK")]
+    ASTC_10x5_UNORM_BLOCK = 173,
+    #[doc(alias = "VK_FORMAT_ASTC_10x5_SRGB_BLOCK")]
+    ASTC_10x5_SRGB_BLOCK = 174,
+    #[doc(alias = "VK_FORMAT_ASTC_10x6_UNORM_BLOCK")]
+    ASTC_10x6_UNORM_BLOCK = 175,
+    #[doc(alias = "VK_FORMAT_ASTC_10x6_SRGB_BLOCK")]
+    ASTC_10x6_SRGB_BLOCK = 176,
+    #[doc(alias = "VK_FORMAT_ASTC_10x8_UNORM_BLOCK")]
+    ASTC_10x8_UNORM_BLOCK = 177,
+    #[doc(alias = "VK_FORMAT_ASTC_10x8_SRGB_BLOCK")]
+    ASTC_10x8_SRGB_BLOCK = 178,
+    #[doc(alias = "VK_FORMAT_ASTC_10x10_UNORM_BLOCK")]
+    ASTC_10x10_UNORM_BLOCK = 179,
+    #[doc(alias = "VK_FORMAT_ASTC_10x10_SRGB_BLOCK")]
+    ASTC_10x10_SRGB_BLOCK = 180,
+    #[doc(alias = "VK_FORMAT_ASTC_12x10_UNORM_BLOCK")]
+    ASTC_12x10_UNORM_BLOCK = 181,
+    #[doc(alias = "VK_FORMAT_ASTC_12x10_SRGB_BLOCK")]
+    ASTC_12x10_SRGB_BLOCK = 182,
+    #[doc(alias = "VK_FORMAT_ASTC_12x12_UNORM_BLOCK")]
+    ASTC_12x12_UNORM_BLOCK = 183,
+    #[doc(alias = "VK_FORMAT_ASTC_12x12_SRGB_BLOCK")]
+    ASTC_12x12_SRGB_BLOCK = 184,
+    #[doc(alias = "VK_FORMAT_G8B8G8R8_422_UNORM")]
+    G8B8G8R8_422_UNORM = 1000156000,
+    #[doc(alias = "VK_FORMAT_B8G8R8G8_422_UNORM")]
+    B8G8R8G8_422_UNORM = 1000156001,
+    #[doc(alias = "VK_FORMAT_G8_B8_R8_3PLANE_420_UNORM")]
+    G8_B8_R8_3PLANE_420_UNORM = 1000156002,
+    #[doc(alias = "VK_FORMAT_G8_B8R8_2PLANE_420_UNORM")]
+    G8_B8R8_2PLANE_420_UNORM = 1000156003,
+    #[doc(alias = "VK_FORMAT_G8_B8_R8_3PLANE_422_UNORM")]
+    G8_B8_R8_3PLANE_422_UNORM = 1000156004,
+    #[doc(alias = "VK_FORMAT_G8_B8R8_2PLANE_422_UNORM")]
+    G8_B8R8_2PLANE_422_UNORM = 1000156005,
+    #[doc(alias = "VK_FORMAT_G8_B8_R8_3PLANE_444_UNORM")]
+    G8_B8_R8_3PLANE_444_UNORM = 1000156006,
+    #[doc(alias = "VK_FORMAT_R10X6_UNORM_PACK16")]
+    R10X6_UNORM_PACK16 = 1000156007,
+    #[doc(alias = "VK_FORMAT_R10X6G10X6_UNORM_2PACK16")]
+    R10X6G10X6_UNORM_2PACK16 = 1000156008,
+    #[doc(alias = "VK_FORMAT_R10X6G10X6B10X6A10X6_UNORM_4PACK16")]
+    R10X6G10X6B10X6A10X6_UNORM_4PACK16 = 1000156009,
+    #[doc(alias = "VK_FORMAT_G10X6B10X6G10X6R10X6_422_UNORM_4PACK16")]
+    G10X6B10X6G10X6R10X6_422_UNORM_4PACK16 = 1000156010,
+    #[doc(alias = "VK_FORMAT_B10X6G10X6R10X6G10X6_422_UNORM_4PACK16")]
+    B10X6G10X6R10X6G10X6_422_UNORM_4PACK16 = 1000156011,
+    #[doc(alias = "VK_FORMAT_G10X6_B10X6_R10X6_3PLANE_420_UNORM_3PACK16")]
+    G10X6_B10X6_R10X6_3PLANE_420_UNORM_3PACK16 = 1000156012,
+    #[doc(alias = "VK_FORMAT_G10X6_B10X6R10X6_2PLANE_420_UNORM_3PACK16")]
+    G10X6_B10X6R10X6_2PLANE_420_UNORM_3PACK16 = 1000156013,
+    #[doc(alias = "VK_FORMAT_G10X6_B10X6_R10X6_3PLANE_422_UNORM_3PACK16")]
+    G10X6_B10X6_R10X6_3PLANE_422_UNORM_3PACK16 = 1000156014,
+    #[doc(alias = "VK_FORMAT_G10X6_B10X6R10X6_2PLANE_422_UNORM_3PACK16")]
+    G10X6_B10X6R10X6_2PLANE_422_UNORM_3PACK16 = 1000156015,
+    #[doc(alias = "VK_FORMAT_G10X6_B10X6_R10X6_3PLANE_444_UNORM_3PACK16")]
+    G10X6_B10X6_R10X6_3PLANE_444_UNORM_3PACK16 = 1000156016,
+    #[doc(alias = "VK_FORMAT_R12X4_UNORM_PACK16")]
+    R12X4_UNORM_PACK16 = 1000156017,
+    #[doc(alias = "VK_FORMAT_R12X4G12X4_UNORM_2PACK16")]
+    R12X4G12X4_UNORM_2PACK16 = 1000156018,
+    #[doc(alias = "VK_FORMAT_R12X4G12X4B12X4A12X4_UNORM_4PACK16")]
+    R12X4G12X4B12X4A12X4_UNORM_4PACK16 = 1000156019,
+    #[doc(alias = "VK_FORMAT_G12X4B12X4G12X4R12X4_422_UNORM_4PACK16")]
+    G12X4B12X4G12X4R12X4_422_UNORM_4PACK16 = 1000156020,
+    #[doc(alias = "VK_FORMAT_B12X4G12X4R12X4G12X4_422_UNORM_4PACK16")]
+    B12X4G12X4R12X4G12X4_422_UNORM_4PACK16 = 1000156021,
+    #[doc(alias = "VK_FORMAT_G12X4_B12X4_R12X4_3PLANE_420_UNORM_3PACK16")]
+    G12X4_B12X4_R12X4_3PLANE_420_UNORM_3PACK16 = 1000156022,
+    #[doc(alias = "VK_FORMAT_G12X4_B12X4R12X4_2PLANE_420_UNORM_3PACK16")]
+    G12X4_B12X4R12X4_2PLANE_420_UNORM_3PACK16 = 1000156023,
+    #[doc(alias = "VK_FORMAT_G12X4_B12X4_R12X4_3PLANE_422_UNORM_3PACK16")]
+    G12X4_B12X4_R12X4_3PLANE_422_UNORM_3PACK16 = 1000156024,
+    #[doc(alias = "VK_FORMAT_G12X4_B12X4R12X4_2PLANE_422_UNORM_3PACK16")]
+    G12X4_B12X4R12X4_2PLANE_422_UNORM_3PACK16 = 1000156025,
+    #[doc(alias = "VK_FORMAT_G12X4_B12X4_R12X4_3PLANE_444_UNORM_3PACK16")]
+    G12X4_B12X4_R12X4_3PLANE_444_UNORM_3PACK16 = 1000156026,
+    #[doc(alias = "VK_FORMAT_G16B16G16R16_422_UNORM")]
+    G16B16G16R16_422_UNORM = 1000156027,
+    #[doc(alias = "VK_FORMAT_B16G16R16G16_422_UNORM")]
+    B16G16R16G16_422_UNORM = 1000156028,
+    #[doc(alias = "VK_FORMAT_G16_B16_R16_3PLANE_420_UNORM")]
+    G16_B16_R16_3PLANE_420_UNORM = 1000156029,
+    #[doc(alias = "VK_FORMAT_G16_B16R16_2PLANE_420_UNORM")]
+    G16_B16R16_2PLANE_420_UNORM = 1000156030,
+    #[doc(alias = "VK_FORMAT_G16_B16_R16_3PLANE_422_UNORM")]
+    G16_B16_R16_3PLANE_422_UNORM = 1000156031,
+    #[doc(alias = "VK_FORMAT_G16_B16R16_2PLANE_422_UNORM")]
+    G16_B16R16_2PLANE_422_UNORM = 1000156032,
+    #[doc(alias = "VK_FORMAT_G16_B16_R16_3PLANE_444_UNORM")]
+    G16_B16_R16_3PLANE_444_UNORM = 1000156033,
+    #[doc(alias = "VK_FORMAT_G8_B8R8_2PLANE_444_UNORM")]
+    G8_B8R8_2PLANE_444_UNORM = 1000330000,
+    #[doc(alias = "VK_FORMAT_G10X6_B10X6R10X6_2PLANE_444_UNORM_3PACK16")]
+    G10X6_B10X6R10X6_2PLANE_444_UNORM_3PACK16 = 1000330001,
+    #[doc(alias = "VK_FORMAT_G12X4_B12X4R12X4_2PLANE_444_UNORM_3PACK16")]
+    G12X4_B12X4R12X4_2PLANE_444_UNORM_3PACK16 = 1000330002,
+    #[doc(alias = "VK_FORMAT_G16_B16R16_2PLANE_444_UNORM")]
+    G16_B16R16_2PLANE_444_UNORM = 1000330003,
+    #[doc(alias = "VK_FORMAT_A4R4G4B4_UNORM_PACK16")]
+    A4R4G4B4_UNORM_PACK16 = 1000340000,
+    #[doc(alias = "VK_FORMAT_A4B4G4R4_UNORM_PACK16")]
+    A4B4G4R4_UNORM_PACK16 = 1000340001,
+    #[doc(alias = "VK_FORMAT_ASTC_4x4_SFLOAT_BLOCK")]
+    ASTC_4x4_SFLOAT_BLOCK = 1000066000,
+    #[doc(alias = "VK_FORMAT_ASTC_5x4_SFLOAT_BLOCK")]
+    ASTC_5x4_SFLOAT_BLOCK = 1000066001,
+    #[doc(alias = "VK_FORMAT_ASTC_5x5_SFLOAT_BLOCK")]
+    ASTC_5x5_SFLOAT_BLOCK = 1000066002,
+    #[doc(alias = "VK_FORMAT_ASTC_6x5_SFLOAT_BLOCK")]
+    ASTC_6x5_SFLOAT_BLOCK = 1000066003,
+    #[doc(alias = "VK_FORMAT_ASTC_6x6_SFLOAT_BLOCK")]
+    ASTC_6x6_SFLOAT_BLOCK = 1000066004,
+    #[doc(alias = "VK_FORMAT_ASTC_8x5_SFLOAT_BLOCK")]
+    ASTC_8x5_SFLOAT_BLOCK = 1000066005,
+    #[doc(alias = "VK_FORMAT_ASTC_8x6_SFLOAT_BLOCK")]
+    ASTC_8x6_SFLOAT_BLOCK = 1000066006,
+    #[doc(alias = "VK_FORMAT_ASTC_8x8_SFLOAT_BLOCK")]
+    ASTC_8x8_SFLOAT_BLOCK = 1000066007,
+    #[doc(alias = "VK_FORMAT_ASTC_10x5_SFLOAT_BLOCK")]
+    ASTC_10x5_SFLOAT_BLOCK = 1000066008,
+    #[doc(alias = "VK_FORMAT_ASTC_10x6_SFLOAT_BLOCK")]
+    ASTC_10x6_SFLOAT_BLOCK = 1000066009,
+    #[doc(alias = "VK_FORMAT_ASTC_10x8_SFLOAT_BLOCK")]
+    ASTC_10x8_SFLOAT_BLOCK = 1000066010,
+    #[doc(alias = "VK_FORMAT_ASTC_10x10_SFLOAT_BLOCK")]
+    ASTC_10x10_SFLOAT_BLOCK = 1000066011,
+    #[doc(alias = "VK_FORMAT_ASTC_12x10_SFLOAT_BLOCK")]
+    ASTC_12x10_SFLOAT_BLOCK = 1000066012,
+    #[doc(alias = "VK_FORMAT_ASTC_12x12_SFLOAT_BLOCK")]
+    ASTC_12x12_SFLOAT_BLOCK = 1000066013,
+    #[doc(alias = "VK_FORMAT_A1B5G5R5_UNORM_PACK16")]
+    A1B5G5R5_UNORM_PACK16 = 1000470000,
+    #[doc(alias = "VK_FORMAT_A8_UNORM")]
+    A8_UNORM = 1000470001,
+    #[doc(alias = "VK_FORMAT_PVRTC1_2BPP_UNORM_BLOCK_IMG")]
+    PVRTC1_2BPP_UNORM_BLOCK_IMG = 1000054000,
+    #[doc(alias = "VK_FORMAT_PVRTC1_4BPP_UNORM_BLOCK_IMG")]
+    PVRTC1_4BPP_UNORM_BLOCK_IMG = 1000054001,
+    #[doc(alias = "VK_FORMAT_PVRTC2_2BPP_UNORM_BLOCK_IMG")]
+    PVRTC2_2BPP_UNORM_BLOCK_IMG = 1000054002,
+    #[doc(alias = "VK_FORMAT_PVRTC2_4BPP_UNORM_BLOCK_IMG")]
+    PVRTC2_4BPP_UNORM_BLOCK_IMG = 1000054003,
+    #[doc(alias = "VK_FORMAT_PVRTC1_2BPP_SRGB_BLOCK_IMG")]
+    PVRTC1_2BPP_SRGB_BLOCK_IMG = 1000054004,
+    #[doc(alias = "VK_FORMAT_PVRTC1_4BPP_SRGB_BLOCK_IMG")]
+    PVRTC1_4BPP_SRGB_BLOCK_IMG = 1000054005,
+    #[doc(alias = "VK_FORMAT_PVRTC2_2BPP_SRGB_BLOCK_IMG")]
+    PVRTC2_2BPP_SRGB_BLOCK_IMG = 1000054006,
+    #[doc(alias = "VK_FORMAT_PVRTC2_4BPP_SRGB_BLOCK_IMG")]
+    PVRTC2_4BPP_SRGB_BLOCK_IMG = 1000054007,
+    #[doc(alias = "VK_FORMAT_ASTC_3x3x3_UNORM_BLOCK_EXT")]
+    ASTC_3x3x3_UNORM_BLOCK_EXT = 1000288000,
+    #[doc(alias = "VK_FORMAT_ASTC_3x3x3_SRGB_BLOCK_EXT")]
+    ASTC_3x3x3_SRGB_BLOCK_EXT = 1000288001,
+    #[doc(alias = "VK_FORMAT_ASTC_3x3x3_SFLOAT_BLOCK_EXT")]
+    ASTC_3x3x3_SFLOAT_BLOCK_EXT = 1000288002,
+    #[doc(alias = "VK_FORMAT_ASTC_4x3x3_UNORM_BLOCK_EXT")]
+    ASTC_4x3x3_UNORM_BLOCK_EXT = 1000288003,
+    #[doc(alias = "VK_FORMAT_ASTC_4x3x3_SRGB_BLOCK_EXT")]
+    ASTC_4x3x3_SRGB_BLOCK_EXT = 1000288004,
+    #[doc(alias = "VK_FORMAT_ASTC_4x3x3_SFLOAT_BLOCK_EXT")]
+    ASTC_4x3x3_SFLOAT_BLOCK_EXT = 1000288005,
+    #[doc(alias = "VK_FORMAT_ASTC_4x4x3_UNORM_BLOCK_EXT")]
+    ASTC_4x4x3_UNORM_BLOCK_EXT = 1000288006,
+    #[doc(alias = "VK_FORMAT_ASTC_4x4x3_SRGB_BLOCK_EXT")]
+    ASTC_4x4x3_SRGB_BLOCK_EXT = 1000288007,
+    #[doc(alias = "VK_FORMAT_ASTC_4x4x3_SFLOAT_BLOCK_EXT")]
+    ASTC_4x4x3_SFLOAT_BLOCK_EXT = 1000288008,
+    #[doc(alias = "VK_FORMAT_ASTC_4x4x4_UNORM_BLOCK_EXT")]
+    ASTC_4x4x4_UNORM_BLOCK_EXT = 1000288009,
+    #[doc(alias = "VK_FORMAT_ASTC_4x4x4_SRGB_BLOCK_EXT")]
+    ASTC_4x4x4_SRGB_BLOCK_EXT = 1000288010,
+    #[doc(alias = "VK_FORMAT_ASTC_4x4x4_SFLOAT_BLOCK_EXT")]
+    ASTC_4x4x4_SFLOAT_BLOCK_EXT = 1000288011,
+    #[doc(alias = "VK_FORMAT_ASTC_5x4x4_UNORM_BLOCK_EXT")]
+    ASTC_5x4x4_UNORM_BLOCK_EXT = 1000288012,
+    #[doc(alias = "VK_FORMAT_ASTC_5x4x4_SRGB_BLOCK_EXT")]
+    ASTC_5x4x4_SRGB_BLOCK_EXT = 1000288013,
+    #[doc(alias = "VK_FORMAT_ASTC_5x4x4_SFLOAT_BLOCK_EXT")]
+    ASTC_5x4x4_SFLOAT_BLOCK_EXT = 1000288014,
+    #[doc(alias = "VK_FORMAT_ASTC_5x5x4_UNORM_BLOCK_EXT")]
+    ASTC_5x5x4_UNORM_BLOCK_EXT = 1000288015,
+    #[doc(alias = "VK_FORMAT_ASTC_5x5x4_SRGB_BLOCK_EXT")]
+    ASTC_5x5x4_SRGB_BLOCK_EXT = 1000288016,
+    #[doc(alias = "VK_FORMAT_ASTC_5x5x4_SFLOAT_BLOCK_EXT")]
+    ASTC_5x5x4_SFLOAT_BLOCK_EXT = 1000288017,
+    #[doc(alias = "VK_FORMAT_ASTC_5x5x5_UNORM_BLOCK_EXT")]
+    ASTC_5x5x5_UNORM_BLOCK_EXT = 1000288018,
+    #[doc(alias = "VK_FORMAT_ASTC_5x5x5_SRGB_BLOCK_EXT")]
+    ASTC_5x5x5_SRGB_BLOCK_EXT = 1000288019,
+    #[doc(alias = "VK_FORMAT_ASTC_5x5x5_SFLOAT_BLOCK_EXT")]
+    ASTC_5x5x5_SFLOAT_BLOCK_EXT = 1000288020,
+    #[doc(alias = "VK_FORMAT_ASTC_6x5x5_UNORM_BLOCK_EXT")]
+    ASTC_6x5x5_UNORM_BLOCK_EXT = 1000288021,
+    #[doc(alias = "VK_FORMAT_ASTC_6x5x5_SRGB_BLOCK_EXT")]
+    ASTC_6x5x5_SRGB_BLOCK_EXT = 1000288022,
+    #[doc(alias = "VK_FORMAT_ASTC_6x5x5_SFLOAT_BLOCK_EXT")]
+    ASTC_6x5x5_SFLOAT_BLOCK_EXT = 1000288023,
+    #[doc(alias = "VK_FORMAT_ASTC_6x6x5_UNORM_BLOCK_EXT")]
+    ASTC_6x6x5_UNORM_BLOCK_EXT = 1000288024,
+    #[doc(alias = "VK_FORMAT_ASTC_6x6x5_SRGB_BLOCK_EXT")]
+    ASTC_6x6x5_SRGB_BLOCK_EXT = 1000288025,
+    #[doc(alias = "VK_FORMAT_ASTC_6x6x5_SFLOAT_BLOCK_EXT")]
+    ASTC_6x6x5_SFLOAT_BLOCK_EXT = 1000288026,
+    #[doc(alias = "VK_FORMAT_ASTC_6x6x6_UNORM_BLOCK_EXT")]
+    ASTC_6x6x6_UNORM_BLOCK_EXT = 1000288027,
+    #[doc(alias = "VK_FORMAT_ASTC_6x6x6_SRGB_BLOCK_EXT")]
+    ASTC_6x6x6_SRGB_BLOCK_EXT = 1000288028,
+    #[doc(alias = "VK_FORMAT_ASTC_6x6x6_SFLOAT_BLOCK_EXT")]
+    ASTC_6x6x6_SFLOAT_BLOCK_EXT = 1000288029,
+    #[doc(alias = "VK_FORMAT_R8_BOOL_ARM")]
+    R8_BOOL_ARM = 1000460000,
+    #[doc(alias = "VK_FORMAT_R16_SFLOAT_FPENCODING_BFLOAT16_ARM")]
+    R16_SFLOAT_FPENCODING_BFLOAT16_ARM = 1000460001,
+    #[doc(alias = "VK_FORMAT_R8_SFLOAT_FPENCODING_FLOAT8E4M3_ARM")]
+    R8_SFLOAT_FPENCODING_FLOAT8E4M3_ARM = 1000460002,
+    #[doc(alias = "VK_FORMAT_R8_SFLOAT_FPENCODING_FLOAT8E5M2_ARM")]
+    R8_SFLOAT_FPENCODING_FLOAT8E5M2_ARM = 1000460003,
+    #[doc(alias = "VK_FORMAT_R16G16_SFIXED5_NV")]
+    R16G16_SFIXED5_NV = 1000464000,
+    #[doc(alias = "VK_FORMAT_R10X6_UINT_PACK16_ARM")]
+    R10X6_UINT_PACK16_ARM = 1000609000,
+    #[doc(alias = "VK_FORMAT_R10X6G10X6_UINT_2PACK16_ARM")]
+    R10X6G10X6_UINT_2PACK16_ARM = 1000609001,
+    #[doc(alias = "VK_FORMAT_R10X6G10X6B10X6A10X6_UINT_4PACK16_ARM")]
+    R10X6G10X6B10X6A10X6_UINT_4PACK16_ARM = 1000609002,
+    #[doc(alias = "VK_FORMAT_R12X4_UINT_PACK16_ARM")]
+    R12X4_UINT_PACK16_ARM = 1000609003,
+    #[doc(alias = "VK_FORMAT_R12X4G12X4_UINT_2PACK16_ARM")]
+    R12X4G12X4_UINT_2PACK16_ARM = 1000609004,
+    #[doc(alias = "VK_FORMAT_R12X4G12X4B12X4A12X4_UINT_4PACK16_ARM")]
+    R12X4G12X4B12X4A12X4_UINT_4PACK16_ARM = 1000609005,
+    #[doc(alias = "VK_FORMAT_R14X2_UINT_PACK16_ARM")]
+    R14X2_UINT_PACK16_ARM = 1000609006,
+    #[doc(alias = "VK_FORMAT_R14X2G14X2_UINT_2PACK16_ARM")]
+    R14X2G14X2_UINT_2PACK16_ARM = 1000609007,
+    #[doc(alias = "VK_FORMAT_R14X2G14X2B14X2A14X2_UINT_4PACK16_ARM")]
+    R14X2G14X2B14X2A14X2_UINT_4PACK16_ARM = 1000609008,
+    #[doc(alias = "VK_FORMAT_R14X2_UNORM_PACK16_ARM")]
+    R14X2_UNORM_PACK16_ARM = 1000609009,
+    #[doc(alias = "VK_FORMAT_R14X2G14X2_UNORM_2PACK16_ARM")]
+    R14X2G14X2_UNORM_2PACK16_ARM = 1000609010,
+    #[doc(alias = "VK_FORMAT_R14X2G14X2B14X2A14X2_UNORM_4PACK16_ARM")]
+    R14X2G14X2B14X2A14X2_UNORM_4PACK16_ARM = 1000609011,
+    #[doc(alias = "VK_FORMAT_G14X2_B14X2R14X2_2PLANE_420_UNORM_3PACK16_ARM")]
+    G14X2_B14X2R14X2_2PLANE_420_UNORM_3PACK16_ARM = 1000609012,
+    #[doc(alias = "VK_FORMAT_G14X2_B14X2R14X2_2PLANE_422_UNORM_3PACK16_ARM")]
+    G14X2_B14X2R14X2_2PLANE_422_UNORM_3PACK16_ARM = 1000609013,
+}
+impl Format {
+    #[doc(alias = "VK_FORMAT_G8B8G8R8_422_UNORM_KHR")]
+    pub const G8B8G8R8_422_UNORM_KHR: Self = Self::G8B8G8R8_422_UNORM;
+    #[doc(alias = "VK_FORMAT_B8G8R8G8_422_UNORM_KHR")]
+    pub const B8G8R8G8_422_UNORM_KHR: Self = Self::B8G8R8G8_422_UNORM;
+    #[doc(alias = "VK_FORMAT_G8_B8_R8_3PLANE_420_UNORM_KHR")]
+    pub const G8_B8_R8_3PLANE_420_UNORM_KHR: Self = Self::G8_B8_R8_3PLANE_420_UNORM;
+    #[doc(alias = "VK_FORMAT_G8_B8R8_2PLANE_420_UNORM_KHR")]
+    pub const G8_B8R8_2PLANE_420_UNORM_KHR: Self = Self::G8_B8R8_2PLANE_420_UNORM;
+    #[doc(alias = "VK_FORMAT_G8_B8_R8_3PLANE_422_UNORM_KHR")]
+    pub const G8_B8_R8_3PLANE_422_UNORM_KHR: Self = Self::G8_B8_R8_3PLANE_422_UNORM;
+    #[doc(alias = "VK_FORMAT_G8_B8R8_2PLANE_422_UNORM_KHR")]
+    pub const G8_B8R8_2PLANE_422_UNORM_KHR: Self = Self::G8_B8R8_2PLANE_422_UNORM;
+    #[doc(alias = "VK_FORMAT_G8_B8_R8_3PLANE_444_UNORM_KHR")]
+    pub const G8_B8_R8_3PLANE_444_UNORM_KHR: Self = Self::G8_B8_R8_3PLANE_444_UNORM;
+    #[doc(alias = "VK_FORMAT_R10X6_UNORM_PACK16_KHR")]
+    pub const R10X6_UNORM_PACK16_KHR: Self = Self::R10X6_UNORM_PACK16;
+    #[doc(alias = "VK_FORMAT_R10X6G10X6_UNORM_2PACK16_KHR")]
+    pub const R10X6G10X6_UNORM_2PACK16_KHR: Self = Self::R10X6G10X6_UNORM_2PACK16;
+    #[doc(alias = "VK_FORMAT_R10X6G10X6B10X6A10X6_UNORM_4PACK16_KHR")]
+    pub const R10X6G10X6B10X6A10X6_UNORM_4PACK16_KHR: Self = Self::R10X6G10X6B10X6A10X6_UNORM_4PACK16;
+    #[doc(alias = "VK_FORMAT_G10X6B10X6G10X6R10X6_422_UNORM_4PACK16_KHR")]
+    pub const G10X6B10X6G10X6R10X6_422_UNORM_4PACK16_KHR: Self = Self::G10X6B10X6G10X6R10X6_422_UNORM_4PACK16;
+    #[doc(alias = "VK_FORMAT_B10X6G10X6R10X6G10X6_422_UNORM_4PACK16_KHR")]
+    pub const B10X6G10X6R10X6G10X6_422_UNORM_4PACK16_KHR: Self = Self::B10X6G10X6R10X6G10X6_422_UNORM_4PACK16;
+    #[doc(alias = "VK_FORMAT_G10X6_B10X6_R10X6_3PLANE_420_UNORM_3PACK16_KHR")]
+    pub const G10X6_B10X6_R10X6_3PLANE_420_UNORM_3PACK16_KHR: Self = Self::G10X6_B10X6_R10X6_3PLANE_420_UNORM_3PACK16;
+    #[doc(alias = "VK_FORMAT_G10X6_B10X6R10X6_2PLANE_420_UNORM_3PACK16_KHR")]
+    pub const G10X6_B10X6R10X6_2PLANE_420_UNORM_3PACK16_KHR: Self = Self::G10X6_B10X6R10X6_2PLANE_420_UNORM_3PACK16;
+    #[doc(alias = "VK_FORMAT_G10X6_B10X6_R10X6_3PLANE_422_UNORM_3PACK16_KHR")]
+    pub const G10X6_B10X6_R10X6_3PLANE_422_UNORM_3PACK16_KHR: Self = Self::G10X6_B10X6_R10X6_3PLANE_422_UNORM_3PACK16;
+    #[doc(alias = "VK_FORMAT_G10X6_B10X6R10X6_2PLANE_422_UNORM_3PACK16_KHR")]
+    pub const G10X6_B10X6R10X6_2PLANE_422_UNORM_3PACK16_KHR: Self = Self::G10X6_B10X6R10X6_2PLANE_422_UNORM_3PACK16;
+    #[doc(alias = "VK_FORMAT_G10X6_B10X6_R10X6_3PLANE_444_UNORM_3PACK16_KHR")]
+    pub const G10X6_B10X6_R10X6_3PLANE_444_UNORM_3PACK16_KHR: Self = Self::G10X6_B10X6_R10X6_3PLANE_444_UNORM_3PACK16;
+    #[doc(alias = "VK_FORMAT_R12X4_UNORM_PACK16_KHR")]
+    pub const R12X4_UNORM_PACK16_KHR: Self = Self::R12X4_UNORM_PACK16;
+    #[doc(alias = "VK_FORMAT_R12X4G12X4_UNORM_2PACK16_KHR")]
+    pub const R12X4G12X4_UNORM_2PACK16_KHR: Self = Self::R12X4G12X4_UNORM_2PACK16;
+    #[doc(alias = "VK_FORMAT_R12X4G12X4B12X4A12X4_UNORM_4PACK16_KHR")]
+    pub const R12X4G12X4B12X4A12X4_UNORM_4PACK16_KHR: Self = Self::R12X4G12X4B12X4A12X4_UNORM_4PACK16;
+    #[doc(alias = "VK_FORMAT_G12X4B12X4G12X4R12X4_422_UNORM_4PACK16_KHR")]
+    pub const G12X4B12X4G12X4R12X4_422_UNORM_4PACK16_KHR: Self = Self::G12X4B12X4G12X4R12X4_422_UNORM_4PACK16;
+    #[doc(alias = "VK_FORMAT_B12X4G12X4R12X4G12X4_422_UNORM_4PACK16_KHR")]
+    pub const B12X4G12X4R12X4G12X4_422_UNORM_4PACK16_KHR: Self = Self::B12X4G12X4R12X4G12X4_422_UNORM_4PACK16;
+    #[doc(alias = "VK_FORMAT_G12X4_B12X4_R12X4_3PLANE_420_UNORM_3PACK16_KHR")]
+    pub const G12X4_B12X4_R12X4_3PLANE_420_UNORM_3PACK16_KHR: Self = Self::G12X4_B12X4_R12X4_3PLANE_420_UNORM_3PACK16;
+    #[doc(alias = "VK_FORMAT_G12X4_B12X4R12X4_2PLANE_420_UNORM_3PACK16_KHR")]
+    pub const G12X4_B12X4R12X4_2PLANE_420_UNORM_3PACK16_KHR: Self = Self::G12X4_B12X4R12X4_2PLANE_420_UNORM_3PACK16;
+    #[doc(alias = "VK_FORMAT_G12X4_B12X4_R12X4_3PLANE_422_UNORM_3PACK16_KHR")]
+    pub const G12X4_B12X4_R12X4_3PLANE_422_UNORM_3PACK16_KHR: Self = Self::G12X4_B12X4_R12X4_3PLANE_422_UNORM_3PACK16;
+    #[doc(alias = "VK_FORMAT_G12X4_B12X4R12X4_2PLANE_422_UNORM_3PACK16_KHR")]
+    pub const G12X4_B12X4R12X4_2PLANE_422_UNORM_3PACK16_KHR: Self = Self::G12X4_B12X4R12X4_2PLANE_422_UNORM_3PACK16;
+    #[doc(alias = "VK_FORMAT_G12X4_B12X4_R12X4_3PLANE_444_UNORM_3PACK16_KHR")]
+    pub const G12X4_B12X4_R12X4_3PLANE_444_UNORM_3PACK16_KHR: Self = Self::G12X4_B12X4_R12X4_3PLANE_444_UNORM_3PACK16;
+    #[doc(alias = "VK_FORMAT_G16B16G16R16_422_UNORM_KHR")]
+    pub const G16B16G16R16_422_UNORM_KHR: Self = Self::G16B16G16R16_422_UNORM;
+    #[doc(alias = "VK_FORMAT_B16G16R16G16_422_UNORM_KHR")]
+    pub const B16G16R16G16_422_UNORM_KHR: Self = Self::B16G16R16G16_422_UNORM;
+    #[doc(alias = "VK_FORMAT_G16_B16_R16_3PLANE_420_UNORM_KHR")]
+    pub const G16_B16_R16_3PLANE_420_UNORM_KHR: Self = Self::G16_B16_R16_3PLANE_420_UNORM;
+    #[doc(alias = "VK_FORMAT_G16_B16R16_2PLANE_420_UNORM_KHR")]
+    pub const G16_B16R16_2PLANE_420_UNORM_KHR: Self = Self::G16_B16R16_2PLANE_420_UNORM;
+    #[doc(alias = "VK_FORMAT_G16_B16_R16_3PLANE_422_UNORM_KHR")]
+    pub const G16_B16_R16_3PLANE_422_UNORM_KHR: Self = Self::G16_B16_R16_3PLANE_422_UNORM;
+    #[doc(alias = "VK_FORMAT_G16_B16R16_2PLANE_422_UNORM_KHR")]
+    pub const G16_B16R16_2PLANE_422_UNORM_KHR: Self = Self::G16_B16R16_2PLANE_422_UNORM;
+    #[doc(alias = "VK_FORMAT_G16_B16_R16_3PLANE_444_UNORM_KHR")]
+    pub const G16_B16_R16_3PLANE_444_UNORM_KHR: Self = Self::G16_B16_R16_3PLANE_444_UNORM;
+    #[doc(alias = "VK_FORMAT_G8_B8R8_2PLANE_444_UNORM_EXT")]
+    pub const G8_B8R8_2PLANE_444_UNORM_EXT: Self = Self::G8_B8R8_2PLANE_444_UNORM;
+    #[doc(alias = "VK_FORMAT_G10X6_B10X6R10X6_2PLANE_444_UNORM_3PACK16_EXT")]
+    pub const G10X6_B10X6R10X6_2PLANE_444_UNORM_3PACK16_EXT: Self = Self::G10X6_B10X6R10X6_2PLANE_444_UNORM_3PACK16;
+    #[doc(alias = "VK_FORMAT_G12X4_B12X4R12X4_2PLANE_444_UNORM_3PACK16_EXT")]
+    pub const G12X4_B12X4R12X4_2PLANE_444_UNORM_3PACK16_EXT: Self = Self::G12X4_B12X4R12X4_2PLANE_444_UNORM_3PACK16;
+    #[doc(alias = "VK_FORMAT_G16_B16R16_2PLANE_444_UNORM_EXT")]
+    pub const G16_B16R16_2PLANE_444_UNORM_EXT: Self = Self::G16_B16R16_2PLANE_444_UNORM;
+    #[doc(alias = "VK_FORMAT_A4R4G4B4_UNORM_PACK16_EXT")]
+    pub const A4R4G4B4_UNORM_PACK16_EXT: Self = Self::A4R4G4B4_UNORM_PACK16;
+    #[doc(alias = "VK_FORMAT_A4B4G4R4_UNORM_PACK16_EXT")]
+    pub const A4B4G4R4_UNORM_PACK16_EXT: Self = Self::A4B4G4R4_UNORM_PACK16;
+    #[doc(alias = "VK_FORMAT_ASTC_4x4_SFLOAT_BLOCK_EXT")]
+    pub const ASTC_4x4_SFLOAT_BLOCK_EXT: Self = Self::ASTC_4x4_SFLOAT_BLOCK;
+    #[doc(alias = "VK_FORMAT_ASTC_5x4_SFLOAT_BLOCK_EXT")]
+    pub const ASTC_5x4_SFLOAT_BLOCK_EXT: Self = Self::ASTC_5x4_SFLOAT_BLOCK;
+    #[doc(alias = "VK_FORMAT_ASTC_5x5_SFLOAT_BLOCK_EXT")]
+    pub const ASTC_5x5_SFLOAT_BLOCK_EXT: Self = Self::ASTC_5x5_SFLOAT_BLOCK;
+    #[doc(alias = "VK_FORMAT_ASTC_6x5_SFLOAT_BLOCK_EXT")]
+    pub const ASTC_6x5_SFLOAT_BLOCK_EXT: Self = Self::ASTC_6x5_SFLOAT_BLOCK;
+    #[doc(alias = "VK_FORMAT_ASTC_6x6_SFLOAT_BLOCK_EXT")]
+    pub const ASTC_6x6_SFLOAT_BLOCK_EXT: Self = Self::ASTC_6x6_SFLOAT_BLOCK;
+    #[doc(alias = "VK_FORMAT_ASTC_8x5_SFLOAT_BLOCK_EXT")]
+    pub const ASTC_8x5_SFLOAT_BLOCK_EXT: Self = Self::ASTC_8x5_SFLOAT_BLOCK;
+    #[doc(alias = "VK_FORMAT_ASTC_8x6_SFLOAT_BLOCK_EXT")]
+    pub const ASTC_8x6_SFLOAT_BLOCK_EXT: Self = Self::ASTC_8x6_SFLOAT_BLOCK;
+    #[doc(alias = "VK_FORMAT_ASTC_8x8_SFLOAT_BLOCK_EXT")]
+    pub const ASTC_8x8_SFLOAT_BLOCK_EXT: Self = Self::ASTC_8x8_SFLOAT_BLOCK;
+    #[doc(alias = "VK_FORMAT_ASTC_10x5_SFLOAT_BLOCK_EXT")]
+    pub const ASTC_10x5_SFLOAT_BLOCK_EXT: Self = Self::ASTC_10x5_SFLOAT_BLOCK;
+    #[doc(alias = "VK_FORMAT_ASTC_10x6_SFLOAT_BLOCK_EXT")]
+    pub const ASTC_10x6_SFLOAT_BLOCK_EXT: Self = Self::ASTC_10x6_SFLOAT_BLOCK;
+    #[doc(alias = "VK_FORMAT_ASTC_10x8_SFLOAT_BLOCK_EXT")]
+    pub const ASTC_10x8_SFLOAT_BLOCK_EXT: Self = Self::ASTC_10x8_SFLOAT_BLOCK;
+    #[doc(alias = "VK_FORMAT_ASTC_10x10_SFLOAT_BLOCK_EXT")]
+    pub const ASTC_10x10_SFLOAT_BLOCK_EXT: Self = Self::ASTC_10x10_SFLOAT_BLOCK;
+    #[doc(alias = "VK_FORMAT_ASTC_12x10_SFLOAT_BLOCK_EXT")]
+    pub const ASTC_12x10_SFLOAT_BLOCK_EXT: Self = Self::ASTC_12x10_SFLOAT_BLOCK;
+    #[doc(alias = "VK_FORMAT_ASTC_12x12_SFLOAT_BLOCK_EXT")]
+    pub const ASTC_12x12_SFLOAT_BLOCK_EXT: Self = Self::ASTC_12x12_SFLOAT_BLOCK;
+    #[doc(alias = "VK_FORMAT_A1B5G5R5_UNORM_PACK16_KHR")]
+    pub const A1B5G5R5_UNORM_PACK16_KHR: Self = Self::A1B5G5R5_UNORM_PACK16;
+    #[doc(alias = "VK_FORMAT_A8_UNORM_KHR")]
+    pub const A8_UNORM_KHR: Self = Self::A8_UNORM;
+    #[doc(alias = "VK_FORMAT_R16G16_S10_5_NV")]
+    pub const R16G16_S10_5_NV: Self = Self::R16G16_SFIXED5_NV;
+}
+
+/// [`VkImageTiling`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageTiling.html)
+///
+#[doc(alias = "VkImageTiling")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum ImageTiling {
+    #[default]
+    #[doc(alias = "VK_IMAGE_TILING_OPTIMAL")]
+    OPTIMAL = 0,
+    #[doc(alias = "VK_IMAGE_TILING_LINEAR")]
+    LINEAR = 1,
+    #[doc(alias = "VK_IMAGE_TILING_DRM_FORMAT_MODIFIER_EXT")]
+    DRM_FORMAT_MODIFIER_EXT = 1000158000,
+}
+
+/// [`VkImageType`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageType.html)
+///
+#[doc(alias = "VkImageType")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum ImageType {
+    #[default]
+    #[doc(alias = "VK_IMAGE_TYPE_1D")]
+    _1D = 0,
+    #[doc(alias = "VK_IMAGE_TYPE_2D")]
+    _2D = 1,
+    #[doc(alias = "VK_IMAGE_TYPE_3D")]
+    _3D = 2,
+}
+
+/// [`VkPhysicalDeviceType`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceType.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "VkPhysicalDeviceType")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum PhysicalDeviceType {
+    #[default]
+    #[doc(alias = "VK_PHYSICAL_DEVICE_TYPE_OTHER")]
+    OTHER = 0,
+    #[doc(alias = "VK_PHYSICAL_DEVICE_TYPE_INTEGRATED_GPU")]
+    INTEGRATED_GPU = 1,
+    #[doc(alias = "VK_PHYSICAL_DEVICE_TYPE_DISCRETE_GPU")]
+    DISCRETE_GPU = 2,
+    #[doc(alias = "VK_PHYSICAL_DEVICE_TYPE_VIRTUAL_GPU")]
+    VIRTUAL_GPU = 3,
+    #[doc(alias = "VK_PHYSICAL_DEVICE_TYPE_CPU")]
+    CPU = 4,
+}
+
+/// [`VkQueryType`](https://docs.vulkan.org/refpages/latest/refpages/source/VkQueryType.html)
+///
+#[doc(alias = "VkQueryType")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum QueryType {
+    #[default]
+    #[doc(alias = "VK_QUERY_TYPE_OCCLUSION")]
+    OCCLUSION = 0,
+    #[doc(alias = "VK_QUERY_TYPE_PIPELINE_STATISTICS")]
+    PIPELINE_STATISTICS = 1,
+    #[doc(alias = "VK_QUERY_TYPE_TIMESTAMP")]
+    TIMESTAMP = 2,
+    #[doc(alias = "VK_QUERY_TYPE_RESULT_STATUS_ONLY_KHR")]
+    RESULT_STATUS_ONLY_KHR = 1000023000,
+    #[doc(alias = "VK_QUERY_TYPE_TRANSFORM_FEEDBACK_STREAM_EXT")]
+    TRANSFORM_FEEDBACK_STREAM_EXT = 1000028004,
+    #[doc(alias = "VK_QUERY_TYPE_PERFORMANCE_QUERY_KHR")]
+    PERFORMANCE_QUERY_KHR = 1000116000,
+    #[doc(alias = "VK_QUERY_TYPE_ACCELERATION_STRUCTURE_COMPACTED_SIZE_KHR")]
+    ACCELERATION_STRUCTURE_COMPACTED_SIZE_KHR = 1000150000,
+    #[doc(alias = "VK_QUERY_TYPE_ACCELERATION_STRUCTURE_SERIALIZATION_SIZE_KHR")]
+    ACCELERATION_STRUCTURE_SERIALIZATION_SIZE_KHR = 1000150001,
+    #[doc(alias = "VK_QUERY_TYPE_ACCELERATION_STRUCTURE_COMPACTED_SIZE_NV")]
+    ACCELERATION_STRUCTURE_COMPACTED_SIZE_NV = 1000165000,
+    #[doc(alias = "VK_QUERY_TYPE_TIME_ELAPSED_QCOM")]
+    TIME_ELAPSED_QCOM = 1000173000,
+    #[doc(alias = "VK_QUERY_TYPE_PERFORMANCE_QUERY_INTEL")]
+    PERFORMANCE_QUERY_INTEL = 1000210000,
+    #[doc(alias = "VK_QUERY_TYPE_VIDEO_ENCODE_FEEDBACK_KHR")]
+    VIDEO_ENCODE_FEEDBACK_KHR = 1000299000,
+    #[doc(alias = "VK_QUERY_TYPE_MESH_PRIMITIVES_GENERATED_EXT")]
+    MESH_PRIMITIVES_GENERATED_EXT = 1000328000,
+    #[doc(alias = "VK_QUERY_TYPE_PRIMITIVES_GENERATED_EXT")]
+    PRIMITIVES_GENERATED_EXT = 1000382000,
+    #[doc(alias = "VK_QUERY_TYPE_ACCELERATION_STRUCTURE_SERIALIZATION_BOTTOM_LEVEL_POINTERS_KHR")]
+    ACCELERATION_STRUCTURE_SERIALIZATION_BOTTOM_LEVEL_POINTERS_KHR = 1000386000,
+    #[doc(alias = "VK_QUERY_TYPE_ACCELERATION_STRUCTURE_SIZE_KHR")]
+    ACCELERATION_STRUCTURE_SIZE_KHR = 1000386001,
+    #[doc(alias = "VK_QUERY_TYPE_MICROMAP_SERIALIZATION_SIZE_EXT")]
+    MICROMAP_SERIALIZATION_SIZE_EXT = 1000396000,
+    #[doc(alias = "VK_QUERY_TYPE_MICROMAP_COMPACTED_SIZE_EXT")]
+    MICROMAP_COMPACTED_SIZE_EXT = 1000396001,
+}
+
+/// [`VkSharingMode`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSharingMode.html)
+///
+#[doc(alias = "VkSharingMode")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum SharingMode {
+    #[default]
+    #[doc(alias = "VK_SHARING_MODE_EXCLUSIVE")]
+    EXCLUSIVE = 0,
+    #[doc(alias = "VK_SHARING_MODE_CONCURRENT")]
+    CONCURRENT = 1,
+}
+
+/// [`VkImageLayout`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageLayout.html)
+///
+#[doc(alias = "VkImageLayout")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum ImageLayout {
+    #[default]
+    #[doc(alias = "VK_IMAGE_LAYOUT_UNDEFINED")]
+    UNDEFINED = 0,
+    #[doc(alias = "VK_IMAGE_LAYOUT_GENERAL")]
+    GENERAL = 1,
+    #[doc(alias = "VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL")]
+    COLOR_ATTACHMENT_OPTIMAL = 2,
+    #[doc(alias = "VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL")]
+    DEPTH_STENCIL_ATTACHMENT_OPTIMAL = 3,
+    #[doc(alias = "VK_IMAGE_LAYOUT_DEPTH_STENCIL_READ_ONLY_OPTIMAL")]
+    DEPTH_STENCIL_READ_ONLY_OPTIMAL = 4,
+    #[doc(alias = "VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL")]
+    SHADER_READ_ONLY_OPTIMAL = 5,
+    #[doc(alias = "VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL")]
+    TRANSFER_SRC_OPTIMAL = 6,
+    #[doc(alias = "VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL")]
+    TRANSFER_DST_OPTIMAL = 7,
+    #[doc(alias = "VK_IMAGE_LAYOUT_PREINITIALIZED")]
+    PREINITIALIZED = 8,
+    #[doc(alias = "VK_IMAGE_LAYOUT_DEPTH_READ_ONLY_STENCIL_ATTACHMENT_OPTIMAL")]
+    DEPTH_READ_ONLY_STENCIL_ATTACHMENT_OPTIMAL = 1000117000,
+    #[doc(alias = "VK_IMAGE_LAYOUT_DEPTH_ATTACHMENT_STENCIL_READ_ONLY_OPTIMAL")]
+    DEPTH_ATTACHMENT_STENCIL_READ_ONLY_OPTIMAL = 1000117001,
+    #[doc(alias = "VK_IMAGE_LAYOUT_DEPTH_ATTACHMENT_OPTIMAL")]
+    DEPTH_ATTACHMENT_OPTIMAL = 1000241000,
+    #[doc(alias = "VK_IMAGE_LAYOUT_DEPTH_READ_ONLY_OPTIMAL")]
+    DEPTH_READ_ONLY_OPTIMAL = 1000241001,
+    #[doc(alias = "VK_IMAGE_LAYOUT_STENCIL_ATTACHMENT_OPTIMAL")]
+    STENCIL_ATTACHMENT_OPTIMAL = 1000241002,
+    #[doc(alias = "VK_IMAGE_LAYOUT_STENCIL_READ_ONLY_OPTIMAL")]
+    STENCIL_READ_ONLY_OPTIMAL = 1000241003,
+    #[doc(alias = "VK_IMAGE_LAYOUT_READ_ONLY_OPTIMAL")]
+    READ_ONLY_OPTIMAL = 1000314000,
+    #[doc(alias = "VK_IMAGE_LAYOUT_ATTACHMENT_OPTIMAL")]
+    ATTACHMENT_OPTIMAL = 1000314001,
+    #[doc(alias = "VK_IMAGE_LAYOUT_RENDERING_LOCAL_READ")]
+    RENDERING_LOCAL_READ = 1000232000,
+    #[doc(alias = "VK_IMAGE_LAYOUT_PRESENT_SRC_KHR")]
+    PRESENT_SRC_KHR = 1000001002,
+    #[doc(alias = "VK_IMAGE_LAYOUT_VIDEO_DECODE_DST_KHR")]
+    VIDEO_DECODE_DST_KHR = 1000024000,
+    #[doc(alias = "VK_IMAGE_LAYOUT_VIDEO_DECODE_SRC_KHR")]
+    VIDEO_DECODE_SRC_KHR = 1000024001,
+    #[doc(alias = "VK_IMAGE_LAYOUT_VIDEO_DECODE_DPB_KHR")]
+    VIDEO_DECODE_DPB_KHR = 1000024002,
+    #[doc(alias = "VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR")]
+    SHARED_PRESENT_KHR = 1000111000,
+    #[doc(alias = "VK_IMAGE_LAYOUT_FRAGMENT_DENSITY_MAP_OPTIMAL_EXT")]
+    FRAGMENT_DENSITY_MAP_OPTIMAL_EXT = 1000218000,
+    #[doc(alias = "VK_IMAGE_LAYOUT_FRAGMENT_SHADING_RATE_ATTACHMENT_OPTIMAL_KHR")]
+    FRAGMENT_SHADING_RATE_ATTACHMENT_OPTIMAL_KHR = 1000164003,
+    #[doc(alias = "VK_IMAGE_LAYOUT_VIDEO_ENCODE_DST_KHR")]
+    VIDEO_ENCODE_DST_KHR = 1000299000,
+    #[doc(alias = "VK_IMAGE_LAYOUT_VIDEO_ENCODE_SRC_KHR")]
+    VIDEO_ENCODE_SRC_KHR = 1000299001,
+    #[doc(alias = "VK_IMAGE_LAYOUT_VIDEO_ENCODE_DPB_KHR")]
+    VIDEO_ENCODE_DPB_KHR = 1000299002,
+    #[doc(alias = "VK_IMAGE_LAYOUT_ATTACHMENT_FEEDBACK_LOOP_OPTIMAL_EXT")]
+    ATTACHMENT_FEEDBACK_LOOP_OPTIMAL_EXT = 1000339000,
+    #[doc(alias = "VK_IMAGE_LAYOUT_TENSOR_ALIASING_ARM")]
+    TENSOR_ALIASING_ARM = 1000460000,
+    #[doc(alias = "VK_IMAGE_LAYOUT_VIDEO_ENCODE_QUANTIZATION_MAP_KHR")]
+    VIDEO_ENCODE_QUANTIZATION_MAP_KHR = 1000553000,
+    #[doc(alias = "VK_IMAGE_LAYOUT_ZERO_INITIALIZED_EXT")]
+    ZERO_INITIALIZED_EXT = 1000620000,
+}
+impl ImageLayout {
+    #[doc(alias = "VK_IMAGE_LAYOUT_DEPTH_READ_ONLY_STENCIL_ATTACHMENT_OPTIMAL_KHR")]
+    pub const DEPTH_READ_ONLY_STENCIL_ATTACHMENT_OPTIMAL_KHR: Self = Self::DEPTH_READ_ONLY_STENCIL_ATTACHMENT_OPTIMAL;
+    #[doc(alias = "VK_IMAGE_LAYOUT_DEPTH_ATTACHMENT_STENCIL_READ_ONLY_OPTIMAL_KHR")]
+    pub const DEPTH_ATTACHMENT_STENCIL_READ_ONLY_OPTIMAL_KHR: Self = Self::DEPTH_ATTACHMENT_STENCIL_READ_ONLY_OPTIMAL;
+    #[doc(alias = "VK_IMAGE_LAYOUT_DEPTH_ATTACHMENT_OPTIMAL_KHR")]
+    pub const DEPTH_ATTACHMENT_OPTIMAL_KHR: Self = Self::DEPTH_ATTACHMENT_OPTIMAL;
+    #[doc(alias = "VK_IMAGE_LAYOUT_DEPTH_READ_ONLY_OPTIMAL_KHR")]
+    pub const DEPTH_READ_ONLY_OPTIMAL_KHR: Self = Self::DEPTH_READ_ONLY_OPTIMAL;
+    #[doc(alias = "VK_IMAGE_LAYOUT_STENCIL_ATTACHMENT_OPTIMAL_KHR")]
+    pub const STENCIL_ATTACHMENT_OPTIMAL_KHR: Self = Self::STENCIL_ATTACHMENT_OPTIMAL;
+    #[doc(alias = "VK_IMAGE_LAYOUT_STENCIL_READ_ONLY_OPTIMAL_KHR")]
+    pub const STENCIL_READ_ONLY_OPTIMAL_KHR: Self = Self::STENCIL_READ_ONLY_OPTIMAL;
+    #[doc(alias = "VK_IMAGE_LAYOUT_READ_ONLY_OPTIMAL_KHR")]
+    pub const READ_ONLY_OPTIMAL_KHR: Self = Self::READ_ONLY_OPTIMAL;
+    #[doc(alias = "VK_IMAGE_LAYOUT_ATTACHMENT_OPTIMAL_KHR")]
+    pub const ATTACHMENT_OPTIMAL_KHR: Self = Self::ATTACHMENT_OPTIMAL;
+    #[doc(alias = "VK_IMAGE_LAYOUT_RENDERING_LOCAL_READ_KHR")]
+    pub const RENDERING_LOCAL_READ_KHR: Self = Self::RENDERING_LOCAL_READ;
+    #[doc(alias = "VK_IMAGE_LAYOUT_SHADING_RATE_OPTIMAL_NV")]
+    pub const SHADING_RATE_OPTIMAL_NV: Self = Self::FRAGMENT_SHADING_RATE_ATTACHMENT_OPTIMAL_KHR;
+}
+
+/// [`VkComponentSwizzle`](https://docs.vulkan.org/refpages/latest/refpages/source/VkComponentSwizzle.html)
+///
+#[doc(alias = "VkComponentSwizzle")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum ComponentSwizzle {
+    #[default]
+    #[doc(alias = "VK_COMPONENT_SWIZZLE_IDENTITY")]
+    IDENTITY = 0,
+    #[doc(alias = "VK_COMPONENT_SWIZZLE_ZERO")]
+    ZERO = 1,
+    #[doc(alias = "VK_COMPONENT_SWIZZLE_ONE")]
+    ONE = 2,
+    #[doc(alias = "VK_COMPONENT_SWIZZLE_R")]
+    R = 3,
+    #[doc(alias = "VK_COMPONENT_SWIZZLE_G")]
+    G = 4,
+    #[doc(alias = "VK_COMPONENT_SWIZZLE_B")]
+    B = 5,
+    #[doc(alias = "VK_COMPONENT_SWIZZLE_A")]
+    A = 6,
+}
+
+/// [`VkImageViewType`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageViewType.html)
+///
+#[doc(alias = "VkImageViewType")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum ImageViewType {
+    #[default]
+    #[doc(alias = "VK_IMAGE_VIEW_TYPE_1D")]
+    _1D = 0,
+    #[doc(alias = "VK_IMAGE_VIEW_TYPE_2D")]
+    _2D = 1,
+    #[doc(alias = "VK_IMAGE_VIEW_TYPE_3D")]
+    _3D = 2,
+    #[doc(alias = "VK_IMAGE_VIEW_TYPE_CUBE")]
+    CUBE = 3,
+    #[doc(alias = "VK_IMAGE_VIEW_TYPE_1D_ARRAY")]
+    _1D_ARRAY = 4,
+    #[doc(alias = "VK_IMAGE_VIEW_TYPE_2D_ARRAY")]
+    _2D_ARRAY = 5,
+    #[doc(alias = "VK_IMAGE_VIEW_TYPE_CUBE_ARRAY")]
+    CUBE_ARRAY = 6,
+}
+
+/// [`VkCommandBufferLevel`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandBufferLevel.html)
+///
+#[doc(alias = "VkCommandBufferLevel")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum CommandBufferLevel {
+    #[default]
+    #[doc(alias = "VK_COMMAND_BUFFER_LEVEL_PRIMARY")]
+    PRIMARY = 0,
+    #[doc(alias = "VK_COMMAND_BUFFER_LEVEL_SECONDARY")]
+    SECONDARY = 1,
+}
+
+/// [`VkIndexType`](https://docs.vulkan.org/refpages/latest/refpages/source/VkIndexType.html)
+///
+#[doc(alias = "VkIndexType")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum IndexType {
+    #[default]
+    #[doc(alias = "VK_INDEX_TYPE_UINT16")]
+    UINT16 = 0,
+    #[doc(alias = "VK_INDEX_TYPE_UINT32")]
+    UINT32 = 1,
+    #[doc(alias = "VK_INDEX_TYPE_UINT8")]
+    UINT8 = 1000265000,
+    #[doc(alias = "VK_INDEX_TYPE_NONE_KHR")]
+    NONE_KHR = 1000165000,
+}
+impl IndexType {
+    #[doc(alias = "VK_INDEX_TYPE_UINT8_EXT")]
+    pub const UINT8_EXT: Self = Self::UINT8;
+    #[doc(alias = "VK_INDEX_TYPE_UINT8_KHR")]
+    pub const UINT8_KHR: Self = Self::UINT8;
+    #[doc(alias = "VK_INDEX_TYPE_NONE_NV")]
+    pub const NONE_NV: Self = Self::NONE_KHR;
+}
+
+/// [`VkPipelineCacheHeaderVersion`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCacheHeaderVersion.html)
+///
+#[doc(alias = "VkPipelineCacheHeaderVersion")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum PipelineCacheHeaderVersion {
+    #[default]
+    #[doc(alias = "VK_PIPELINE_CACHE_HEADER_VERSION_ONE")]
+    ONE = 1,
+    #[doc(alias = "VK_PIPELINE_CACHE_HEADER_VERSION_DATA_GRAPH_QCOM")]
+    DATA_GRAPH_QCOM = 1000629000,
+}
+
+/// [`VkBorderColor`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBorderColor.html)
+///
+#[doc(alias = "VkBorderColor")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum BorderColor {
+    #[default]
+    #[doc(alias = "VK_BORDER_COLOR_FLOAT_TRANSPARENT_BLACK")]
+    FLOAT_TRANSPARENT_BLACK = 0,
+    #[doc(alias = "VK_BORDER_COLOR_INT_TRANSPARENT_BLACK")]
+    INT_TRANSPARENT_BLACK = 1,
+    #[doc(alias = "VK_BORDER_COLOR_FLOAT_OPAQUE_BLACK")]
+    FLOAT_OPAQUE_BLACK = 2,
+    #[doc(alias = "VK_BORDER_COLOR_INT_OPAQUE_BLACK")]
+    INT_OPAQUE_BLACK = 3,
+    #[doc(alias = "VK_BORDER_COLOR_FLOAT_OPAQUE_WHITE")]
+    FLOAT_OPAQUE_WHITE = 4,
+    #[doc(alias = "VK_BORDER_COLOR_INT_OPAQUE_WHITE")]
+    INT_OPAQUE_WHITE = 5,
+    #[doc(alias = "VK_BORDER_COLOR_FLOAT_CUSTOM_EXT")]
+    FLOAT_CUSTOM_EXT = 1000287003,
+    #[doc(alias = "VK_BORDER_COLOR_INT_CUSTOM_EXT")]
+    INT_CUSTOM_EXT = 1000287004,
+}
+
+/// [`VkFilter`](https://docs.vulkan.org/refpages/latest/refpages/source/VkFilter.html)
+///
+#[doc(alias = "VkFilter")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum Filter {
+    #[default]
+    #[doc(alias = "VK_FILTER_NEAREST")]
+    NEAREST = 0,
+    #[doc(alias = "VK_FILTER_LINEAR")]
+    LINEAR = 1,
+    #[doc(alias = "VK_FILTER_CUBIC_EXT")]
+    CUBIC_EXT = 1000015000,
+}
+impl Filter {
+    #[doc(alias = "VK_FILTER_CUBIC_IMG")]
+    pub const CUBIC_IMG: Self = Self::CUBIC_EXT;
+}
+
+/// [`VkSamplerAddressMode`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerAddressMode.html)
+///
+#[doc(alias = "VkSamplerAddressMode")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum SamplerAddressMode {
+    #[default]
+    #[doc(alias = "VK_SAMPLER_ADDRESS_MODE_REPEAT")]
+    REPEAT = 0,
+    #[doc(alias = "VK_SAMPLER_ADDRESS_MODE_MIRRORED_REPEAT")]
+    MIRRORED_REPEAT = 1,
+    #[doc(alias = "VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE")]
+    CLAMP_TO_EDGE = 2,
+    #[doc(alias = "VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_BORDER")]
+    CLAMP_TO_BORDER = 3,
+    #[doc(alias = "VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE")]
+    MIRROR_CLAMP_TO_EDGE = 4,
+}
+impl SamplerAddressMode {
+    #[doc(alias = "VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE_KHR")]
+    pub const MIRROR_CLAMP_TO_EDGE_KHR: Self = Self::MIRROR_CLAMP_TO_EDGE;
+}
+
+/// [`VkCompareOp`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCompareOp.html)
+///
+#[doc(alias = "VkCompareOp")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum CompareOp {
+    #[default]
+    #[doc(alias = "VK_COMPARE_OP_NEVER")]
+    NEVER = 0,
+    #[doc(alias = "VK_COMPARE_OP_LESS")]
+    LESS = 1,
+    #[doc(alias = "VK_COMPARE_OP_EQUAL")]
+    EQUAL = 2,
+    #[doc(alias = "VK_COMPARE_OP_LESS_OR_EQUAL")]
+    LESS_OR_EQUAL = 3,
+    #[doc(alias = "VK_COMPARE_OP_GREATER")]
+    GREATER = 4,
+    #[doc(alias = "VK_COMPARE_OP_NOT_EQUAL")]
+    NOT_EQUAL = 5,
+    #[doc(alias = "VK_COMPARE_OP_GREATER_OR_EQUAL")]
+    GREATER_OR_EQUAL = 6,
+    #[doc(alias = "VK_COMPARE_OP_ALWAYS")]
+    ALWAYS = 7,
+}
+
+/// [`VkSamplerMipmapMode`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerMipmapMode.html)
+///
+#[doc(alias = "VkSamplerMipmapMode")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum SamplerMipmapMode {
+    #[default]
+    #[doc(alias = "VK_SAMPLER_MIPMAP_MODE_NEAREST")]
+    NEAREST = 0,
+    #[doc(alias = "VK_SAMPLER_MIPMAP_MODE_LINEAR")]
+    LINEAR = 1,
+}
+
+/// [`VkDescriptorType`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorType.html)
+///
+#[doc(alias = "VkDescriptorType")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum DescriptorType {
+    #[default]
+    #[doc(alias = "VK_DESCRIPTOR_TYPE_SAMPLER")]
+    SAMPLER = 0,
+    #[doc(alias = "VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER")]
+    COMBINED_IMAGE_SAMPLER = 1,
+    #[doc(alias = "VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE")]
+    SAMPLED_IMAGE = 2,
+    #[doc(alias = "VK_DESCRIPTOR_TYPE_STORAGE_IMAGE")]
+    STORAGE_IMAGE = 3,
+    #[doc(alias = "VK_DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER")]
+    UNIFORM_TEXEL_BUFFER = 4,
+    #[doc(alias = "VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER")]
+    STORAGE_TEXEL_BUFFER = 5,
+    #[doc(alias = "VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER")]
+    UNIFORM_BUFFER = 6,
+    #[doc(alias = "VK_DESCRIPTOR_TYPE_STORAGE_BUFFER")]
+    STORAGE_BUFFER = 7,
+    #[doc(alias = "VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC")]
+    UNIFORM_BUFFER_DYNAMIC = 8,
+    #[doc(alias = "VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC")]
+    STORAGE_BUFFER_DYNAMIC = 9,
+    #[doc(alias = "VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT")]
+    INPUT_ATTACHMENT = 10,
+    #[doc(alias = "VK_DESCRIPTOR_TYPE_INLINE_UNIFORM_BLOCK")]
+    INLINE_UNIFORM_BLOCK = 1000138000,
+    #[doc(alias = "VK_DESCRIPTOR_TYPE_ACCELERATION_STRUCTURE_KHR")]
+    ACCELERATION_STRUCTURE_KHR = 1000150000,
+    #[doc(alias = "VK_DESCRIPTOR_TYPE_ACCELERATION_STRUCTURE_NV")]
+    ACCELERATION_STRUCTURE_NV = 1000165000,
+    #[doc(alias = "VK_DESCRIPTOR_TYPE_SAMPLE_WEIGHT_IMAGE_QCOM")]
+    SAMPLE_WEIGHT_IMAGE_QCOM = 1000440000,
+    #[doc(alias = "VK_DESCRIPTOR_TYPE_BLOCK_MATCH_IMAGE_QCOM")]
+    BLOCK_MATCH_IMAGE_QCOM = 1000440001,
+    #[doc(alias = "VK_DESCRIPTOR_TYPE_TENSOR_ARM")]
+    TENSOR_ARM = 1000460000,
+    #[doc(alias = "VK_DESCRIPTOR_TYPE_MUTABLE_EXT")]
+    MUTABLE_EXT = 1000351000,
+    #[doc(alias = "VK_DESCRIPTOR_TYPE_PARTITIONED_ACCELERATION_STRUCTURE_NV")]
+    PARTITIONED_ACCELERATION_STRUCTURE_NV = 1000570000,
+}
+impl DescriptorType {
+    #[doc(alias = "VK_DESCRIPTOR_TYPE_INLINE_UNIFORM_BLOCK_EXT")]
+    pub const INLINE_UNIFORM_BLOCK_EXT: Self = Self::INLINE_UNIFORM_BLOCK;
+    #[doc(alias = "VK_DESCRIPTOR_TYPE_MUTABLE_VALVE")]
+    pub const MUTABLE_VALVE: Self = Self::MUTABLE_EXT;
+}
+
+/// [`VkPipelineBindPoint`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineBindPoint.html)
+///
+#[doc(alias = "VkPipelineBindPoint")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum PipelineBindPoint {
+    #[default]
+    #[doc(alias = "VK_PIPELINE_BIND_POINT_GRAPHICS")]
+    GRAPHICS = 0,
+    #[doc(alias = "VK_PIPELINE_BIND_POINT_COMPUTE")]
+    COMPUTE = 1,
+    #[doc(alias = "VK_PIPELINE_BIND_POINT_EXECUTION_GRAPH_AMDX")]
+    EXECUTION_GRAPH_AMDX = 1000134000,
+    #[doc(alias = "VK_PIPELINE_BIND_POINT_RAY_TRACING_KHR")]
+    RAY_TRACING_KHR = 1000165000,
+    #[doc(alias = "VK_PIPELINE_BIND_POINT_SUBPASS_SHADING_HUAWEI")]
+    SUBPASS_SHADING_HUAWEI = 1000369003,
+    #[doc(alias = "VK_PIPELINE_BIND_POINT_DATA_GRAPH_ARM")]
+    DATA_GRAPH_ARM = 1000507000,
+}
+impl PipelineBindPoint {
+    #[doc(alias = "VK_PIPELINE_BIND_POINT_RAY_TRACING_NV")]
+    pub const RAY_TRACING_NV: Self = Self::RAY_TRACING_KHR;
+}
+
+/// [`VkBlendFactor`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBlendFactor.html)
+///
+#[doc(alias = "VkBlendFactor")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum BlendFactor {
+    #[default]
+    #[doc(alias = "VK_BLEND_FACTOR_ZERO")]
+    ZERO = 0,
+    #[doc(alias = "VK_BLEND_FACTOR_ONE")]
+    ONE = 1,
+    #[doc(alias = "VK_BLEND_FACTOR_SRC_COLOR")]
+    SRC_COLOR = 2,
+    #[doc(alias = "VK_BLEND_FACTOR_ONE_MINUS_SRC_COLOR")]
+    ONE_MINUS_SRC_COLOR = 3,
+    #[doc(alias = "VK_BLEND_FACTOR_DST_COLOR")]
+    DST_COLOR = 4,
+    #[doc(alias = "VK_BLEND_FACTOR_ONE_MINUS_DST_COLOR")]
+    ONE_MINUS_DST_COLOR = 5,
+    #[doc(alias = "VK_BLEND_FACTOR_SRC_ALPHA")]
+    SRC_ALPHA = 6,
+    #[doc(alias = "VK_BLEND_FACTOR_ONE_MINUS_SRC_ALPHA")]
+    ONE_MINUS_SRC_ALPHA = 7,
+    #[doc(alias = "VK_BLEND_FACTOR_DST_ALPHA")]
+    DST_ALPHA = 8,
+    #[doc(alias = "VK_BLEND_FACTOR_ONE_MINUS_DST_ALPHA")]
+    ONE_MINUS_DST_ALPHA = 9,
+    #[doc(alias = "VK_BLEND_FACTOR_CONSTANT_COLOR")]
+    CONSTANT_COLOR = 10,
+    #[doc(alias = "VK_BLEND_FACTOR_ONE_MINUS_CONSTANT_COLOR")]
+    ONE_MINUS_CONSTANT_COLOR = 11,
+    #[doc(alias = "VK_BLEND_FACTOR_CONSTANT_ALPHA")]
+    CONSTANT_ALPHA = 12,
+    #[doc(alias = "VK_BLEND_FACTOR_ONE_MINUS_CONSTANT_ALPHA")]
+    ONE_MINUS_CONSTANT_ALPHA = 13,
+    #[doc(alias = "VK_BLEND_FACTOR_SRC_ALPHA_SATURATE")]
+    SRC_ALPHA_SATURATE = 14,
+    #[doc(alias = "VK_BLEND_FACTOR_SRC1_COLOR")]
+    SRC1_COLOR = 15,
+    #[doc(alias = "VK_BLEND_FACTOR_ONE_MINUS_SRC1_COLOR")]
+    ONE_MINUS_SRC1_COLOR = 16,
+    #[doc(alias = "VK_BLEND_FACTOR_SRC1_ALPHA")]
+    SRC1_ALPHA = 17,
+    #[doc(alias = "VK_BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA")]
+    ONE_MINUS_SRC1_ALPHA = 18,
+}
+
+/// [`VkBlendOp`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBlendOp.html)
+///
+#[doc(alias = "VkBlendOp")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum BlendOp {
+    #[default]
+    #[doc(alias = "VK_BLEND_OP_ADD")]
+    ADD = 0,
+    #[doc(alias = "VK_BLEND_OP_SUBTRACT")]
+    SUBTRACT = 1,
+    #[doc(alias = "VK_BLEND_OP_REVERSE_SUBTRACT")]
+    REVERSE_SUBTRACT = 2,
+    #[doc(alias = "VK_BLEND_OP_MIN")]
+    MIN = 3,
+    #[doc(alias = "VK_BLEND_OP_MAX")]
+    MAX = 4,
+    #[doc(alias = "VK_BLEND_OP_ZERO_EXT")]
+    ZERO_EXT = 1000148000,
+    #[doc(alias = "VK_BLEND_OP_SRC_EXT")]
+    SRC_EXT = 1000148001,
+    #[doc(alias = "VK_BLEND_OP_DST_EXT")]
+    DST_EXT = 1000148002,
+    #[doc(alias = "VK_BLEND_OP_SRC_OVER_EXT")]
+    SRC_OVER_EXT = 1000148003,
+    #[doc(alias = "VK_BLEND_OP_DST_OVER_EXT")]
+    DST_OVER_EXT = 1000148004,
+    #[doc(alias = "VK_BLEND_OP_SRC_IN_EXT")]
+    SRC_IN_EXT = 1000148005,
+    #[doc(alias = "VK_BLEND_OP_DST_IN_EXT")]
+    DST_IN_EXT = 1000148006,
+    #[doc(alias = "VK_BLEND_OP_SRC_OUT_EXT")]
+    SRC_OUT_EXT = 1000148007,
+    #[doc(alias = "VK_BLEND_OP_DST_OUT_EXT")]
+    DST_OUT_EXT = 1000148008,
+    #[doc(alias = "VK_BLEND_OP_SRC_ATOP_EXT")]
+    SRC_ATOP_EXT = 1000148009,
+    #[doc(alias = "VK_BLEND_OP_DST_ATOP_EXT")]
+    DST_ATOP_EXT = 1000148010,
+    #[doc(alias = "VK_BLEND_OP_XOR_EXT")]
+    XOR_EXT = 1000148011,
+    #[doc(alias = "VK_BLEND_OP_MULTIPLY_EXT")]
+    MULTIPLY_EXT = 1000148012,
+    #[doc(alias = "VK_BLEND_OP_SCREEN_EXT")]
+    SCREEN_EXT = 1000148013,
+    #[doc(alias = "VK_BLEND_OP_OVERLAY_EXT")]
+    OVERLAY_EXT = 1000148014,
+    #[doc(alias = "VK_BLEND_OP_DARKEN_EXT")]
+    DARKEN_EXT = 1000148015,
+    #[doc(alias = "VK_BLEND_OP_LIGHTEN_EXT")]
+    LIGHTEN_EXT = 1000148016,
+    #[doc(alias = "VK_BLEND_OP_COLORDODGE_EXT")]
+    COLORDODGE_EXT = 1000148017,
+    #[doc(alias = "VK_BLEND_OP_COLORBURN_EXT")]
+    COLORBURN_EXT = 1000148018,
+    #[doc(alias = "VK_BLEND_OP_HARDLIGHT_EXT")]
+    HARDLIGHT_EXT = 1000148019,
+    #[doc(alias = "VK_BLEND_OP_SOFTLIGHT_EXT")]
+    SOFTLIGHT_EXT = 1000148020,
+    #[doc(alias = "VK_BLEND_OP_DIFFERENCE_EXT")]
+    DIFFERENCE_EXT = 1000148021,
+    #[doc(alias = "VK_BLEND_OP_EXCLUSION_EXT")]
+    EXCLUSION_EXT = 1000148022,
+    #[doc(alias = "VK_BLEND_OP_INVERT_EXT")]
+    INVERT_EXT = 1000148023,
+    #[doc(alias = "VK_BLEND_OP_INVERT_RGB_EXT")]
+    INVERT_RGB_EXT = 1000148024,
+    #[doc(alias = "VK_BLEND_OP_LINEARDODGE_EXT")]
+    LINEARDODGE_EXT = 1000148025,
+    #[doc(alias = "VK_BLEND_OP_LINEARBURN_EXT")]
+    LINEARBURN_EXT = 1000148026,
+    #[doc(alias = "VK_BLEND_OP_VIVIDLIGHT_EXT")]
+    VIVIDLIGHT_EXT = 1000148027,
+    #[doc(alias = "VK_BLEND_OP_LINEARLIGHT_EXT")]
+    LINEARLIGHT_EXT = 1000148028,
+    #[doc(alias = "VK_BLEND_OP_PINLIGHT_EXT")]
+    PINLIGHT_EXT = 1000148029,
+    #[doc(alias = "VK_BLEND_OP_HARDMIX_EXT")]
+    HARDMIX_EXT = 1000148030,
+    #[doc(alias = "VK_BLEND_OP_HSL_HUE_EXT")]
+    HSL_HUE_EXT = 1000148031,
+    #[doc(alias = "VK_BLEND_OP_HSL_SATURATION_EXT")]
+    HSL_SATURATION_EXT = 1000148032,
+    #[doc(alias = "VK_BLEND_OP_HSL_COLOR_EXT")]
+    HSL_COLOR_EXT = 1000148033,
+    #[doc(alias = "VK_BLEND_OP_HSL_LUMINOSITY_EXT")]
+    HSL_LUMINOSITY_EXT = 1000148034,
+    #[doc(alias = "VK_BLEND_OP_PLUS_EXT")]
+    PLUS_EXT = 1000148035,
+    #[doc(alias = "VK_BLEND_OP_PLUS_CLAMPED_EXT")]
+    PLUS_CLAMPED_EXT = 1000148036,
+    #[doc(alias = "VK_BLEND_OP_PLUS_CLAMPED_ALPHA_EXT")]
+    PLUS_CLAMPED_ALPHA_EXT = 1000148037,
+    #[doc(alias = "VK_BLEND_OP_PLUS_DARKER_EXT")]
+    PLUS_DARKER_EXT = 1000148038,
+    #[doc(alias = "VK_BLEND_OP_MINUS_EXT")]
+    MINUS_EXT = 1000148039,
+    #[doc(alias = "VK_BLEND_OP_MINUS_CLAMPED_EXT")]
+    MINUS_CLAMPED_EXT = 1000148040,
+    #[doc(alias = "VK_BLEND_OP_CONTRAST_EXT")]
+    CONTRAST_EXT = 1000148041,
+    #[doc(alias = "VK_BLEND_OP_INVERT_OVG_EXT")]
+    INVERT_OVG_EXT = 1000148042,
+    #[doc(alias = "VK_BLEND_OP_RED_EXT")]
+    RED_EXT = 1000148043,
+    #[doc(alias = "VK_BLEND_OP_GREEN_EXT")]
+    GREEN_EXT = 1000148044,
+    #[doc(alias = "VK_BLEND_OP_BLUE_EXT")]
+    BLUE_EXT = 1000148045,
+}
+
+/// [`VkDynamicState`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDynamicState.html)
+///
+#[doc(alias = "VkDynamicState")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum DynamicState {
+    #[default]
+    #[doc(alias = "VK_DYNAMIC_STATE_VIEWPORT")]
+    VIEWPORT = 0,
+    #[doc(alias = "VK_DYNAMIC_STATE_SCISSOR")]
+    SCISSOR = 1,
+    #[doc(alias = "VK_DYNAMIC_STATE_LINE_WIDTH")]
+    LINE_WIDTH = 2,
+    #[doc(alias = "VK_DYNAMIC_STATE_DEPTH_BIAS")]
+    DEPTH_BIAS = 3,
+    #[doc(alias = "VK_DYNAMIC_STATE_BLEND_CONSTANTS")]
+    BLEND_CONSTANTS = 4,
+    #[doc(alias = "VK_DYNAMIC_STATE_DEPTH_BOUNDS")]
+    DEPTH_BOUNDS = 5,
+    #[doc(alias = "VK_DYNAMIC_STATE_STENCIL_COMPARE_MASK")]
+    STENCIL_COMPARE_MASK = 6,
+    #[doc(alias = "VK_DYNAMIC_STATE_STENCIL_WRITE_MASK")]
+    STENCIL_WRITE_MASK = 7,
+    #[doc(alias = "VK_DYNAMIC_STATE_STENCIL_REFERENCE")]
+    STENCIL_REFERENCE = 8,
+    #[doc(alias = "VK_DYNAMIC_STATE_CULL_MODE")]
+    CULL_MODE = 1000267000,
+    #[doc(alias = "VK_DYNAMIC_STATE_FRONT_FACE")]
+    FRONT_FACE = 1000267001,
+    #[doc(alias = "VK_DYNAMIC_STATE_PRIMITIVE_TOPOLOGY")]
+    PRIMITIVE_TOPOLOGY = 1000267002,
+    #[doc(alias = "VK_DYNAMIC_STATE_VIEWPORT_WITH_COUNT")]
+    VIEWPORT_WITH_COUNT = 1000267003,
+    #[doc(alias = "VK_DYNAMIC_STATE_SCISSOR_WITH_COUNT")]
+    SCISSOR_WITH_COUNT = 1000267004,
+    #[doc(alias = "VK_DYNAMIC_STATE_VERTEX_INPUT_BINDING_STRIDE")]
+    VERTEX_INPUT_BINDING_STRIDE = 1000267005,
+    #[doc(alias = "VK_DYNAMIC_STATE_DEPTH_TEST_ENABLE")]
+    DEPTH_TEST_ENABLE = 1000267006,
+    #[doc(alias = "VK_DYNAMIC_STATE_DEPTH_WRITE_ENABLE")]
+    DEPTH_WRITE_ENABLE = 1000267007,
+    #[doc(alias = "VK_DYNAMIC_STATE_DEPTH_COMPARE_OP")]
+    DEPTH_COMPARE_OP = 1000267008,
+    #[doc(alias = "VK_DYNAMIC_STATE_DEPTH_BOUNDS_TEST_ENABLE")]
+    DEPTH_BOUNDS_TEST_ENABLE = 1000267009,
+    #[doc(alias = "VK_DYNAMIC_STATE_STENCIL_TEST_ENABLE")]
+    STENCIL_TEST_ENABLE = 1000267010,
+    #[doc(alias = "VK_DYNAMIC_STATE_STENCIL_OP")]
+    STENCIL_OP = 1000267011,
+    #[doc(alias = "VK_DYNAMIC_STATE_RASTERIZER_DISCARD_ENABLE")]
+    RASTERIZER_DISCARD_ENABLE = 1000377001,
+    #[doc(alias = "VK_DYNAMIC_STATE_DEPTH_BIAS_ENABLE")]
+    DEPTH_BIAS_ENABLE = 1000377002,
+    #[doc(alias = "VK_DYNAMIC_STATE_PRIMITIVE_RESTART_ENABLE")]
+    PRIMITIVE_RESTART_ENABLE = 1000377004,
+    #[doc(alias = "VK_DYNAMIC_STATE_LINE_STIPPLE")]
+    LINE_STIPPLE = 1000259000,
+    #[doc(alias = "VK_DYNAMIC_STATE_VIEWPORT_W_SCALING_NV")]
+    VIEWPORT_W_SCALING_NV = 1000087000,
+    #[doc(alias = "VK_DYNAMIC_STATE_DISCARD_RECTANGLE_EXT")]
+    DISCARD_RECTANGLE_EXT = 1000099000,
+    #[doc(alias = "VK_DYNAMIC_STATE_DISCARD_RECTANGLE_ENABLE_EXT")]
+    DISCARD_RECTANGLE_ENABLE_EXT = 1000099001,
+    #[doc(alias = "VK_DYNAMIC_STATE_DISCARD_RECTANGLE_MODE_EXT")]
+    DISCARD_RECTANGLE_MODE_EXT = 1000099002,
+    #[doc(alias = "VK_DYNAMIC_STATE_SAMPLE_LOCATIONS_EXT")]
+    SAMPLE_LOCATIONS_EXT = 1000143000,
+    #[doc(alias = "VK_DYNAMIC_STATE_RAY_TRACING_PIPELINE_STACK_SIZE_KHR")]
+    RAY_TRACING_PIPELINE_STACK_SIZE_KHR = 1000347000,
+    #[doc(alias = "VK_DYNAMIC_STATE_VIEWPORT_SHADING_RATE_PALETTE_NV")]
+    VIEWPORT_SHADING_RATE_PALETTE_NV = 1000164004,
+    #[doc(alias = "VK_DYNAMIC_STATE_VIEWPORT_COARSE_SAMPLE_ORDER_NV")]
+    VIEWPORT_COARSE_SAMPLE_ORDER_NV = 1000164006,
+    #[doc(alias = "VK_DYNAMIC_STATE_EXCLUSIVE_SCISSOR_ENABLE_NV")]
+    EXCLUSIVE_SCISSOR_ENABLE_NV = 1000205000,
+    #[doc(alias = "VK_DYNAMIC_STATE_EXCLUSIVE_SCISSOR_NV")]
+    EXCLUSIVE_SCISSOR_NV = 1000205001,
+    #[doc(alias = "VK_DYNAMIC_STATE_FRAGMENT_SHADING_RATE_KHR")]
+    FRAGMENT_SHADING_RATE_KHR = 1000226000,
+    #[doc(alias = "VK_DYNAMIC_STATE_VERTEX_INPUT_EXT")]
+    VERTEX_INPUT_EXT = 1000352000,
+    #[doc(alias = "VK_DYNAMIC_STATE_PATCH_CONTROL_POINTS_EXT")]
+    PATCH_CONTROL_POINTS_EXT = 1000377000,
+    #[doc(alias = "VK_DYNAMIC_STATE_LOGIC_OP_EXT")]
+    LOGIC_OP_EXT = 1000377003,
+    #[doc(alias = "VK_DYNAMIC_STATE_COLOR_WRITE_ENABLE_EXT")]
+    COLOR_WRITE_ENABLE_EXT = 1000381000,
+    #[doc(alias = "VK_DYNAMIC_STATE_DEPTH_CLAMP_ENABLE_EXT")]
+    DEPTH_CLAMP_ENABLE_EXT = 1000455003,
+    #[doc(alias = "VK_DYNAMIC_STATE_POLYGON_MODE_EXT")]
+    POLYGON_MODE_EXT = 1000455004,
+    #[doc(alias = "VK_DYNAMIC_STATE_RASTERIZATION_SAMPLES_EXT")]
+    RASTERIZATION_SAMPLES_EXT = 1000455005,
+    #[doc(alias = "VK_DYNAMIC_STATE_SAMPLE_MASK_EXT")]
+    SAMPLE_MASK_EXT = 1000455006,
+    #[doc(alias = "VK_DYNAMIC_STATE_ALPHA_TO_COVERAGE_ENABLE_EXT")]
+    ALPHA_TO_COVERAGE_ENABLE_EXT = 1000455007,
+    #[doc(alias = "VK_DYNAMIC_STATE_ALPHA_TO_ONE_ENABLE_EXT")]
+    ALPHA_TO_ONE_ENABLE_EXT = 1000455008,
+    #[doc(alias = "VK_DYNAMIC_STATE_LOGIC_OP_ENABLE_EXT")]
+    LOGIC_OP_ENABLE_EXT = 1000455009,
+    #[doc(alias = "VK_DYNAMIC_STATE_COLOR_BLEND_ENABLE_EXT")]
+    COLOR_BLEND_ENABLE_EXT = 1000455010,
+    #[doc(alias = "VK_DYNAMIC_STATE_COLOR_BLEND_EQUATION_EXT")]
+    COLOR_BLEND_EQUATION_EXT = 1000455011,
+    #[doc(alias = "VK_DYNAMIC_STATE_COLOR_WRITE_MASK_EXT")]
+    COLOR_WRITE_MASK_EXT = 1000455012,
+    #[doc(alias = "VK_DYNAMIC_STATE_TESSELLATION_DOMAIN_ORIGIN_EXT")]
+    TESSELLATION_DOMAIN_ORIGIN_EXT = 1000455002,
+    #[doc(alias = "VK_DYNAMIC_STATE_RASTERIZATION_STREAM_EXT")]
+    RASTERIZATION_STREAM_EXT = 1000455013,
+    #[doc(alias = "VK_DYNAMIC_STATE_CONSERVATIVE_RASTERIZATION_MODE_EXT")]
+    CONSERVATIVE_RASTERIZATION_MODE_EXT = 1000455014,
+    #[doc(alias = "VK_DYNAMIC_STATE_EXTRA_PRIMITIVE_OVERESTIMATION_SIZE_EXT")]
+    EXTRA_PRIMITIVE_OVERESTIMATION_SIZE_EXT = 1000455015,
+    #[doc(alias = "VK_DYNAMIC_STATE_DEPTH_CLIP_ENABLE_EXT")]
+    DEPTH_CLIP_ENABLE_EXT = 1000455016,
+    #[doc(alias = "VK_DYNAMIC_STATE_SAMPLE_LOCATIONS_ENABLE_EXT")]
+    SAMPLE_LOCATIONS_ENABLE_EXT = 1000455017,
+    #[doc(alias = "VK_DYNAMIC_STATE_COLOR_BLEND_ADVANCED_EXT")]
+    COLOR_BLEND_ADVANCED_EXT = 1000455018,
+    #[doc(alias = "VK_DYNAMIC_STATE_PROVOKING_VERTEX_MODE_EXT")]
+    PROVOKING_VERTEX_MODE_EXT = 1000455019,
+    #[doc(alias = "VK_DYNAMIC_STATE_LINE_RASTERIZATION_MODE_EXT")]
+    LINE_RASTERIZATION_MODE_EXT = 1000455020,
+    #[doc(alias = "VK_DYNAMIC_STATE_LINE_STIPPLE_ENABLE_EXT")]
+    LINE_STIPPLE_ENABLE_EXT = 1000455021,
+    #[doc(alias = "VK_DYNAMIC_STATE_DEPTH_CLIP_NEGATIVE_ONE_TO_ONE_EXT")]
+    DEPTH_CLIP_NEGATIVE_ONE_TO_ONE_EXT = 1000455022,
+    #[doc(alias = "VK_DYNAMIC_STATE_VIEWPORT_W_SCALING_ENABLE_NV")]
+    VIEWPORT_W_SCALING_ENABLE_NV = 1000455023,
+    #[doc(alias = "VK_DYNAMIC_STATE_VIEWPORT_SWIZZLE_NV")]
+    VIEWPORT_SWIZZLE_NV = 1000455024,
+    #[doc(alias = "VK_DYNAMIC_STATE_COVERAGE_TO_COLOR_ENABLE_NV")]
+    COVERAGE_TO_COLOR_ENABLE_NV = 1000455025,
+    #[doc(alias = "VK_DYNAMIC_STATE_COVERAGE_TO_COLOR_LOCATION_NV")]
+    COVERAGE_TO_COLOR_LOCATION_NV = 1000455026,
+    #[doc(alias = "VK_DYNAMIC_STATE_COVERAGE_MODULATION_MODE_NV")]
+    COVERAGE_MODULATION_MODE_NV = 1000455027,
+    #[doc(alias = "VK_DYNAMIC_STATE_COVERAGE_MODULATION_TABLE_ENABLE_NV")]
+    COVERAGE_MODULATION_TABLE_ENABLE_NV = 1000455028,
+    #[doc(alias = "VK_DYNAMIC_STATE_COVERAGE_MODULATION_TABLE_NV")]
+    COVERAGE_MODULATION_TABLE_NV = 1000455029,
+    #[doc(alias = "VK_DYNAMIC_STATE_SHADING_RATE_IMAGE_ENABLE_NV")]
+    SHADING_RATE_IMAGE_ENABLE_NV = 1000455030,
+    #[doc(alias = "VK_DYNAMIC_STATE_REPRESENTATIVE_FRAGMENT_TEST_ENABLE_NV")]
+    REPRESENTATIVE_FRAGMENT_TEST_ENABLE_NV = 1000455031,
+    #[doc(alias = "VK_DYNAMIC_STATE_COVERAGE_REDUCTION_MODE_NV")]
+    COVERAGE_REDUCTION_MODE_NV = 1000455032,
+    #[doc(alias = "VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT")]
+    ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT = 1000524000,
+    #[doc(alias = "VK_DYNAMIC_STATE_DEPTH_CLAMP_RANGE_EXT")]
+    DEPTH_CLAMP_RANGE_EXT = 1000582000,
+}
+impl DynamicState {
+    #[doc(alias = "VK_DYNAMIC_STATE_CULL_MODE_EXT")]
+    pub const CULL_MODE_EXT: Self = Self::CULL_MODE;
+    #[doc(alias = "VK_DYNAMIC_STATE_FRONT_FACE_EXT")]
+    pub const FRONT_FACE_EXT: Self = Self::FRONT_FACE;
+    #[doc(alias = "VK_DYNAMIC_STATE_PRIMITIVE_TOPOLOGY_EXT")]
+    pub const PRIMITIVE_TOPOLOGY_EXT: Self = Self::PRIMITIVE_TOPOLOGY;
+    #[doc(alias = "VK_DYNAMIC_STATE_VIEWPORT_WITH_COUNT_EXT")]
+    pub const VIEWPORT_WITH_COUNT_EXT: Self = Self::VIEWPORT_WITH_COUNT;
+    #[doc(alias = "VK_DYNAMIC_STATE_SCISSOR_WITH_COUNT_EXT")]
+    pub const SCISSOR_WITH_COUNT_EXT: Self = Self::SCISSOR_WITH_COUNT;
+    #[doc(alias = "VK_DYNAMIC_STATE_VERTEX_INPUT_BINDING_STRIDE_EXT")]
+    pub const VERTEX_INPUT_BINDING_STRIDE_EXT: Self = Self::VERTEX_INPUT_BINDING_STRIDE;
+    #[doc(alias = "VK_DYNAMIC_STATE_DEPTH_TEST_ENABLE_EXT")]
+    pub const DEPTH_TEST_ENABLE_EXT: Self = Self::DEPTH_TEST_ENABLE;
+    #[doc(alias = "VK_DYNAMIC_STATE_DEPTH_WRITE_ENABLE_EXT")]
+    pub const DEPTH_WRITE_ENABLE_EXT: Self = Self::DEPTH_WRITE_ENABLE;
+    #[doc(alias = "VK_DYNAMIC_STATE_DEPTH_COMPARE_OP_EXT")]
+    pub const DEPTH_COMPARE_OP_EXT: Self = Self::DEPTH_COMPARE_OP;
+    #[doc(alias = "VK_DYNAMIC_STATE_DEPTH_BOUNDS_TEST_ENABLE_EXT")]
+    pub const DEPTH_BOUNDS_TEST_ENABLE_EXT: Self = Self::DEPTH_BOUNDS_TEST_ENABLE;
+    #[doc(alias = "VK_DYNAMIC_STATE_STENCIL_TEST_ENABLE_EXT")]
+    pub const STENCIL_TEST_ENABLE_EXT: Self = Self::STENCIL_TEST_ENABLE;
+    #[doc(alias = "VK_DYNAMIC_STATE_STENCIL_OP_EXT")]
+    pub const STENCIL_OP_EXT: Self = Self::STENCIL_OP;
+    #[doc(alias = "VK_DYNAMIC_STATE_RASTERIZER_DISCARD_ENABLE_EXT")]
+    pub const RASTERIZER_DISCARD_ENABLE_EXT: Self = Self::RASTERIZER_DISCARD_ENABLE;
+    #[doc(alias = "VK_DYNAMIC_STATE_DEPTH_BIAS_ENABLE_EXT")]
+    pub const DEPTH_BIAS_ENABLE_EXT: Self = Self::DEPTH_BIAS_ENABLE;
+    #[doc(alias = "VK_DYNAMIC_STATE_PRIMITIVE_RESTART_ENABLE_EXT")]
+    pub const PRIMITIVE_RESTART_ENABLE_EXT: Self = Self::PRIMITIVE_RESTART_ENABLE;
+    #[doc(alias = "VK_DYNAMIC_STATE_LINE_STIPPLE_EXT")]
+    pub const LINE_STIPPLE_EXT: Self = Self::LINE_STIPPLE;
+    #[doc(alias = "VK_DYNAMIC_STATE_LINE_STIPPLE_KHR")]
+    pub const LINE_STIPPLE_KHR: Self = Self::LINE_STIPPLE;
+}
+
+/// [`VkFrontFace`](https://docs.vulkan.org/refpages/latest/refpages/source/VkFrontFace.html)
+///
+#[doc(alias = "VkFrontFace")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum FrontFace {
+    #[default]
+    #[doc(alias = "VK_FRONT_FACE_COUNTER_CLOCKWISE")]
+    COUNTER_CLOCKWISE = 0,
+    #[doc(alias = "VK_FRONT_FACE_CLOCKWISE")]
+    CLOCKWISE = 1,
+}
+
+/// [`VkLogicOp`](https://docs.vulkan.org/refpages/latest/refpages/source/VkLogicOp.html)
+///
+#[doc(alias = "VkLogicOp")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum LogicOp {
+    #[default]
+    #[doc(alias = "VK_LOGIC_OP_CLEAR")]
+    CLEAR = 0,
+    #[doc(alias = "VK_LOGIC_OP_AND")]
+    AND = 1,
+    #[doc(alias = "VK_LOGIC_OP_AND_REVERSE")]
+    AND_REVERSE = 2,
+    #[doc(alias = "VK_LOGIC_OP_COPY")]
+    COPY = 3,
+    #[doc(alias = "VK_LOGIC_OP_AND_INVERTED")]
+    AND_INVERTED = 4,
+    #[doc(alias = "VK_LOGIC_OP_NO_OP")]
+    NO_OP = 5,
+    #[doc(alias = "VK_LOGIC_OP_XOR")]
+    XOR = 6,
+    #[doc(alias = "VK_LOGIC_OP_OR")]
+    OR = 7,
+    #[doc(alias = "VK_LOGIC_OP_NOR")]
+    NOR = 8,
+    #[doc(alias = "VK_LOGIC_OP_EQUIVALENT")]
+    EQUIVALENT = 9,
+    #[doc(alias = "VK_LOGIC_OP_INVERT")]
+    INVERT = 10,
+    #[doc(alias = "VK_LOGIC_OP_OR_REVERSE")]
+    OR_REVERSE = 11,
+    #[doc(alias = "VK_LOGIC_OP_COPY_INVERTED")]
+    COPY_INVERTED = 12,
+    #[doc(alias = "VK_LOGIC_OP_OR_INVERTED")]
+    OR_INVERTED = 13,
+    #[doc(alias = "VK_LOGIC_OP_NAND")]
+    NAND = 14,
+    #[doc(alias = "VK_LOGIC_OP_SET")]
+    SET = 15,
+}
+
+/// [`VkStencilOp`](https://docs.vulkan.org/refpages/latest/refpages/source/VkStencilOp.html)
+///
+#[doc(alias = "VkStencilOp")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum StencilOp {
+    #[default]
+    #[doc(alias = "VK_STENCIL_OP_KEEP")]
+    KEEP = 0,
+    #[doc(alias = "VK_STENCIL_OP_ZERO")]
+    ZERO = 1,
+    #[doc(alias = "VK_STENCIL_OP_REPLACE")]
+    REPLACE = 2,
+    #[doc(alias = "VK_STENCIL_OP_INCREMENT_AND_CLAMP")]
+    INCREMENT_AND_CLAMP = 3,
+    #[doc(alias = "VK_STENCIL_OP_DECREMENT_AND_CLAMP")]
+    DECREMENT_AND_CLAMP = 4,
+    #[doc(alias = "VK_STENCIL_OP_INVERT")]
+    INVERT = 5,
+    #[doc(alias = "VK_STENCIL_OP_INCREMENT_AND_WRAP")]
+    INCREMENT_AND_WRAP = 6,
+    #[doc(alias = "VK_STENCIL_OP_DECREMENT_AND_WRAP")]
+    DECREMENT_AND_WRAP = 7,
+}
+
+/// [`VkVertexInputRate`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVertexInputRate.html)
+///
+#[doc(alias = "VkVertexInputRate")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum VertexInputRate {
+    #[default]
+    #[doc(alias = "VK_VERTEX_INPUT_RATE_VERTEX")]
+    VERTEX = 0,
+    #[doc(alias = "VK_VERTEX_INPUT_RATE_INSTANCE")]
+    INSTANCE = 1,
+}
+
+/// [`VkPrimitiveTopology`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPrimitiveTopology.html)
+///
+#[doc(alias = "VkPrimitiveTopology")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum PrimitiveTopology {
+    #[default]
+    #[doc(alias = "VK_PRIMITIVE_TOPOLOGY_POINT_LIST")]
+    POINT_LIST = 0,
+    #[doc(alias = "VK_PRIMITIVE_TOPOLOGY_LINE_LIST")]
+    LINE_LIST = 1,
+    #[doc(alias = "VK_PRIMITIVE_TOPOLOGY_LINE_STRIP")]
+    LINE_STRIP = 2,
+    #[doc(alias = "VK_PRIMITIVE_TOPOLOGY_TRIANGLE_LIST")]
+    TRIANGLE_LIST = 3,
+    #[doc(alias = "VK_PRIMITIVE_TOPOLOGY_TRIANGLE_STRIP")]
+    TRIANGLE_STRIP = 4,
+    #[doc(alias = "VK_PRIMITIVE_TOPOLOGY_TRIANGLE_FAN")]
+    TRIANGLE_FAN = 5,
+    #[doc(alias = "VK_PRIMITIVE_TOPOLOGY_LINE_LIST_WITH_ADJACENCY")]
+    LINE_LIST_WITH_ADJACENCY = 6,
+    #[doc(alias = "VK_PRIMITIVE_TOPOLOGY_LINE_STRIP_WITH_ADJACENCY")]
+    LINE_STRIP_WITH_ADJACENCY = 7,
+    #[doc(alias = "VK_PRIMITIVE_TOPOLOGY_TRIANGLE_LIST_WITH_ADJACENCY")]
+    TRIANGLE_LIST_WITH_ADJACENCY = 8,
+    #[doc(alias = "VK_PRIMITIVE_TOPOLOGY_TRIANGLE_STRIP_WITH_ADJACENCY")]
+    TRIANGLE_STRIP_WITH_ADJACENCY = 9,
+    #[doc(alias = "VK_PRIMITIVE_TOPOLOGY_PATCH_LIST")]
+    PATCH_LIST = 10,
+}
+
+/// [`VkPolygonMode`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPolygonMode.html)
+///
+#[doc(alias = "VkPolygonMode")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum PolygonMode {
+    #[default]
+    #[doc(alias = "VK_POLYGON_MODE_FILL")]
+    FILL = 0,
+    #[doc(alias = "VK_POLYGON_MODE_LINE")]
+    LINE = 1,
+    #[doc(alias = "VK_POLYGON_MODE_POINT")]
+    POINT = 2,
+    #[doc(alias = "VK_POLYGON_MODE_FILL_RECTANGLE_NV")]
+    FILL_RECTANGLE_NV = 1000153000,
+}
+
+/// [`VkAttachmentLoadOp`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAttachmentLoadOp.html)
+///
+#[doc(alias = "VkAttachmentLoadOp")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum AttachmentLoadOp {
+    #[default]
+    #[doc(alias = "VK_ATTACHMENT_LOAD_OP_LOAD")]
+    LOAD = 0,
+    #[doc(alias = "VK_ATTACHMENT_LOAD_OP_CLEAR")]
+    CLEAR = 1,
+    #[doc(alias = "VK_ATTACHMENT_LOAD_OP_DONT_CARE")]
+    DONT_CARE = 2,
+    #[doc(alias = "VK_ATTACHMENT_LOAD_OP_NONE")]
+    NONE = 1000400000,
+}
+impl AttachmentLoadOp {
+    #[doc(alias = "VK_ATTACHMENT_LOAD_OP_NONE_EXT")]
+    pub const NONE_EXT: Self = Self::NONE;
+    #[doc(alias = "VK_ATTACHMENT_LOAD_OP_NONE_KHR")]
+    pub const NONE_KHR: Self = Self::NONE;
+}
+
+/// [`VkAttachmentStoreOp`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAttachmentStoreOp.html)
+///
+#[doc(alias = "VkAttachmentStoreOp")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum AttachmentStoreOp {
+    #[default]
+    #[doc(alias = "VK_ATTACHMENT_STORE_OP_STORE")]
+    STORE = 0,
+    #[doc(alias = "VK_ATTACHMENT_STORE_OP_DONT_CARE")]
+    DONT_CARE = 1,
+    #[doc(alias = "VK_ATTACHMENT_STORE_OP_NONE")]
+    NONE = 1000301000,
+}
+impl AttachmentStoreOp {
+    #[doc(alias = "VK_ATTACHMENT_STORE_OP_NONE_KHR")]
+    pub const NONE_KHR: Self = Self::NONE;
+    #[doc(alias = "VK_ATTACHMENT_STORE_OP_NONE_QCOM")]
+    pub const NONE_QCOM: Self = Self::NONE;
+    #[doc(alias = "VK_ATTACHMENT_STORE_OP_NONE_EXT")]
+    pub const NONE_EXT: Self = Self::NONE;
+}
+
+/// [`VkSubpassContents`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSubpassContents.html)
+///
+#[doc(alias = "VkSubpassContents")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum SubpassContents {
+    #[default]
+    #[doc(alias = "VK_SUBPASS_CONTENTS_INLINE")]
+    INLINE = 0,
+    #[doc(alias = "VK_SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS")]
+    SECONDARY_COMMAND_BUFFERS = 1,
+    #[doc(alias = "VK_SUBPASS_CONTENTS_INLINE_AND_SECONDARY_COMMAND_BUFFERS_KHR")]
+    INLINE_AND_SECONDARY_COMMAND_BUFFERS_KHR = 1000451000,
+}
+impl SubpassContents {
+    #[doc(alias = "VK_SUBPASS_CONTENTS_INLINE_AND_SECONDARY_COMMAND_BUFFERS_EXT")]
+    pub const INLINE_AND_SECONDARY_COMMAND_BUFFERS_EXT: Self = Self::INLINE_AND_SECONDARY_COMMAND_BUFFERS_KHR;
+}
+
+/// [`VkPointClippingBehavior`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPointClippingBehavior.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "VkPointClippingBehavior")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum PointClippingBehavior {
+    #[default]
+    #[doc(alias = "VK_POINT_CLIPPING_BEHAVIOR_ALL_CLIP_PLANES")]
+    ALL_CLIP_PLANES = 0,
+    #[doc(alias = "VK_POINT_CLIPPING_BEHAVIOR_USER_CLIP_PLANES_ONLY")]
+    USER_CLIP_PLANES_ONLY = 1,
+}
+/// [`VkPointClippingBehaviorKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPointClippingBehaviorKHR.html)
+///
+#[doc(alias = "VkPointClippingBehaviorKHR")]
+pub type PointClippingBehaviorKHR = PointClippingBehavior;
+impl PointClippingBehavior {
+    #[doc(alias = "VK_POINT_CLIPPING_BEHAVIOR_ALL_CLIP_PLANES_KHR")]
+    pub const ALL_CLIP_PLANES_KHR: Self = Self::ALL_CLIP_PLANES;
+    #[doc(alias = "VK_POINT_CLIPPING_BEHAVIOR_USER_CLIP_PLANES_ONLY_KHR")]
+    pub const USER_CLIP_PLANES_ONLY_KHR: Self = Self::USER_CLIP_PLANES_ONLY;
+}
+
+/// [`VkDescriptorUpdateTemplateType`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorUpdateTemplateType.html)
+///
+#[doc(alias = "VkDescriptorUpdateTemplateType")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum DescriptorUpdateTemplateType {
+    #[default]
+    #[doc(alias = "VK_DESCRIPTOR_UPDATE_TEMPLATE_TYPE_DESCRIPTOR_SET")]
+    DESCRIPTOR_SET = 0,
+    #[doc(alias = "VK_DESCRIPTOR_UPDATE_TEMPLATE_TYPE_PUSH_DESCRIPTORS")]
+    PUSH_DESCRIPTORS = 1,
+}
+/// [`VkDescriptorUpdateTemplateTypeKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorUpdateTemplateTypeKHR.html)
+///
+#[doc(alias = "VkDescriptorUpdateTemplateTypeKHR")]
+pub type DescriptorUpdateTemplateTypeKHR = DescriptorUpdateTemplateType;
+impl DescriptorUpdateTemplateType {
+    #[doc(alias = "VK_DESCRIPTOR_UPDATE_TEMPLATE_TYPE_DESCRIPTOR_SET_KHR")]
+    pub const DESCRIPTOR_SET_KHR: Self = Self::DESCRIPTOR_SET;
+    #[doc(alias = "VK_DESCRIPTOR_UPDATE_TEMPLATE_TYPE_PUSH_DESCRIPTORS_KHR")]
+    pub const PUSH_DESCRIPTORS_KHR: Self = Self::PUSH_DESCRIPTORS;
+}
+
+/// [`VkSamplerYcbcrModelConversion`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerYcbcrModelConversion.html)
+///
+#[doc(alias = "VkSamplerYcbcrModelConversion")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum SamplerYcbcrModelConversion {
+    #[default]
+    #[doc(alias = "VK_SAMPLER_YCBCR_MODEL_CONVERSION_RGB_IDENTITY")]
+    RGB_IDENTITY = 0,
+    #[doc(alias = "VK_SAMPLER_YCBCR_MODEL_CONVERSION_YCBCR_IDENTITY")]
+    YCBCR_IDENTITY = 1,
+    #[doc(alias = "VK_SAMPLER_YCBCR_MODEL_CONVERSION_YCBCR_709")]
+    YCBCR_709 = 2,
+    #[doc(alias = "VK_SAMPLER_YCBCR_MODEL_CONVERSION_YCBCR_601")]
+    YCBCR_601 = 3,
+    #[doc(alias = "VK_SAMPLER_YCBCR_MODEL_CONVERSION_YCBCR_2020")]
+    YCBCR_2020 = 4,
+}
+/// [`VkSamplerYcbcrModelConversionKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerYcbcrModelConversionKHR.html)
+///
+#[doc(alias = "VkSamplerYcbcrModelConversionKHR")]
+pub type SamplerYcbcrModelConversionKHR = SamplerYcbcrModelConversion;
+impl SamplerYcbcrModelConversion {
+    #[doc(alias = "VK_SAMPLER_YCBCR_MODEL_CONVERSION_RGB_IDENTITY_KHR")]
+    pub const RGB_IDENTITY_KHR: Self = Self::RGB_IDENTITY;
+    #[doc(alias = "VK_SAMPLER_YCBCR_MODEL_CONVERSION_YCBCR_IDENTITY_KHR")]
+    pub const YCBCR_IDENTITY_KHR: Self = Self::YCBCR_IDENTITY;
+    #[doc(alias = "VK_SAMPLER_YCBCR_MODEL_CONVERSION_YCBCR_709_KHR")]
+    pub const YCBCR_709_KHR: Self = Self::YCBCR_709;
+    #[doc(alias = "VK_SAMPLER_YCBCR_MODEL_CONVERSION_YCBCR_601_KHR")]
+    pub const YCBCR_601_KHR: Self = Self::YCBCR_601;
+    #[doc(alias = "VK_SAMPLER_YCBCR_MODEL_CONVERSION_YCBCR_2020_KHR")]
+    pub const YCBCR_2020_KHR: Self = Self::YCBCR_2020;
+}
+
+/// [`VkSamplerYcbcrRange`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerYcbcrRange.html)
+///
+#[doc(alias = "VkSamplerYcbcrRange")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum SamplerYcbcrRange {
+    #[default]
+    #[doc(alias = "VK_SAMPLER_YCBCR_RANGE_ITU_FULL")]
+    ITU_FULL = 0,
+    #[doc(alias = "VK_SAMPLER_YCBCR_RANGE_ITU_NARROW")]
+    ITU_NARROW = 1,
+}
+/// [`VkSamplerYcbcrRangeKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerYcbcrRangeKHR.html)
+///
+#[doc(alias = "VkSamplerYcbcrRangeKHR")]
+pub type SamplerYcbcrRangeKHR = SamplerYcbcrRange;
+impl SamplerYcbcrRange {
+    #[doc(alias = "VK_SAMPLER_YCBCR_RANGE_ITU_FULL_KHR")]
+    pub const ITU_FULL_KHR: Self = Self::ITU_FULL;
+    #[doc(alias = "VK_SAMPLER_YCBCR_RANGE_ITU_NARROW_KHR")]
+    pub const ITU_NARROW_KHR: Self = Self::ITU_NARROW;
+}
+
+/// [`VkChromaLocation`](https://docs.vulkan.org/refpages/latest/refpages/source/VkChromaLocation.html)
+///
+#[doc(alias = "VkChromaLocation")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum ChromaLocation {
+    #[default]
+    #[doc(alias = "VK_CHROMA_LOCATION_COSITED_EVEN")]
+    COSITED_EVEN = 0,
+    #[doc(alias = "VK_CHROMA_LOCATION_MIDPOINT")]
+    MIDPOINT = 1,
+}
+/// [`VkChromaLocationKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkChromaLocationKHR.html)
+///
+#[doc(alias = "VkChromaLocationKHR")]
+pub type ChromaLocationKHR = ChromaLocation;
+impl ChromaLocation {
+    #[doc(alias = "VK_CHROMA_LOCATION_COSITED_EVEN_KHR")]
+    pub const COSITED_EVEN_KHR: Self = Self::COSITED_EVEN;
+    #[doc(alias = "VK_CHROMA_LOCATION_MIDPOINT_KHR")]
+    pub const MIDPOINT_KHR: Self = Self::MIDPOINT;
+}
+
+/// [`VkTessellationDomainOrigin`](https://docs.vulkan.org/refpages/latest/refpages/source/VkTessellationDomainOrigin.html)
+///
+#[doc(alias = "VkTessellationDomainOrigin")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum TessellationDomainOrigin {
+    #[default]
+    #[doc(alias = "VK_TESSELLATION_DOMAIN_ORIGIN_UPPER_LEFT")]
+    UPPER_LEFT = 0,
+    #[doc(alias = "VK_TESSELLATION_DOMAIN_ORIGIN_LOWER_LEFT")]
+    LOWER_LEFT = 1,
+}
+/// [`VkTessellationDomainOriginKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkTessellationDomainOriginKHR.html)
+///
+#[doc(alias = "VkTessellationDomainOriginKHR")]
+pub type TessellationDomainOriginKHR = TessellationDomainOrigin;
+impl TessellationDomainOrigin {
+    #[doc(alias = "VK_TESSELLATION_DOMAIN_ORIGIN_UPPER_LEFT_KHR")]
+    pub const UPPER_LEFT_KHR: Self = Self::UPPER_LEFT;
+    #[doc(alias = "VK_TESSELLATION_DOMAIN_ORIGIN_LOWER_LEFT_KHR")]
+    pub const LOWER_LEFT_KHR: Self = Self::LOWER_LEFT;
+}
+
+/// [`VkDriverId`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDriverId.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "VkDriverId")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum DriverId {
+    #[default]
+    #[doc(alias = "VK_DRIVER_ID_AMD_PROPRIETARY")]
+    AMD_PROPRIETARY = 1,
+    #[doc(alias = "VK_DRIVER_ID_AMD_OPEN_SOURCE")]
+    AMD_OPEN_SOURCE = 2,
+    #[doc(alias = "VK_DRIVER_ID_MESA_RADV")]
+    MESA_RADV = 3,
+    #[doc(alias = "VK_DRIVER_ID_NVIDIA_PROPRIETARY")]
+    NVIDIA_PROPRIETARY = 4,
+    #[doc(alias = "VK_DRIVER_ID_INTEL_PROPRIETARY_WINDOWS")]
+    INTEL_PROPRIETARY_WINDOWS = 5,
+    #[doc(alias = "VK_DRIVER_ID_INTEL_OPEN_SOURCE_MESA")]
+    INTEL_OPEN_SOURCE_MESA = 6,
+    #[doc(alias = "VK_DRIVER_ID_IMAGINATION_PROPRIETARY")]
+    IMAGINATION_PROPRIETARY = 7,
+    #[doc(alias = "VK_DRIVER_ID_QUALCOMM_PROPRIETARY")]
+    QUALCOMM_PROPRIETARY = 8,
+    #[doc(alias = "VK_DRIVER_ID_ARM_PROPRIETARY")]
+    ARM_PROPRIETARY = 9,
+    #[doc(alias = "VK_DRIVER_ID_GOOGLE_SWIFTSHADER")]
+    GOOGLE_SWIFTSHADER = 10,
+    #[doc(alias = "VK_DRIVER_ID_GGP_PROPRIETARY")]
+    GGP_PROPRIETARY = 11,
+    #[doc(alias = "VK_DRIVER_ID_BROADCOM_PROPRIETARY")]
+    BROADCOM_PROPRIETARY = 12,
+    #[doc(alias = "VK_DRIVER_ID_MESA_LLVMPIPE")]
+    MESA_LLVMPIPE = 13,
+    #[doc(alias = "VK_DRIVER_ID_MOLTENVK")]
+    MOLTENVK = 14,
+    #[doc(alias = "VK_DRIVER_ID_COREAVI_PROPRIETARY")]
+    COREAVI_PROPRIETARY = 15,
+    #[doc(alias = "VK_DRIVER_ID_JUICE_PROPRIETARY")]
+    JUICE_PROPRIETARY = 16,
+    #[doc(alias = "VK_DRIVER_ID_VERISILICON_PROPRIETARY")]
+    VERISILICON_PROPRIETARY = 17,
+    #[doc(alias = "VK_DRIVER_ID_MESA_TURNIP")]
+    MESA_TURNIP = 18,
+    #[doc(alias = "VK_DRIVER_ID_MESA_V3DV")]
+    MESA_V3DV = 19,
+    #[doc(alias = "VK_DRIVER_ID_MESA_PANVK")]
+    MESA_PANVK = 20,
+    #[doc(alias = "VK_DRIVER_ID_SAMSUNG_PROPRIETARY")]
+    SAMSUNG_PROPRIETARY = 21,
+    #[doc(alias = "VK_DRIVER_ID_MESA_VENUS")]
+    MESA_VENUS = 22,
+    #[doc(alias = "VK_DRIVER_ID_MESA_DOZEN")]
+    MESA_DOZEN = 23,
+    #[doc(alias = "VK_DRIVER_ID_MESA_NVK")]
+    MESA_NVK = 24,
+    #[doc(alias = "VK_DRIVER_ID_IMAGINATION_OPEN_SOURCE_MESA")]
+    IMAGINATION_OPEN_SOURCE_MESA = 25,
+    #[doc(alias = "VK_DRIVER_ID_MESA_HONEYKRISP")]
+    MESA_HONEYKRISP = 26,
+    #[doc(alias = "VK_DRIVER_ID_VULKAN_SC_EMULATION_ON_VULKAN")]
+    VULKAN_SC_EMULATION_ON_VULKAN = 27,
+    #[doc(alias = "VK_DRIVER_ID_MESA_KOSMICKRISP")]
+    MESA_KOSMICKRISP = 28,
+    #[doc(alias = "VK_DRIVER_ID_MESA_GFXSTREAM")]
+    MESA_GFXSTREAM = 29,
+    #[doc(alias = "VK_DRIVER_ID_APE_SOFT")]
+    APE_SOFT = 30,
+    #[doc(alias = "VK_DRIVER_ID_RESERVED_31")]
+    RESERVED_31 = 31,
+}
+/// [`VkDriverIdKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDriverIdKHR.html)
+///
+#[doc(alias = "VkDriverIdKHR")]
+pub type DriverIdKHR = DriverId;
+impl DriverId {
+    #[doc(alias = "VK_DRIVER_ID_AMD_PROPRIETARY_KHR")]
+    pub const AMD_PROPRIETARY_KHR: Self = Self::AMD_PROPRIETARY;
+    #[doc(alias = "VK_DRIVER_ID_AMD_OPEN_SOURCE_KHR")]
+    pub const AMD_OPEN_SOURCE_KHR: Self = Self::AMD_OPEN_SOURCE;
+    #[doc(alias = "VK_DRIVER_ID_MESA_RADV_KHR")]
+    pub const MESA_RADV_KHR: Self = Self::MESA_RADV;
+    #[doc(alias = "VK_DRIVER_ID_NVIDIA_PROPRIETARY_KHR")]
+    pub const NVIDIA_PROPRIETARY_KHR: Self = Self::NVIDIA_PROPRIETARY;
+    #[doc(alias = "VK_DRIVER_ID_INTEL_PROPRIETARY_WINDOWS_KHR")]
+    pub const INTEL_PROPRIETARY_WINDOWS_KHR: Self = Self::INTEL_PROPRIETARY_WINDOWS;
+    #[doc(alias = "VK_DRIVER_ID_INTEL_OPEN_SOURCE_MESA_KHR")]
+    pub const INTEL_OPEN_SOURCE_MESA_KHR: Self = Self::INTEL_OPEN_SOURCE_MESA;
+    #[doc(alias = "VK_DRIVER_ID_IMAGINATION_PROPRIETARY_KHR")]
+    pub const IMAGINATION_PROPRIETARY_KHR: Self = Self::IMAGINATION_PROPRIETARY;
+    #[doc(alias = "VK_DRIVER_ID_QUALCOMM_PROPRIETARY_KHR")]
+    pub const QUALCOMM_PROPRIETARY_KHR: Self = Self::QUALCOMM_PROPRIETARY;
+    #[doc(alias = "VK_DRIVER_ID_ARM_PROPRIETARY_KHR")]
+    pub const ARM_PROPRIETARY_KHR: Self = Self::ARM_PROPRIETARY;
+    #[doc(alias = "VK_DRIVER_ID_GOOGLE_SWIFTSHADER_KHR")]
+    pub const GOOGLE_SWIFTSHADER_KHR: Self = Self::GOOGLE_SWIFTSHADER;
+    #[doc(alias = "VK_DRIVER_ID_GGP_PROPRIETARY_KHR")]
+    pub const GGP_PROPRIETARY_KHR: Self = Self::GGP_PROPRIETARY;
+    #[doc(alias = "VK_DRIVER_ID_BROADCOM_PROPRIETARY_KHR")]
+    pub const BROADCOM_PROPRIETARY_KHR: Self = Self::BROADCOM_PROPRIETARY;
+}
+
+/// [`VkShaderFloatControlsIndependence`](https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderFloatControlsIndependence.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "VkShaderFloatControlsIndependence")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum ShaderFloatControlsIndependence {
+    #[default]
+    #[doc(alias = "VK_SHADER_FLOAT_CONTROLS_INDEPENDENCE_32_BIT_ONLY")]
+    _32_BIT_ONLY = 0,
+    #[doc(alias = "VK_SHADER_FLOAT_CONTROLS_INDEPENDENCE_ALL")]
+    ALL = 1,
+    #[doc(alias = "VK_SHADER_FLOAT_CONTROLS_INDEPENDENCE_NONE")]
+    NONE = 2,
+}
+/// [`VkShaderFloatControlsIndependenceKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderFloatControlsIndependenceKHR.html)
+///
+#[doc(alias = "VkShaderFloatControlsIndependenceKHR")]
+pub type ShaderFloatControlsIndependenceKHR = ShaderFloatControlsIndependence;
+impl ShaderFloatControlsIndependence {
+    #[doc(alias = "VK_SHADER_FLOAT_CONTROLS_INDEPENDENCE_32_BIT_ONLY_KHR")]
+    pub const _32_BIT_ONLY_KHR: Self = Self::_32_BIT_ONLY;
+    #[doc(alias = "VK_SHADER_FLOAT_CONTROLS_INDEPENDENCE_ALL_KHR")]
+    pub const ALL_KHR: Self = Self::ALL;
+    #[doc(alias = "VK_SHADER_FLOAT_CONTROLS_INDEPENDENCE_NONE_KHR")]
+    pub const NONE_KHR: Self = Self::NONE;
+}
+
+/// [`VkSemaphoreType`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSemaphoreType.html)
+///
+#[doc(alias = "VkSemaphoreType")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum SemaphoreType {
+    #[default]
+    #[doc(alias = "VK_SEMAPHORE_TYPE_BINARY")]
+    BINARY = 0,
+    #[doc(alias = "VK_SEMAPHORE_TYPE_TIMELINE")]
+    TIMELINE = 1,
+}
+/// [`VkSemaphoreTypeKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSemaphoreTypeKHR.html)
+///
+#[doc(alias = "VkSemaphoreTypeKHR")]
+pub type SemaphoreTypeKHR = SemaphoreType;
+impl SemaphoreType {
+    #[doc(alias = "VK_SEMAPHORE_TYPE_BINARY_KHR")]
+    pub const BINARY_KHR: Self = Self::BINARY;
+    #[doc(alias = "VK_SEMAPHORE_TYPE_TIMELINE_KHR")]
+    pub const TIMELINE_KHR: Self = Self::TIMELINE;
+}
+
+/// [`VkSamplerReductionMode`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerReductionMode.html)
+///
+#[doc(alias = "VkSamplerReductionMode")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum SamplerReductionMode {
+    #[default]
+    #[doc(alias = "VK_SAMPLER_REDUCTION_MODE_WEIGHTED_AVERAGE")]
+    WEIGHTED_AVERAGE = 0,
+    #[doc(alias = "VK_SAMPLER_REDUCTION_MODE_MIN")]
+    MIN = 1,
+    #[doc(alias = "VK_SAMPLER_REDUCTION_MODE_MAX")]
+    MAX = 2,
+    #[doc(alias = "VK_SAMPLER_REDUCTION_MODE_WEIGHTED_AVERAGE_RANGECLAMP_QCOM")]
+    WEIGHTED_AVERAGE_RANGECLAMP_QCOM = 1000521000,
+}
+/// [`VkSamplerReductionModeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerReductionModeEXT.html)
+///
+#[doc(alias = "VkSamplerReductionModeEXT")]
+pub type SamplerReductionModeEXT = SamplerReductionMode;
+impl SamplerReductionMode {
+    #[doc(alias = "VK_SAMPLER_REDUCTION_MODE_WEIGHTED_AVERAGE_EXT")]
+    pub const WEIGHTED_AVERAGE_EXT: Self = Self::WEIGHTED_AVERAGE;
+    #[doc(alias = "VK_SAMPLER_REDUCTION_MODE_MIN_EXT")]
+    pub const MIN_EXT: Self = Self::MIN;
+    #[doc(alias = "VK_SAMPLER_REDUCTION_MODE_MAX_EXT")]
+    pub const MAX_EXT: Self = Self::MAX;
+}
+
+/// [`VkPipelineRobustnessBufferBehavior`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineRobustnessBufferBehavior.html)
+///
+#[doc(alias = "VkPipelineRobustnessBufferBehavior")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum PipelineRobustnessBufferBehavior {
+    #[default]
+    #[doc(alias = "VK_PIPELINE_ROBUSTNESS_BUFFER_BEHAVIOR_DEVICE_DEFAULT")]
+    DEVICE_DEFAULT = 0,
+    #[doc(alias = "VK_PIPELINE_ROBUSTNESS_BUFFER_BEHAVIOR_DISABLED")]
+    DISABLED = 1,
+    #[doc(alias = "VK_PIPELINE_ROBUSTNESS_BUFFER_BEHAVIOR_ROBUST_BUFFER_ACCESS")]
+    ROBUST_BUFFER_ACCESS = 2,
+    #[doc(alias = "VK_PIPELINE_ROBUSTNESS_BUFFER_BEHAVIOR_ROBUST_BUFFER_ACCESS_2")]
+    ROBUST_BUFFER_ACCESS_2 = 3,
+}
+/// [`VkPipelineRobustnessBufferBehaviorEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineRobustnessBufferBehaviorEXT.html)
+///
+#[doc(alias = "VkPipelineRobustnessBufferBehaviorEXT")]
+pub type PipelineRobustnessBufferBehaviorEXT = PipelineRobustnessBufferBehavior;
+impl PipelineRobustnessBufferBehavior {
+    #[doc(alias = "VK_PIPELINE_ROBUSTNESS_BUFFER_BEHAVIOR_DEVICE_DEFAULT_EXT")]
+    pub const DEVICE_DEFAULT_EXT: Self = Self::DEVICE_DEFAULT;
+    #[doc(alias = "VK_PIPELINE_ROBUSTNESS_BUFFER_BEHAVIOR_DISABLED_EXT")]
+    pub const DISABLED_EXT: Self = Self::DISABLED;
+    #[doc(alias = "VK_PIPELINE_ROBUSTNESS_BUFFER_BEHAVIOR_ROBUST_BUFFER_ACCESS_EXT")]
+    pub const ROBUST_BUFFER_ACCESS_EXT: Self = Self::ROBUST_BUFFER_ACCESS;
+    #[doc(alias = "VK_PIPELINE_ROBUSTNESS_BUFFER_BEHAVIOR_ROBUST_BUFFER_ACCESS_2_EXT")]
+    pub const ROBUST_BUFFER_ACCESS_2_EXT: Self = Self::ROBUST_BUFFER_ACCESS_2;
+}
+
+/// [`VkPipelineRobustnessImageBehavior`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineRobustnessImageBehavior.html)
+///
+#[doc(alias = "VkPipelineRobustnessImageBehavior")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum PipelineRobustnessImageBehavior {
+    #[default]
+    #[doc(alias = "VK_PIPELINE_ROBUSTNESS_IMAGE_BEHAVIOR_DEVICE_DEFAULT")]
+    DEVICE_DEFAULT = 0,
+    #[doc(alias = "VK_PIPELINE_ROBUSTNESS_IMAGE_BEHAVIOR_DISABLED")]
+    DISABLED = 1,
+    #[doc(alias = "VK_PIPELINE_ROBUSTNESS_IMAGE_BEHAVIOR_ROBUST_IMAGE_ACCESS")]
+    ROBUST_IMAGE_ACCESS = 2,
+    #[doc(alias = "VK_PIPELINE_ROBUSTNESS_IMAGE_BEHAVIOR_ROBUST_IMAGE_ACCESS_2")]
+    ROBUST_IMAGE_ACCESS_2 = 3,
+}
+/// [`VkPipelineRobustnessImageBehaviorEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineRobustnessImageBehaviorEXT.html)
+///
+#[doc(alias = "VkPipelineRobustnessImageBehaviorEXT")]
+pub type PipelineRobustnessImageBehaviorEXT = PipelineRobustnessImageBehavior;
+impl PipelineRobustnessImageBehavior {
+    #[doc(alias = "VK_PIPELINE_ROBUSTNESS_IMAGE_BEHAVIOR_DEVICE_DEFAULT_EXT")]
+    pub const DEVICE_DEFAULT_EXT: Self = Self::DEVICE_DEFAULT;
+    #[doc(alias = "VK_PIPELINE_ROBUSTNESS_IMAGE_BEHAVIOR_DISABLED_EXT")]
+    pub const DISABLED_EXT: Self = Self::DISABLED;
+    #[doc(alias = "VK_PIPELINE_ROBUSTNESS_IMAGE_BEHAVIOR_ROBUST_IMAGE_ACCESS_EXT")]
+    pub const ROBUST_IMAGE_ACCESS_EXT: Self = Self::ROBUST_IMAGE_ACCESS;
+    #[doc(alias = "VK_PIPELINE_ROBUSTNESS_IMAGE_BEHAVIOR_ROBUST_IMAGE_ACCESS_2_EXT")]
+    pub const ROBUST_IMAGE_ACCESS_2_EXT: Self = Self::ROBUST_IMAGE_ACCESS_2;
+}
+
+/// [`VkQueueGlobalPriority`](https://docs.vulkan.org/refpages/latest/refpages/source/VkQueueGlobalPriority.html)
+///
+#[doc(alias = "VkQueueGlobalPriority")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum QueueGlobalPriority {
+    #[default]
+    #[doc(alias = "VK_QUEUE_GLOBAL_PRIORITY_LOW")]
+    LOW = 128,
+    #[doc(alias = "VK_QUEUE_GLOBAL_PRIORITY_MEDIUM")]
+    MEDIUM = 256,
+    #[doc(alias = "VK_QUEUE_GLOBAL_PRIORITY_HIGH")]
+    HIGH = 512,
+    #[doc(alias = "VK_QUEUE_GLOBAL_PRIORITY_REALTIME")]
+    REALTIME = 1024,
+}
+/// [`VkQueueGlobalPriorityKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkQueueGlobalPriorityKHR.html)
+///
+#[doc(alias = "VkQueueGlobalPriorityKHR")]
+pub type QueueGlobalPriorityKHR = QueueGlobalPriority;
+/// [`VkQueueGlobalPriorityEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkQueueGlobalPriorityEXT.html)
+///
+#[doc(alias = "VkQueueGlobalPriorityEXT")]
+pub type QueueGlobalPriorityEXT = QueueGlobalPriority;
+impl QueueGlobalPriority {
+    #[doc(alias = "VK_QUEUE_GLOBAL_PRIORITY_LOW_EXT")]
+    pub const LOW_EXT: Self = Self::LOW;
+    #[doc(alias = "VK_QUEUE_GLOBAL_PRIORITY_LOW_KHR")]
+    pub const LOW_KHR: Self = Self::LOW;
+    #[doc(alias = "VK_QUEUE_GLOBAL_PRIORITY_MEDIUM_EXT")]
+    pub const MEDIUM_EXT: Self = Self::MEDIUM;
+    #[doc(alias = "VK_QUEUE_GLOBAL_PRIORITY_MEDIUM_KHR")]
+    pub const MEDIUM_KHR: Self = Self::MEDIUM;
+    #[doc(alias = "VK_QUEUE_GLOBAL_PRIORITY_HIGH_EXT")]
+    pub const HIGH_EXT: Self = Self::HIGH;
+    #[doc(alias = "VK_QUEUE_GLOBAL_PRIORITY_HIGH_KHR")]
+    pub const HIGH_KHR: Self = Self::HIGH;
+    #[doc(alias = "VK_QUEUE_GLOBAL_PRIORITY_REALTIME_EXT")]
+    pub const REALTIME_EXT: Self = Self::REALTIME;
+    #[doc(alias = "VK_QUEUE_GLOBAL_PRIORITY_REALTIME_KHR")]
+    pub const REALTIME_KHR: Self = Self::REALTIME;
+}
+
+/// [`VkLineRasterizationMode`](https://docs.vulkan.org/refpages/latest/refpages/source/VkLineRasterizationMode.html)
+///
+#[doc(alias = "VkLineRasterizationMode")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum LineRasterizationMode {
+    #[default]
+    #[doc(alias = "VK_LINE_RASTERIZATION_MODE_DEFAULT")]
+    DEFAULT = 0,
+    #[doc(alias = "VK_LINE_RASTERIZATION_MODE_RECTANGULAR")]
+    RECTANGULAR = 1,
+    #[doc(alias = "VK_LINE_RASTERIZATION_MODE_BRESENHAM")]
+    BRESENHAM = 2,
+    #[doc(alias = "VK_LINE_RASTERIZATION_MODE_RECTANGULAR_SMOOTH")]
+    RECTANGULAR_SMOOTH = 3,
+}
+/// [`VkLineRasterizationModeKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkLineRasterizationModeKHR.html)
+///
+#[doc(alias = "VkLineRasterizationModeKHR")]
+pub type LineRasterizationModeKHR = LineRasterizationMode;
+/// [`VkLineRasterizationModeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkLineRasterizationModeEXT.html)
+///
+#[doc(alias = "VkLineRasterizationModeEXT")]
+pub type LineRasterizationModeEXT = LineRasterizationMode;
+impl LineRasterizationMode {
+    #[doc(alias = "VK_LINE_RASTERIZATION_MODE_DEFAULT_EXT")]
+    pub const DEFAULT_EXT: Self = Self::DEFAULT;
+    #[doc(alias = "VK_LINE_RASTERIZATION_MODE_DEFAULT_KHR")]
+    pub const DEFAULT_KHR: Self = Self::DEFAULT;
+    #[doc(alias = "VK_LINE_RASTERIZATION_MODE_RECTANGULAR_EXT")]
+    pub const RECTANGULAR_EXT: Self = Self::RECTANGULAR;
+    #[doc(alias = "VK_LINE_RASTERIZATION_MODE_RECTANGULAR_KHR")]
+    pub const RECTANGULAR_KHR: Self = Self::RECTANGULAR;
+    #[doc(alias = "VK_LINE_RASTERIZATION_MODE_BRESENHAM_EXT")]
+    pub const BRESENHAM_EXT: Self = Self::BRESENHAM;
+    #[doc(alias = "VK_LINE_RASTERIZATION_MODE_BRESENHAM_KHR")]
+    pub const BRESENHAM_KHR: Self = Self::BRESENHAM;
+    #[doc(alias = "VK_LINE_RASTERIZATION_MODE_RECTANGULAR_SMOOTH_EXT")]
+    pub const RECTANGULAR_SMOOTH_EXT: Self = Self::RECTANGULAR_SMOOTH;
+    #[doc(alias = "VK_LINE_RASTERIZATION_MODE_RECTANGULAR_SMOOTH_KHR")]
+    pub const RECTANGULAR_SMOOTH_KHR: Self = Self::RECTANGULAR_SMOOTH;
+}
+
+/// [`VkPresentModeKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPresentModeKHR.html)
+///
+#[doc(alias = "VkPresentModeKHR")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum PresentModeKHR {
+    #[default]
+    #[doc(alias = "VK_PRESENT_MODE_IMMEDIATE_KHR")]
+    PRESENT_MODE_IMMEDIATE_KHR = 0,
+    #[doc(alias = "VK_PRESENT_MODE_MAILBOX_KHR")]
+    PRESENT_MODE_MAILBOX_KHR = 1,
+    #[doc(alias = "VK_PRESENT_MODE_FIFO_KHR")]
+    PRESENT_MODE_FIFO_KHR = 2,
+    #[doc(alias = "VK_PRESENT_MODE_FIFO_RELAXED_KHR")]
+    PRESENT_MODE_FIFO_RELAXED_KHR = 3,
+    #[doc(alias = "VK_PRESENT_MODE_SHARED_DEMAND_REFRESH_KHR")]
+    PRESENT_MODE_SHARED_DEMAND_REFRESH_KHR = 1000111000,
+    #[doc(alias = "VK_PRESENT_MODE_SHARED_CONTINUOUS_REFRESH_KHR")]
+    PRESENT_MODE_SHARED_CONTINUOUS_REFRESH_KHR = 1000111001,
+    #[doc(alias = "VK_PRESENT_MODE_FIFO_LATEST_READY_KHR")]
+    PRESENT_MODE_FIFO_LATEST_READY_KHR = 1000361000,
+}
+impl PresentModeKHR {
+    #[doc(alias = "VK_PRESENT_MODE_FIFO_LATEST_READY_EXT")]
+    pub const PRESENT_MODE_FIFO_LATEST_READY_EXT: Self = Self::PRESENT_MODE_FIFO_LATEST_READY_KHR;
+}
+
+/// [`VkColorSpaceKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkColorSpaceKHR.html)
+///
+#[doc(alias = "VkColorSpaceKHR")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum ColorSpaceKHR {
+    #[default]
+    #[doc(alias = "VK_COLOR_SPACE_SRGB_NONLINEAR_KHR")]
+    COLOR_SPACE_SRGB_NONLINEAR_KHR = 0,
+    #[doc(alias = "VK_COLOR_SPACE_DISPLAY_P3_NONLINEAR_EXT")]
+    COLOR_SPACE_DISPLAY_P3_NONLINEAR_EXT = 1000104001,
+    #[doc(alias = "VK_COLOR_SPACE_EXTENDED_SRGB_LINEAR_EXT")]
+    COLOR_SPACE_EXTENDED_SRGB_LINEAR_EXT = 1000104002,
+    #[doc(alias = "VK_COLOR_SPACE_DISPLAY_P3_LINEAR_EXT")]
+    COLOR_SPACE_DISPLAY_P3_LINEAR_EXT = 1000104003,
+    #[doc(alias = "VK_COLOR_SPACE_DCI_P3_NONLINEAR_EXT")]
+    COLOR_SPACE_DCI_P3_NONLINEAR_EXT = 1000104004,
+    #[doc(alias = "VK_COLOR_SPACE_BT709_LINEAR_EXT")]
+    COLOR_SPACE_BT709_LINEAR_EXT = 1000104005,
+    #[doc(alias = "VK_COLOR_SPACE_BT709_NONLINEAR_EXT")]
+    COLOR_SPACE_BT709_NONLINEAR_EXT = 1000104006,
+    #[doc(alias = "VK_COLOR_SPACE_BT2020_LINEAR_EXT")]
+    COLOR_SPACE_BT2020_LINEAR_EXT = 1000104007,
+    #[doc(alias = "VK_COLOR_SPACE_HDR10_ST2084_EXT")]
+    COLOR_SPACE_HDR10_ST2084_EXT = 1000104008,
+    #[doc(alias = "VK_COLOR_SPACE_DOLBYVISION_EXT")]
+    COLOR_SPACE_DOLBYVISION_EXT = 1000104009,
+    #[doc(alias = "VK_COLOR_SPACE_HDR10_HLG_EXT")]
+    COLOR_SPACE_HDR10_HLG_EXT = 1000104010,
+    #[doc(alias = "VK_COLOR_SPACE_ADOBERGB_LINEAR_EXT")]
+    COLOR_SPACE_ADOBERGB_LINEAR_EXT = 1000104011,
+    #[doc(alias = "VK_COLOR_SPACE_ADOBERGB_NONLINEAR_EXT")]
+    COLOR_SPACE_ADOBERGB_NONLINEAR_EXT = 1000104012,
+    #[doc(alias = "VK_COLOR_SPACE_PASS_THROUGH_EXT")]
+    COLOR_SPACE_PASS_THROUGH_EXT = 1000104013,
+    #[doc(alias = "VK_COLOR_SPACE_EXTENDED_SRGB_NONLINEAR_EXT")]
+    COLOR_SPACE_EXTENDED_SRGB_NONLINEAR_EXT = 1000104014,
+    #[doc(alias = "VK_COLOR_SPACE_DISPLAY_NATIVE_AMD")]
+    COLOR_SPACE_DISPLAY_NATIVE_AMD = 1000213000,
+}
+impl ColorSpaceKHR {
+    #[doc(alias = "VK_COLORSPACE_SRGB_NONLINEAR_KHR")]
+    pub const COLORSPACE_SRGB_NONLINEAR_KHR: Self = Self::COLOR_SPACE_SRGB_NONLINEAR_KHR;
+    #[doc(alias = "VK_COLOR_SPACE_DCI_P3_LINEAR_EXT")]
+    pub const COLOR_SPACE_DCI_P3_LINEAR_EXT: Self = Self::COLOR_SPACE_DISPLAY_P3_LINEAR_EXT;
+}
+
+/// [`VkQueryResultStatusKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkQueryResultStatusKHR.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "VkQueryResultStatusKHR")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum QueryResultStatusKHR {
+    #[default]
+    #[doc(alias = "VK_QUERY_RESULT_STATUS_ERROR_KHR")]
+    QUERY_RESULT_STATUS_ERROR_KHR = -1,
+    #[doc(alias = "VK_QUERY_RESULT_STATUS_NOT_READY_KHR")]
+    QUERY_RESULT_STATUS_NOT_READY_KHR = 0,
+    #[doc(alias = "VK_QUERY_RESULT_STATUS_COMPLETE_KHR")]
+    QUERY_RESULT_STATUS_COMPLETE_KHR = 1,
+    #[doc(alias = "VK_QUERY_RESULT_STATUS_INSUFFICIENT_BITSTREAM_BUFFER_RANGE_KHR")]
+    QUERY_RESULT_STATUS_INSUFFICIENT_BITSTREAM_BUFFER_RANGE_KHR = -1000299000,
+}
+
+/// [`VkPerformanceCounterUnitKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceCounterUnitKHR.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "VkPerformanceCounterUnitKHR")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum PerformanceCounterUnitKHR {
+    #[default]
+    #[doc(alias = "VK_PERFORMANCE_COUNTER_UNIT_GENERIC_KHR")]
+    PERFORMANCE_COUNTER_UNIT_GENERIC_KHR = 0,
+    #[doc(alias = "VK_PERFORMANCE_COUNTER_UNIT_PERCENTAGE_KHR")]
+    PERFORMANCE_COUNTER_UNIT_PERCENTAGE_KHR = 1,
+    #[doc(alias = "VK_PERFORMANCE_COUNTER_UNIT_NANOSECONDS_KHR")]
+    PERFORMANCE_COUNTER_UNIT_NANOSECONDS_KHR = 2,
+    #[doc(alias = "VK_PERFORMANCE_COUNTER_UNIT_BYTES_KHR")]
+    PERFORMANCE_COUNTER_UNIT_BYTES_KHR = 3,
+    #[doc(alias = "VK_PERFORMANCE_COUNTER_UNIT_BYTES_PER_SECOND_KHR")]
+    PERFORMANCE_COUNTER_UNIT_BYTES_PER_SECOND_KHR = 4,
+    #[doc(alias = "VK_PERFORMANCE_COUNTER_UNIT_KELVIN_KHR")]
+    PERFORMANCE_COUNTER_UNIT_KELVIN_KHR = 5,
+    #[doc(alias = "VK_PERFORMANCE_COUNTER_UNIT_WATTS_KHR")]
+    PERFORMANCE_COUNTER_UNIT_WATTS_KHR = 6,
+    #[doc(alias = "VK_PERFORMANCE_COUNTER_UNIT_VOLTS_KHR")]
+    PERFORMANCE_COUNTER_UNIT_VOLTS_KHR = 7,
+    #[doc(alias = "VK_PERFORMANCE_COUNTER_UNIT_AMPS_KHR")]
+    PERFORMANCE_COUNTER_UNIT_AMPS_KHR = 8,
+    #[doc(alias = "VK_PERFORMANCE_COUNTER_UNIT_HERTZ_KHR")]
+    PERFORMANCE_COUNTER_UNIT_HERTZ_KHR = 9,
+    #[doc(alias = "VK_PERFORMANCE_COUNTER_UNIT_CYCLES_KHR")]
+    PERFORMANCE_COUNTER_UNIT_CYCLES_KHR = 10,
+}
+
+/// [`VkPerformanceCounterScopeKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceCounterScopeKHR.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "VkPerformanceCounterScopeKHR")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum PerformanceCounterScopeKHR {
+    #[default]
+    #[doc(alias = "VK_PERFORMANCE_COUNTER_SCOPE_COMMAND_BUFFER_KHR")]
+    PERFORMANCE_COUNTER_SCOPE_COMMAND_BUFFER_KHR = 0,
+    #[doc(alias = "VK_PERFORMANCE_COUNTER_SCOPE_RENDER_PASS_KHR")]
+    PERFORMANCE_COUNTER_SCOPE_RENDER_PASS_KHR = 1,
+    #[doc(alias = "VK_PERFORMANCE_COUNTER_SCOPE_COMMAND_KHR")]
+    PERFORMANCE_COUNTER_SCOPE_COMMAND_KHR = 2,
+}
+impl PerformanceCounterScopeKHR {
+    #[doc(alias = "VK_QUERY_SCOPE_COMMAND_BUFFER_KHR")]
+    pub const QUERY_SCOPE_COMMAND_BUFFER_KHR: Self = Self::PERFORMANCE_COUNTER_SCOPE_COMMAND_BUFFER_KHR;
+    #[doc(alias = "VK_QUERY_SCOPE_RENDER_PASS_KHR")]
+    pub const QUERY_SCOPE_RENDER_PASS_KHR: Self = Self::PERFORMANCE_COUNTER_SCOPE_RENDER_PASS_KHR;
+    #[doc(alias = "VK_QUERY_SCOPE_COMMAND_KHR")]
+    pub const QUERY_SCOPE_COMMAND_KHR: Self = Self::PERFORMANCE_COUNTER_SCOPE_COMMAND_KHR;
+}
+
+/// [`VkPerformanceCounterStorageKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceCounterStorageKHR.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "VkPerformanceCounterStorageKHR")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum PerformanceCounterStorageKHR {
+    #[default]
+    #[doc(alias = "VK_PERFORMANCE_COUNTER_STORAGE_INT32_KHR")]
+    PERFORMANCE_COUNTER_STORAGE_INT32_KHR = 0,
+    #[doc(alias = "VK_PERFORMANCE_COUNTER_STORAGE_INT64_KHR")]
+    PERFORMANCE_COUNTER_STORAGE_INT64_KHR = 1,
+    #[doc(alias = "VK_PERFORMANCE_COUNTER_STORAGE_UINT32_KHR")]
+    PERFORMANCE_COUNTER_STORAGE_UINT32_KHR = 2,
+    #[doc(alias = "VK_PERFORMANCE_COUNTER_STORAGE_UINT64_KHR")]
+    PERFORMANCE_COUNTER_STORAGE_UINT64_KHR = 3,
+    #[doc(alias = "VK_PERFORMANCE_COUNTER_STORAGE_FLOAT32_KHR")]
+    PERFORMANCE_COUNTER_STORAGE_FLOAT32_KHR = 4,
+    #[doc(alias = "VK_PERFORMANCE_COUNTER_STORAGE_FLOAT64_KHR")]
+    PERFORMANCE_COUNTER_STORAGE_FLOAT64_KHR = 5,
+}
+
+/// [`VkFragmentShadingRateCombinerOpKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkFragmentShadingRateCombinerOpKHR.html)
+///
+#[doc(alias = "VkFragmentShadingRateCombinerOpKHR")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum FragmentShadingRateCombinerOpKHR {
+    #[default]
+    #[doc(alias = "VK_FRAGMENT_SHADING_RATE_COMBINER_OP_KEEP_KHR")]
+    FRAGMENT_SHADING_RATE_COMBINER_OP_KEEP_KHR = 0,
+    #[doc(alias = "VK_FRAGMENT_SHADING_RATE_COMBINER_OP_REPLACE_KHR")]
+    FRAGMENT_SHADING_RATE_COMBINER_OP_REPLACE_KHR = 1,
+    #[doc(alias = "VK_FRAGMENT_SHADING_RATE_COMBINER_OP_MIN_KHR")]
+    FRAGMENT_SHADING_RATE_COMBINER_OP_MIN_KHR = 2,
+    #[doc(alias = "VK_FRAGMENT_SHADING_RATE_COMBINER_OP_MAX_KHR")]
+    FRAGMENT_SHADING_RATE_COMBINER_OP_MAX_KHR = 3,
+    #[doc(alias = "VK_FRAGMENT_SHADING_RATE_COMBINER_OP_MUL_KHR")]
+    FRAGMENT_SHADING_RATE_COMBINER_OP_MUL_KHR = 4,
+}
+
+/// [`VkPipelineExecutableStatisticFormatKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineExecutableStatisticFormatKHR.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "VkPipelineExecutableStatisticFormatKHR")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum PipelineExecutableStatisticFormatKHR {
+    #[default]
+    #[doc(alias = "VK_PIPELINE_EXECUTABLE_STATISTIC_FORMAT_BOOL32_KHR")]
+    PIPELINE_EXECUTABLE_STATISTIC_FORMAT_BOOL32_KHR = 0,
+    #[doc(alias = "VK_PIPELINE_EXECUTABLE_STATISTIC_FORMAT_INT64_KHR")]
+    PIPELINE_EXECUTABLE_STATISTIC_FORMAT_INT64_KHR = 1,
+    #[doc(alias = "VK_PIPELINE_EXECUTABLE_STATISTIC_FORMAT_UINT64_KHR")]
+    PIPELINE_EXECUTABLE_STATISTIC_FORMAT_UINT64_KHR = 2,
+    #[doc(alias = "VK_PIPELINE_EXECUTABLE_STATISTIC_FORMAT_FLOAT64_KHR")]
+    PIPELINE_EXECUTABLE_STATISTIC_FORMAT_FLOAT64_KHR = 3,
+}
+
+/// [`VkVideoEncodeTuningModeKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeTuningModeKHR.html)
+///
+#[doc(alias = "VkVideoEncodeTuningModeKHR")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum VideoEncodeTuningModeKHR {
+    #[default]
+    #[doc(alias = "VK_VIDEO_ENCODE_TUNING_MODE_DEFAULT_KHR")]
+    VIDEO_ENCODE_TUNING_MODE_DEFAULT_KHR = 0,
+    #[doc(alias = "VK_VIDEO_ENCODE_TUNING_MODE_HIGH_QUALITY_KHR")]
+    VIDEO_ENCODE_TUNING_MODE_HIGH_QUALITY_KHR = 1,
+    #[doc(alias = "VK_VIDEO_ENCODE_TUNING_MODE_LOW_LATENCY_KHR")]
+    VIDEO_ENCODE_TUNING_MODE_LOW_LATENCY_KHR = 2,
+    #[doc(alias = "VK_VIDEO_ENCODE_TUNING_MODE_ULTRA_LOW_LATENCY_KHR")]
+    VIDEO_ENCODE_TUNING_MODE_ULTRA_LOW_LATENCY_KHR = 3,
+    #[doc(alias = "VK_VIDEO_ENCODE_TUNING_MODE_LOSSLESS_KHR")]
+    VIDEO_ENCODE_TUNING_MODE_LOSSLESS_KHR = 4,
+}
+
+/// [`VkAccelerationStructureTypeKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureTypeKHR.html)
+///
+#[doc(alias = "VkAccelerationStructureTypeKHR")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum AccelerationStructureTypeKHR {
+    #[default]
+    #[doc(alias = "VK_ACCELERATION_STRUCTURE_TYPE_TOP_LEVEL_KHR")]
+    ACCELERATION_STRUCTURE_TYPE_TOP_LEVEL_KHR = 0,
+    #[doc(alias = "VK_ACCELERATION_STRUCTURE_TYPE_BOTTOM_LEVEL_KHR")]
+    ACCELERATION_STRUCTURE_TYPE_BOTTOM_LEVEL_KHR = 1,
+    #[doc(alias = "VK_ACCELERATION_STRUCTURE_TYPE_GENERIC_KHR")]
+    ACCELERATION_STRUCTURE_TYPE_GENERIC_KHR = 2,
+    #[doc(alias = "VK_ACCELERATION_STRUCTURE_TYPE_OPACITY_MICROMAP_KHR")]
+    ACCELERATION_STRUCTURE_TYPE_OPACITY_MICROMAP_KHR = 1000623000,
+}
+/// [`VkAccelerationStructureTypeNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureTypeNV.html)
+///
+#[doc(alias = "VkAccelerationStructureTypeNV")]
+pub type AccelerationStructureTypeNV = AccelerationStructureTypeKHR;
+impl AccelerationStructureTypeKHR {
+    #[doc(alias = "VK_ACCELERATION_STRUCTURE_TYPE_TOP_LEVEL_NV")]
+    pub const ACCELERATION_STRUCTURE_TYPE_TOP_LEVEL_NV: Self = Self::ACCELERATION_STRUCTURE_TYPE_TOP_LEVEL_KHR;
+    #[doc(alias = "VK_ACCELERATION_STRUCTURE_TYPE_BOTTOM_LEVEL_NV")]
+    pub const ACCELERATION_STRUCTURE_TYPE_BOTTOM_LEVEL_NV: Self = Self::ACCELERATION_STRUCTURE_TYPE_BOTTOM_LEVEL_KHR;
+}
+
+/// [`VkComponentTypeKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkComponentTypeKHR.html)
+///
+#[doc(alias = "VkComponentTypeKHR")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum ComponentTypeKHR {
+    #[default]
+    #[doc(alias = "VK_COMPONENT_TYPE_FLOAT16_KHR")]
+    COMPONENT_TYPE_FLOAT16_KHR = 0,
+    #[doc(alias = "VK_COMPONENT_TYPE_FLOAT32_KHR")]
+    COMPONENT_TYPE_FLOAT32_KHR = 1,
+    #[doc(alias = "VK_COMPONENT_TYPE_FLOAT64_KHR")]
+    COMPONENT_TYPE_FLOAT64_KHR = 2,
+    #[doc(alias = "VK_COMPONENT_TYPE_SINT8_KHR")]
+    COMPONENT_TYPE_SINT8_KHR = 3,
+    #[doc(alias = "VK_COMPONENT_TYPE_SINT16_KHR")]
+    COMPONENT_TYPE_SINT16_KHR = 4,
+    #[doc(alias = "VK_COMPONENT_TYPE_SINT32_KHR")]
+    COMPONENT_TYPE_SINT32_KHR = 5,
+    #[doc(alias = "VK_COMPONENT_TYPE_SINT64_KHR")]
+    COMPONENT_TYPE_SINT64_KHR = 6,
+    #[doc(alias = "VK_COMPONENT_TYPE_UINT8_KHR")]
+    COMPONENT_TYPE_UINT8_KHR = 7,
+    #[doc(alias = "VK_COMPONENT_TYPE_UINT16_KHR")]
+    COMPONENT_TYPE_UINT16_KHR = 8,
+    #[doc(alias = "VK_COMPONENT_TYPE_UINT32_KHR")]
+    COMPONENT_TYPE_UINT32_KHR = 9,
+    #[doc(alias = "VK_COMPONENT_TYPE_UINT64_KHR")]
+    COMPONENT_TYPE_UINT64_KHR = 10,
+    #[doc(alias = "VK_COMPONENT_TYPE_BFLOAT16_KHR")]
+    COMPONENT_TYPE_BFLOAT16_KHR = 1000141000,
+    #[doc(alias = "VK_COMPONENT_TYPE_SINT8_PACKED_NV")]
+    COMPONENT_TYPE_SINT8_PACKED_NV = 1000491000,
+    #[doc(alias = "VK_COMPONENT_TYPE_UINT8_PACKED_NV")]
+    COMPONENT_TYPE_UINT8_PACKED_NV = 1000491001,
+    #[doc(alias = "VK_COMPONENT_TYPE_FLOAT8_E4M3_EXT")]
+    COMPONENT_TYPE_FLOAT8_E4M3_EXT = 1000491002,
+    #[doc(alias = "VK_COMPONENT_TYPE_FLOAT8_E5M2_EXT")]
+    COMPONENT_TYPE_FLOAT8_E5M2_EXT = 1000491003,
+    #[doc(alias = "VK_COMPONENT_TYPE_FLOAT6_E2M3_EXT")]
+    COMPONENT_TYPE_FLOAT6_E2M3_EXT = 1000672000,
+    #[doc(alias = "VK_COMPONENT_TYPE_FLOAT6_E3M2_EXT")]
+    COMPONENT_TYPE_FLOAT6_E3M2_EXT = 1000672001,
+    #[doc(alias = "VK_COMPONENT_TYPE_FLOAT4_E2M1_EXT")]
+    COMPONENT_TYPE_FLOAT4_E2M1_EXT = 1000672002,
+    #[doc(alias = "VK_COMPONENT_TYPE_FLOAT8_UNSIGNED_E8M0_EXT")]
+    COMPONENT_TYPE_FLOAT8_UNSIGNED_E8M0_EXT = 1000672003,
+    #[doc(alias = "VK_COMPONENT_TYPE_MXINT8_EXT")]
+    COMPONENT_TYPE_MXINT8_EXT = 1000672004,
+}
+/// [`VkComponentTypeNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkComponentTypeNV.html)
+///
+#[doc(alias = "VkComponentTypeNV")]
+pub type ComponentTypeNV = ComponentTypeKHR;
+impl ComponentTypeKHR {
+    #[doc(alias = "VK_COMPONENT_TYPE_FLOAT16_NV")]
+    pub const COMPONENT_TYPE_FLOAT16_NV: Self = Self::COMPONENT_TYPE_FLOAT16_KHR;
+    #[doc(alias = "VK_COMPONENT_TYPE_FLOAT32_NV")]
+    pub const COMPONENT_TYPE_FLOAT32_NV: Self = Self::COMPONENT_TYPE_FLOAT32_KHR;
+    #[doc(alias = "VK_COMPONENT_TYPE_FLOAT64_NV")]
+    pub const COMPONENT_TYPE_FLOAT64_NV: Self = Self::COMPONENT_TYPE_FLOAT64_KHR;
+    #[doc(alias = "VK_COMPONENT_TYPE_SINT8_NV")]
+    pub const COMPONENT_TYPE_SINT8_NV: Self = Self::COMPONENT_TYPE_SINT8_KHR;
+    #[doc(alias = "VK_COMPONENT_TYPE_SINT16_NV")]
+    pub const COMPONENT_TYPE_SINT16_NV: Self = Self::COMPONENT_TYPE_SINT16_KHR;
+    #[doc(alias = "VK_COMPONENT_TYPE_SINT32_NV")]
+    pub const COMPONENT_TYPE_SINT32_NV: Self = Self::COMPONENT_TYPE_SINT32_KHR;
+    #[doc(alias = "VK_COMPONENT_TYPE_SINT64_NV")]
+    pub const COMPONENT_TYPE_SINT64_NV: Self = Self::COMPONENT_TYPE_SINT64_KHR;
+    #[doc(alias = "VK_COMPONENT_TYPE_UINT8_NV")]
+    pub const COMPONENT_TYPE_UINT8_NV: Self = Self::COMPONENT_TYPE_UINT8_KHR;
+    #[doc(alias = "VK_COMPONENT_TYPE_UINT16_NV")]
+    pub const COMPONENT_TYPE_UINT16_NV: Self = Self::COMPONENT_TYPE_UINT16_KHR;
+    #[doc(alias = "VK_COMPONENT_TYPE_UINT32_NV")]
+    pub const COMPONENT_TYPE_UINT32_NV: Self = Self::COMPONENT_TYPE_UINT32_KHR;
+    #[doc(alias = "VK_COMPONENT_TYPE_UINT64_NV")]
+    pub const COMPONENT_TYPE_UINT64_NV: Self = Self::COMPONENT_TYPE_UINT64_KHR;
+    #[doc(alias = "VK_COMPONENT_TYPE_FLOAT_E4M3_NV")]
+    pub const COMPONENT_TYPE_FLOAT_E4M3_NV: Self = Self::COMPONENT_TYPE_FLOAT8_E4M3_EXT;
+    #[doc(alias = "VK_COMPONENT_TYPE_FLOAT_E5M2_NV")]
+    pub const COMPONENT_TYPE_FLOAT_E5M2_NV: Self = Self::COMPONENT_TYPE_FLOAT8_E5M2_EXT;
+}
+
+/// [`VkScopeKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkScopeKHR.html)
+///
+#[doc(alias = "VkScopeKHR")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum ScopeKHR {
+    #[default]
+    #[doc(alias = "VK_SCOPE_DEVICE_KHR")]
+    SCOPE_DEVICE_KHR = 1,
+    #[doc(alias = "VK_SCOPE_WORKGROUP_KHR")]
+    SCOPE_WORKGROUP_KHR = 2,
+    #[doc(alias = "VK_SCOPE_SUBGROUP_KHR")]
+    SCOPE_SUBGROUP_KHR = 3,
+    #[doc(alias = "VK_SCOPE_QUEUE_FAMILY_KHR")]
+    SCOPE_QUEUE_FAMILY_KHR = 5,
+}
+/// [`VkScopeNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkScopeNV.html)
+///
+#[doc(alias = "VkScopeNV")]
+pub type ScopeNV = ScopeKHR;
+impl ScopeKHR {
+    #[doc(alias = "VK_SCOPE_DEVICE_NV")]
+    pub const SCOPE_DEVICE_NV: Self = Self::SCOPE_DEVICE_KHR;
+    #[doc(alias = "VK_SCOPE_WORKGROUP_NV")]
+    pub const SCOPE_WORKGROUP_NV: Self = Self::SCOPE_WORKGROUP_KHR;
+    #[doc(alias = "VK_SCOPE_SUBGROUP_NV")]
+    pub const SCOPE_SUBGROUP_NV: Self = Self::SCOPE_SUBGROUP_KHR;
+    #[doc(alias = "VK_SCOPE_QUEUE_FAMILY_NV")]
+    pub const SCOPE_QUEUE_FAMILY_NV: Self = Self::SCOPE_QUEUE_FAMILY_KHR;
+}
+
+/// [`VkVideoEncodeAV1PredictionModeKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeAV1PredictionModeKHR.html)
+///
+#[doc(alias = "VkVideoEncodeAV1PredictionModeKHR")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum VideoEncodeAV1PredictionModeKHR {
+    #[default]
+    #[doc(alias = "VK_VIDEO_ENCODE_AV1_PREDICTION_MODE_INTRA_ONLY_KHR")]
+    VIDEO_ENCODE_AV1_PREDICTION_MODE_INTRA_ONLY_KHR = 0,
+    #[doc(alias = "VK_VIDEO_ENCODE_AV1_PREDICTION_MODE_SINGLE_REFERENCE_KHR")]
+    VIDEO_ENCODE_AV1_PREDICTION_MODE_SINGLE_REFERENCE_KHR = 1,
+    #[doc(alias = "VK_VIDEO_ENCODE_AV1_PREDICTION_MODE_UNIDIRECTIONAL_COMPOUND_KHR")]
+    VIDEO_ENCODE_AV1_PREDICTION_MODE_UNIDIRECTIONAL_COMPOUND_KHR = 2,
+    #[doc(alias = "VK_VIDEO_ENCODE_AV1_PREDICTION_MODE_BIDIRECTIONAL_COMPOUND_KHR")]
+    VIDEO_ENCODE_AV1_PREDICTION_MODE_BIDIRECTIONAL_COMPOUND_KHR = 3,
+}
+
+/// [`VkVideoEncodeAV1RateControlGroupKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeAV1RateControlGroupKHR.html)
+///
+#[doc(alias = "VkVideoEncodeAV1RateControlGroupKHR")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum VideoEncodeAV1RateControlGroupKHR {
+    #[default]
+    #[doc(alias = "VK_VIDEO_ENCODE_AV1_RATE_CONTROL_GROUP_INTRA_KHR")]
+    VIDEO_ENCODE_AV1_RATE_CONTROL_GROUP_INTRA_KHR = 0,
+    #[doc(alias = "VK_VIDEO_ENCODE_AV1_RATE_CONTROL_GROUP_PREDICTIVE_KHR")]
+    VIDEO_ENCODE_AV1_RATE_CONTROL_GROUP_PREDICTIVE_KHR = 1,
+    #[doc(alias = "VK_VIDEO_ENCODE_AV1_RATE_CONTROL_GROUP_BIPREDICTIVE_KHR")]
+    VIDEO_ENCODE_AV1_RATE_CONTROL_GROUP_BIPREDICTIVE_KHR = 2,
+}
+
+/// [`VkTimeDomainKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkTimeDomainKHR.html)
+///
+#[doc(alias = "VkTimeDomainKHR")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum TimeDomainKHR {
+    #[default]
+    #[doc(alias = "VK_TIME_DOMAIN_DEVICE_KHR")]
+    TIME_DOMAIN_DEVICE_KHR = 0,
+    #[doc(alias = "VK_TIME_DOMAIN_CLOCK_MONOTONIC_KHR")]
+    TIME_DOMAIN_CLOCK_MONOTONIC_KHR = 1,
+    #[doc(alias = "VK_TIME_DOMAIN_CLOCK_MONOTONIC_RAW_KHR")]
+    TIME_DOMAIN_CLOCK_MONOTONIC_RAW_KHR = 2,
+    #[doc(alias = "VK_TIME_DOMAIN_QUERY_PERFORMANCE_COUNTER_KHR")]
+    TIME_DOMAIN_QUERY_PERFORMANCE_COUNTER_KHR = 3,
+    #[doc(alias = "VK_TIME_DOMAIN_PRESENT_STAGE_LOCAL_EXT")]
+    TIME_DOMAIN_PRESENT_STAGE_LOCAL_EXT = 1000208000,
+    #[doc(alias = "VK_TIME_DOMAIN_SWAPCHAIN_LOCAL_EXT")]
+    TIME_DOMAIN_SWAPCHAIN_LOCAL_EXT = 1000208001,
+}
+/// [`VkTimeDomainEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkTimeDomainEXT.html)
+///
+#[doc(alias = "VkTimeDomainEXT")]
+pub type TimeDomainEXT = TimeDomainKHR;
+impl TimeDomainKHR {
+    #[doc(alias = "VK_TIME_DOMAIN_DEVICE_EXT")]
+    pub const TIME_DOMAIN_DEVICE_EXT: Self = Self::TIME_DOMAIN_DEVICE_KHR;
+    #[doc(alias = "VK_TIME_DOMAIN_CLOCK_MONOTONIC_EXT")]
+    pub const TIME_DOMAIN_CLOCK_MONOTONIC_EXT: Self = Self::TIME_DOMAIN_CLOCK_MONOTONIC_KHR;
+    #[doc(alias = "VK_TIME_DOMAIN_CLOCK_MONOTONIC_RAW_EXT")]
+    pub const TIME_DOMAIN_CLOCK_MONOTONIC_RAW_EXT: Self = Self::TIME_DOMAIN_CLOCK_MONOTONIC_RAW_KHR;
+    #[doc(alias = "VK_TIME_DOMAIN_QUERY_PERFORMANCE_COUNTER_EXT")]
+    pub const TIME_DOMAIN_QUERY_PERFORMANCE_COUNTER_EXT: Self = Self::TIME_DOMAIN_QUERY_PERFORMANCE_COUNTER_KHR;
+}
+
+/// [`VkPhysicalDeviceLayeredApiKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceLayeredApiKHR.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "VkPhysicalDeviceLayeredApiKHR")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum PhysicalDeviceLayeredApiKHR {
+    #[default]
+    #[doc(alias = "VK_PHYSICAL_DEVICE_LAYERED_API_VULKAN_KHR")]
+    PHYSICAL_DEVICE_LAYERED_API_VULKAN_KHR = 0,
+    #[doc(alias = "VK_PHYSICAL_DEVICE_LAYERED_API_D3D12_KHR")]
+    PHYSICAL_DEVICE_LAYERED_API_D3D12_KHR = 1,
+    #[doc(alias = "VK_PHYSICAL_DEVICE_LAYERED_API_METAL_KHR")]
+    PHYSICAL_DEVICE_LAYERED_API_METAL_KHR = 2,
+    #[doc(alias = "VK_PHYSICAL_DEVICE_LAYERED_API_OPENGL_KHR")]
+    PHYSICAL_DEVICE_LAYERED_API_OPENGL_KHR = 3,
+    #[doc(alias = "VK_PHYSICAL_DEVICE_LAYERED_API_OPENGLES_KHR")]
+    PHYSICAL_DEVICE_LAYERED_API_OPENGLES_KHR = 4,
+}
+
+/// [`VkDeviceFaultAddressTypeKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceFaultAddressTypeKHR.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "VkDeviceFaultAddressTypeKHR")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum DeviceFaultAddressTypeKHR {
+    #[default]
+    #[doc(alias = "VK_DEVICE_FAULT_ADDRESS_TYPE_NONE_KHR")]
+    DEVICE_FAULT_ADDRESS_TYPE_NONE_KHR = 0,
+    #[doc(alias = "VK_DEVICE_FAULT_ADDRESS_TYPE_READ_INVALID_KHR")]
+    DEVICE_FAULT_ADDRESS_TYPE_READ_INVALID_KHR = 1,
+    #[doc(alias = "VK_DEVICE_FAULT_ADDRESS_TYPE_WRITE_INVALID_KHR")]
+    DEVICE_FAULT_ADDRESS_TYPE_WRITE_INVALID_KHR = 2,
+    #[doc(alias = "VK_DEVICE_FAULT_ADDRESS_TYPE_EXECUTE_INVALID_KHR")]
+    DEVICE_FAULT_ADDRESS_TYPE_EXECUTE_INVALID_KHR = 3,
+    #[doc(alias = "VK_DEVICE_FAULT_ADDRESS_TYPE_INSTRUCTION_POINTER_UNKNOWN_KHR")]
+    DEVICE_FAULT_ADDRESS_TYPE_INSTRUCTION_POINTER_UNKNOWN_KHR = 4,
+    #[doc(alias = "VK_DEVICE_FAULT_ADDRESS_TYPE_INSTRUCTION_POINTER_INVALID_KHR")]
+    DEVICE_FAULT_ADDRESS_TYPE_INSTRUCTION_POINTER_INVALID_KHR = 5,
+    #[doc(alias = "VK_DEVICE_FAULT_ADDRESS_TYPE_INSTRUCTION_POINTER_FAULT_KHR")]
+    DEVICE_FAULT_ADDRESS_TYPE_INSTRUCTION_POINTER_FAULT_KHR = 6,
+}
+/// [`VkDeviceFaultAddressTypeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceFaultAddressTypeEXT.html)
+///
+#[doc(alias = "VkDeviceFaultAddressTypeEXT")]
+pub type DeviceFaultAddressTypeEXT = DeviceFaultAddressTypeKHR;
+impl DeviceFaultAddressTypeKHR {
+    #[doc(alias = "VK_DEVICE_FAULT_ADDRESS_TYPE_NONE_EXT")]
+    pub const DEVICE_FAULT_ADDRESS_TYPE_NONE_EXT: Self = Self::DEVICE_FAULT_ADDRESS_TYPE_NONE_KHR;
+    #[doc(alias = "VK_DEVICE_FAULT_ADDRESS_TYPE_READ_INVALID_EXT")]
+    pub const DEVICE_FAULT_ADDRESS_TYPE_READ_INVALID_EXT: Self = Self::DEVICE_FAULT_ADDRESS_TYPE_READ_INVALID_KHR;
+    #[doc(alias = "VK_DEVICE_FAULT_ADDRESS_TYPE_WRITE_INVALID_EXT")]
+    pub const DEVICE_FAULT_ADDRESS_TYPE_WRITE_INVALID_EXT: Self = Self::DEVICE_FAULT_ADDRESS_TYPE_WRITE_INVALID_KHR;
+    #[doc(alias = "VK_DEVICE_FAULT_ADDRESS_TYPE_EXECUTE_INVALID_EXT")]
+    pub const DEVICE_FAULT_ADDRESS_TYPE_EXECUTE_INVALID_EXT: Self = Self::DEVICE_FAULT_ADDRESS_TYPE_EXECUTE_INVALID_KHR;
+    #[doc(alias = "VK_DEVICE_FAULT_ADDRESS_TYPE_INSTRUCTION_POINTER_UNKNOWN_EXT")]
+    pub const DEVICE_FAULT_ADDRESS_TYPE_INSTRUCTION_POINTER_UNKNOWN_EXT: Self = Self::DEVICE_FAULT_ADDRESS_TYPE_INSTRUCTION_POINTER_UNKNOWN_KHR;
+    #[doc(alias = "VK_DEVICE_FAULT_ADDRESS_TYPE_INSTRUCTION_POINTER_INVALID_EXT")]
+    pub const DEVICE_FAULT_ADDRESS_TYPE_INSTRUCTION_POINTER_INVALID_EXT: Self = Self::DEVICE_FAULT_ADDRESS_TYPE_INSTRUCTION_POINTER_INVALID_KHR;
+    #[doc(alias = "VK_DEVICE_FAULT_ADDRESS_TYPE_INSTRUCTION_POINTER_FAULT_EXT")]
+    pub const DEVICE_FAULT_ADDRESS_TYPE_INSTRUCTION_POINTER_FAULT_EXT: Self = Self::DEVICE_FAULT_ADDRESS_TYPE_INSTRUCTION_POINTER_FAULT_KHR;
+}
+
+/// [`VkDeviceFaultVendorBinaryHeaderVersionKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceFaultVendorBinaryHeaderVersionKHR.html)
+///
+#[doc(alias = "VkDeviceFaultVendorBinaryHeaderVersionKHR")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum DeviceFaultVendorBinaryHeaderVersionKHR {
+    #[default]
+    #[doc(alias = "VK_DEVICE_FAULT_VENDOR_BINARY_HEADER_VERSION_ONE_KHR")]
+    DEVICE_FAULT_VENDOR_BINARY_HEADER_VERSION_ONE_KHR = 1,
+}
+/// [`VkDeviceFaultVendorBinaryHeaderVersionEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceFaultVendorBinaryHeaderVersionEXT.html)
+///
+#[doc(alias = "VkDeviceFaultVendorBinaryHeaderVersionEXT")]
+pub type DeviceFaultVendorBinaryHeaderVersionEXT = DeviceFaultVendorBinaryHeaderVersionKHR;
+impl DeviceFaultVendorBinaryHeaderVersionKHR {
+    #[doc(alias = "VK_DEVICE_FAULT_VENDOR_BINARY_HEADER_VERSION_ONE_EXT")]
+    pub const DEVICE_FAULT_VENDOR_BINARY_HEADER_VERSION_ONE_EXT: Self = Self::DEVICE_FAULT_VENDOR_BINARY_HEADER_VERSION_ONE_KHR;
+}
+
+/// [`VkDefaultVertexAttributeValueKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDefaultVertexAttributeValueKHR.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "VkDefaultVertexAttributeValueKHR")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum DefaultVertexAttributeValueKHR {
+    #[default]
+    #[doc(alias = "VK_DEFAULT_VERTEX_ATTRIBUTE_VALUE_ZERO_ZERO_ZERO_ZERO_KHR")]
+    DEFAULT_VERTEX_ATTRIBUTE_VALUE_ZERO_ZERO_ZERO_ZERO_KHR = 0,
+    #[doc(alias = "VK_DEFAULT_VERTEX_ATTRIBUTE_VALUE_ZERO_ZERO_ZERO_ONE_KHR")]
+    DEFAULT_VERTEX_ATTRIBUTE_VALUE_ZERO_ZERO_ZERO_ONE_KHR = 1,
+}
+
+/// [`VkOpacityMicromapFormatKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkOpacityMicromapFormatKHR.html)
+///
+#[doc(alias = "VkOpacityMicromapFormatKHR")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum OpacityMicromapFormatKHR {
+    #[default]
+    #[doc(alias = "VK_OPACITY_MICROMAP_FORMAT_2_STATE_KHR")]
+    OPACITY_MICROMAP_FORMAT_2_STATE_KHR = 1,
+    #[doc(alias = "VK_OPACITY_MICROMAP_FORMAT_4_STATE_KHR")]
+    OPACITY_MICROMAP_FORMAT_4_STATE_KHR = 2,
+}
+/// [`VkOpacityMicromapFormatEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkOpacityMicromapFormatEXT.html)
+///
+#[doc(alias = "VkOpacityMicromapFormatEXT")]
+pub type OpacityMicromapFormatEXT = OpacityMicromapFormatKHR;
+impl OpacityMicromapFormatKHR {
+    #[doc(alias = "VK_OPACITY_MICROMAP_FORMAT_2_STATE_EXT")]
+    pub const OPACITY_MICROMAP_FORMAT_2_STATE_EXT: Self = Self::OPACITY_MICROMAP_FORMAT_2_STATE_KHR;
+    #[doc(alias = "VK_OPACITY_MICROMAP_FORMAT_4_STATE_EXT")]
+    pub const OPACITY_MICROMAP_FORMAT_4_STATE_EXT: Self = Self::OPACITY_MICROMAP_FORMAT_4_STATE_KHR;
+}
+
+/// [`VkOpacityMicromapSpecialIndexKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkOpacityMicromapSpecialIndexKHR.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "VkOpacityMicromapSpecialIndexKHR")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum OpacityMicromapSpecialIndexKHR {
+    #[default]
+    #[doc(alias = "VK_OPACITY_MICROMAP_SPECIAL_INDEX_FULLY_TRANSPARENT_KHR")]
+    OPACITY_MICROMAP_SPECIAL_INDEX_FULLY_TRANSPARENT_KHR = -1,
+    #[doc(alias = "VK_OPACITY_MICROMAP_SPECIAL_INDEX_FULLY_OPAQUE_KHR")]
+    OPACITY_MICROMAP_SPECIAL_INDEX_FULLY_OPAQUE_KHR = -2,
+    #[doc(alias = "VK_OPACITY_MICROMAP_SPECIAL_INDEX_FULLY_UNKNOWN_TRANSPARENT_KHR")]
+    OPACITY_MICROMAP_SPECIAL_INDEX_FULLY_UNKNOWN_TRANSPARENT_KHR = -3,
+    #[doc(alias = "VK_OPACITY_MICROMAP_SPECIAL_INDEX_FULLY_UNKNOWN_OPAQUE_KHR")]
+    OPACITY_MICROMAP_SPECIAL_INDEX_FULLY_UNKNOWN_OPAQUE_KHR = -4,
+    #[doc(alias = "VK_OPACITY_MICROMAP_SPECIAL_INDEX_CLUSTER_GEOMETRY_DISABLE_OPACITY_MICROMAP_NV")]
+    OPACITY_MICROMAP_SPECIAL_INDEX_CLUSTER_GEOMETRY_DISABLE_OPACITY_MICROMAP_NV = -5,
+}
+/// [`VkOpacityMicromapSpecialIndexEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkOpacityMicromapSpecialIndexEXT.html)
+///
+#[doc(alias = "VkOpacityMicromapSpecialIndexEXT")]
+pub type OpacityMicromapSpecialIndexEXT = OpacityMicromapSpecialIndexKHR;
+impl OpacityMicromapSpecialIndexKHR {
+    #[doc(alias = "VK_OPACITY_MICROMAP_SPECIAL_INDEX_FULLY_TRANSPARENT_EXT")]
+    pub const OPACITY_MICROMAP_SPECIAL_INDEX_FULLY_TRANSPARENT_EXT: Self = Self::OPACITY_MICROMAP_SPECIAL_INDEX_FULLY_TRANSPARENT_KHR;
+    #[doc(alias = "VK_OPACITY_MICROMAP_SPECIAL_INDEX_FULLY_OPAQUE_EXT")]
+    pub const OPACITY_MICROMAP_SPECIAL_INDEX_FULLY_OPAQUE_EXT: Self = Self::OPACITY_MICROMAP_SPECIAL_INDEX_FULLY_OPAQUE_KHR;
+    #[doc(alias = "VK_OPACITY_MICROMAP_SPECIAL_INDEX_FULLY_UNKNOWN_TRANSPARENT_EXT")]
+    pub const OPACITY_MICROMAP_SPECIAL_INDEX_FULLY_UNKNOWN_TRANSPARENT_EXT: Self = Self::OPACITY_MICROMAP_SPECIAL_INDEX_FULLY_UNKNOWN_TRANSPARENT_KHR;
+    #[doc(alias = "VK_OPACITY_MICROMAP_SPECIAL_INDEX_FULLY_UNKNOWN_OPAQUE_EXT")]
+    pub const OPACITY_MICROMAP_SPECIAL_INDEX_FULLY_UNKNOWN_OPAQUE_EXT: Self = Self::OPACITY_MICROMAP_SPECIAL_INDEX_FULLY_UNKNOWN_OPAQUE_KHR;
+}
+
+/// [`VkAccelerationStructureSerializedBlockTypeKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureSerializedBlockTypeKHR.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "VkAccelerationStructureSerializedBlockTypeKHR")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum AccelerationStructureSerializedBlockTypeKHR {
+    #[default]
+    #[doc(alias = "VK_ACCELERATION_STRUCTURE_SERIALIZED_BLOCK_TYPE_OPACITY_MICROMAP_KHR")]
+    ACCELERATION_STRUCTURE_SERIALIZED_BLOCK_TYPE_OPACITY_MICROMAP_KHR = 0,
+}
+
+/// [`VkDebugReportObjectTypeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDebugReportObjectTypeEXT.html)
+///
+#[doc(alias = "VkDebugReportObjectTypeEXT")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum DebugReportObjectTypeEXT {
+    #[default]
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_UNKNOWN_EXT")]
+    DEBUG_REPORT_OBJECT_TYPE_UNKNOWN_EXT = 0,
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_INSTANCE_EXT")]
+    DEBUG_REPORT_OBJECT_TYPE_INSTANCE_EXT = 1,
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_PHYSICAL_DEVICE_EXT")]
+    DEBUG_REPORT_OBJECT_TYPE_PHYSICAL_DEVICE_EXT = 2,
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_DEVICE_EXT")]
+    DEBUG_REPORT_OBJECT_TYPE_DEVICE_EXT = 3,
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_QUEUE_EXT")]
+    DEBUG_REPORT_OBJECT_TYPE_QUEUE_EXT = 4,
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_SEMAPHORE_EXT")]
+    DEBUG_REPORT_OBJECT_TYPE_SEMAPHORE_EXT = 5,
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_COMMAND_BUFFER_EXT")]
+    DEBUG_REPORT_OBJECT_TYPE_COMMAND_BUFFER_EXT = 6,
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_FENCE_EXT")]
+    DEBUG_REPORT_OBJECT_TYPE_FENCE_EXT = 7,
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_DEVICE_MEMORY_EXT")]
+    DEBUG_REPORT_OBJECT_TYPE_DEVICE_MEMORY_EXT = 8,
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_BUFFER_EXT")]
+    DEBUG_REPORT_OBJECT_TYPE_BUFFER_EXT = 9,
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_IMAGE_EXT")]
+    DEBUG_REPORT_OBJECT_TYPE_IMAGE_EXT = 10,
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_EVENT_EXT")]
+    DEBUG_REPORT_OBJECT_TYPE_EVENT_EXT = 11,
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_QUERY_POOL_EXT")]
+    DEBUG_REPORT_OBJECT_TYPE_QUERY_POOL_EXT = 12,
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_BUFFER_VIEW_EXT")]
+    DEBUG_REPORT_OBJECT_TYPE_BUFFER_VIEW_EXT = 13,
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_IMAGE_VIEW_EXT")]
+    DEBUG_REPORT_OBJECT_TYPE_IMAGE_VIEW_EXT = 14,
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_SHADER_MODULE_EXT")]
+    DEBUG_REPORT_OBJECT_TYPE_SHADER_MODULE_EXT = 15,
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_PIPELINE_CACHE_EXT")]
+    DEBUG_REPORT_OBJECT_TYPE_PIPELINE_CACHE_EXT = 16,
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_PIPELINE_LAYOUT_EXT")]
+    DEBUG_REPORT_OBJECT_TYPE_PIPELINE_LAYOUT_EXT = 17,
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_RENDER_PASS_EXT")]
+    DEBUG_REPORT_OBJECT_TYPE_RENDER_PASS_EXT = 18,
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_PIPELINE_EXT")]
+    DEBUG_REPORT_OBJECT_TYPE_PIPELINE_EXT = 19,
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_DESCRIPTOR_SET_LAYOUT_EXT")]
+    DEBUG_REPORT_OBJECT_TYPE_DESCRIPTOR_SET_LAYOUT_EXT = 20,
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_SAMPLER_EXT")]
+    DEBUG_REPORT_OBJECT_TYPE_SAMPLER_EXT = 21,
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_DESCRIPTOR_POOL_EXT")]
+    DEBUG_REPORT_OBJECT_TYPE_DESCRIPTOR_POOL_EXT = 22,
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_DESCRIPTOR_SET_EXT")]
+    DEBUG_REPORT_OBJECT_TYPE_DESCRIPTOR_SET_EXT = 23,
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_FRAMEBUFFER_EXT")]
+    DEBUG_REPORT_OBJECT_TYPE_FRAMEBUFFER_EXT = 24,
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_COMMAND_POOL_EXT")]
+    DEBUG_REPORT_OBJECT_TYPE_COMMAND_POOL_EXT = 25,
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_SURFACE_KHR_EXT")]
+    DEBUG_REPORT_OBJECT_TYPE_SURFACE_KHR_EXT = 26,
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_SWAPCHAIN_KHR_EXT")]
+    DEBUG_REPORT_OBJECT_TYPE_SWAPCHAIN_KHR_EXT = 27,
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_DEBUG_REPORT_CALLBACK_EXT_EXT")]
+    DEBUG_REPORT_OBJECT_TYPE_DEBUG_REPORT_CALLBACK_EXT_EXT = 28,
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_DISPLAY_KHR_EXT")]
+    DEBUG_REPORT_OBJECT_TYPE_DISPLAY_KHR_EXT = 29,
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_DISPLAY_MODE_KHR_EXT")]
+    DEBUG_REPORT_OBJECT_TYPE_DISPLAY_MODE_KHR_EXT = 30,
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_VALIDATION_CACHE_EXT_EXT")]
+    DEBUG_REPORT_OBJECT_TYPE_VALIDATION_CACHE_EXT_EXT = 33,
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_SAMPLER_YCBCR_CONVERSION_EXT")]
+    DEBUG_REPORT_OBJECT_TYPE_SAMPLER_YCBCR_CONVERSION_EXT = 1000156000,
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_EXT")]
+    DEBUG_REPORT_OBJECT_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_EXT = 1000085000,
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_CU_MODULE_NVX_EXT")]
+    DEBUG_REPORT_OBJECT_TYPE_CU_MODULE_NVX_EXT = 1000029000,
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_CU_FUNCTION_NVX_EXT")]
+    DEBUG_REPORT_OBJECT_TYPE_CU_FUNCTION_NVX_EXT = 1000029001,
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_ACCELERATION_STRUCTURE_KHR_EXT")]
+    DEBUG_REPORT_OBJECT_TYPE_ACCELERATION_STRUCTURE_KHR_EXT = 1000150000,
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_ACCELERATION_STRUCTURE_NV_EXT")]
+    DEBUG_REPORT_OBJECT_TYPE_ACCELERATION_STRUCTURE_NV_EXT = 1000165000,
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_CUDA_MODULE_NV_EXT")]
+    DEBUG_REPORT_OBJECT_TYPE_CUDA_MODULE_NV_EXT = 1000307000,
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_CUDA_FUNCTION_NV_EXT")]
+    DEBUG_REPORT_OBJECT_TYPE_CUDA_FUNCTION_NV_EXT = 1000307001,
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_BUFFER_COLLECTION_FUCHSIA_EXT")]
+    DEBUG_REPORT_OBJECT_TYPE_BUFFER_COLLECTION_FUCHSIA_EXT = 1000366000,
+}
+impl DebugReportObjectTypeEXT {
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_DEBUG_REPORT_EXT")]
+    pub const DEBUG_REPORT_OBJECT_TYPE_DEBUG_REPORT_EXT: Self = Self::DEBUG_REPORT_OBJECT_TYPE_DEBUG_REPORT_CALLBACK_EXT_EXT;
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_VALIDATION_CACHE_EXT")]
+    pub const DEBUG_REPORT_OBJECT_TYPE_VALIDATION_CACHE_EXT: Self = Self::DEBUG_REPORT_OBJECT_TYPE_VALIDATION_CACHE_EXT_EXT;
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_SAMPLER_YCBCR_CONVERSION_KHR_EXT")]
+    pub const DEBUG_REPORT_OBJECT_TYPE_SAMPLER_YCBCR_CONVERSION_KHR_EXT: Self = Self::DEBUG_REPORT_OBJECT_TYPE_SAMPLER_YCBCR_CONVERSION_EXT;
+    #[doc(alias = "VK_DEBUG_REPORT_OBJECT_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_KHR_EXT")]
+    pub const DEBUG_REPORT_OBJECT_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_KHR_EXT: Self = Self::DEBUG_REPORT_OBJECT_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_EXT;
+}
+
+/// [`VkRasterizationOrderAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/VkRasterizationOrderAMD.html)
+///
+#[doc(alias = "VkRasterizationOrderAMD")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum RasterizationOrderAMD {
+    #[default]
+    #[doc(alias = "VK_RASTERIZATION_ORDER_STRICT_AMD")]
+    RASTERIZATION_ORDER_STRICT_AMD = 0,
+    #[doc(alias = "VK_RASTERIZATION_ORDER_RELAXED_AMD")]
+    RASTERIZATION_ORDER_RELAXED_AMD = 1,
+}
+
+/// [`VkShaderInfoTypeAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderInfoTypeAMD.html)
+///
+#[doc(alias = "VkShaderInfoTypeAMD")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum ShaderInfoTypeAMD {
+    #[default]
+    #[doc(alias = "VK_SHADER_INFO_TYPE_STATISTICS_AMD")]
+    SHADER_INFO_TYPE_STATISTICS_AMD = 0,
+    #[doc(alias = "VK_SHADER_INFO_TYPE_BINARY_AMD")]
+    SHADER_INFO_TYPE_BINARY_AMD = 1,
+    #[doc(alias = "VK_SHADER_INFO_TYPE_DISASSEMBLY_AMD")]
+    SHADER_INFO_TYPE_DISASSEMBLY_AMD = 2,
+}
+
+/// [`VkValidationCheckEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkValidationCheckEXT.html)
+///
+#[doc(alias = "VkValidationCheckEXT")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum ValidationCheckEXT {
+    #[default]
+    #[doc(alias = "VK_VALIDATION_CHECK_ALL_EXT")]
+    VALIDATION_CHECK_ALL_EXT = 0,
+    #[doc(alias = "VK_VALIDATION_CHECK_SHADERS_EXT")]
+    VALIDATION_CHECK_SHADERS_EXT = 1,
+}
+
+/// [`VkDisplayPowerStateEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplayPowerStateEXT.html)
+///
+#[doc(alias = "VkDisplayPowerStateEXT")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum DisplayPowerStateEXT {
+    #[default]
+    #[doc(alias = "VK_DISPLAY_POWER_STATE_OFF_EXT")]
+    DISPLAY_POWER_STATE_OFF_EXT = 0,
+    #[doc(alias = "VK_DISPLAY_POWER_STATE_SUSPEND_EXT")]
+    DISPLAY_POWER_STATE_SUSPEND_EXT = 1,
+    #[doc(alias = "VK_DISPLAY_POWER_STATE_ON_EXT")]
+    DISPLAY_POWER_STATE_ON_EXT = 2,
+}
+
+/// [`VkDeviceEventTypeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceEventTypeEXT.html)
+///
+#[doc(alias = "VkDeviceEventTypeEXT")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum DeviceEventTypeEXT {
+    #[default]
+    #[doc(alias = "VK_DEVICE_EVENT_TYPE_DISPLAY_HOTPLUG_EXT")]
+    DEVICE_EVENT_TYPE_DISPLAY_HOTPLUG_EXT = 0,
+}
+
+/// [`VkDisplayEventTypeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplayEventTypeEXT.html)
+///
+#[doc(alias = "VkDisplayEventTypeEXT")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum DisplayEventTypeEXT {
+    #[default]
+    #[doc(alias = "VK_DISPLAY_EVENT_TYPE_FIRST_PIXEL_OUT_EXT")]
+    DISPLAY_EVENT_TYPE_FIRST_PIXEL_OUT_EXT = 0,
+}
+
+/// [`VkViewportCoordinateSwizzleNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkViewportCoordinateSwizzleNV.html)
+///
+#[doc(alias = "VkViewportCoordinateSwizzleNV")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum ViewportCoordinateSwizzleNV {
+    #[default]
+    #[doc(alias = "VK_VIEWPORT_COORDINATE_SWIZZLE_POSITIVE_X_NV")]
+    VIEWPORT_COORDINATE_SWIZZLE_POSITIVE_X_NV = 0,
+    #[doc(alias = "VK_VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_X_NV")]
+    VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_X_NV = 1,
+    #[doc(alias = "VK_VIEWPORT_COORDINATE_SWIZZLE_POSITIVE_Y_NV")]
+    VIEWPORT_COORDINATE_SWIZZLE_POSITIVE_Y_NV = 2,
+    #[doc(alias = "VK_VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_Y_NV")]
+    VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_Y_NV = 3,
+    #[doc(alias = "VK_VIEWPORT_COORDINATE_SWIZZLE_POSITIVE_Z_NV")]
+    VIEWPORT_COORDINATE_SWIZZLE_POSITIVE_Z_NV = 4,
+    #[doc(alias = "VK_VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_Z_NV")]
+    VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_Z_NV = 5,
+    #[doc(alias = "VK_VIEWPORT_COORDINATE_SWIZZLE_POSITIVE_W_NV")]
+    VIEWPORT_COORDINATE_SWIZZLE_POSITIVE_W_NV = 6,
+    #[doc(alias = "VK_VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_W_NV")]
+    VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_W_NV = 7,
+}
+
+/// [`VkDiscardRectangleModeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDiscardRectangleModeEXT.html)
+///
+#[doc(alias = "VkDiscardRectangleModeEXT")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum DiscardRectangleModeEXT {
+    #[default]
+    #[doc(alias = "VK_DISCARD_RECTANGLE_MODE_INCLUSIVE_EXT")]
+    DISCARD_RECTANGLE_MODE_INCLUSIVE_EXT = 0,
+    #[doc(alias = "VK_DISCARD_RECTANGLE_MODE_EXCLUSIVE_EXT")]
+    DISCARD_RECTANGLE_MODE_EXCLUSIVE_EXT = 1,
+}
+
+/// [`VkConservativeRasterizationModeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkConservativeRasterizationModeEXT.html)
+///
+#[doc(alias = "VkConservativeRasterizationModeEXT")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum ConservativeRasterizationModeEXT {
+    #[default]
+    #[doc(alias = "VK_CONSERVATIVE_RASTERIZATION_MODE_DISABLED_EXT")]
+    CONSERVATIVE_RASTERIZATION_MODE_DISABLED_EXT = 0,
+    #[doc(alias = "VK_CONSERVATIVE_RASTERIZATION_MODE_OVERESTIMATE_EXT")]
+    CONSERVATIVE_RASTERIZATION_MODE_OVERESTIMATE_EXT = 1,
+    #[doc(alias = "VK_CONSERVATIVE_RASTERIZATION_MODE_UNDERESTIMATE_EXT")]
+    CONSERVATIVE_RASTERIZATION_MODE_UNDERESTIMATE_EXT = 2,
+}
+
+/// [`VkGpaPerfBlockAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/VkGpaPerfBlockAMD.html)
+///
+#[doc(alias = "VkGpaPerfBlockAMD")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum GpaPerfBlockAMD {
+    #[default]
+    #[doc(alias = "VK_GPA_PERF_BLOCK_CPF_AMD")]
+    GPA_PERF_BLOCK_CPF_AMD = 0,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_IA_AMD")]
+    GPA_PERF_BLOCK_IA_AMD = 1,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_VGT_AMD")]
+    GPA_PERF_BLOCK_VGT_AMD = 2,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_PA_AMD")]
+    GPA_PERF_BLOCK_PA_AMD = 3,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_SC_AMD")]
+    GPA_PERF_BLOCK_SC_AMD = 4,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_SPI_AMD")]
+    GPA_PERF_BLOCK_SPI_AMD = 5,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_SQ_AMD")]
+    GPA_PERF_BLOCK_SQ_AMD = 6,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_SX_AMD")]
+    GPA_PERF_BLOCK_SX_AMD = 7,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_TA_AMD")]
+    GPA_PERF_BLOCK_TA_AMD = 8,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_TD_AMD")]
+    GPA_PERF_BLOCK_TD_AMD = 9,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_TCP_AMD")]
+    GPA_PERF_BLOCK_TCP_AMD = 10,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_TCC_AMD")]
+    GPA_PERF_BLOCK_TCC_AMD = 11,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_TCA_AMD")]
+    GPA_PERF_BLOCK_TCA_AMD = 12,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_DB_AMD")]
+    GPA_PERF_BLOCK_DB_AMD = 13,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_CB_AMD")]
+    GPA_PERF_BLOCK_CB_AMD = 14,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_GDS_AMD")]
+    GPA_PERF_BLOCK_GDS_AMD = 15,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_SRBM_AMD")]
+    GPA_PERF_BLOCK_SRBM_AMD = 16,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_GRBM_AMD")]
+    GPA_PERF_BLOCK_GRBM_AMD = 17,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_GRBM_SE_AMD")]
+    GPA_PERF_BLOCK_GRBM_SE_AMD = 18,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_RLC_AMD")]
+    GPA_PERF_BLOCK_RLC_AMD = 19,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_DMA_AMD")]
+    GPA_PERF_BLOCK_DMA_AMD = 20,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_MC_AMD")]
+    GPA_PERF_BLOCK_MC_AMD = 21,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_CPG_AMD")]
+    GPA_PERF_BLOCK_CPG_AMD = 22,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_CPC_AMD")]
+    GPA_PERF_BLOCK_CPC_AMD = 23,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_WD_AMD")]
+    GPA_PERF_BLOCK_WD_AMD = 24,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_TCS_AMD")]
+    GPA_PERF_BLOCK_TCS_AMD = 25,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_ATC_AMD")]
+    GPA_PERF_BLOCK_ATC_AMD = 26,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_ATC_L2_AMD")]
+    GPA_PERF_BLOCK_ATC_L2_AMD = 27,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_MC_VM_L2_AMD")]
+    GPA_PERF_BLOCK_MC_VM_L2_AMD = 28,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_EA_AMD")]
+    GPA_PERF_BLOCK_EA_AMD = 29,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_RPB_AMD")]
+    GPA_PERF_BLOCK_RPB_AMD = 30,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_RMI_AMD")]
+    GPA_PERF_BLOCK_RMI_AMD = 31,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_UMCCH_AMD")]
+    GPA_PERF_BLOCK_UMCCH_AMD = 32,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_GE_AMD")]
+    GPA_PERF_BLOCK_GE_AMD = 33,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_GL1A_AMD")]
+    GPA_PERF_BLOCK_GL1A_AMD = 34,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_GL1C_AMD")]
+    GPA_PERF_BLOCK_GL1C_AMD = 35,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_GL1CG_AMD")]
+    GPA_PERF_BLOCK_GL1CG_AMD = 36,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_GL2A_AMD")]
+    GPA_PERF_BLOCK_GL2A_AMD = 37,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_GL2C_AMD")]
+    GPA_PERF_BLOCK_GL2C_AMD = 38,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_CHA_AMD")]
+    GPA_PERF_BLOCK_CHA_AMD = 39,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_CHC_AMD")]
+    GPA_PERF_BLOCK_CHC_AMD = 40,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_CHCG_AMD")]
+    GPA_PERF_BLOCK_CHCG_AMD = 41,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_GUS_AMD")]
+    GPA_PERF_BLOCK_GUS_AMD = 42,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_GCR_AMD")]
+    GPA_PERF_BLOCK_GCR_AMD = 43,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_PH_AMD")]
+    GPA_PERF_BLOCK_PH_AMD = 44,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_UTCL1_AMD")]
+    GPA_PERF_BLOCK_UTCL1_AMD = 45,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_GE_DIST_AMD")]
+    GPA_PERF_BLOCK_GE_DIST_AMD = 46,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_GE_SE_AMD")]
+    GPA_PERF_BLOCK_GE_SE_AMD = 47,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_DF_MALL_AMD")]
+    GPA_PERF_BLOCK_DF_MALL_AMD = 48,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_SQ_WGP_AMD")]
+    GPA_PERF_BLOCK_SQ_WGP_AMD = 49,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_PC_AMD")]
+    GPA_PERF_BLOCK_PC_AMD = 50,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_GL1XA_AMD")]
+    GPA_PERF_BLOCK_GL1XA_AMD = 51,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_GL1XC_AMD")]
+    GPA_PERF_BLOCK_GL1XC_AMD = 52,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_WGS_AMD")]
+    GPA_PERF_BLOCK_WGS_AMD = 53,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_EACPWD_AMD")]
+    GPA_PERF_BLOCK_EACPWD_AMD = 54,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_EASE_AMD")]
+    GPA_PERF_BLOCK_EASE_AMD = 55,
+    #[doc(alias = "VK_GPA_PERF_BLOCK_RLCUSER_AMD")]
+    GPA_PERF_BLOCK_RLCUSER_AMD = 56,
+}
+impl GpaPerfBlockAMD {
+    #[doc(alias = "VK_GPA_PERF_BLOCK_GE1_AMD")]
+    pub const GPA_PERF_BLOCK_GE1_AMD: Self = Self::GPA_PERF_BLOCK_GE_AMD;
+    #[doc(alias = "VK_GPA_PERF_BLOCK_RLCLOCAL_AMD")]
+    pub const GPA_PERF_BLOCK_RLCLOCAL_AMD: Self = Self::GPA_PERF_BLOCK_RLCUSER_AMD;
+}
+
+/// [`VkGpaSampleTypeAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/VkGpaSampleTypeAMD.html)
+///
+#[doc(alias = "VkGpaSampleTypeAMD")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum GpaSampleTypeAMD {
+    #[default]
+    #[doc(alias = "VK_GPA_SAMPLE_TYPE_CUMULATIVE_AMD")]
+    GPA_SAMPLE_TYPE_CUMULATIVE_AMD = 0,
+    #[doc(alias = "VK_GPA_SAMPLE_TYPE_TRACE_AMD")]
+    GPA_SAMPLE_TYPE_TRACE_AMD = 1,
+    #[doc(alias = "VK_GPA_SAMPLE_TYPE_TIMING_AMD")]
+    GPA_SAMPLE_TYPE_TIMING_AMD = 2,
+}
+
+/// [`VkGpaDeviceClockModeAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/VkGpaDeviceClockModeAMD.html)
+///
+#[doc(alias = "VkGpaDeviceClockModeAMD")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum GpaDeviceClockModeAMD {
+    #[default]
+    #[doc(alias = "VK_GPA_DEVICE_CLOCK_MODE_DEFAULT_AMD")]
+    GPA_DEVICE_CLOCK_MODE_DEFAULT_AMD = 0,
+    #[doc(alias = "VK_GPA_DEVICE_CLOCK_MODE_QUERY_AMD")]
+    GPA_DEVICE_CLOCK_MODE_QUERY_AMD = 1,
+    #[doc(alias = "VK_GPA_DEVICE_CLOCK_MODE_PROFILING_AMD")]
+    GPA_DEVICE_CLOCK_MODE_PROFILING_AMD = 2,
+    #[doc(alias = "VK_GPA_DEVICE_CLOCK_MODE_MIN_MEMORY_AMD")]
+    GPA_DEVICE_CLOCK_MODE_MIN_MEMORY_AMD = 3,
+    #[doc(alias = "VK_GPA_DEVICE_CLOCK_MODE_MIN_ENGINE_AMD")]
+    GPA_DEVICE_CLOCK_MODE_MIN_ENGINE_AMD = 4,
+    #[doc(alias = "VK_GPA_DEVICE_CLOCK_MODE_PEAK_AMD")]
+    GPA_DEVICE_CLOCK_MODE_PEAK_AMD = 5,
+}
+
+/// [`VkDescriptorMappingSourceEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorMappingSourceEXT.html)
+///
+#[doc(alias = "VkDescriptorMappingSourceEXT")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum DescriptorMappingSourceEXT {
+    #[default]
+    #[doc(alias = "VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_CONSTANT_OFFSET_EXT")]
+    DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_CONSTANT_OFFSET_EXT = 0,
+    #[doc(alias = "VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_PUSH_INDEX_EXT")]
+    DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_PUSH_INDEX_EXT = 1,
+    #[doc(alias = "VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT")]
+    DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT = 2,
+    #[doc(alias = "VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT")]
+    DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT = 3,
+    #[doc(alias = "VK_DESCRIPTOR_MAPPING_SOURCE_RESOURCE_HEAP_DATA_EXT")]
+    DESCRIPTOR_MAPPING_SOURCE_RESOURCE_HEAP_DATA_EXT = 4,
+    #[doc(alias = "VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_DATA_EXT")]
+    DESCRIPTOR_MAPPING_SOURCE_PUSH_DATA_EXT = 5,
+    #[doc(alias = "VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_ADDRESS_EXT")]
+    DESCRIPTOR_MAPPING_SOURCE_PUSH_ADDRESS_EXT = 6,
+    #[doc(alias = "VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT")]
+    DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT = 7,
+    #[doc(alias = "VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_SHADER_RECORD_INDEX_EXT")]
+    DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_SHADER_RECORD_INDEX_EXT = 8,
+    #[doc(alias = "VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_DATA_EXT")]
+    DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_DATA_EXT = 9,
+    #[doc(alias = "VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_ADDRESS_EXT")]
+    DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_ADDRESS_EXT = 10,
+}
+
+/// [`VkBlendOverlapEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBlendOverlapEXT.html)
+///
+#[doc(alias = "VkBlendOverlapEXT")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum BlendOverlapEXT {
+    #[default]
+    #[doc(alias = "VK_BLEND_OVERLAP_UNCORRELATED_EXT")]
+    BLEND_OVERLAP_UNCORRELATED_EXT = 0,
+    #[doc(alias = "VK_BLEND_OVERLAP_DISJOINT_EXT")]
+    BLEND_OVERLAP_DISJOINT_EXT = 1,
+    #[doc(alias = "VK_BLEND_OVERLAP_CONJOINT_EXT")]
+    BLEND_OVERLAP_CONJOINT_EXT = 2,
+}
+
+/// [`VkCoverageModulationModeNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCoverageModulationModeNV.html)
+///
+#[doc(alias = "VkCoverageModulationModeNV")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum CoverageModulationModeNV {
+    #[default]
+    #[doc(alias = "VK_COVERAGE_MODULATION_MODE_NONE_NV")]
+    COVERAGE_MODULATION_MODE_NONE_NV = 0,
+    #[doc(alias = "VK_COVERAGE_MODULATION_MODE_RGB_NV")]
+    COVERAGE_MODULATION_MODE_RGB_NV = 1,
+    #[doc(alias = "VK_COVERAGE_MODULATION_MODE_ALPHA_NV")]
+    COVERAGE_MODULATION_MODE_ALPHA_NV = 2,
+    #[doc(alias = "VK_COVERAGE_MODULATION_MODE_RGBA_NV")]
+    COVERAGE_MODULATION_MODE_RGBA_NV = 3,
+}
+
+/// [`VkValidationCacheHeaderVersionEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkValidationCacheHeaderVersionEXT.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "VkValidationCacheHeaderVersionEXT")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum ValidationCacheHeaderVersionEXT {
+    #[default]
+    #[doc(alias = "VK_VALIDATION_CACHE_HEADER_VERSION_ONE_EXT")]
+    VALIDATION_CACHE_HEADER_VERSION_ONE_EXT = 1,
+}
+
+/// [`VkShadingRatePaletteEntryNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkShadingRatePaletteEntryNV.html)
+///
+#[doc(alias = "VkShadingRatePaletteEntryNV")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum ShadingRatePaletteEntryNV {
+    #[default]
+    #[doc(alias = "VK_SHADING_RATE_PALETTE_ENTRY_NO_INVOCATIONS_NV")]
+    SHADING_RATE_PALETTE_ENTRY_NO_INVOCATIONS_NV = 0,
+    #[doc(alias = "VK_SHADING_RATE_PALETTE_ENTRY_16_INVOCATIONS_PER_PIXEL_NV")]
+    SHADING_RATE_PALETTE_ENTRY_16_INVOCATIONS_PER_PIXEL_NV = 1,
+    #[doc(alias = "VK_SHADING_RATE_PALETTE_ENTRY_8_INVOCATIONS_PER_PIXEL_NV")]
+    SHADING_RATE_PALETTE_ENTRY_8_INVOCATIONS_PER_PIXEL_NV = 2,
+    #[doc(alias = "VK_SHADING_RATE_PALETTE_ENTRY_4_INVOCATIONS_PER_PIXEL_NV")]
+    SHADING_RATE_PALETTE_ENTRY_4_INVOCATIONS_PER_PIXEL_NV = 3,
+    #[doc(alias = "VK_SHADING_RATE_PALETTE_ENTRY_2_INVOCATIONS_PER_PIXEL_NV")]
+    SHADING_RATE_PALETTE_ENTRY_2_INVOCATIONS_PER_PIXEL_NV = 4,
+    #[doc(alias = "VK_SHADING_RATE_PALETTE_ENTRY_1_INVOCATION_PER_PIXEL_NV")]
+    SHADING_RATE_PALETTE_ENTRY_1_INVOCATION_PER_PIXEL_NV = 5,
+    #[doc(alias = "VK_SHADING_RATE_PALETTE_ENTRY_1_INVOCATION_PER_2X1_PIXELS_NV")]
+    SHADING_RATE_PALETTE_ENTRY_1_INVOCATION_PER_2X1_PIXELS_NV = 6,
+    #[doc(alias = "VK_SHADING_RATE_PALETTE_ENTRY_1_INVOCATION_PER_1X2_PIXELS_NV")]
+    SHADING_RATE_PALETTE_ENTRY_1_INVOCATION_PER_1X2_PIXELS_NV = 7,
+    #[doc(alias = "VK_SHADING_RATE_PALETTE_ENTRY_1_INVOCATION_PER_2X2_PIXELS_NV")]
+    SHADING_RATE_PALETTE_ENTRY_1_INVOCATION_PER_2X2_PIXELS_NV = 8,
+    #[doc(alias = "VK_SHADING_RATE_PALETTE_ENTRY_1_INVOCATION_PER_4X2_PIXELS_NV")]
+    SHADING_RATE_PALETTE_ENTRY_1_INVOCATION_PER_4X2_PIXELS_NV = 9,
+    #[doc(alias = "VK_SHADING_RATE_PALETTE_ENTRY_1_INVOCATION_PER_2X4_PIXELS_NV")]
+    SHADING_RATE_PALETTE_ENTRY_1_INVOCATION_PER_2X4_PIXELS_NV = 10,
+    #[doc(alias = "VK_SHADING_RATE_PALETTE_ENTRY_1_INVOCATION_PER_4X4_PIXELS_NV")]
+    SHADING_RATE_PALETTE_ENTRY_1_INVOCATION_PER_4X4_PIXELS_NV = 11,
+}
+
+/// [`VkCoarseSampleOrderTypeNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCoarseSampleOrderTypeNV.html)
+///
+#[doc(alias = "VkCoarseSampleOrderTypeNV")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum CoarseSampleOrderTypeNV {
+    #[default]
+    #[doc(alias = "VK_COARSE_SAMPLE_ORDER_TYPE_DEFAULT_NV")]
+    COARSE_SAMPLE_ORDER_TYPE_DEFAULT_NV = 0,
+    #[doc(alias = "VK_COARSE_SAMPLE_ORDER_TYPE_CUSTOM_NV")]
+    COARSE_SAMPLE_ORDER_TYPE_CUSTOM_NV = 1,
+    #[doc(alias = "VK_COARSE_SAMPLE_ORDER_TYPE_PIXEL_MAJOR_NV")]
+    COARSE_SAMPLE_ORDER_TYPE_PIXEL_MAJOR_NV = 2,
+    #[doc(alias = "VK_COARSE_SAMPLE_ORDER_TYPE_SAMPLE_MAJOR_NV")]
+    COARSE_SAMPLE_ORDER_TYPE_SAMPLE_MAJOR_NV = 3,
+}
+
+/// [`VkRayTracingShaderGroupTypeKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkRayTracingShaderGroupTypeKHR.html)
+///
+#[doc(alias = "VkRayTracingShaderGroupTypeKHR")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum RayTracingShaderGroupTypeKHR {
+    #[default]
+    #[doc(alias = "VK_RAY_TRACING_SHADER_GROUP_TYPE_GENERAL_KHR")]
+    RAY_TRACING_SHADER_GROUP_TYPE_GENERAL_KHR = 0,
+    #[doc(alias = "VK_RAY_TRACING_SHADER_GROUP_TYPE_TRIANGLES_HIT_GROUP_KHR")]
+    RAY_TRACING_SHADER_GROUP_TYPE_TRIANGLES_HIT_GROUP_KHR = 1,
+    #[doc(alias = "VK_RAY_TRACING_SHADER_GROUP_TYPE_PROCEDURAL_HIT_GROUP_KHR")]
+    RAY_TRACING_SHADER_GROUP_TYPE_PROCEDURAL_HIT_GROUP_KHR = 2,
+}
+/// [`VkRayTracingShaderGroupTypeNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkRayTracingShaderGroupTypeNV.html)
+///
+#[doc(alias = "VkRayTracingShaderGroupTypeNV")]
+pub type RayTracingShaderGroupTypeNV = RayTracingShaderGroupTypeKHR;
+impl RayTracingShaderGroupTypeKHR {
+    #[doc(alias = "VK_RAY_TRACING_SHADER_GROUP_TYPE_GENERAL_NV")]
+    pub const RAY_TRACING_SHADER_GROUP_TYPE_GENERAL_NV: Self = Self::RAY_TRACING_SHADER_GROUP_TYPE_GENERAL_KHR;
+    #[doc(alias = "VK_RAY_TRACING_SHADER_GROUP_TYPE_TRIANGLES_HIT_GROUP_NV")]
+    pub const RAY_TRACING_SHADER_GROUP_TYPE_TRIANGLES_HIT_GROUP_NV: Self = Self::RAY_TRACING_SHADER_GROUP_TYPE_TRIANGLES_HIT_GROUP_KHR;
+    #[doc(alias = "VK_RAY_TRACING_SHADER_GROUP_TYPE_PROCEDURAL_HIT_GROUP_NV")]
+    pub const RAY_TRACING_SHADER_GROUP_TYPE_PROCEDURAL_HIT_GROUP_NV: Self = Self::RAY_TRACING_SHADER_GROUP_TYPE_PROCEDURAL_HIT_GROUP_KHR;
+}
+
+/// [`VkGeometryTypeKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkGeometryTypeKHR.html)
+///
+#[doc(alias = "VkGeometryTypeKHR")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum GeometryTypeKHR {
+    #[default]
+    #[doc(alias = "VK_GEOMETRY_TYPE_TRIANGLES_KHR")]
+    GEOMETRY_TYPE_TRIANGLES_KHR = 0,
+    #[doc(alias = "VK_GEOMETRY_TYPE_AABBS_KHR")]
+    GEOMETRY_TYPE_AABBS_KHR = 1,
+    #[doc(alias = "VK_GEOMETRY_TYPE_INSTANCES_KHR")]
+    GEOMETRY_TYPE_INSTANCES_KHR = 2,
+    #[doc(alias = "VK_GEOMETRY_TYPE_SPHERES_NV")]
+    GEOMETRY_TYPE_SPHERES_NV = 1000429004,
+    #[doc(alias = "VK_GEOMETRY_TYPE_LINEAR_SWEPT_SPHERES_NV")]
+    GEOMETRY_TYPE_LINEAR_SWEPT_SPHERES_NV = 1000429005,
+    #[doc(alias = "VK_GEOMETRY_TYPE_DENSE_GEOMETRY_FORMAT_TRIANGLES_AMDX")]
+    GEOMETRY_TYPE_DENSE_GEOMETRY_FORMAT_TRIANGLES_AMDX = 1000478000,
+    #[doc(alias = "VK_GEOMETRY_TYPE_MICROMAP_KHR")]
+    GEOMETRY_TYPE_MICROMAP_KHR = 1000623000,
+}
+/// [`VkGeometryTypeNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkGeometryTypeNV.html)
+///
+#[doc(alias = "VkGeometryTypeNV")]
+pub type GeometryTypeNV = GeometryTypeKHR;
+impl GeometryTypeKHR {
+    #[doc(alias = "VK_GEOMETRY_TYPE_TRIANGLES_NV")]
+    pub const GEOMETRY_TYPE_TRIANGLES_NV: Self = Self::GEOMETRY_TYPE_TRIANGLES_KHR;
+    #[doc(alias = "VK_GEOMETRY_TYPE_AABBS_NV")]
+    pub const GEOMETRY_TYPE_AABBS_NV: Self = Self::GEOMETRY_TYPE_AABBS_KHR;
+}
+
+/// [`VkCopyAccelerationStructureModeKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyAccelerationStructureModeKHR.html)
+///
+#[doc(alias = "VkCopyAccelerationStructureModeKHR")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum CopyAccelerationStructureModeKHR {
+    #[default]
+    #[doc(alias = "VK_COPY_ACCELERATION_STRUCTURE_MODE_CLONE_KHR")]
+    COPY_ACCELERATION_STRUCTURE_MODE_CLONE_KHR = 0,
+    #[doc(alias = "VK_COPY_ACCELERATION_STRUCTURE_MODE_COMPACT_KHR")]
+    COPY_ACCELERATION_STRUCTURE_MODE_COMPACT_KHR = 1,
+    #[doc(alias = "VK_COPY_ACCELERATION_STRUCTURE_MODE_SERIALIZE_KHR")]
+    COPY_ACCELERATION_STRUCTURE_MODE_SERIALIZE_KHR = 2,
+    #[doc(alias = "VK_COPY_ACCELERATION_STRUCTURE_MODE_DESERIALIZE_KHR")]
+    COPY_ACCELERATION_STRUCTURE_MODE_DESERIALIZE_KHR = 3,
+}
+/// [`VkCopyAccelerationStructureModeNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyAccelerationStructureModeNV.html)
+///
+#[doc(alias = "VkCopyAccelerationStructureModeNV")]
+pub type CopyAccelerationStructureModeNV = CopyAccelerationStructureModeKHR;
+impl CopyAccelerationStructureModeKHR {
+    #[doc(alias = "VK_COPY_ACCELERATION_STRUCTURE_MODE_CLONE_NV")]
+    pub const COPY_ACCELERATION_STRUCTURE_MODE_CLONE_NV: Self = Self::COPY_ACCELERATION_STRUCTURE_MODE_CLONE_KHR;
+    #[doc(alias = "VK_COPY_ACCELERATION_STRUCTURE_MODE_COMPACT_NV")]
+    pub const COPY_ACCELERATION_STRUCTURE_MODE_COMPACT_NV: Self = Self::COPY_ACCELERATION_STRUCTURE_MODE_COMPACT_KHR;
+}
+
+/// [`VkAccelerationStructureMemoryRequirementsTypeNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureMemoryRequirementsTypeNV.html)
+///
+#[doc(alias = "VkAccelerationStructureMemoryRequirementsTypeNV")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum AccelerationStructureMemoryRequirementsTypeNV {
+    #[default]
+    #[doc(alias = "VK_ACCELERATION_STRUCTURE_MEMORY_REQUIREMENTS_TYPE_OBJECT_NV")]
+    ACCELERATION_STRUCTURE_MEMORY_REQUIREMENTS_TYPE_OBJECT_NV = 0,
+    #[doc(alias = "VK_ACCELERATION_STRUCTURE_MEMORY_REQUIREMENTS_TYPE_BUILD_SCRATCH_NV")]
+    ACCELERATION_STRUCTURE_MEMORY_REQUIREMENTS_TYPE_BUILD_SCRATCH_NV = 1,
+    #[doc(alias = "VK_ACCELERATION_STRUCTURE_MEMORY_REQUIREMENTS_TYPE_UPDATE_SCRATCH_NV")]
+    ACCELERATION_STRUCTURE_MEMORY_REQUIREMENTS_TYPE_UPDATE_SCRATCH_NV = 2,
+}
+
+/// [`VkMemoryOverallocationBehaviorAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryOverallocationBehaviorAMD.html)
+///
+#[doc(alias = "VkMemoryOverallocationBehaviorAMD")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum MemoryOverallocationBehaviorAMD {
+    #[default]
+    #[doc(alias = "VK_MEMORY_OVERALLOCATION_BEHAVIOR_DEFAULT_AMD")]
+    MEMORY_OVERALLOCATION_BEHAVIOR_DEFAULT_AMD = 0,
+    #[doc(alias = "VK_MEMORY_OVERALLOCATION_BEHAVIOR_ALLOWED_AMD")]
+    MEMORY_OVERALLOCATION_BEHAVIOR_ALLOWED_AMD = 1,
+    #[doc(alias = "VK_MEMORY_OVERALLOCATION_BEHAVIOR_DISALLOWED_AMD")]
+    MEMORY_OVERALLOCATION_BEHAVIOR_DISALLOWED_AMD = 2,
+}
+
+/// [`VkPerformanceConfigurationTypeINTEL`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceConfigurationTypeINTEL.html)
+///
+#[doc(alias = "VkPerformanceConfigurationTypeINTEL")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum PerformanceConfigurationTypeINTEL {
+    #[default]
+    #[doc(alias = "VK_PERFORMANCE_CONFIGURATION_TYPE_COMMAND_QUEUE_METRICS_DISCOVERY_ACTIVATED_INTEL")]
+    PERFORMANCE_CONFIGURATION_TYPE_COMMAND_QUEUE_METRICS_DISCOVERY_ACTIVATED_INTEL = 0,
+}
+
+/// [`VkQueryPoolSamplingModeINTEL`](https://docs.vulkan.org/refpages/latest/refpages/source/VkQueryPoolSamplingModeINTEL.html)
+///
+#[doc(alias = "VkQueryPoolSamplingModeINTEL")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum QueryPoolSamplingModeINTEL {
+    #[default]
+    #[doc(alias = "VK_QUERY_POOL_SAMPLING_MODE_MANUAL_INTEL")]
+    QUERY_POOL_SAMPLING_MODE_MANUAL_INTEL = 0,
+}
+
+/// [`VkPerformanceOverrideTypeINTEL`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceOverrideTypeINTEL.html)
+///
+#[doc(alias = "VkPerformanceOverrideTypeINTEL")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum PerformanceOverrideTypeINTEL {
+    #[default]
+    #[doc(alias = "VK_PERFORMANCE_OVERRIDE_TYPE_NULL_HARDWARE_INTEL")]
+    PERFORMANCE_OVERRIDE_TYPE_NULL_HARDWARE_INTEL = 0,
+    #[doc(alias = "VK_PERFORMANCE_OVERRIDE_TYPE_FLUSH_GPU_CACHES_INTEL")]
+    PERFORMANCE_OVERRIDE_TYPE_FLUSH_GPU_CACHES_INTEL = 1,
+}
+
+/// [`VkPerformanceParameterTypeINTEL`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceParameterTypeINTEL.html)
+///
+#[doc(alias = "VkPerformanceParameterTypeINTEL")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum PerformanceParameterTypeINTEL {
+    #[default]
+    #[doc(alias = "VK_PERFORMANCE_PARAMETER_TYPE_HW_COUNTERS_SUPPORTED_INTEL")]
+    PERFORMANCE_PARAMETER_TYPE_HW_COUNTERS_SUPPORTED_INTEL = 0,
+    #[doc(alias = "VK_PERFORMANCE_PARAMETER_TYPE_STREAM_MARKER_VALID_BITS_INTEL")]
+    PERFORMANCE_PARAMETER_TYPE_STREAM_MARKER_VALID_BITS_INTEL = 1,
+}
+
+/// [`VkPerformanceValueTypeINTEL`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceValueTypeINTEL.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "VkPerformanceValueTypeINTEL")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum PerformanceValueTypeINTEL {
+    #[default]
+    #[doc(alias = "VK_PERFORMANCE_VALUE_TYPE_UINT32_INTEL")]
+    PERFORMANCE_VALUE_TYPE_UINT32_INTEL = 0,
+    #[doc(alias = "VK_PERFORMANCE_VALUE_TYPE_UINT64_INTEL")]
+    PERFORMANCE_VALUE_TYPE_UINT64_INTEL = 1,
+    #[doc(alias = "VK_PERFORMANCE_VALUE_TYPE_FLOAT_INTEL")]
+    PERFORMANCE_VALUE_TYPE_FLOAT_INTEL = 2,
+    #[doc(alias = "VK_PERFORMANCE_VALUE_TYPE_BOOL_INTEL")]
+    PERFORMANCE_VALUE_TYPE_BOOL_INTEL = 3,
+    #[doc(alias = "VK_PERFORMANCE_VALUE_TYPE_STRING_INTEL")]
+    PERFORMANCE_VALUE_TYPE_STRING_INTEL = 4,
+}
+
+/// [`VkValidationFeatureEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkValidationFeatureEnableEXT.html)
+///
+#[doc(alias = "VkValidationFeatureEnableEXT")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum ValidationFeatureEnableEXT {
+    #[default]
+    #[doc(alias = "VK_VALIDATION_FEATURE_ENABLE_GPU_ASSISTED_EXT")]
+    VALIDATION_FEATURE_ENABLE_GPU_ASSISTED_EXT = 0,
+    #[doc(alias = "VK_VALIDATION_FEATURE_ENABLE_GPU_ASSISTED_RESERVE_BINDING_SLOT_EXT")]
+    VALIDATION_FEATURE_ENABLE_GPU_ASSISTED_RESERVE_BINDING_SLOT_EXT = 1,
+    #[doc(alias = "VK_VALIDATION_FEATURE_ENABLE_BEST_PRACTICES_EXT")]
+    VALIDATION_FEATURE_ENABLE_BEST_PRACTICES_EXT = 2,
+    #[doc(alias = "VK_VALIDATION_FEATURE_ENABLE_DEBUG_PRINTF_EXT")]
+    VALIDATION_FEATURE_ENABLE_DEBUG_PRINTF_EXT = 3,
+    #[doc(alias = "VK_VALIDATION_FEATURE_ENABLE_SYNCHRONIZATION_VALIDATION_EXT")]
+    VALIDATION_FEATURE_ENABLE_SYNCHRONIZATION_VALIDATION_EXT = 4,
+}
+
+/// [`VkValidationFeatureDisableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkValidationFeatureDisableEXT.html)
+///
+#[doc(alias = "VkValidationFeatureDisableEXT")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum ValidationFeatureDisableEXT {
+    #[default]
+    #[doc(alias = "VK_VALIDATION_FEATURE_DISABLE_ALL_EXT")]
+    VALIDATION_FEATURE_DISABLE_ALL_EXT = 0,
+    #[doc(alias = "VK_VALIDATION_FEATURE_DISABLE_SHADERS_EXT")]
+    VALIDATION_FEATURE_DISABLE_SHADERS_EXT = 1,
+    #[doc(alias = "VK_VALIDATION_FEATURE_DISABLE_THREAD_SAFETY_EXT")]
+    VALIDATION_FEATURE_DISABLE_THREAD_SAFETY_EXT = 2,
+    #[doc(alias = "VK_VALIDATION_FEATURE_DISABLE_API_PARAMETERS_EXT")]
+    VALIDATION_FEATURE_DISABLE_API_PARAMETERS_EXT = 3,
+    #[doc(alias = "VK_VALIDATION_FEATURE_DISABLE_OBJECT_LIFETIMES_EXT")]
+    VALIDATION_FEATURE_DISABLE_OBJECT_LIFETIMES_EXT = 4,
+    #[doc(alias = "VK_VALIDATION_FEATURE_DISABLE_CORE_CHECKS_EXT")]
+    VALIDATION_FEATURE_DISABLE_CORE_CHECKS_EXT = 5,
+    #[doc(alias = "VK_VALIDATION_FEATURE_DISABLE_UNIQUE_HANDLES_EXT")]
+    VALIDATION_FEATURE_DISABLE_UNIQUE_HANDLES_EXT = 6,
+    #[doc(alias = "VK_VALIDATION_FEATURE_DISABLE_SHADER_VALIDATION_CACHE_EXT")]
+    VALIDATION_FEATURE_DISABLE_SHADER_VALIDATION_CACHE_EXT = 7,
+}
+
+/// [`VkCoverageReductionModeNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCoverageReductionModeNV.html)
+///
+#[doc(alias = "VkCoverageReductionModeNV")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum CoverageReductionModeNV {
+    #[default]
+    #[doc(alias = "VK_COVERAGE_REDUCTION_MODE_MERGE_NV")]
+    COVERAGE_REDUCTION_MODE_MERGE_NV = 0,
+    #[doc(alias = "VK_COVERAGE_REDUCTION_MODE_TRUNCATE_NV")]
+    COVERAGE_REDUCTION_MODE_TRUNCATE_NV = 1,
+}
+
+/// [`VkProvokingVertexModeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkProvokingVertexModeEXT.html)
+///
+#[doc(alias = "VkProvokingVertexModeEXT")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum ProvokingVertexModeEXT {
+    #[default]
+    #[doc(alias = "VK_PROVOKING_VERTEX_MODE_FIRST_VERTEX_EXT")]
+    PROVOKING_VERTEX_MODE_FIRST_VERTEX_EXT = 0,
+    #[doc(alias = "VK_PROVOKING_VERTEX_MODE_LAST_VERTEX_EXT")]
+    PROVOKING_VERTEX_MODE_LAST_VERTEX_EXT = 1,
+}
+
+/// [`VkFullScreenExclusiveEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkFullScreenExclusiveEXT.html)
+///
+#[doc(alias = "VkFullScreenExclusiveEXT")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum FullScreenExclusiveEXT {
+    #[default]
+    #[doc(alias = "VK_FULL_SCREEN_EXCLUSIVE_DEFAULT_EXT")]
+    FULL_SCREEN_EXCLUSIVE_DEFAULT_EXT = 0,
+    #[doc(alias = "VK_FULL_SCREEN_EXCLUSIVE_ALLOWED_EXT")]
+    FULL_SCREEN_EXCLUSIVE_ALLOWED_EXT = 1,
+    #[doc(alias = "VK_FULL_SCREEN_EXCLUSIVE_DISALLOWED_EXT")]
+    FULL_SCREEN_EXCLUSIVE_DISALLOWED_EXT = 2,
+    #[doc(alias = "VK_FULL_SCREEN_EXCLUSIVE_APPLICATION_CONTROLLED_EXT")]
+    FULL_SCREEN_EXCLUSIVE_APPLICATION_CONTROLLED_EXT = 3,
+}
+
+/// [`VkIndirectCommandsTokenTypeNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectCommandsTokenTypeNV.html)
+///
+#[doc(alias = "VkIndirectCommandsTokenTypeNV")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum IndirectCommandsTokenTypeNV {
+    #[default]
+    #[doc(alias = "VK_INDIRECT_COMMANDS_TOKEN_TYPE_SHADER_GROUP_NV")]
+    INDIRECT_COMMANDS_TOKEN_TYPE_SHADER_GROUP_NV = 0,
+    #[doc(alias = "VK_INDIRECT_COMMANDS_TOKEN_TYPE_STATE_FLAGS_NV")]
+    INDIRECT_COMMANDS_TOKEN_TYPE_STATE_FLAGS_NV = 1,
+    #[doc(alias = "VK_INDIRECT_COMMANDS_TOKEN_TYPE_INDEX_BUFFER_NV")]
+    INDIRECT_COMMANDS_TOKEN_TYPE_INDEX_BUFFER_NV = 2,
+    #[doc(alias = "VK_INDIRECT_COMMANDS_TOKEN_TYPE_VERTEX_BUFFER_NV")]
+    INDIRECT_COMMANDS_TOKEN_TYPE_VERTEX_BUFFER_NV = 3,
+    #[doc(alias = "VK_INDIRECT_COMMANDS_TOKEN_TYPE_PUSH_CONSTANT_NV")]
+    INDIRECT_COMMANDS_TOKEN_TYPE_PUSH_CONSTANT_NV = 4,
+    #[doc(alias = "VK_INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_INDEXED_NV")]
+    INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_INDEXED_NV = 5,
+    #[doc(alias = "VK_INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_NV")]
+    INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_NV = 6,
+    #[doc(alias = "VK_INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_TASKS_NV")]
+    INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_TASKS_NV = 7,
+    #[doc(alias = "VK_INDIRECT_COMMANDS_TOKEN_TYPE_PUSH_DATA_NV")]
+    INDIRECT_COMMANDS_TOKEN_TYPE_PUSH_DATA_NV = 1000135000,
+    #[doc(alias = "VK_INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_MESH_TASKS_NV")]
+    INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_MESH_TASKS_NV = 1000328000,
+    #[doc(alias = "VK_INDIRECT_COMMANDS_TOKEN_TYPE_PIPELINE_NV")]
+    INDIRECT_COMMANDS_TOKEN_TYPE_PIPELINE_NV = 1000428003,
+    #[doc(alias = "VK_INDIRECT_COMMANDS_TOKEN_TYPE_DISPATCH_NV")]
+    INDIRECT_COMMANDS_TOKEN_TYPE_DISPATCH_NV = 1000428004,
+}
+
+/// [`VkDepthBiasRepresentationEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDepthBiasRepresentationEXT.html)
+///
+#[doc(alias = "VkDepthBiasRepresentationEXT")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum DepthBiasRepresentationEXT {
+    #[default]
+    #[doc(alias = "VK_DEPTH_BIAS_REPRESENTATION_LEAST_REPRESENTABLE_VALUE_FORMAT_EXT")]
+    DEPTH_BIAS_REPRESENTATION_LEAST_REPRESENTABLE_VALUE_FORMAT_EXT = 0,
+    #[doc(alias = "VK_DEPTH_BIAS_REPRESENTATION_LEAST_REPRESENTABLE_VALUE_FORCE_UNORM_EXT")]
+    DEPTH_BIAS_REPRESENTATION_LEAST_REPRESENTABLE_VALUE_FORCE_UNORM_EXT = 1,
+    #[doc(alias = "VK_DEPTH_BIAS_REPRESENTATION_FLOAT_EXT")]
+    DEPTH_BIAS_REPRESENTATION_FLOAT_EXT = 2,
+}
+
+/// [`VkDeviceMemoryReportEventTypeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceMemoryReportEventTypeEXT.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "VkDeviceMemoryReportEventTypeEXT")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum DeviceMemoryReportEventTypeEXT {
+    #[default]
+    #[doc(alias = "VK_DEVICE_MEMORY_REPORT_EVENT_TYPE_ALLOCATE_EXT")]
+    DEVICE_MEMORY_REPORT_EVENT_TYPE_ALLOCATE_EXT = 0,
+    #[doc(alias = "VK_DEVICE_MEMORY_REPORT_EVENT_TYPE_FREE_EXT")]
+    DEVICE_MEMORY_REPORT_EVENT_TYPE_FREE_EXT = 1,
+    #[doc(alias = "VK_DEVICE_MEMORY_REPORT_EVENT_TYPE_IMPORT_EXT")]
+    DEVICE_MEMORY_REPORT_EVENT_TYPE_IMPORT_EXT = 2,
+    #[doc(alias = "VK_DEVICE_MEMORY_REPORT_EVENT_TYPE_UNIMPORT_EXT")]
+    DEVICE_MEMORY_REPORT_EVENT_TYPE_UNIMPORT_EXT = 3,
+    #[doc(alias = "VK_DEVICE_MEMORY_REPORT_EVENT_TYPE_ALLOCATION_FAILED_EXT")]
+    DEVICE_MEMORY_REPORT_EVENT_TYPE_ALLOCATION_FAILED_EXT = 4,
+}
+
+/// [`VkPerfHintTypeQCOM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPerfHintTypeQCOM.html)
+///
+#[doc(alias = "VkPerfHintTypeQCOM")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum PerfHintTypeQCOM {
+    #[default]
+    #[doc(alias = "VK_PERF_HINT_TYPE_DEFAULT_QCOM")]
+    PERF_HINT_TYPE_DEFAULT_QCOM = 0,
+    #[doc(alias = "VK_PERF_HINT_TYPE_FREQUENCY_MIN_QCOM")]
+    PERF_HINT_TYPE_FREQUENCY_MIN_QCOM = 1,
+    #[doc(alias = "VK_PERF_HINT_TYPE_FREQUENCY_MAX_QCOM")]
+    PERF_HINT_TYPE_FREQUENCY_MAX_QCOM = 2,
+    #[doc(alias = "VK_PERF_HINT_TYPE_FREQUENCY_SCALED_QCOM")]
+    PERF_HINT_TYPE_FREQUENCY_SCALED_QCOM = 3,
+}
+
+/// [`VkFragmentShadingRateTypeNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkFragmentShadingRateTypeNV.html)
+///
+#[doc(alias = "VkFragmentShadingRateTypeNV")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum FragmentShadingRateTypeNV {
+    #[default]
+    #[doc(alias = "VK_FRAGMENT_SHADING_RATE_TYPE_FRAGMENT_SIZE_NV")]
+    FRAGMENT_SHADING_RATE_TYPE_FRAGMENT_SIZE_NV = 0,
+    #[doc(alias = "VK_FRAGMENT_SHADING_RATE_TYPE_ENUMS_NV")]
+    FRAGMENT_SHADING_RATE_TYPE_ENUMS_NV = 1,
+}
+
+/// [`VkFragmentShadingRateNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkFragmentShadingRateNV.html)
+///
+#[doc(alias = "VkFragmentShadingRateNV")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum FragmentShadingRateNV {
+    #[default]
+    #[doc(alias = "VK_FRAGMENT_SHADING_RATE_1_INVOCATION_PER_PIXEL_NV")]
+    FRAGMENT_SHADING_RATE_1_INVOCATION_PER_PIXEL_NV = 0,
+    #[doc(alias = "VK_FRAGMENT_SHADING_RATE_1_INVOCATION_PER_1X2_PIXELS_NV")]
+    FRAGMENT_SHADING_RATE_1_INVOCATION_PER_1X2_PIXELS_NV = 1,
+    #[doc(alias = "VK_FRAGMENT_SHADING_RATE_1_INVOCATION_PER_2X1_PIXELS_NV")]
+    FRAGMENT_SHADING_RATE_1_INVOCATION_PER_2X1_PIXELS_NV = 4,
+    #[doc(alias = "VK_FRAGMENT_SHADING_RATE_1_INVOCATION_PER_2X2_PIXELS_NV")]
+    FRAGMENT_SHADING_RATE_1_INVOCATION_PER_2X2_PIXELS_NV = 5,
+    #[doc(alias = "VK_FRAGMENT_SHADING_RATE_1_INVOCATION_PER_2X4_PIXELS_NV")]
+    FRAGMENT_SHADING_RATE_1_INVOCATION_PER_2X4_PIXELS_NV = 6,
+    #[doc(alias = "VK_FRAGMENT_SHADING_RATE_1_INVOCATION_PER_4X2_PIXELS_NV")]
+    FRAGMENT_SHADING_RATE_1_INVOCATION_PER_4X2_PIXELS_NV = 9,
+    #[doc(alias = "VK_FRAGMENT_SHADING_RATE_1_INVOCATION_PER_4X4_PIXELS_NV")]
+    FRAGMENT_SHADING_RATE_1_INVOCATION_PER_4X4_PIXELS_NV = 10,
+    #[doc(alias = "VK_FRAGMENT_SHADING_RATE_2_INVOCATIONS_PER_PIXEL_NV")]
+    FRAGMENT_SHADING_RATE_2_INVOCATIONS_PER_PIXEL_NV = 11,
+    #[doc(alias = "VK_FRAGMENT_SHADING_RATE_4_INVOCATIONS_PER_PIXEL_NV")]
+    FRAGMENT_SHADING_RATE_4_INVOCATIONS_PER_PIXEL_NV = 12,
+    #[doc(alias = "VK_FRAGMENT_SHADING_RATE_8_INVOCATIONS_PER_PIXEL_NV")]
+    FRAGMENT_SHADING_RATE_8_INVOCATIONS_PER_PIXEL_NV = 13,
+    #[doc(alias = "VK_FRAGMENT_SHADING_RATE_16_INVOCATIONS_PER_PIXEL_NV")]
+    FRAGMENT_SHADING_RATE_16_INVOCATIONS_PER_PIXEL_NV = 14,
+    #[doc(alias = "VK_FRAGMENT_SHADING_RATE_NO_INVOCATIONS_NV")]
+    FRAGMENT_SHADING_RATE_NO_INVOCATIONS_NV = 15,
+}
+
+/// [`VkAccelerationStructureMotionInstanceTypeNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureMotionInstanceTypeNV.html)
+///
+#[doc(alias = "VkAccelerationStructureMotionInstanceTypeNV")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum AccelerationStructureMotionInstanceTypeNV {
+    #[default]
+    #[doc(alias = "VK_ACCELERATION_STRUCTURE_MOTION_INSTANCE_TYPE_STATIC_NV")]
+    ACCELERATION_STRUCTURE_MOTION_INSTANCE_TYPE_STATIC_NV = 0,
+    #[doc(alias = "VK_ACCELERATION_STRUCTURE_MOTION_INSTANCE_TYPE_MATRIX_MOTION_NV")]
+    ACCELERATION_STRUCTURE_MOTION_INSTANCE_TYPE_MATRIX_MOTION_NV = 1,
+    #[doc(alias = "VK_ACCELERATION_STRUCTURE_MOTION_INSTANCE_TYPE_SRT_MOTION_NV")]
+    ACCELERATION_STRUCTURE_MOTION_INSTANCE_TYPE_SRT_MOTION_NV = 2,
+}
+
+/// [`VkDeviceAddressBindingTypeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceAddressBindingTypeEXT.html)
+///
+#[doc(alias = "VkDeviceAddressBindingTypeEXT")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum DeviceAddressBindingTypeEXT {
+    #[default]
+    #[doc(alias = "VK_DEVICE_ADDRESS_BINDING_TYPE_BIND_EXT")]
+    DEVICE_ADDRESS_BINDING_TYPE_BIND_EXT = 0,
+    #[doc(alias = "VK_DEVICE_ADDRESS_BINDING_TYPE_UNBIND_EXT")]
+    DEVICE_ADDRESS_BINDING_TYPE_UNBIND_EXT = 1,
+}
+
+/// [`VkMicromapTypeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMicromapTypeEXT.html)
+///
+#[doc(alias = "VkMicromapTypeEXT")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum MicromapTypeEXT {
+    #[default]
+    #[doc(alias = "VK_MICROMAP_TYPE_OPACITY_MICROMAP_EXT")]
+    MICROMAP_TYPE_OPACITY_MICROMAP_EXT = 0,
+    #[doc(alias = "VK_MICROMAP_TYPE_DISPLACEMENT_MICROMAP_NV")]
+    MICROMAP_TYPE_DISPLACEMENT_MICROMAP_NV = 1000397000,
+}
+
+/// [`VkBuildMicromapModeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBuildMicromapModeEXT.html)
+///
+#[doc(alias = "VkBuildMicromapModeEXT")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum BuildMicromapModeEXT {
+    #[default]
+    #[doc(alias = "VK_BUILD_MICROMAP_MODE_BUILD_EXT")]
+    BUILD_MICROMAP_MODE_BUILD_EXT = 0,
+}
+
+/// [`VkCopyMicromapModeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyMicromapModeEXT.html)
+///
+#[doc(alias = "VkCopyMicromapModeEXT")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum CopyMicromapModeEXT {
+    #[default]
+    #[doc(alias = "VK_COPY_MICROMAP_MODE_CLONE_EXT")]
+    COPY_MICROMAP_MODE_CLONE_EXT = 0,
+    #[doc(alias = "VK_COPY_MICROMAP_MODE_SERIALIZE_EXT")]
+    COPY_MICROMAP_MODE_SERIALIZE_EXT = 1,
+    #[doc(alias = "VK_COPY_MICROMAP_MODE_DESERIALIZE_EXT")]
+    COPY_MICROMAP_MODE_DESERIALIZE_EXT = 2,
+    #[doc(alias = "VK_COPY_MICROMAP_MODE_COMPACT_EXT")]
+    COPY_MICROMAP_MODE_COMPACT_EXT = 3,
+}
+
+/// [`VkAccelerationStructureCompatibilityKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureCompatibilityKHR.html)
+///
+#[doc(alias = "VkAccelerationStructureCompatibilityKHR")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum AccelerationStructureCompatibilityKHR {
+    #[default]
+    #[doc(alias = "VK_ACCELERATION_STRUCTURE_COMPATIBILITY_COMPATIBLE_KHR")]
+    ACCELERATION_STRUCTURE_COMPATIBILITY_COMPATIBLE_KHR = 0,
+    #[doc(alias = "VK_ACCELERATION_STRUCTURE_COMPATIBILITY_INCOMPATIBLE_KHR")]
+    ACCELERATION_STRUCTURE_COMPATIBILITY_INCOMPATIBLE_KHR = 1,
+}
+
+/// [`VkAccelerationStructureBuildTypeKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureBuildTypeKHR.html)
+///
+#[doc(alias = "VkAccelerationStructureBuildTypeKHR")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum AccelerationStructureBuildTypeKHR {
+    #[default]
+    #[doc(alias = "VK_ACCELERATION_STRUCTURE_BUILD_TYPE_HOST_KHR")]
+    ACCELERATION_STRUCTURE_BUILD_TYPE_HOST_KHR = 0,
+    #[doc(alias = "VK_ACCELERATION_STRUCTURE_BUILD_TYPE_DEVICE_KHR")]
+    ACCELERATION_STRUCTURE_BUILD_TYPE_DEVICE_KHR = 1,
+    #[doc(alias = "VK_ACCELERATION_STRUCTURE_BUILD_TYPE_HOST_OR_DEVICE_KHR")]
+    ACCELERATION_STRUCTURE_BUILD_TYPE_HOST_OR_DEVICE_KHR = 2,
+}
+
+/// [`VkDisplacementMicromapFormatNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplacementMicromapFormatNV.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "VkDisplacementMicromapFormatNV")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum DisplacementMicromapFormatNV {
+    #[default]
+    #[doc(alias = "VK_DISPLACEMENT_MICROMAP_FORMAT_64_TRIANGLES_64_BYTES_NV")]
+    DISPLACEMENT_MICROMAP_FORMAT_64_TRIANGLES_64_BYTES_NV = 1,
+    #[doc(alias = "VK_DISPLACEMENT_MICROMAP_FORMAT_256_TRIANGLES_128_BYTES_NV")]
+    DISPLACEMENT_MICROMAP_FORMAT_256_TRIANGLES_128_BYTES_NV = 2,
+    #[doc(alias = "VK_DISPLACEMENT_MICROMAP_FORMAT_1024_TRIANGLES_128_BYTES_NV")]
+    DISPLACEMENT_MICROMAP_FORMAT_1024_TRIANGLES_128_BYTES_NV = 3,
+}
+
+/// [`VkRayTracingLssIndexingModeNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkRayTracingLssIndexingModeNV.html)
+///
+#[doc(alias = "VkRayTracingLssIndexingModeNV")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum RayTracingLssIndexingModeNV {
+    #[default]
+    #[doc(alias = "VK_RAY_TRACING_LSS_INDEXING_MODE_LIST_NV")]
+    RAY_TRACING_LSS_INDEXING_MODE_LIST_NV = 0,
+    #[doc(alias = "VK_RAY_TRACING_LSS_INDEXING_MODE_SUCCESSIVE_NV")]
+    RAY_TRACING_LSS_INDEXING_MODE_SUCCESSIVE_NV = 1,
+}
+
+/// [`VkRayTracingLssPrimitiveEndCapsModeNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkRayTracingLssPrimitiveEndCapsModeNV.html)
+///
+#[doc(alias = "VkRayTracingLssPrimitiveEndCapsModeNV")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum RayTracingLssPrimitiveEndCapsModeNV {
+    #[default]
+    #[doc(alias = "VK_RAY_TRACING_LSS_PRIMITIVE_END_CAPS_MODE_NONE_NV")]
+    RAY_TRACING_LSS_PRIMITIVE_END_CAPS_MODE_NONE_NV = 0,
+    #[doc(alias = "VK_RAY_TRACING_LSS_PRIMITIVE_END_CAPS_MODE_CHAINED_NV")]
+    RAY_TRACING_LSS_PRIMITIVE_END_CAPS_MODE_CHAINED_NV = 1,
+}
+
+/// [`VkSubpassMergeStatusEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSubpassMergeStatusEXT.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "VkSubpassMergeStatusEXT")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum SubpassMergeStatusEXT {
+    #[default]
+    #[doc(alias = "VK_SUBPASS_MERGE_STATUS_MERGED_EXT")]
+    SUBPASS_MERGE_STATUS_MERGED_EXT = 0,
+    #[doc(alias = "VK_SUBPASS_MERGE_STATUS_DISALLOWED_EXT")]
+    SUBPASS_MERGE_STATUS_DISALLOWED_EXT = 1,
+    #[doc(alias = "VK_SUBPASS_MERGE_STATUS_NOT_MERGED_SIDE_EFFECTS_EXT")]
+    SUBPASS_MERGE_STATUS_NOT_MERGED_SIDE_EFFECTS_EXT = 2,
+    #[doc(alias = "VK_SUBPASS_MERGE_STATUS_NOT_MERGED_SAMPLES_MISMATCH_EXT")]
+    SUBPASS_MERGE_STATUS_NOT_MERGED_SAMPLES_MISMATCH_EXT = 3,
+    #[doc(alias = "VK_SUBPASS_MERGE_STATUS_NOT_MERGED_VIEWS_MISMATCH_EXT")]
+    SUBPASS_MERGE_STATUS_NOT_MERGED_VIEWS_MISMATCH_EXT = 4,
+    #[doc(alias = "VK_SUBPASS_MERGE_STATUS_NOT_MERGED_ALIASING_EXT")]
+    SUBPASS_MERGE_STATUS_NOT_MERGED_ALIASING_EXT = 5,
+    #[doc(alias = "VK_SUBPASS_MERGE_STATUS_NOT_MERGED_DEPENDENCIES_EXT")]
+    SUBPASS_MERGE_STATUS_NOT_MERGED_DEPENDENCIES_EXT = 6,
+    #[doc(alias = "VK_SUBPASS_MERGE_STATUS_NOT_MERGED_INCOMPATIBLE_INPUT_ATTACHMENT_EXT")]
+    SUBPASS_MERGE_STATUS_NOT_MERGED_INCOMPATIBLE_INPUT_ATTACHMENT_EXT = 7,
+    #[doc(alias = "VK_SUBPASS_MERGE_STATUS_NOT_MERGED_TOO_MANY_ATTACHMENTS_EXT")]
+    SUBPASS_MERGE_STATUS_NOT_MERGED_TOO_MANY_ATTACHMENTS_EXT = 8,
+    #[doc(alias = "VK_SUBPASS_MERGE_STATUS_NOT_MERGED_INSUFFICIENT_STORAGE_EXT")]
+    SUBPASS_MERGE_STATUS_NOT_MERGED_INSUFFICIENT_STORAGE_EXT = 9,
+    #[doc(alias = "VK_SUBPASS_MERGE_STATUS_NOT_MERGED_DEPTH_STENCIL_COUNT_EXT")]
+    SUBPASS_MERGE_STATUS_NOT_MERGED_DEPTH_STENCIL_COUNT_EXT = 10,
+    #[doc(alias = "VK_SUBPASS_MERGE_STATUS_NOT_MERGED_RESOLVE_ATTACHMENT_REUSE_EXT")]
+    SUBPASS_MERGE_STATUS_NOT_MERGED_RESOLVE_ATTACHMENT_REUSE_EXT = 11,
+    #[doc(alias = "VK_SUBPASS_MERGE_STATUS_NOT_MERGED_SINGLE_SUBPASS_EXT")]
+    SUBPASS_MERGE_STATUS_NOT_MERGED_SINGLE_SUBPASS_EXT = 12,
+    #[doc(alias = "VK_SUBPASS_MERGE_STATUS_NOT_MERGED_UNSPECIFIED_EXT")]
+    SUBPASS_MERGE_STATUS_NOT_MERGED_UNSPECIFIED_EXT = 13,
+}
+
+/// [`VkDirectDriverLoadingModeLUNARG`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDirectDriverLoadingModeLUNARG.html)
+///
+#[doc(alias = "VkDirectDriverLoadingModeLUNARG")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum DirectDriverLoadingModeLUNARG {
+    #[default]
+    #[doc(alias = "VK_DIRECT_DRIVER_LOADING_MODE_EXCLUSIVE_LUNARG")]
+    DIRECT_DRIVER_LOADING_MODE_EXCLUSIVE_LUNARG = 0,
+    #[doc(alias = "VK_DIRECT_DRIVER_LOADING_MODE_INCLUSIVE_LUNARG")]
+    DIRECT_DRIVER_LOADING_MODE_INCLUSIVE_LUNARG = 1,
+}
+
+/// [`VkTensorTilingARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkTensorTilingARM.html)
+///
+#[doc(alias = "VkTensorTilingARM")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum TensorTilingARM {
+    #[default]
+    #[doc(alias = "VK_TENSOR_TILING_OPTIMAL_ARM")]
+    TENSOR_TILING_OPTIMAL_ARM = 0,
+    #[doc(alias = "VK_TENSOR_TILING_LINEAR_ARM")]
+    TENSOR_TILING_LINEAR_ARM = 1,
+    #[doc(alias = "VK_TENSOR_TILING_BRICK_16_WIDE_ARM")]
+    TENSOR_TILING_BRICK_16_WIDE_ARM = 1000565000,
+    #[doc(alias = "VK_TENSOR_TILING_BRICK_8_WIDE_ARM")]
+    TENSOR_TILING_BRICK_8_WIDE_ARM = 1000565001,
+    #[doc(alias = "VK_TENSOR_TILING_BRICK_4_WIDE_ARM")]
+    TENSOR_TILING_BRICK_4_WIDE_ARM = 1000565002,
+    #[doc(alias = "VK_TENSOR_TILING_BLOCK_U_INTERLEAVED_ARM")]
+    TENSOR_TILING_BLOCK_U_INTERLEAVED_ARM = 1000565003,
+    #[doc(alias = "VK_TENSOR_TILING_BLOCK_U_INTERLEAVED_64K_ARM")]
+    TENSOR_TILING_BLOCK_U_INTERLEAVED_64K_ARM = 1000565004,
+}
+
+/// [`VkOpticalFlowPerformanceLevelNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkOpticalFlowPerformanceLevelNV.html)
+///
+#[doc(alias = "VkOpticalFlowPerformanceLevelNV")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum OpticalFlowPerformanceLevelNV {
+    #[default]
+    #[doc(alias = "VK_OPTICAL_FLOW_PERFORMANCE_LEVEL_UNKNOWN_NV")]
+    OPTICAL_FLOW_PERFORMANCE_LEVEL_UNKNOWN_NV = 0,
+    #[doc(alias = "VK_OPTICAL_FLOW_PERFORMANCE_LEVEL_SLOW_NV")]
+    OPTICAL_FLOW_PERFORMANCE_LEVEL_SLOW_NV = 1,
+    #[doc(alias = "VK_OPTICAL_FLOW_PERFORMANCE_LEVEL_MEDIUM_NV")]
+    OPTICAL_FLOW_PERFORMANCE_LEVEL_MEDIUM_NV = 2,
+    #[doc(alias = "VK_OPTICAL_FLOW_PERFORMANCE_LEVEL_FAST_NV")]
+    OPTICAL_FLOW_PERFORMANCE_LEVEL_FAST_NV = 3,
+}
+
+/// [`VkOpticalFlowSessionBindingPointNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkOpticalFlowSessionBindingPointNV.html)
+///
+#[doc(alias = "VkOpticalFlowSessionBindingPointNV")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum OpticalFlowSessionBindingPointNV {
+    #[default]
+    #[doc(alias = "VK_OPTICAL_FLOW_SESSION_BINDING_POINT_UNKNOWN_NV")]
+    OPTICAL_FLOW_SESSION_BINDING_POINT_UNKNOWN_NV = 0,
+    #[doc(alias = "VK_OPTICAL_FLOW_SESSION_BINDING_POINT_INPUT_NV")]
+    OPTICAL_FLOW_SESSION_BINDING_POINT_INPUT_NV = 1,
+    #[doc(alias = "VK_OPTICAL_FLOW_SESSION_BINDING_POINT_REFERENCE_NV")]
+    OPTICAL_FLOW_SESSION_BINDING_POINT_REFERENCE_NV = 2,
+    #[doc(alias = "VK_OPTICAL_FLOW_SESSION_BINDING_POINT_HINT_NV")]
+    OPTICAL_FLOW_SESSION_BINDING_POINT_HINT_NV = 3,
+    #[doc(alias = "VK_OPTICAL_FLOW_SESSION_BINDING_POINT_FLOW_VECTOR_NV")]
+    OPTICAL_FLOW_SESSION_BINDING_POINT_FLOW_VECTOR_NV = 4,
+    #[doc(alias = "VK_OPTICAL_FLOW_SESSION_BINDING_POINT_BACKWARD_FLOW_VECTOR_NV")]
+    OPTICAL_FLOW_SESSION_BINDING_POINT_BACKWARD_FLOW_VECTOR_NV = 5,
+    #[doc(alias = "VK_OPTICAL_FLOW_SESSION_BINDING_POINT_COST_NV")]
+    OPTICAL_FLOW_SESSION_BINDING_POINT_COST_NV = 6,
+    #[doc(alias = "VK_OPTICAL_FLOW_SESSION_BINDING_POINT_BACKWARD_COST_NV")]
+    OPTICAL_FLOW_SESSION_BINDING_POINT_BACKWARD_COST_NV = 7,
+    #[doc(alias = "VK_OPTICAL_FLOW_SESSION_BINDING_POINT_GLOBAL_FLOW_NV")]
+    OPTICAL_FLOW_SESSION_BINDING_POINT_GLOBAL_FLOW_NV = 8,
+}
+
+/// [`VkAntiLagModeAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAntiLagModeAMD.html)
+///
+#[doc(alias = "VkAntiLagModeAMD")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum AntiLagModeAMD {
+    #[default]
+    #[doc(alias = "VK_ANTI_LAG_MODE_DRIVER_CONTROL_AMD")]
+    ANTI_LAG_MODE_DRIVER_CONTROL_AMD = 0,
+    #[doc(alias = "VK_ANTI_LAG_MODE_ON_AMD")]
+    ANTI_LAG_MODE_ON_AMD = 1,
+    #[doc(alias = "VK_ANTI_LAG_MODE_OFF_AMD")]
+    ANTI_LAG_MODE_OFF_AMD = 2,
+}
+
+/// [`VkAntiLagStageAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAntiLagStageAMD.html)
+///
+#[doc(alias = "VkAntiLagStageAMD")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum AntiLagStageAMD {
+    #[default]
+    #[doc(alias = "VK_ANTI_LAG_STAGE_INPUT_AMD")]
+    ANTI_LAG_STAGE_INPUT_AMD = 0,
+    #[doc(alias = "VK_ANTI_LAG_STAGE_PRESENT_AMD")]
+    ANTI_LAG_STAGE_PRESENT_AMD = 1,
+}
+
+/// [`VkCompressedTriangleFormatAMDX`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCompressedTriangleFormatAMDX.html)
+///
+#[doc(alias = "VkCompressedTriangleFormatAMDX")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum CompressedTriangleFormatAMDX {
+    #[default]
+    #[doc(alias = "VK_COMPRESSED_TRIANGLE_FORMAT_DGF1_AMDX")]
+    COMPRESSED_TRIANGLE_FORMAT_DGF1_AMDX = 0,
+}
+
+/// [`VkShaderCodeTypeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderCodeTypeEXT.html)
+///
+#[doc(alias = "VkShaderCodeTypeEXT")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum ShaderCodeTypeEXT {
+    #[default]
+    #[doc(alias = "VK_SHADER_CODE_TYPE_BINARY_EXT")]
+    SHADER_CODE_TYPE_BINARY_EXT = 0,
+    #[doc(alias = "VK_SHADER_CODE_TYPE_SPIRV_EXT")]
+    SHADER_CODE_TYPE_SPIRV_EXT = 1,
+}
+
+/// [`VkDepthClampModeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDepthClampModeEXT.html)
+///
+#[doc(alias = "VkDepthClampModeEXT")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum DepthClampModeEXT {
+    #[default]
+    #[doc(alias = "VK_DEPTH_CLAMP_MODE_VIEWPORT_RANGE_EXT")]
+    DEPTH_CLAMP_MODE_VIEWPORT_RANGE_EXT = 0,
+    #[doc(alias = "VK_DEPTH_CLAMP_MODE_USER_DEFINED_RANGE_EXT")]
+    DEPTH_CLAMP_MODE_USER_DEFINED_RANGE_EXT = 1,
+}
+
+/// [`VkRayTracingInvocationReorderModeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkRayTracingInvocationReorderModeEXT.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "VkRayTracingInvocationReorderModeEXT")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum RayTracingInvocationReorderModeEXT {
+    #[default]
+    #[doc(alias = "VK_RAY_TRACING_INVOCATION_REORDER_MODE_NONE_EXT")]
+    RAY_TRACING_INVOCATION_REORDER_MODE_NONE_EXT = 0,
+    #[doc(alias = "VK_RAY_TRACING_INVOCATION_REORDER_MODE_REORDER_EXT")]
+    RAY_TRACING_INVOCATION_REORDER_MODE_REORDER_EXT = 1,
+}
+/// [`VkRayTracingInvocationReorderModeNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkRayTracingInvocationReorderModeNV.html)
+///
+#[doc(alias = "VkRayTracingInvocationReorderModeNV")]
+pub type RayTracingInvocationReorderModeNV = RayTracingInvocationReorderModeEXT;
+impl RayTracingInvocationReorderModeEXT {
+    #[doc(alias = "VK_RAY_TRACING_INVOCATION_REORDER_MODE_NONE_NV")]
+    pub const RAY_TRACING_INVOCATION_REORDER_MODE_NONE_NV: Self = Self::RAY_TRACING_INVOCATION_REORDER_MODE_NONE_EXT;
+    #[doc(alias = "VK_RAY_TRACING_INVOCATION_REORDER_MODE_REORDER_NV")]
+    pub const RAY_TRACING_INVOCATION_REORDER_MODE_REORDER_NV: Self = Self::RAY_TRACING_INVOCATION_REORDER_MODE_REORDER_EXT;
+}
+
+/// [`VkCooperativeVectorMatrixLayoutNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCooperativeVectorMatrixLayoutNV.html)
+///
+#[doc(alias = "VkCooperativeVectorMatrixLayoutNV")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum CooperativeVectorMatrixLayoutNV {
+    #[default]
+    #[doc(alias = "VK_COOPERATIVE_VECTOR_MATRIX_LAYOUT_ROW_MAJOR_NV")]
+    COOPERATIVE_VECTOR_MATRIX_LAYOUT_ROW_MAJOR_NV = 0,
+    #[doc(alias = "VK_COOPERATIVE_VECTOR_MATRIX_LAYOUT_COLUMN_MAJOR_NV")]
+    COOPERATIVE_VECTOR_MATRIX_LAYOUT_COLUMN_MAJOR_NV = 1,
+    #[doc(alias = "VK_COOPERATIVE_VECTOR_MATRIX_LAYOUT_INFERENCING_OPTIMAL_NV")]
+    COOPERATIVE_VECTOR_MATRIX_LAYOUT_INFERENCING_OPTIMAL_NV = 2,
+    #[doc(alias = "VK_COOPERATIVE_VECTOR_MATRIX_LAYOUT_TRAINING_OPTIMAL_NV")]
+    COOPERATIVE_VECTOR_MATRIX_LAYOUT_TRAINING_OPTIMAL_NV = 3,
+}
+
+/// [`VkLayerSettingTypeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkLayerSettingTypeEXT.html)
+///
+#[doc(alias = "VkLayerSettingTypeEXT")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum LayerSettingTypeEXT {
+    #[default]
+    #[doc(alias = "VK_LAYER_SETTING_TYPE_BOOL32_EXT")]
+    LAYER_SETTING_TYPE_BOOL32_EXT = 0,
+    #[doc(alias = "VK_LAYER_SETTING_TYPE_INT32_EXT")]
+    LAYER_SETTING_TYPE_INT32_EXT = 1,
+    #[doc(alias = "VK_LAYER_SETTING_TYPE_INT64_EXT")]
+    LAYER_SETTING_TYPE_INT64_EXT = 2,
+    #[doc(alias = "VK_LAYER_SETTING_TYPE_UINT32_EXT")]
+    LAYER_SETTING_TYPE_UINT32_EXT = 3,
+    #[doc(alias = "VK_LAYER_SETTING_TYPE_UINT64_EXT")]
+    LAYER_SETTING_TYPE_UINT64_EXT = 4,
+    #[doc(alias = "VK_LAYER_SETTING_TYPE_FLOAT32_EXT")]
+    LAYER_SETTING_TYPE_FLOAT32_EXT = 5,
+    #[doc(alias = "VK_LAYER_SETTING_TYPE_FLOAT64_EXT")]
+    LAYER_SETTING_TYPE_FLOAT64_EXT = 6,
+    #[doc(alias = "VK_LAYER_SETTING_TYPE_STRING_EXT")]
+    LAYER_SETTING_TYPE_STRING_EXT = 7,
+}
+
+/// [`VkLatencyMarkerNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkLatencyMarkerNV.html)
+///
+#[doc(alias = "VkLatencyMarkerNV")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum LatencyMarkerNV {
+    #[default]
+    #[doc(alias = "VK_LATENCY_MARKER_SIMULATION_START_NV")]
+    LATENCY_MARKER_SIMULATION_START_NV = 0,
+    #[doc(alias = "VK_LATENCY_MARKER_SIMULATION_END_NV")]
+    LATENCY_MARKER_SIMULATION_END_NV = 1,
+    #[doc(alias = "VK_LATENCY_MARKER_RENDERSUBMIT_START_NV")]
+    LATENCY_MARKER_RENDERSUBMIT_START_NV = 2,
+    #[doc(alias = "VK_LATENCY_MARKER_RENDERSUBMIT_END_NV")]
+    LATENCY_MARKER_RENDERSUBMIT_END_NV = 3,
+    #[doc(alias = "VK_LATENCY_MARKER_PRESENT_START_NV")]
+    LATENCY_MARKER_PRESENT_START_NV = 4,
+    #[doc(alias = "VK_LATENCY_MARKER_PRESENT_END_NV")]
+    LATENCY_MARKER_PRESENT_END_NV = 5,
+    #[doc(alias = "VK_LATENCY_MARKER_INPUT_SAMPLE_NV")]
+    LATENCY_MARKER_INPUT_SAMPLE_NV = 6,
+    #[doc(alias = "VK_LATENCY_MARKER_TRIGGER_FLASH_NV")]
+    LATENCY_MARKER_TRIGGER_FLASH_NV = 7,
+    #[doc(alias = "VK_LATENCY_MARKER_OUT_OF_BAND_RENDERSUBMIT_START_NV")]
+    LATENCY_MARKER_OUT_OF_BAND_RENDERSUBMIT_START_NV = 8,
+    #[doc(alias = "VK_LATENCY_MARKER_OUT_OF_BAND_RENDERSUBMIT_END_NV")]
+    LATENCY_MARKER_OUT_OF_BAND_RENDERSUBMIT_END_NV = 9,
+    #[doc(alias = "VK_LATENCY_MARKER_OUT_OF_BAND_PRESENT_START_NV")]
+    LATENCY_MARKER_OUT_OF_BAND_PRESENT_START_NV = 10,
+    #[doc(alias = "VK_LATENCY_MARKER_OUT_OF_BAND_PRESENT_END_NV")]
+    LATENCY_MARKER_OUT_OF_BAND_PRESENT_END_NV = 11,
+}
+
+/// [`VkOutOfBandQueueTypeNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkOutOfBandQueueTypeNV.html)
+///
+#[doc(alias = "VkOutOfBandQueueTypeNV")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum OutOfBandQueueTypeNV {
+    #[default]
+    #[doc(alias = "VK_OUT_OF_BAND_QUEUE_TYPE_RENDER_NV")]
+    OUT_OF_BAND_QUEUE_TYPE_RENDER_NV = 0,
+    #[doc(alias = "VK_OUT_OF_BAND_QUEUE_TYPE_PRESENT_NV")]
+    OUT_OF_BAND_QUEUE_TYPE_PRESENT_NV = 1,
+}
+
+/// [`VkDataGraphPipelineSessionBindPointARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineSessionBindPointARM.html)
+///
+#[doc(alias = "VkDataGraphPipelineSessionBindPointARM")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum DataGraphPipelineSessionBindPointARM {
+    #[default]
+    #[doc(alias = "VK_DATA_GRAPH_PIPELINE_SESSION_BIND_POINT_TRANSIENT_ARM")]
+    DATA_GRAPH_PIPELINE_SESSION_BIND_POINT_TRANSIENT_ARM = 0,
+    #[doc(alias = "VK_DATA_GRAPH_PIPELINE_SESSION_BIND_POINT_OPTICAL_FLOW_CACHE_ARM")]
+    DATA_GRAPH_PIPELINE_SESSION_BIND_POINT_OPTICAL_FLOW_CACHE_ARM = 1000631001,
+    #[doc(alias = "VK_DATA_GRAPH_PIPELINE_SESSION_BIND_POINT_NEURAL_ACCELERATOR_STATISTICS_ARM")]
+    DATA_GRAPH_PIPELINE_SESSION_BIND_POINT_NEURAL_ACCELERATOR_STATISTICS_ARM = 1000676000,
+}
+
+/// [`VkDataGraphPipelineSessionBindPointTypeARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineSessionBindPointTypeARM.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "VkDataGraphPipelineSessionBindPointTypeARM")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum DataGraphPipelineSessionBindPointTypeARM {
+    #[default]
+    #[doc(alias = "VK_DATA_GRAPH_PIPELINE_SESSION_BIND_POINT_TYPE_MEMORY_ARM")]
+    DATA_GRAPH_PIPELINE_SESSION_BIND_POINT_TYPE_MEMORY_ARM = 0,
+}
+
+/// [`VkDataGraphPipelinePropertyARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelinePropertyARM.html)
+///
+#[doc(alias = "VkDataGraphPipelinePropertyARM")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum DataGraphPipelinePropertyARM {
+    #[default]
+    #[doc(alias = "VK_DATA_GRAPH_PIPELINE_PROPERTY_CREATION_LOG_ARM")]
+    DATA_GRAPH_PIPELINE_PROPERTY_CREATION_LOG_ARM = 0,
+    #[doc(alias = "VK_DATA_GRAPH_PIPELINE_PROPERTY_IDENTIFIER_ARM")]
+    DATA_GRAPH_PIPELINE_PROPERTY_IDENTIFIER_ARM = 1,
+    #[doc(alias = "VK_DATA_GRAPH_PIPELINE_PROPERTY_NEURAL_ACCELERATOR_DEBUG_DATABASE_ARM")]
+    DATA_GRAPH_PIPELINE_PROPERTY_NEURAL_ACCELERATOR_DEBUG_DATABASE_ARM = 1000676000,
+    #[doc(alias = "VK_DATA_GRAPH_PIPELINE_PROPERTY_NEURAL_ACCELERATOR_STATISTICS_INFO_ARM")]
+    DATA_GRAPH_PIPELINE_PROPERTY_NEURAL_ACCELERATOR_STATISTICS_INFO_ARM = 1000676001,
+}
+
+/// [`VkPhysicalDeviceDataGraphProcessingEngineTypeARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDataGraphProcessingEngineTypeARM.html)
+///
+#[doc(alias = "VkPhysicalDeviceDataGraphProcessingEngineTypeARM")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum PhysicalDeviceDataGraphProcessingEngineTypeARM {
+    #[default]
+    #[doc(alias = "VK_PHYSICAL_DEVICE_DATA_GRAPH_PROCESSING_ENGINE_TYPE_DEFAULT_ARM")]
+    PHYSICAL_DEVICE_DATA_GRAPH_PROCESSING_ENGINE_TYPE_DEFAULT_ARM = 0,
+    #[doc(alias = "VK_PHYSICAL_DEVICE_DATA_GRAPH_PROCESSING_ENGINE_TYPE_NEURAL_QCOM")]
+    PHYSICAL_DEVICE_DATA_GRAPH_PROCESSING_ENGINE_TYPE_NEURAL_QCOM = 1000629000,
+    #[doc(alias = "VK_PHYSICAL_DEVICE_DATA_GRAPH_PROCESSING_ENGINE_TYPE_COMPUTE_QCOM")]
+    PHYSICAL_DEVICE_DATA_GRAPH_PROCESSING_ENGINE_TYPE_COMPUTE_QCOM = 1000629001,
+}
+
+/// [`VkPhysicalDeviceDataGraphOperationTypeARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDataGraphOperationTypeARM.html)
+///
+#[doc(alias = "VkPhysicalDeviceDataGraphOperationTypeARM")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum PhysicalDeviceDataGraphOperationTypeARM {
+    #[default]
+    #[doc(alias = "VK_PHYSICAL_DEVICE_DATA_GRAPH_OPERATION_TYPE_SPIRV_EXTENDED_INSTRUCTION_SET_ARM")]
+    PHYSICAL_DEVICE_DATA_GRAPH_OPERATION_TYPE_SPIRV_EXTENDED_INSTRUCTION_SET_ARM = 0,
+    #[doc(alias = "VK_PHYSICAL_DEVICE_DATA_GRAPH_OPERATION_TYPE_NEURAL_MODEL_QCOM")]
+    PHYSICAL_DEVICE_DATA_GRAPH_OPERATION_TYPE_NEURAL_MODEL_QCOM = 1000629000,
+    #[doc(alias = "VK_PHYSICAL_DEVICE_DATA_GRAPH_OPERATION_TYPE_BUILTIN_MODEL_QCOM")]
+    PHYSICAL_DEVICE_DATA_GRAPH_OPERATION_TYPE_BUILTIN_MODEL_QCOM = 1000629001,
+    #[doc(alias = "VK_PHYSICAL_DEVICE_DATA_GRAPH_OPERATION_TYPE_OPTICAL_FLOW_ARM")]
+    PHYSICAL_DEVICE_DATA_GRAPH_OPERATION_TYPE_OPTICAL_FLOW_ARM = 1000631000,
+}
+
+/// [`VkDataGraphTOSALevelARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphTOSALevelARM.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "VkDataGraphTOSALevelARM")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum DataGraphTOSALevelARM {
+    #[default]
+    #[doc(alias = "VK_DATA_GRAPH_TOSA_LEVEL_NONE_ARM")]
+    DATA_GRAPH_TOSA_LEVEL_NONE_ARM = 0,
+    #[doc(alias = "VK_DATA_GRAPH_TOSA_LEVEL_8K_ARM")]
+    DATA_GRAPH_TOSA_LEVEL_8K_ARM = 1,
+}
+
+/// [`VkBlockMatchWindowCompareModeQCOM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBlockMatchWindowCompareModeQCOM.html)
+///
+#[doc(alias = "VkBlockMatchWindowCompareModeQCOM")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum BlockMatchWindowCompareModeQCOM {
+    #[default]
+    #[doc(alias = "VK_BLOCK_MATCH_WINDOW_COMPARE_MODE_MIN_QCOM")]
+    BLOCK_MATCH_WINDOW_COMPARE_MODE_MIN_QCOM = 0,
+    #[doc(alias = "VK_BLOCK_MATCH_WINDOW_COMPARE_MODE_MAX_QCOM")]
+    BLOCK_MATCH_WINDOW_COMPARE_MODE_MAX_QCOM = 1,
+}
+
+/// [`VkCubicFilterWeightsQCOM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCubicFilterWeightsQCOM.html)
+///
+#[doc(alias = "VkCubicFilterWeightsQCOM")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum CubicFilterWeightsQCOM {
+    #[default]
+    #[doc(alias = "VK_CUBIC_FILTER_WEIGHTS_CATMULL_ROM_QCOM")]
+    CUBIC_FILTER_WEIGHTS_CATMULL_ROM_QCOM = 0,
+    #[doc(alias = "VK_CUBIC_FILTER_WEIGHTS_ZERO_TANGENT_CARDINAL_QCOM")]
+    CUBIC_FILTER_WEIGHTS_ZERO_TANGENT_CARDINAL_QCOM = 1,
+    #[doc(alias = "VK_CUBIC_FILTER_WEIGHTS_B_SPLINE_QCOM")]
+    CUBIC_FILTER_WEIGHTS_B_SPLINE_QCOM = 2,
+    #[doc(alias = "VK_CUBIC_FILTER_WEIGHTS_MITCHELL_NETRAVALI_QCOM")]
+    CUBIC_FILTER_WEIGHTS_MITCHELL_NETRAVALI_QCOM = 3,
+}
+
+/// [`VkLayeredDriverUnderlyingApiMSFT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkLayeredDriverUnderlyingApiMSFT.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "VkLayeredDriverUnderlyingApiMSFT")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum LayeredDriverUnderlyingApiMSFT {
+    #[default]
+    #[doc(alias = "VK_LAYERED_DRIVER_UNDERLYING_API_NONE_MSFT")]
+    LAYERED_DRIVER_UNDERLYING_API_NONE_MSFT = 0,
+    #[doc(alias = "VK_LAYERED_DRIVER_UNDERLYING_API_D3D12_MSFT")]
+    LAYERED_DRIVER_UNDERLYING_API_D3D12_MSFT = 1,
+}
+
+/// [`VkDisplaySurfaceStereoTypeNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplaySurfaceStereoTypeNV.html)
+///
+#[doc(alias = "VkDisplaySurfaceStereoTypeNV")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum DisplaySurfaceStereoTypeNV {
+    #[default]
+    #[doc(alias = "VK_DISPLAY_SURFACE_STEREO_TYPE_NONE_NV")]
+    DISPLAY_SURFACE_STEREO_TYPE_NONE_NV = 0,
+    #[doc(alias = "VK_DISPLAY_SURFACE_STEREO_TYPE_ONBOARD_DIN_NV")]
+    DISPLAY_SURFACE_STEREO_TYPE_ONBOARD_DIN_NV = 1,
+    #[doc(alias = "VK_DISPLAY_SURFACE_STEREO_TYPE_HDMI_3D_NV")]
+    DISPLAY_SURFACE_STEREO_TYPE_HDMI_3D_NV = 2,
+    #[doc(alias = "VK_DISPLAY_SURFACE_STEREO_TYPE_INBAND_DISPLAYPORT_NV")]
+    DISPLAY_SURFACE_STEREO_TYPE_INBAND_DISPLAYPORT_NV = 3,
+}
+
+/// [`VkClusterAccelerationStructureTypeNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkClusterAccelerationStructureTypeNV.html)
+///
+#[doc(alias = "VkClusterAccelerationStructureTypeNV")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum ClusterAccelerationStructureTypeNV {
+    #[default]
+    #[doc(alias = "VK_CLUSTER_ACCELERATION_STRUCTURE_TYPE_CLUSTERS_BOTTOM_LEVEL_NV")]
+    CLUSTER_ACCELERATION_STRUCTURE_TYPE_CLUSTERS_BOTTOM_LEVEL_NV = 0,
+    #[doc(alias = "VK_CLUSTER_ACCELERATION_STRUCTURE_TYPE_TRIANGLE_CLUSTER_NV")]
+    CLUSTER_ACCELERATION_STRUCTURE_TYPE_TRIANGLE_CLUSTER_NV = 1,
+    #[doc(alias = "VK_CLUSTER_ACCELERATION_STRUCTURE_TYPE_TRIANGLE_CLUSTER_TEMPLATE_NV")]
+    CLUSTER_ACCELERATION_STRUCTURE_TYPE_TRIANGLE_CLUSTER_TEMPLATE_NV = 2,
+}
+
+/// [`VkClusterAccelerationStructureOpTypeNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkClusterAccelerationStructureOpTypeNV.html)
+///
+#[doc(alias = "VkClusterAccelerationStructureOpTypeNV")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum ClusterAccelerationStructureOpTypeNV {
+    #[default]
+    #[doc(alias = "VK_CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_MOVE_OBJECTS_NV")]
+    CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_MOVE_OBJECTS_NV = 0,
+    #[doc(alias = "VK_CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_BUILD_CLUSTERS_BOTTOM_LEVEL_NV")]
+    CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_BUILD_CLUSTERS_BOTTOM_LEVEL_NV = 1,
+    #[doc(alias = "VK_CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_BUILD_TRIANGLE_CLUSTER_NV")]
+    CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_BUILD_TRIANGLE_CLUSTER_NV = 2,
+    #[doc(alias = "VK_CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_BUILD_TRIANGLE_CLUSTER_TEMPLATE_NV")]
+    CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_BUILD_TRIANGLE_CLUSTER_TEMPLATE_NV = 3,
+    #[doc(alias = "VK_CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_INSTANTIATE_TRIANGLE_CLUSTER_NV")]
+    CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_INSTANTIATE_TRIANGLE_CLUSTER_NV = 4,
+    #[doc(alias = "VK_CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_GET_CLUSTER_TEMPLATE_INDICES_NV")]
+    CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_GET_CLUSTER_TEMPLATE_INDICES_NV = 5,
+}
+
+/// [`VkClusterAccelerationStructureOpModeNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkClusterAccelerationStructureOpModeNV.html)
+///
+#[doc(alias = "VkClusterAccelerationStructureOpModeNV")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum ClusterAccelerationStructureOpModeNV {
+    #[default]
+    #[doc(alias = "VK_CLUSTER_ACCELERATION_STRUCTURE_OP_MODE_IMPLICIT_DESTINATIONS_NV")]
+    CLUSTER_ACCELERATION_STRUCTURE_OP_MODE_IMPLICIT_DESTINATIONS_NV = 0,
+    #[doc(alias = "VK_CLUSTER_ACCELERATION_STRUCTURE_OP_MODE_EXPLICIT_DESTINATIONS_NV")]
+    CLUSTER_ACCELERATION_STRUCTURE_OP_MODE_EXPLICIT_DESTINATIONS_NV = 1,
+    #[doc(alias = "VK_CLUSTER_ACCELERATION_STRUCTURE_OP_MODE_COMPUTE_SIZES_NV")]
+    CLUSTER_ACCELERATION_STRUCTURE_OP_MODE_COMPUTE_SIZES_NV = 2,
+}
+
+/// [`VkPartitionedAccelerationStructureOpTypeNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPartitionedAccelerationStructureOpTypeNV.html)
+///
+#[doc(alias = "VkPartitionedAccelerationStructureOpTypeNV")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum PartitionedAccelerationStructureOpTypeNV {
+    #[default]
+    #[doc(alias = "VK_PARTITIONED_ACCELERATION_STRUCTURE_OP_TYPE_WRITE_INSTANCE_NV")]
+    PARTITIONED_ACCELERATION_STRUCTURE_OP_TYPE_WRITE_INSTANCE_NV = 0,
+    #[doc(alias = "VK_PARTITIONED_ACCELERATION_STRUCTURE_OP_TYPE_UPDATE_INSTANCE_NV")]
+    PARTITIONED_ACCELERATION_STRUCTURE_OP_TYPE_UPDATE_INSTANCE_NV = 1,
+    #[doc(alias = "VK_PARTITIONED_ACCELERATION_STRUCTURE_OP_TYPE_WRITE_PARTITION_TRANSLATION_NV")]
+    PARTITIONED_ACCELERATION_STRUCTURE_OP_TYPE_WRITE_PARTITION_TRANSLATION_NV = 2,
+}
+
+/// [`VkIndirectExecutionSetInfoTypeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectExecutionSetInfoTypeEXT.html)
+///
+#[doc(alias = "VkIndirectExecutionSetInfoTypeEXT")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum IndirectExecutionSetInfoTypeEXT {
+    #[default]
+    #[doc(alias = "VK_INDIRECT_EXECUTION_SET_INFO_TYPE_PIPELINES_EXT")]
+    INDIRECT_EXECUTION_SET_INFO_TYPE_PIPELINES_EXT = 0,
+    #[doc(alias = "VK_INDIRECT_EXECUTION_SET_INFO_TYPE_SHADER_OBJECTS_EXT")]
+    INDIRECT_EXECUTION_SET_INFO_TYPE_SHADER_OBJECTS_EXT = 1,
+}
+
+/// [`VkIndirectCommandsTokenTypeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectCommandsTokenTypeEXT.html)
+///
+#[doc(alias = "VkIndirectCommandsTokenTypeEXT")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum IndirectCommandsTokenTypeEXT {
+    #[default]
+    #[doc(alias = "VK_INDIRECT_COMMANDS_TOKEN_TYPE_EXECUTION_SET_EXT")]
+    INDIRECT_COMMANDS_TOKEN_TYPE_EXECUTION_SET_EXT = 0,
+    #[doc(alias = "VK_INDIRECT_COMMANDS_TOKEN_TYPE_PUSH_CONSTANT_EXT")]
+    INDIRECT_COMMANDS_TOKEN_TYPE_PUSH_CONSTANT_EXT = 1,
+    #[doc(alias = "VK_INDIRECT_COMMANDS_TOKEN_TYPE_SEQUENCE_INDEX_EXT")]
+    INDIRECT_COMMANDS_TOKEN_TYPE_SEQUENCE_INDEX_EXT = 2,
+    #[doc(alias = "VK_INDIRECT_COMMANDS_TOKEN_TYPE_INDEX_BUFFER_EXT")]
+    INDIRECT_COMMANDS_TOKEN_TYPE_INDEX_BUFFER_EXT = 3,
+    #[doc(alias = "VK_INDIRECT_COMMANDS_TOKEN_TYPE_VERTEX_BUFFER_EXT")]
+    INDIRECT_COMMANDS_TOKEN_TYPE_VERTEX_BUFFER_EXT = 4,
+    #[doc(alias = "VK_INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_INDEXED_EXT")]
+    INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_INDEXED_EXT = 5,
+    #[doc(alias = "VK_INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_EXT")]
+    INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_EXT = 6,
+    #[doc(alias = "VK_INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_INDEXED_COUNT_EXT")]
+    INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_INDEXED_COUNT_EXT = 7,
+    #[doc(alias = "VK_INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_COUNT_EXT")]
+    INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_COUNT_EXT = 8,
+    #[doc(alias = "VK_INDIRECT_COMMANDS_TOKEN_TYPE_DISPATCH_EXT")]
+    INDIRECT_COMMANDS_TOKEN_TYPE_DISPATCH_EXT = 9,
+    #[doc(alias = "VK_INDIRECT_COMMANDS_TOKEN_TYPE_PUSH_DATA_EXT")]
+    INDIRECT_COMMANDS_TOKEN_TYPE_PUSH_DATA_EXT = 1000135000,
+    #[doc(alias = "VK_INDIRECT_COMMANDS_TOKEN_TYPE_PUSH_DATA_SEQUENCE_INDEX_EXT")]
+    INDIRECT_COMMANDS_TOKEN_TYPE_PUSH_DATA_SEQUENCE_INDEX_EXT = 1000135001,
+    #[doc(alias = "VK_INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_MESH_TASKS_NV_EXT")]
+    INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_MESH_TASKS_NV_EXT = 1000202002,
+    #[doc(alias = "VK_INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_MESH_TASKS_COUNT_NV_EXT")]
+    INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_MESH_TASKS_COUNT_NV_EXT = 1000202003,
+    #[doc(alias = "VK_INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_MESH_TASKS_EXT")]
+    INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_MESH_TASKS_EXT = 1000328000,
+    #[doc(alias = "VK_INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_MESH_TASKS_COUNT_EXT")]
+    INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_MESH_TASKS_COUNT_EXT = 1000328001,
+    #[doc(alias = "VK_INDIRECT_COMMANDS_TOKEN_TYPE_TRACE_RAYS2_EXT")]
+    INDIRECT_COMMANDS_TOKEN_TYPE_TRACE_RAYS2_EXT = 1000386004,
+}
+
+/// [`VkDataGraphModelCacheTypeQCOM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphModelCacheTypeQCOM.html)
+///
+#[doc(alias = "VkDataGraphModelCacheTypeQCOM")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum DataGraphModelCacheTypeQCOM {
+    #[default]
+    #[doc(alias = "VK_DATA_GRAPH_MODEL_CACHE_TYPE_GENERIC_BINARY_QCOM")]
+    DATA_GRAPH_MODEL_CACHE_TYPE_GENERIC_BINARY_QCOM = 0,
+}
+
+/// [`VkDataGraphOpticalFlowPerformanceLevelARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphOpticalFlowPerformanceLevelARM.html)
+///
+#[doc(alias = "VkDataGraphOpticalFlowPerformanceLevelARM")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum DataGraphOpticalFlowPerformanceLevelARM {
+    #[default]
+    #[doc(alias = "VK_DATA_GRAPH_OPTICAL_FLOW_PERFORMANCE_LEVEL_UNKNOWN_ARM")]
+    DATA_GRAPH_OPTICAL_FLOW_PERFORMANCE_LEVEL_UNKNOWN_ARM = 0,
+    #[doc(alias = "VK_DATA_GRAPH_OPTICAL_FLOW_PERFORMANCE_LEVEL_SLOW_ARM")]
+    DATA_GRAPH_OPTICAL_FLOW_PERFORMANCE_LEVEL_SLOW_ARM = 1,
+    #[doc(alias = "VK_DATA_GRAPH_OPTICAL_FLOW_PERFORMANCE_LEVEL_MEDIUM_ARM")]
+    DATA_GRAPH_OPTICAL_FLOW_PERFORMANCE_LEVEL_MEDIUM_ARM = 2,
+    #[doc(alias = "VK_DATA_GRAPH_OPTICAL_FLOW_PERFORMANCE_LEVEL_FAST_ARM")]
+    DATA_GRAPH_OPTICAL_FLOW_PERFORMANCE_LEVEL_FAST_ARM = 3,
+}
+
+/// [`VkDataGraphPipelineNodeTypeARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineNodeTypeARM.html)
+///
+#[doc(alias = "VkDataGraphPipelineNodeTypeARM")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum DataGraphPipelineNodeTypeARM {
+    #[default]
+    #[doc(alias = "VK_DATA_GRAPH_PIPELINE_NODE_TYPE_OPTICAL_FLOW_ARM")]
+    DATA_GRAPH_PIPELINE_NODE_TYPE_OPTICAL_FLOW_ARM = 1000631000,
+}
+
+/// [`VkDataGraphPipelineNodeConnectionTypeARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineNodeConnectionTypeARM.html)
+///
+#[doc(alias = "VkDataGraphPipelineNodeConnectionTypeARM")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum DataGraphPipelineNodeConnectionTypeARM {
+    #[default]
+    #[doc(alias = "VK_DATA_GRAPH_PIPELINE_NODE_CONNECTION_TYPE_OPTICAL_FLOW_INPUT_ARM")]
+    DATA_GRAPH_PIPELINE_NODE_CONNECTION_TYPE_OPTICAL_FLOW_INPUT_ARM = 1000631000,
+    #[doc(alias = "VK_DATA_GRAPH_PIPELINE_NODE_CONNECTION_TYPE_OPTICAL_FLOW_REFERENCE_ARM")]
+    DATA_GRAPH_PIPELINE_NODE_CONNECTION_TYPE_OPTICAL_FLOW_REFERENCE_ARM = 1000631001,
+    #[doc(alias = "VK_DATA_GRAPH_PIPELINE_NODE_CONNECTION_TYPE_OPTICAL_FLOW_HINT_ARM")]
+    DATA_GRAPH_PIPELINE_NODE_CONNECTION_TYPE_OPTICAL_FLOW_HINT_ARM = 1000631002,
+    #[doc(alias = "VK_DATA_GRAPH_PIPELINE_NODE_CONNECTION_TYPE_OPTICAL_FLOW_FLOW_VECTOR_ARM")]
+    DATA_GRAPH_PIPELINE_NODE_CONNECTION_TYPE_OPTICAL_FLOW_FLOW_VECTOR_ARM = 1000631003,
+    #[doc(alias = "VK_DATA_GRAPH_PIPELINE_NODE_CONNECTION_TYPE_OPTICAL_FLOW_COST_ARM")]
+    DATA_GRAPH_PIPELINE_NODE_CONNECTION_TYPE_OPTICAL_FLOW_COST_ARM = 1000631004,
+}
+
+/// [`VkThrottleHintTypeSEC`](https://docs.vulkan.org/refpages/latest/refpages/source/VkThrottleHintTypeSEC.html)
+///
+#[doc(alias = "VkThrottleHintTypeSEC")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum ThrottleHintTypeSEC {
+    #[default]
+    #[doc(alias = "VK_THROTTLE_HINT_TYPE_DEFAULT_SEC")]
+    THROTTLE_HINT_TYPE_DEFAULT_SEC = 0,
+    #[doc(alias = "VK_THROTTLE_HINT_TYPE_LOW_SEC")]
+    THROTTLE_HINT_TYPE_LOW_SEC = 1,
+    #[doc(alias = "VK_THROTTLE_HINT_TYPE_HIGH_SEC")]
+    THROTTLE_HINT_TYPE_HIGH_SEC = 2,
+}
+
+/// [`VkNeuralAcceleratorStatisticsModeARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkNeuralAcceleratorStatisticsModeARM.html)
+///
+#[doc(alias = "VkNeuralAcceleratorStatisticsModeARM")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum NeuralAcceleratorStatisticsModeARM {
+    #[default]
+    #[doc(alias = "VK_NEURAL_ACCELERATOR_STATISTICS_MODE_DISABLED_ARM")]
+    NEURAL_ACCELERATOR_STATISTICS_MODE_DISABLED_ARM = 0,
+    #[doc(alias = "VK_NEURAL_ACCELERATOR_STATISTICS_MODE_STATISTICS0_ARM")]
+    NEURAL_ACCELERATOR_STATISTICS_MODE_STATISTICS0_ARM = 1,
+    #[doc(alias = "VK_NEURAL_ACCELERATOR_STATISTICS_MODE_STATISTICS1_ARM")]
+    NEURAL_ACCELERATOR_STATISTICS_MODE_STATISTICS1_ARM = 2,
+}
+
+/// [`VkImageTilingControlEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageTilingControlEXT.html)
+///
+#[doc(alias = "VkImageTilingControlEXT")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum ImageTilingControlEXT {
+    #[default]
+    #[doc(alias = "VK_IMAGE_TILING_CONTROL_DEFAULT_EXT")]
+    IMAGE_TILING_CONTROL_DEFAULT_EXT = 0,
+    #[doc(alias = "VK_IMAGE_TILING_CONTROL_MIN_SIZE_EXT")]
+    IMAGE_TILING_CONTROL_MIN_SIZE_EXT = 1,
+    #[doc(alias = "VK_IMAGE_TILING_CONTROL_MAX_PERFORMANCE_EXT")]
+    IMAGE_TILING_CONTROL_MAX_PERFORMANCE_EXT = 2,
+}
+
+/// [`VkBuildAccelerationStructureModeKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBuildAccelerationStructureModeKHR.html)
+///
+#[doc(alias = "VkBuildAccelerationStructureModeKHR")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum BuildAccelerationStructureModeKHR {
+    #[default]
+    #[doc(alias = "VK_BUILD_ACCELERATION_STRUCTURE_MODE_BUILD_KHR")]
+    BUILD_ACCELERATION_STRUCTURE_MODE_BUILD_KHR = 0,
+    #[doc(alias = "VK_BUILD_ACCELERATION_STRUCTURE_MODE_UPDATE_KHR")]
+    BUILD_ACCELERATION_STRUCTURE_MODE_UPDATE_KHR = 1,
+}
+
+/// [`VkShaderGroupShaderKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderGroupShaderKHR.html)
+///
+#[doc(alias = "VkShaderGroupShaderKHR")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum ShaderGroupShaderKHR {
+    #[default]
+    #[doc(alias = "VK_SHADER_GROUP_SHADER_GENERAL_KHR")]
+    SHADER_GROUP_SHADER_GENERAL_KHR = 0,
+    #[doc(alias = "VK_SHADER_GROUP_SHADER_CLOSEST_HIT_KHR")]
+    SHADER_GROUP_SHADER_CLOSEST_HIT_KHR = 1,
+    #[doc(alias = "VK_SHADER_GROUP_SHADER_ANY_HIT_KHR")]
+    SHADER_GROUP_SHADER_ANY_HIT_KHR = 2,
+    #[doc(alias = "VK_SHADER_GROUP_SHADER_INTERSECTION_KHR")]
+    SHADER_GROUP_SHADER_INTERSECTION_KHR = 3,
+}
+
+/// [`StdVideoH264ChromaFormatIdc`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264ChromaFormatIdc.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "StdVideoH264ChromaFormatIdc")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum H264ChromaFormatIdc {
+    #[default]
+    #[doc(alias = "STD_VIDEO_H264_CHROMA_FORMAT_IDC_MONOCHROME")]
+    MONOCHROME = 0,
+    #[doc(alias = "STD_VIDEO_H264_CHROMA_FORMAT_IDC_420")]
+    _420 = 1,
+    #[doc(alias = "STD_VIDEO_H264_CHROMA_FORMAT_IDC_422")]
+    _422 = 2,
+    #[doc(alias = "STD_VIDEO_H264_CHROMA_FORMAT_IDC_444")]
+    _444 = 3,
+    #[doc(alias = "STD_VIDEO_H264_CHROMA_FORMAT_IDC_INVALID")]
+    INVALID = 2147483647,
+}
+
+/// [`StdVideoH264ProfileIdc`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264ProfileIdc.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "StdVideoH264ProfileIdc")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum H264ProfileIdc {
+    #[default]
+    #[doc(alias = "STD_VIDEO_H264_PROFILE_IDC_BASELINE")]
+    BASELINE = 66,
+    #[doc(alias = "STD_VIDEO_H264_PROFILE_IDC_MAIN")]
+    MAIN = 77,
+    #[doc(alias = "STD_VIDEO_H264_PROFILE_IDC_HIGH")]
+    HIGH = 100,
+    #[doc(alias = "STD_VIDEO_H264_PROFILE_IDC_HIGH_10")]
+    HIGH_10 = 110,
+    #[doc(alias = "STD_VIDEO_H264_PROFILE_IDC_HIGH_422")]
+    HIGH_422 = 122,
+    #[doc(alias = "STD_VIDEO_H264_PROFILE_IDC_HIGH_444_PREDICTIVE")]
+    HIGH_444_PREDICTIVE = 244,
+    #[doc(alias = "STD_VIDEO_H264_PROFILE_IDC_INVALID")]
+    INVALID = 2147483647,
+}
+
+/// [`StdVideoH264LevelIdc`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264LevelIdc.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "StdVideoH264LevelIdc")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum H264LevelIdc {
+    #[default]
+    #[doc(alias = "STD_VIDEO_H264_LEVEL_IDC_1_0")]
+    _1_0 = 0,
+    #[doc(alias = "STD_VIDEO_H264_LEVEL_IDC_1_1")]
+    _1_1 = 1,
+    #[doc(alias = "STD_VIDEO_H264_LEVEL_IDC_1_2")]
+    _1_2 = 2,
+    #[doc(alias = "STD_VIDEO_H264_LEVEL_IDC_1_3")]
+    _1_3 = 3,
+    #[doc(alias = "STD_VIDEO_H264_LEVEL_IDC_2_0")]
+    _2_0 = 4,
+    #[doc(alias = "STD_VIDEO_H264_LEVEL_IDC_2_1")]
+    _2_1 = 5,
+    #[doc(alias = "STD_VIDEO_H264_LEVEL_IDC_2_2")]
+    _2_2 = 6,
+    #[doc(alias = "STD_VIDEO_H264_LEVEL_IDC_3_0")]
+    _3_0 = 7,
+    #[doc(alias = "STD_VIDEO_H264_LEVEL_IDC_3_1")]
+    _3_1 = 8,
+    #[doc(alias = "STD_VIDEO_H264_LEVEL_IDC_3_2")]
+    _3_2 = 9,
+    #[doc(alias = "STD_VIDEO_H264_LEVEL_IDC_4_0")]
+    _4_0 = 10,
+    #[doc(alias = "STD_VIDEO_H264_LEVEL_IDC_4_1")]
+    _4_1 = 11,
+    #[doc(alias = "STD_VIDEO_H264_LEVEL_IDC_4_2")]
+    _4_2 = 12,
+    #[doc(alias = "STD_VIDEO_H264_LEVEL_IDC_5_0")]
+    _5_0 = 13,
+    #[doc(alias = "STD_VIDEO_H264_LEVEL_IDC_5_1")]
+    _5_1 = 14,
+    #[doc(alias = "STD_VIDEO_H264_LEVEL_IDC_5_2")]
+    _5_2 = 15,
+    #[doc(alias = "STD_VIDEO_H264_LEVEL_IDC_6_0")]
+    _6_0 = 16,
+    #[doc(alias = "STD_VIDEO_H264_LEVEL_IDC_6_1")]
+    _6_1 = 17,
+    #[doc(alias = "STD_VIDEO_H264_LEVEL_IDC_6_2")]
+    _6_2 = 18,
+    #[doc(alias = "STD_VIDEO_H264_LEVEL_IDC_INVALID")]
+    INVALID = 2147483647,
+}
+
+/// [`StdVideoH264PocType`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264PocType.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "StdVideoH264PocType")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum H264PocType {
+    #[default]
+    #[doc(alias = "STD_VIDEO_H264_POC_TYPE_0")]
+    _0 = 0,
+    #[doc(alias = "STD_VIDEO_H264_POC_TYPE_1")]
+    _1 = 1,
+    #[doc(alias = "STD_VIDEO_H264_POC_TYPE_2")]
+    _2 = 2,
+    #[doc(alias = "STD_VIDEO_H264_POC_TYPE_INVALID")]
+    INVALID = 2147483647,
+}
+
+/// [`StdVideoH264AspectRatioIdc`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264AspectRatioIdc.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "StdVideoH264AspectRatioIdc")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum H264AspectRatioIdc {
+    #[default]
+    #[doc(alias = "STD_VIDEO_H264_ASPECT_RATIO_IDC_UNSPECIFIED")]
+    UNSPECIFIED = 0,
+    #[doc(alias = "STD_VIDEO_H264_ASPECT_RATIO_IDC_SQUARE")]
+    SQUARE = 1,
+    #[doc(alias = "STD_VIDEO_H264_ASPECT_RATIO_IDC_12_11")]
+    _12_11 = 2,
+    #[doc(alias = "STD_VIDEO_H264_ASPECT_RATIO_IDC_10_11")]
+    _10_11 = 3,
+    #[doc(alias = "STD_VIDEO_H264_ASPECT_RATIO_IDC_16_11")]
+    _16_11 = 4,
+    #[doc(alias = "STD_VIDEO_H264_ASPECT_RATIO_IDC_40_33")]
+    _40_33 = 5,
+    #[doc(alias = "STD_VIDEO_H264_ASPECT_RATIO_IDC_24_11")]
+    _24_11 = 6,
+    #[doc(alias = "STD_VIDEO_H264_ASPECT_RATIO_IDC_20_11")]
+    _20_11 = 7,
+    #[doc(alias = "STD_VIDEO_H264_ASPECT_RATIO_IDC_32_11")]
+    _32_11 = 8,
+    #[doc(alias = "STD_VIDEO_H264_ASPECT_RATIO_IDC_80_33")]
+    _80_33 = 9,
+    #[doc(alias = "STD_VIDEO_H264_ASPECT_RATIO_IDC_18_11")]
+    _18_11 = 10,
+    #[doc(alias = "STD_VIDEO_H264_ASPECT_RATIO_IDC_15_11")]
+    _15_11 = 11,
+    #[doc(alias = "STD_VIDEO_H264_ASPECT_RATIO_IDC_64_33")]
+    _64_33 = 12,
+    #[doc(alias = "STD_VIDEO_H264_ASPECT_RATIO_IDC_160_99")]
+    _160_99 = 13,
+    #[doc(alias = "STD_VIDEO_H264_ASPECT_RATIO_IDC_4_3")]
+    _4_3 = 14,
+    #[doc(alias = "STD_VIDEO_H264_ASPECT_RATIO_IDC_3_2")]
+    _3_2 = 15,
+    #[doc(alias = "STD_VIDEO_H264_ASPECT_RATIO_IDC_2_1")]
+    _2_1 = 16,
+    #[doc(alias = "STD_VIDEO_H264_ASPECT_RATIO_IDC_EXTENDED_SAR")]
+    EXTENDED_SAR = 255,
+    #[doc(alias = "STD_VIDEO_H264_ASPECT_RATIO_IDC_INVALID")]
+    INVALID = 2147483647,
+}
+
+/// [`StdVideoH264WeightedBipredIdc`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264WeightedBipredIdc.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "StdVideoH264WeightedBipredIdc")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum H264WeightedBipredIdc {
+    #[default]
+    #[doc(alias = "STD_VIDEO_H264_WEIGHTED_BIPRED_IDC_DEFAULT")]
+    DEFAULT = 0,
+    #[doc(alias = "STD_VIDEO_H264_WEIGHTED_BIPRED_IDC_EXPLICIT")]
+    EXPLICIT = 1,
+    #[doc(alias = "STD_VIDEO_H264_WEIGHTED_BIPRED_IDC_IMPLICIT")]
+    IMPLICIT = 2,
+    #[doc(alias = "STD_VIDEO_H264_WEIGHTED_BIPRED_IDC_INVALID")]
+    INVALID = 2147483647,
+}
+
+/// [`StdVideoH264ModificationOfPicNumsIdc`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264ModificationOfPicNumsIdc.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "StdVideoH264ModificationOfPicNumsIdc")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum H264ModificationOfPicNumsIdc {
+    #[default]
+    #[doc(alias = "STD_VIDEO_H264_MODIFICATION_OF_PIC_NUMS_IDC_SHORT_TERM_SUBTRACT")]
+    SHORT_TERM_SUBTRACT = 0,
+    #[doc(alias = "STD_VIDEO_H264_MODIFICATION_OF_PIC_NUMS_IDC_SHORT_TERM_ADD")]
+    SHORT_TERM_ADD = 1,
+    #[doc(alias = "STD_VIDEO_H264_MODIFICATION_OF_PIC_NUMS_IDC_LONG_TERM")]
+    LONG_TERM = 2,
+    #[doc(alias = "STD_VIDEO_H264_MODIFICATION_OF_PIC_NUMS_IDC_END")]
+    END = 3,
+    #[doc(alias = "STD_VIDEO_H264_MODIFICATION_OF_PIC_NUMS_IDC_INVALID")]
+    INVALID = 2147483647,
+}
+
+/// [`StdVideoH264MemMgmtControlOp`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264MemMgmtControlOp.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "StdVideoH264MemMgmtControlOp")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum H264MemMgmtControlOp {
+    #[default]
+    #[doc(alias = "STD_VIDEO_H264_MEM_MGMT_CONTROL_OP_END")]
+    END = 0,
+    #[doc(alias = "STD_VIDEO_H264_MEM_MGMT_CONTROL_OP_UNMARK_SHORT_TERM")]
+    UNMARK_SHORT_TERM = 1,
+    #[doc(alias = "STD_VIDEO_H264_MEM_MGMT_CONTROL_OP_UNMARK_LONG_TERM")]
+    UNMARK_LONG_TERM = 2,
+    #[doc(alias = "STD_VIDEO_H264_MEM_MGMT_CONTROL_OP_MARK_LONG_TERM")]
+    MARK_LONG_TERM = 3,
+    #[doc(alias = "STD_VIDEO_H264_MEM_MGMT_CONTROL_OP_SET_MAX_LONG_TERM_INDEX")]
+    SET_MAX_LONG_TERM_INDEX = 4,
+    #[doc(alias = "STD_VIDEO_H264_MEM_MGMT_CONTROL_OP_UNMARK_ALL")]
+    UNMARK_ALL = 5,
+    #[doc(alias = "STD_VIDEO_H264_MEM_MGMT_CONTROL_OP_MARK_CURRENT_AS_LONG_TERM")]
+    MARK_CURRENT_AS_LONG_TERM = 6,
+    #[doc(alias = "STD_VIDEO_H264_MEM_MGMT_CONTROL_OP_INVALID")]
+    INVALID = 2147483647,
+}
+
+/// [`StdVideoH264CabacInitIdc`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264CabacInitIdc.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "StdVideoH264CabacInitIdc")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum H264CabacInitIdc {
+    #[default]
+    #[doc(alias = "STD_VIDEO_H264_CABAC_INIT_IDC_0")]
+    _0 = 0,
+    #[doc(alias = "STD_VIDEO_H264_CABAC_INIT_IDC_1")]
+    _1 = 1,
+    #[doc(alias = "STD_VIDEO_H264_CABAC_INIT_IDC_2")]
+    _2 = 2,
+    #[doc(alias = "STD_VIDEO_H264_CABAC_INIT_IDC_INVALID")]
+    INVALID = 2147483647,
+}
+
+/// [`StdVideoH264DisableDeblockingFilterIdc`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264DisableDeblockingFilterIdc.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "StdVideoH264DisableDeblockingFilterIdc")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum H264DisableDeblockingFilterIdc {
+    #[default]
+    #[doc(alias = "STD_VIDEO_H264_DISABLE_DEBLOCKING_FILTER_IDC_DISABLED")]
+    DISABLED = 0,
+    #[doc(alias = "STD_VIDEO_H264_DISABLE_DEBLOCKING_FILTER_IDC_ENABLED")]
+    ENABLED = 1,
+    #[doc(alias = "STD_VIDEO_H264_DISABLE_DEBLOCKING_FILTER_IDC_PARTIAL")]
+    PARTIAL = 2,
+    #[doc(alias = "STD_VIDEO_H264_DISABLE_DEBLOCKING_FILTER_IDC_INVALID")]
+    INVALID = 2147483647,
+}
+
+/// [`StdVideoH264SliceType`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264SliceType.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "StdVideoH264SliceType")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum H264SliceType {
+    #[default]
+    #[doc(alias = "STD_VIDEO_H264_SLICE_TYPE_P")]
+    P = 0,
+    #[doc(alias = "STD_VIDEO_H264_SLICE_TYPE_B")]
+    B = 1,
+    #[doc(alias = "STD_VIDEO_H264_SLICE_TYPE_I")]
+    I = 2,
+    #[doc(alias = "STD_VIDEO_H264_SLICE_TYPE_INVALID")]
+    INVALID = 2147483647,
+}
+
+/// [`StdVideoH264PictureType`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264PictureType.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "StdVideoH264PictureType")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum H264PictureType {
+    #[default]
+    #[doc(alias = "STD_VIDEO_H264_PICTURE_TYPE_P")]
+    P = 0,
+    #[doc(alias = "STD_VIDEO_H264_PICTURE_TYPE_B")]
+    B = 1,
+    #[doc(alias = "STD_VIDEO_H264_PICTURE_TYPE_I")]
+    I = 2,
+    #[doc(alias = "STD_VIDEO_H264_PICTURE_TYPE_IDR")]
+    IDR = 5,
+    #[doc(alias = "STD_VIDEO_H264_PICTURE_TYPE_INVALID")]
+    INVALID = 2147483647,
+}
+
+/// [`StdVideoH264NonVclNaluType`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264NonVclNaluType.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "StdVideoH264NonVclNaluType")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum H264NonVclNaluType {
+    #[default]
+    #[doc(alias = "STD_VIDEO_H264_NON_VCL_NALU_TYPE_SPS")]
+    SPS = 0,
+    #[doc(alias = "STD_VIDEO_H264_NON_VCL_NALU_TYPE_PPS")]
+    PPS = 1,
+    #[doc(alias = "STD_VIDEO_H264_NON_VCL_NALU_TYPE_AUD")]
+    AUD = 2,
+    #[doc(alias = "STD_VIDEO_H264_NON_VCL_NALU_TYPE_PREFIX")]
+    PREFIX = 3,
+    #[doc(alias = "STD_VIDEO_H264_NON_VCL_NALU_TYPE_END_OF_SEQUENCE")]
+    END_OF_SEQUENCE = 4,
+    #[doc(alias = "STD_VIDEO_H264_NON_VCL_NALU_TYPE_END_OF_STREAM")]
+    END_OF_STREAM = 5,
+    #[doc(alias = "STD_VIDEO_H264_NON_VCL_NALU_TYPE_PRECODED")]
+    PRECODED = 6,
+    #[doc(alias = "STD_VIDEO_H264_NON_VCL_NALU_TYPE_INVALID")]
+    INVALID = 2147483647,
+}
+
+/// [`StdVideoDecodeH264FieldOrderCount`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeH264FieldOrderCount.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "StdVideoDecodeH264FieldOrderCount")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum DecodeH264FieldOrderCount {
+    #[default]
+    #[doc(alias = "STD_VIDEO_DECODE_H264_FIELD_ORDER_COUNT_TOP")]
+    TOP = 0,
+    #[doc(alias = "STD_VIDEO_DECODE_H264_FIELD_ORDER_COUNT_BOTTOM")]
+    BOTTOM = 1,
+    #[doc(alias = "STD_VIDEO_DECODE_H264_FIELD_ORDER_COUNT_INVALID")]
+    INVALID = 2147483647,
+}
+
+/// [`StdVideoH265ChromaFormatIdc`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265ChromaFormatIdc.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "StdVideoH265ChromaFormatIdc")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum H265ChromaFormatIdc {
+    #[default]
+    #[doc(alias = "STD_VIDEO_H265_CHROMA_FORMAT_IDC_MONOCHROME")]
+    MONOCHROME = 0,
+    #[doc(alias = "STD_VIDEO_H265_CHROMA_FORMAT_IDC_420")]
+    _420 = 1,
+    #[doc(alias = "STD_VIDEO_H265_CHROMA_FORMAT_IDC_422")]
+    _422 = 2,
+    #[doc(alias = "STD_VIDEO_H265_CHROMA_FORMAT_IDC_444")]
+    _444 = 3,
+    #[doc(alias = "STD_VIDEO_H265_CHROMA_FORMAT_IDC_INVALID")]
+    INVALID = 2147483647,
+}
+
+/// [`StdVideoH265ProfileIdc`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265ProfileIdc.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "StdVideoH265ProfileIdc")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum H265ProfileIdc {
+    #[default]
+    #[doc(alias = "STD_VIDEO_H265_PROFILE_IDC_MAIN")]
+    MAIN = 1,
+    #[doc(alias = "STD_VIDEO_H265_PROFILE_IDC_MAIN_10")]
+    MAIN_10 = 2,
+    #[doc(alias = "STD_VIDEO_H265_PROFILE_IDC_MAIN_STILL_PICTURE")]
+    MAIN_STILL_PICTURE = 3,
+    #[doc(alias = "STD_VIDEO_H265_PROFILE_IDC_FORMAT_RANGE_EXTENSIONS")]
+    FORMAT_RANGE_EXTENSIONS = 4,
+    #[doc(alias = "STD_VIDEO_H265_PROFILE_IDC_SCC_EXTENSIONS")]
+    SCC_EXTENSIONS = 9,
+    #[doc(alias = "STD_VIDEO_H265_PROFILE_IDC_INVALID")]
+    INVALID = 2147483647,
+}
+
+/// [`StdVideoH265LevelIdc`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265LevelIdc.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "StdVideoH265LevelIdc")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum H265LevelIdc {
+    #[default]
+    #[doc(alias = "STD_VIDEO_H265_LEVEL_IDC_1_0")]
+    _1_0 = 0,
+    #[doc(alias = "STD_VIDEO_H265_LEVEL_IDC_2_0")]
+    _2_0 = 1,
+    #[doc(alias = "STD_VIDEO_H265_LEVEL_IDC_2_1")]
+    _2_1 = 2,
+    #[doc(alias = "STD_VIDEO_H265_LEVEL_IDC_3_0")]
+    _3_0 = 3,
+    #[doc(alias = "STD_VIDEO_H265_LEVEL_IDC_3_1")]
+    _3_1 = 4,
+    #[doc(alias = "STD_VIDEO_H265_LEVEL_IDC_4_0")]
+    _4_0 = 5,
+    #[doc(alias = "STD_VIDEO_H265_LEVEL_IDC_4_1")]
+    _4_1 = 6,
+    #[doc(alias = "STD_VIDEO_H265_LEVEL_IDC_5_0")]
+    _5_0 = 7,
+    #[doc(alias = "STD_VIDEO_H265_LEVEL_IDC_5_1")]
+    _5_1 = 8,
+    #[doc(alias = "STD_VIDEO_H265_LEVEL_IDC_5_2")]
+    _5_2 = 9,
+    #[doc(alias = "STD_VIDEO_H265_LEVEL_IDC_6_0")]
+    _6_0 = 10,
+    #[doc(alias = "STD_VIDEO_H265_LEVEL_IDC_6_1")]
+    _6_1 = 11,
+    #[doc(alias = "STD_VIDEO_H265_LEVEL_IDC_6_2")]
+    _6_2 = 12,
+    #[doc(alias = "STD_VIDEO_H265_LEVEL_IDC_INVALID")]
+    INVALID = 2147483647,
+}
+
+/// [`StdVideoH265SliceType`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265SliceType.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "StdVideoH265SliceType")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum H265SliceType {
+    #[default]
+    #[doc(alias = "STD_VIDEO_H265_SLICE_TYPE_B")]
+    B = 0,
+    #[doc(alias = "STD_VIDEO_H265_SLICE_TYPE_P")]
+    P = 1,
+    #[doc(alias = "STD_VIDEO_H265_SLICE_TYPE_I")]
+    I = 2,
+    #[doc(alias = "STD_VIDEO_H265_SLICE_TYPE_INVALID")]
+    INVALID = 2147483647,
+}
+
+/// [`StdVideoH265PictureType`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265PictureType.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "StdVideoH265PictureType")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum H265PictureType {
+    #[default]
+    #[doc(alias = "STD_VIDEO_H265_PICTURE_TYPE_P")]
+    P = 0,
+    #[doc(alias = "STD_VIDEO_H265_PICTURE_TYPE_B")]
+    B = 1,
+    #[doc(alias = "STD_VIDEO_H265_PICTURE_TYPE_I")]
+    I = 2,
+    #[doc(alias = "STD_VIDEO_H265_PICTURE_TYPE_IDR")]
+    IDR = 3,
+    #[doc(alias = "STD_VIDEO_H265_PICTURE_TYPE_INVALID")]
+    INVALID = 2147483647,
+}
+
+/// [`StdVideoH265AspectRatioIdc`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265AspectRatioIdc.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "StdVideoH265AspectRatioIdc")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum H265AspectRatioIdc {
+    #[default]
+    #[doc(alias = "STD_VIDEO_H265_ASPECT_RATIO_IDC_UNSPECIFIED")]
+    UNSPECIFIED = 0,
+    #[doc(alias = "STD_VIDEO_H265_ASPECT_RATIO_IDC_SQUARE")]
+    SQUARE = 1,
+    #[doc(alias = "STD_VIDEO_H265_ASPECT_RATIO_IDC_12_11")]
+    _12_11 = 2,
+    #[doc(alias = "STD_VIDEO_H265_ASPECT_RATIO_IDC_10_11")]
+    _10_11 = 3,
+    #[doc(alias = "STD_VIDEO_H265_ASPECT_RATIO_IDC_16_11")]
+    _16_11 = 4,
+    #[doc(alias = "STD_VIDEO_H265_ASPECT_RATIO_IDC_40_33")]
+    _40_33 = 5,
+    #[doc(alias = "STD_VIDEO_H265_ASPECT_RATIO_IDC_24_11")]
+    _24_11 = 6,
+    #[doc(alias = "STD_VIDEO_H265_ASPECT_RATIO_IDC_20_11")]
+    _20_11 = 7,
+    #[doc(alias = "STD_VIDEO_H265_ASPECT_RATIO_IDC_32_11")]
+    _32_11 = 8,
+    #[doc(alias = "STD_VIDEO_H265_ASPECT_RATIO_IDC_80_33")]
+    _80_33 = 9,
+    #[doc(alias = "STD_VIDEO_H265_ASPECT_RATIO_IDC_18_11")]
+    _18_11 = 10,
+    #[doc(alias = "STD_VIDEO_H265_ASPECT_RATIO_IDC_15_11")]
+    _15_11 = 11,
+    #[doc(alias = "STD_VIDEO_H265_ASPECT_RATIO_IDC_64_33")]
+    _64_33 = 12,
+    #[doc(alias = "STD_VIDEO_H265_ASPECT_RATIO_IDC_160_99")]
+    _160_99 = 13,
+    #[doc(alias = "STD_VIDEO_H265_ASPECT_RATIO_IDC_4_3")]
+    _4_3 = 14,
+    #[doc(alias = "STD_VIDEO_H265_ASPECT_RATIO_IDC_3_2")]
+    _3_2 = 15,
+    #[doc(alias = "STD_VIDEO_H265_ASPECT_RATIO_IDC_2_1")]
+    _2_1 = 16,
+    #[doc(alias = "STD_VIDEO_H265_ASPECT_RATIO_IDC_EXTENDED_SAR")]
+    EXTENDED_SAR = 255,
+    #[doc(alias = "STD_VIDEO_H265_ASPECT_RATIO_IDC_INVALID")]
+    INVALID = 2147483647,
+}
+
+/// [`StdVideoAV1Profile`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1Profile.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "StdVideoAV1Profile")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum AV1Profile {
+    #[default]
+    #[doc(alias = "STD_VIDEO_AV1_PROFILE_MAIN")]
+    MAIN = 0,
+    #[doc(alias = "STD_VIDEO_AV1_PROFILE_HIGH")]
+    HIGH = 1,
+    #[doc(alias = "STD_VIDEO_AV1_PROFILE_PROFESSIONAL")]
+    PROFESSIONAL = 2,
+    #[doc(alias = "STD_VIDEO_AV1_PROFILE_INVALID")]
+    INVALID = 2147483647,
+}
+
+/// [`StdVideoAV1Level`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1Level.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "StdVideoAV1Level")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum AV1Level {
+    #[default]
+    #[doc(alias = "STD_VIDEO_AV1_LEVEL_2_0")]
+    _2_0 = 0,
+    #[doc(alias = "STD_VIDEO_AV1_LEVEL_2_1")]
+    _2_1 = 1,
+    #[doc(alias = "STD_VIDEO_AV1_LEVEL_2_2")]
+    _2_2 = 2,
+    #[doc(alias = "STD_VIDEO_AV1_LEVEL_2_3")]
+    _2_3 = 3,
+    #[doc(alias = "STD_VIDEO_AV1_LEVEL_3_0")]
+    _3_0 = 4,
+    #[doc(alias = "STD_VIDEO_AV1_LEVEL_3_1")]
+    _3_1 = 5,
+    #[doc(alias = "STD_VIDEO_AV1_LEVEL_3_2")]
+    _3_2 = 6,
+    #[doc(alias = "STD_VIDEO_AV1_LEVEL_3_3")]
+    _3_3 = 7,
+    #[doc(alias = "STD_VIDEO_AV1_LEVEL_4_0")]
+    _4_0 = 8,
+    #[doc(alias = "STD_VIDEO_AV1_LEVEL_4_1")]
+    _4_1 = 9,
+    #[doc(alias = "STD_VIDEO_AV1_LEVEL_4_2")]
+    _4_2 = 10,
+    #[doc(alias = "STD_VIDEO_AV1_LEVEL_4_3")]
+    _4_3 = 11,
+    #[doc(alias = "STD_VIDEO_AV1_LEVEL_5_0")]
+    _5_0 = 12,
+    #[doc(alias = "STD_VIDEO_AV1_LEVEL_5_1")]
+    _5_1 = 13,
+    #[doc(alias = "STD_VIDEO_AV1_LEVEL_5_2")]
+    _5_2 = 14,
+    #[doc(alias = "STD_VIDEO_AV1_LEVEL_5_3")]
+    _5_3 = 15,
+    #[doc(alias = "STD_VIDEO_AV1_LEVEL_6_0")]
+    _6_0 = 16,
+    #[doc(alias = "STD_VIDEO_AV1_LEVEL_6_1")]
+    _6_1 = 17,
+    #[doc(alias = "STD_VIDEO_AV1_LEVEL_6_2")]
+    _6_2 = 18,
+    #[doc(alias = "STD_VIDEO_AV1_LEVEL_6_3")]
+    _6_3 = 19,
+    #[doc(alias = "STD_VIDEO_AV1_LEVEL_7_0")]
+    _7_0 = 20,
+    #[doc(alias = "STD_VIDEO_AV1_LEVEL_7_1")]
+    _7_1 = 21,
+    #[doc(alias = "STD_VIDEO_AV1_LEVEL_7_2")]
+    _7_2 = 22,
+    #[doc(alias = "STD_VIDEO_AV1_LEVEL_7_3")]
+    _7_3 = 23,
+    #[doc(alias = "STD_VIDEO_AV1_LEVEL_INVALID")]
+    INVALID = 2147483647,
+}
+
+/// [`StdVideoAV1FrameType`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1FrameType.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "StdVideoAV1FrameType")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum AV1FrameType {
+    #[default]
+    #[doc(alias = "STD_VIDEO_AV1_FRAME_TYPE_KEY")]
+    KEY = 0,
+    #[doc(alias = "STD_VIDEO_AV1_FRAME_TYPE_INTER")]
+    INTER = 1,
+    #[doc(alias = "STD_VIDEO_AV1_FRAME_TYPE_INTRA_ONLY")]
+    INTRA_ONLY = 2,
+    #[doc(alias = "STD_VIDEO_AV1_FRAME_TYPE_SWITCH")]
+    SWITCH = 3,
+    #[doc(alias = "STD_VIDEO_AV1_FRAME_TYPE_INVALID")]
+    INVALID = 2147483647,
+}
+
+/// [`StdVideoAV1ReferenceName`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1ReferenceName.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "StdVideoAV1ReferenceName")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum AV1ReferenceName {
+    #[default]
+    #[doc(alias = "STD_VIDEO_AV1_REFERENCE_NAME_INTRA_FRAME")]
+    INTRA_FRAME = 0,
+    #[doc(alias = "STD_VIDEO_AV1_REFERENCE_NAME_LAST_FRAME")]
+    LAST_FRAME = 1,
+    #[doc(alias = "STD_VIDEO_AV1_REFERENCE_NAME_LAST2_FRAME")]
+    LAST2_FRAME = 2,
+    #[doc(alias = "STD_VIDEO_AV1_REFERENCE_NAME_LAST3_FRAME")]
+    LAST3_FRAME = 3,
+    #[doc(alias = "STD_VIDEO_AV1_REFERENCE_NAME_GOLDEN_FRAME")]
+    GOLDEN_FRAME = 4,
+    #[doc(alias = "STD_VIDEO_AV1_REFERENCE_NAME_BWDREF_FRAME")]
+    BWDREF_FRAME = 5,
+    #[doc(alias = "STD_VIDEO_AV1_REFERENCE_NAME_ALTREF2_FRAME")]
+    ALTREF2_FRAME = 6,
+    #[doc(alias = "STD_VIDEO_AV1_REFERENCE_NAME_ALTREF_FRAME")]
+    ALTREF_FRAME = 7,
+    #[doc(alias = "STD_VIDEO_AV1_REFERENCE_NAME_INVALID")]
+    INVALID = 2147483647,
+}
+
+/// [`StdVideoAV1InterpolationFilter`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1InterpolationFilter.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "StdVideoAV1InterpolationFilter")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum AV1InterpolationFilter {
+    #[default]
+    #[doc(alias = "STD_VIDEO_AV1_INTERPOLATION_FILTER_EIGHTTAP")]
+    EIGHTTAP = 0,
+    #[doc(alias = "STD_VIDEO_AV1_INTERPOLATION_FILTER_EIGHTTAP_SMOOTH")]
+    EIGHTTAP_SMOOTH = 1,
+    #[doc(alias = "STD_VIDEO_AV1_INTERPOLATION_FILTER_EIGHTTAP_SHARP")]
+    EIGHTTAP_SHARP = 2,
+    #[doc(alias = "STD_VIDEO_AV1_INTERPOLATION_FILTER_BILINEAR")]
+    BILINEAR = 3,
+    #[doc(alias = "STD_VIDEO_AV1_INTERPOLATION_FILTER_SWITCHABLE")]
+    SWITCHABLE = 4,
+    #[doc(alias = "STD_VIDEO_AV1_INTERPOLATION_FILTER_INVALID")]
+    INVALID = 2147483647,
+}
+
+/// [`StdVideoAV1TxMode`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1TxMode.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "StdVideoAV1TxMode")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum AV1TxMode {
+    #[default]
+    #[doc(alias = "STD_VIDEO_AV1_TX_MODE_ONLY_4X4")]
+    ONLY_4X4 = 0,
+    #[doc(alias = "STD_VIDEO_AV1_TX_MODE_LARGEST")]
+    LARGEST = 1,
+    #[doc(alias = "STD_VIDEO_AV1_TX_MODE_SELECT")]
+    SELECT = 2,
+    #[doc(alias = "STD_VIDEO_AV1_TX_MODE_INVALID")]
+    INVALID = 2147483647,
+}
+
+/// [`StdVideoAV1FrameRestorationType`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1FrameRestorationType.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "StdVideoAV1FrameRestorationType")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum AV1FrameRestorationType {
+    #[default]
+    #[doc(alias = "STD_VIDEO_AV1_FRAME_RESTORATION_TYPE_NONE")]
+    NONE = 0,
+    #[doc(alias = "STD_VIDEO_AV1_FRAME_RESTORATION_TYPE_WIENER")]
+    WIENER = 1,
+    #[doc(alias = "STD_VIDEO_AV1_FRAME_RESTORATION_TYPE_SGRPROJ")]
+    SGRPROJ = 2,
+    #[doc(alias = "STD_VIDEO_AV1_FRAME_RESTORATION_TYPE_SWITCHABLE")]
+    SWITCHABLE = 3,
+    #[doc(alias = "STD_VIDEO_AV1_FRAME_RESTORATION_TYPE_INVALID")]
+    INVALID = 2147483647,
+}
+
+/// [`StdVideoAV1ColorPrimaries`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1ColorPrimaries.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "StdVideoAV1ColorPrimaries")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum AV1ColorPrimaries {
+    #[default]
+    #[doc(alias = "STD_VIDEO_AV1_COLOR_PRIMARIES_BT_709")]
+    BT_709 = 1,
+    #[doc(alias = "STD_VIDEO_AV1_COLOR_PRIMARIES_UNSPECIFIED")]
+    UNSPECIFIED = 2,
+    #[doc(alias = "STD_VIDEO_AV1_COLOR_PRIMARIES_BT_470_M")]
+    BT_470_M = 4,
+    #[doc(alias = "STD_VIDEO_AV1_COLOR_PRIMARIES_BT_470_B_G")]
+    BT_470_B_G = 5,
+    #[doc(alias = "STD_VIDEO_AV1_COLOR_PRIMARIES_BT_601")]
+    BT_601 = 6,
+    #[doc(alias = "STD_VIDEO_AV1_COLOR_PRIMARIES_SMPTE_240")]
+    SMPTE_240 = 7,
+    #[doc(alias = "STD_VIDEO_AV1_COLOR_PRIMARIES_GENERIC_FILM")]
+    GENERIC_FILM = 8,
+    #[doc(alias = "STD_VIDEO_AV1_COLOR_PRIMARIES_BT_2020")]
+    BT_2020 = 9,
+    #[doc(alias = "STD_VIDEO_AV1_COLOR_PRIMARIES_XYZ")]
+    XYZ = 10,
+    #[doc(alias = "STD_VIDEO_AV1_COLOR_PRIMARIES_SMPTE_431")]
+    SMPTE_431 = 11,
+    #[doc(alias = "STD_VIDEO_AV1_COLOR_PRIMARIES_SMPTE_432")]
+    SMPTE_432 = 12,
+    #[doc(alias = "STD_VIDEO_AV1_COLOR_PRIMARIES_EBU_3213")]
+    EBU_3213 = 22,
+    #[doc(alias = "STD_VIDEO_AV1_COLOR_PRIMARIES_INVALID")]
+    INVALID = 2147483647,
+}
+
+/// [`StdVideoAV1TransferCharacteristics`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1TransferCharacteristics.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "StdVideoAV1TransferCharacteristics")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum AV1TransferCharacteristics {
+    #[default]
+    #[doc(alias = "STD_VIDEO_AV1_TRANSFER_CHARACTERISTICS_RESERVED_0")]
+    RESERVED_0 = 0,
+    #[doc(alias = "STD_VIDEO_AV1_TRANSFER_CHARACTERISTICS_BT_709")]
+    BT_709 = 1,
+    #[doc(alias = "STD_VIDEO_AV1_TRANSFER_CHARACTERISTICS_UNSPECIFIED")]
+    UNSPECIFIED = 2,
+    #[doc(alias = "STD_VIDEO_AV1_TRANSFER_CHARACTERISTICS_RESERVED_3")]
+    RESERVED_3 = 3,
+    #[doc(alias = "STD_VIDEO_AV1_TRANSFER_CHARACTERISTICS_BT_470_M")]
+    BT_470_M = 4,
+    #[doc(alias = "STD_VIDEO_AV1_TRANSFER_CHARACTERISTICS_BT_470_B_G")]
+    BT_470_B_G = 5,
+    #[doc(alias = "STD_VIDEO_AV1_TRANSFER_CHARACTERISTICS_BT_601")]
+    BT_601 = 6,
+    #[doc(alias = "STD_VIDEO_AV1_TRANSFER_CHARACTERISTICS_SMPTE_240")]
+    SMPTE_240 = 7,
+    #[doc(alias = "STD_VIDEO_AV1_TRANSFER_CHARACTERISTICS_LINEAR")]
+    LINEAR = 8,
+    #[doc(alias = "STD_VIDEO_AV1_TRANSFER_CHARACTERISTICS_LOG_100")]
+    LOG_100 = 9,
+    #[doc(alias = "STD_VIDEO_AV1_TRANSFER_CHARACTERISTICS_LOG_100_SQRT10")]
+    LOG_100_SQRT10 = 10,
+    #[doc(alias = "STD_VIDEO_AV1_TRANSFER_CHARACTERISTICS_IEC_61966")]
+    IEC_61966 = 11,
+    #[doc(alias = "STD_VIDEO_AV1_TRANSFER_CHARACTERISTICS_BT_1361")]
+    BT_1361 = 12,
+    #[doc(alias = "STD_VIDEO_AV1_TRANSFER_CHARACTERISTICS_SRGB")]
+    SRGB = 13,
+    #[doc(alias = "STD_VIDEO_AV1_TRANSFER_CHARACTERISTICS_BT_2020_10_BIT")]
+    BT_2020_10_BIT = 14,
+    #[doc(alias = "STD_VIDEO_AV1_TRANSFER_CHARACTERISTICS_BT_2020_12_BIT")]
+    BT_2020_12_BIT = 15,
+    #[doc(alias = "STD_VIDEO_AV1_TRANSFER_CHARACTERISTICS_SMPTE_2084")]
+    SMPTE_2084 = 16,
+    #[doc(alias = "STD_VIDEO_AV1_TRANSFER_CHARACTERISTICS_SMPTE_428")]
+    SMPTE_428 = 17,
+    #[doc(alias = "STD_VIDEO_AV1_TRANSFER_CHARACTERISTICS_HLG")]
+    HLG = 18,
+    #[doc(alias = "STD_VIDEO_AV1_TRANSFER_CHARACTERISTICS_INVALID")]
+    INVALID = 2147483647,
+}
+
+/// [`StdVideoAV1MatrixCoefficients`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1MatrixCoefficients.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "StdVideoAV1MatrixCoefficients")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum AV1MatrixCoefficients {
+    #[default]
+    #[doc(alias = "STD_VIDEO_AV1_MATRIX_COEFFICIENTS_IDENTITY")]
+    IDENTITY = 0,
+    #[doc(alias = "STD_VIDEO_AV1_MATRIX_COEFFICIENTS_BT_709")]
+    BT_709 = 1,
+    #[doc(alias = "STD_VIDEO_AV1_MATRIX_COEFFICIENTS_UNSPECIFIED")]
+    UNSPECIFIED = 2,
+    #[doc(alias = "STD_VIDEO_AV1_MATRIX_COEFFICIENTS_RESERVED_3")]
+    RESERVED_3 = 3,
+    #[doc(alias = "STD_VIDEO_AV1_MATRIX_COEFFICIENTS_FCC")]
+    FCC = 4,
+    #[doc(alias = "STD_VIDEO_AV1_MATRIX_COEFFICIENTS_BT_470_B_G")]
+    BT_470_B_G = 5,
+    #[doc(alias = "STD_VIDEO_AV1_MATRIX_COEFFICIENTS_BT_601")]
+    BT_601 = 6,
+    #[doc(alias = "STD_VIDEO_AV1_MATRIX_COEFFICIENTS_SMPTE_240")]
+    SMPTE_240 = 7,
+    #[doc(alias = "STD_VIDEO_AV1_MATRIX_COEFFICIENTS_SMPTE_YCGCO")]
+    SMPTE_YCGCO = 8,
+    #[doc(alias = "STD_VIDEO_AV1_MATRIX_COEFFICIENTS_BT_2020_NCL")]
+    BT_2020_NCL = 9,
+    #[doc(alias = "STD_VIDEO_AV1_MATRIX_COEFFICIENTS_BT_2020_CL")]
+    BT_2020_CL = 10,
+    #[doc(alias = "STD_VIDEO_AV1_MATRIX_COEFFICIENTS_SMPTE_2085")]
+    SMPTE_2085 = 11,
+    #[doc(alias = "STD_VIDEO_AV1_MATRIX_COEFFICIENTS_CHROMAT_NCL")]
+    CHROMAT_NCL = 12,
+    #[doc(alias = "STD_VIDEO_AV1_MATRIX_COEFFICIENTS_CHROMAT_CL")]
+    CHROMAT_CL = 13,
+    #[doc(alias = "STD_VIDEO_AV1_MATRIX_COEFFICIENTS_ICTCP")]
+    ICTCP = 14,
+    #[doc(alias = "STD_VIDEO_AV1_MATRIX_COEFFICIENTS_INVALID")]
+    INVALID = 2147483647,
+}
+
+/// [`StdVideoAV1ChromaSamplePosition`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1ChromaSamplePosition.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "StdVideoAV1ChromaSamplePosition")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum AV1ChromaSamplePosition {
+    #[default]
+    #[doc(alias = "STD_VIDEO_AV1_CHROMA_SAMPLE_POSITION_UNKNOWN")]
+    UNKNOWN = 0,
+    #[doc(alias = "STD_VIDEO_AV1_CHROMA_SAMPLE_POSITION_VERTICAL")]
+    VERTICAL = 1,
+    #[doc(alias = "STD_VIDEO_AV1_CHROMA_SAMPLE_POSITION_COLOCATED")]
+    COLOCATED = 2,
+    #[doc(alias = "STD_VIDEO_AV1_CHROMA_SAMPLE_POSITION_RESERVED")]
+    RESERVED = 3,
+    #[doc(alias = "STD_VIDEO_AV1_CHROMA_SAMPLE_POSITION_INVALID")]
+    INVALID = 2147483647,
+}
+
+/// [`StdVideoVP9Profile`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoVP9Profile.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "StdVideoVP9Profile")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum VP9Profile {
+    #[default]
+    #[doc(alias = "STD_VIDEO_VP9_PROFILE_0")]
+    _0 = 0,
+    #[doc(alias = "STD_VIDEO_VP9_PROFILE_1")]
+    _1 = 1,
+    #[doc(alias = "STD_VIDEO_VP9_PROFILE_2")]
+    _2 = 2,
+    #[doc(alias = "STD_VIDEO_VP9_PROFILE_3")]
+    _3 = 3,
+    #[doc(alias = "STD_VIDEO_VP9_PROFILE_INVALID")]
+    INVALID = 2147483647,
+}
+
+/// [`StdVideoVP9Level`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoVP9Level.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "StdVideoVP9Level")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum VP9Level {
+    #[default]
+    #[doc(alias = "STD_VIDEO_VP9_LEVEL_1_0")]
+    _1_0 = 0,
+    #[doc(alias = "STD_VIDEO_VP9_LEVEL_1_1")]
+    _1_1 = 1,
+    #[doc(alias = "STD_VIDEO_VP9_LEVEL_2_0")]
+    _2_0 = 2,
+    #[doc(alias = "STD_VIDEO_VP9_LEVEL_2_1")]
+    _2_1 = 3,
+    #[doc(alias = "STD_VIDEO_VP9_LEVEL_3_0")]
+    _3_0 = 4,
+    #[doc(alias = "STD_VIDEO_VP9_LEVEL_3_1")]
+    _3_1 = 5,
+    #[doc(alias = "STD_VIDEO_VP9_LEVEL_4_0")]
+    _4_0 = 6,
+    #[doc(alias = "STD_VIDEO_VP9_LEVEL_4_1")]
+    _4_1 = 7,
+    #[doc(alias = "STD_VIDEO_VP9_LEVEL_5_0")]
+    _5_0 = 8,
+    #[doc(alias = "STD_VIDEO_VP9_LEVEL_5_1")]
+    _5_1 = 9,
+    #[doc(alias = "STD_VIDEO_VP9_LEVEL_5_2")]
+    _5_2 = 10,
+    #[doc(alias = "STD_VIDEO_VP9_LEVEL_6_0")]
+    _6_0 = 11,
+    #[doc(alias = "STD_VIDEO_VP9_LEVEL_6_1")]
+    _6_1 = 12,
+    #[doc(alias = "STD_VIDEO_VP9_LEVEL_6_2")]
+    _6_2 = 13,
+    #[doc(alias = "STD_VIDEO_VP9_LEVEL_INVALID")]
+    INVALID = 2147483647,
+}
+
+/// [`StdVideoVP9FrameType`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoVP9FrameType.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "StdVideoVP9FrameType")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum VP9FrameType {
+    #[default]
+    #[doc(alias = "STD_VIDEO_VP9_FRAME_TYPE_KEY")]
+    KEY = 0,
+    #[doc(alias = "STD_VIDEO_VP9_FRAME_TYPE_NON_KEY")]
+    NON_KEY = 1,
+    #[doc(alias = "STD_VIDEO_VP9_FRAME_TYPE_INVALID")]
+    INVALID = 2147483647,
+}
+
+/// [`StdVideoVP9ReferenceName`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoVP9ReferenceName.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "StdVideoVP9ReferenceName")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum VP9ReferenceName {
+    #[default]
+    #[doc(alias = "STD_VIDEO_VP9_REFERENCE_NAME_INTRA_FRAME")]
+    INTRA_FRAME = 0,
+    #[doc(alias = "STD_VIDEO_VP9_REFERENCE_NAME_LAST_FRAME")]
+    LAST_FRAME = 1,
+    #[doc(alias = "STD_VIDEO_VP9_REFERENCE_NAME_GOLDEN_FRAME")]
+    GOLDEN_FRAME = 2,
+    #[doc(alias = "STD_VIDEO_VP9_REFERENCE_NAME_ALTREF_FRAME")]
+    ALTREF_FRAME = 3,
+    #[doc(alias = "STD_VIDEO_VP9_REFERENCE_NAME_INVALID")]
+    INVALID = 2147483647,
+}
+
+/// [`StdVideoVP9InterpolationFilter`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoVP9InterpolationFilter.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "StdVideoVP9InterpolationFilter")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum VP9InterpolationFilter {
+    #[default]
+    #[doc(alias = "STD_VIDEO_VP9_INTERPOLATION_FILTER_EIGHTTAP")]
+    EIGHTTAP = 0,
+    #[doc(alias = "STD_VIDEO_VP9_INTERPOLATION_FILTER_EIGHTTAP_SMOOTH")]
+    EIGHTTAP_SMOOTH = 1,
+    #[doc(alias = "STD_VIDEO_VP9_INTERPOLATION_FILTER_EIGHTTAP_SHARP")]
+    EIGHTTAP_SHARP = 2,
+    #[doc(alias = "STD_VIDEO_VP9_INTERPOLATION_FILTER_BILINEAR")]
+    BILINEAR = 3,
+    #[doc(alias = "STD_VIDEO_VP9_INTERPOLATION_FILTER_SWITCHABLE")]
+    SWITCHABLE = 4,
+    #[doc(alias = "STD_VIDEO_VP9_INTERPOLATION_FILTER_INVALID")]
+    INVALID = 2147483647,
+}
+
+/// [`StdVideoVP9ColorSpace`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoVP9ColorSpace.html)
+///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
+#[doc(alias = "StdVideoVP9ColorSpace")]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum VP9ColorSpace {
+    #[default]
+    #[doc(alias = "STD_VIDEO_VP9_COLOR_SPACE_UNKNOWN")]
+    UNKNOWN = 0,
+    #[doc(alias = "STD_VIDEO_VP9_COLOR_SPACE_BT_601")]
+    BT_601 = 1,
+    #[doc(alias = "STD_VIDEO_VP9_COLOR_SPACE_BT_709")]
+    BT_709 = 2,
+    #[doc(alias = "STD_VIDEO_VP9_COLOR_SPACE_SMPTE_170")]
+    SMPTE_170 = 3,
+    #[doc(alias = "STD_VIDEO_VP9_COLOR_SPACE_SMPTE_240")]
+    SMPTE_240 = 4,
+    #[doc(alias = "STD_VIDEO_VP9_COLOR_SPACE_BT_2020")]
+    BT_2020 = 5,
+    #[doc(alias = "STD_VIDEO_VP9_COLOR_SPACE_RESERVED")]
+    RESERVED = 6,
+    #[doc(alias = "STD_VIDEO_VP9_COLOR_SPACE_RGB")]
+    RGB = 7,
+    #[doc(alias = "STD_VIDEO_VP9_COLOR_SPACE_INVALID")]
+    INVALID = 2147483647,
+}
+
