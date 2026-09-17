@@ -4676,6 +4676,12 @@ impl CommandBuffer {
 pub(crate) type FUN_EnumerateInstanceVersion = unsafe extern "C" fn(*mut u32) -> ResultCode;
 /// [`vkEnumerateInstanceVersion`](https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumerateInstanceVersion.html)
 ///
+/// # Requirements
+/// This requires _at least_ one of the following:
+/// - Version 1.1 with appropriate features
+///
+/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+///
 /// # Result codes
 /// ## Success
 /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -30929,6 +30935,12 @@ pub(crate) type FUN_GetExternalComputeQueueDataNV = unsafe extern "C" fn(
     *mut c_void,
 );
 /// [`vkGetExternalComputeQueueDataNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetExternalComputeQueueDataNV.html)
+///
+/// # Requirements
+/// This requires _at least_ one of the following:
+/// - Extension [`NV_ExternalComputeQueue`](Extensions::NV_ExternalComputeQueue)
+///
+/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
 #[doc(alias = "vkGetExternalComputeQueueDataNV")]
 #[inline(always)]

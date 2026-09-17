@@ -8,7 +8,7 @@ import textcase
 from vulkan_object import get_vulkan_object
 from vulkan_object import vulkan_object as vkobj
 
-from .rust_types import RustPointer, RustType, CTypeParser
+from .rust_types import CTypeParser, RustPointer, RustType
 
 MODULE_PREFIX: str = """ // WARNING: AUTO GENERATED MODULE
 #![allow(nonstandard_style)]
@@ -53,6 +53,10 @@ use crate::flags::*;
 use crate::fn_ptrs::*;
 use crate::handles::*;
 use crate::structs::*;
+"""
+
+FLAGS_MODULE_PREFIX: str = """
+use crate::enums::*;
 """
 
 HANDLES_MODULE_PREFIX: str = """
@@ -273,11 +277,23 @@ class Context:
         vulkan_doc_header(out, x.name)
         requirements_doc_header(out, x.version, x.extensions)
 
+        if not x.union and len(x.extends) > 0:
+            parents = (f"[`{struct_name(parent)}`]" for parent in x.extends)
+            out.writeln("/// # Extends")
+            for parent in parents:
+                out.writeln(f"/// - {parent}")
+
         if not x.union and len(x.extendedBy) > 0:
             children = (f"[`{struct_name(child)}`]" for child in x.extendedBy)
             out.writeln("/// # Extended by")
             for child in children:
                 out.writeln(f"/// - {child}")
+
+        if x.returnedOnly:
+            out.writeln("/// # Returned only")
+            out.writeln(
+                "/// This type is only returned by Vulkan, never constructed by the API user."
+            )
 
         out.writeln(f'#[doc(alias = "{x.name}")]')
 
@@ -474,6 +490,12 @@ class Context:
             type_name = "ResultCode"
 
         vulkan_doc_header(out, x.name)
+        if x.returnedOnly:
+            out.writeln("/// # Returned only")
+            out.writeln(
+                "/// This type is only returned by Vulkan, never constructed by the API user."
+            )
+
         out.writeln(f'#[doc(alias = "{x.name}")]')
         out.writeln("#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]")
         out.writeln("#[non_exhaustive]")
@@ -534,7 +556,15 @@ class Context:
 
         out.writeln("bitflags::bitflags! {")
         out.indent()
+
         vulkan_doc_header(out, x.name)
+        requirements_doc_header(out, None, x.extensions)
+        if x.returnedOnly:
+            out.writeln("/// # Returned only")
+            out.writeln(
+                "/// This type is only returned by Vulkan, never constructed by the API user."
+            )
+
         out.writeln(f'#[doc(alias = "{x.name}")]')
         out.writeln("#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]")
         out.writeln("#[repr(transparent)]")
@@ -587,6 +617,13 @@ class Context:
         repr_type = "u32" if x.bitWidth == 32 else "u64"
 
         vulkan_doc_header(out, x.name)
+        requirements_doc_header(out, None, x.extensions)
+        if x.returnedOnly:
+            out.writeln("/// # Returned only")
+            out.writeln(
+                "/// This type is only returned by Vulkan, never constructed by the API user."
+            )
+
         out.writeln(f'#[doc(alias = "{x.name}")]')
         out.writeln(f"pub type {type_name} = {repr_type};")
 
@@ -729,6 +766,7 @@ class Context:
             signature = f"pub unsafe fn {method_name}({', '.join(f'{x[0]}: {x[1]}' for x in params)}) {return_ty}"
 
             vulkan_doc_header(out, x.name)
+            requirements_doc_header(out, x.version, x.extensions)
             command_doc_header(out, x)
             out.writeln(f'#[doc(alias = "{x.name}")]')
             out.writeln("#[inline(always)]")
@@ -969,7 +1007,7 @@ class Context:
             "consts.rs", CONSTS_MODULE_PREFIX, self.reg.constants
         )
         self.write_generated_to_module("enums.rs", custom_enums, self.reg.enums)
-        self.write_generated_to_module("flags.rs", "", self.reg.flags)
+        self.write_generated_to_module("flags.rs", FLAGS_MODULE_PREFIX, self.reg.flags)
         self.write_generated_to_module(
             "fn_ptrs.rs", FN_PTRS_MODULE_PREFIX, self.reg.fnptrs
         )

@@ -271,6 +271,8 @@ unsafe impl Extendable for ApplicationInfo {
 
 /// [`VkFormatProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/VkFormatProperties.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkFormatProperties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -295,6 +297,8 @@ impl Default for FormatProperties {
 
 /// [`VkImageFormatProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageFormatProperties.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkImageFormatProperties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -384,6 +388,8 @@ unsafe impl Extendable for InstanceCreateInfo {
 
 /// [`VkMemoryHeap`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryHeap.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkMemoryHeap")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -404,6 +410,8 @@ impl Default for MemoryHeap {
 
 /// [`VkMemoryType`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryType.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkMemoryType")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -549,6 +557,8 @@ impl Default for PhysicalDeviceFeatures {
 
 /// [`VkPhysicalDeviceLimits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceLimits.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceLimits")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -785,6 +795,8 @@ impl Default for PhysicalDeviceLimits {
 
 /// [`VkPhysicalDeviceMemoryProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMemoryProperties.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceMemoryProperties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -808,6 +820,8 @@ impl Default for PhysicalDeviceMemoryProperties {
 
 /// [`VkPhysicalDeviceSparseProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSparseProperties.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceSparseProperties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -833,6 +847,8 @@ impl Default for PhysicalDeviceSparseProperties {
 
 /// [`VkPhysicalDeviceProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceProperties.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceProperties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -867,6 +883,8 @@ impl Default for PhysicalDeviceProperties {
 
 /// [`VkQueueFamilyProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/VkQueueFamilyProperties.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkQueueFamilyProperties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -1287,6 +1305,8 @@ unsafe impl Extendable for DeviceCreateInfo {
 
 /// [`VkExtensionProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExtensionProperties.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkExtensionProperties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -1307,6 +1327,8 @@ impl Default for ExtensionProperties {
 
 /// [`VkLayerProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/VkLayerProperties.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkLayerProperties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -1507,6 +1529,8 @@ unsafe impl Extendable for MemoryAllocateInfo {
 
 /// [`VkMemoryRequirements`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryRequirements.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkMemoryRequirements")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -1549,6 +1573,8 @@ impl Default for ImageSubresource {
 
 /// [`VkSparseImageFormatProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSparseImageFormatProperties.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkSparseImageFormatProperties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -1622,6 +1648,8 @@ impl Default for SparseImageMemoryBindInfo {
 
 /// [`VkSparseImageMemoryRequirements`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSparseImageMemoryRequirements.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkSparseImageMemoryRequirements")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -2809,6 +2837,9 @@ unsafe impl Extendable for BufferViewCreateInfo {
 
 /// [`VkShaderModuleCreateInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderModuleCreateInfo.html)
 ///
+/// # Extends
+/// - [`PipelineShaderStageCreateInfo`]
+/// - [`DataGraphPipelineCreateInfoARM`]
 /// # Extended by
 /// - [`ShaderModuleValidationCacheCreateInfoEXT`]
 /// - [`ValidationFeaturesEXT`]
@@ -3090,6 +3121,14 @@ impl Default for PushConstantRange {
 
 /// [`VkPipelineLayoutCreateInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineLayoutCreateInfo.html)
 ///
+/// # Extends
+/// - [`BindDescriptorSetsInfo`]
+/// - [`PushConstantsInfo`]
+/// - [`PushDescriptorSetInfo`]
+/// - [`PushDescriptorSetWithTemplateInfo`]
+/// - [`SetDescriptorBufferOffsetsInfoEXT`]
+/// - [`BindDescriptorBufferEmbeddedSamplersInfoEXT`]
+/// - [`IndirectCommandsLayoutCreateInfoEXT`]
 #[doc(alias = "VkPipelineLayoutCreateInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -4920,6 +4959,10 @@ pub type BindImageMemoryInfoKHR = BindImageMemoryInfo;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`MemoryRequirements2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkMemoryDedicatedRequirements")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -4973,6 +5016,8 @@ pub type MemoryDedicatedRequirementsKHR = MemoryDedicatedRequirements;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`MemoryAllocateInfo`]
 #[doc(alias = "VkMemoryDedicatedAllocateInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -5028,6 +5073,8 @@ pub type MemoryDedicatedAllocateInfoKHR = MemoryDedicatedAllocateInfo;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`MemoryAllocateInfo`]
 #[doc(alias = "VkMemoryAllocateFlagsInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -5082,6 +5129,8 @@ pub type MemoryAllocateFlagsInfoKHR = MemoryAllocateFlagsInfo;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`CommandBufferBeginInfo`]
 #[doc(alias = "VkDeviceGroupCommandBufferBeginInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -5133,6 +5182,8 @@ pub type DeviceGroupCommandBufferBeginInfoKHR = DeviceGroupCommandBufferBeginInf
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SubmitInfo`]
 #[doc(alias = "VkDeviceGroupSubmitInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -5199,6 +5250,8 @@ pub type DeviceGroupSubmitInfoKHR = DeviceGroupSubmitInfo;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`BindSparseInfo`]
 #[doc(alias = "VkDeviceGroupBindSparseInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -5252,6 +5305,8 @@ pub type DeviceGroupBindSparseInfoKHR = DeviceGroupBindSparseInfo;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`BindBufferMemoryInfo`]
 #[doc(alias = "VkBindBufferMemoryDeviceGroupInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -5306,6 +5361,8 @@ pub type BindBufferMemoryDeviceGroupInfoKHR = BindBufferMemoryDeviceGroupInfo;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`BindImageMemoryInfo`]
 #[doc(alias = "VkBindImageMemoryDeviceGroupInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -5365,6 +5422,8 @@ pub type BindImageMemoryDeviceGroupInfoKHR = BindImageMemoryDeviceGroupInfo;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceGroupProperties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -5419,6 +5478,8 @@ pub type PhysicalDeviceGroupPropertiesKHR = PhysicalDeviceGroupProperties;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkDeviceGroupDeviceCreateInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -5629,6 +5690,8 @@ pub type ImageSparseMemoryRequirementsInfo2KHR = ImageSparseMemoryRequirementsIn
 /// # Extended by
 /// - [`MemoryDedicatedRequirements`]
 /// - [`TileMemoryRequirementsQCOM`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkMemoryRequirements2")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -5679,6 +5742,8 @@ pub type MemoryRequirements2KHR = MemoryRequirements2;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkSparseImageMemoryRequirements2")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -5729,6 +5794,8 @@ pub type SparseImageMemoryRequirements2KHR = SparseImageMemoryRequirements2;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`DeviceCreateInfo`]
 /// # Extended by
 /// - [`PhysicalDevice16BitStorageFeatures`]
 /// - [`PhysicalDevice4444FormatsFeaturesEXT`]
@@ -6185,6 +6252,8 @@ pub type PhysicalDeviceFeatures2KHR = PhysicalDeviceFeatures2;
 /// - [`PhysicalDeviceVulkan12Properties`]
 /// - [`PhysicalDeviceVulkan13Properties`]
 /// - [`PhysicalDeviceVulkan14Properties`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceProperties2")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -6243,6 +6312,8 @@ pub type PhysicalDeviceProperties2KHR = PhysicalDeviceProperties2;
 /// - [`SubpassResolvePerformanceQueryEXT`]
 /// - [`TensorExplicitTilingFormatPropertiesARM`]
 /// - [`TensorFormatPropertiesARM`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkFormatProperties2")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -6303,6 +6374,8 @@ pub type FormatProperties2KHR = FormatProperties2;
 /// - [`SamplerYcbcrConversionImageFormatProperties`]
 /// - [`SubsampledImageFormatPropertiesEXT`]
 /// - [`TextureLODGatherFormatPropertiesAMD`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkImageFormatProperties2")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -6433,6 +6506,8 @@ pub type PhysicalDeviceImageFormatInfo2KHR = PhysicalDeviceImageFormatInfo2;
 /// - [`QueueFamilyOwnershipTransferPropertiesKHR`]
 /// - [`QueueFamilyQueryResultStatusPropertiesKHR`]
 /// - [`QueueFamilyVideoPropertiesKHR`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkQueueFamilyProperties2")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -6485,6 +6560,8 @@ pub type QueueFamilyProperties2KHR = QueueFamilyProperties2;
 ///
 /// # Extended by
 /// - [`PhysicalDeviceMemoryBudgetPropertiesEXT`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceMemoryProperties2")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -6535,6 +6612,8 @@ pub type PhysicalDeviceMemoryProperties2KHR = PhysicalDeviceMemoryProperties2;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkSparseImageFormatProperties2")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -6645,6 +6724,8 @@ pub type PhysicalDeviceSparseImageFormatInfo2KHR = PhysicalDeviceSparseImageForm
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ImageViewCreateInfo`]
 #[doc(alias = "VkImageViewUsageCreateInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -6695,6 +6776,9 @@ pub type ImageViewUsageCreateInfoKHR = ImageViewUsageCreateInfo;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceProtectedMemoryFeatures")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -6742,6 +6826,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceProtectedMemoryFeatures 
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceProtectedMemoryProperties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -6838,6 +6926,8 @@ unsafe impl Extendable for DeviceQueueInfo2 {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SubmitInfo`]
 #[doc(alias = "VkProtectedSubmitInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -6885,6 +6975,8 @@ unsafe impl Extends<SubmitInfo> for ProtectedSubmitInfo {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`BindImageMemoryInfo`]
 #[doc(alias = "VkBindImagePlaneMemoryInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -6936,6 +7028,8 @@ pub type BindImagePlaneMemoryInfoKHR = BindImagePlaneMemoryInfo;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ImageMemoryRequirementsInfo2`]
 #[doc(alias = "VkImagePlaneMemoryRequirementsInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -6987,6 +7081,8 @@ pub type ImagePlaneMemoryRequirementsInfoKHR = ImagePlaneMemoryRequirementsInfo;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkExternalMemoryProperties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -7020,6 +7116,8 @@ pub type ExternalMemoryPropertiesKHR = ExternalMemoryProperties;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceImageFormatInfo2`]
 #[doc(alias = "VkPhysicalDeviceExternalImageFormatInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -7072,6 +7170,10 @@ pub type PhysicalDeviceExternalImageFormatInfoKHR = PhysicalDeviceExternalImageF
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ImageFormatProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkExternalImageFormatProperties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -7181,6 +7283,8 @@ pub type PhysicalDeviceExternalBufferInfoKHR = PhysicalDeviceExternalBufferInfo;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkExternalBufferProperties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -7233,6 +7337,10 @@ pub type ExternalBufferPropertiesKHR = ExternalBufferProperties;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceIDProperties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -7292,6 +7400,8 @@ pub type PhysicalDeviceIDPropertiesKHR = PhysicalDeviceIDProperties;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ImageCreateInfo`]
 #[doc(alias = "VkExternalMemoryImageCreateInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -7344,6 +7454,8 @@ pub type ExternalMemoryImageCreateInfoKHR = ExternalMemoryImageCreateInfo;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`BufferCreateInfo`]
 #[doc(alias = "VkExternalMemoryBufferCreateInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -7396,6 +7508,8 @@ pub type ExternalMemoryBufferCreateInfoKHR = ExternalMemoryBufferCreateInfo;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`MemoryAllocateInfo`]
 #[doc(alias = "VkExportMemoryAllocateInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -7498,6 +7612,8 @@ pub type PhysicalDeviceExternalFenceInfoKHR = PhysicalDeviceExternalFenceInfo;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkExternalFenceProperties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -7553,6 +7669,8 @@ pub type ExternalFencePropertiesKHR = ExternalFenceProperties;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`FenceCreateInfo`]
 #[doc(alias = "VkExportFenceCreateInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -7605,6 +7723,8 @@ pub type ExportFenceCreateInfoKHR = ExportFenceCreateInfo;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SemaphoreCreateInfo`]
 #[doc(alias = "VkExportSemaphoreCreateInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -7709,6 +7829,8 @@ pub type PhysicalDeviceExternalSemaphoreInfoKHR = PhysicalDeviceExternalSemaphor
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkExternalSemaphoreProperties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -7763,6 +7885,10 @@ pub type ExternalSemaphorePropertiesKHR = ExternalSemaphoreProperties;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceSubgroupProperties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -7816,6 +7942,9 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceSubgroupPropert
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDevice16BitStorageFeatures")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -7874,6 +8003,9 @@ pub type PhysicalDevice16BitStorageFeaturesKHR = PhysicalDevice16BitStorageFeatu
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceVariablePointersFeatures")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -8039,6 +8171,10 @@ pub type DescriptorUpdateTemplateCreateInfoKHR = DescriptorUpdateTemplateCreateI
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceMaintenance3Properties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -8094,6 +8230,8 @@ pub type PhysicalDeviceMaintenance3PropertiesKHR = PhysicalDeviceMaintenance3Pro
 ///
 /// # Extended by
 /// - [`DescriptorSetVariableDescriptorCountLayoutSupport`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkDescriptorSetLayoutSupport")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -8213,6 +8351,9 @@ pub type SamplerYcbcrConversionCreateInfoKHR = SamplerYcbcrConversionCreateInfo;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SamplerCreateInfo`]
+/// - [`ImageViewCreateInfo`]
 #[doc(alias = "VkSamplerYcbcrConversionInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -8265,6 +8406,9 @@ pub type SamplerYcbcrConversionInfoKHR = SamplerYcbcrConversionInfo;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceSamplerYcbcrConversionFeatures")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -8318,6 +8462,10 @@ pub type PhysicalDeviceSamplerYcbcrConversionFeaturesKHR =
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ImageFormatProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkSamplerYcbcrConversionImageFormatProperties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -8370,6 +8518,9 @@ pub type SamplerYcbcrConversionImageFormatPropertiesKHR =
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`RenderPassBeginInfo`]
+/// - [`RenderingInfo`]
 #[doc(alias = "VkDeviceGroupRenderPassBeginInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -8427,6 +8578,10 @@ pub type DeviceGroupRenderPassBeginInfoKHR = DeviceGroupRenderPassBeginInfo;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDevicePointClippingProperties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -8510,6 +8665,8 @@ pub type InputAttachmentAspectReferenceKHR = InputAttachmentAspectReference;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`RenderPassCreateInfo`]
 #[doc(alias = "VkRenderPassInputAttachmentAspectCreateInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -8563,6 +8720,8 @@ pub type RenderPassInputAttachmentAspectCreateInfoKHR = RenderPassInputAttachmen
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PipelineTessellationStateCreateInfo`]
 #[doc(alias = "VkPipelineTessellationDomainOriginStateCreateInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -8618,6 +8777,8 @@ pub type PipelineTessellationDomainOriginStateCreateInfoKHR =
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`RenderPassCreateInfo`]
 #[doc(alias = "VkRenderPassMultiviewCreateInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -8682,6 +8843,9 @@ pub type RenderPassMultiviewCreateInfoKHR = RenderPassMultiviewCreateInfo;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceMultiviewFeatures")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -8738,6 +8902,10 @@ pub type PhysicalDeviceMultiviewFeaturesKHR = PhysicalDeviceMultiviewFeatures;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceMultiviewProperties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -8790,6 +8958,9 @@ pub type PhysicalDeviceMultiviewPropertiesKHR = PhysicalDeviceMultiviewPropertie
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShaderDrawParametersFeatures")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -8876,6 +9047,10 @@ pub type ConformanceVersionKHR = ConformanceVersion;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceDriverProperties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -8934,6 +9109,9 @@ pub type PhysicalDeviceDriverPropertiesKHR = PhysicalDeviceDriverProperties;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceVulkan11Features")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -9003,6 +9181,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceVulkan11Features {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceVulkan11Properties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -9077,6 +9259,9 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceVulkan11Propert
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceVulkan12Features")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -9216,6 +9401,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceVulkan12Features {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceVulkan12Properties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -9368,6 +9557,10 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceVulkan12Propert
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ImageCreateInfo`]
+/// - [`SwapchainCreateInfoKHR`]
+/// - [`PhysicalDeviceImageFormatInfo2`]
 #[doc(alias = "VkImageFormatListCreateInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -9424,6 +9617,9 @@ pub type ImageFormatListCreateInfoKHR = ImageFormatListCreateInfo;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceVulkanMemoryModelFeatures")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -9480,6 +9676,9 @@ pub type PhysicalDeviceVulkanMemoryModelFeaturesKHR = PhysicalDeviceVulkanMemory
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceHostQueryResetFeatures")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -9532,6 +9731,9 @@ pub type PhysicalDeviceHostQueryResetFeaturesEXT = PhysicalDeviceHostQueryResetF
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceTimelineSemaphoreFeatures")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -9584,6 +9786,10 @@ pub type PhysicalDeviceTimelineSemaphoreFeaturesKHR = PhysicalDeviceTimelineSema
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceTimelineSemaphoreProperties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -9635,6 +9841,9 @@ pub type PhysicalDeviceTimelineSemaphorePropertiesKHR = PhysicalDeviceTimelineSe
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SemaphoreCreateInfo`]
+/// - [`PhysicalDeviceExternalSemaphoreInfo`]
 #[doc(alias = "VkSemaphoreTypeCreateInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -9689,6 +9898,9 @@ pub type SemaphoreTypeCreateInfoKHR = SemaphoreTypeCreateInfo;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SubmitInfo`]
+/// - [`BindSparseInfo`]
 #[doc(alias = "VkTimelineSemaphoreSubmitInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -9860,6 +10072,9 @@ pub type SemaphoreSignalInfoKHR = SemaphoreSignalInfo;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceBufferDeviceAddressFeatures")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -9971,6 +10186,8 @@ pub type BufferDeviceAddressInfoEXT = BufferDeviceAddressInfo;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`BufferCreateInfo`]
 #[doc(alias = "VkBufferOpaqueCaptureAddressCreateInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -10022,6 +10239,8 @@ pub type BufferOpaqueCaptureAddressCreateInfoKHR = BufferOpaqueCaptureAddressCre
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`MemoryAllocateInfo`]
 #[doc(alias = "VkMemoryOpaqueCaptureAddressAllocateInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -10123,6 +10342,9 @@ pub type DeviceMemoryOpaqueCaptureAddressInfoKHR = DeviceMemoryOpaqueCaptureAddr
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDevice8BitStorageFeatures")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -10179,6 +10401,9 @@ pub type PhysicalDevice8BitStorageFeaturesKHR = PhysicalDevice8BitStorageFeature
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShaderAtomicInt64Features")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -10233,6 +10458,9 @@ pub type PhysicalDeviceShaderAtomicInt64FeaturesKHR = PhysicalDeviceShaderAtomic
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShaderFloat16Int8Features")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -10291,6 +10519,10 @@ pub type PhysicalDeviceFloat16Int8FeaturesKHR = PhysicalDeviceShaderFloat16Int8F
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceFloatControlsProperties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -10374,6 +10606,8 @@ pub type PhysicalDeviceFloatControlsPropertiesKHR = PhysicalDeviceFloatControlsP
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`DescriptorSetLayoutCreateInfo`]
 #[doc(alias = "VkDescriptorSetLayoutBindingFlagsCreateInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -10428,6 +10662,9 @@ pub type DescriptorSetLayoutBindingFlagsCreateInfoEXT = DescriptorSetLayoutBindi
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceDescriptorIndexingFeatures")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -10518,6 +10755,10 @@ pub type PhysicalDeviceDescriptorIndexingFeaturesEXT = PhysicalDeviceDescriptorI
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceDescriptorIndexingProperties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -10613,6 +10854,8 @@ pub type PhysicalDeviceDescriptorIndexingPropertiesEXT = PhysicalDeviceDescripto
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`DescriptorSetAllocateInfo`]
 #[doc(alias = "VkDescriptorSetVariableDescriptorCountAllocateInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -10671,6 +10914,10 @@ pub type DescriptorSetVariableDescriptorCountAllocateInfoEXT =
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`DescriptorSetLayoutSupport`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkDescriptorSetVariableDescriptorCountLayoutSupport")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -10726,6 +10973,9 @@ pub type DescriptorSetVariableDescriptorCountLayoutSupportEXT =
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceScalarBlockLayoutFeatures")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -10778,6 +11028,8 @@ pub type PhysicalDeviceScalarBlockLayoutFeaturesEXT = PhysicalDeviceScalarBlockL
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SamplerCreateInfo`]
 #[doc(alias = "VkSamplerReductionModeCreateInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -10829,6 +11081,10 @@ pub type SamplerReductionModeCreateInfoEXT = SamplerReductionModeCreateInfo;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceSamplerFilterMinmaxProperties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -10883,6 +11139,9 @@ pub type PhysicalDeviceSamplerFilterMinmaxPropertiesEXT =
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceUniformBufferStandardLayoutFeatures")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -10936,6 +11195,9 @@ pub type PhysicalDeviceUniformBufferStandardLayoutFeaturesKHR =
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShaderSubgroupExtendedTypesFeatures")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -11446,6 +11708,8 @@ pub type RenderPassCreateInfo2KHR = RenderPassCreateInfo2;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SubpassDescription2`]
 #[doc(alias = "VkSubpassDescriptionDepthStencilResolve")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -11504,6 +11768,10 @@ pub type SubpassDescriptionDepthStencilResolveKHR = SubpassDescriptionDepthStenc
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceDepthStencilResolveProperties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -11562,6 +11830,9 @@ pub type PhysicalDeviceDepthStencilResolvePropertiesKHR =
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ImageCreateInfo`]
+/// - [`PhysicalDeviceImageFormatInfo2`]
 #[doc(alias = "VkImageStencilUsageCreateInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -11614,6 +11885,9 @@ pub type ImageStencilUsageCreateInfoEXT = ImageStencilUsageCreateInfo;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceImagelessFramebufferFeatures")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -11733,6 +12007,8 @@ pub type FramebufferAttachmentImageInfoKHR = FramebufferAttachmentImageInfo;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`RenderPassBeginInfo`]
 #[doc(alias = "VkRenderPassAttachmentBeginInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -11787,6 +12063,8 @@ pub type RenderPassAttachmentBeginInfoKHR = RenderPassAttachmentBeginInfo;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`FramebufferCreateInfo`]
 #[doc(alias = "VkFramebufferAttachmentsCreateInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -11841,6 +12119,9 @@ pub type FramebufferAttachmentsCreateInfoKHR = FramebufferAttachmentsCreateInfo;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -11894,6 +12175,8 @@ pub type PhysicalDeviceSeparateDepthStencilLayoutsFeaturesKHR =
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`AttachmentReference2`]
 #[doc(alias = "VkAttachmentReferenceStencilLayout")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -11945,6 +12228,8 @@ pub type AttachmentReferenceStencilLayoutKHR = AttachmentReferenceStencilLayout;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`AttachmentDescription2`]
 #[doc(alias = "VkAttachmentDescriptionStencilLayout")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -11997,6 +12282,9 @@ pub type AttachmentDescriptionStencilLayoutKHR = AttachmentDescriptionStencilLay
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceVulkan13Features")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -12072,6 +12360,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceVulkan13Features {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceVulkan13Properties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -12208,6 +12500,8 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceVulkan13Propert
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceToolProperties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -12270,6 +12564,9 @@ pub type PhysicalDeviceToolPropertiesEXT = PhysicalDeviceToolProperties;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDevicePrivateDataFeatures")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -12322,6 +12619,8 @@ pub type PhysicalDevicePrivateDataFeaturesEXT = PhysicalDevicePrivateDataFeature
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkDevicePrivateDataCreateInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -12425,6 +12724,8 @@ pub type PrivateDataSlotCreateInfoEXT = PrivateDataSlotCreateInfo;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SubpassDependency2`]
 #[doc(alias = "VkMemoryBarrier2")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -12889,6 +13190,9 @@ pub type SubmitInfo2KHR = SubmitInfo2;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceSynchronization2Features")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -13347,6 +13651,9 @@ pub type CopyImageToBufferInfo2KHR = CopyImageToBufferInfo2;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceTextureCompressionASTCHDRFeatures")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -13400,6 +13707,10 @@ pub type PhysicalDeviceTextureCompressionASTCHDRFeaturesEXT =
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`FormatProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkFormatProperties3")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -13458,6 +13769,9 @@ pub type FormatProperties3KHR = FormatProperties3;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceMaintenance4Features")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -13510,6 +13824,10 @@ pub type PhysicalDeviceMaintenance4FeaturesKHR = PhysicalDeviceMaintenance4Featu
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceMaintenance4Properties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -13664,6 +13982,8 @@ pub type DeviceImageMemoryRequirementsKHR = DeviceImageMemoryRequirements;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPipelineCreationFeedback")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -13694,6 +14014,13 @@ pub type PipelineCreationFeedbackEXT = PipelineCreationFeedback;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`GraphicsPipelineCreateInfo`]
+/// - [`ComputePipelineCreateInfo`]
+/// - [`RayTracingPipelineCreateInfoNV`]
+/// - [`RayTracingPipelineCreateInfoKHR`]
+/// - [`ExecutionGraphPipelineCreateInfoAMDX`]
+/// - [`DataGraphPipelineCreateInfoARM`]
 #[doc(alias = "VkPipelineCreationFeedbackCreateInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -13757,6 +14084,9 @@ pub type PipelineCreationFeedbackCreateInfoEXT = PipelineCreationFeedbackCreateI
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShaderTerminateInvocationFeatures")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -13810,6 +14140,9 @@ pub type PhysicalDeviceShaderTerminateInvocationFeaturesKHR =
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShaderDemoteToHelperInvocationFeatures")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -13866,6 +14199,9 @@ pub type PhysicalDeviceShaderDemoteToHelperInvocationFeaturesEXT =
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDevicePipelineCreationCacheControlFeatures")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -13922,6 +14258,9 @@ pub type PhysicalDevicePipelineCreationCacheControlFeaturesEXT =
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeatures")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -13978,6 +14317,9 @@ pub type PhysicalDeviceZeroInitializeWorkgroupMemoryFeaturesKHR =
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceImageRobustnessFeatures")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -14030,6 +14372,9 @@ pub type PhysicalDeviceImageRobustnessFeaturesEXT = PhysicalDeviceImageRobustnes
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceSubgroupSizeControlFeatures")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -14084,6 +14429,10 @@ pub type PhysicalDeviceSubgroupSizeControlFeaturesEXT = PhysicalDeviceSubgroupSi
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceSubgroupSizeControlProperties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -14143,6 +14492,9 @@ pub type PhysicalDeviceSubgroupSizeControlPropertiesEXT =
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PipelineShaderStageCreateInfo`]
+/// - [`ShaderCreateInfoEXT`]
 #[doc(alias = "VkPipelineShaderStageRequiredSubgroupSizeCreateInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -14204,6 +14556,9 @@ pub type ShaderRequiredSubgroupSizeCreateInfoEXT =
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceInlineUniformBlockFeatures")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -14258,6 +14613,10 @@ pub type PhysicalDeviceInlineUniformBlockFeaturesEXT = PhysicalDeviceInlineUnifo
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceInlineUniformBlockProperties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -14317,6 +14676,8 @@ pub type PhysicalDeviceInlineUniformBlockPropertiesEXT = PhysicalDeviceInlineUni
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`WriteDescriptorSet`]
 #[doc(alias = "VkWriteDescriptorSetInlineUniformBlock")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -14370,6 +14731,8 @@ pub type WriteDescriptorSetInlineUniformBlockEXT = WriteDescriptorSetInlineUnifo
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`DescriptorPoolCreateInfo`]
 #[doc(alias = "VkDescriptorPoolInlineUniformBlockCreateInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -14421,6 +14784,9 @@ pub type DescriptorPoolInlineUniformBlockCreateInfoEXT = DescriptorPoolInlineUni
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShaderIntegerDotProductFeatures")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -14474,6 +14840,10 @@ pub type PhysicalDeviceShaderIntegerDotProductFeaturesKHR =
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceShaderIntegerDotProductProperties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -14585,6 +14955,10 @@ pub type PhysicalDeviceShaderIntegerDotProductPropertiesKHR =
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceTexelBufferAlignmentProperties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -15035,6 +15409,8 @@ pub type RenderingInfoKHR = RenderingInfo;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`GraphicsPipelineCreateInfo`]
 #[doc(alias = "VkPipelineRenderingCreateInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -15095,6 +15471,9 @@ pub type PipelineRenderingCreateInfoKHR = PipelineRenderingCreateInfo;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceDynamicRenderingFeatures")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -15147,6 +15526,8 @@ pub type PhysicalDeviceDynamicRenderingFeaturesKHR = PhysicalDeviceDynamicRender
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`CommandBufferInheritanceInfo`]
 #[doc(alias = "VkCommandBufferInheritanceRenderingInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -15212,6 +15593,9 @@ pub type CommandBufferInheritanceRenderingInfoKHR = CommandBufferInheritanceRend
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceVulkan14Features")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -15299,6 +15683,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceVulkan14Features {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceVulkan14Properties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -15400,6 +15788,8 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceVulkan14Propert
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`DeviceQueueCreateInfo`]
 #[doc(alias = "VkDeviceQueueGlobalPriorityCreateInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -15456,6 +15846,9 @@ pub type DeviceQueueGlobalPriorityCreateInfoEXT = DeviceQueueGlobalPriorityCreat
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceGlobalPriorityQueryFeatures")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -15513,6 +15906,10 @@ pub type PhysicalDeviceGlobalPriorityQueryFeaturesEXT = PhysicalDeviceGlobalPrio
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`QueueFamilyProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkQueueFamilyGlobalPriorityProperties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -15571,6 +15968,9 @@ pub type QueueFamilyGlobalPriorityPropertiesEXT = QueueFamilyGlobalPriorityPrope
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceIndexTypeUint8Features")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -15739,6 +16139,9 @@ pub type MemoryUnmapInfoKHR = MemoryUnmapInfo;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceMaintenance5Features")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -15791,6 +16194,10 @@ pub type PhysicalDeviceMaintenance5FeaturesKHR = PhysicalDeviceMaintenance5Featu
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceMaintenance5Properties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -15857,6 +16264,8 @@ pub type PhysicalDeviceMaintenance5PropertiesKHR = PhysicalDeviceMaintenance5Pro
 /// # Extended by
 /// - [`ImageCompressionPropertiesEXT`]
 /// - [`SubresourceHostMemcpySize`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkSubresourceLayout2")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -16020,6 +16429,11 @@ pub type DeviceImageSubresourceInfoKHR = DeviceImageSubresourceInfo;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`BufferViewCreateInfo`]
+/// - [`BufferCreateInfo`]
+/// - [`PhysicalDeviceExternalBufferInfo`]
+/// - [`DescriptorBufferBindingInfoEXT`]
 #[doc(alias = "VkBufferUsageFlags2CreateInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -16074,6 +16488,9 @@ pub type BufferUsageFlags2CreateInfoKHR = BufferUsageFlags2CreateInfo;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceMaintenance6Features")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -16126,6 +16543,10 @@ pub type PhysicalDeviceMaintenance6FeaturesKHR = PhysicalDeviceMaintenance6Featu
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceMaintenance6Properties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -16181,6 +16602,9 @@ pub type PhysicalDeviceMaintenance6PropertiesKHR = PhysicalDeviceMaintenance6Pro
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`BindBufferMemoryInfo`]
+/// - [`BindImageMemoryInfo`]
 #[doc(alias = "VkBindMemoryStatus")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -16233,6 +16657,9 @@ pub type BindMemoryStatusKHR = BindMemoryStatus;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceHostImageCopyFeatures")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -16285,6 +16712,8 @@ pub type PhysicalDeviceHostImageCopyFeaturesEXT = PhysicalDeviceHostImageCopyFea
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
 #[doc(alias = "VkPhysicalDeviceHostImageCopyProperties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -16708,6 +17137,10 @@ pub type HostImageLayoutTransitionInfoEXT = HostImageLayoutTransitionInfo;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SubresourceLayout2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkSubresourceHostMemcpySize")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -16759,6 +17192,10 @@ pub type SubresourceHostMemcpySizeEXT = SubresourceHostMemcpySize;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ImageFormatProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkHostImageCopyDevicePerformanceQuery")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -16812,6 +17249,9 @@ pub type HostImageCopyDevicePerformanceQueryEXT = HostImageCopyDevicePerformance
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShaderSubgroupRotateFeatures")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -16866,6 +17306,9 @@ pub type PhysicalDeviceShaderSubgroupRotateFeaturesKHR = PhysicalDeviceShaderSub
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShaderFloatControls2Features")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -16918,6 +17361,9 @@ pub type PhysicalDeviceShaderFloatControls2FeaturesKHR = PhysicalDeviceShaderFlo
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShaderExpectAssumeFeatures")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -16971,6 +17417,11 @@ pub type PhysicalDeviceShaderExpectAssumeFeaturesKHR = PhysicalDeviceShaderExpec
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ComputePipelineCreateInfo`]
+/// - [`GraphicsPipelineCreateInfo`]
+/// - [`RayTracingPipelineCreateInfoNV`]
+/// - [`RayTracingPipelineCreateInfoKHR`]
 #[doc(alias = "VkPipelineCreateFlags2CreateInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -17026,6 +17477,10 @@ pub type PipelineCreateFlags2CreateInfoKHR = PipelineCreateFlags2CreateInfo;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDevicePushDescriptorProperties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -17330,6 +17785,9 @@ pub type PushDescriptorSetWithTemplateInfoKHR = PushDescriptorSetWithTemplateInf
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDevicePipelineProtectedAccessFeatures")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -17383,6 +17841,9 @@ pub type PhysicalDevicePipelineProtectedAccessFeaturesEXT =
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDevicePipelineRobustnessFeatures")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -17435,6 +17896,10 @@ pub type PhysicalDevicePipelineRobustnessFeaturesEXT = PhysicalDevicePipelineRob
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDevicePipelineRobustnessProperties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -17492,6 +17957,11 @@ pub type PhysicalDevicePipelineRobustnessPropertiesEXT = PhysicalDevicePipelineR
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`GraphicsPipelineCreateInfo`]
+/// - [`ComputePipelineCreateInfo`]
+/// - [`PipelineShaderStageCreateInfo`]
+/// - [`RayTracingPipelineCreateInfoKHR`]
 #[doc(alias = "VkPipelineRobustnessCreateInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -17553,6 +18023,9 @@ pub type PipelineRobustnessCreateInfoEXT = PipelineRobustnessCreateInfo;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceLineRasterizationFeatures")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -17620,6 +18093,10 @@ pub type PhysicalDeviceLineRasterizationFeaturesEXT = PhysicalDeviceLineRasteriz
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceLineRasterizationProperties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -17676,6 +18153,8 @@ pub type PhysicalDeviceLineRasterizationPropertiesEXT = PhysicalDeviceLineRaster
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PipelineRasterizationStateCreateInfo`]
 #[doc(alias = "VkPipelineRasterizationLineStateCreateInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -17740,6 +18219,10 @@ pub type PipelineRasterizationLineStateCreateInfoEXT = PipelineRasterizationLine
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceVertexAttributeDivisorProperties")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -17830,6 +18313,8 @@ pub type VertexInputBindingDivisorDescriptionEXT = VertexInputBindingDivisorDesc
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PipelineVertexInputStateCreateInfo`]
 #[doc(alias = "VkPipelineVertexInputDivisorStateCreateInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -17891,6 +18376,9 @@ pub type PipelineVertexInputDivisorStateCreateInfoEXT = PipelineVertexInputDivis
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceVertexAttributeDivisorFeatures")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -18010,6 +18498,9 @@ pub type RenderingAreaInfoKHR = RenderingAreaInfo;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceDynamicRenderingLocalReadFeatures")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -18063,6 +18554,9 @@ pub type PhysicalDeviceDynamicRenderingLocalReadFeaturesKHR =
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`GraphicsPipelineCreateInfo`]
+/// - [`CommandBufferInheritanceInfo`]
 #[doc(alias = "VkRenderingAttachmentLocationInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -18118,6 +18612,9 @@ pub type RenderingAttachmentLocationInfoKHR = RenderingAttachmentLocationInfo;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`GraphicsPipelineCreateInfo`]
+/// - [`CommandBufferInheritanceInfo`]
 #[doc(alias = "VkRenderingInputAttachmentIndexInfo")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -18183,6 +18680,8 @@ pub type RenderingInputAttachmentIndexInfoKHR = RenderingInputAttachmentIndexInf
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkSurfaceCapabilitiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -18224,6 +18723,8 @@ impl Default for SurfaceCapabilitiesKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkSurfaceFormatKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -18412,6 +18913,8 @@ unsafe impl Extendable for PresentInfoKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ImageCreateInfo`]
 #[doc(alias = "VkImageSwapchainCreateInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -18460,6 +18963,8 @@ unsafe impl Extends<ImageCreateInfo> for ImageSwapchainCreateInfoKHR {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`BindImageMemoryInfo`]
 #[doc(alias = "VkBindImageMemorySwapchainInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -18565,6 +19070,8 @@ unsafe impl Extendable for AcquireNextImageInfoKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkDeviceGroupPresentCapabilitiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -18613,6 +19120,8 @@ unsafe impl Extendable for DeviceGroupPresentCapabilitiesKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PresentInfoKHR`]
 #[doc(alias = "VkDeviceGroupPresentInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -18665,6 +19174,8 @@ unsafe impl Extends<PresentInfoKHR> for DeviceGroupPresentInfoKHR {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SwapchainCreateInfoKHR`]
 #[doc(alias = "VkDeviceGroupSwapchainCreateInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -18784,6 +19295,8 @@ unsafe impl Extendable for DisplayModeCreateInfoKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkDisplayModePropertiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -18809,6 +19322,8 @@ impl Default for DisplayModePropertiesKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkDisplayPlaneCapabilitiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -18849,6 +19364,8 @@ impl Default for DisplayPlaneCapabilitiesKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkDisplayPlanePropertiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -18874,6 +19391,8 @@ impl Default for DisplayPlanePropertiesKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkDisplayPropertiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -18973,6 +19492,8 @@ unsafe impl Extendable for DisplaySurfaceCreateInfoKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PresentInfoKHR`]
 #[doc(alias = "VkDisplayPresentInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -19271,6 +19792,10 @@ unsafe impl Extendable for Win32SurfaceCreateInfoKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`QueueFamilyProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkQueueFamilyQueryResultStatusPropertiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -19317,6 +19842,10 @@ unsafe impl Extends<QueueFamilyProperties2> for QueueFamilyQueryResultStatusProp
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`QueueFamilyProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkQueueFamilyVideoPropertiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -19363,6 +19892,8 @@ unsafe impl Extends<QueueFamilyProperties2> for QueueFamilyVideoPropertiesKHR {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`QueryPoolCreateInfo`]
 /// # Extended by
 /// - [`VideoDecodeAV1ProfileInfoKHR`]
 /// - [`VideoDecodeH264ProfileInfoKHR`]
@@ -19427,6 +19958,11 @@ unsafe impl Extends<QueryPoolCreateInfo> for VideoProfileInfoKHR {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceImageFormatInfo2`]
+/// - [`PhysicalDeviceVideoFormatInfoKHR`]
+/// - [`ImageCreateInfo`]
+/// - [`BufferCreateInfo`]
 #[doc(alias = "VkVideoProfileListInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -19496,6 +20032,8 @@ unsafe impl Extends<BufferCreateInfo> for VideoProfileListInfoKHR {}
 /// - [`VideoEncodeIntraRefreshCapabilitiesKHR`]
 /// - [`VideoEncodeQuantizationMapCapabilitiesKHR`]
 /// - [`VideoEncodeRgbConversionCapabilitiesVALVE`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoCapabilitiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -19611,6 +20149,8 @@ unsafe impl Extendable for PhysicalDeviceVideoFormatInfoKHR {
 /// - [`VideoFormatAV1QuantizationMapPropertiesKHR`]
 /// - [`VideoFormatH265QuantizationMapPropertiesKHR`]
 /// - [`VideoFormatQuantizationMapPropertiesKHR`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoFormatPropertiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -19773,6 +20313,8 @@ unsafe impl Extendable for VideoReferenceSlotInfoKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoSessionMemoryRequirementsKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -20210,6 +20752,10 @@ unsafe impl Extendable for VideoCodingControlInfoKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoCapabilitiesKHR`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoDecodeCapabilitiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -20256,6 +20802,9 @@ unsafe impl Extends<VideoCapabilitiesKHR> for VideoDecodeCapabilitiesKHR {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoProfileInfoKHR`]
+/// - [`QueryPoolCreateInfo`]
 #[doc(alias = "VkVideoDecodeUsageInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -20375,6 +20924,10 @@ unsafe impl Extendable for VideoDecodeInfoKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoCapabilitiesKHR`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoEncodeH264CapabilitiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -20472,6 +21025,10 @@ impl Default for VideoEncodeH264QpKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoEncodeQualityLevelPropertiesKHR`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoEncodeH264QualityLevelPropertiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -20537,6 +21094,8 @@ unsafe impl Extends<VideoEncodeQualityLevelPropertiesKHR>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoSessionCreateInfoKHR`]
 #[doc(alias = "VkVideoEncodeH264SessionCreateInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -20585,6 +21144,8 @@ unsafe impl Extends<VideoSessionCreateInfoKHR> for VideoEncodeH264SessionCreateI
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoSessionParametersUpdateInfoKHR`]
 #[doc(alias = "VkVideoEncodeH264SessionParametersAddInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -20644,6 +21205,8 @@ unsafe impl Extends<VideoSessionParametersUpdateInfoKHR>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoSessionParametersCreateInfoKHR`]
 #[doc(alias = "VkVideoEncodeH264SessionParametersCreateInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -20698,6 +21261,8 @@ unsafe impl Extends<VideoSessionParametersCreateInfoKHR>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoEncodeSessionParametersGetInfoKHR`]
 #[doc(alias = "VkVideoEncodeH264SessionParametersGetInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -20753,6 +21318,10 @@ unsafe impl Extends<VideoEncodeSessionParametersGetInfoKHR>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoEncodeSessionParametersFeedbackInfoKHR`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoEncodeH264SessionParametersFeedbackInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -20851,6 +21420,8 @@ unsafe impl Extendable for VideoEncodeH264NaluSliceInfoKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoEncodeInfoKHR`]
 #[doc(alias = "VkVideoEncodeH264PictureInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -20903,6 +21474,8 @@ unsafe impl Extends<VideoEncodeInfoKHR> for VideoEncodeH264PictureInfoKHR {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoReferenceSlotInfoKHR`]
 #[doc(alias = "VkVideoEncodeH264DpbSlotInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -20949,6 +21522,9 @@ unsafe impl Extends<VideoReferenceSlotInfoKHR> for VideoEncodeH264DpbSlotInfoKHR
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoProfileInfoKHR`]
+/// - [`QueryPoolCreateInfo`]
 #[doc(alias = "VkVideoEncodeH264ProfileInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -20996,6 +21572,9 @@ unsafe impl Extends<QueryPoolCreateInfo> for VideoEncodeH264ProfileInfoKHR {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoCodingControlInfoKHR`]
+/// - [`VideoBeginCodingInfoKHR`]
 #[doc(alias = "VkVideoEncodeH264RateControlInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -21079,6 +21658,8 @@ impl Default for VideoEncodeH264FrameSizeKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoEncodeRateControlLayerInfoKHR`]
 #[doc(alias = "VkVideoEncodeH264RateControlLayerInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -21135,6 +21716,8 @@ unsafe impl Extends<VideoEncodeRateControlLayerInfoKHR> for VideoEncodeH264RateC
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoBeginCodingInfoKHR`]
 #[doc(alias = "VkVideoEncodeH264GopRemainingFrameInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -21187,6 +21770,10 @@ unsafe impl Extends<VideoBeginCodingInfoKHR> for VideoEncodeH264GopRemainingFram
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoCapabilitiesKHR`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoEncodeH265CapabilitiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -21263,6 +21850,8 @@ unsafe impl Extends<VideoCapabilitiesKHR> for VideoEncodeH265CapabilitiesKHR {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoSessionCreateInfoKHR`]
 #[doc(alias = "VkVideoEncodeH265SessionCreateInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -21338,6 +21927,10 @@ impl Default for VideoEncodeH265QpKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoEncodeQualityLevelPropertiesKHR`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoEncodeH265QualityLevelPropertiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -21401,6 +21994,8 @@ unsafe impl Extends<VideoEncodeQualityLevelPropertiesKHR>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoSessionParametersUpdateInfoKHR`]
 #[doc(alias = "VkVideoEncodeH265SessionParametersAddInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -21466,6 +22061,8 @@ unsafe impl Extends<VideoSessionParametersUpdateInfoKHR>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoSessionParametersCreateInfoKHR`]
 #[doc(alias = "VkVideoEncodeH265SessionParametersCreateInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -21522,6 +22119,8 @@ unsafe impl Extends<VideoSessionParametersCreateInfoKHR>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoEncodeSessionParametersGetInfoKHR`]
 #[doc(alias = "VkVideoEncodeH265SessionParametersGetInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -21581,6 +22180,10 @@ unsafe impl Extends<VideoEncodeSessionParametersGetInfoKHR>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoEncodeSessionParametersFeedbackInfoKHR`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoEncodeH265SessionParametersFeedbackInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -21681,6 +22284,8 @@ unsafe impl Extendable for VideoEncodeH265NaluSliceSegmentInfoKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoEncodeInfoKHR`]
 #[doc(alias = "VkVideoEncodeH265PictureInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -21731,6 +22336,8 @@ unsafe impl Extends<VideoEncodeInfoKHR> for VideoEncodeH265PictureInfoKHR {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoReferenceSlotInfoKHR`]
 #[doc(alias = "VkVideoEncodeH265DpbSlotInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -21777,6 +22384,9 @@ unsafe impl Extends<VideoReferenceSlotInfoKHR> for VideoEncodeH265DpbSlotInfoKHR
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoProfileInfoKHR`]
+/// - [`QueryPoolCreateInfo`]
 #[doc(alias = "VkVideoEncodeH265ProfileInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -21824,6 +22434,9 @@ unsafe impl Extends<QueryPoolCreateInfo> for VideoEncodeH265ProfileInfoKHR {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoCodingControlInfoKHR`]
+/// - [`VideoBeginCodingInfoKHR`]
 #[doc(alias = "VkVideoEncodeH265RateControlInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -21907,6 +22520,8 @@ impl Default for VideoEncodeH265FrameSizeKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoEncodeRateControlLayerInfoKHR`]
 #[doc(alias = "VkVideoEncodeH265RateControlLayerInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -21963,6 +22578,8 @@ unsafe impl Extends<VideoEncodeRateControlLayerInfoKHR> for VideoEncodeH265RateC
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoBeginCodingInfoKHR`]
 #[doc(alias = "VkVideoEncodeH265GopRemainingFrameInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -22015,6 +22632,9 @@ unsafe impl Extends<VideoBeginCodingInfoKHR> for VideoEncodeH265GopRemainingFram
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoProfileInfoKHR`]
+/// - [`QueryPoolCreateInfo`]
 #[doc(alias = "VkVideoDecodeH264ProfileInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -22065,6 +22685,10 @@ unsafe impl Extends<QueryPoolCreateInfo> for VideoDecodeH264ProfileInfoKHR {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoCapabilitiesKHR`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoDecodeH264CapabilitiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -22113,6 +22737,8 @@ unsafe impl Extends<VideoCapabilitiesKHR> for VideoDecodeH264CapabilitiesKHR {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoSessionParametersUpdateInfoKHR`]
 #[doc(alias = "VkVideoDecodeH264SessionParametersAddInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -22170,6 +22796,8 @@ unsafe impl Extends<VideoSessionParametersUpdateInfoKHR>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoSessionParametersCreateInfoKHR`]
 #[doc(alias = "VkVideoDecodeH264SessionParametersCreateInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -22224,6 +22852,8 @@ unsafe impl Extends<VideoSessionParametersCreateInfoKHR>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoDecodeInfoKHR`]
 #[doc(alias = "VkVideoDecodeH264PictureInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -22274,6 +22904,8 @@ unsafe impl Extends<VideoDecodeInfoKHR> for VideoDecodeH264PictureInfoKHR {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoReferenceSlotInfoKHR`]
 #[doc(alias = "VkVideoDecodeH264DpbSlotInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -22320,6 +22952,8 @@ unsafe impl Extends<VideoReferenceSlotInfoKHR> for VideoDecodeH264DpbSlotInfoKHR
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`MemoryAllocateInfo`]
 #[doc(alias = "VkImportMemoryWin32HandleInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -22373,6 +23007,8 @@ unsafe impl Extends<MemoryAllocateInfo> for ImportMemoryWin32HandleInfoKHR {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`MemoryAllocateInfo`]
 #[doc(alias = "VkExportMemoryWin32HandleInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -22424,6 +23060,8 @@ unsafe impl Extends<MemoryAllocateInfo> for ExportMemoryWin32HandleInfoKHR {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkMemoryWin32HandlePropertiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -22516,6 +23154,8 @@ unsafe impl Extendable for MemoryGetWin32HandleInfoKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`MemoryAllocateInfo`]
 #[doc(alias = "VkImportMemoryFdInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -22565,6 +23205,8 @@ unsafe impl Extends<MemoryAllocateInfo> for ImportMemoryFdInfoKHR {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkMemoryFdPropertiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -22657,6 +23299,9 @@ unsafe impl Extendable for MemoryGetFdInfoKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SubmitInfo`]
+/// - [`SubmitInfo2`]
 #[doc(alias = "VkWin32KeyedMutexAcquireReleaseInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -22774,6 +23419,8 @@ unsafe impl Extendable for ImportSemaphoreWin32HandleInfoKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SemaphoreCreateInfo`]
 #[doc(alias = "VkExportSemaphoreWin32HandleInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -22825,6 +23472,8 @@ unsafe impl Extends<SemaphoreCreateInfo> for ExportSemaphoreWin32HandleInfoKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SubmitInfo`]
 #[doc(alias = "VkD3D12FenceSubmitInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -23081,6 +23730,8 @@ impl Default for PresentRegionKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PresentInfoKHR`]
 #[doc(alias = "VkPresentRegionsKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -23130,6 +23781,10 @@ unsafe impl Extends<PresentInfoKHR> for PresentRegionsKHR {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SurfaceCapabilities2KHR`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkSharedPresentSurfaceCapabilitiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -23233,6 +23888,8 @@ unsafe impl Extendable for ImportFenceWin32HandleInfoKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`FenceCreateInfo`]
 #[doc(alias = "VkExportFenceWin32HandleInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -23430,6 +24087,9 @@ unsafe impl Extendable for FenceGetFdInfoKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDevicePerformanceQueryFeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -23479,6 +24139,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePerformanceQueryFeatures
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDevicePerformanceQueryPropertiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -23525,6 +24189,8 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDevicePerformanceQuer
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPerformanceCounterKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -23576,6 +24242,8 @@ unsafe impl Extendable for PerformanceCounterKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPerformanceCounterDescriptionKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -23631,6 +24299,8 @@ unsafe impl Extendable for PerformanceCounterDescriptionKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`QueryPoolCreateInfo`]
 #[doc(alias = "VkQueryPoolPerformanceCreateInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -23761,6 +24431,9 @@ unsafe impl Extendable for AcquireProfilingLockInfoKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SubmitInfo`]
+/// - [`SubmitInfo2`]
 #[doc(alias = "VkPerformanceQuerySubmitInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -23873,6 +24546,8 @@ unsafe impl Extendable for PhysicalDeviceSurfaceInfo2KHR {
 /// - [`SurfacePresentScalingCapabilitiesKHR`]
 /// - [`SurfaceProtectedCapabilitiesKHR`]
 /// - [`SwapchainFlagsSurfaceCapabilitiesEXT`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkSurfaceCapabilities2KHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -23920,6 +24595,8 @@ unsafe impl Extendable for SurfaceCapabilities2KHR {
 ///
 /// # Extended by
 /// - [`ImageCompressionPropertiesEXT`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkSurfaceFormat2KHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -23965,6 +24642,8 @@ unsafe impl Extendable for SurfaceFormat2KHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkDisplayProperties2KHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -24010,6 +24689,8 @@ unsafe impl Extendable for DisplayProperties2KHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkDisplayPlaneProperties2KHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -24057,6 +24738,8 @@ unsafe impl Extendable for DisplayPlaneProperties2KHR {
 ///
 /// # Extended by
 /// - [`DisplayModeStereoPropertiesNV`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkDisplayModeProperties2KHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -24149,6 +24832,8 @@ unsafe impl Extendable for DisplayPlaneInfo2KHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkDisplayPlaneCapabilities2KHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -24194,6 +24879,9 @@ unsafe impl Extendable for DisplayPlaneCapabilities2KHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShaderBfloat16FeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -24245,6 +24933,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderBfloat16FeaturesKH
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDevicePortabilitySubsetFeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -24320,6 +25011,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePortabilitySubsetFeature
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDevicePortabilitySubsetPropertiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -24366,6 +25061,9 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDevicePortabilitySubs
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShaderClockFeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -24415,6 +25113,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderClockFeaturesKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoProfileInfoKHR`]
+/// - [`QueryPoolCreateInfo`]
 #[doc(alias = "VkVideoDecodeH265ProfileInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -24462,6 +25163,10 @@ unsafe impl Extends<QueryPoolCreateInfo> for VideoDecodeH265ProfileInfoKHR {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoCapabilitiesKHR`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoDecodeH265CapabilitiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -24508,6 +25213,8 @@ unsafe impl Extends<VideoCapabilitiesKHR> for VideoDecodeH265CapabilitiesKHR {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoSessionParametersUpdateInfoKHR`]
 #[doc(alias = "VkVideoDecodeH265SessionParametersAddInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -24570,6 +25277,8 @@ unsafe impl Extends<VideoSessionParametersUpdateInfoKHR>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoSessionParametersCreateInfoKHR`]
 #[doc(alias = "VkVideoDecodeH265SessionParametersCreateInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -24626,6 +25335,8 @@ unsafe impl Extends<VideoSessionParametersCreateInfoKHR>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoDecodeInfoKHR`]
 #[doc(alias = "VkVideoDecodeH265PictureInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -24676,6 +25387,8 @@ unsafe impl Extends<VideoDecodeInfoKHR> for VideoDecodeH265PictureInfoKHR {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoReferenceSlotInfoKHR`]
 #[doc(alias = "VkVideoDecodeH265DpbSlotInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -24722,6 +25435,8 @@ unsafe impl Extends<VideoReferenceSlotInfoKHR> for VideoDecodeH265DpbSlotInfoKHR
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SubpassDescription2`]
 #[doc(alias = "VkFragmentShadingRateAttachmentInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -24773,6 +25488,8 @@ unsafe impl Extends<SubpassDescription2> for FragmentShadingRateAttachmentInfoKH
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`GraphicsPipelineCreateInfo`]
 #[doc(alias = "VkPipelineFragmentShadingRateStateCreateInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -24821,6 +25538,9 @@ unsafe impl Extends<GraphicsPipelineCreateInfo> for PipelineFragmentShadingRateS
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceFragmentShadingRateFeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -24872,6 +25592,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceFragmentShadingRateFeatu
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceFragmentShadingRatePropertiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -24950,6 +25674,8 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceFragmentShading
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceFragmentShadingRateKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -24997,6 +25723,8 @@ unsafe impl Extendable for PhysicalDeviceFragmentShadingRateKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`RenderingInfo`]
 #[doc(alias = "VkRenderingFragmentShadingRateAttachmentInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -25048,6 +25776,9 @@ unsafe impl Extends<RenderingInfo> for RenderingFragmentShadingRateAttachmentInf
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShaderConstantDataFeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -25095,6 +25826,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderConstantDataFeatur
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShaderAbortFeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -25142,6 +25876,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderAbortFeaturesKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`DeviceFaultDebugInfoKHR`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkDeviceFaultShaderAbortMessageInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -25192,6 +25930,8 @@ unsafe impl Extends<DeviceFaultDebugInfoKHR> for DeviceFaultShaderAbortMessageIn
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
 #[doc(alias = "VkPhysicalDeviceShaderAbortPropertiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -25238,6 +25978,9 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceShaderAbortProp
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShaderQuadControlFeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -25285,6 +26028,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderQuadControlFeature
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SurfaceCapabilities2KHR`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkSurfaceProtectedCapabilitiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -25331,6 +26078,9 @@ unsafe impl Extends<SurfaceCapabilities2KHR> for SurfaceProtectedCapabilitiesKHR
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDevicePresentWaitFeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -25378,6 +26128,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePresentWaitFeaturesKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDevicePipelineExecutablePropertiesFeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -25478,6 +26231,8 @@ pub type PipelineInfoEXT = PipelineInfoKHR;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPipelineExecutablePropertiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -25578,6 +26333,8 @@ unsafe impl Extendable for PipelineExecutableInfoKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPipelineExecutableStatisticValueKHR")]
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -25608,6 +26365,8 @@ impl Default for PipelineExecutableStatisticValueKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPipelineExecutableStatisticKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -25661,6 +26420,8 @@ unsafe impl Extendable for PipelineExecutableStatisticKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPipelineExecutableInternalRepresentationKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -25717,6 +26478,8 @@ unsafe impl Extendable for PipelineExecutableInternalRepresentationKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`GraphicsPipelineCreateInfo`]
 #[doc(alias = "VkPipelineLibraryCreateInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -25766,6 +26529,8 @@ unsafe impl Extends<GraphicsPipelineCreateInfo> for PipelineLibraryCreateInfoKHR
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PresentInfoKHR`]
 #[doc(alias = "VkPresentIdKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -25815,6 +26580,9 @@ unsafe impl Extends<PresentInfoKHR> for PresentIdKHR {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDevicePresentIdFeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -25933,6 +26701,10 @@ unsafe impl Extendable for VideoEncodeInfoKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoCapabilitiesKHR`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoEncodeCapabilitiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -25991,6 +26763,8 @@ unsafe impl Extends<VideoCapabilitiesKHR> for VideoEncodeCapabilitiesKHR {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`QueryPoolCreateInfo`]
 #[doc(alias = "VkQueryPoolVideoEncodeFeedbackCreateInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -26037,6 +26811,9 @@ unsafe impl Extends<QueryPoolCreateInfo> for QueryPoolVideoEncodeFeedbackCreateI
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoProfileInfoKHR`]
+/// - [`QueryPoolCreateInfo`]
 #[doc(alias = "VkVideoEncodeUsageInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -26146,6 +26923,9 @@ unsafe impl Extendable for VideoEncodeRateControlLayerInfoKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoCodingControlInfoKHR`]
+/// - [`VideoBeginCodingInfoKHR`]
 #[doc(alias = "VkVideoEncodeRateControlInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -26257,6 +27037,8 @@ unsafe impl Extendable for PhysicalDeviceVideoEncodeQualityLevelInfoKHR {
 /// - [`VideoEncodeAV1QualityLevelPropertiesKHR`]
 /// - [`VideoEncodeH264QualityLevelPropertiesKHR`]
 /// - [`VideoEncodeH265QualityLevelPropertiesKHR`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoEncodeQualityLevelPropertiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -26304,6 +27086,9 @@ unsafe impl Extendable for VideoEncodeQualityLevelPropertiesKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoCodingControlInfoKHR`]
+/// - [`VideoSessionParametersCreateInfoKHR`]
 #[doc(alias = "VkVideoEncodeQualityLevelInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -26402,6 +27187,8 @@ unsafe impl Extendable for VideoEncodeSessionParametersGetInfoKHR {
 /// # Extended by
 /// - [`VideoEncodeH264SessionParametersFeedbackInfoKHR`]
 /// - [`VideoEncodeH265SessionParametersFeedbackInfoKHR`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoEncodeSessionParametersFeedbackInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -26782,6 +27569,8 @@ unsafe impl Extendable for MemoryRangeBarrierKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`DependencyInfo`]
 /// # Extended by
 /// - [`MemoryBarrierAccessFlags3KHR`]
 #[doc(alias = "VkMemoryRangeBarriersInfoKHR")]
@@ -26833,6 +27622,9 @@ unsafe impl Extends<DependencyInfo> for MemoryRangeBarriersInfoKHR {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceDeviceAddressCommandsFeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -27340,6 +28132,9 @@ unsafe impl Extendable for AccelerationStructureCreateInfo2KHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceFragmentShaderBarycentricFeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -27395,6 +28190,10 @@ pub type PhysicalDeviceFragmentShaderBarycentricFeaturesNV =
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -27444,6 +28243,9 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -27498,6 +28300,9 @@ unsafe impl Extends<DeviceCreateInfo>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -27554,6 +28359,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceWorkgroupMemoryExplicitL
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceRayTracingMaintenance1FeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -27652,6 +28460,9 @@ impl Default for TraceRaysIndirectCommand2KHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShaderUntypedPointersFeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -27699,6 +28510,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderUntypedPointersFea
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShaderMaximalReconvergenceFeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -27749,6 +28563,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderMaximalReconvergen
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SurfaceCapabilities2KHR`]
 #[doc(alias = "VkSurfaceCapabilitiesPresentId2KHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -27795,6 +28611,8 @@ unsafe impl Extends<SurfaceCapabilities2KHR> for SurfaceCapabilitiesPresentId2KH
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PresentInfoKHR`]
 #[doc(alias = "VkPresentId2KHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -27844,6 +28662,9 @@ unsafe impl Extends<PresentInfoKHR> for PresentId2KHR {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDevicePresentId2FeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -27891,6 +28712,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePresentId2FeaturesKHR {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SurfaceCapabilities2KHR`]
 #[doc(alias = "VkSurfaceCapabilitiesPresentWait2KHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -27937,6 +28760,9 @@ unsafe impl Extends<SurfaceCapabilities2KHR> for SurfaceCapabilitiesPresentWait2
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDevicePresentWait2FeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -28031,6 +28857,9 @@ unsafe impl Extendable for PresentWait2InfoKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceRayTracingPositionFetchFeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -28078,6 +28907,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceRayTracingPositionFetchF
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDevicePipelineBinaryFeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -28125,6 +28957,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePipelineBinaryFeaturesKH
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDevicePipelineBinaryPropertiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -28179,6 +29015,8 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDevicePipelineBinaryP
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkDevicePipelineBinaryInternalCacheControlKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -28419,6 +29257,10 @@ unsafe impl Extendable for PipelineBinaryCreateInfoKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`GraphicsPipelineCreateInfo`]
+/// - [`ComputePipelineCreateInfo`]
+/// - [`RayTracingPipelineCreateInfoKHR`]
 #[doc(alias = "VkPipelineBinaryInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -28609,6 +29451,8 @@ unsafe impl Extendable for PipelineBinaryHandlesInfoKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceSurfaceInfo2KHR`]
 #[doc(alias = "VkSurfacePresentModeKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -28660,6 +29504,8 @@ pub type SurfacePresentModeEXT = SurfacePresentModeKHR;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SurfaceCapabilities2KHR`]
 #[doc(alias = "VkSurfacePresentScalingCapabilitiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -28724,6 +29570,8 @@ pub type SurfacePresentScalingCapabilitiesEXT = SurfacePresentScalingCapabilitie
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SurfaceCapabilities2KHR`]
 #[doc(alias = "VkSurfacePresentModeCompatibilityKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -28779,6 +29627,9 @@ pub type SurfacePresentModeCompatibilityEXT = SurfacePresentModeCompatibilityKHR
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceSwapchainMaintenance1FeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -28832,6 +29683,8 @@ pub type PhysicalDeviceSwapchainMaintenance1FeaturesEXT =
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PresentInfoKHR`]
 #[doc(alias = "VkSwapchainPresentFenceInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -28885,6 +29738,8 @@ pub type SwapchainPresentFenceInfoEXT = SwapchainPresentFenceInfoKHR;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SwapchainCreateInfoKHR`]
 #[doc(alias = "VkSwapchainPresentModesCreateInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -28938,6 +29793,8 @@ pub type SwapchainPresentModesCreateInfoEXT = SwapchainPresentModesCreateInfoKHR
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PresentInfoKHR`]
 #[doc(alias = "VkSwapchainPresentModeInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -28991,6 +29848,8 @@ pub type SwapchainPresentModeInfoEXT = SwapchainPresentModeInfoKHR;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SwapchainCreateInfoKHR`]
 #[doc(alias = "VkSwapchainPresentScalingCreateInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -29102,6 +29961,9 @@ pub type ReleaseSwapchainImagesInfoEXT = ReleaseSwapchainImagesInfoKHR;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceInternallySynchronizedQueuesFeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -29152,6 +30014,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceInternallySynchronizedQu
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkCooperativeMatrixPropertiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -29213,6 +30077,9 @@ unsafe impl Extendable for CooperativeMatrixPropertiesKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceCooperativeMatrixFeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -29262,6 +30129,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceCooperativeMatrixFeature
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceCooperativeMatrixPropertiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -29309,6 +30180,9 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceCooperativeMatr
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceComputeShaderDerivativesFeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -29363,6 +30237,10 @@ pub type PhysicalDeviceComputeShaderDerivativesFeaturesNV =
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceComputeShaderDerivativesPropertiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -29412,6 +30290,9 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoProfileInfoKHR`]
+/// - [`QueryPoolCreateInfo`]
 #[doc(alias = "VkVideoDecodeAV1ProfileInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -29461,6 +30342,10 @@ unsafe impl Extends<QueryPoolCreateInfo> for VideoDecodeAV1ProfileInfoKHR {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoCapabilitiesKHR`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoDecodeAV1CapabilitiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -29507,6 +30392,8 @@ unsafe impl Extends<VideoCapabilitiesKHR> for VideoDecodeAV1CapabilitiesKHR {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoSessionParametersCreateInfoKHR`]
 #[doc(alias = "VkVideoDecodeAV1SessionParametersCreateInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -29556,6 +30443,8 @@ unsafe impl Extends<VideoSessionParametersCreateInfoKHR>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoDecodeInfoKHR`]
 #[doc(alias = "VkVideoDecodeAV1PictureInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -29612,6 +30501,8 @@ unsafe impl Extends<VideoDecodeInfoKHR> for VideoDecodeAV1PictureInfoKHR {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoReferenceSlotInfoKHR`]
 #[doc(alias = "VkVideoDecodeAV1DpbSlotInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -29658,6 +30549,9 @@ unsafe impl Extends<VideoReferenceSlotInfoKHR> for VideoDecodeAV1DpbSlotInfoKHR 
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceVideoEncodeAV1FeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -29705,6 +30599,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceVideoEncodeAV1FeaturesKH
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoCapabilitiesKHR`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoEncodeAV1CapabilitiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -29824,6 +30722,10 @@ impl Default for VideoEncodeAV1QIndexKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoEncodeQualityLevelPropertiesKHR`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoEncodeAV1QualityLevelPropertiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -29901,6 +30803,8 @@ unsafe impl Extends<VideoEncodeQualityLevelPropertiesKHR>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoSessionCreateInfoKHR`]
 #[doc(alias = "VkVideoEncodeAV1SessionCreateInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -29949,6 +30853,8 @@ unsafe impl Extends<VideoSessionCreateInfoKHR> for VideoEncodeAV1SessionCreateIn
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoSessionParametersCreateInfoKHR`]
 #[doc(alias = "VkVideoEncodeAV1SessionParametersCreateInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -30007,6 +30913,8 @@ unsafe impl Extends<VideoSessionParametersCreateInfoKHR>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoEncodeInfoKHR`]
 #[doc(alias = "VkVideoEncodeAV1PictureInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -30065,6 +30973,8 @@ unsafe impl Extends<VideoEncodeInfoKHR> for VideoEncodeAV1PictureInfoKHR {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoReferenceSlotInfoKHR`]
 #[doc(alias = "VkVideoEncodeAV1DpbSlotInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -30111,6 +31021,9 @@ unsafe impl Extends<VideoReferenceSlotInfoKHR> for VideoEncodeAV1DpbSlotInfoKHR 
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoProfileInfoKHR`]
+/// - [`QueryPoolCreateInfo`]
 #[doc(alias = "VkVideoEncodeAV1ProfileInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -30185,6 +31098,8 @@ impl Default for VideoEncodeAV1FrameSizeKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoBeginCodingInfoKHR`]
 #[doc(alias = "VkVideoEncodeAV1GopRemainingFrameInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -30237,6 +31152,9 @@ unsafe impl Extends<VideoBeginCodingInfoKHR> for VideoEncodeAV1GopRemainingFrame
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoCodingControlInfoKHR`]
+/// - [`VideoBeginCodingInfoKHR`]
 #[doc(alias = "VkVideoEncodeAV1RateControlInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -30293,6 +31211,8 @@ unsafe impl Extends<VideoBeginCodingInfoKHR> for VideoEncodeAV1RateControlInfoKH
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoEncodeRateControlLayerInfoKHR`]
 #[doc(alias = "VkVideoEncodeAV1RateControlLayerInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -30349,6 +31269,9 @@ unsafe impl Extends<VideoEncodeRateControlLayerInfoKHR> for VideoEncodeAV1RateCo
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceVideoDecodeVP9FeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -30396,6 +31319,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceVideoDecodeVP9FeaturesKH
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoProfileInfoKHR`]
+/// - [`QueryPoolCreateInfo`]
 #[doc(alias = "VkVideoDecodeVP9ProfileInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -30443,6 +31369,10 @@ unsafe impl Extends<QueryPoolCreateInfo> for VideoDecodeVP9ProfileInfoKHR {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoCapabilitiesKHR`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoDecodeVP9CapabilitiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -30489,6 +31419,8 @@ unsafe impl Extends<VideoCapabilitiesKHR> for VideoDecodeVP9CapabilitiesKHR {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoDecodeInfoKHR`]
 #[doc(alias = "VkVideoDecodeVP9PictureInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -30543,6 +31475,9 @@ unsafe impl Extends<VideoDecodeInfoKHR> for VideoDecodeVP9PictureInfoKHR {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceVideoMaintenance1FeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -30590,6 +31525,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceVideoMaintenance1Feature
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoDecodeInfoKHR`]
+/// - [`VideoEncodeInfoKHR`]
 #[doc(alias = "VkVideoInlineQueryInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -30642,6 +31580,9 @@ unsafe impl Extends<VideoEncodeInfoKHR> for VideoInlineQueryInfoKHR {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceUnifiedImageLayoutsFeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -30691,6 +31632,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceUnifiedImageLayoutsFeatu
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`RenderingAttachmentInfo`]
 #[doc(alias = "VkAttachmentFeedbackLoopInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -31080,6 +32023,9 @@ unsafe impl Extendable for CopyMemoryToImageIndirectInfoKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceCopyMemoryIndirectFeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -31130,6 +32076,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceCopyMemoryIndirectFeatur
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceCopyMemoryIndirectPropertiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -31181,6 +32131,10 @@ pub type PhysicalDeviceCopyMemoryIndirectPropertiesNV =
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoCapabilitiesKHR`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoEncodeIntraRefreshCapabilitiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -31236,6 +32190,8 @@ unsafe impl Extends<VideoCapabilitiesKHR> for VideoEncodeIntraRefreshCapabilitie
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoSessionCreateInfoKHR`]
 #[doc(alias = "VkVideoEncodeSessionIntraRefreshCreateInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -31283,6 +32239,8 @@ unsafe impl Extends<VideoSessionCreateInfoKHR> for VideoEncodeSessionIntraRefres
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoEncodeInfoKHR`]
 #[doc(alias = "VkVideoEncodeIntraRefreshInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -31331,6 +32289,8 @@ unsafe impl Extends<VideoEncodeInfoKHR> for VideoEncodeIntraRefreshInfoKHR {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoReferenceSlotInfoKHR`]
 #[doc(alias = "VkVideoReferenceIntraRefreshInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -31377,6 +32337,9 @@ unsafe impl Extends<VideoReferenceSlotInfoKHR> for VideoReferenceIntraRefreshInf
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceVideoEncodeIntraRefreshFeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -31424,6 +32387,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceVideoEncodeIntraRefreshF
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoCapabilitiesKHR`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoEncodeQuantizationMapCapabilitiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -31470,6 +32437,10 @@ unsafe impl Extends<VideoCapabilitiesKHR> for VideoEncodeQuantizationMapCapabili
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoFormatPropertiesKHR`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoFormatQuantizationMapPropertiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -31516,6 +32487,8 @@ unsafe impl Extends<VideoFormatPropertiesKHR> for VideoFormatQuantizationMapProp
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoEncodeInfoKHR`]
 #[doc(alias = "VkVideoEncodeQuantizationMapInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -31565,6 +32538,8 @@ unsafe impl Extends<VideoEncodeInfoKHR> for VideoEncodeQuantizationMapInfoKHR {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoSessionParametersCreateInfoKHR`]
 #[doc(alias = "VkVideoEncodeQuantizationMapSessionParametersCreateInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -31614,6 +32589,9 @@ unsafe impl Extends<VideoSessionParametersCreateInfoKHR>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceVideoEncodeQuantizationMapFeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -31664,6 +32642,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceVideoEncodeQuantizationM
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoCapabilitiesKHR`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoEncodeH264QuantizationMapCapabilitiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -31712,6 +32694,10 @@ unsafe impl Extends<VideoCapabilitiesKHR> for VideoEncodeH264QuantizationMapCapa
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoCapabilitiesKHR`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoEncodeH265QuantizationMapCapabilitiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -31760,6 +32746,10 @@ unsafe impl Extends<VideoCapabilitiesKHR> for VideoEncodeH265QuantizationMapCapa
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoFormatPropertiesKHR`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoFormatH265QuantizationMapPropertiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -31806,6 +32796,10 @@ unsafe impl Extends<VideoFormatPropertiesKHR> for VideoFormatH265QuantizationMap
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoCapabilitiesKHR`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoEncodeAV1QuantizationMapCapabilitiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -31854,6 +32848,10 @@ unsafe impl Extends<VideoCapabilitiesKHR> for VideoEncodeAV1QuantizationMapCapab
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoFormatPropertiesKHR`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoFormatAV1QuantizationMapPropertiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -31900,6 +32898,9 @@ unsafe impl Extends<VideoFormatPropertiesKHR> for VideoFormatAV1QuantizationMapP
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShaderRelaxedExtendedInstructionFeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -31953,6 +32954,9 @@ unsafe impl Extends<DeviceCreateInfo>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceMaintenance7FeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -32000,6 +33004,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceMaintenance7FeaturesKHR 
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceMaintenance7PropertiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -32062,6 +33070,8 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceMaintenance7Pro
 ///
 /// # Extended by
 /// - [`PhysicalDeviceLayeredApiVulkanPropertiesKHR`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceLayeredApiPropertiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -32113,6 +33123,8 @@ unsafe impl Extendable for PhysicalDeviceLayeredApiPropertiesKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
 #[doc(alias = "VkPhysicalDeviceLayeredApiPropertiesListKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -32163,6 +33175,10 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceLayeredApiPrope
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceLayeredApiPropertiesKHR`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceLayeredApiVulkanPropertiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -32212,6 +33228,9 @@ unsafe impl Extends<PhysicalDeviceLayeredApiPropertiesKHR>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceFaultFeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -32265,6 +33284,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceFaultFeaturesKHR {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceFaultPropertiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -32312,6 +33335,8 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceFaultProperties
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkDeviceFaultAddressInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -32344,6 +33369,8 @@ pub type DeviceFaultAddressInfoEXT = DeviceFaultAddressInfoKHR;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkDeviceFaultVendorInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -32376,6 +33403,8 @@ pub type DeviceFaultVendorInfoEXT = DeviceFaultVendorInfoKHR;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkDeviceFaultInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -32437,6 +33466,8 @@ unsafe impl Extendable for DeviceFaultInfoKHR {
 ///
 /// # Extended by
 /// - [`DeviceFaultShaderAbortMessageInfoKHR`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkDeviceFaultDebugInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -32533,6 +33564,11 @@ pub type DeviceFaultVendorBinaryHeaderVersionOneEXT = DeviceFaultVendorBinaryHea
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SubpassDependency2`]
+/// - [`BufferMemoryBarrier2`]
+/// - [`ImageMemoryBarrier2`]
+/// - [`MemoryRangeBarriersInfoKHR`]
 #[doc(alias = "VkMemoryBarrierAccessFlags3KHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -32586,6 +33622,9 @@ unsafe impl Extends<MemoryRangeBarriersInfoKHR> for MemoryBarrierAccessFlags3KHR
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceMaintenance8FeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -32633,6 +33672,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceMaintenance8FeaturesKHR 
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShaderFmaFeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -32684,6 +33726,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderFmaFeaturesKHR {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceMaintenance9FeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -32731,6 +33776,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceMaintenance9FeaturesKHR 
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceMaintenance9PropertiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -32779,6 +33828,10 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceMaintenance9Pro
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`QueueFamilyProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkQueueFamilyOwnershipTransferPropertiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -32825,6 +33878,9 @@ unsafe impl Extends<QueueFamilyProperties2> for QueueFamilyOwnershipTransferProp
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceVideoMaintenance2FeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -32872,6 +33928,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceVideoMaintenance2Feature
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoDecodeInfoKHR`]
 #[doc(alias = "VkVideoDecodeH264InlineSessionParametersInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -32922,6 +33980,8 @@ unsafe impl Extends<VideoDecodeInfoKHR> for VideoDecodeH264InlineSessionParamete
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoDecodeInfoKHR`]
 #[doc(alias = "VkVideoDecodeH265InlineSessionParametersInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -32975,6 +34035,8 @@ unsafe impl Extends<VideoDecodeInfoKHR> for VideoDecodeH265InlineSessionParamete
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoDecodeInfoKHR`]
 #[doc(alias = "VkVideoDecodeAV1InlineSessionParametersInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -33022,6 +34084,9 @@ unsafe impl Extends<VideoDecodeInfoKHR> for VideoDecodeAV1InlineSessionParameter
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceVideoEncodeFeedback2FeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -33069,6 +34134,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceVideoEncodeFeedback2Feat
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoCapabilitiesKHR`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoEncodeFeedback2CapabilitiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -33117,6 +34186,8 @@ unsafe impl Extends<VideoCapabilitiesKHR> for VideoEncodeFeedback2CapabilitiesKH
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`QueryPoolCreateInfo`]
 #[doc(alias = "VkQueryPoolVideoEncodePerPartitionFeedbackCreateInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -33168,6 +34239,9 @@ unsafe impl Extends<QueryPoolCreateInfo> for QueryPoolVideoEncodePerPartitionFee
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceDepthClampZeroOneFeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -33220,6 +34294,9 @@ pub type PhysicalDeviceDepthClampZeroOneFeaturesEXT = PhysicalDeviceDepthClampZe
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceRobustness2FeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -33276,6 +34353,10 @@ pub type PhysicalDeviceRobustness2FeaturesEXT = PhysicalDeviceRobustness2Feature
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceRobustness2PropertiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -33329,6 +34410,9 @@ pub type PhysicalDeviceRobustness2PropertiesEXT = PhysicalDeviceRobustness2Prope
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDevicePresentModeFifoLatestReadyFeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -33411,6 +34495,8 @@ impl Default for MicromapUsageKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`AccelerationStructureGeometryKHR`]
 #[doc(alias = "VkAccelerationStructureGeometryMicromapDataKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -33473,6 +34559,9 @@ unsafe impl Extends<AccelerationStructureGeometryKHR>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceOpacityMicromapFeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -33520,6 +34609,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceOpacityMicromapFeaturesK
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceOpacityMicromapPropertiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -33604,6 +34697,9 @@ pub type MicromapTriangleEXT = MicromapTriangleKHR;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`AccelerationStructureGeometryTrianglesDataKHR`]
+/// - [`AccelerationStructureDenseGeometryFormatTrianglesDataAMDX`]
 #[doc(alias = "VkAccelerationStructureTrianglesOpacityMicromapKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -33666,6 +34762,9 @@ unsafe impl Extends<AccelerationStructureDenseGeometryFormatTrianglesDataAMDX>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceMaintenance10FeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -33713,6 +34812,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceMaintenance10FeaturesKHR
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceMaintenance10PropertiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -33813,6 +34916,8 @@ pub type RenderingEndInfoEXT = RenderingEndInfoKHR;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`RenderingAttachmentInfo`]
 #[doc(alias = "VkRenderingAttachmentFlagsInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -33860,6 +34965,8 @@ unsafe impl Extends<RenderingAttachmentInfo> for RenderingAttachmentFlagsInfoKHR
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ResolveImageInfo2`]
 #[doc(alias = "VkResolveImageModeInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -33914,6 +35021,9 @@ unsafe impl Extends<ResolveImageInfo2> for ResolveImageModeInfoKHR {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -33969,6 +35079,9 @@ pub type PhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT =
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceMaintenance11FeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -34016,6 +35129,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceMaintenance11FeaturesKHR
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`QueueFamilyProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkQueueFamilyOptimalImageTransferGranularityPropertiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -34065,6 +35182,10 @@ unsafe impl Extends<QueueFamilyProperties2>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`FormatProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkFormatProperties4KHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -34118,6 +35239,15 @@ unsafe impl Extends<FormatProperties2> for FormatProperties4KHR {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`FramebufferAttachmentImageInfo`]
+/// - [`ImageCreateInfo`]
+/// - [`PhysicalDeviceImageFormatInfo2`]
+/// - [`PhysicalDeviceSparseImageFormatInfo2`]
+/// - [`PhysicalDeviceVideoFormatInfoKHR`]
+/// - [`SurfaceCapabilities2KHR`]
+/// - [`SwapchainCreateInfoKHR`]
+/// - [`VideoFormatPropertiesKHR`]
 #[doc(alias = "VkImageUsageFlags2CreateInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -34171,6 +35301,11 @@ unsafe impl Extends<VideoFormatPropertiesKHR> for ImageUsageFlags2CreateInfoKHR 
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ImageCreateInfo`]
+/// - [`PhysicalDeviceImageFormatInfo2`]
+/// - [`FramebufferAttachmentImageInfo`]
+/// - [`VideoFormatPropertiesKHR`]
 #[doc(alias = "VkImageCreateFlags2CreateInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -34220,6 +35355,8 @@ unsafe impl Extends<VideoFormatPropertiesKHR> for ImageCreateFlags2CreateInfoKHR
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ImageViewCreateInfo`]
 #[doc(alias = "VkImageViewUsage2CreateInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -34266,6 +35403,9 @@ unsafe impl Extends<ImageViewCreateInfo> for ImageViewUsage2CreateInfoKHR {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceExtendedFlagsFeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -34313,6 +35453,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceExtendedFlagsFeaturesKHR
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ImageCreateInfo`]
+/// - [`PhysicalDeviceImageFormatInfo2`]
 #[doc(alias = "VkImageStencilUsage2CreateInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -34360,6 +35503,10 @@ unsafe impl Extends<PhysicalDeviceImageFormatInfo2> for ImageStencilUsage2Create
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SurfaceCapabilities2KHR`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkSharedPresentSurfaceCapabilities2KHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -34407,6 +35554,8 @@ unsafe impl Extends<SurfaceCapabilities2KHR> for SharedPresentSurfaceCapabilitie
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`InstanceCreateInfo`]
 #[doc(alias = "VkDebugReportCallbackCreateInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -34459,6 +35608,8 @@ unsafe impl Extends<InstanceCreateInfo> for DebugReportCallbackCreateInfoEXT {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PipelineRasterizationStateCreateInfo`]
 #[doc(alias = "VkPipelineRasterizationStateRasterizationOrderAMD")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -34659,6 +35810,8 @@ unsafe impl Extendable for DebugMarkerMarkerInfoEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ImageCreateInfo`]
 #[doc(alias = "VkDedicatedAllocationImageCreateInfoNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -34705,6 +35858,8 @@ unsafe impl Extends<ImageCreateInfo> for DedicatedAllocationImageCreateInfoNV {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`BufferCreateInfo`]
 #[doc(alias = "VkDedicatedAllocationBufferCreateInfoNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -34751,6 +35906,8 @@ unsafe impl Extends<BufferCreateInfo> for DedicatedAllocationBufferCreateInfoNV 
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`MemoryAllocateInfo`]
 #[doc(alias = "VkDedicatedAllocationMemoryAllocateInfoNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -34801,6 +35958,9 @@ unsafe impl Extends<MemoryAllocateInfo> for DedicatedAllocationMemoryAllocateInf
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceTransformFeedbackFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -34850,6 +36010,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceTransformFeedbackFeature
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceTransformFeedbackPropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -34914,6 +36078,8 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceTransformFeedba
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PipelineRasterizationStateCreateInfo`]
 #[doc(alias = "VkPipelineRasterizationStateStreamCreateInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -35016,6 +36182,8 @@ unsafe impl Extendable for CuModuleCreateInfoNVX {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`CuModuleCreateInfoNVX`]
 #[doc(alias = "VkCuModuleTexturingModeCreateInfoNVX")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -35229,6 +36397,8 @@ unsafe impl Extendable for ImageViewHandleInfoNVX {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkImageViewAddressPropertiesNVX")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -35276,6 +36446,10 @@ unsafe impl Extendable for ImageViewAddressPropertiesNVX {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ImageFormatProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkTextureLODGatherFormatPropertiesAMD")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -35322,6 +36496,8 @@ unsafe impl Extends<ImageFormatProperties2> for TextureLODGatherFormatProperties
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkShaderResourceUsageAMD")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -35353,6 +36529,8 @@ impl Default for ShaderResourceUsageAMD {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkShaderStatisticsInfoAMD")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -35436,6 +36614,9 @@ unsafe impl Extendable for StreamDescriptorSurfaceCreateInfoGGP {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceCornerSampledImageFeaturesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -35483,6 +36664,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceCornerSampledImageFeatur
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkExternalImageFormatPropertiesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -35515,6 +36698,8 @@ impl Default for ExternalImageFormatPropertiesNV {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ImageCreateInfo`]
 #[doc(alias = "VkExternalMemoryImageCreateInfoNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -35562,6 +36747,8 @@ unsafe impl Extends<ImageCreateInfo> for ExternalMemoryImageCreateInfoNV {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`MemoryAllocateInfo`]
 #[doc(alias = "VkExportMemoryAllocateInfoNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -35609,6 +36796,8 @@ unsafe impl Extends<MemoryAllocateInfo> for ExportMemoryAllocateInfoNV {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`MemoryAllocateInfo`]
 #[doc(alias = "VkImportMemoryWin32HandleInfoNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -35659,6 +36848,8 @@ unsafe impl Extends<MemoryAllocateInfo> for ImportMemoryWin32HandleInfoNV {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`MemoryAllocateInfo`]
 #[doc(alias = "VkExportMemoryWin32HandleInfoNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -35709,6 +36900,9 @@ unsafe impl Extends<MemoryAllocateInfo> for ExportMemoryWin32HandleInfoNV {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SubmitInfo`]
+/// - [`SubmitInfo2`]
 #[doc(alias = "VkWin32KeyedMutexAcquireReleaseInfoNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -35770,6 +36964,8 @@ unsafe impl Extends<SubmitInfo2> for Win32KeyedMutexAcquireReleaseInfoNV {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`InstanceCreateInfo`]
 #[doc(alias = "VkValidationFlagsEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -35866,6 +37062,8 @@ unsafe impl Extendable for ViSurfaceCreateInfoNN {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ImageViewCreateInfo`]
 #[doc(alias = "VkImageViewASTCDecodeModeEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -35912,6 +37110,9 @@ unsafe impl Extends<ImageViewCreateInfo> for ImageViewASTCDecodeModeEXT {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceASTCDecodeFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -36009,6 +37210,9 @@ unsafe impl Extendable for ConditionalRenderingBeginInfoEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceConditionalRenderingFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -36058,6 +37262,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceConditionalRenderingFeat
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`CommandBufferInheritanceInfo`]
 #[doc(alias = "VkCommandBufferInheritanceConditionalRenderingInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -36132,6 +37338,8 @@ impl Default for ViewportWScalingNV {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PipelineViewportStateCreateInfo`]
 #[doc(alias = "VkPipelineViewportWScalingStateCreateInfoNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -36183,6 +37391,8 @@ unsafe impl Extends<PipelineViewportStateCreateInfo> for PipelineViewportWScalin
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkSurfaceCapabilities2EXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -36384,6 +37594,8 @@ unsafe impl Extendable for DisplayEventInfoEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SwapchainCreateInfoKHR`]
 #[doc(alias = "VkSwapchainCounterCreateInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -36431,6 +37643,8 @@ unsafe impl Extends<SwapchainCreateInfoKHR> for SwapchainCounterCreateInfoEXT {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkRefreshCycleDurationGOOGLE")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -36454,6 +37668,8 @@ impl Default for RefreshCycleDurationGOOGLE {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPastPresentationTimingGOOGLE")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -36510,6 +37726,8 @@ impl Default for PresentTimeGOOGLE {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PresentInfoKHR`]
 #[doc(alias = "VkPresentTimesInfoGOOGLE")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -36559,6 +37777,10 @@ unsafe impl Extends<PresentInfoKHR> for PresentTimesInfoGOOGLE {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -36608,6 +37830,10 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`CommandBufferInheritanceInfo`]
+/// - [`GraphicsPipelineCreateInfo`]
+/// - [`RenderingInfo`]
 #[doc(alias = "VkMultiviewPerViewAttributesInfoNVX")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -36687,6 +37913,8 @@ impl Default for ViewportSwizzleNV {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PipelineViewportStateCreateInfo`]
 #[doc(alias = "VkPipelineViewportSwizzleStateCreateInfoNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -36738,6 +37966,10 @@ unsafe impl Extends<PipelineViewportStateCreateInfo> for PipelineViewportSwizzle
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceDiscardRectanglePropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -36784,6 +38016,8 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceDiscardRectangl
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`GraphicsPipelineCreateInfo`]
 #[doc(alias = "VkPipelineDiscardRectangleStateCreateInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -36838,6 +38072,10 @@ unsafe impl Extends<GraphicsPipelineCreateInfo> for PipelineDiscardRectangleStat
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceConservativeRasterizationPropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -36903,6 +38141,8 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PipelineRasterizationStateCreateInfo`]
 #[doc(alias = "VkPipelineRasterizationConservativeStateCreateInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -36957,6 +38197,9 @@ unsafe impl Extends<PipelineRasterizationStateCreateInfo>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceDepthClipEnableFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -37004,6 +38247,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceDepthClipEnableFeaturesE
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PipelineRasterizationStateCreateInfo`]
 #[doc(alias = "VkPipelineRasterizationDepthClipStateCreateInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -37142,6 +38387,9 @@ unsafe impl Extendable for HdrMetadataEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceRelaxedLineRasterizationFeaturesIMG")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -37333,6 +38581,10 @@ unsafe impl Extendable for DebugUtilsLabelEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PipelineShaderStageCreateInfo`]
+/// - [`ResourceDescriptorInfoEXT`]
+/// - [`SamplerCreateInfo`]
 #[doc(alias = "VkDebugUtilsObjectNameInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -37460,6 +38712,8 @@ unsafe impl Extendable for DebugUtilsMessengerCallbackDataEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`InstanceCreateInfo`]
 #[doc(alias = "VkDebugUtilsMessengerCreateInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -37570,6 +38824,10 @@ unsafe impl Extendable for DebugUtilsObjectTagInfoEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ImageFormatProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkAndroidHardwareBufferUsageANDROID")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -37620,6 +38878,8 @@ unsafe impl Extends<ImageFormatProperties2> for AndroidHardwareBufferUsageANDROI
 /// - [`AndroidHardwareBufferFormatProperties2ANDROID`]
 /// - [`AndroidHardwareBufferFormatPropertiesANDROID`]
 /// - [`AndroidHardwareBufferFormatResolvePropertiesANDROID`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkAndroidHardwareBufferPropertiesANDROID")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -37667,6 +38927,10 @@ unsafe impl Extendable for AndroidHardwareBufferPropertiesANDROID {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`AndroidHardwareBufferPropertiesANDROID`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkAndroidHardwareBufferFormatPropertiesANDROID")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -37730,6 +38994,8 @@ unsafe impl Extends<AndroidHardwareBufferPropertiesANDROID>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`MemoryAllocateInfo`]
 #[doc(alias = "VkImportAndroidHardwareBufferInfoANDROID")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -37821,6 +39087,12 @@ unsafe impl Extendable for MemoryGetAndroidHardwareBufferInfoANDROID {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ImageCreateInfo`]
+/// - [`SamplerYcbcrConversionCreateInfo`]
+/// - [`AttachmentDescription2`]
+/// - [`GraphicsPipelineCreateInfo`]
+/// - [`CommandBufferInheritanceInfo`]
 #[doc(alias = "VkExternalFormatANDROID")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -37871,6 +39143,10 @@ unsafe impl Extends<CommandBufferInheritanceInfo> for ExternalFormatANDROID {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`AndroidHardwareBufferPropertiesANDROID`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkAndroidHardwareBufferFormatProperties2ANDROID")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -37969,6 +39245,9 @@ impl Default for GpaPerfBlockPropertiesAMD {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceGpaFeaturesAMD")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -38022,6 +39301,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceGpaFeaturesAMD {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceGpaPropertiesAMD")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -38076,6 +39359,10 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceGpaPropertiesAM
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceGpaProperties2AMD")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -38369,6 +39656,9 @@ unsafe impl Extendable for GpaSessionCreateInfoAMD {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShaderEnqueueFeaturesAMDX")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -38418,6 +39708,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderEnqueueFeaturesAMD
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceShaderEnqueuePropertiesAMDX")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -38677,6 +39971,8 @@ impl Default for DispatchGraphCountInfoAMDX {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PipelineShaderStageCreateInfo`]
 #[doc(alias = "VkPipelineShaderStageNodeCreateInfoAMDX")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -39453,6 +40749,9 @@ unsafe impl Extendable for DescriptorSetAndBindingMappingEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PipelineShaderStageCreateInfo`]
+/// - [`ShaderCreateInfoEXT`]
 #[doc(alias = "VkShaderDescriptorSetAndBindingMappingInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -39503,6 +40802,9 @@ unsafe impl Extends<ShaderCreateInfoEXT> for ShaderDescriptorSetAndBindingMappin
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ImageCreateInfo`]
+/// - [`TensorCreateInfoARM`]
 #[doc(alias = "VkOpaqueCaptureDataCreateInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -39551,6 +40853,9 @@ unsafe impl Extends<TensorCreateInfoARM> for OpaqueCaptureDataCreateInfoEXT {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceDescriptorHeapFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -39600,6 +40905,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceDescriptorHeapFeaturesEX
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceDescriptorHeapPropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -39682,6 +40991,8 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceDescriptorHeapP
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`CommandBufferInheritanceInfo`]
 #[doc(alias = "VkCommandBufferInheritanceDescriptorHeapInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -39735,6 +41046,8 @@ unsafe impl Extends<CommandBufferInheritanceInfo>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SamplerCreateInfo`]
 #[doc(alias = "VkSamplerCustomBorderColorIndexCreateInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -39782,6 +41095,8 @@ unsafe impl Extends<SamplerCreateInfo> for SamplerCustomBorderColorIndexCreateIn
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SamplerCreateInfo`]
 #[doc(alias = "VkSamplerCustomBorderColorCreateInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -39830,6 +41145,8 @@ unsafe impl Extends<SamplerCreateInfo> for SamplerCustomBorderColorCreateInfoEXT
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`IndirectCommandsLayoutTokenNV`]
 #[doc(alias = "VkIndirectCommandsLayoutPushDataTokenNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -39878,6 +41195,8 @@ unsafe impl Extends<IndirectCommandsLayoutTokenNV> for IndirectCommandsLayoutPus
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ImageFormatProperties2`]
 #[doc(alias = "VkSubsampledImageFormatPropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -39924,6 +41243,10 @@ unsafe impl Extends<ImageFormatProperties2> for SubsampledImageFormatPropertiesE
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceDescriptorHeapTensorPropertiesARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -39975,6 +41298,9 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceDescriptorHeapT
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`CommandBufferInheritanceInfo`]
+/// - [`GraphicsPipelineCreateInfo`]
 #[doc(alias = "VkAttachmentSampleCountInfoAMD")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -40057,6 +41383,9 @@ impl Default for SampleLocationEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ImageMemoryBarrier`]
+/// - [`ImageMemoryBarrier2`]
 #[doc(alias = "VkSampleLocationsInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -40161,6 +41490,8 @@ impl Default for SubpassSampleLocationsEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`RenderPassBeginInfo`]
 #[doc(alias = "VkRenderPassSampleLocationsBeginInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -40217,6 +41548,8 @@ unsafe impl Extends<RenderPassBeginInfo> for RenderPassSampleLocationsBeginInfoE
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PipelineMultisampleStateCreateInfo`]
 #[doc(alias = "VkPipelineSampleLocationsStateCreateInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -40268,6 +41601,10 @@ unsafe impl Extends<PipelineMultisampleStateCreateInfo>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceSampleLocationsPropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -40322,6 +41659,8 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceSampleLocations
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkMultisamplePropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -40367,6 +41706,9 @@ unsafe impl Extendable for MultisamplePropertiesEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -40414,6 +41756,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceBlendOperationAdvancedFe
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -40473,6 +41819,8 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PipelineColorBlendStateCreateInfo`]
 #[doc(alias = "VkPipelineColorBlendAdvancedStateCreateInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -40526,6 +41874,8 @@ unsafe impl Extends<PipelineColorBlendStateCreateInfo>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PipelineMultisampleStateCreateInfo`]
 #[doc(alias = "VkPipelineCoverageToColorStateCreateInfoNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -40581,6 +41931,8 @@ unsafe impl Extends<PipelineMultisampleStateCreateInfo>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PipelineMultisampleStateCreateInfo`]
 #[doc(alias = "VkPipelineCoverageModulationStateCreateInfoNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -40641,6 +41993,10 @@ unsafe impl Extends<PipelineMultisampleStateCreateInfo>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceShaderSMBuiltinsPropertiesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -40689,6 +42045,9 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceShaderSMBuiltin
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShaderSMBuiltinsFeaturesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -40736,6 +42095,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderSMBuiltinsFeatures
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkDrmFormatModifierPropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -40763,6 +42124,10 @@ impl Default for DrmFormatModifierPropertiesEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`FormatProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkDrmFormatModifierPropertiesListEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -40815,6 +42180,8 @@ unsafe impl Extends<FormatProperties2> for DrmFormatModifierPropertiesListEXT {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceImageFormatInfo2`]
 #[doc(alias = "VkPhysicalDeviceImageDrmFormatModifierInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -40871,6 +42238,8 @@ unsafe impl Extends<PhysicalDeviceImageFormatInfo2>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ImageCreateInfo`]
 #[doc(alias = "VkImageDrmFormatModifierListCreateInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -40919,6 +42288,8 @@ unsafe impl Extends<ImageCreateInfo> for ImageDrmFormatModifierListCreateInfoEXT
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ImageCreateInfo`]
 #[doc(alias = "VkImageDrmFormatModifierExplicitCreateInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -40969,6 +42340,8 @@ unsafe impl Extends<ImageCreateInfo> for ImageDrmFormatModifierExplicitCreateInf
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkImageDrmFormatModifierPropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -41014,6 +42387,8 @@ unsafe impl Extendable for ImageDrmFormatModifierPropertiesEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkDrmFormatModifierProperties2EXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -41041,6 +42416,10 @@ impl Default for DrmFormatModifierProperties2EXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`FormatProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkDrmFormatModifierPropertiesList2EXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -41144,6 +42523,9 @@ unsafe impl Extendable for ValidationCacheCreateInfoEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ShaderModuleCreateInfo`]
+/// - [`PipelineShaderStageCreateInfo`]
 #[doc(alias = "VkShaderModuleValidationCacheCreateInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -41216,6 +42598,8 @@ impl Default for ShadingRatePaletteNV {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PipelineViewportStateCreateInfo`]
 #[doc(alias = "VkPipelineViewportShadingRateImageStateCreateInfoNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -41270,6 +42654,9 @@ unsafe impl Extends<PipelineViewportStateCreateInfo>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShadingRateImageFeaturesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -41319,6 +42706,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShadingRateImageFeatures
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceShadingRateImagePropertiesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -41425,6 +42816,8 @@ impl Default for CoarseSampleOrderCustomNV {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PipelineViewportStateCreateInfo`]
 #[doc(alias = "VkPipelineViewportCoarseSampleOrderStateCreateInfoNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -41953,6 +43346,8 @@ unsafe impl Extendable for BindAccelerationStructureMemoryInfoNV {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`WriteDescriptorSet`]
 #[doc(alias = "VkWriteDescriptorSetAccelerationStructureNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -42048,6 +43443,10 @@ unsafe impl Extendable for AccelerationStructureMemoryRequirementsInfoNV {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceRayTracingPropertiesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -42213,6 +43612,9 @@ pub type AccelerationStructureInstanceNV = AccelerationStructureInstanceKHR;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceRepresentativeFragmentTestFeaturesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -42263,6 +43665,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceRepresentativeFragmentTe
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`GraphicsPipelineCreateInfo`]
 #[doc(alias = "VkPipelineRepresentativeFragmentTestStateCreateInfoNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -42312,6 +43716,8 @@ unsafe impl Extends<GraphicsPipelineCreateInfo>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceImageFormatInfo2`]
 #[doc(alias = "VkPhysicalDeviceImageViewImageFormatInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -42358,6 +43764,10 @@ unsafe impl Extends<PhysicalDeviceImageFormatInfo2> for PhysicalDeviceImageViewI
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ImageFormatProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkFilterCubicImageViewImageFormatPropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -42406,6 +43816,9 @@ unsafe impl Extends<ImageFormatProperties2> for FilterCubicImageViewImageFormatP
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceCooperativeMatrixConversionFeaturesQCOM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -42456,6 +43869,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceCooperativeMatrixConvers
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceElapsedTimerQueryFeaturesQCOM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -42503,6 +43919,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceElapsedTimerQueryFeature
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`MemoryAllocateInfo`]
 #[doc(alias = "VkImportMemoryHostPointerInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -42551,6 +43969,8 @@ unsafe impl Extends<MemoryAllocateInfo> for ImportMemoryHostPointerInfoEXT {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkMemoryHostPointerPropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -42596,6 +44016,10 @@ unsafe impl Extendable for MemoryHostPointerPropertiesEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceExternalMemoryHostPropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -42642,6 +44066,10 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceExternalMemoryH
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`GraphicsPipelineCreateInfo`]
+/// - [`ComputePipelineCreateInfo`]
+/// - [`ExecutionGraphPipelineCreateInfoAMDX`]
 #[doc(alias = "VkPipelineCompilerControlCreateInfoAMD")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -42691,6 +44119,10 @@ unsafe impl Extends<ExecutionGraphPipelineCreateInfoAMDX> for PipelineCompilerCo
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceShaderCorePropertiesAMD")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -42763,6 +44195,8 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceShaderCorePrope
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkDeviceMemoryOverallocationCreateInfoAMD")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -42809,6 +44243,10 @@ unsafe impl Extends<DeviceCreateInfo> for DeviceMemoryOverallocationCreateInfoAM
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -42858,6 +44296,8 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PresentInfoKHR`]
 #[doc(alias = "VkPresentFrameTokenGGP")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -42904,6 +44344,9 @@ unsafe impl Extends<PresentInfoKHR> for PresentFrameTokenGGP {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceMeshShaderFeaturesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -42953,6 +44396,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceMeshShaderFeaturesNV {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceMeshShaderPropertiesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -43048,6 +44495,9 @@ impl Default for DrawMeshTasksIndirectCommandNV {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShaderImageFootprintFeaturesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -43095,6 +44545,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderImageFootprintFeat
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PipelineViewportStateCreateInfo`]
 #[doc(alias = "VkPipelineViewportExclusiveScissorStateCreateInfoNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -43147,6 +44599,9 @@ unsafe impl Extends<PipelineViewportStateCreateInfo>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceExclusiveScissorFeaturesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -43194,6 +44649,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceExclusiveScissorFeatures
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`QueueFamilyProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkQueueFamilyCheckpointPropertiesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -43240,6 +44699,8 @@ unsafe impl Extends<QueueFamilyProperties2> for QueueFamilyCheckpointPropertiesN
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkCheckpointDataNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -43287,6 +44748,10 @@ unsafe impl Extendable for CheckpointDataNV {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`QueueFamilyProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkQueueFamilyCheckpointProperties2NV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -43333,6 +44798,8 @@ unsafe impl Extends<QueueFamilyProperties2> for QueueFamilyCheckpointProperties2
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkCheckpointData2NV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -43380,6 +44847,9 @@ unsafe impl Extendable for CheckpointData2NV {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDevicePresentTimingFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -43431,6 +44901,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePresentTimingFeaturesEXT
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SurfaceCapabilities2KHR`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPresentTimingSurfaceCapabilitiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -43483,6 +44957,8 @@ unsafe impl Extends<SurfaceCapabilities2KHR> for PresentTimingSurfaceCapabilitie
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`CalibratedTimestampInfoKHR`]
 #[doc(alias = "VkSwapchainCalibratedTimestampInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -43534,6 +45010,8 @@ unsafe impl Extends<CalibratedTimestampInfoKHR> for SwapchainCalibratedTimestamp
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkSwapchainTimingPropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -43581,6 +45059,8 @@ unsafe impl Extendable for SwapchainTimingPropertiesEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkSwapchainTimeDomainPropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -43680,6 +45160,8 @@ unsafe impl Extendable for PastPresentationTimingInfoEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPresentStageTimeEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -43705,6 +45187,8 @@ impl Default for PresentStageTimeEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPastPresentationTimingEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -43762,6 +45246,8 @@ unsafe impl Extendable for PastPresentationTimingEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPastPresentationTimingPropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -43869,6 +45355,8 @@ unsafe impl Extendable for PresentTimingInfoEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PresentInfoKHR`]
 #[doc(alias = "VkPresentTimingsInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -43918,6 +45406,9 @@ unsafe impl Extends<PresentInfoKHR> for PresentTimingsInfoEXT {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShaderIntegerFunctions2FeaturesINTEL")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -44000,6 +45491,8 @@ impl Default for PerformanceValueDataINTEL {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPerformanceValueINTEL")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -44071,6 +45564,8 @@ unsafe impl Extendable for InitializePerformanceApiInfoINTEL {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`QueryPoolCreateInfo`]
 #[doc(alias = "VkQueryPoolPerformanceQueryCreateInfoINTEL")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -44305,6 +45800,10 @@ unsafe impl Extendable for PerformanceConfigurationAcquireInfoINTEL {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDevicePCIBusInfoPropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -44357,6 +45856,10 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDevicePCIBusInfoPrope
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SurfaceCapabilities2KHR`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkDisplayNativeHdrSurfaceCapabilitiesAMD")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -44403,6 +45906,8 @@ unsafe impl Extends<SurfaceCapabilities2KHR> for DisplayNativeHdrSurfaceCapabili
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SwapchainCreateInfoKHR`]
 #[doc(alias = "VkSwapchainDisplayNativeHdrCreateInfoAMD")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -44545,6 +46050,9 @@ unsafe impl Extendable for MetalSurfaceCreateInfoEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceFragmentDensityMapFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -44596,6 +46104,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceFragmentDensityMapFeatur
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceFragmentDensityMapPropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -44646,6 +46158,9 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceFragmentDensity
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`RenderPassCreateInfo`]
+/// - [`RenderPassCreateInfo2`]
 #[doc(alias = "VkRenderPassFragmentDensityMapCreateInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -44693,6 +46208,8 @@ unsafe impl Extends<RenderPassCreateInfo2> for RenderPassFragmentDensityMapCreat
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`RenderingInfo`]
 #[doc(alias = "VkRenderingFragmentDensityMapAttachmentInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -44741,6 +46258,10 @@ unsafe impl Extends<RenderingInfo> for RenderingFragmentDensityMapAttachmentInfo
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceShaderCoreProperties2AMD")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -44789,6 +46310,9 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceShaderCorePrope
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceCoherentMemoryFeaturesAMD")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -44836,6 +46360,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceCoherentMemoryFeaturesAM
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShaderImageAtomicInt64FeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -44885,6 +46412,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderImageAtomicInt64Fe
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceMemoryProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceMemoryBudgetPropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -44933,6 +46464,9 @@ unsafe impl Extends<PhysicalDeviceMemoryProperties2> for PhysicalDeviceMemoryBud
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceMemoryPriorityFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -44980,6 +46514,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceMemoryPriorityFeaturesEX
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`MemoryAllocateInfo`]
 #[doc(alias = "VkMemoryPriorityAllocateInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -45026,6 +46562,9 @@ unsafe impl Extends<MemoryAllocateInfo> for MemoryPriorityAllocateInfoEXT {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -45076,6 +46615,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceDedicatedAllocationImage
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceBufferDeviceAddressFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -45131,6 +46673,8 @@ pub type PhysicalDeviceBufferAddressFeaturesEXT = PhysicalDeviceBufferDeviceAddr
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`BufferCreateInfo`]
 #[doc(alias = "VkBufferDeviceAddressCreateInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -45178,6 +46722,14 @@ unsafe impl Extends<BufferCreateInfo> for BufferDeviceAddressCreateInfoEXT {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`InstanceCreateInfo`]
+/// - [`ShaderModuleCreateInfo`]
+/// - [`ShaderCreateInfoEXT`]
+/// - [`PipelineShaderStageCreateInfo`]
+/// - [`GraphicsPipelineCreateInfo`]
+/// - [`ComputePipelineCreateInfo`]
+/// - [`RayTracingPipelineCreateInfoKHR`]
 #[doc(alias = "VkValidationFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -45238,6 +46790,8 @@ unsafe impl Extends<RayTracingPipelineCreateInfoKHR> for ValidationFeaturesEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkCooperativeMatrixPropertiesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -45297,6 +46851,9 @@ unsafe impl Extendable for CooperativeMatrixPropertiesNV {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceCooperativeMatrixFeaturesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -45346,6 +46903,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceCooperativeMatrixFeature
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceCooperativeMatrixPropertiesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -45392,6 +46953,9 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceCooperativeMatr
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceCoverageReductionModeFeaturesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -45439,6 +47003,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceCoverageReductionModeFea
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PipelineMultisampleStateCreateInfo`]
 #[doc(alias = "VkPipelineCoverageReductionStateCreateInfoNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -45491,6 +47057,8 @@ unsafe impl Extends<PipelineMultisampleStateCreateInfo>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkFramebufferMixedSamplesCombinationNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -45542,6 +47110,9 @@ unsafe impl Extendable for FramebufferMixedSamplesCombinationNV {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceFragmentShaderInterlockFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -45593,6 +47164,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceFragmentShaderInterlockF
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceYcbcrImageArraysFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -45640,6 +47214,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceYcbcrImageArraysFeatures
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceProvokingVertexFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -45689,6 +47266,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceProvokingVertexFeaturesE
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceProvokingVertexPropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -45737,6 +47318,8 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceProvokingVertex
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PipelineRasterizationStateCreateInfo`]
 #[doc(alias = "VkPipelineRasterizationProvokingVertexStateCreateInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -45786,6 +47369,9 @@ unsafe impl Extends<PipelineRasterizationStateCreateInfo>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceSurfaceInfo2KHR`]
+/// - [`SwapchainCreateInfoKHR`]
 #[doc(alias = "VkSurfaceFullScreenExclusiveInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -45833,6 +47419,10 @@ unsafe impl Extends<SwapchainCreateInfoKHR> for SurfaceFullScreenExclusiveInfoEX
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SurfaceCapabilities2KHR`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkSurfaceCapabilitiesFullScreenExclusiveEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -45879,6 +47469,9 @@ unsafe impl Extends<SurfaceCapabilities2KHR> for SurfaceCapabilitiesFullScreenEx
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceSurfaceInfo2KHR`]
+/// - [`SwapchainCreateInfoKHR`]
 #[doc(alias = "VkSurfaceFullScreenExclusiveWin32InfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -45972,6 +47565,9 @@ unsafe impl Extendable for HeadlessSurfaceCreateInfoEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShaderAtomicFloatFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -46041,6 +47637,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderAtomicFloatFeature
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceExtendedDynamicStateFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -46088,6 +47687,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceExtendedDynamicStateFeat
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceMapMemoryPlacedFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -46139,6 +47741,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceMapMemoryPlacedFeaturesE
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceMapMemoryPlacedPropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -46185,6 +47791,8 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceMapMemoryPlaced
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`MemoryMapInfo`]
 #[doc(alias = "VkMemoryMapPlacedInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -46231,6 +47839,9 @@ unsafe impl Extends<MemoryMapInfo> for MemoryMapPlacedInfoEXT {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShaderAtomicFloat2FeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -46300,6 +47911,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderAtomicFloat2Featur
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceDeviceGeneratedCommandsPropertiesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -46365,6 +47980,9 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceDeviceGeneratedCommandsFeaturesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -46465,6 +48083,8 @@ unsafe impl Extendable for GraphicsShaderGroupCreateInfoNV {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`GraphicsPipelineCreateInfo`]
 #[doc(alias = "VkGraphicsPipelineShaderGroupsCreateInfoNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -46899,6 +48519,9 @@ unsafe impl Extendable for GeneratedCommandsMemoryRequirementsInfoNV {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceInheritedViewportScissorFeaturesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -46946,6 +48569,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceInheritedViewportScissor
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`CommandBufferInheritanceInfo`]
 #[doc(alias = "VkCommandBufferInheritanceViewportScissorInfoNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -46999,6 +48624,9 @@ unsafe impl Extends<CommandBufferInheritanceInfo>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceTexelBufferAlignmentFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -47046,6 +48674,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceTexelBufferAlignmentFeat
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`RenderPassBeginInfo`]
 #[doc(alias = "VkRenderPassTransformBeginInfoQCOM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -47092,6 +48722,8 @@ unsafe impl Extends<RenderPassBeginInfo> for RenderPassTransformBeginInfoQCOM {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`CommandBufferInheritanceInfo`]
 #[doc(alias = "VkCommandBufferInheritanceRenderPassTransformInfoQCOM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -47143,6 +48775,9 @@ unsafe impl Extends<CommandBufferInheritanceInfo>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceDepthBiasControlFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -47247,6 +48882,9 @@ unsafe impl Extendable for DepthBiasInfoEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`DepthBiasInfoEXT`]
+/// - [`PipelineRasterizationStateCreateInfo`]
 #[doc(alias = "VkDepthBiasRepresentationInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -47296,6 +48934,9 @@ unsafe impl Extends<PipelineRasterizationStateCreateInfo> for DepthBiasRepresent
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceDeviceMemoryReportFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -47343,6 +48984,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceDeviceMemoryReportFeatur
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkDeviceMemoryReportCallbackDataEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -47400,6 +49043,8 @@ unsafe impl Extendable for DeviceMemoryReportCallbackDataEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkDeviceDeviceMemoryReportCreateInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -47455,6 +49100,10 @@ unsafe impl Extends<DeviceDeviceMemoryReportCreateInfoEXT>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceCustomBorderColorPropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -47501,6 +49150,9 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceCustomBorderCol
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceCustomBorderColorFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -47550,6 +49202,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceCustomBorderColorFeature
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceTextureCompressionASTC3DFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -47597,6 +49252,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceTextureCompressionASTC3D
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDevicePresentBarrierFeaturesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -47644,6 +49302,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePresentBarrierFeaturesNV
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SurfaceCapabilities2KHR`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkSurfaceCapabilitiesPresentBarrierNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -47690,6 +49352,8 @@ unsafe impl Extends<SurfaceCapabilities2KHR> for SurfaceCapabilitiesPresentBarri
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SwapchainCreateInfoKHR`]
 #[doc(alias = "VkSwapchainPresentBarrierCreateInfoNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -47736,6 +49400,9 @@ unsafe impl Extends<SwapchainCreateInfoKHR> for SwapchainPresentBarrierCreateInf
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceDiagnosticsConfigFeaturesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -47783,6 +49450,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceDiagnosticsConfigFeature
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkDeviceDiagnosticsConfigCreateInfoNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -47877,6 +49546,9 @@ unsafe impl Extendable for PerfHintInfoQCOM {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceQueuePerfHintFeaturesQCOM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -47924,6 +49596,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceQueuePerfHintFeaturesQCO
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceQueuePerfHintPropertiesQCOM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -47970,6 +49646,9 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceQueuePerfHintPr
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceImageProcessing3FeaturesQCOM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -48021,6 +49700,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceImageProcessing3Features
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShaderMultipleWaitQueuesFeaturesQCOM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -48071,6 +49753,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderMultipleWaitQueues
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceShaderMultipleWaitQueuesPropertiesQCOM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -48121,6 +49807,9 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShaderSplitBarrierFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -48168,6 +49857,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderSplitBarrierFeatur
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceShaderSplitBarrierPropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -48378,6 +50071,9 @@ unsafe impl Extendable for CudaLaunchInfoNV {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceCudaKernelLaunchFeaturesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -48425,6 +50121,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceCudaKernelLaunchFeatures
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceCudaKernelLaunchPropertiesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -48473,6 +50173,9 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceCudaKernelLaunc
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceTileShadingFeaturesQCOM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -48546,6 +50249,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceTileShadingFeaturesQCOM 
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceTileShadingPropertiesQCOM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -48598,6 +50305,11 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceTileShadingProp
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`RenderPassCreateInfo`]
+/// - [`RenderPassCreateInfo2`]
+/// - [`RenderingInfo`]
+/// - [`CommandBufferInheritanceInfo`]
 #[doc(alias = "VkRenderPassTileShadingCreateInfoQCOM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -48780,6 +50492,8 @@ unsafe impl Extendable for DispatchTileInfoQCOM {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SemaphoreCreateInfo`]
 #[doc(alias = "VkQueryLowLatencySupportNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -48826,6 +50540,14 @@ unsafe impl Extends<SemaphoreCreateInfo> for QueryLowLatencySupportNV {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`InstanceCreateInfo`]
+/// - [`MemoryAllocateInfo`]
+/// - [`ImageCreateInfo`]
+/// - [`ImageViewCreateInfo`]
+/// - [`BufferViewCreateInfo`]
+/// - [`SemaphoreCreateInfo`]
+/// - [`EventCreateInfo`]
 #[doc(alias = "VkExportMetalObjectCreateInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -48930,6 +50652,8 @@ unsafe impl Extendable for ExportMetalObjectsInfoEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ExportMetalObjectsInfoEXT`]
 #[doc(alias = "VkExportMetalDeviceInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -48976,6 +50700,8 @@ unsafe impl Extends<ExportMetalObjectsInfoEXT> for ExportMetalDeviceInfoEXT {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ExportMetalObjectsInfoEXT`]
 #[doc(alias = "VkExportMetalCommandQueueInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -49025,6 +50751,8 @@ unsafe impl Extends<ExportMetalCommandQueueInfoEXT> for ExportMetalCommandQueueI
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ExportMetalObjectsInfoEXT`]
 #[doc(alias = "VkExportMetalBufferInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -49074,6 +50802,8 @@ unsafe impl Extends<ExportMetalBufferInfoEXT> for ExportMetalBufferInfoEXT {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`MemoryAllocateInfo`]
 #[doc(alias = "VkImportMetalBufferInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -49120,6 +50850,8 @@ unsafe impl Extends<MemoryAllocateInfo> for ImportMetalBufferInfoEXT {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ExportMetalObjectsInfoEXT`]
 #[doc(alias = "VkExportMetalTextureInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -49178,6 +50910,8 @@ unsafe impl Extends<ExportMetalTextureInfoEXT> for ExportMetalTextureInfoEXT {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ImageCreateInfo`]
 #[doc(alias = "VkImportMetalTextureInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -49227,6 +50961,8 @@ unsafe impl Extends<ImportMetalTextureInfoEXT> for ImportMetalTextureInfoEXT {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ExportMetalObjectsInfoEXT`]
 #[doc(alias = "VkExportMetalIOSurfaceInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -49276,6 +51012,8 @@ unsafe impl Extends<ExportMetalIOSurfaceInfoEXT> for ExportMetalIOSurfaceInfoEXT
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ImageCreateInfo`]
 #[doc(alias = "VkImportMetalIOSurfaceInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -49323,6 +51061,8 @@ unsafe impl Extends<ImageCreateInfo> for ImportMetalIOSurfaceInfoEXT {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ExportMetalObjectsInfoEXT`]
 #[doc(alias = "VkExportMetalSharedEventInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -49376,6 +51116,9 @@ unsafe impl Extends<ExportMetalSharedEventInfoEXT> for ExportMetalSharedEventInf
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SemaphoreCreateInfo`]
+/// - [`EventCreateInfo`]
 #[doc(alias = "VkImportMetalSharedEventInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -49423,6 +51166,10 @@ unsafe impl Extends<EventCreateInfo> for ImportMetalSharedEventInfoEXT {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceDescriptorBufferPropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -49533,6 +51280,9 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceDescriptorBuffe
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceDescriptorBufferFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -49687,6 +51437,8 @@ unsafe impl Extendable for DescriptorBufferBindingInfoEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`DescriptorBufferBindingInfoEXT`]
 #[doc(alias = "VkDescriptorBufferBindingPushDescriptorBufferHandleEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -50007,6 +51759,16 @@ unsafe impl Extendable for SamplerCaptureDescriptorDataInfoEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`BufferCreateInfo`]
+/// - [`ImageCreateInfo`]
+/// - [`ImageViewCreateInfo`]
+/// - [`SamplerCreateInfo`]
+/// - [`AccelerationStructureCreateInfoKHR`]
+/// - [`AccelerationStructureCreateInfoNV`]
+/// - [`TensorCreateInfoARM`]
+/// - [`TensorViewCreateInfoARM`]
+/// - [`AccelerationStructureCreateInfo2KHR`]
 #[doc(alias = "VkOpaqueCaptureDescriptorDataCreateInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -50119,6 +51881,10 @@ unsafe impl Extendable for AccelerationStructureCaptureDescriptorDataInfoEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -50168,6 +51934,9 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceGraphicsPipelineLibraryFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -50215,6 +51984,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceGraphicsPipelineLibraryF
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceGraphicsPipelineLibraryPropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -50266,6 +52039,8 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`GraphicsPipelineCreateInfo`]
 #[doc(alias = "VkGraphicsPipelineLibraryCreateInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -50312,6 +52087,9 @@ unsafe impl Extends<GraphicsPipelineCreateInfo> for GraphicsPipelineLibraryCreat
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -50363,6 +52141,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderEarlyAndLateFragme
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceFragmentShadingRateEnumsFeaturesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -50414,6 +52195,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceFragmentShadingRateEnums
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -50463,6 +52248,8 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`GraphicsPipelineCreateInfo`]
 #[doc(alias = "VkPipelineFragmentShadingRateEnumStateCreateInfoNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -50544,6 +52331,8 @@ impl Default for DeviceOrHostAddressConstKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`AccelerationStructureGeometryTrianglesDataKHR`]
 #[doc(alias = "VkAccelerationStructureGeometryMotionTrianglesDataNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -50593,6 +52382,8 @@ unsafe impl Extends<AccelerationStructureGeometryTrianglesDataKHR>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`AccelerationStructureCreateInfoKHR`]
 #[doc(alias = "VkAccelerationStructureMotionInfoNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -50824,6 +52615,9 @@ impl Default for AccelerationStructureMotionInstanceNV {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceRayTracingMotionBlurFeaturesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -50873,6 +52667,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceRayTracingMotionBlurFeat
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -50920,6 +52717,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceYcbcr2Plane444FormatsFea
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceFragmentDensityMap2FeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -50967,6 +52767,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceFragmentDensityMap2Featu
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceFragmentDensityMap2PropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -51019,6 +52823,10 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceFragmentDensity
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`BufferImageCopy2`]
+/// - [`ImageBlit2`]
+/// - [`DeviceMemoryImageCopyKHR`]
 #[doc(alias = "VkCopyCommandTransformInfoQCOM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -51067,6 +52875,9 @@ unsafe impl Extends<DeviceMemoryImageCopyKHR> for CopyCommandTransformInfoQCOM {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceImageCompressionControlFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -51114,6 +52925,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceImageCompressionControlF
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ImageCreateInfo`]
+/// - [`SwapchainCreateInfoKHR`]
+/// - [`PhysicalDeviceImageFormatInfo2`]
 #[doc(alias = "VkImageCompressionControlEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -51167,6 +52982,12 @@ unsafe impl Extends<PhysicalDeviceImageFormatInfo2> for ImageCompressionControlE
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ImageFormatProperties2`]
+/// - [`SurfaceFormat2KHR`]
+/// - [`SubresourceLayout2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkImageCompressionPropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -51217,6 +53038,9 @@ unsafe impl Extends<SubresourceLayout2> for ImageCompressionPropertiesEXT {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -51267,6 +53091,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceAttachmentFeedbackLoopLa
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDevice4444FormatsFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -51316,6 +53143,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevice4444FormatsFeaturesEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceFaultFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -51417,6 +53247,8 @@ unsafe impl Extendable for DeviceFaultCountsEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkDeviceFaultInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -51473,6 +53305,9 @@ unsafe impl Extendable for DeviceFaultInfoEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -51536,6 +53371,9 @@ pub type PhysicalDeviceRasterizationOrderAttachmentAccessFeaturesARM =
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceRGBA10X6FormatsFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -51634,6 +53472,9 @@ unsafe impl Extendable for DirectFBSurfaceCreateInfoEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceMutableDescriptorTypeFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -51718,6 +53559,9 @@ pub type MutableDescriptorTypeListVALVE = MutableDescriptorTypeListEXT;
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`DescriptorSetLayoutCreateInfo`]
+/// - [`DescriptorPoolCreateInfo`]
 #[doc(alias = "VkMutableDescriptorTypeCreateInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -51772,6 +53616,9 @@ pub type MutableDescriptorTypeCreateInfoVALVE = MutableDescriptorTypeCreateInfoE
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceVertexInputDynamicStateFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -51923,6 +53770,10 @@ unsafe impl Extendable for VertexInputAttributeDescription2EXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceDrmPropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -51979,6 +53830,9 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceDrmPropertiesEX
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceAddressBindingReportFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -52026,6 +53880,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceAddressBindingReportFeat
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`DebugUtilsMessengerCallbackDataEXT`]
 #[doc(alias = "VkDeviceAddressBindingCallbackDataEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -52079,6 +53935,9 @@ unsafe impl Extends<DebugUtilsMessengerCallbackDataEXT> for DeviceAddressBinding
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceDepthClipControlFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -52126,6 +53985,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceDepthClipControlFeatures
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PipelineViewportStateCreateInfo`]
 #[doc(alias = "VkPipelineViewportDepthClipControlCreateInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -52175,6 +54036,9 @@ unsafe impl Extends<PipelineViewportStateCreateInfo>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -52227,6 +54091,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePrimitiveTopologyListRes
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`MemoryAllocateInfo`]
 #[doc(alias = "VkImportMemoryZirconHandleInfoFUCHSIA")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -52277,6 +54143,8 @@ unsafe impl Extends<MemoryAllocateInfo> for ImportMemoryZirconHandleInfoFUCHSIA 
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkMemoryZirconHandlePropertiesFUCHSIA")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -52513,6 +54381,8 @@ unsafe impl Extendable for BufferCollectionCreateInfoFUCHSIA {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`MemoryAllocateInfo`]
 #[doc(alias = "VkImportMemoryBufferCollectionFUCHSIA")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -52561,6 +54431,8 @@ unsafe impl Extends<MemoryAllocateInfo> for ImportMemoryBufferCollectionFUCHSIA 
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ImageCreateInfo`]
 #[doc(alias = "VkBufferCollectionImageCreateInfoFUCHSIA")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -52712,6 +54584,8 @@ unsafe impl Extendable for BufferConstraintsInfoFUCHSIA {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`BufferCreateInfo`]
 #[doc(alias = "VkBufferCollectionBufferCreateInfoFUCHSIA")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -52805,6 +54679,8 @@ unsafe impl Extendable for SysmemColorSpaceFUCHSIA {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkBufferCollectionPropertiesFUCHSIA")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -52979,6 +54855,8 @@ unsafe impl Extendable for ImageConstraintsInfoFUCHSIA {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ComputePipelineCreateInfo`]
 #[doc(alias = "VkSubpassShadingPipelineCreateInfoHUAWEI")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -53027,6 +54905,9 @@ unsafe impl Extends<ComputePipelineCreateInfo> for SubpassShadingPipelineCreateI
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceSubpassShadingFeaturesHUAWEI")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -53074,6 +54955,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceSubpassShadingFeaturesHU
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceSubpassShadingPropertiesHUAWEI")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -53120,6 +55005,9 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceSubpassShadingP
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceInvocationMaskFeaturesHUAWEI")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -53214,6 +55102,9 @@ unsafe impl Extendable for MemoryGetRemoteAddressInfoNV {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceExternalMemoryRDMAFeaturesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -53261,6 +55152,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceExternalMemoryRDMAFeatur
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPipelinePropertiesIdentifierEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -53306,6 +55199,9 @@ unsafe impl Extendable for PipelinePropertiesIdentifierEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDevicePipelinePropertiesFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -53353,6 +55249,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePipelinePropertiesFeatur
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceFrameBoundaryFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -53400,6 +55299,11 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceFrameBoundaryFeaturesEXT
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SubmitInfo`]
+/// - [`SubmitInfo2`]
+/// - [`PresentInfoKHR`]
+/// - [`BindSparseInfo`]
 #[doc(alias = "VkFrameBoundaryEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -53473,6 +55377,9 @@ unsafe impl Extends<BindSparseInfo> for FrameBoundaryEXT {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -53527,6 +55434,10 @@ unsafe impl Extends<DeviceCreateInfo>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`FormatProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkSubpassResolvePerformanceQueryEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -53573,6 +55484,9 @@ unsafe impl Extends<FormatProperties2> for SubpassResolvePerformanceQueryEXT {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SubpassDescription2`]
+/// - [`RenderingInfo`]
 #[doc(alias = "VkMultisampledRenderToSingleSampledInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -53622,6 +55536,9 @@ unsafe impl Extends<RenderingInfo> for MultisampledRenderToSingleSampledInfoEXT 
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceExtendedDynamicState2FeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -53723,6 +55640,9 @@ unsafe impl Extendable for ScreenSurfaceCreateInfoQNX {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceColorWriteEnableFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -53770,6 +55690,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceColorWriteEnableFeatures
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PipelineColorBlendStateCreateInfo`]
 #[doc(alias = "VkPipelineColorWriteCreateInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -53819,6 +55741,9 @@ unsafe impl Extends<PipelineColorBlendStateCreateInfo> for PipelineColorWriteCre
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDevicePrimitivesGeneratedQueryFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -53870,6 +55795,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePrimitivesGeneratedQuery
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceVideoEncodeRgbConversionFeaturesVALVE")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -53920,6 +55848,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceVideoEncodeRgbConversion
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoCapabilitiesKHR`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoEncodeRgbConversionCapabilitiesVALVE")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -53972,6 +55904,8 @@ unsafe impl Extends<VideoCapabilitiesKHR> for VideoEncodeRgbConversionCapabiliti
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoProfileInfoKHR`]
 #[doc(alias = "VkVideoEncodeProfileRgbConversionInfoVALVE")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -54018,6 +55952,8 @@ unsafe impl Extends<VideoProfileInfoKHR> for VideoEncodeProfileRgbConversionInfo
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`VideoSessionCreateInfoKHR`]
 #[doc(alias = "VkVideoEncodeSessionRgbConversionCreateInfoVALVE")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -54070,6 +56006,9 @@ unsafe impl Extends<VideoSessionCreateInfoKHR> for VideoEncodeSessionRgbConversi
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceImageViewMinLodFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -54117,6 +56056,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceImageViewMinLodFeaturesE
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ImageViewCreateInfo`]
 #[doc(alias = "VkImageViewMinLodCreateInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -54163,6 +56104,9 @@ unsafe impl Extends<ImageViewCreateInfo> for ImageViewMinLodCreateInfoEXT {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceMultiDrawFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -54210,6 +56154,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceMultiDrawFeaturesEXT {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceMultiDrawPropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -54308,6 +56256,9 @@ impl Default for MultiDrawIndexedInfoEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceImage2DViewOf3DFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -54357,6 +56308,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceImage2DViewOf3DFeaturesE
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShaderTileImageFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -54408,6 +56362,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderTileImageFeaturesE
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceShaderTileImagePropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -54640,6 +56598,9 @@ unsafe impl Extendable for MicromapCreateInfoEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceOpacityMicromapFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -54691,6 +56652,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceOpacityMicromapFeaturesE
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceOpacityMicromapPropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -54980,6 +56945,9 @@ unsafe impl Extendable for MicromapBuildSizesInfoEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`AccelerationStructureGeometryTrianglesDataKHR`]
+/// - [`AccelerationStructureDenseGeometryFormatTrianglesDataAMDX`]
 #[doc(alias = "VkAccelerationStructureTrianglesOpacityMicromapEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -55051,6 +57019,9 @@ unsafe impl Extends<AccelerationStructureDenseGeometryFormatTrianglesDataAMDX>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceDisplacementMicromapFeaturesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -55098,6 +57069,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceDisplacementMicromapFeat
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceDisplacementMicromapPropertiesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -55144,6 +57119,8 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceDisplacementMic
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`AccelerationStructureGeometryTrianglesDataKHR`]
 #[doc(alias = "VkAccelerationStructureTrianglesDisplacementMicromapNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -55227,6 +57204,9 @@ unsafe impl Extends<AccelerationStructureGeometryTrianglesDataKHR>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 /// # Extended by
 /// - [`PhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEI`]
 #[doc(alias = "VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI")]
@@ -55278,6 +57258,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceClusterCullingShaderFeat
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -55333,6 +57317,8 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceClusterCullingShaderFeaturesHUAWEI`]
 #[doc(alias = "VkPhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEI")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -55382,6 +57368,9 @@ unsafe impl Extends<PhysicalDeviceClusterCullingShaderFeaturesHUAWEI>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceBorderColorSwizzleFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -55431,6 +57420,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceBorderColorSwizzleFeatur
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SamplerCreateInfo`]
 #[doc(alias = "VkSamplerBorderColorComponentMappingCreateInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -55479,6 +57470,9 @@ unsafe impl Extends<SamplerCreateInfo> for SamplerBorderColorComponentMappingCre
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDevicePageableDeviceLocalMemoryFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -55529,6 +57523,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePageableDeviceLocalMemor
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceShaderCorePropertiesARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -55579,6 +57577,9 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceShaderCorePrope
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`DeviceQueueCreateInfo`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkDeviceQueueShaderCoreControlCreateInfoARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -55626,6 +57627,9 @@ unsafe impl Extends<DeviceCreateInfo> for DeviceQueueShaderCoreControlCreateInfo
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceSchedulingControlsFeaturesARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -55673,6 +57677,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceSchedulingControlsFeatur
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceSchedulingControlsPropertiesARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -55771,6 +57779,10 @@ unsafe impl Extendable for DispatchParametersARM {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceSchedulingControlsDispatchParametersPropertiesARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -55824,6 +57836,9 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceImageSlicedViewOf3DFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -55871,6 +57886,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceImageSlicedViewOf3DFeatu
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ImageViewCreateInfo`]
 #[doc(alias = "VkImageViewSlicedCreateInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -55919,6 +57936,9 @@ unsafe impl Extends<ImageViewCreateInfo> for ImageViewSlicedCreateInfoEXT {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceDescriptorSetHostMappingFeaturesVALVE")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -56063,6 +58083,9 @@ unsafe impl Extendable for DescriptorSetLayoutHostMappingInfoVALVE {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceNonSeamlessCubeMapFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -56110,6 +58133,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceNonSeamlessCubeMapFeatur
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceRenderPassStripedFeaturesARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -56157,6 +58183,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceRenderPassStripedFeature
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceRenderPassStripedPropertiesARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -56250,6 +58280,9 @@ unsafe impl Extendable for RenderPassStripeInfoARM {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`RenderingInfo`]
+/// - [`RenderPassBeginInfo`]
 #[doc(alias = "VkRenderPassStripeBeginInfoARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -56299,6 +58332,8 @@ unsafe impl Extends<RenderPassBeginInfo> for RenderPassStripeBeginInfoARM {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`CommandBufferSubmitInfo`]
 #[doc(alias = "VkRenderPassStripeSubmitInfoARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -56348,6 +58383,9 @@ unsafe impl Extends<CommandBufferSubmitInfo> for RenderPassStripeSubmitInfoARM {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceFragmentDensityMapOffsetFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -56401,6 +58439,10 @@ pub type PhysicalDeviceFragmentDensityMapOffsetFeaturesQCOM =
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceFragmentDensityMapOffsetPropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -56456,6 +58498,9 @@ pub type PhysicalDeviceFragmentDensityMapOffsetPropertiesQCOM =
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SubpassEndInfo`]
+/// - [`RenderingEndInfoKHR`]
 #[doc(alias = "VkRenderPassFragmentDensityMapOffsetEndInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -56510,6 +58555,9 @@ pub type SubpassFragmentDensityMapOffsetEndInfoQCOM = RenderPassFragmentDensityM
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceCopyMemoryIndirectFeaturesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -56589,6 +58637,9 @@ impl Default for DecompressMemoryRegionNV {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceMemoryDecompressionFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -56641,6 +58692,10 @@ pub type PhysicalDeviceMemoryDecompressionFeaturesNV = PhysicalDeviceMemoryDecom
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceMemoryDecompressionPropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -56694,6 +58749,9 @@ pub type PhysicalDeviceMemoryDecompressionPropertiesNV =
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -56748,6 +58806,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceDeviceGeneratedCommandsC
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ComputePipelineCreateInfo`]
 #[doc(alias = "VkComputePipelineIndirectBufferInfoNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -56869,6 +58929,9 @@ impl Default for BindPipelineIndirectCommandNV {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceRayTracingLinearSweptSpheresFeaturesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -56921,6 +58984,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceRayTracingLinearSweptSph
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`AccelerationStructureGeometryKHR`]
 #[doc(alias = "VkAccelerationStructureGeometryLinearSweptSpheresDataNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -56990,6 +59055,8 @@ unsafe impl Extends<AccelerationStructureGeometryKHR>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`AccelerationStructureGeometryKHR`]
 #[doc(alias = "VkAccelerationStructureGeometrySpheresDataNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -57055,6 +59122,9 @@ unsafe impl Extends<AccelerationStructureGeometryKHR>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceLinearColorAttachmentFeaturesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -57102,6 +59172,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceLinearColorAttachmentFea
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceImageCompressionControlSwapchainFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -57155,6 +59228,8 @@ unsafe impl Extends<DeviceCreateInfo>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ImageViewCreateInfo`]
 #[doc(alias = "VkImageViewSampleWeightCreateInfoQCOM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -57205,6 +59280,9 @@ unsafe impl Extends<ImageViewCreateInfo> for ImageViewSampleWeightCreateInfoQCOM
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceImageProcessingFeaturesQCOM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -57256,6 +59334,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceImageProcessingFeaturesQ
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceImageProcessingPropertiesQCOM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -57312,6 +59394,9 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceImageProcessing
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceNestedCommandBufferFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -57363,6 +59448,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceNestedCommandBufferFeatu
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceNestedCommandBufferPropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -57409,6 +59498,10 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceNestedCommandBu
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ImageFormatProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkNativeBufferUsageOHOS")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -57457,6 +59550,8 @@ unsafe impl Extends<ImageFormatProperties2> for NativeBufferUsageOHOS {}
 ///
 /// # Extended by
 /// - [`NativeBufferFormatPropertiesOHOS`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkNativeBufferPropertiesOHOS")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -57504,6 +59599,10 @@ unsafe impl Extendable for NativeBufferPropertiesOHOS {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`NativeBufferPropertiesOHOS`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkNativeBufferFormatPropertiesOHOS")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -57564,6 +59663,8 @@ unsafe impl Extends<NativeBufferPropertiesOHOS> for NativeBufferFormatProperties
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`MemoryAllocateInfo`]
 #[doc(alias = "VkImportNativeBufferInfoOHOS")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -57655,6 +59756,12 @@ unsafe impl Extendable for MemoryGetNativeBufferInfoOHOS {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ImageCreateInfo`]
+/// - [`SamplerYcbcrConversionCreateInfo`]
+/// - [`AttachmentDescription2`]
+/// - [`GraphicsPipelineCreateInfo`]
+/// - [`CommandBufferInheritanceInfo`]
 #[doc(alias = "VkExternalFormatOHOS")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -57705,6 +59812,11 @@ unsafe impl Extends<CommandBufferInheritanceInfo> for ExternalFormatOHOS {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`BufferMemoryBarrier`]
+/// - [`BufferMemoryBarrier2`]
+/// - [`ImageMemoryBarrier`]
+/// - [`ImageMemoryBarrier2`]
 #[doc(alias = "VkExternalMemoryAcquireUnmodifiedEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -57754,6 +59866,9 @@ unsafe impl Extends<ImageMemoryBarrier2> for ExternalMemoryAcquireUnmodifiedEXT 
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceExtendedDynamicState3FeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -57861,6 +59976,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceExtendedDynamicState3Fea
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceExtendedDynamicState3PropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -57976,6 +60095,9 @@ impl Default for ColorBlendAdvancedEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceSubpassMergeFeedbackFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -58023,6 +60145,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceSubpassMergeFeedbackFeat
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`RenderPassCreateInfo2`]
+/// - [`SubpassDescription2`]
 #[doc(alias = "VkRenderPassCreationControlEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -58070,6 +60195,8 @@ unsafe impl Extends<SubpassDescription2> for RenderPassCreationControlEXT {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkRenderPassCreationFeedbackInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -58093,6 +60220,8 @@ impl Default for RenderPassCreationFeedbackInfoEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`RenderPassCreateInfo2`]
 #[doc(alias = "VkRenderPassCreationFeedbackCreateInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -58139,6 +60268,8 @@ unsafe impl Extends<RenderPassCreateInfo2> for RenderPassCreationFeedbackCreateI
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkRenderPassSubpassFeedbackInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -58167,6 +60298,8 @@ impl Default for RenderPassSubpassFeedbackInfoEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SubpassDescription2`]
 #[doc(alias = "VkRenderPassSubpassFeedbackCreateInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -58260,6 +60393,8 @@ unsafe impl Extendable for DirectDriverLoadingInfoLUNARG {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`InstanceCreateInfo`]
 #[doc(alias = "VkDirectDriverLoadingListLUNARG")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -58310,6 +60445,9 @@ unsafe impl Extends<InstanceCreateInfo> for DirectDriverLoadingListLUNARG {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`DataGraphPipelineResourceInfoARM`]
+/// - [`DataGraphPipelineConstantARM`]
 #[doc(alias = "VkTensorDescriptionARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -58522,6 +60660,8 @@ unsafe impl Extendable for BindTensorMemoryInfoARM {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`WriteDescriptorSet`]
 #[doc(alias = "VkWriteDescriptorSetTensorARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -58570,6 +60710,10 @@ unsafe impl Extends<WriteDescriptorSet> for WriteDescriptorSetTensorARM {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`FormatProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkTensorFormatPropertiesARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -58618,6 +60762,10 @@ unsafe impl Extends<FormatProperties2> for TensorFormatPropertiesARM {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceTensorPropertiesARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -58688,6 +60836,8 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceTensorPropertie
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`DependencyInfo`]
 #[doc(alias = "VkTensorMemoryBarrierARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -58750,6 +60900,8 @@ unsafe impl Extends<DependencyInfo> for TensorMemoryBarrierARM {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`DependencyInfo`]
 #[doc(alias = "VkTensorDependencyInfoARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -58798,6 +60950,9 @@ unsafe impl Extends<DependencyInfo> for TensorDependencyInfoARM {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceTensorFeaturesARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -59006,6 +61161,8 @@ unsafe impl Extendable for CopyTensorInfoARM {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`MemoryAllocateInfo`]
 #[doc(alias = "VkMemoryDedicatedAllocateInfoTensorARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -59147,6 +61304,8 @@ unsafe impl Extendable for ExternalTensorPropertiesARM {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`TensorCreateInfoARM`]
 #[doc(alias = "VkExternalMemoryTensorCreateInfoARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -59194,6 +61353,9 @@ unsafe impl Extends<TensorCreateInfoARM> for ExternalMemoryTensorCreateInfoARM {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceDescriptorBufferTensorFeaturesARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -59241,6 +61403,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceDescriptorBufferTensorFe
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
 #[doc(alias = "VkPhysicalDeviceDescriptorBufferTensorPropertiesARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -59294,6 +61458,8 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`DescriptorGetInfoEXT`]
 #[doc(alias = "VkDescriptorGetTensorInfoARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -59431,6 +61597,11 @@ unsafe impl Extendable for TensorViewCaptureDescriptorDataInfoARM {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SubmitInfo`]
+/// - [`SubmitInfo2`]
+/// - [`PresentInfoKHR`]
+/// - [`BindSparseInfo`]
 #[doc(alias = "VkFrameBoundaryTensorsARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -59482,6 +61653,9 @@ unsafe impl Extends<BindSparseInfo> for FrameBoundaryTensorsARM {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShaderModuleIdentifierFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -59529,6 +61703,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderModuleIdentifierFe
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceShaderModuleIdentifierPropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -59578,6 +61756,8 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PipelineShaderStageCreateInfo`]
 #[doc(alias = "VkPipelineShaderStageModuleIdentifierCreateInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -59630,6 +61810,8 @@ unsafe impl Extends<PipelineShaderStageCreateInfo>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkShaderModuleIdentifierEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -59677,6 +61859,9 @@ unsafe impl Extendable for ShaderModuleIdentifierEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceOpticalFlowFeaturesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -59724,6 +61909,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceOpticalFlowFeaturesNV {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceOpticalFlowPropertiesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -59790,6 +61979,9 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceOpticalFlowProp
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceImageFormatInfo2`]
+/// - [`ImageCreateInfo`]
 #[doc(alias = "VkOpticalFlowImageFormatInfoNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -59837,6 +62029,8 @@ unsafe impl Extends<ImageCreateInfo> for OpticalFlowImageFormatInfoNV {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkOpticalFlowImageFormatPropertiesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -59949,6 +62143,8 @@ unsafe impl Extendable for OpticalFlowSessionCreateInfoNV {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`OpticalFlowSessionCreateInfoNV`]
 #[doc(alias = "VkOpticalFlowSessionCreatePrivateDataInfoNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -60050,6 +62246,9 @@ unsafe impl Extendable for OpticalFlowExecuteInfoNV {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceLegacyDitheringFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -60097,6 +62296,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceLegacyDitheringFeaturesE
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceExternalFormatResolveFeaturesANDROID")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -60147,6 +62349,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceExternalFormatResolveFea
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceExternalFormatResolvePropertiesANDROID")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -60200,6 +62406,10 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`AndroidHardwareBufferPropertiesANDROID`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkAndroidHardwareBufferFormatResolvePropertiesANDROID")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -60249,6 +62459,9 @@ unsafe impl Extends<AndroidHardwareBufferPropertiesANDROID>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceAntiLagFeaturesAMD")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -60393,6 +62606,9 @@ unsafe impl Extendable for AntiLagDataAMD {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceDenseGeometryFormatFeaturesAMDX")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -60440,6 +62656,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceDenseGeometryFormatFeatu
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`AccelerationStructureGeometryKHR`]
 /// # Extended by
 /// - [`AccelerationStructureTrianglesOpacityMicromapEXT`]
 /// - [`AccelerationStructureTrianglesOpacityMicromapKHR`]
@@ -60504,6 +62722,9 @@ unsafe impl Extends<AccelerationStructureGeometryKHR>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShaderObjectFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -60551,6 +62772,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderObjectFeaturesEXT 
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceShaderObjectPropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -60706,6 +62931,9 @@ impl Default for DepthClampRangeEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceTilePropertiesFeaturesQCOM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -60802,6 +63030,9 @@ unsafe impl Extendable for TilePropertiesQCOM {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceAmigoProfilingFeaturesSEC")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -60849,6 +63080,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceAmigoProfilingFeaturesSE
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SubmitInfo`]
 #[doc(alias = "VkAmigoProfilingSubmitInfoSEC")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -60897,6 +63130,9 @@ unsafe impl Extends<SubmitInfo> for AmigoProfilingSubmitInfoSEC {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -60947,6 +63183,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceMultiviewPerViewViewport
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceRayTracingInvocationReorderPropertiesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -60996,6 +63236,9 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceRayTracingInvocationReorderFeaturesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -61046,6 +63289,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceRayTracingInvocationReor
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceCooperativeVectorPropertiesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -61098,6 +63345,9 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceCooperativeVect
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceCooperativeVectorFeaturesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -61269,6 +63519,9 @@ unsafe impl Extendable for ConvertCooperativeVectorMatrixInfoNV {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceExtendedSparseAddressSpaceFeaturesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -61319,6 +63572,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceExtendedSparseAddressSpa
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceExtendedSparseAddressSpacePropertiesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -61372,6 +63629,9 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceLegacyVertexAttributesFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -61419,6 +63679,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceLegacyVertexAttributesFe
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceLegacyVertexAttributesPropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -61502,6 +63766,8 @@ impl Default for LayerSettingEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`InstanceCreateInfo`]
 #[doc(alias = "VkLayerSettingsCreateInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -61552,6 +63818,9 @@ unsafe impl Extends<LayerSettingsCreateInfoEXT> for LayerSettingsCreateInfoEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShaderCoreBuiltinsFeaturesARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -61599,6 +63868,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderCoreBuiltinsFeatur
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -61649,6 +63922,9 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceShaderCoreBuilt
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -61846,6 +64122,8 @@ unsafe impl Extendable for SetLatencyMarkerInfoNV {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkLatencyTimingsFrameReportNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -61966,6 +64244,9 @@ unsafe impl Extendable for GetLatencyMarkerInfoNV {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SubmitInfo`]
+/// - [`SubmitInfo2`]
 #[doc(alias = "VkLatencySubmissionPresentIdNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -62013,6 +64294,8 @@ unsafe impl Extends<SubmitInfo2> for LatencySubmissionPresentIdNV {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SwapchainCreateInfoKHR`]
 #[doc(alias = "VkSwapchainLatencyCreateInfoNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -62105,6 +64388,8 @@ unsafe impl Extendable for OutOfBandQueueTypeInfoNV {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SurfaceCapabilities2KHR`]
 #[doc(alias = "VkLatencySurfaceCapabilitiesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -62155,6 +64440,9 @@ unsafe impl Extends<SurfaceCapabilities2KHR> for LatencySurfaceCapabilitiesNV {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceDataGraphFeaturesARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -62313,6 +64601,8 @@ unsafe impl Extendable for DataGraphPipelineResourceInfoARM {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`DataGraphPipelineCreateInfoARM`]
 #[doc(alias = "VkDataGraphPipelineCompilerControlCreateInfoARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -62427,6 +64717,8 @@ unsafe impl Extendable for DataGraphPipelineCreateInfoARM {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`DataGraphPipelineCreateInfoARM`]
 #[doc(alias = "VkDataGraphPipelineShaderModuleCreateInfoARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -62581,6 +64873,8 @@ unsafe impl Extendable for DataGraphPipelineSessionBindPointRequirementsInfoARM 
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkDataGraphPipelineSessionBindPointRequirementARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -62830,6 +65124,8 @@ unsafe impl Extendable for DataGraphPipelinePropertyQueryResultARM {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`DataGraphPipelineCreateInfoARM`]
 #[doc(alias = "VkDataGraphPipelineIdentifierCreateInfoARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -62979,6 +65275,8 @@ impl Default for PhysicalDeviceDataGraphOperationSupportARM {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkQueueFamilyDataGraphPropertiesARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -63026,6 +65324,10 @@ unsafe impl Extendable for QueueFamilyDataGraphPropertiesARM {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`DataGraphPipelineCreateInfoARM`]
+/// - [`DescriptorPoolCreateInfo`]
+/// - [`CommandPoolCreateInfo`]
 #[doc(alias = "VkDataGraphProcessingEngineCreateInfoARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -63124,6 +65426,8 @@ unsafe impl Extendable for PhysicalDeviceQueueFamilyDataGraphProcessingEngineInf
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkQueueFamilyDataGraphProcessingEnginePropertiesARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -63171,6 +65475,8 @@ unsafe impl Extendable for QueueFamilyDataGraphProcessingEnginePropertiesARM {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`DataGraphPipelineConstantARM`]
 #[doc(alias = "VkDataGraphPipelineConstantTensorSemiStructuredSparsityInfoARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -63229,6 +65535,8 @@ unsafe impl Extends<DataGraphPipelineConstantTensorSemiStructuredSparsityInfoARM
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkDataGraphTOSANameQualityARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -63255,6 +65563,8 @@ impl Default for DataGraphTOSANameQualityARM {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkQueueFamilyDataGraphTOSAPropertiesARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -63308,6 +65618,9 @@ unsafe impl Extendable for QueueFamilyDataGraphTOSAPropertiesARM {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -63358,6 +65671,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceMultiviewPerViewRenderAr
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`RenderPassBeginInfo`]
+/// - [`RenderingInfo`]
 #[doc(alias = "VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -63408,6 +65724,9 @@ unsafe impl Extends<RenderingInfo> for MultiviewPerViewRenderAreasRenderPassBegi
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDevicePerStageDescriptorSetFeaturesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -63457,6 +65776,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePerStageDescriptorSetFea
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceImageProcessing2FeaturesQCOM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -63504,6 +65826,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceImageProcessing2Features
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceImageProcessing2PropertiesQCOM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -63551,6 +65877,8 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceImageProcessing
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SamplerCreateInfo`]
 #[doc(alias = "VkSamplerBlockMatchWindowCreateInfoQCOM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -63599,6 +65927,9 @@ unsafe impl Extends<SamplerCreateInfo> for SamplerBlockMatchWindowCreateInfoQCOM
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceCubicWeightsFeaturesQCOM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -63646,6 +65977,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceCubicWeightsFeaturesQCOM
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SamplerCreateInfo`]
 #[doc(alias = "VkSamplerCubicWeightsCreateInfoQCOM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -63692,6 +66025,8 @@ unsafe impl Extends<SamplerCreateInfo> for SamplerCubicWeightsCreateInfoQCOM {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`BlitImageInfo2`]
 #[doc(alias = "VkBlitImageCubicWeightsInfoQCOM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -63738,6 +66073,9 @@ unsafe impl Extends<BlitImageInfo2> for BlitImageCubicWeightsInfoQCOM {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceYcbcrDegammaFeaturesQCOM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -63785,6 +66123,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceYcbcrDegammaFeaturesQCOM
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SamplerYcbcrConversionCreateInfo`]
 #[doc(alias = "VkSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -63836,6 +66176,9 @@ unsafe impl Extends<SamplerYcbcrConversionCreateInfo>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceCubicClampFeaturesQCOM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -63883,6 +66226,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceCubicClampFeaturesQCOM {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -63939,6 +66285,8 @@ unsafe impl Extends<DeviceCreateInfo>
 ///
 /// # Extended by
 /// - [`ScreenBufferFormatPropertiesQNX`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkScreenBufferPropertiesQNX")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -63986,6 +66334,10 @@ unsafe impl Extendable for ScreenBufferPropertiesQNX {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ScreenBufferPropertiesQNX`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkScreenBufferFormatPropertiesQNX")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -64048,6 +66400,8 @@ unsafe impl Extends<ScreenBufferPropertiesQNX> for ScreenBufferFormatPropertiesQ
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`MemoryAllocateInfo`]
 #[doc(alias = "VkImportScreenBufferInfoQNX")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -64094,6 +66448,9 @@ unsafe impl Extends<MemoryAllocateInfo> for ImportScreenBufferInfoQNX {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ImageCreateInfo`]
+/// - [`SamplerYcbcrConversionCreateInfo`]
 #[doc(alias = "VkExternalFormatQNX")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -64141,6 +66498,9 @@ unsafe impl Extends<SamplerYcbcrConversionCreateInfo> for ExternalFormatQNX {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceExternalMemoryScreenBufferFeaturesQNX")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -64191,6 +66551,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceExternalMemoryScreenBuff
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceLayeredDriverPropertiesMSFT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -64237,6 +66601,9 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceLayeredDriverPr
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceDescriptorPoolOverallocationFeaturesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -64287,6 +66654,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceDescriptorPoolOveralloca
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceTileMemoryHeapFeaturesQCOM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -64334,6 +66704,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceTileMemoryHeapFeaturesQC
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
 #[doc(alias = "VkPhysicalDeviceTileMemoryHeapPropertiesQCOM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -64382,6 +66754,8 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceTileMemoryHeapP
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`MemoryRequirements2`]
 #[doc(alias = "VkTileMemoryRequirementsQCOM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -64430,6 +66804,8 @@ unsafe impl Extends<MemoryRequirements2> for TileMemoryRequirementsQCOM {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`CommandBufferInheritanceInfo`]
 #[doc(alias = "VkTileMemoryBindInfoQCOM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -64476,6 +66852,10 @@ unsafe impl Extends<CommandBufferInheritanceInfo> for TileMemoryBindInfoQCOM {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`RenderPassCreateInfo`]
+/// - [`RenderPassCreateInfo2`]
+/// - [`RenderingInfo`]
 #[doc(alias = "VkTileMemorySizeInfoQCOM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -64602,6 +66982,8 @@ unsafe impl Extendable for DecompressMemoryInfoEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`DisplaySurfaceCreateInfoKHR`]
 #[doc(alias = "VkDisplaySurfaceStereoCreateInfoNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -64648,6 +67030,10 @@ unsafe impl Extends<DisplaySurfaceCreateInfoKHR> for DisplaySurfaceStereoCreateI
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`DisplayModeProperties2KHR`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkDisplayModeStereoPropertiesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -64694,6 +67080,9 @@ unsafe impl Extends<DisplayModeProperties2KHR> for DisplayModeStereoPropertiesNV
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceRawAccessChainsFeaturesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -64741,6 +67130,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceRawAccessChainsFeaturesN
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkExternalComputeQueueDeviceCreateInfoNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -64877,6 +67268,10 @@ unsafe impl Extendable for ExternalComputeQueueDataParamsNV {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceExternalComputeQueuePropertiesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -64925,6 +67320,9 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceExternalCompute
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceCommandBufferInheritanceFeaturesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -64972,6 +67370,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceCommandBufferInheritance
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShaderAtomicFloat16VectorFeaturesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -65019,6 +67420,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderAtomicFloat16Vecto
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShaderReplicatedCompositesFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -65069,6 +67473,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderReplicatedComposit
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`TensorCreateInfoARM`]
 #[doc(alias = "VkTensorRollingBackingCreateInfoARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -65115,6 +67521,10 @@ unsafe impl Extends<TensorCreateInfoARM> for TensorRollingBackingCreateInfoARM {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`FormatProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkTensorExplicitTilingFormatPropertiesARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -65169,6 +67579,9 @@ unsafe impl Extends<FormatProperties2> for TensorExplicitTilingFormatPropertiesA
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShaderFloat8FeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -65218,6 +67631,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderFloat8FeaturesEXT 
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceRayTracingValidationFeaturesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -65265,6 +67681,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceRayTracingValidationFeat
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceClusterAccelerationStructureFeaturesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -65315,6 +67734,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceClusterAccelerationStruc
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceClusterAccelerationStructurePropertiesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -65988,6 +68411,8 @@ impl Default for ClusterAccelerationStructureGetTemplateIndicesInfoNV {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkAccelerationStructureBuildSizesInfoKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -66037,6 +68462,8 @@ unsafe impl Extendable for AccelerationStructureBuildSizesInfoKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`RayTracingPipelineCreateInfoKHR`]
 #[doc(alias = "VkRayTracingPipelineClusterAccelerationStructureCreateInfoNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -66087,6 +68514,9 @@ unsafe impl Extends<RayTracingPipelineCreateInfoKHR>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDevicePartitionedAccelerationStructureFeaturesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -66137,6 +68567,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePartitionedAccelerationS
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDevicePartitionedAccelerationStructurePropertiesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -66186,6 +68620,8 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PartitionedAccelerationStructureInstancesInputNV`]
 #[doc(alias = "VkPartitionedAccelerationStructureFlagsNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -66354,6 +68790,8 @@ impl Default for PartitionedAccelerationStructureWritePartitionTranslationDataNV
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`WriteDescriptorSet`]
 #[doc(alias = "VkWriteDescriptorSetPartitionedAccelerationStructureNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -66514,6 +68952,9 @@ unsafe impl Extendable for BuildPartitionedAccelerationStructureInfoNV {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceDeviceGeneratedCommandsFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -66563,6 +69004,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceDeviceGeneratedCommandsF
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceDeviceGeneratedCommandsPropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -67347,6 +69792,9 @@ impl Default for BindIndexBufferIndirectCommandEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`GeneratedCommandsInfoEXT`]
+/// - [`GeneratedCommandsMemoryRequirementsInfoEXT`]
 #[doc(alias = "VkGeneratedCommandsPipelineInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -67397,6 +69845,9 @@ unsafe impl Extends<GeneratedCommandsMemoryRequirementsInfoEXT>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`GeneratedCommandsInfoEXT`]
+/// - [`GeneratedCommandsMemoryRequirementsInfoEXT`]
 #[doc(alias = "VkGeneratedCommandsShaderInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -67493,6 +69944,9 @@ unsafe impl Extendable for WriteIndirectExecutionSetShaderEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceImageAlignmentControlFeaturesMESA")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -67540,6 +69994,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceImageAlignmentControlFea
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceImageAlignmentControlPropertiesMESA")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -67589,6 +70047,8 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ImageCreateInfo`]
 #[doc(alias = "VkImageAlignmentControlCreateInfoMESA")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -67635,6 +70095,11 @@ unsafe impl Extends<ImageCreateInfo> for ImageAlignmentControlCreateInfoMESA {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`DescriptorSetAndBindingMappingEXT`]
+/// - [`PushDataInfoEXT`]
+/// - [`PushConstantsInfo`]
+/// - [`IndirectCommandsLayoutTokenEXT`]
 #[doc(alias = "VkPushConstantBankInfoNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -67684,6 +70149,9 @@ unsafe impl Extends<IndirectCommandsLayoutTokenEXT> for PushConstantBankInfoNV {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDevicePushConstantBankFeaturesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -67731,6 +70199,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePushConstantBankFeatures
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDevicePushConstantBankPropertiesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -67783,6 +70255,10 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDevicePushConstantBan
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceRayTracingInvocationReorderPropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -67834,6 +70310,9 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceRayTracingInvocationReorderFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -67884,6 +70363,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceRayTracingInvocationReor
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceDepthClampControlFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -67931,6 +70413,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceDepthClampControlFeature
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PipelineViewportStateCreateInfo`]
 #[doc(alias = "VkPipelineViewportDepthClampControlCreateInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -68031,6 +70515,9 @@ unsafe impl Extendable for SurfaceCreateInfoOHOS {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceHdrVividFeaturesHUAWEI")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -68078,6 +70565,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceHdrVividFeaturesHUAWEI {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`HdrMetadataEXT`]
 #[doc(alias = "VkHdrVividDynamicMetadataHUAWEI")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -68126,6 +70615,8 @@ unsafe impl Extends<HdrMetadataEXT> for HdrVividDynamicMetadataHUAWEI {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkCooperativeMatrixFlexibleDimensionsPropertiesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -68189,6 +70680,9 @@ unsafe impl Extendable for CooperativeMatrixFlexibleDimensionsPropertiesNV {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceCooperativeMatrix2FeaturesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -68248,6 +70742,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceCooperativeMatrix2Featur
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceCooperativeMatrix2PropertiesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -68298,6 +70796,9 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceCooperativeMatr
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDevicePipelineOpacityMicromapFeaturesARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -68345,6 +70846,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePipelineOpacityMicromapF
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`MemoryAllocateInfo`]
 #[doc(alias = "VkImportMemoryMetalHandleInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -68395,6 +70898,8 @@ unsafe impl Extends<MemoryAllocateInfo> for ImportMemoryMetalHandleInfoEXT {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkMemoryMetalHandlePropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -68487,6 +70992,9 @@ unsafe impl Extendable for MemoryGetMetalHandleInfoEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDevicePerformanceCountersByRegionFeaturesARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -68537,6 +71045,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePerformanceCountersByReg
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDevicePerformanceCountersByRegionPropertiesARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -68594,6 +71106,8 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPerformanceCounterARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -68639,6 +71153,8 @@ unsafe impl Extendable for PerformanceCounterARM {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPerformanceCounterDescriptionARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -68688,6 +71204,9 @@ unsafe impl Extendable for PerformanceCounterDescriptionARM {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`RenderPassBeginInfo`]
+/// - [`RenderingInfo`]
 #[doc(alias = "VkRenderPassPerformanceCountersByRegionBeginInfoARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -68743,6 +71262,9 @@ unsafe impl Extends<RenderingInfo> for RenderPassPerformanceCountersByRegionBegi
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShaderInstrumentationFeaturesARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -68790,6 +71312,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderInstrumentationFea
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceShaderInstrumentationPropertiesARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -68962,6 +71488,9 @@ impl Default for ShaderInstrumentationMetricDataHeaderARM {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceVertexAttributeRobustnessFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -69012,6 +71541,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceVertexAttributeRobustnes
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceFormatPackFeaturesARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -69059,6 +71591,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceFormatPackFeaturesARM {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceFragmentDensityMapLayeredFeaturesVALVE")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -69109,6 +71644,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceFragmentDensityMapLayere
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceFragmentDensityMapLayeredPropertiesVALVE")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -69158,6 +71697,8 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`GraphicsPipelineCreateInfo`]
 #[doc(alias = "VkPipelineFragmentDensityMapLayeredCreateInfoVALVE")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -69207,6 +71748,8 @@ unsafe impl Extends<GraphicsPipelineCreateInfo>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PresentInfoKHR`]
 #[doc(alias = "VkSetPresentConfigNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -69255,6 +71798,9 @@ unsafe impl Extends<PresentInfoKHR> for SetPresentConfigNV {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDevicePresentMeteringFeaturesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -69302,6 +71848,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePresentMeteringFeaturesN
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceMultisampledRenderToSwapchainFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -69352,6 +71901,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceMultisampledRenderToSwap
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SurfaceCapabilities2KHR`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkSwapchainFlagsSurfaceCapabilitiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -69399,6 +71952,9 @@ unsafe impl Extends<SurfaceCapabilities2KHR> for SwapchainFlagsSurfaceCapabiliti
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -69449,6 +72005,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceZeroInitializeDeviceMemo
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShader64BitIndexingFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -69496,6 +72055,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShader64BitIndexingFeatu
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceCustomResolveFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -69586,6 +72148,10 @@ unsafe impl Extendable for BeginCustomResolveInfoEXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`GraphicsPipelineCreateInfo`]
+/// - [`CommandBufferInheritanceInfo`]
+/// - [`ShaderCreateInfoEXT`]
 #[doc(alias = "VkCustomResolveCreateInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -69674,6 +72240,8 @@ impl Default for PipelineCacheHeaderVersionDataGraphQCOM {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`DataGraphPipelineCreateInfoARM`]
 #[doc(alias = "VkDataGraphPipelineBuiltinModelCreateInfoQCOM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -69723,6 +72291,9 @@ unsafe impl Extends<DataGraphPipelineCreateInfoARM>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceDataGraphModelFeaturesQCOM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -69770,6 +72341,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceDataGraphModelFeaturesQC
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceDataGraphOpticalFlowFeaturesARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -69817,6 +72391,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceDataGraphOpticalFlowFeat
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkQueueFamilyDataGraphOpticalFlowPropertiesARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -69876,6 +72452,8 @@ unsafe impl Extendable for QueueFamilyDataGraphOpticalFlowPropertiesARM {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`DataGraphPipelineCreateInfoARM`]
 #[doc(alias = "VkDataGraphPipelineOpticalFlowCreateInfoARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -69941,6 +72519,8 @@ unsafe impl Extends<DataGraphPipelineCreateInfoARM> for DataGraphPipelineOptical
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkDataGraphOpticalFlowImageFormatPropertiesARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -69986,6 +72566,9 @@ unsafe impl Extendable for DataGraphOpticalFlowImageFormatPropertiesARM {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceImageFormatInfo2`]
+/// - [`ImageCreateInfo`]
 #[doc(alias = "VkDataGraphOpticalFlowImageFormatInfoARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -70033,6 +72616,8 @@ unsafe impl Extends<ImageCreateInfo> for DataGraphOpticalFlowImageFormatInfoARM 
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`DataGraphPipelineDispatchInfoARM`]
 #[doc(alias = "VkDataGraphPipelineOpticalFlowDispatchInfoARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -70086,6 +72671,8 @@ unsafe impl Extends<DataGraphPipelineDispatchInfoARM>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`DataGraphPipelineResourceInfoARM`]
 #[doc(alias = "VkDataGraphPipelineResourceInfoImageLayoutARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -70184,6 +72771,8 @@ unsafe impl Extendable for DataGraphPipelineSingleNodeConnectionARM {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`DataGraphPipelineCreateInfoARM`]
 #[doc(alias = "VkDataGraphPipelineSingleNodeCreateInfoARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -70234,6 +72823,9 @@ unsafe impl Extends<DataGraphPipelineCreateInfoARM> for DataGraphPipelineSingleN
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShaderLongVectorFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -70281,6 +72873,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderLongVectorFeatures
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceShaderLongVectorPropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -70327,6 +72923,9 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceShaderLongVecto
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDevicePipelineCacheIncrementalModeFeaturesSEC")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -70377,6 +72976,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePipelineCacheIncremental
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShaderUniformBufferUnsizedArrayFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -70474,6 +73076,9 @@ unsafe impl Extendable for ComputeOccupancyPriorityParametersNV {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceComputeOccupancyPriorityFeaturesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -70521,6 +73126,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceComputeOccupancyPriority
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkCooperativeMatrixProperties2EXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -70632,6 +73239,9 @@ unsafe impl Extendable for PhysicalDeviceCooperativeMatrixInfo2EXT {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceCooperativeMatrixMaintenance1FeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -70690,6 +73300,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceCooperativeMatrixMainten
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShaderSubgroupPartitionedFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -70790,6 +73403,9 @@ unsafe impl Extendable for UbmSurfaceCreateInfoSEC {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -70846,6 +73462,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderOCPMicroscalingTyp
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceShaderMixedFloatDotProductFeaturesVALVE")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -70902,6 +73521,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderMixedFloatDotProdu
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`SubmitInfo`]
 #[doc(alias = "VkThrottleHintSubmitInfoSEC")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -70948,6 +73569,9 @@ unsafe impl Extends<SubmitInfo> for ThrottleHintSubmitInfoSEC {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceThrottleHintFeaturesSEC")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -70995,6 +73619,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceThrottleHintFeaturesSEC 
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceDataGraphNeuralAcceleratorStatisticsFeaturesARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -71049,6 +73676,8 @@ unsafe impl Extends<DeviceCreateInfo>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`DataGraphPipelineCreateInfoARM`]
 #[doc(alias = "VkDataGraphPipelineNeuralStatisticsCreateInfoARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -71098,6 +73727,8 @@ unsafe impl Extends<DataGraphPipelineCreateInfoARM>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`DataGraphPipelineSessionCreateInfoARM`]
 #[doc(alias = "VkDataGraphPipelineSessionNeuralStatisticsCreateInfoARM")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -71147,6 +73778,9 @@ unsafe impl Extends<DataGraphPipelineSessionCreateInfoARM>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDevicePrimitiveRestartIndexFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -71194,6 +73828,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePrimitiveRestartIndexFea
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceImageTilingControlFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -71241,6 +73878,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceImageTilingControlFeatur
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`ImageCreateInfo`]
 #[doc(alias = "VkImageTilingControlCreateInfoEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -71287,6 +73926,9 @@ unsafe impl Extends<ImageCreateInfo> for ImageTilingControlCreateInfoEXT {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceCooperativeMatrixDecodeVectorFeaturesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -71337,6 +73979,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceCooperativeMatrixDecodeV
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDevicePrivateDataBaseHandleFeaturesNV")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -71384,6 +74029,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePrivateDataBaseHandleFea
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceBufferDeviceAddressAllocationAlignmentFeaturesVALVE")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -71437,6 +74085,8 @@ unsafe impl Extends<DeviceCreateInfo>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
 #[doc(alias = "VkPhysicalDeviceBufferDeviceAddressAllocationAlignmentPropertiesVALVE")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -71486,6 +74136,9 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`BufferCreateInfo`]
+/// - [`MemoryAllocateInfo`]
 #[doc(alias = "VkBufferDeviceAddressAlignmentAllocateInfoVALVE")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -71929,6 +74582,8 @@ unsafe impl Extendable for AccelerationStructureCreateInfoKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`WriteDescriptorSet`]
 #[doc(alias = "VkWriteDescriptorSetAccelerationStructureKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -71977,6 +74632,9 @@ unsafe impl Extends<WriteDescriptorSet> for WriteDescriptorSetAccelerationStruct
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceAccelerationStructureFeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -72032,6 +74690,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceAccelerationStructureFea
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceAccelerationStructurePropertiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -72519,6 +75181,9 @@ unsafe impl Extendable for RayTracingPipelineCreateInfoKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceRayTracingPipelineFeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -72574,6 +75239,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceRayTracingPipelineFeatur
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceRayTracingPipelinePropertiesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -72661,6 +75330,9 @@ impl Default for TraceRaysIndirectCommandKHR {
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceRayQueryFeaturesKHR")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -72708,6 +75380,9 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceRayQueryFeaturesKHR {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceFeatures2`]
+/// - [`DeviceCreateInfo`]
 #[doc(alias = "VkPhysicalDeviceMeshShaderFeaturesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
@@ -72763,6 +75438,10 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceMeshShaderFeaturesEXT {}
 ///
 /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
 ///
+/// # Extends
+/// - [`PhysicalDeviceProperties2`]
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceMeshShaderPropertiesEXT")]
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]

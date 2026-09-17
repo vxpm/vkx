@@ -5,8 +5,11 @@
     message = "Vulkan structure `{Self}` cannot be extended",
     note = "It does not have a `next` pointer"
 )]
-pub unsafe trait Extendable: Sized {
+pub unsafe trait Extendable: Copy + Sized {
     fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self;
+    fn push_next<T: Extends<Self>>(&mut self, next: *mut T) {
+        *self = self.with_next(next);
+    }
 }
 
 /// Marker trait indicating a vulkan structure extends another.

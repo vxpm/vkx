@@ -289,6 +289,8 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkMemoryHeapFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryHeapFlagBits.html)
     ///
+    /// # Returned only
+    /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkMemoryHeapFlagBits")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -309,6 +311,8 @@ impl MemoryHeapFlags {
 bitflags::bitflags! {
     /// [`VkMemoryPropertyFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryPropertyFlagBits.html)
     ///
+    /// # Returned only
+    /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkMemoryPropertyFlagBits")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -337,6 +341,8 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkQueueFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkQueueFlagBits.html)
     ///
+    /// # Returned only
+    /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkQueueFlagBits")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -579,6 +585,8 @@ impl ImageAspectFlags {
 bitflags::bitflags! {
     /// [`VkSparseImageFormatFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSparseImageFormatFlagBits.html)
     ///
+    /// # Returned only
+    /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkSparseImageFormatFlagBits")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -1424,6 +1432,8 @@ impl StencilFaceFlags {
 bitflags::bitflags! {
     /// [`VkSubgroupFeatureFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSubgroupFeatureFlagBits.html)
     ///
+    /// # Returned only
+    /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkSubgroupFeatureFlagBits")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -1464,6 +1474,12 @@ impl SubgroupFeatureFlags {
 bitflags::bitflags! {
     /// [`VkPeerMemoryFeatureFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPeerMemoryFeatureFlagBits.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkPeerMemoryFeatureFlagBits")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -1496,6 +1512,12 @@ impl PeerMemoryFeatureFlags {
 bitflags::bitflags! {
     /// [`VkMemoryAllocateFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryAllocateFlagBits.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkMemoryAllocateFlagBits")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -1525,6 +1547,12 @@ impl MemoryAllocateFlags {
 
 bitflags::bitflags! {
     /// [`VkExternalMemoryHandleTypeFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalMemoryHandleTypeFlagBits.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_ExternalMemoryCapabilities`](Extensions::KHR_ExternalMemoryCapabilities)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkExternalMemoryHandleTypeFlagBits")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -1592,6 +1620,14 @@ impl ExternalMemoryHandleTypeFlags {
 bitflags::bitflags! {
     /// [`VkExternalMemoryFeatureFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalMemoryFeatureFlagBits.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_ExternalMemoryCapabilities`](Extensions::KHR_ExternalMemoryCapabilities)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Returned only
+    /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkExternalMemoryFeatureFlagBits")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -1619,6 +1655,12 @@ impl ExternalMemoryFeatureFlags {
 
 bitflags::bitflags! {
     /// [`VkExternalFenceHandleTypeFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalFenceHandleTypeFlagBits.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_ExternalFenceCapabilities`](Extensions::KHR_ExternalFenceCapabilities)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkExternalFenceHandleTypeFlagBits")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -1652,6 +1694,14 @@ impl ExternalFenceHandleTypeFlags {
 bitflags::bitflags! {
     /// [`VkExternalFenceFeatureFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalFenceFeatureFlagBits.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_ExternalFenceCapabilities`](Extensions::KHR_ExternalFenceCapabilities)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Returned only
+    /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkExternalFenceFeatureFlagBits")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -1676,6 +1726,12 @@ impl ExternalFenceFeatureFlags {
 bitflags::bitflags! {
     /// [`VkFenceImportFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkFenceImportFlagBits.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_ExternalFence`](Extensions::KHR_ExternalFence)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkFenceImportFlagBits")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -1696,6 +1752,12 @@ impl FenceImportFlags {
 bitflags::bitflags! {
     /// [`VkSemaphoreImportFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSemaphoreImportFlagBits.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_ExternalSemaphore`](Extensions::KHR_ExternalSemaphore)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkSemaphoreImportFlagBits")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -1715,6 +1777,12 @@ impl SemaphoreImportFlags {
 
 bitflags::bitflags! {
     /// [`VkExternalSemaphoreHandleTypeFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalSemaphoreHandleTypeFlagBits.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_ExternalSemaphoreCapabilities`](Extensions::KHR_ExternalSemaphoreCapabilities)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkExternalSemaphoreHandleTypeFlagBits")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -1756,6 +1824,14 @@ impl ExternalSemaphoreHandleTypeFlags {
 bitflags::bitflags! {
     /// [`VkExternalSemaphoreFeatureFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalSemaphoreFeatureFlagBits.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_ExternalSemaphoreCapabilities`](Extensions::KHR_ExternalSemaphoreCapabilities)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Returned only
+    /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkExternalSemaphoreFeatureFlagBits")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -1779,6 +1855,12 @@ impl ExternalSemaphoreFeatureFlags {
 
 bitflags::bitflags! {
     /// [`VkResolveModeFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkResolveModeFlagBits.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DepthStencilResolve`](Extensions::KHR_DepthStencilResolve)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkResolveModeFlagBits")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -1822,6 +1904,12 @@ impl ResolveModeFlags {
 bitflags::bitflags! {
     /// [`VkSemaphoreWaitFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSemaphoreWaitFlagBits.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_TimelineSemaphore`](Extensions::KHR_TimelineSemaphore)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkSemaphoreWaitFlagBits")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -1841,6 +1929,12 @@ impl SemaphoreWaitFlags {
 
 bitflags::bitflags! {
     /// [`VkDescriptorBindingFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorBindingFlagBits.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DescriptorIndexing`](Extensions::EXT_DescriptorIndexing)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkDescriptorBindingFlagBits")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -1874,6 +1968,14 @@ impl DescriptorBindingFlags {
 bitflags::bitflags! {
     /// [`VkToolPurposeFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkToolPurposeFlagBits.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ToolingInfo`](Extensions::EXT_ToolingInfo)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Returned only
+    /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkToolPurposeFlagBits")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -1914,6 +2016,12 @@ impl ToolPurposeFlags {
 bitflags::bitflags! {
     /// [`VkPrivateDataSlotCreateFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPrivateDataSlotCreateFlagBits.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_PrivateData`](Extensions::EXT_PrivateData)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkPrivateDataSlotCreateFlagBits")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -1929,6 +2037,12 @@ pub type PrivateDataSlotCreateFlagsEXT = PrivateDataSlotCreateFlags;
 
 bitflags::bitflags! {
     /// [`VkPipelineStageFlagBits2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineStageFlagBits2.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkPipelineStageFlagBits2")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -2106,6 +2220,12 @@ impl PipelineStageFlags2 {
 bitflags::bitflags! {
     /// [`VkAccessFlagBits2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAccessFlagBits2.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkAccessFlagBits2")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -2276,6 +2396,12 @@ impl AccessFlags2 {
 bitflags::bitflags! {
     /// [`VkSubmitFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSubmitFlagBits.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkSubmitFlagBits")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -2296,6 +2422,14 @@ impl SubmitFlags {
 bitflags::bitflags! {
     /// [`VkFormatFeatureFlagBits2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkFormatFeatureFlagBits2.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_FormatFeatureFlags2`](Extensions::KHR_FormatFeatureFlags2)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Returned only
+    /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkFormatFeatureFlagBits2")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -2496,6 +2630,14 @@ impl FormatFeatureFlags2 {
 bitflags::bitflags! {
     /// [`VkPipelineCreationFeedbackFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCreationFeedbackFlagBits.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_PipelineCreationFeedback`](Extensions::EXT_PipelineCreationFeedback)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Returned only
+    /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkPipelineCreationFeedbackFlagBits")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -2523,6 +2665,12 @@ impl PipelineCreationFeedbackFlags {
 
 bitflags::bitflags! {
     /// [`VkRenderingFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderingFlagBits.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DynamicRendering`](Extensions::KHR_DynamicRendering)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkRenderingFlagBits")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -2567,6 +2715,12 @@ impl RenderingFlags {
 bitflags::bitflags! {
     /// [`VkMemoryUnmapFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryUnmapFlagBits.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_MapMemory2`](Extensions::KHR_MapMemory2)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkMemoryUnmapFlagBits")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -2582,6 +2736,13 @@ pub type MemoryUnmapFlagsKHR = MemoryUnmapFlags;
 
 bitflags::bitflags! {
     /// [`VkBufferUsageFlagBits2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferUsageFlagBits2.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
+    /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkBufferUsageFlagBits2")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -2685,6 +2846,12 @@ impl BufferUsageFlags2 {
 bitflags::bitflags! {
     /// [`VkHostImageCopyFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkHostImageCopyFlagBits.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_HostImageCopy`](Extensions::EXT_HostImageCopy)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkHostImageCopyFlagBits")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -2708,6 +2875,13 @@ impl HostImageCopyFlags {
 
 bitflags::bitflags! {
     /// [`VkPipelineCreateFlagBits2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCreateFlagBits2.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
+    /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkPipelineCreateFlagBits2")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -2833,6 +3007,13 @@ impl PipelineCreateFlags2 {
 bitflags::bitflags! {
     /// [`VkSurfaceTransformFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfaceTransformFlagBitsKHR.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Surface`](Extensions::KHR_Surface)
+    /// - Extension [`KHR_Display`](Extensions::KHR_Display)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkSurfaceTransformFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -2861,6 +3042,12 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkCompositeAlphaFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCompositeAlphaFlagBitsKHR.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Surface`](Extensions::KHR_Surface)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkCompositeAlphaFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -2878,6 +3065,12 @@ bitflags::bitflags! {
 
 bitflags::bitflags! {
     /// [`VkSwapchainCreateFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSwapchainCreateFlagBitsKHR.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkSwapchainCreateFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -2909,6 +3102,13 @@ impl SwapchainCreateFlagsKHR {
 bitflags::bitflags! {
     /// [`VkDeviceGroupPresentModeFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceGroupPresentModeFlagBitsKHR.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
+    /// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkDeviceGroupPresentModeFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -2927,6 +3127,12 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkDisplayPlaneAlphaFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplayPlaneAlphaFlagBitsKHR.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Display`](Extensions::KHR_Display)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkDisplayPlaneAlphaFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -2944,6 +3150,12 @@ bitflags::bitflags! {
 
 bitflags::bitflags! {
     /// [`VkVideoCodecOperationFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoCodecOperationFlagBitsKHR.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkVideoCodecOperationFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -2971,6 +3183,12 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkVideoChromaSubsamplingFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoChromaSubsamplingFlagBitsKHR.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkVideoChromaSubsamplingFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -2991,6 +3209,12 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkVideoComponentBitDepthFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoComponentBitDepthFlagBitsKHR.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkVideoComponentBitDepthFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -3009,6 +3233,14 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkVideoCapabilityFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoCapabilityFlagBitsKHR.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Returned only
+    /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkVideoCapabilityFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -3022,6 +3254,12 @@ bitflags::bitflags! {
 
 bitflags::bitflags! {
     /// [`VkVideoSessionCreateFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoSessionCreateFlagBitsKHR.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkVideoSessionCreateFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -3045,6 +3283,12 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkVideoSessionParametersCreateFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoSessionParametersCreateFlagBitsKHR.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkVideoSessionParametersCreateFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -3056,6 +3300,12 @@ bitflags::bitflags! {
 
 bitflags::bitflags! {
     /// [`VkVideoCodingControlFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoCodingControlFlagBitsKHR.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkVideoCodingControlFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -3073,6 +3323,14 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkVideoDecodeCapabilityFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeCapabilityFlagBitsKHR.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoDecodeQueue`](Extensions::KHR_VideoDecodeQueue)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Returned only
+    /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkVideoDecodeCapabilityFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -3086,6 +3344,12 @@ bitflags::bitflags! {
 
 bitflags::bitflags! {
     /// [`VkVideoDecodeUsageFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeUsageFlagBitsKHR.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoDecodeQueue`](Extensions::KHR_VideoDecodeQueue)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkVideoDecodeUsageFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -3105,6 +3369,14 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkVideoEncodeH264CapabilityFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH264CapabilityFlagBitsKHR.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Returned only
+    /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkVideoEncodeH264CapabilityFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -3137,6 +3409,14 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkVideoEncodeH264StdFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH264StdFlagBitsKHR.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Returned only
+    /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkVideoEncodeH264StdFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -3187,6 +3467,12 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkVideoEncodeH264RateControlFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH264RateControlFlagBitsKHR.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkVideoEncodeH264RateControlFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -3207,6 +3493,14 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkVideoEncodeH265CapabilityFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265CapabilityFlagBitsKHR.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Returned only
+    /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkVideoEncodeH265CapabilityFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -3241,6 +3535,14 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkVideoEncodeH265StdFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265StdFlagBitsKHR.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Returned only
+    /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkVideoEncodeH265StdFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -3293,6 +3595,14 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkVideoEncodeH265CtbSizeFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265CtbSizeFlagBitsKHR.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Returned only
+    /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkVideoEncodeH265CtbSizeFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -3309,6 +3619,14 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkVideoEncodeH265TransformBlockSizeFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265TransformBlockSizeFlagBitsKHR.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Returned only
+    /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkVideoEncodeH265TransformBlockSizeFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -3326,6 +3644,12 @@ bitflags::bitflags! {
 
 bitflags::bitflags! {
     /// [`VkVideoEncodeH265RateControlFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265RateControlFlagBitsKHR.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkVideoEncodeH265RateControlFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -3347,6 +3671,12 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkVideoDecodeH264PictureLayoutFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeH264PictureLayoutFlagBitsKHR.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoDecodeH264`](Extensions::KHR_VideoDecodeH264)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkVideoDecodeH264PictureLayoutFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -3363,6 +3693,14 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkPerformanceCounterDescriptionFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceCounterDescriptionFlagBitsKHR.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_PerformanceQuery`](Extensions::KHR_PerformanceQuery)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Returned only
+    /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkPerformanceCounterDescriptionFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -3383,6 +3721,12 @@ impl PerformanceCounterDescriptionFlagsKHR {
 bitflags::bitflags! {
     /// [`VkAcquireProfilingLockFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAcquireProfilingLockFlagBitsKHR.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_PerformanceQuery`](Extensions::KHR_PerformanceQuery)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkAcquireProfilingLockFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -3392,6 +3736,12 @@ bitflags::bitflags! {
 
 bitflags::bitflags! {
     /// [`VkVideoEncodeFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeFlagBitsKHR.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkVideoEncodeFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -3409,6 +3759,14 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkVideoEncodeCapabilityFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeCapabilityFlagBitsKHR.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Returned only
+    /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkVideoEncodeCapabilityFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -3427,6 +3785,12 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkVideoEncodeRateControlModeFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeRateControlModeFlagBitsKHR.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkVideoEncodeRateControlModeFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -3444,6 +3808,12 @@ bitflags::bitflags! {
 
 bitflags::bitflags! {
     /// [`VkVideoEncodeFeedbackFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeFeedbackFlagBitsKHR.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkVideoEncodeFeedbackFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -3475,6 +3845,12 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkVideoEncodeUsageFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeUsageFlagBitsKHR.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkVideoEncodeUsageFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -3495,6 +3871,12 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkVideoEncodeContentFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeContentFlagBitsKHR.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkVideoEncodeContentFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -3512,6 +3894,12 @@ bitflags::bitflags! {
 
 bitflags::bitflags! {
     /// [`VkAddressCommandFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAddressCommandFlagBitsKHR.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkAddressCommandFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -3535,6 +3923,12 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkConditionalRenderingFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkConditionalRenderingFlagBitsEXT.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ConditionalRendering`](Extensions::EXT_ConditionalRendering)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkConditionalRenderingFlagBitsEXT")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -3546,6 +3940,12 @@ bitflags::bitflags! {
 
 bitflags::bitflags! {
     /// [`VkAccelerationStructureCreateFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureCreateFlagBitsKHR.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkAccelerationStructureCreateFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -3562,6 +3962,13 @@ bitflags::bitflags! {
 
 bitflags::bitflags! {
     /// [`VkPresentScalingFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPresentScalingFlagBitsKHR.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_SurfaceMaintenance1`](Extensions::KHR_SurfaceMaintenance1)
+    /// - Extension [`EXT_SurfaceMaintenance1`](Extensions::EXT_SurfaceMaintenance1)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkPresentScalingFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -3591,6 +3998,13 @@ impl PresentScalingFlagsKHR {
 bitflags::bitflags! {
     /// [`VkPresentGravityFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPresentGravityFlagBitsKHR.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_SurfaceMaintenance1`](Extensions::KHR_SurfaceMaintenance1)
+    /// - Extension [`EXT_SurfaceMaintenance1`](Extensions::EXT_SurfaceMaintenance1)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkPresentGravityFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -3619,6 +4033,14 @@ impl PresentGravityFlagsKHR {
 bitflags::bitflags! {
     /// [`VkVideoEncodeAV1CapabilityFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeAV1CapabilityFlagBitsKHR.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoEncodeAv1`](Extensions::KHR_VideoEncodeAv1)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Returned only
+    /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkVideoEncodeAV1CapabilityFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -3641,6 +4063,14 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkVideoEncodeAV1StdFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeAV1StdFlagBitsKHR.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoEncodeAv1`](Extensions::KHR_VideoEncodeAv1)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Returned only
+    /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkVideoEncodeAV1StdFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -3659,6 +4089,14 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkVideoEncodeAV1SuperblockSizeFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeAV1SuperblockSizeFlagBitsKHR.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoEncodeAv1`](Extensions::KHR_VideoEncodeAv1)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Returned only
+    /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkVideoEncodeAV1SuperblockSizeFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -3672,6 +4110,12 @@ bitflags::bitflags! {
 
 bitflags::bitflags! {
     /// [`VkVideoEncodeAV1RateControlFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeAV1RateControlFlagBitsKHR.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoEncodeAv1`](Extensions::KHR_VideoEncodeAv1)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkVideoEncodeAV1RateControlFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -3691,6 +4135,12 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkAddressCopyFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAddressCopyFlagBitsKHR.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_CopyMemoryIndirect`](Extensions::KHR_CopyMemoryIndirect)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkAddressCopyFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -3706,6 +4156,12 @@ bitflags::bitflags! {
 
 bitflags::bitflags! {
     /// [`VkVideoEncodeIntraRefreshModeFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeIntraRefreshModeFlagBitsKHR.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoEncodeIntraRefresh`](Extensions::KHR_VideoEncodeIntraRefresh)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkVideoEncodeIntraRefreshModeFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -3727,6 +4183,14 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkDeviceFaultFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceFaultFlagBitsKHR.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DeviceFault`](Extensions::KHR_DeviceFault)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Returned only
+    /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkDeviceFaultFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -3749,6 +4213,12 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkAccessFlagBits3KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAccessFlagBits3KHR.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Maintenance8`](Extensions::KHR_Maintenance8)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkAccessFlagBits3KHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -3760,6 +4230,12 @@ bitflags::bitflags! {
 
 bitflags::bitflags! {
     /// [`VkVideoEncodePerPartitionFeedbackFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodePerPartitionFeedbackFlagBitsKHR.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoEncodeFeedback2`](Extensions::KHR_VideoEncodeFeedback2)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkVideoEncodePerPartitionFeedbackFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -3777,6 +4253,12 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkRenderingAttachmentFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderingAttachmentFlagBitsKHR.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Maintenance10`](Extensions::KHR_Maintenance10)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkRenderingAttachmentFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -3793,6 +4275,12 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkResolveImageFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkResolveImageFlagBitsKHR.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Maintenance10`](Extensions::KHR_Maintenance10)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkResolveImageFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -3807,6 +4295,14 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkFormatFeatureFlagBits4KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkFormatFeatureFlagBits4KHR.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Returned only
+    /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkFormatFeatureFlagBits4KHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -3816,6 +4312,12 @@ bitflags::bitflags! {
 
 bitflags::bitflags! {
     /// [`VkImageUsageFlagBits2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageUsageFlagBits2KHR.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkImageUsageFlagBits2KHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -3877,6 +4379,12 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkImageCreateFlagBits2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageCreateFlagBits2KHR.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkImageCreateFlagBits2KHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -3929,6 +4437,12 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkDebugReportFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDebugReportFlagBitsEXT.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DebugReport`](Extensions::EXT_DebugReport)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkDebugReportFlagBitsEXT")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -3949,6 +4463,12 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkExternalMemoryHandleTypeFlagBitsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalMemoryHandleTypeFlagBitsNV.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_ExternalMemoryCapabilities`](Extensions::NV_ExternalMemoryCapabilities)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkExternalMemoryHandleTypeFlagBitsNV")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -3967,6 +4487,14 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkExternalMemoryFeatureFlagBitsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalMemoryFeatureFlagBitsNV.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_ExternalMemoryCapabilities`](Extensions::NV_ExternalMemoryCapabilities)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Returned only
+    /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkExternalMemoryFeatureFlagBitsNV")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -3983,6 +4511,12 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkSurfaceCounterFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfaceCounterFlagBitsEXT.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DisplaySurfaceCounter`](Extensions::EXT_DisplaySurfaceCounter)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkSurfaceCounterFlagBitsEXT")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -3998,6 +4532,12 @@ impl SurfaceCounterFlagsEXT {
 
 bitflags::bitflags! {
     /// [`VkDebugUtilsMessageSeverityFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDebugUtilsMessageSeverityFlagBitsEXT.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkDebugUtilsMessageSeverityFlagBitsEXT")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -4017,6 +4557,12 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkDebugUtilsMessageTypeFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDebugUtilsMessageTypeFlagBitsEXT.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkDebugUtilsMessageTypeFlagBitsEXT")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -4034,6 +4580,12 @@ bitflags::bitflags! {
 
 bitflags::bitflags! {
     /// [`VkGpaSqShaderStageFlagBitsAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/VkGpaSqShaderStageFlagBitsAMD.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkGpaSqShaderStageFlagBitsAMD")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -4059,6 +4611,13 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkTensorViewCreateFlagBitsARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkTensorViewCreateFlagBitsARM.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+    /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkTensorViewCreateFlagBitsARM")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -4070,6 +4629,12 @@ bitflags::bitflags! {
 
 bitflags::bitflags! {
     /// [`VkSpirvResourceTypeFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSpirvResourceTypeFlagBitsEXT.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkSpirvResourceTypeFlagBitsEXT")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -4103,6 +4668,13 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkGeometryFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkGeometryFlagBitsKHR.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
+    /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkGeometryFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -4127,6 +4699,13 @@ impl GeometryFlagsKHR {
 
 bitflags::bitflags! {
     /// [`VkGeometryInstanceFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkGeometryInstanceFlagBitsKHR.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
+    /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkGeometryInstanceFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -4174,6 +4753,13 @@ impl GeometryInstanceFlagsKHR {
 
 bitflags::bitflags! {
     /// [`VkBuildAccelerationStructureFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBuildAccelerationStructureFlagBitsKHR.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
+    /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkBuildAccelerationStructureFlagBitsKHR")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -4244,6 +4830,12 @@ impl BuildAccelerationStructureFlagsKHR {
 bitflags::bitflags! {
     /// [`VkPipelineCompilerControlFlagBitsAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCompilerControlFlagBitsAMD.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`AMD_PipelineCompilerControl`](Extensions::AMD_PipelineCompilerControl)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkPipelineCompilerControlFlagBitsAMD")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -4253,6 +4845,12 @@ bitflags::bitflags! {
 
 bitflags::bitflags! {
     /// [`VkPresentStageFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPresentStageFlagBitsEXT.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_PresentTiming`](Extensions::EXT_PresentTiming)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkPresentStageFlagBitsEXT")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -4272,6 +4870,12 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkPastPresentationTimingFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPastPresentationTimingFlagBitsEXT.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_PresentTiming`](Extensions::EXT_PresentTiming)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkPastPresentationTimingFlagBitsEXT")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -4285,6 +4889,12 @@ bitflags::bitflags! {
 
 bitflags::bitflags! {
     /// [`VkPresentTimingInfoFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPresentTimingInfoFlagBitsEXT.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_PresentTiming`](Extensions::EXT_PresentTiming)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkPresentTimingInfoFlagBitsEXT")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -4300,6 +4910,14 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkShaderCorePropertiesFlagBitsAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderCorePropertiesFlagBitsAMD.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`AMD_ShaderCoreProperties2`](Extensions::AMD_ShaderCoreProperties2)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Returned only
+    /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkShaderCorePropertiesFlagBitsAMD")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -4309,6 +4927,12 @@ bitflags::bitflags! {
 
 bitflags::bitflags! {
     /// [`VkIndirectStateFlagBitsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectStateFlagBitsNV.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkIndirectStateFlagBitsNV")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -4321,6 +4945,12 @@ bitflags::bitflags! {
 
 bitflags::bitflags! {
     /// [`VkIndirectCommandsLayoutUsageFlagBitsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectCommandsLayoutUsageFlagBitsNV.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkIndirectCommandsLayoutUsageFlagBitsNV")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -4337,6 +4967,12 @@ bitflags::bitflags! {
 
 bitflags::bitflags! {
     /// [`VkDeviceDiagnosticsConfigFlagBitsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceDiagnosticsConfigFlagBitsNV.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_DeviceDiagnosticsConfig`](Extensions::NV_DeviceDiagnosticsConfig)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkDeviceDiagnosticsConfigFlagBitsNV")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -4356,6 +4992,12 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkTileShadingRenderPassFlagBitsQCOM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkTileShadingRenderPassFlagBitsQCOM.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`QCOM_TileShading`](Extensions::QCOM_TileShading)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkTileShadingRenderPassFlagBitsQCOM")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -4369,6 +5011,12 @@ bitflags::bitflags! {
 
 bitflags::bitflags! {
     /// [`VkExportMetalObjectTypeFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExportMetalObjectTypeFlagBitsEXT.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_MetalObjects`](Extensions::EXT_MetalObjects)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkExportMetalObjectTypeFlagBitsEXT")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -4392,6 +5040,12 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkGraphicsPipelineLibraryFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkGraphicsPipelineLibraryFlagBitsEXT.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_GraphicsPipelineLibrary`](Extensions::EXT_GraphicsPipelineLibrary)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkGraphicsPipelineLibraryFlagBitsEXT")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -4410,6 +5064,12 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkImageCompressionFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageCompressionFlagBitsEXT.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ImageCompressionControl`](Extensions::EXT_ImageCompressionControl)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkImageCompressionFlagBitsEXT")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -4427,6 +5087,12 @@ bitflags::bitflags! {
 
 bitflags::bitflags! {
     /// [`VkImageCompressionFixedRateFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageCompressionFixedRateFlagBitsEXT.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ImageCompressionControl`](Extensions::EXT_ImageCompressionControl)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkImageCompressionFixedRateFlagBitsEXT")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -4488,6 +5154,12 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkDeviceAddressBindingFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceAddressBindingFlagBitsEXT.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DeviceAddressBindingReport`](Extensions::EXT_DeviceAddressBindingReport)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkDeviceAddressBindingFlagBitsEXT")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -4499,6 +5171,12 @@ bitflags::bitflags! {
 
 bitflags::bitflags! {
     /// [`VkImageConstraintsInfoFlagBitsFUCHSIA`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageConstraintsInfoFlagBitsFUCHSIA.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`FUCHSIA_BufferCollection`](Extensions::FUCHSIA_BufferCollection)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkImageConstraintsInfoFlagBitsFUCHSIA")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -4520,6 +5198,12 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkFrameBoundaryFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkFrameBoundaryFlagBitsEXT.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_FrameBoundary`](Extensions::EXT_FrameBoundary)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkFrameBoundaryFlagBitsEXT")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -4531,6 +5215,12 @@ bitflags::bitflags! {
 
 bitflags::bitflags! {
     /// [`VkVideoEncodeRgbModelConversionFlagBitsVALVE`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeRgbModelConversionFlagBitsVALVE.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`VALVE_VideoEncodeRgbConversion`](Extensions::VALVE_VideoEncodeRgbConversion)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkVideoEncodeRgbModelConversionFlagBitsVALVE")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -4552,6 +5242,12 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkVideoEncodeRgbRangeCompressionFlagBitsVALVE`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeRgbRangeCompressionFlagBitsVALVE.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`VALVE_VideoEncodeRgbConversion`](Extensions::VALVE_VideoEncodeRgbConversion)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkVideoEncodeRgbRangeCompressionFlagBitsVALVE")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -4566,6 +5262,12 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkVideoEncodeRgbChromaOffsetFlagBitsVALVE`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeRgbChromaOffsetFlagBitsVALVE.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`VALVE_VideoEncodeRgbConversion`](Extensions::VALVE_VideoEncodeRgbConversion)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkVideoEncodeRgbChromaOffsetFlagBitsVALVE")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -4579,6 +5281,12 @@ bitflags::bitflags! {
 
 bitflags::bitflags! {
     /// [`VkBuildMicromapFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBuildMicromapFlagBitsEXT.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkBuildMicromapFlagBitsEXT")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -4596,6 +5304,12 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkMicromapCreateFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMicromapCreateFlagBitsEXT.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkMicromapCreateFlagBitsEXT")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -4608,6 +5322,14 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkPhysicalDeviceSchedulingControlsFlagBitsARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSchedulingControlsFlagBitsARM.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ARM_SchedulingControls`](Extensions::ARM_SchedulingControls)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Returned only
+    /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkPhysicalDeviceSchedulingControlsFlagBitsARM")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -4621,6 +5343,13 @@ bitflags::bitflags! {
 
 bitflags::bitflags! {
     /// [`VkMemoryDecompressionMethodFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryDecompressionMethodFlagBitsEXT.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_MemoryDecompression`](Extensions::NV_MemoryDecompression)
+    /// - Extension [`EXT_MemoryDecompression`](Extensions::EXT_MemoryDecompression)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkMemoryDecompressionMethodFlagBitsEXT")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -4642,6 +5371,12 @@ impl MemoryDecompressionMethodFlagsEXT {
 bitflags::bitflags! {
     /// [`VkTensorCreateFlagBitsARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkTensorCreateFlagBitsARM.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkTensorCreateFlagBitsARM")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -4659,6 +5394,12 @@ bitflags::bitflags! {
 
 bitflags::bitflags! {
     /// [`VkTensorUsageFlagBitsARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkTensorUsageFlagBitsARM.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkTensorUsageFlagBitsARM")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -4680,6 +5421,12 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkOpticalFlowGridSizeFlagBitsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkOpticalFlowGridSizeFlagBitsNV.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkOpticalFlowGridSizeFlagBitsNV")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -4699,6 +5446,12 @@ bitflags::bitflags! {
 
 bitflags::bitflags! {
     /// [`VkOpticalFlowUsageFlagBitsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkOpticalFlowUsageFlagBitsNV.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkOpticalFlowUsageFlagBitsNV")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -4722,6 +5475,12 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkOpticalFlowSessionCreateFlagBitsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkOpticalFlowSessionCreateFlagBitsNV.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkOpticalFlowSessionCreateFlagBitsNV")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -4742,6 +5501,12 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkOpticalFlowExecuteFlagBitsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkOpticalFlowExecuteFlagBitsNV.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkOpticalFlowExecuteFlagBitsNV")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -4753,6 +5518,12 @@ bitflags::bitflags! {
 
 bitflags::bitflags! {
     /// [`VkShaderCreateFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderCreateFlagBitsEXT.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkShaderCreateFlagBitsEXT")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -4790,6 +5561,12 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkDataGraphPipelineSessionCreateFlagBitsARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineSessionCreateFlagBitsARM.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkDataGraphPipelineSessionCreateFlagBitsARM")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -4804,6 +5581,12 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkDataGraphPipelineDispatchFlagBitsARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineDispatchFlagBitsARM.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkDataGraphPipelineDispatchFlagBitsARM")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -4814,6 +5597,14 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkDataGraphTOSAQualityFlagBitsARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphTOSAQualityFlagBitsARM.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ARM_DataGraphInstructionSetTosa`](Extensions::ARM_DataGraphInstructionSetTosa)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Returned only
+    /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkDataGraphTOSAQualityFlagBitsARM")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -4831,6 +5622,12 @@ bitflags::bitflags! {
 
 bitflags::bitflags! {
     /// [`VkClusterAccelerationStructureAddressResolutionFlagBitsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkClusterAccelerationStructureAddressResolutionFlagBitsNV.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkClusterAccelerationStructureAddressResolutionFlagBitsNV")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -4856,6 +5653,12 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkClusterAccelerationStructureClusterFlagBitsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkClusterAccelerationStructureClusterFlagBitsNV.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkClusterAccelerationStructureClusterFlagBitsNV")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -4868,6 +5671,14 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkClusterAccelerationStructureGeometryFlagBitsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkClusterAccelerationStructureGeometryFlagBitsNV.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Returned only
+    /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkClusterAccelerationStructureGeometryFlagBitsNV")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -4884,6 +5695,14 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkClusterAccelerationStructureIndexFormatFlagBitsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkClusterAccelerationStructureIndexFormatFlagBitsNV.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
+    /// # Returned only
+    /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkClusterAccelerationStructureIndexFormatFlagBitsNV")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -4899,6 +5718,12 @@ bitflags::bitflags! {
 
 bitflags::bitflags! {
     /// [`VkPartitionedAccelerationStructureInstanceFlagBitsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPartitionedAccelerationStructureInstanceFlagBitsNV.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_PartitionedAccelerationStructure`](Extensions::NV_PartitionedAccelerationStructure)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkPartitionedAccelerationStructureInstanceFlagBitsNV")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -4920,6 +5745,12 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkIndirectCommandsInputModeFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectCommandsInputModeFlagBitsEXT.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkIndirectCommandsInputModeFlagBitsEXT")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -4934,6 +5765,12 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkIndirectCommandsLayoutUsageFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectCommandsLayoutUsageFlagBitsEXT.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkIndirectCommandsLayoutUsageFlagBitsEXT")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -4947,6 +5784,12 @@ bitflags::bitflags! {
 
 bitflags::bitflags! {
     /// [`VkDataGraphOpticalFlowGridSizeFlagBitsARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphOpticalFlowGridSizeFlagBitsARM.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkDataGraphOpticalFlowGridSizeFlagBitsARM")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -4968,6 +5811,12 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkDataGraphOpticalFlowCreateFlagBitsARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphOpticalFlowCreateFlagBitsARM.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkDataGraphOpticalFlowCreateFlagBitsARM")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -4983,6 +5832,12 @@ bitflags::bitflags! {
 
 bitflags::bitflags! {
     /// [`VkDataGraphOpticalFlowImageUsageFlagBitsARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphOpticalFlowImageUsageFlagBitsARM.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkDataGraphOpticalFlowImageUsageFlagBitsARM")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -5004,6 +5859,12 @@ bitflags::bitflags! {
 bitflags::bitflags! {
     /// [`VkDataGraphOpticalFlowExecuteFlagBitsARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphOpticalFlowExecuteFlagBitsARM.html)
     ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    ///
     #[doc(alias = "VkDataGraphOpticalFlowExecuteFlagBitsARM")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
     #[repr(transparent)]
@@ -5023,6 +5884,12 @@ bitflags::bitflags! {
 
 bitflags::bitflags! {
     /// [`VkCooperativeMatrixFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCooperativeMatrixFlagBitsEXT.html)
+    ///
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_CooperativeMatrixMaintenance1`](Extensions::EXT_CooperativeMatrixMaintenance1)
+    ///
+    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkCooperativeMatrixFlagBitsEXT")]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]

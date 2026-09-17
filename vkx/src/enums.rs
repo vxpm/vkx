@@ -8009,6 +8009,8 @@ impl ObjectType {
 
 /// [`VkVendorId`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVendorId.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVendorId")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -8037,6 +8039,8 @@ pub enum VendorId {
 
 /// [`VkSystemAllocationScope`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSystemAllocationScope.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkSystemAllocationScope")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -8057,6 +8061,8 @@ pub enum SystemAllocationScope {
 
 /// [`VkInternalAllocationType`](https://docs.vulkan.org/refpages/latest/refpages/source/VkInternalAllocationType.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkInternalAllocationType")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -8841,6 +8847,8 @@ pub enum ImageType {
 
 /// [`VkPhysicalDeviceType`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceType.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceType")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -9878,6 +9886,8 @@ impl SubpassContents {
 
 /// [`VkPointClippingBehavior`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPointClippingBehavior.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPointClippingBehavior")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -10034,6 +10044,8 @@ impl TessellationDomainOrigin {
 
 /// [`VkDriverId`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDriverId.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkDriverId")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -10136,6 +10148,8 @@ impl DriverId {
 
 /// [`VkShaderFloatControlsIndependence`](https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderFloatControlsIndependence.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkShaderFloatControlsIndependence")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -10446,6 +10460,8 @@ impl ColorSpaceKHR {
 
 /// [`VkQueryResultStatusKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkQueryResultStatusKHR.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkQueryResultStatusKHR")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -10464,6 +10480,8 @@ pub enum QueryResultStatusKHR {
 
 /// [`VkPerformanceCounterUnitKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceCounterUnitKHR.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPerformanceCounterUnitKHR")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -10496,6 +10514,8 @@ pub enum PerformanceCounterUnitKHR {
 
 /// [`VkPerformanceCounterScopeKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceCounterScopeKHR.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPerformanceCounterScopeKHR")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -10521,6 +10541,8 @@ impl PerformanceCounterScopeKHR {
 
 /// [`VkPerformanceCounterStorageKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceCounterStorageKHR.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPerformanceCounterStorageKHR")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -10563,6 +10585,8 @@ pub enum FragmentShadingRateCombinerOpKHR {
 
 /// [`VkPipelineExecutableStatisticFormatKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineExecutableStatisticFormatKHR.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPipelineExecutableStatisticFormatKHR")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -10818,6 +10842,8 @@ impl TimeDomainKHR {
 
 /// [`VkPhysicalDeviceLayeredApiKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceLayeredApiKHR.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceLayeredApiKHR")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -10838,6 +10864,8 @@ pub enum PhysicalDeviceLayeredApiKHR {
 
 /// [`VkDeviceFaultAddressTypeKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceFaultAddressTypeKHR.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkDeviceFaultAddressTypeKHR")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -10909,6 +10937,8 @@ impl DeviceFaultVendorBinaryHeaderVersionKHR {
 
 /// [`VkDefaultVertexAttributeValueKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDefaultVertexAttributeValueKHR.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkDefaultVertexAttributeValueKHR")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -10947,6 +10977,8 @@ impl OpacityMicromapFormatKHR {
 
 /// [`VkOpacityMicromapSpecialIndexKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkOpacityMicromapSpecialIndexKHR.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkOpacityMicromapSpecialIndexKHR")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -10985,6 +11017,8 @@ impl OpacityMicromapSpecialIndexKHR {
 
 /// [`VkAccelerationStructureSerializedBlockTypeKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureSerializedBlockTypeKHR.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkAccelerationStructureSerializedBlockTypeKHR")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -11477,6 +11511,8 @@ pub enum CoverageModulationModeNV {
 
 /// [`VkValidationCacheHeaderVersionEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkValidationCacheHeaderVersionEXT.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkValidationCacheHeaderVersionEXT")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -11722,6 +11758,8 @@ pub enum PerformanceParameterTypeINTEL {
 
 /// [`VkPerformanceValueTypeINTEL`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceValueTypeINTEL.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPerformanceValueTypeINTEL")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -11884,6 +11922,8 @@ pub enum DepthBiasRepresentationEXT {
 
 /// [`VkDeviceMemoryReportEventTypeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceMemoryReportEventTypeEXT.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkDeviceMemoryReportEventTypeEXT")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -12074,6 +12114,8 @@ pub enum AccelerationStructureBuildTypeKHR {
 
 /// [`VkDisplacementMicromapFormatNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplacementMicromapFormatNV.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkDisplacementMicromapFormatNV")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -12118,6 +12160,8 @@ pub enum RayTracingLssPrimitiveEndCapsModeNV {
 
 /// [`VkSubpassMergeStatusEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSubpassMergeStatusEXT.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkSubpassMergeStatusEXT")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -12310,6 +12354,8 @@ pub enum DepthClampModeEXT {
 
 /// [`VkRayTracingInvocationReorderModeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkRayTracingInvocationReorderModeEXT.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkRayTracingInvocationReorderModeEXT")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -12444,6 +12490,8 @@ pub enum DataGraphPipelineSessionBindPointARM {
 
 /// [`VkDataGraphPipelineSessionBindPointTypeARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineSessionBindPointTypeARM.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkDataGraphPipelineSessionBindPointTypeARM")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -12510,6 +12558,8 @@ pub enum PhysicalDeviceDataGraphOperationTypeARM {
 
 /// [`VkDataGraphTOSALevelARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphTOSALevelARM.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkDataGraphTOSALevelARM")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -12556,6 +12606,8 @@ pub enum CubicFilterWeightsQCOM {
 
 /// [`VkLayeredDriverUnderlyingApiMSFT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkLayeredDriverUnderlyingApiMSFT.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkLayeredDriverUnderlyingApiMSFT")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -12858,6 +12910,8 @@ pub enum ShaderGroupShaderKHR {
 
 /// [`StdVideoH264ChromaFormatIdc`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264ChromaFormatIdc.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "StdVideoH264ChromaFormatIdc")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -12878,6 +12932,8 @@ pub enum H264ChromaFormatIdc {
 
 /// [`StdVideoH264ProfileIdc`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264ProfileIdc.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "StdVideoH264ProfileIdc")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -12902,6 +12958,8 @@ pub enum H264ProfileIdc {
 
 /// [`StdVideoH264LevelIdc`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264LevelIdc.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "StdVideoH264LevelIdc")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -12952,6 +13010,8 @@ pub enum H264LevelIdc {
 
 /// [`StdVideoH264PocType`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264PocType.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "StdVideoH264PocType")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -12970,6 +13030,8 @@ pub enum H264PocType {
 
 /// [`StdVideoH264AspectRatioIdc`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264AspectRatioIdc.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "StdVideoH264AspectRatioIdc")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -13018,6 +13080,8 @@ pub enum H264AspectRatioIdc {
 
 /// [`StdVideoH264WeightedBipredIdc`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264WeightedBipredIdc.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "StdVideoH264WeightedBipredIdc")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -13036,6 +13100,8 @@ pub enum H264WeightedBipredIdc {
 
 /// [`StdVideoH264ModificationOfPicNumsIdc`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264ModificationOfPicNumsIdc.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "StdVideoH264ModificationOfPicNumsIdc")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -13056,6 +13122,8 @@ pub enum H264ModificationOfPicNumsIdc {
 
 /// [`StdVideoH264MemMgmtControlOp`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264MemMgmtControlOp.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "StdVideoH264MemMgmtControlOp")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -13082,6 +13150,8 @@ pub enum H264MemMgmtControlOp {
 
 /// [`StdVideoH264CabacInitIdc`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264CabacInitIdc.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "StdVideoH264CabacInitIdc")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -13100,6 +13170,8 @@ pub enum H264CabacInitIdc {
 
 /// [`StdVideoH264DisableDeblockingFilterIdc`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264DisableDeblockingFilterIdc.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "StdVideoH264DisableDeblockingFilterIdc")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -13118,6 +13190,8 @@ pub enum H264DisableDeblockingFilterIdc {
 
 /// [`StdVideoH264SliceType`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264SliceType.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "StdVideoH264SliceType")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -13136,6 +13210,8 @@ pub enum H264SliceType {
 
 /// [`StdVideoH264PictureType`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264PictureType.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "StdVideoH264PictureType")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -13156,6 +13232,8 @@ pub enum H264PictureType {
 
 /// [`StdVideoH264NonVclNaluType`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264NonVclNaluType.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "StdVideoH264NonVclNaluType")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -13182,6 +13260,8 @@ pub enum H264NonVclNaluType {
 
 /// [`StdVideoDecodeH264FieldOrderCount`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeH264FieldOrderCount.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "StdVideoDecodeH264FieldOrderCount")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -13198,6 +13278,8 @@ pub enum DecodeH264FieldOrderCount {
 
 /// [`StdVideoH265ChromaFormatIdc`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265ChromaFormatIdc.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "StdVideoH265ChromaFormatIdc")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -13218,6 +13300,8 @@ pub enum H265ChromaFormatIdc {
 
 /// [`StdVideoH265ProfileIdc`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265ProfileIdc.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "StdVideoH265ProfileIdc")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -13240,6 +13324,8 @@ pub enum H265ProfileIdc {
 
 /// [`StdVideoH265LevelIdc`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265LevelIdc.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "StdVideoH265LevelIdc")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -13278,6 +13364,8 @@ pub enum H265LevelIdc {
 
 /// [`StdVideoH265SliceType`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265SliceType.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "StdVideoH265SliceType")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -13296,6 +13384,8 @@ pub enum H265SliceType {
 
 /// [`StdVideoH265PictureType`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265PictureType.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "StdVideoH265PictureType")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -13316,6 +13406,8 @@ pub enum H265PictureType {
 
 /// [`StdVideoH265AspectRatioIdc`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265AspectRatioIdc.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "StdVideoH265AspectRatioIdc")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -13364,6 +13456,8 @@ pub enum H265AspectRatioIdc {
 
 /// [`StdVideoAV1Profile`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1Profile.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "StdVideoAV1Profile")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -13382,6 +13476,8 @@ pub enum AV1Profile {
 
 /// [`StdVideoAV1Level`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1Level.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "StdVideoAV1Level")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -13442,6 +13538,8 @@ pub enum AV1Level {
 
 /// [`StdVideoAV1FrameType`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1FrameType.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "StdVideoAV1FrameType")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -13462,6 +13560,8 @@ pub enum AV1FrameType {
 
 /// [`StdVideoAV1ReferenceName`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1ReferenceName.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "StdVideoAV1ReferenceName")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -13490,6 +13590,8 @@ pub enum AV1ReferenceName {
 
 /// [`StdVideoAV1InterpolationFilter`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1InterpolationFilter.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "StdVideoAV1InterpolationFilter")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -13512,6 +13614,8 @@ pub enum AV1InterpolationFilter {
 
 /// [`StdVideoAV1TxMode`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1TxMode.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "StdVideoAV1TxMode")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -13530,6 +13634,8 @@ pub enum AV1TxMode {
 
 /// [`StdVideoAV1FrameRestorationType`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1FrameRestorationType.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "StdVideoAV1FrameRestorationType")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -13550,6 +13656,8 @@ pub enum AV1FrameRestorationType {
 
 /// [`StdVideoAV1ColorPrimaries`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1ColorPrimaries.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "StdVideoAV1ColorPrimaries")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -13586,6 +13694,8 @@ pub enum AV1ColorPrimaries {
 
 /// [`StdVideoAV1TransferCharacteristics`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1TransferCharacteristics.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "StdVideoAV1TransferCharacteristics")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -13636,6 +13746,8 @@ pub enum AV1TransferCharacteristics {
 
 /// [`StdVideoAV1MatrixCoefficients`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1MatrixCoefficients.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "StdVideoAV1MatrixCoefficients")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -13678,6 +13790,8 @@ pub enum AV1MatrixCoefficients {
 
 /// [`StdVideoAV1ChromaSamplePosition`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1ChromaSamplePosition.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "StdVideoAV1ChromaSamplePosition")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -13698,6 +13812,8 @@ pub enum AV1ChromaSamplePosition {
 
 /// [`StdVideoVP9Profile`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoVP9Profile.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "StdVideoVP9Profile")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -13718,6 +13834,8 @@ pub enum VP9Profile {
 
 /// [`StdVideoVP9Level`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoVP9Level.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "StdVideoVP9Level")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -13758,6 +13876,8 @@ pub enum VP9Level {
 
 /// [`StdVideoVP9FrameType`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoVP9FrameType.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "StdVideoVP9FrameType")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -13774,6 +13894,8 @@ pub enum VP9FrameType {
 
 /// [`StdVideoVP9ReferenceName`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoVP9ReferenceName.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "StdVideoVP9ReferenceName")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -13794,6 +13916,8 @@ pub enum VP9ReferenceName {
 
 /// [`StdVideoVP9InterpolationFilter`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoVP9InterpolationFilter.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "StdVideoVP9InterpolationFilter")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
@@ -13816,6 +13940,8 @@ pub enum VP9InterpolationFilter {
 
 /// [`StdVideoVP9ColorSpace`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoVP9ColorSpace.html)
 ///
+/// # Returned only
+/// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "StdVideoVP9ColorSpace")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[non_exhaustive]
