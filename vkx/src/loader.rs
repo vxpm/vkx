@@ -6,6 +6,9 @@ use libloading::Library;
 
 pub(crate) type VTable<const N: usize> = [crate::vkVoidFunction; N];
 
+type GlobalVTable = VTable<{ crate::GlobalCommands::VARIANTS.len() }>;
+type InstanceVTable = VTable<{ crate::InstanceCommands::VARIANTS.len() }>;
+
 #[inline(always)]
 pub(crate) fn vtable_get<const N: usize>(
     table: &VTable<N>,
@@ -20,15 +23,17 @@ pub(crate) fn vtable_get<const N: usize>(
 pub(crate) struct Global {
     pub _lib: Library,
     pub get_instance_proc_addr: crate::FUN_GetInstanceProcAddr,
-    pub commands: VTable<{ crate::GlobalCommands::VARIANTS.len() }>,
+    pub commands: GlobalVTable,
 }
 
 pub(crate) static GLOBAL: OnceLock<Global> = OnceLock::new();
 
+#[derive(Debug)]
 pub enum SetupError {
     Loading(libloading::Error),
 }
 
+/// Setups the loader. This needs to be called before anything else in the crate can be used.
 pub unsafe fn setup() -> Result<(), SetupError> {
     const PATH: &str = cfg_select! {
         any(target_os = "android", target_os = "fuchsia") => "libvulkan.so",
@@ -66,14 +71,15 @@ pub unsafe fn setup() -> Result<(), SetupError> {
     Ok(())
 }
 
-type InstanceVTable = VTable<{ crate::InstanceCommands::VARIANTS.len() }>;
-
+/// A [`InstanceHandle`](crate::InstanceHandle) wrapper that carries a vtable generated at
+/// creation time. Children of this instance carry a reference to the same vtable.
 pub struct Instance {
     pub(crate) handle: crate::InstanceHandle,
-    pub(crate) vtable: Arc<VTable<{ crate::InstanceCommands::VARIANTS.len() }>>,
+    pub(crate) vtable: Arc<InstanceVTable>,
 }
 
 impl Instance {
+    /// Creates a new [`Instance`]. This is a wrapper around [`create_instance`](crate::create_instance).
     pub fn create(
         create_info: *const crate::InstanceCreateInfo,
         allocator: *const crate::AllocationCallbacks,

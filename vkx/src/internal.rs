@@ -65,3 +65,66 @@ pub type DeviceSize = u64;
 /// <https://docs.vulkan.org/refpages/latest/refpages/source/VkSampleMask.html>
 #[doc(alias = "VkSampleMask")]
 pub type SampleMask = u32;
+
+/// A version number.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+pub struct Version(u32);
+
+impl Version {
+    pub const V1_0: Self = Self::new(0, 1, 0, 0);
+    pub const V1_1: Self = Self::new(0, 1, 1, 0);
+    pub const V1_2: Self = Self::new(0, 1, 2, 0);
+    pub const V1_3: Self = Self::new(0, 1, 3, 0);
+    pub const V1_4: Self = Self::new(0, 1, 4, 0);
+
+    /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_MAKE_API_VERSION.html>
+    #[doc(alias = "VK_MAKE_API_VERSION")]
+    #[inline(always)]
+    pub const fn new(variant: u8, major: u8, minor: u16, patch: u16) -> Self {
+        assert!((patch as u32) < (1 << 12));
+        assert!((minor as u32) < (1 << 9));
+        assert!((major as u32) < (1 << 8));
+        assert!((variant as u32) < (1 << 3));
+        let patch = patch as u32;
+        let minor = (minor as u32) << 12;
+        let major = (major as u32) << 22;
+        let variant = (variant as u32) << 29;
+        Self(patch | minor | major | variant)
+    }
+
+    /// Returns the packed version value.
+    #[inline(always)]
+    pub const fn get(self) -> u32 {
+        self.0
+    }
+
+    /// Returns the variant version number.
+    #[inline(always)]
+    pub const fn variant(self) -> u8 {
+        (self.0 >> 29) as u8
+    }
+
+    /// Returns the major version number.
+    #[inline(always)]
+    pub const fn major(self) -> u8 {
+        (self.0 >> 22) as u8
+    }
+
+    /// Returns the minor version number.
+    #[inline(always)]
+    pub const fn minor(self) -> u16 {
+        ((self.0 >> 12) as u16) & 0x1FF
+    }
+
+    /// Returns the patch version number.
+    #[inline(always)]
+    pub const fn patch(self) -> u16 {
+        (self.0 as u16) & 0xFFF
+    }
+}
+
+impl From<Version> for u32 {
+    fn from(value: Version) -> Self {
+        value.get()
+    }
+}
