@@ -3,7 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 
-use crate::manual::*;
+use crate::loader::*;
 use crate::platform::*;
 use std::ffi::{c_char, c_int, c_uint, c_void};
 
@@ -14,6 +14,7 @@ use crate::flags::*;
 use crate::handles::*;
 use crate::internal::*;
 use crate::structs::*;
+
 /// [`PFN_vkAllocationFunction`](https://docs.vulkan.org/refpages/latest/refpages/source/PFN_vkAllocationFunction.html)
 ///
 #[doc(alias = "PFN_vkAllocationFunction")]

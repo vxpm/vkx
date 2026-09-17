@@ -16,7 +16,7 @@ MODULE_PREFIX: str = """ // WARNING: AUTO GENERATED MODULE
 #![allow(unused_variables)]
 
 use std::ffi::{c_void, c_int, c_uint, c_char};
-use crate::manual::*;
+use crate::loader::*;
 use crate::platform::*;
 """
 
@@ -24,9 +24,9 @@ FN_PTRS_MODULE_PREFIX: str = """
 use crate::bitmasks::*;
 use crate::consts_inner::*;
 use crate::enums::*;
-use crate::internal::*;
 use crate::flags::*;
 use crate::handles::*;
+use crate::internal::*;
 use crate::structs::*;
 """
 
@@ -34,10 +34,10 @@ STRUCTS_MODULE_PREFIX: str = """
 use crate::bitmasks::*;
 use crate::consts_inner::*;
 use crate::enums::*;
-use crate::internal::*;
 use crate::flags::*;
 use crate::fn_ptrs::*;
 use crate::handles::*;
+use crate::internal::*;
 """
 
 CONSTS_MODULE_PREFIX: str = """
@@ -53,6 +53,10 @@ use crate::flags::*;
 use crate::fn_ptrs::*;
 use crate::handles::*;
 use crate::structs::*;
+"""
+
+HANDLES_MODULE_PREFIX: str = """
+use crate::internal::*;
 """
 
 
@@ -241,14 +245,13 @@ class Context:
     vk: vkobj.VulkanObject = get_vulkan_object(video=True)
     reg: Registry = Registry()
     ty_parser: CTypeParser = CTypeParser()
-    dispatchable_handles: set[str]
+    dispatchable_handles: dict[str, str] = {}
     global_commands: list[str]
     instance_commands: list[str]
 
     def __init__(self, root: Path):
         self.ty_parser.add_mapping("VkResult", "ResultCode")
         self.root = root
-        self.dispatchable_handles = set()
         self.global_commands = []
         self.instance_commands = []
 
@@ -429,29 +432,17 @@ class Context:
         out.writeln("#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]")
         out.writeln("#[repr(transparent)]")
 
-        raw_handle_type_name = type_name
-        if x.dispatchable:
+        if x.dispatchable and len(x.extensions) == 0:
             raw_handle_type_name = f"{type_name}Handle"
-            self.dispatchable_handles.add(type_name)
+            inner_handle_type = "usize"
+
+            self.dispatchable_handles[raw_handle_type_name] = type_name
             self.ty_parser.add_mapping(x.name, raw_handle_type_name)
-
-            out.writeln(f"pub struct {raw_handle_type_name}(usize);")
-
-            # handle with commands
-            out.writeln(
-                f"/// A wrapper around [`{raw_handle_type_name}`] with a dispatch table."
-            )
-            out.writeln("#[derive(Debug, Clone, PartialEq, Eq)]")
-            out.writeln(f"pub struct {type_name} {{")
-            out.indent()
-            out.writeln(f"pub(crate) handle: {type_name}Handle,")
-            out.writeln(
-                "pub(crate) commands: LoadedCommands<{ InstanceCommands::VARIANTS.len() }>,"
-            )
-            out.deindent()
-            out.writeln("}")
         else:
-            out.writeln(f"pub struct {raw_handle_type_name}(u64);")
+            raw_handle_type_name = type_name
+            inner_handle_type = "u64"
+
+        out.writeln(f"pub struct {raw_handle_type_name}({inner_handle_type});")
 
         # aliases
         for alias in x.aliases:
@@ -667,8 +658,9 @@ class Context:
             else:
                 ty = self.ty_parser.parse(param.fullType)
 
-            if handle is None and str(ty) in self.dispatchable_handles:
-                handle = ty
+            handle_with_dispatch = self.dispatchable_handles.get(str(ty), None)
+            if handle is None and handle_with_dispatch is not None:
+                handle = handle_with_dispatch
                 continue
 
             params.append((name, ty))
@@ -680,7 +672,7 @@ class Context:
         if handle is not None:
             self.instance_commands.append(x.name)
             out.writeln(
-                f'pub(crate) type FUN_{fn_alias_name} = unsafe extern "C" fn({handle}Handle, {", ".join(str(x[0]) for x in params)}) {return_ty};'
+                f'pub(crate) type FUN_{fn_alias_name} = unsafe extern "C" fn({handle}Handle, {", ".join(str(x[1]) for x in params)}) {return_ty};'
             )
 
             if str(handle) != "Device":
@@ -702,7 +694,17 @@ class Context:
             out.writeln("#[inline(always)]")
             out.writeln(f"{signature} {{")
             out.indent()
-            out.writeln("todo!()")
+
+            out.writeln(
+                f'let command = vtable_get(&*self.vtable(), InstanceCommands::{x.name} as usize).expect("command should not be null");'
+            )
+            out.writeln(
+                f"let command = unsafe {{ std::mem::transmute::<vkVoidFunction, FUN_{fn_alias_name}>(command) }};"
+            )
+            out.writeln(
+                f"unsafe {{ (command)(self.handle, {', '.join(x[0] for x in params)}) }}"
+            )
+
             out.deindent()
             out.writeln("}")
 
@@ -722,7 +724,16 @@ class Context:
             out.writeln("#[inline(always)]")
             out.writeln(f"{signature} {{")
             out.indent()
-            out.writeln("todo!()")
+            out.writeln(
+                'let commands = GLOBAL.get().expect("vkx setup should have been run").commands;'
+            )
+            out.writeln(
+                f'let command = vtable_get(&commands, GlobalCommands::{x.name} as usize).expect("command should not be null");'
+            )
+            out.writeln(
+                f"let command = unsafe {{ std::mem::transmute::<vkVoidFunction, FUN_{fn_alias_name}>(command) }};"
+            )
+            out.writeln(f"unsafe {{ (command)({', '.join(x[0] for x in params)}) }}")
             out.deindent()
             out.writeln("}")
 
@@ -893,6 +904,18 @@ class Context:
             command = self.generate_command(command)
             self.reg.commands.append(command)
 
+    def generate_custom_enums(self) -> str:
+        extensions_enum = self.generate_extensions()
+        global_commands_enum = self.generate_commands_enum(
+            "GlobalCommands", self.global_commands
+        )
+        instance_commands_enum = self.generate_commands_enum(
+            "InstanceCommands", self.instance_commands
+        )
+        return "\n".join(
+            [extensions_enum, global_commands_enum, instance_commands_enum]
+        )
+
     def write_module(self, path: str, content: str):
         path = f"{self.root}/src/{path}"
         os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -902,9 +925,9 @@ class Context:
             _ = f.write(content)
 
     def write_generated_to_module(
-        self, path: str, prefix: str, generated: list[Generated[T]]
+        self, path: str, base: str, generated: list[Generated[T]]
     ):
-        content = prefix
+        content = f"{base}\n"
         for elem in generated:
             content += f"{elem.definition}\n"
 
@@ -912,7 +935,10 @@ class Context:
 
     def generate(self):
         print("Filling registry...")
+
         self.fill_registry()
+        custom_enums = self.generate_custom_enums()
+
         print("Done!")
         print(f"- Bitmasks: {len(self.reg.bitmasks)}")
         print(f"- Commands: {len(self.reg.commands)}")
@@ -932,28 +958,17 @@ class Context:
         self.write_generated_to_module(
             "consts.rs", CONSTS_MODULE_PREFIX, self.reg.constants
         )
-        self.write_generated_to_module("enums.rs", "", self.reg.enums)
+        self.write_generated_to_module("enums.rs", custom_enums, self.reg.enums)
         self.write_generated_to_module("flags.rs", "", self.reg.flags)
         self.write_generated_to_module(
             "fn_ptrs.rs", FN_PTRS_MODULE_PREFIX, self.reg.fnptrs
         )
-        self.write_generated_to_module("handles.rs", "", self.reg.handles)
+        self.write_generated_to_module(
+            "handles.rs", HANDLES_MODULE_PREFIX, self.reg.handles
+        )
         self.write_generated_to_module(
             "structs.rs", STRUCTS_MODULE_PREFIX, self.reg.structs
         )
-
-        # internal
-        extensions_enum = self.generate_extensions()
-        global_commands_enum = self.generate_commands_enum(
-            "GlobalCommands", self.global_commands
-        )
-        instance_commands_enum = self.generate_commands_enum(
-            "InstanceCommands", self.instance_commands
-        )
-        internal = (
-            f"{extensions_enum}\n{global_commands_enum}\n{instance_commands_enum}"
-        )
-        self.write_module("internal.rs", internal)
 
         print("Done!")
 

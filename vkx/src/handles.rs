@@ -3,9 +3,12 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 
-use crate::manual::*;
+use crate::loader::*;
 use crate::platform::*;
 use std::ffi::{c_char, c_int, c_uint, c_void};
+
+use crate::internal::*;
+
 /// [`VkInstance`](https://docs.vulkan.org/refpages/latest/refpages/source/VkInstance.html)
 ///
 /// # Handle type
@@ -14,12 +17,6 @@ use std::ffi::{c_char, c_int, c_uint, c_void};
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct InstanceHandle(usize);
-/// A wrapper around [`InstanceHandle`] with a dispatch table.
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub struct Instance {
-    pub(crate) handle: InstanceHandle,
-    pub(crate) commands: LoadedCommands<{ InstanceCommands::VARIANTS.len() }>,
-}
 
 /// [`VkPhysicalDevice`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevice.html)
 ///
@@ -29,12 +26,6 @@ pub struct Instance {
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct PhysicalDeviceHandle(usize);
-/// A wrapper around [`PhysicalDeviceHandle`] with a dispatch table.
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub struct PhysicalDevice {
-    pub(crate) handle: PhysicalDeviceHandle,
-    pub(crate) commands: LoadedCommands<{ InstanceCommands::VARIANTS.len() }>,
-}
 
 /// [`VkDevice`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDevice.html)
 ///
@@ -44,12 +35,6 @@ pub struct PhysicalDevice {
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct DeviceHandle(usize);
-/// A wrapper around [`DeviceHandle`] with a dispatch table.
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub struct Device {
-    pub(crate) handle: DeviceHandle,
-    pub(crate) commands: LoadedCommands<{ InstanceCommands::VARIANTS.len() }>,
-}
 
 /// [`VkQueue`](https://docs.vulkan.org/refpages/latest/refpages/source/VkQueue.html)
 ///
@@ -59,12 +44,6 @@ pub struct Device {
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct QueueHandle(usize);
-/// A wrapper around [`QueueHandle`] with a dispatch table.
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub struct Queue {
-    pub(crate) handle: QueueHandle,
-    pub(crate) commands: LoadedCommands<{ InstanceCommands::VARIANTS.len() }>,
-}
 
 /// [`VkSemaphore`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSemaphore.html)
 ///
@@ -83,12 +62,6 @@ pub struct Semaphore(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct CommandBufferHandle(usize);
-/// A wrapper around [`CommandBufferHandle`] with a dispatch table.
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub struct CommandBuffer {
-    pub(crate) handle: CommandBufferHandle,
-    pub(crate) commands: LoadedCommands<{ InstanceCommands::VARIANTS.len() }>,
-}
 
 /// [`VkFence`](https://docs.vulkan.org/refpages/latest/refpages/source/VkFence.html)
 ///
@@ -541,13 +514,7 @@ pub struct DataGraphPipelineSessionARM(u64);
 #[doc(alias = "VkExternalComputeQueueNV")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
-pub struct ExternalComputeQueueNVHandle(usize);
-/// A wrapper around [`ExternalComputeQueueNVHandle`] with a dispatch table.
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub struct ExternalComputeQueueNV {
-    pub(crate) handle: ExternalComputeQueueNVHandle,
-    pub(crate) commands: LoadedCommands<{ InstanceCommands::VARIANTS.len() }>,
-}
+pub struct ExternalComputeQueueNV(u64);
 
 /// [`VkIndirectExecutionSetEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectExecutionSetEXT.html)
 ///

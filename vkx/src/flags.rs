@@ -3,9 +3,10 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 
-use crate::manual::*;
+use crate::loader::*;
 use crate::platform::*;
 use std::ffi::{c_char, c_int, c_uint, c_void};
+
 /// [`VkDeviceCreateFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceCreateFlags.html)
 ///
 #[doc(alias = "VkDeviceCreateFlags")]

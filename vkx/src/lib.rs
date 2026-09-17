@@ -1,7 +1,8 @@
-mod manual;
+mod internal;
+mod loader;
 mod platform;
 
-// auto generated
+// auto generated modules
 mod bitmasks;
 mod commands;
 mod consts;
@@ -10,7 +11,6 @@ mod enums;
 mod flags;
 mod fn_ptrs;
 mod handles;
-mod internal;
 mod structs;
 
 pub use bitmasks::*;
@@ -21,5 +21,5 @@ pub use flags::*;
 pub use fn_ptrs::*;
 pub use handles::*;
 pub use internal::*;
-pub use manual::*;
+pub use loader::*;
 pub use structs::*;

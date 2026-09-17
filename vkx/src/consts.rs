@@ -3,11 +3,12 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 
-use crate::manual::*;
+use crate::loader::*;
 use crate::platform::*;
 use std::ffi::{c_char, c_int, c_uint, c_void};
 
 use crate::consts_inner::*;
+
 /// [`VK_MAX_PHYSICAL_DEVICE_NAME_SIZE`](https://docs.vulkan.org/refpages/latest/refpages/source/VK_MAX_PHYSICAL_DEVICE_NAME_SIZE.html)
 ///
 #[doc(alias = "VK_MAX_PHYSICAL_DEVICE_NAME_SIZE")]
