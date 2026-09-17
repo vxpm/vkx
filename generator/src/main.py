@@ -845,6 +845,7 @@ class Context:
                     "glemulation": "OpenGL emulation",
                     "d3demulation": "Direct3D emulation",
                     "devtools": "development tooling",
+                    "cadsupport": "CAD tooling",
                 }
                 usecases = [known_use_cases.get(i, i) for i in ext.specialUse]
                 out.writeln(f"/// Intended for {', '.join(usecases)}.")

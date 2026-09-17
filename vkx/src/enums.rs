@@ -681,7 +681,7 @@ pub enum Extensions {
     #[doc(alias = "VK_EXT_headless_surface")]
     EXT_HeadlessSurface,
     /// Promoted to [`Self::KHR_LineRasterization`].
-    /// Intended for cadsupport.
+    /// Intended for CAD tooling.
     #[doc(alias = "VK_EXT_line_rasterization")]
     EXT_LineRasterization,
     #[doc(alias = "VK_EXT_shader_atomic_float")]
