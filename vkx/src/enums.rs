@@ -442,10 +442,10 @@ pub enum Extensions {
     EXT_ValidationFlags,
     #[doc(alias = "VK_NN_vi_surface")]
     NN_ViSurface,
-    /// Deprecated by 1.2.
+    /// Deprecated by version 1.2.
     #[doc(alias = "VK_EXT_shader_subgroup_ballot")]
     EXT_ShaderSubgroupBallot,
-    /// Deprecated by 1.1.
+    /// Deprecated by version 1.1.
     #[doc(alias = "VK_EXT_shader_subgroup_vote")]
     EXT_ShaderSubgroupVote,
     /// Promoted to core in version 1.3.
