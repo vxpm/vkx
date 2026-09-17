@@ -75,11 +75,6 @@ def const(name: str) -> str:
 def extension(name: str) -> str:
     name = name.removeprefix("VK_")
     split = name.split("_", maxsplit=1)
-
-    if len(split) != 2:
-        print(name)
-        exit(-1)
-
     tag, name = split
     return f"{tag}_{textcase.pascal(name)}"
 
@@ -93,7 +88,7 @@ def command(name: str) -> str:
 
 
 def command_param(name: str) -> str:
-    name = textcase.snake(name).removeprefix("pp_").removeprefix("p_")
+    name = textcase.snake(name)
     if name == "type":
         name = "type_"
 
