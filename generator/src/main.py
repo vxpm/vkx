@@ -122,36 +122,6 @@ def version_number(ver: str) -> str:
     return ver.removeprefix("VK_VERSION_").replace("_", ".")
 
 
-def vulkan_doc_header(out: CodeWriter, name: str):
-    out.writeln(
-        f"/// [`{name}`](https://docs.vulkan.org/refpages/latest/refpages/source/{name}.html)"
-    )
-    out.writeln("///")
-
-
-def requirements_doc_header(
-    out: CodeWriter, version: vkobj.Version | None, extensions: list[str]
-):
-    if len(extensions) > 0 or version is not None:
-        out.writeln("/// # Requirements")
-        out.writeln("/// This requires _at least_ one of the following:")
-
-        if version is not None:
-            # TODO: list features
-            version_num = version_number(version.name)
-            out.writeln(f"/// - Version {version_num} with appropriate features")
-
-        for ext in extensions:
-            ext_name = names.extension(ext)
-            out.writeln(f"/// - Extension [`{ext_name}`](Extensions::{ext_name})")
-
-        out.writeln("///")
-        out.writeln(
-            "/// Note this is not an exhaustive requirement list. For more information check vulkan documentation."
-        )
-        out.writeln("///")
-
-
 class Context:
     root: Path
     vk: vkobj.VulkanObject = get_vulkan_object(video=True)
@@ -179,6 +149,68 @@ class Context:
             return prefix
         else:
             return name
+
+    def vulkan_doc_header(self, out: CodeWriter, name: str):
+        out.writeln(
+            f"/// [`{name}`](https://docs.vulkan.org/refpages/latest/refpages/source/{name}.html)"
+        )
+        out.writeln("///")
+
+    def requirements_doc_header(
+        self, out: CodeWriter, version: vkobj.Version | None, extensions: list[str]
+    ):
+        if len(extensions) > 0 or version is not None:
+            out.writeln("/// # Requirements")
+            out.writeln("/// This requires _at least_ one of the following:")
+
+            if version is not None:
+                minimum_version = list(
+                    map(int, version_number(version.name).split("."))
+                )
+            else:
+                minimum_version = None
+
+            # preprocess all extensions
+            all_extensions: list[str] = []
+            for ext_name in extensions:
+                all_extensions.append(ext_name)
+                ext = self.vk.extensions[ext_name]
+
+                if ext.deprecatedBy is not None and ext.deprecatedBy != "":
+                    all_extensions.append(ext.deprecatedBy)
+
+                if ext.obsoletedBy is not None and ext.obsoletedBy != "":
+                    all_extensions.append(ext.obsoletedBy)
+
+                if ext.promotedTo is not None and ext.promotedTo != "":
+                    if ext.promotedTo.startswith("VK_VERSION_"):
+                        promoted_version = list(
+                            map(int, version_number(ext.promotedTo).split("."))
+                        )
+
+                        if minimum_version is not None:
+                            minimum_version = min(minimum_version, promoted_version)
+                        else:
+                            minimum_version = promoted_version
+                    else:
+                        all_extensions.append(ext.promotedTo)
+
+            # doc
+            if minimum_version is not None:
+                # TODO: list features?
+                assert version is not None or len(all_extensions) != 0
+                version_str = ".".join(map(str, minimum_version))
+                out.writeln(f"/// - Version {version_str} with appropriate features")
+
+            for ext in all_extensions:
+                ext_name = names.extension(ext)
+                out.writeln(f"/// - Extension [`{ext_name}`](Extensions::{ext_name})")
+
+            out.writeln("///")
+            out.writeln(
+                "/// Note this list might not be exhaustive. For more information check vulkan documentation."
+            )
+            out.writeln("///")
 
     def command_doc_header(self, out: CodeWriter, command: vkobj.Command):
         optional_params = [param for param in command.params if param.optional]
@@ -237,6 +269,13 @@ class Context:
 
                 out.writeln(f"/// - [`{error}`](ResultCode::{variant})")
 
+    def returned_only_doc_header(self, out: CodeWriter, returned_only: bool):
+        if returned_only:
+            out.writeln("/// # Returned only")
+            out.writeln(
+                "/// This type is only returned by Vulkan, never constructed by the API user."
+            )
+
     # Generates a struct (or union) definition from a vulkan struct.
     def generate_struct(self, x: vkobj.Struct) -> Generated[vkobj.Struct]:
         assert self.vk.videoStd is not None
@@ -245,8 +284,9 @@ class Context:
         type_name = names.struct(x.name)
 
         # docs
-        vulkan_doc_header(out, x.name)
-        requirements_doc_header(out, x.version, x.extensions)
+        self.vulkan_doc_header(out, x.name)
+        self.requirements_doc_header(out, x.version, x.extensions)
+        self.returned_only_doc_header(out, x.returnedOnly)
 
         if not x.union and len(x.extends) > 0:
             parents = (f"[`{names.struct(parent)}`]" for parent in x.extends)
@@ -260,15 +300,8 @@ class Context:
             for child in children:
                 out.writeln(f"/// - {child}")
 
-        if x.returnedOnly:
-            out.writeln("/// # Returned only")
-            out.writeln(
-                "/// This type is only returned by Vulkan, never constructed by the API user."
-            )
-
-        out.writeln(f'#[doc(alias = "{x.name}")]')
-
         # definition
+        out.writeln(f'#[doc(alias = "{x.name}")]')
         out.writeln("#[repr(C)]")
         if x.union:
             out.writeln("#[derive(Clone, Copy)]")
@@ -399,7 +432,7 @@ class Context:
         # aliases
         for alias in x.aliases:
             alias_name = names.struct(alias)
-            vulkan_doc_header(out, alias)
+            self.vulkan_doc_header(out, alias)
             out.writeln(f'#[doc(alias = "{alias}")]')
             out.writeln(f"pub type {alias_name} = {type_name};")
 
@@ -410,13 +443,17 @@ class Context:
 
         handle_name = names.handle(x.name)
 
-        vulkan_doc_header(out, x.name)
+        # docs
+        self.vulkan_doc_header(out, x.name)
+        self.requirements_doc_header(out, None, x.extensions)
+
         out.writeln("/// # Handle type")
         if x.dispatchable:
             out.writeln("/// Dispatchable")
         else:
             out.writeln("/// Non-dispatchable")
 
+        # definition
         out.writeln(f'#[doc(alias = "{x.name}")]')
         out.writeln("#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]")
         out.writeln("#[repr(transparent)]")
@@ -436,7 +473,7 @@ class Context:
         # aliases
         for alias in x.aliases:
             alias_name = names.handle(alias)
-            vulkan_doc_header(out, alias)
+            self.vulkan_doc_header(out, alias)
             out.writeln(f'#[doc(alias = "{alias}")]')
             out.writeln(f"pub type {alias_name} = {raw_handle_name};")
 
@@ -453,13 +490,12 @@ class Context:
         if enum_name == "Result":
             enum_name = "ResultCode"
 
-        vulkan_doc_header(out, x.name)
-        if x.returnedOnly:
-            out.writeln("/// # Returned only")
-            out.writeln(
-                "/// This type is only returned by Vulkan, never constructed by the API user."
-            )
+        # docs
+        self.vulkan_doc_header(out, x.name)
+        self.requirements_doc_header(out, None, x.extensions)
+        self.returned_only_doc_header(out, x.returnedOnly)
 
+        # definition
         out.writeln(f'#[doc(alias = "{x.name}")]')
         out.writeln("#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]")
         out.writeln("#[non_exhaustive]")
@@ -479,6 +515,7 @@ class Context:
                 out.writeln("#[default]")
                 first_variant = False
 
+            self.requirements_doc_header(out, None, variant.extensions)
             out.writeln(f'#[doc(alias = "{variant.name}")]')
             out.writeln(f"{name} = {variant.value},")
 
@@ -488,7 +525,7 @@ class Context:
         # aliases
         for alias in x.aliases:
             alias_name = names.enum(alias)
-            vulkan_doc_header(out, alias)
+            self.vulkan_doc_header(out, alias)
             out.writeln(f'#[doc(alias = "{alias}")]')
             out.writeln(f"pub type {alias_name} = {enum_name};")
 
@@ -498,6 +535,7 @@ class Context:
 
             for variant, alias in variant_aliases:
                 alias_name = names.enum_variant(variant_prefix, alias)
+                self.vulkan_doc_header(out, alias)
                 out.writeln(f'#[doc(alias = "{alias}")]')
                 out.writeln(f"pub const {alias_name}: Self = Self::{variant};")
 
@@ -518,14 +556,12 @@ class Context:
         out.writeln("bitflags::bitflags! {")
         out.indent()
 
-        vulkan_doc_header(out, x.name)
-        requirements_doc_header(out, None, x.extensions)
-        if x.returnedOnly:
-            out.writeln("/// # Returned only")
-            out.writeln(
-                "/// This type is only returned by Vulkan, never constructed by the API user."
-            )
+        # docs
+        self.vulkan_doc_header(out, x.name)
+        self.requirements_doc_header(out, None, x.extensions)
+        self.returned_only_doc_header(out, x.returnedOnly)
 
+        # definition
         out.writeln(f'#[doc(alias = "{x.name}")]')
         out.writeln("#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]")
         out.writeln("#[repr(transparent)]")
@@ -538,7 +574,7 @@ class Context:
             for alias in flag.aliases:
                 flag_aliases.append((name, alias))
 
-            requirements_doc_header(out, None, flag.extensions)
+            self.requirements_doc_header(out, None, flag.extensions)
             out.writeln(f'#[doc(alias = "{flag.name}")]')
             out.writeln(f"const {name} = {flag.value};")
 
@@ -550,7 +586,7 @@ class Context:
         # aliases
         for alias in x.aliases:
             alias_name = names.bitmask(alias)
-            vulkan_doc_header(out, alias)
+            self.vulkan_doc_header(out, alias)
             out.writeln(f'#[doc(alias = "{alias}")]')
             out.writeln(f"pub type {alias_name} = {bitmask_name};")
 
@@ -558,12 +594,13 @@ class Context:
             out.writeln(f"impl {bitmask_name} {{")
             out.indent()
             for flag, alias in flag_aliases:
-                name = names.bitmask_flag(alias, flag_prefix)
-                if name == flag:
-                    name = f"ALIAS_{name}"
+                alias_name = names.bitmask_flag(alias, flag_prefix)
+                if alias_name == flag:
+                    alias_name = f"ALIAS_{alias_name}"
 
+                self.vulkan_doc_header(out, alias)
                 out.writeln(f'#[doc(alias = "{alias}")]')
-                out.writeln(f"pub const {name}: Self = Self::{flag};")
+                out.writeln(f"pub const {alias_name}: Self = Self::{flag};")
             out.deindent()
             out.writeln("}")
 
@@ -575,21 +612,19 @@ class Context:
         flags_name = names.flags(x.name)
         repr_type = "u32" if x.bitWidth == 32 else "u64"
 
-        vulkan_doc_header(out, x.name)
-        requirements_doc_header(out, None, x.extensions)
-        if x.returnedOnly:
-            out.writeln("/// # Returned only")
-            out.writeln(
-                "/// This type is only returned by Vulkan, never constructed by the API user."
-            )
+        # docs
+        self.vulkan_doc_header(out, x.name)
+        self.requirements_doc_header(out, None, x.extensions)
+        self.returned_only_doc_header(out, x.returnedOnly)
 
+        # definition
         out.writeln(f'#[doc(alias = "{x.name}")]')
         out.writeln(f"pub type {flags_name} = {repr_type};")
 
         # aliases
         for alias in x.aliases:
             alias_name = names.flags(alias)
-            vulkan_doc_header(out, alias)
+            self.vulkan_doc_header(out, alias)
             out.writeln(f'#[doc(alias = "{alias}")]')
             out.writeln(f"pub type {alias_name} = {flags_name};")
 
@@ -600,9 +635,11 @@ class Context:
 
         type_name = x.name.removeprefix("PFN_")
 
-        vulkan_doc_header(out, x.name)
-        out.writeln(f'#[doc(alias = "{x.name}")]')
+        # docs
+        self.vulkan_doc_header(out, x.name)
 
+        # definition
+        out.writeln(f'#[doc(alias = "{x.name}")]')
         params: list[RustType] = []
         for param in x.params:
             params.append(self.ty_parser.parse(param.fullType))
@@ -622,7 +659,10 @@ class Context:
         const_ty = self.ty_parser.parse(x.type)
         const_value = x.value
 
-        vulkan_doc_header(out, x.name)
+        # docs
+        self.vulkan_doc_header(out, x.name)
+
+        # definition
         out.writeln(f"pub const {const_name}: {const_ty} = {const_value};")
 
         return Generated(const_name, out.content, x)
@@ -633,7 +673,10 @@ class Context:
         const_name = names.const(x.name)
         const_ty = self.ty_parser.parse(x.type)
 
-        vulkan_doc_header(out, x.name)
+        # docs
+        self.vulkan_doc_header(out, x.name)
+
+        # definition
         out.writeln(f'#[doc(alias = "{x.name}")]')
         out.writeln(f"pub const {const_name}: {const_ty} = {x.name};")
 
@@ -695,9 +738,12 @@ class Context:
             out.writeln(f"impl {handle} {{")
             out.indent()
 
-            vulkan_doc_header(out, x.name)
-            requirements_doc_header(out, x.version, x.extensions)
+            # docs
+            self.vulkan_doc_header(out, x.name)
+            self.requirements_doc_header(out, x.version, x.extensions)
             self.command_doc_header(out, x)
+
+            # definition
             out.writeln(f'#[doc(alias = "{x.name}")]')
             out.writeln("#[inline(always)]")
             out.writeln(f"{signature} {{")
@@ -727,9 +773,12 @@ class Context:
 
             signature = f"pub unsafe fn {command_name}({', '.join(f'{x[0]}: {x[1]}' for x in params)}) {return_ty}"
 
-            vulkan_doc_header(out, x.name)
-            requirements_doc_header(out, x.version, x.extensions)
+            # docs
+            self.vulkan_doc_header(out, x.name)
+            self.requirements_doc_header(out, x.version, x.extensions)
             self.command_doc_header(out, x)
+
+            # definition
             out.writeln(f'#[doc(alias = "{x.name}")]')
             out.writeln("#[inline(always)]")
             out.writeln(f"{signature} {{")

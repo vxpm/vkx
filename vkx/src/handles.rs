@@ -275,6 +275,12 @@ pub type PrivateDataSlotEXT = PrivateDataSlot;
 
 /// [`VkSurfaceKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfaceKHR.html)
 ///
+/// # Requirements
+/// This requires _at least_ one of the following:
+/// - Extension [`KHR_Surface`](Extensions::KHR_Surface)
+///
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
+///
 /// # Handle type
 /// Non-dispatchable
 #[doc(alias = "VkSurfaceKHR")]
@@ -283,6 +289,12 @@ pub type PrivateDataSlotEXT = PrivateDataSlot;
 pub struct SurfaceKHR(u64);
 
 /// [`VkSwapchainKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSwapchainKHR.html)
+///
+/// # Requirements
+/// This requires _at least_ one of the following:
+/// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
+///
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 /// # Handle type
 /// Non-dispatchable
@@ -293,6 +305,12 @@ pub struct SwapchainKHR(u64);
 
 /// [`VkDisplayKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplayKHR.html)
 ///
+/// # Requirements
+/// This requires _at least_ one of the following:
+/// - Extension [`KHR_Display`](Extensions::KHR_Display)
+///
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
+///
 /// # Handle type
 /// Non-dispatchable
 #[doc(alias = "VkDisplayKHR")]
@@ -301,6 +319,12 @@ pub struct SwapchainKHR(u64);
 pub struct DisplayKHR(u64);
 
 /// [`VkDisplayModeKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplayModeKHR.html)
+///
+/// # Requirements
+/// This requires _at least_ one of the following:
+/// - Extension [`KHR_Display`](Extensions::KHR_Display)
+///
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 /// # Handle type
 /// Non-dispatchable
@@ -311,6 +335,12 @@ pub struct DisplayModeKHR(u64);
 
 /// [`VkVideoSessionKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoSessionKHR.html)
 ///
+/// # Requirements
+/// This requires _at least_ one of the following:
+/// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+///
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
+///
 /// # Handle type
 /// Non-dispatchable
 #[doc(alias = "VkVideoSessionKHR")]
@@ -319,6 +349,12 @@ pub struct DisplayModeKHR(u64);
 pub struct VideoSessionKHR(u64);
 
 /// [`VkVideoSessionParametersKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoSessionParametersKHR.html)
+///
+/// # Requirements
+/// This requires _at least_ one of the following:
+/// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+///
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 /// # Handle type
 /// Non-dispatchable
@@ -329,6 +365,12 @@ pub struct VideoSessionParametersKHR(u64);
 
 /// [`VkDeferredOperationKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeferredOperationKHR.html)
 ///
+/// # Requirements
+/// This requires _at least_ one of the following:
+/// - Extension [`KHR_DeferredHostOperations`](Extensions::KHR_DeferredHostOperations)
+///
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
+///
 /// # Handle type
 /// Non-dispatchable
 #[doc(alias = "VkDeferredOperationKHR")]
@@ -337,6 +379,13 @@ pub struct VideoSessionParametersKHR(u64);
 pub struct DeferredOperationKHR(u64);
 
 /// [`VkAccelerationStructureKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureKHR.html)
+///
+/// # Requirements
+/// This requires _at least_ one of the following:
+/// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+/// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+///
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 /// # Handle type
 /// Non-dispatchable
@@ -347,6 +396,12 @@ pub struct AccelerationStructureKHR(u64);
 
 /// [`VkPipelineBinaryKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineBinaryKHR.html)
 ///
+/// # Requirements
+/// This requires _at least_ one of the following:
+/// - Extension [`KHR_PipelineBinary`](Extensions::KHR_PipelineBinary)
+///
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
+///
 /// # Handle type
 /// Non-dispatchable
 #[doc(alias = "VkPipelineBinaryKHR")]
@@ -355,6 +410,13 @@ pub struct AccelerationStructureKHR(u64);
 pub struct PipelineBinaryKHR(u64);
 
 /// [`VkDebugReportCallbackEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDebugReportCallbackEXT.html)
+///
+/// # Requirements
+/// This requires _at least_ one of the following:
+/// - Extension [`EXT_DebugReport`](Extensions::EXT_DebugReport)
+/// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+///
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 /// # Handle type
 /// Non-dispatchable
@@ -365,6 +427,12 @@ pub struct DebugReportCallbackEXT(u64);
 
 /// [`VkCuModuleNVX`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCuModuleNVX.html)
 ///
+/// # Requirements
+/// This requires _at least_ one of the following:
+/// - Extension [`NVX_BinaryImport`](Extensions::NVX_BinaryImport)
+///
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
+///
 /// # Handle type
 /// Non-dispatchable
 #[doc(alias = "VkCuModuleNVX")]
@@ -373,6 +441,12 @@ pub struct DebugReportCallbackEXT(u64);
 pub struct CuModuleNVX(u64);
 
 /// [`VkCuFunctionNVX`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCuFunctionNVX.html)
+///
+/// # Requirements
+/// This requires _at least_ one of the following:
+/// - Extension [`NVX_BinaryImport`](Extensions::NVX_BinaryImport)
+///
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 /// # Handle type
 /// Non-dispatchable
@@ -383,6 +457,12 @@ pub struct CuFunctionNVX(u64);
 
 /// [`VkDebugUtilsMessengerEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDebugUtilsMessengerEXT.html)
 ///
+/// # Requirements
+/// This requires _at least_ one of the following:
+/// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+///
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
+///
 /// # Handle type
 /// Non-dispatchable
 #[doc(alias = "VkDebugUtilsMessengerEXT")]
@@ -391,6 +471,12 @@ pub struct CuFunctionNVX(u64);
 pub struct DebugUtilsMessengerEXT(u64);
 
 /// [`VkGpaSessionAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/VkGpaSessionAMD.html)
+///
+/// # Requirements
+/// This requires _at least_ one of the following:
+/// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
+///
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 /// # Handle type
 /// Non-dispatchable
@@ -401,6 +487,13 @@ pub struct GpaSessionAMD(u64);
 
 /// [`VkTensorARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkTensorARM.html)
 ///
+/// # Requirements
+/// This requires _at least_ one of the following:
+/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+/// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+///
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
+///
 /// # Handle type
 /// Non-dispatchable
 #[doc(alias = "VkTensorARM")]
@@ -409,6 +502,12 @@ pub struct GpaSessionAMD(u64);
 pub struct TensorARM(u64);
 
 /// [`VkValidationCacheEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkValidationCacheEXT.html)
+///
+/// # Requirements
+/// This requires _at least_ one of the following:
+/// - Extension [`EXT_ValidationCache`](Extensions::EXT_ValidationCache)
+///
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 /// # Handle type
 /// Non-dispatchable
@@ -419,6 +518,13 @@ pub struct ValidationCacheEXT(u64);
 
 /// [`VkAccelerationStructureNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureNV.html)
 ///
+/// # Requirements
+/// This requires _at least_ one of the following:
+/// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
+/// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+///
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
+///
 /// # Handle type
 /// Non-dispatchable
 #[doc(alias = "VkAccelerationStructureNV")]
@@ -427,6 +533,12 @@ pub struct ValidationCacheEXT(u64);
 pub struct AccelerationStructureNV(u64);
 
 /// [`VkPerformanceConfigurationINTEL`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceConfigurationINTEL.html)
+///
+/// # Requirements
+/// This requires _at least_ one of the following:
+/// - Extension [`INTEL_PerformanceQuery`](Extensions::INTEL_PerformanceQuery)
+///
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 /// # Handle type
 /// Non-dispatchable
@@ -437,6 +549,12 @@ pub struct PerformanceConfigurationINTEL(u64);
 
 /// [`VkIndirectCommandsLayoutNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectCommandsLayoutNV.html)
 ///
+/// # Requirements
+/// This requires _at least_ one of the following:
+/// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
+///
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
+///
 /// # Handle type
 /// Non-dispatchable
 #[doc(alias = "VkIndirectCommandsLayoutNV")]
@@ -445,6 +563,12 @@ pub struct PerformanceConfigurationINTEL(u64);
 pub struct IndirectCommandsLayoutNV(u64);
 
 /// [`VkCudaModuleNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCudaModuleNV.html)
+///
+/// # Requirements
+/// This requires _at least_ one of the following:
+/// - Extension [`NV_CudaKernelLaunch`](Extensions::NV_CudaKernelLaunch)
+///
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 /// # Handle type
 /// Non-dispatchable
@@ -455,6 +579,12 @@ pub struct CudaModuleNV(u64);
 
 /// [`VkCudaFunctionNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCudaFunctionNV.html)
 ///
+/// # Requirements
+/// This requires _at least_ one of the following:
+/// - Extension [`NV_CudaKernelLaunch`](Extensions::NV_CudaKernelLaunch)
+///
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
+///
 /// # Handle type
 /// Non-dispatchable
 #[doc(alias = "VkCudaFunctionNV")]
@@ -463,6 +593,12 @@ pub struct CudaModuleNV(u64);
 pub struct CudaFunctionNV(u64);
 
 /// [`VkBufferCollectionFUCHSIA`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferCollectionFUCHSIA.html)
+///
+/// # Requirements
+/// This requires _at least_ one of the following:
+/// - Extension [`FUCHSIA_BufferCollection`](Extensions::FUCHSIA_BufferCollection)
+///
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 /// # Handle type
 /// Non-dispatchable
@@ -473,6 +609,13 @@ pub struct BufferCollectionFUCHSIA(u64);
 
 /// [`VkMicromapEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMicromapEXT.html)
 ///
+/// # Requirements
+/// This requires _at least_ one of the following:
+/// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
+/// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+///
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
+///
 /// # Handle type
 /// Non-dispatchable
 #[doc(alias = "VkMicromapEXT")]
@@ -481,6 +624,12 @@ pub struct BufferCollectionFUCHSIA(u64);
 pub struct MicromapEXT(u64);
 
 /// [`VkTensorViewARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkTensorViewARM.html)
+///
+/// # Requirements
+/// This requires _at least_ one of the following:
+/// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+///
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 /// # Handle type
 /// Non-dispatchable
@@ -491,6 +640,12 @@ pub struct TensorViewARM(u64);
 
 /// [`VkOpticalFlowSessionNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkOpticalFlowSessionNV.html)
 ///
+/// # Requirements
+/// This requires _at least_ one of the following:
+/// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+///
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
+///
 /// # Handle type
 /// Non-dispatchable
 #[doc(alias = "VkOpticalFlowSessionNV")]
@@ -499,6 +654,12 @@ pub struct TensorViewARM(u64);
 pub struct OpticalFlowSessionNV(u64);
 
 /// [`VkShaderEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderEXT.html)
+///
+/// # Requirements
+/// This requires _at least_ one of the following:
+/// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+///
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 /// # Handle type
 /// Non-dispatchable
@@ -509,6 +670,12 @@ pub struct ShaderEXT(u64);
 
 /// [`VkDataGraphPipelineSessionARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineSessionARM.html)
 ///
+/// # Requirements
+/// This requires _at least_ one of the following:
+/// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+///
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
+///
 /// # Handle type
 /// Non-dispatchable
 #[doc(alias = "VkDataGraphPipelineSessionARM")]
@@ -517,6 +684,12 @@ pub struct ShaderEXT(u64);
 pub struct DataGraphPipelineSessionARM(u64);
 
 /// [`VkExternalComputeQueueNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalComputeQueueNV.html)
+///
+/// # Requirements
+/// This requires _at least_ one of the following:
+/// - Extension [`NV_ExternalComputeQueue`](Extensions::NV_ExternalComputeQueue)
+///
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 /// # Handle type
 /// Dispatchable
@@ -527,6 +700,12 @@ pub struct ExternalComputeQueueNV(u64);
 
 /// [`VkIndirectExecutionSetEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectExecutionSetEXT.html)
 ///
+/// # Requirements
+/// This requires _at least_ one of the following:
+/// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+///
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
+///
 /// # Handle type
 /// Non-dispatchable
 #[doc(alias = "VkIndirectExecutionSetEXT")]
@@ -536,6 +715,12 @@ pub struct IndirectExecutionSetEXT(u64);
 
 /// [`VkIndirectCommandsLayoutEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectCommandsLayoutEXT.html)
 ///
+/// # Requirements
+/// This requires _at least_ one of the following:
+/// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+///
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
+///
 /// # Handle type
 /// Non-dispatchable
 #[doc(alias = "VkIndirectCommandsLayoutEXT")]
@@ -544,6 +729,12 @@ pub struct IndirectExecutionSetEXT(u64);
 pub struct IndirectCommandsLayoutEXT(u64);
 
 /// [`VkShaderInstrumentationARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderInstrumentationARM.html)
+///
+/// # Requirements
+/// This requires _at least_ one of the following:
+/// - Extension [`ARM_ShaderInstrumentation`](Extensions::ARM_ShaderInstrumentation)
+///
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 /// # Handle type
 /// Non-dispatchable

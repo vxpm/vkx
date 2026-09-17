@@ -4680,7 +4680,7 @@ pub(crate) type FUN_EnumerateInstanceVersion = unsafe extern "C" fn(*mut u32) ->
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
 ///
-/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 /// # Result codes
 /// ## Success
@@ -4715,7 +4715,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -4753,7 +4753,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -4790,7 +4790,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceGroupPeerMemoryFeatures")]
     #[inline(always)]
@@ -4829,7 +4829,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -4869,7 +4869,7 @@ impl Instance {
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - physical_device_group_properties
@@ -4921,7 +4921,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetImageMemoryRequirements2")]
     #[inline(always)]
@@ -4954,7 +4954,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetBufferMemoryRequirements2")]
     #[inline(always)]
@@ -4988,7 +4988,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - sparse_memory_requirements
@@ -5029,7 +5029,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceFeatures2")]
     #[inline(always)]
@@ -5055,7 +5055,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceProperties2")]
     #[inline(always)]
@@ -5081,7 +5081,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceFormatProperties2")]
     #[inline(always)]
@@ -5114,7 +5114,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -5160,7 +5160,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - queue_family_properties
@@ -5201,7 +5201,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceMemoryProperties2")]
     #[inline(always)]
@@ -5234,7 +5234,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - properties
@@ -5270,7 +5270,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - flags
@@ -5298,7 +5298,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceQueue2")]
     #[inline(always)]
@@ -5330,7 +5330,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceExternalBufferProperties")]
     #[inline(always)]
@@ -5371,7 +5371,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceExternalFenceProperties")]
     #[inline(always)]
@@ -5406,7 +5406,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceExternalSemaphoreProperties")]
     #[inline(always)]
@@ -5444,7 +5444,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -5501,7 +5501,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -5550,7 +5550,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - descriptor_update_template
@@ -5584,7 +5584,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkUpdateDescriptorSetWithTemplate")]
     #[inline(always)]
@@ -5625,7 +5625,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDescriptorSetLayoutSupport")]
     #[inline(always)]
@@ -5659,7 +5659,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -5701,7 +5701,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - ycbcr_conversion
@@ -5734,7 +5734,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Version 1.2 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkResetQueryPool")]
     #[inline(always)]
@@ -5760,7 +5760,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Version 1.2 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -5798,7 +5798,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Version 1.2 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -5833,7 +5833,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Version 1.2 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -5866,7 +5866,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Version 1.2 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetBufferDeviceAddress")]
     #[inline(always)]
@@ -5894,7 +5894,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Version 1.2 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetBufferOpaqueCaptureAddress")]
     #[inline(always)]
@@ -5923,7 +5923,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Version 1.2 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceMemoryOpaqueCaptureAddress")]
     #[inline(always)]
@@ -5952,7 +5952,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.2 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -6005,7 +6005,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.2 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -6063,7 +6063,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Version 1.2 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -6104,7 +6104,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.2 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -6144,7 +6144,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.2 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -6184,7 +6184,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.2 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -6223,7 +6223,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - tool_properties
@@ -6268,7 +6268,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -6308,7 +6308,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - private_data_slot
@@ -6341,7 +6341,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -6383,7 +6383,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPrivateData")]
     #[inline(always)]
@@ -6418,7 +6418,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `synchronization`
@@ -6457,7 +6457,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - stage
@@ -6504,7 +6504,7 @@ impl Queue {
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - submit_count
@@ -6543,7 +6543,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -6576,7 +6576,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -6609,7 +6609,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -6649,7 +6649,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -6692,7 +6692,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceBufferMemoryRequirements")]
     #[inline(always)]
@@ -6725,7 +6725,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceImageMemoryRequirements")]
     #[inline(always)]
@@ -6759,7 +6759,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - sparse_memory_requirements
@@ -6802,7 +6802,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `synchronization`
@@ -6836,7 +6836,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - stage_mask
@@ -6873,7 +6873,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `synchronization`
@@ -6912,7 +6912,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -6943,7 +6943,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -6978,7 +6978,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -7013,7 +7013,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -7048,7 +7048,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - cull_mode
@@ -7081,7 +7081,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -7116,7 +7116,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -7151,7 +7151,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -7190,7 +7190,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -7232,7 +7232,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - sizes
@@ -7288,7 +7288,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -7322,7 +7322,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -7356,7 +7356,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -7390,7 +7390,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -7425,7 +7425,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -7466,7 +7466,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -7517,7 +7517,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -7552,7 +7552,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -7587,7 +7587,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -7623,7 +7623,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Version 1.4 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -7657,7 +7657,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Version 1.4 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -7685,7 +7685,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Version 1.4 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceImageSubresourceLayout")]
     #[inline(always)]
@@ -7715,7 +7715,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Version 1.4 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetImageSubresourceLayout2")]
     #[inline(always)]
@@ -7746,7 +7746,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Version 1.4 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -7784,7 +7784,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Version 1.4 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -7822,7 +7822,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Version 1.4 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -7860,7 +7860,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Version 1.4 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -7905,7 +7905,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.4 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -7962,7 +7962,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.4 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -8005,7 +8005,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.4 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -8044,7 +8044,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.4 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -8080,7 +8080,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.4 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -8119,7 +8119,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.4 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -8158,7 +8158,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.4 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -8193,7 +8193,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.4 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - buffer
@@ -8237,7 +8237,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Version 1.4 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetRenderingAreaGranularity")]
     #[inline(always)]
@@ -8267,7 +8267,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.4 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -8306,7 +8306,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Version 1.4 with appropriate features
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -8347,7 +8347,7 @@ impl Instance {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_Surface`](Extensions::KHR_Surface)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - surface
@@ -8380,7 +8380,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_Surface`](Extensions::KHR_Surface)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -8423,7 +8423,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_Surface`](Extensions::KHR_Surface)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -8468,7 +8468,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_Surface`](Extensions::KHR_Surface)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - surface
@@ -8517,7 +8517,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_Surface`](Extensions::KHR_Surface)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - surface
@@ -8568,7 +8568,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -8614,7 +8614,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - swapchain
@@ -8647,7 +8647,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - swapchain_images
@@ -8696,7 +8696,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - semaphore
@@ -8756,7 +8756,7 @@ impl Queue {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -8793,10 +8793,11 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
     /// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
     /// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -8834,10 +8835,11 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
     /// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
     /// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -8874,10 +8876,11 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
     /// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
     /// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - rects
@@ -8920,10 +8923,11 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
     /// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
     /// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -8967,7 +8971,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_Display`](Extensions::KHR_Display)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - properties
@@ -9015,7 +9019,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_Display`](Extensions::KHR_Display)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - properties
@@ -9059,7 +9063,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_Display`](Extensions::KHR_Display)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - displays
@@ -9106,7 +9110,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_Display`](Extensions::KHR_Display)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - properties
@@ -9154,7 +9158,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_Display`](Extensions::KHR_Display)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -9201,7 +9205,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_Display`](Extensions::KHR_Display)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -9244,7 +9248,7 @@ impl Instance {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_Display`](Extensions::KHR_Display)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -9291,7 +9295,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_DisplaySwapchain`](Extensions::KHR_DisplaySwapchain)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -9349,7 +9353,7 @@ impl Instance {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_XlibSurface`](Extensions::KHR_XlibSurface)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -9390,7 +9394,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_XlibSurface`](Extensions::KHR_XlibSurface)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceXlibPresentationSupportKHR")]
     #[inline(always)]
@@ -9427,7 +9431,7 @@ impl Instance {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_XcbSurface`](Extensions::KHR_XcbSurface)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -9472,7 +9476,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_XcbSurface`](Extensions::KHR_XcbSurface)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceXcbPresentationSupportKHR")]
     #[inline(always)]
@@ -9509,7 +9513,7 @@ impl Instance {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_WaylandSurface`](Extensions::KHR_WaylandSurface)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -9550,7 +9554,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_WaylandSurface`](Extensions::KHR_WaylandSurface)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceWaylandPresentationSupportKHR")]
     #[inline(always)]
@@ -9586,7 +9590,7 @@ impl Instance {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_AndroidSurface`](Extensions::KHR_AndroidSurface)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -9632,7 +9636,7 @@ impl Instance {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_Win32Surface`](Extensions::KHR_Win32Surface)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -9673,7 +9677,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_Win32Surface`](Extensions::KHR_Win32Surface)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceWin32PresentationSupportKHR")]
     #[inline(always)]
@@ -9704,7 +9708,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -9752,7 +9756,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - video_format_properties
@@ -9813,7 +9817,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -9857,7 +9861,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - video_session
@@ -9894,7 +9898,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - memory_requirements
@@ -9946,7 +9950,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -9996,7 +10000,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -10050,7 +10054,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -10089,7 +10093,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - video_session_parameters
@@ -10123,7 +10127,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -10159,7 +10163,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -10195,7 +10199,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -10233,7 +10237,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_VideoDecodeQueue`](Extensions::KHR_VideoDecodeQueue)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -10265,9 +10269,10 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     /// - Extension [`KHR_DynamicRendering`](Extensions::KHR_DynamicRendering)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -10300,9 +10305,10 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     /// - Extension [`KHR_DynamicRendering`](Extensions::KHR_DynamicRendering)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -10336,9 +10342,10 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
     /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extensions::KHR_GetPhysicalDeviceProperties2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceFeatures2KHR")]
     #[inline(always)]
@@ -10362,9 +10369,10 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
     /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extensions::KHR_GetPhysicalDeviceProperties2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceProperties2KHR")]
     #[inline(always)]
@@ -10388,9 +10396,10 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
     /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extensions::KHR_GetPhysicalDeviceProperties2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceFormatProperties2KHR")]
     #[inline(always)]
@@ -10424,9 +10433,10 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
     /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extensions::KHR_GetPhysicalDeviceProperties2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -10470,9 +10480,10 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
     /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extensions::KHR_GetPhysicalDeviceProperties2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - queue_family_properties
@@ -10511,9 +10522,10 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
     /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extensions::KHR_GetPhysicalDeviceProperties2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceMemoryProperties2KHR")]
     #[inline(always)]
@@ -10546,9 +10558,10 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
     /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extensions::KHR_GetPhysicalDeviceProperties2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - properties
@@ -10583,9 +10596,10 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
     /// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceGroupPeerMemoryFeaturesKHR")]
     #[inline(always)]
@@ -10622,9 +10636,10 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
     /// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -10659,9 +10674,10 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
     /// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -10712,9 +10728,10 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
     /// - Extension [`KHR_Maintenance1`](Extensions::KHR_Maintenance1)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - flags
@@ -10747,9 +10764,10 @@ impl Instance {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
     /// - Extension [`KHR_DeviceGroupCreation`](Extensions::KHR_DeviceGroupCreation)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - physical_device_group_properties
@@ -10799,9 +10817,10 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
     /// - Extension [`KHR_ExternalMemoryCapabilities`](Extensions::KHR_ExternalMemoryCapabilities)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceExternalBufferPropertiesKHR")]
     #[inline(always)]
@@ -10842,7 +10861,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_ExternalMemoryWin32`](Extensions::KHR_ExternalMemoryWin32)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -10883,7 +10902,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_ExternalMemoryWin32`](Extensions::KHR_ExternalMemoryWin32)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -10929,7 +10948,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_ExternalMemoryFd`](Extensions::KHR_ExternalMemoryFd)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -10966,7 +10985,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_ExternalMemoryFd`](Extensions::KHR_ExternalMemoryFd)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -11005,9 +11024,10 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
     /// - Extension [`KHR_ExternalSemaphoreCapabilities`](Extensions::KHR_ExternalSemaphoreCapabilities)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceExternalSemaphorePropertiesKHR")]
     #[inline(always)]
@@ -11045,7 +11065,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_ExternalSemaphoreWin32`](Extensions::KHR_ExternalSemaphoreWin32)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -11085,7 +11105,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_ExternalSemaphoreWin32`](Extensions::KHR_ExternalSemaphoreWin32)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -11123,7 +11143,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_ExternalSemaphoreFd`](Extensions::KHR_ExternalSemaphoreFd)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -11159,7 +11179,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_ExternalSemaphoreFd`](Extensions::KHR_ExternalSemaphoreFd)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -11200,9 +11220,10 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.4 with appropriate features
     /// - Extension [`KHR_PushDescriptor`](Extensions::KHR_PushDescriptor)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -11257,10 +11278,11 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
     /// - Extension [`KHR_PushDescriptor`](Extensions::KHR_PushDescriptor)
     /// - Extension [`KHR_DescriptorUpdateTemplate`](Extensions::KHR_DescriptorUpdateTemplate)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -11305,9 +11327,10 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
     /// - Extension [`KHR_DescriptorUpdateTemplate`](Extensions::KHR_DescriptorUpdateTemplate)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -11354,9 +11377,10 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
     /// - Extension [`KHR_DescriptorUpdateTemplate`](Extensions::KHR_DescriptorUpdateTemplate)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - descriptor_update_template
@@ -11388,9 +11412,10 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
     /// - Extension [`KHR_DescriptorUpdateTemplate`](Extensions::KHR_DescriptorUpdateTemplate)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkUpdateDescriptorSetWithTemplateKHR")]
     #[inline(always)]
@@ -11430,9 +11455,10 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.2 with appropriate features
     /// - Extension [`KHR_CreateRenderpass2`](Extensions::KHR_CreateRenderpass2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -11471,9 +11497,10 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.2 with appropriate features
     /// - Extension [`KHR_CreateRenderpass2`](Extensions::KHR_CreateRenderpass2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -11511,9 +11538,10 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.2 with appropriate features
     /// - Extension [`KHR_CreateRenderpass2`](Extensions::KHR_CreateRenderpass2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -11551,9 +11579,10 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.2 with appropriate features
     /// - Extension [`KHR_CreateRenderpass2`](Extensions::KHR_CreateRenderpass2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -11589,7 +11618,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_SharedPresentableImage`](Extensions::KHR_SharedPresentableImage)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -11628,9 +11657,10 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
     /// - Extension [`KHR_ExternalFenceCapabilities`](Extensions::KHR_ExternalFenceCapabilities)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceExternalFencePropertiesKHR")]
     #[inline(always)]
@@ -11662,7 +11692,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_ExternalFenceWin32`](Extensions::KHR_ExternalFenceWin32)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -11702,7 +11732,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_ExternalFenceWin32`](Extensions::KHR_ExternalFenceWin32)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -11739,7 +11769,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_ExternalFenceFd`](Extensions::KHR_ExternalFenceFd)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -11775,7 +11805,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_ExternalFenceFd`](Extensions::KHR_ExternalFenceFd)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -11814,7 +11844,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_PerformanceQuery`](Extensions::KHR_PerformanceQuery)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - counters
@@ -11872,7 +11902,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_PerformanceQuery`](Extensions::KHR_PerformanceQuery)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR")]
     #[inline(always)]
@@ -11905,7 +11935,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_PerformanceQuery`](Extensions::KHR_PerformanceQuery)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -11940,7 +11970,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_PerformanceQuery`](Extensions::KHR_PerformanceQuery)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkReleaseProfilingLockKHR")]
     #[inline(always)]
@@ -11968,7 +11998,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_GetSurfaceCapabilities2`](Extensions::KHR_GetSurfaceCapabilities2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -12013,7 +12043,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_GetSurfaceCapabilities2`](Extensions::KHR_GetSurfaceCapabilities2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - surface_formats
@@ -12064,7 +12094,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_GetDisplayProperties2`](Extensions::KHR_GetDisplayProperties2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - properties
@@ -12112,7 +12142,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_GetDisplayProperties2`](Extensions::KHR_GetDisplayProperties2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - properties
@@ -12160,7 +12190,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_GetDisplayProperties2`](Extensions::KHR_GetDisplayProperties2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - properties
@@ -12206,7 +12236,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_GetDisplayProperties2`](Extensions::KHR_GetDisplayProperties2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -12245,9 +12275,10 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
     /// - Extension [`KHR_GetMemoryRequirements2`](Extensions::KHR_GetMemoryRequirements2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetImageMemoryRequirements2KHR")]
     #[inline(always)]
@@ -12278,9 +12309,10 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
     /// - Extension [`KHR_GetMemoryRequirements2`](Extensions::KHR_GetMemoryRequirements2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetBufferMemoryRequirements2KHR")]
     #[inline(always)]
@@ -12312,9 +12344,10 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
     /// - Extension [`KHR_GetMemoryRequirements2`](Extensions::KHR_GetMemoryRequirements2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - sparse_memory_requirements
@@ -12357,9 +12390,10 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
     /// - Extension [`KHR_SamplerYcbcrConversion`](Extensions::KHR_SamplerYcbcrConversion)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -12399,9 +12433,10 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
     /// - Extension [`KHR_SamplerYcbcrConversion`](Extensions::KHR_SamplerYcbcrConversion)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - ycbcr_conversion
@@ -12433,9 +12468,10 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
     /// - Extension [`KHR_BindMemory2`](Extensions::KHR_BindMemory2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -12471,9 +12507,10 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
     /// - Extension [`KHR_BindMemory2`](Extensions::KHR_BindMemory2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -12511,9 +12548,10 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
     /// - Extension [`KHR_Maintenance3`](Extensions::KHR_Maintenance3)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDescriptorSetLayoutSupportKHR")]
     #[inline(always)]
@@ -12541,9 +12579,10 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.2 with appropriate features
     /// - Extension [`KHR_DrawIndirectCount`](Extensions::KHR_DrawIndirectCount)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -12594,9 +12633,10 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.2 with appropriate features
     /// - Extension [`KHR_DrawIndirectCount`](Extensions::KHR_DrawIndirectCount)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -12648,9 +12688,10 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.2 with appropriate features
     /// - Extension [`KHR_TimelineSemaphore`](Extensions::KHR_TimelineSemaphore)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -12687,9 +12728,10 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.2 with appropriate features
     /// - Extension [`KHR_TimelineSemaphore`](Extensions::KHR_TimelineSemaphore)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -12726,9 +12768,10 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.2 with appropriate features
     /// - Extension [`KHR_TimelineSemaphore`](Extensions::KHR_TimelineSemaphore)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -12767,7 +12810,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_FragmentShadingRate`](Extensions::KHR_FragmentShadingRate)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - fragment_shading_rates
@@ -12819,7 +12862,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_FragmentShadingRate`](Extensions::KHR_FragmentShadingRate)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -12857,9 +12900,10 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.4 with appropriate features
     /// - Extension [`KHR_DynamicRenderingLocalRead`](Extensions::KHR_DynamicRenderingLocalRead)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -12898,9 +12942,10 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.4 with appropriate features
     /// - Extension [`KHR_DynamicRenderingLocalRead`](Extensions::KHR_DynamicRenderingLocalRead)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -12941,7 +12986,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_PresentWait`](Extensions::KHR_PresentWait)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -12983,9 +13028,10 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.2 with appropriate features
     /// - Extension [`KHR_BufferDeviceAddress`](Extensions::KHR_BufferDeviceAddress)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetBufferDeviceAddressKHR")]
     #[inline(always)]
@@ -13012,9 +13058,10 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.2 with appropriate features
     /// - Extension [`KHR_BufferDeviceAddress`](Extensions::KHR_BufferDeviceAddress)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetBufferOpaqueCaptureAddressKHR")]
     #[inline(always)]
@@ -13041,9 +13088,10 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.2 with appropriate features
     /// - Extension [`KHR_BufferDeviceAddress`](Extensions::KHR_BufferDeviceAddress)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceMemoryOpaqueCaptureAddressKHR")]
     #[inline(always)]
@@ -13077,7 +13125,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_DeferredHostOperations`](Extensions::KHR_DeferredHostOperations)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -13117,7 +13165,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_DeferredHostOperations`](Extensions::KHR_DeferredHostOperations)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - operation
@@ -13151,7 +13199,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_DeferredHostOperations`](Extensions::KHR_DeferredHostOperations)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeferredOperationMaxConcurrencyKHR")]
     #[inline(always)]
@@ -13182,7 +13230,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_DeferredHostOperations`](Extensions::KHR_DeferredHostOperations)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -13218,7 +13266,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_DeferredHostOperations`](Extensions::KHR_DeferredHostOperations)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -13257,7 +13305,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_PipelineExecutableProperties`](Extensions::KHR_PipelineExecutableProperties)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - properties
@@ -13304,7 +13352,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_PipelineExecutableProperties`](Extensions::KHR_PipelineExecutableProperties)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - statistics
@@ -13352,7 +13400,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_PipelineExecutableProperties`](Extensions::KHR_PipelineExecutableProperties)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - internal_representations
@@ -13402,9 +13450,10 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.4 with appropriate features
     /// - Extension [`KHR_MapMemory2`](Extensions::KHR_MapMemory2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -13436,9 +13485,10 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.4 with appropriate features
     /// - Extension [`KHR_MapMemory2`](Extensions::KHR_MapMemory2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -13477,7 +13527,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -13527,7 +13577,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - feedback_info
@@ -13580,7 +13630,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -13612,9 +13662,10 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `synchronization`
@@ -13650,9 +13701,10 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - stage_mask
@@ -13691,9 +13743,10 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `synchronization`
@@ -13734,9 +13787,10 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `synchronization`
@@ -13773,9 +13827,10 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - stage
@@ -13820,9 +13875,10 @@ impl Queue {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - submit_count
@@ -13865,7 +13921,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -13900,7 +13956,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -13940,7 +13996,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -13975,7 +14031,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -14011,7 +14067,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -14046,7 +14102,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - copy_memory_info
@@ -14084,7 +14140,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - copy_memory_info
@@ -14125,7 +14181,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - copy_memory_info
@@ -14171,7 +14227,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - dst_flags
@@ -14219,7 +14275,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - dst_flags
@@ -14269,7 +14325,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - dst_flags
@@ -14327,7 +14383,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -14362,7 +14418,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -14401,7 +14457,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -14442,7 +14498,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - binding_infos
@@ -14486,7 +14542,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - counter_range_count
@@ -14538,7 +14594,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - counter_range_count
@@ -14596,7 +14652,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -14648,7 +14704,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -14684,7 +14740,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -14723,7 +14779,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -14765,7 +14821,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -14805,9 +14861,10 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     /// - Extension [`KHR_CopyCommands2`](Extensions::KHR_CopyCommands2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -14842,9 +14899,10 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     /// - Extension [`KHR_CopyCommands2`](Extensions::KHR_CopyCommands2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -14879,9 +14937,10 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     /// - Extension [`KHR_CopyCommands2`](Extensions::KHR_CopyCommands2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -14919,9 +14978,10 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     /// - Extension [`KHR_CopyCommands2`](Extensions::KHR_CopyCommands2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -14959,9 +15019,10 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     /// - Extension [`KHR_CopyCommands2`](Extensions::KHR_CopyCommands2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -14994,9 +15055,10 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     /// - Extension [`KHR_CopyCommands2`](Extensions::KHR_CopyCommands2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -15031,7 +15093,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_RayTracingMaintenance1`](Extensions::KHR_RayTracingMaintenance1)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -15067,9 +15129,10 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     /// - Extension [`KHR_Maintenance4`](Extensions::KHR_Maintenance4)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceBufferMemoryRequirementsKHR")]
     #[inline(always)]
@@ -15100,9 +15163,10 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     /// - Extension [`KHR_Maintenance4`](Extensions::KHR_Maintenance4)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceImageMemoryRequirementsKHR")]
     #[inline(always)]
@@ -15134,9 +15198,10 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     /// - Extension [`KHR_Maintenance4`](Extensions::KHR_Maintenance4)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - sparse_memory_requirements
@@ -15177,9 +15242,10 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.4 with appropriate features
     /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - buffer
@@ -15221,9 +15287,10 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.4 with appropriate features
     /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetRenderingAreaGranularityKHR")]
     #[inline(always)]
@@ -15251,9 +15318,10 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.4 with appropriate features
     /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceImageSubresourceLayoutKHR")]
     #[inline(always)]
@@ -15281,9 +15349,10 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.4 with appropriate features
     /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetImageSubresourceLayout2KHR")]
     #[inline(always)]
@@ -15314,7 +15383,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_PresentWait2`](Extensions::KHR_PresentWait2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -15361,7 +15430,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_PipelineBinary`](Extensions::KHR_PipelineBinary)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -15406,7 +15475,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_PipelineBinary`](Extensions::KHR_PipelineBinary)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - pipeline_binary
@@ -15442,7 +15511,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_PipelineBinary`](Extensions::KHR_PipelineBinary)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - pipeline_create_info
@@ -15487,7 +15556,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_PipelineBinary`](Extensions::KHR_PipelineBinary)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - pipeline_binary_data
@@ -15541,7 +15610,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_PipelineBinary`](Extensions::KHR_PipelineBinary)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -15580,7 +15649,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_SwapchainMaintenance1`](Extensions::KHR_SwapchainMaintenance1)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -15620,7 +15689,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_CooperativeMatrix`](Extensions::KHR_CooperativeMatrix)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - properties
@@ -15661,9 +15730,10 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.4 with appropriate features
     /// - Extension [`KHR_LineRasterization`](Extensions::KHR_LineRasterization)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -15702,7 +15772,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_CalibratedTimestamps`](Extensions::KHR_CalibratedTimestamps)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - time_domains
@@ -15751,7 +15821,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_CalibratedTimestamps`](Extensions::KHR_CalibratedTimestamps)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -15797,9 +15867,10 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.4 with appropriate features
     /// - Extension [`KHR_Maintenance6`](Extensions::KHR_Maintenance6)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -15837,9 +15908,10 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.4 with appropriate features
     /// - Extension [`KHR_Maintenance6`](Extensions::KHR_Maintenance6)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -15873,9 +15945,10 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.4 with appropriate features
     /// - Extension [`KHR_Maintenance6`](Extensions::KHR_Maintenance6)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -15912,9 +15985,10 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.4 with appropriate features
     /// - Extension [`KHR_Maintenance6`](Extensions::KHR_Maintenance6)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -15952,9 +16026,10 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.4 with appropriate features
     /// - Extension [`KHR_Maintenance6`](Extensions::KHR_Maintenance6)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -15993,9 +16068,10 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.4 with appropriate features
     /// - Extension [`KHR_Maintenance6`](Extensions::KHR_Maintenance6)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -16037,7 +16113,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_CopyMemoryIndirect`](Extensions::KHR_CopyMemoryIndirect)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -16077,7 +16153,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_CopyMemoryIndirect`](Extensions::KHR_CopyMemoryIndirect)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -16118,7 +16194,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_DeviceFault`](Extensions::KHR_DeviceFault)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - fault_info
@@ -16160,7 +16236,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_DeviceFault`](Extensions::KHR_DeviceFault)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -16198,7 +16274,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_Maintenance10`](Extensions::KHR_Maintenance10)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - rendering_end_info
@@ -16240,8 +16316,9 @@ impl Instance {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DebugReport`](Extensions::EXT_DebugReport)
+    /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -16281,8 +16358,9 @@ impl Instance {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DebugReport`](Extensions::EXT_DebugReport)
+    /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - callback
@@ -16323,8 +16401,9 @@ impl Instance {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DebugReport`](Extensions::EXT_DebugReport)
+    /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkDebugReportMessageEXT")]
     #[inline(always)]
@@ -16368,8 +16447,9 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DebugMarker`](Extensions::EXT_DebugMarker)
+    /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -16405,8 +16485,9 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DebugMarker`](Extensions::EXT_DebugMarker)
+    /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -16442,8 +16523,9 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DebugMarker`](Extensions::EXT_DebugMarker)
+    /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -16481,8 +16563,9 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DebugMarker`](Extensions::EXT_DebugMarker)
+    /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -16521,8 +16604,9 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DebugMarker`](Extensions::EXT_DebugMarker)
+    /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -16568,7 +16652,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_TransformFeedback`](Extensions::EXT_TransformFeedback)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - sizes
@@ -16623,7 +16707,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_TransformFeedback`](Extensions::EXT_TransformFeedback)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - counter_buffer_count
@@ -16677,7 +16761,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_TransformFeedback`](Extensions::EXT_TransformFeedback)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - counter_buffer_count
@@ -16731,7 +16815,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_TransformFeedback`](Extensions::EXT_TransformFeedback)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - flags
@@ -16779,7 +16863,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_TransformFeedback`](Extensions::EXT_TransformFeedback)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -16818,7 +16902,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_TransformFeedback`](Extensions::EXT_TransformFeedback)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -16876,7 +16960,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`NVX_BinaryImport`](Extensions::NVX_BinaryImport)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -16921,7 +17005,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`NVX_BinaryImport`](Extensions::NVX_BinaryImport)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -16962,7 +17046,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`NVX_BinaryImport`](Extensions::NVX_BinaryImport)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -16994,7 +17078,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`NVX_BinaryImport`](Extensions::NVX_BinaryImport)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -17026,7 +17110,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`NVX_BinaryImport`](Extensions::NVX_BinaryImport)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -17062,7 +17146,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`NVX_ImageViewHandle`](Extensions::NVX_ImageViewHandle)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetImageViewHandleNVX")]
     #[inline(always)]
@@ -17087,7 +17171,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`NVX_ImageViewHandle`](Extensions::NVX_ImageViewHandle)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetImageViewHandle64NVX")]
     #[inline(always)]
@@ -17112,7 +17196,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`NVX_ImageViewHandle`](Extensions::NVX_ImageViewHandle)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -17148,7 +17232,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`NVX_ImageViewHandle`](Extensions::NVX_ImageViewHandle)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceCombinedImageSamplerIndexNVX")]
     #[inline(always)]
@@ -17179,8 +17263,9 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`AMD_DrawIndirectCount`](Extensions::AMD_DrawIndirectCount)
+    /// - Extension [`KHR_DrawIndirectCount`](Extensions::KHR_DrawIndirectCount)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -17232,8 +17317,9 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`AMD_DrawIndirectCount`](Extensions::AMD_DrawIndirectCount)
+    /// - Extension [`KHR_DrawIndirectCount`](Extensions::KHR_DrawIndirectCount)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -17293,7 +17379,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`AMD_ShaderInfo`](Extensions::AMD_ShaderInfo)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - info
@@ -17350,7 +17436,7 @@ impl Instance {
     /// This requires _at least_ one of the following:
     /// - Extension [`GGP_StreamDescriptorSurface`](Extensions::GGP_StreamDescriptorSurface)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -17401,8 +17487,9 @@ impl PhysicalDevice {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_ExternalMemoryCapabilities`](Extensions::NV_ExternalMemoryCapabilities)
+    /// - Extension [`KHR_ExternalMemoryCapabilities`](Extensions::KHR_ExternalMemoryCapabilities)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - flags
@@ -17467,8 +17554,9 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_ExternalMemoryWin32`](Extensions::NV_ExternalMemoryWin32)
+    /// - Extension [`KHR_ExternalMemoryWin32`](Extensions::KHR_ExternalMemoryWin32)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -17510,7 +17598,7 @@ impl Instance {
     /// This requires _at least_ one of the following:
     /// - Extension [`NN_ViSurface`](Extensions::NN_ViSurface)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -17552,7 +17640,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_ConditionalRendering`](Extensions::EXT_ConditionalRendering)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -17592,7 +17680,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_ConditionalRendering`](Extensions::EXT_ConditionalRendering)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -17630,7 +17718,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_ClipSpaceWScaling`](Extensions::NV_ClipSpaceWScaling)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -17677,7 +17765,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DirectModeDisplay`](Extensions::EXT_DirectModeDisplay)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -17708,7 +17796,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_AcquireXlibDisplay`](Extensions::EXT_AcquireXlibDisplay)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -17749,7 +17837,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_AcquireXlibDisplay`](Extensions::EXT_AcquireXlibDisplay)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -17789,7 +17877,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DisplaySurfaceCounter`](Extensions::EXT_DisplaySurfaceCounter)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -17830,7 +17918,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DisplayControl`](Extensions::EXT_DisplayControl)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -17870,7 +17958,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DisplayControl`](Extensions::EXT_DisplayControl)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -17915,7 +18003,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DisplayControl`](Extensions::EXT_DisplayControl)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -17960,7 +18048,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DisplayControl`](Extensions::EXT_DisplayControl)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -17999,7 +18087,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`GOOGLE_DisplayTiming`](Extensions::GOOGLE_DisplayTiming)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -18042,7 +18130,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`GOOGLE_DisplayTiming`](Extensions::GOOGLE_DisplayTiming)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - presentation_timings
@@ -18094,7 +18182,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DiscardRectangles`](Extensions::EXT_DiscardRectangles)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -18142,7 +18230,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DiscardRectangles`](Extensions::EXT_DiscardRectangles)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -18178,7 +18266,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DiscardRectangles`](Extensions::EXT_DiscardRectangles)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -18217,7 +18305,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_HdrMetadata`](Extensions::EXT_HdrMetadata)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkSetHdrMetadataEXT")]
     #[inline(always)]
@@ -18250,8 +18338,9 @@ impl Instance {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`MVK_IosSurface`](Extensions::MVK_IosSurface)
+    /// - Extension [`EXT_MetalSurface`](Extensions::EXT_MetalSurface)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -18296,8 +18385,9 @@ impl Instance {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`MVK_MacosSurface`](Extensions::MVK_MacosSurface)
+    /// - Extension [`EXT_MetalSurface`](Extensions::EXT_MetalSurface)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -18339,7 +18429,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -18376,7 +18466,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -18413,7 +18503,7 @@ impl Queue {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkQueueBeginDebugUtilsLabelEXT")]
     #[inline(always)]
@@ -18438,7 +18528,7 @@ impl Queue {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkQueueEndDebugUtilsLabelEXT")]
     #[inline(always)]
@@ -18464,7 +18554,7 @@ impl Queue {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkQueueInsertDebugUtilsLabelEXT")]
     #[inline(always)]
@@ -18490,7 +18580,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -18530,7 +18620,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -18570,7 +18660,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -18615,7 +18705,7 @@ impl Instance {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -18656,7 +18746,7 @@ impl Instance {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - messenger
@@ -18694,7 +18784,7 @@ impl Instance {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkSubmitDebugUtilsMessageEXT")]
     #[inline(always)]
@@ -18728,7 +18818,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`ANDROID_ExternalMemoryAndroidHardwareBuffer`](Extensions::ANDROID_ExternalMemoryAndroidHardwareBuffer)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -18771,7 +18861,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`ANDROID_ExternalMemoryAndroidHardwareBuffer`](Extensions::ANDROID_ExternalMemoryAndroidHardwareBuffer)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -18815,7 +18905,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -18856,7 +18946,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - gpa_session
@@ -18889,7 +18979,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -18925,7 +19015,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -18961,7 +19051,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -19006,7 +19096,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -19055,7 +19145,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -19105,7 +19195,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -19142,7 +19232,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -19175,7 +19265,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - data
@@ -19217,7 +19307,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -19250,7 +19340,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -19295,7 +19385,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`AMDX_ShaderEnqueue`](Extensions::AMDX_ShaderEnqueue)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - pipeline_cache
@@ -19353,7 +19443,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`AMDX_ShaderEnqueue`](Extensions::AMDX_ShaderEnqueue)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -19396,7 +19486,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`AMDX_ShaderEnqueue`](Extensions::AMDX_ShaderEnqueue)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -19436,7 +19526,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`AMDX_ShaderEnqueue`](Extensions::AMDX_ShaderEnqueue)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -19481,7 +19571,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`AMDX_ShaderEnqueue`](Extensions::AMDX_ShaderEnqueue)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -19525,7 +19615,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`AMDX_ShaderEnqueue`](Extensions::AMDX_ShaderEnqueue)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -19566,7 +19656,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`AMDX_ShaderEnqueue`](Extensions::AMDX_ShaderEnqueue)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -19611,7 +19701,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -19654,7 +19744,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -19693,7 +19783,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -19729,7 +19819,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -19765,7 +19855,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -19797,7 +19887,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -19836,7 +19926,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceDescriptorSizeEXT")]
     #[inline(always)]
@@ -19866,7 +19956,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -19906,7 +19996,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkUnregisterCustomBorderColorEXT")]
     #[inline(always)]
@@ -19936,7 +20026,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -19975,7 +20065,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_SampleLocations`](Extensions::EXT_SampleLocations)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -20013,7 +20103,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_SampleLocations`](Extensions::EXT_SampleLocations)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceMultisamplePropertiesEXT")]
     #[inline(always)]
@@ -20048,7 +20138,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_ImageDrmFormatModifier`](Extensions::EXT_ImageDrmFormatModifier)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -20091,7 +20181,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_ValidationCache`](Extensions::EXT_ValidationCache)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -20131,7 +20221,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_ValidationCache`](Extensions::EXT_ValidationCache)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - validation_cache
@@ -20169,7 +20259,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_ValidationCache`](Extensions::EXT_ValidationCache)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -20207,7 +20297,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_ValidationCache`](Extensions::EXT_ValidationCache)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - data
@@ -20250,7 +20340,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_ShadingRateImage`](Extensions::NV_ShadingRateImage)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - image_view
@@ -20293,7 +20383,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_ShadingRateImage`](Extensions::NV_ShadingRateImage)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -20345,7 +20435,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_ShadingRateImage`](Extensions::NV_ShadingRateImage)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - custom_sample_order_count
@@ -20399,8 +20489,9 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
+    /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -20440,8 +20531,9 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
+    /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - acceleration_structure
@@ -20477,8 +20569,9 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
+    /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetAccelerationStructureMemoryRequirementsNV")]
     #[inline(always)]
@@ -20512,8 +20605,9 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
+    /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -20559,8 +20653,9 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
+    /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - instance_data
@@ -20625,8 +20720,9 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
+    /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -20681,8 +20777,9 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
+    /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - miss_shader_binding_table_buffer
@@ -20757,8 +20854,9 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
+    /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - pipeline_cache
@@ -20814,7 +20912,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -20863,8 +20961,9 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
+    /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -20913,8 +21012,9 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
+    /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -20958,8 +21058,9 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
+    /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -21012,8 +21113,9 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
+    /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -21050,7 +21152,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_ExternalMemoryHost`](Extensions::EXT_ExternalMemoryHost)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -21096,7 +21198,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`AMD_BufferMarker`](Extensions::AMD_BufferMarker)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - pipeline_stage
@@ -21142,7 +21244,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`AMD_BufferMarker`](Extensions::AMD_BufferMarker)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - stage
@@ -21187,8 +21289,9 @@ impl PhysicalDevice {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_CalibratedTimestamps`](Extensions::EXT_CalibratedTimestamps)
+    /// - Extension [`KHR_CalibratedTimestamps`](Extensions::KHR_CalibratedTimestamps)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - time_domains
@@ -21236,8 +21339,9 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_CalibratedTimestamps`](Extensions::EXT_CalibratedTimestamps)
+    /// - Extension [`KHR_CalibratedTimestamps`](Extensions::KHR_CalibratedTimestamps)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -21284,7 +21388,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_MeshShader`](Extensions::NV_MeshShader)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -21319,7 +21423,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_MeshShader`](Extensions::NV_MeshShader)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -21361,7 +21465,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_MeshShader`](Extensions::NV_MeshShader)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -21415,7 +21519,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_ScissorExclusive`](Extensions::NV_ScissorExclusive)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -21463,7 +21567,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_ScissorExclusive`](Extensions::NV_ScissorExclusive)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -21509,7 +21613,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_DeviceDiagnosticCheckpoints`](Extensions::NV_DeviceDiagnosticCheckpoints)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -21546,7 +21650,7 @@ impl Queue {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_DeviceDiagnosticCheckpoints`](Extensions::NV_DeviceDiagnosticCheckpoints)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - checkpoint_data
@@ -21578,7 +21682,7 @@ impl Queue {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_DeviceDiagnosticCheckpoints`](Extensions::NV_DeviceDiagnosticCheckpoints)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - checkpoint_data
@@ -21611,7 +21715,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_PresentTiming`](Extensions::EXT_PresentTiming)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -21656,7 +21760,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_PresentTiming`](Extensions::EXT_PresentTiming)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - swapchain_timing_properties_counter
@@ -21711,7 +21815,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_PresentTiming`](Extensions::EXT_PresentTiming)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - time_domains_counter
@@ -21765,7 +21869,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_PresentTiming`](Extensions::EXT_PresentTiming)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -21811,7 +21915,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`INTEL_PerformanceQuery`](Extensions::INTEL_PerformanceQuery)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -21847,7 +21951,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`INTEL_PerformanceQuery`](Extensions::INTEL_PerformanceQuery)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkUninitializePerformanceApiINTEL")]
     #[inline(always)]
@@ -21873,7 +21977,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`INTEL_PerformanceQuery`](Extensions::INTEL_PerformanceQuery)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -21925,7 +22029,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`INTEL_PerformanceQuery`](Extensions::INTEL_PerformanceQuery)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -21975,7 +22079,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`INTEL_PerformanceQuery`](Extensions::INTEL_PerformanceQuery)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -22027,7 +22131,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`INTEL_PerformanceQuery`](Extensions::INTEL_PerformanceQuery)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -22065,7 +22169,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`INTEL_PerformanceQuery`](Extensions::INTEL_PerformanceQuery)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - configuration
@@ -22105,7 +22209,7 @@ impl Queue {
     /// This requires _at least_ one of the following:
     /// - Extension [`INTEL_PerformanceQuery`](Extensions::INTEL_PerformanceQuery)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -22147,7 +22251,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`INTEL_PerformanceQuery`](Extensions::INTEL_PerformanceQuery)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -22184,7 +22288,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`AMD_DisplayNativeHdr`](Extensions::AMD_DisplayNativeHdr)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkSetLocalDimmingAMD")]
     #[inline(always)]
@@ -22217,7 +22321,7 @@ impl Instance {
     /// This requires _at least_ one of the following:
     /// - Extension [`FUCHSIA_ImagepipeSurface`](Extensions::FUCHSIA_ImagepipeSurface)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -22263,7 +22367,7 @@ impl Instance {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_MetalSurface`](Extensions::EXT_MetalSurface)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -22304,8 +22408,9 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_BufferDeviceAddress`](Extensions::EXT_BufferDeviceAddress)
+    /// - Extension [`KHR_BufferDeviceAddress`](Extensions::KHR_BufferDeviceAddress)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetBufferDeviceAddressEXT")]
     #[inline(always)]
@@ -22335,9 +22440,10 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     /// - Extension [`EXT_ToolingInfo`](Extensions::EXT_ToolingInfo)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - tool_properties
@@ -22382,7 +22488,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_CooperativeMatrix`](Extensions::NV_CooperativeMatrix)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - properties
@@ -22430,7 +22536,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_CoverageReductionMode`](Extensions::NV_CoverageReductionMode)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - combinations
@@ -22480,7 +22586,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_FullScreenExclusive`](Extensions::EXT_FullScreenExclusive)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - present_modes
@@ -22526,7 +22632,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_FullScreenExclusive`](Extensions::EXT_FullScreenExclusive)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -22565,7 +22671,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_FullScreenExclusive`](Extensions::EXT_FullScreenExclusive)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -22606,7 +22712,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_FullScreenExclusive`](Extensions::EXT_FullScreenExclusive)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -22651,7 +22757,7 @@ impl Instance {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_HeadlessSurface`](Extensions::EXT_HeadlessSurface)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -22690,8 +22796,9 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_LineRasterization`](Extensions::EXT_LineRasterization)
+    /// - Extension [`KHR_LineRasterization`](Extensions::KHR_LineRasterization)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -22727,9 +22834,10 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.2 with appropriate features
     /// - Extension [`EXT_HostQueryReset`](Extensions::EXT_HostQueryReset)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkResetQueryPoolEXT")]
     #[inline(always)]
@@ -22756,10 +22864,11 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     /// - Extension [`EXT_ExtendedDynamicState`](Extensions::EXT_ExtendedDynamicState)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - cull_mode
@@ -22794,10 +22903,11 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     /// - Extension [`EXT_ExtendedDynamicState`](Extensions::EXT_ExtendedDynamicState)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -22830,10 +22940,11 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     /// - Extension [`EXT_ExtendedDynamicState`](Extensions::EXT_ExtendedDynamicState)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -22867,10 +22978,11 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     /// - Extension [`EXT_ExtendedDynamicState`](Extensions::EXT_ExtendedDynamicState)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -22908,10 +23020,11 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     /// - Extension [`EXT_ExtendedDynamicState`](Extensions::EXT_ExtendedDynamicState)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -22956,10 +23069,11 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     /// - Extension [`EXT_ExtendedDynamicState`](Extensions::EXT_ExtendedDynamicState)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - sizes
@@ -23013,10 +23127,11 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     /// - Extension [`EXT_ExtendedDynamicState`](Extensions::EXT_ExtendedDynamicState)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -23048,10 +23163,11 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     /// - Extension [`EXT_ExtendedDynamicState`](Extensions::EXT_ExtendedDynamicState)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -23084,10 +23200,11 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     /// - Extension [`EXT_ExtendedDynamicState`](Extensions::EXT_ExtendedDynamicState)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -23120,10 +23237,11 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     /// - Extension [`EXT_ExtendedDynamicState`](Extensions::EXT_ExtendedDynamicState)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -23156,10 +23274,11 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     /// - Extension [`EXT_ExtendedDynamicState`](Extensions::EXT_ExtendedDynamicState)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -23199,10 +23318,11 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     /// - Extension [`EXT_ExtendedDynamicState`](Extensions::EXT_ExtendedDynamicState)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -23251,9 +23371,10 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.4 with appropriate features
     /// - Extension [`EXT_HostImageCopy`](Extensions::EXT_HostImageCopy)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -23289,9 +23410,10 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.4 with appropriate features
     /// - Extension [`EXT_HostImageCopy`](Extensions::EXT_HostImageCopy)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -23327,9 +23449,10 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.4 with appropriate features
     /// - Extension [`EXT_HostImageCopy`](Extensions::EXT_HostImageCopy)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -23365,9 +23488,10 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.4 with appropriate features
     /// - Extension [`EXT_HostImageCopy`](Extensions::EXT_HostImageCopy)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -23404,10 +23528,11 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.4 with appropriate features
     /// - Extension [`EXT_HostImageCopy`](Extensions::EXT_HostImageCopy)
     /// - Extension [`EXT_ImageCompressionControl`](Extensions::EXT_ImageCompressionControl)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetImageSubresourceLayout2EXT")]
     #[inline(always)]
@@ -23437,8 +23562,9 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_SwapchainMaintenance1`](Extensions::EXT_SwapchainMaintenance1)
+    /// - Extension [`KHR_SwapchainMaintenance1`](Extensions::KHR_SwapchainMaintenance1)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -23477,7 +23603,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetGeneratedCommandsMemoryRequirementsNV")]
     #[inline(always)]
@@ -23509,7 +23635,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -23549,7 +23675,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -23591,7 +23717,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -23637,7 +23763,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -23686,7 +23812,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - indirect_commands_layout
@@ -23720,7 +23846,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DepthBiasControl`](Extensions::EXT_DepthBiasControl)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -23755,7 +23881,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_AcquireDrmDisplay`](Extensions::EXT_AcquireDrmDisplay)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -23787,7 +23913,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_AcquireDrmDisplay`](Extensions::EXT_AcquireDrmDisplay)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -23827,9 +23953,10 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     /// - Extension [`EXT_PrivateData`](Extensions::EXT_PrivateData)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -23867,9 +23994,10 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     /// - Extension [`EXT_PrivateData`](Extensions::EXT_PrivateData)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - private_data_slot
@@ -23901,9 +24029,10 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     /// - Extension [`EXT_PrivateData`](Extensions::EXT_PrivateData)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -23947,9 +24076,10 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     /// - Extension [`EXT_PrivateData`](Extensions::EXT_PrivateData)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPrivateDataEXT")]
     #[inline(always)]
@@ -23988,7 +24118,7 @@ impl Queue {
     /// This requires _at least_ one of the following:
     /// - Extension [`QCOM_QueuePerfHint`](Extensions::QCOM_QueuePerfHint)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -24024,7 +24154,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_CudaKernelLaunch`](Extensions::NV_CudaKernelLaunch)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -24065,7 +24195,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_CudaKernelLaunch`](Extensions::NV_CudaKernelLaunch)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - cache_data
@@ -24110,7 +24240,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_CudaKernelLaunch`](Extensions::NV_CudaKernelLaunch)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -24151,7 +24281,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_CudaKernelLaunch`](Extensions::NV_CudaKernelLaunch)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -24183,7 +24313,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_CudaKernelLaunch`](Extensions::NV_CudaKernelLaunch)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -24215,7 +24345,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_CudaKernelLaunch`](Extensions::NV_CudaKernelLaunch)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -24251,7 +24381,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`QCOM_TileShading`](Extensions::QCOM_TileShading)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -24286,7 +24416,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`QCOM_TileShading`](Extensions::QCOM_TileShading)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -24326,7 +24456,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`QCOM_TileShading`](Extensions::QCOM_TileShading)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -24365,8 +24495,9 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_LowLatency`](Extensions::NV_LowLatency)
+    /// - Extension [`NV_LowLatency2`](Extensions::NV_LowLatency2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkSetLatencySleepModeLegacyNV")]
     #[inline(always)]
@@ -24402,8 +24533,9 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_LowLatency`](Extensions::NV_LowLatency)
+    /// - Extension [`NV_LowLatency2`](Extensions::NV_LowLatency2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkLatencySleepLegacyNV")]
     #[inline(always)]
@@ -24426,8 +24558,9 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_LowLatency`](Extensions::NV_LowLatency)
+    /// - Extension [`NV_LowLatency2`](Extensions::NV_LowLatency2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkSetLatencyMarkerLegacyNV")]
     #[inline(always)]
@@ -24450,8 +24583,9 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_LowLatency`](Extensions::NV_LowLatency)
+    /// - Extension [`NV_LowLatency2`](Extensions::NV_LowLatency2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetLatencyTimingsLegacyNV")]
     #[inline(always)]
@@ -24475,8 +24609,9 @@ impl Queue {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_LowLatency`](Extensions::NV_LowLatency)
+    /// - Extension [`NV_LowLatency2`](Extensions::NV_LowLatency2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkQueueNotifyOutOfBandLegacyNV")]
     #[inline(always)]
@@ -24500,8 +24635,9 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_LowLatency`](Extensions::NV_LowLatency)
+    /// - Extension [`NV_LowLatency2`](Extensions::NV_LowLatency2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetSleepStatusLegacyNV")]
     #[inline(always)]
@@ -24524,8 +24660,9 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_LowLatency`](Extensions::NV_LowLatency)
+    /// - Extension [`NV_LowLatency2`](Extensions::NV_LowLatency2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkShutdownLatencyDeviceLegacyNV")]
     #[inline(always)]
@@ -24551,7 +24688,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_MetalObjects`](Extensions::EXT_MetalObjects)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkExportMetalObjectsEXT")]
     #[inline(always)]
@@ -24578,8 +24715,9 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
+    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDescriptorSetLayoutSizeEXT")]
     #[inline(always)]
@@ -24608,8 +24746,9 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
+    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDescriptorSetLayoutBindingOffsetEXT")]
     #[inline(always)]
@@ -24641,8 +24780,9 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
+    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDescriptorEXT")]
     #[inline(always)]
@@ -24671,8 +24811,9 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
+    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -24720,8 +24861,9 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
+    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -24776,8 +24918,9 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
+    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -24823,8 +24966,9 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
+    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -24866,8 +25010,9 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
+    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -24910,8 +25055,9 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
+    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -24953,8 +25099,9 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
+    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -24997,8 +25144,9 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
+    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -25042,7 +25190,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_FragmentShadingRateEnums`](Extensions::NV_FragmentShadingRateEnums)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -25084,8 +25232,9 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DeviceFault`](Extensions::EXT_DeviceFault)
+    /// - Extension [`KHR_DeviceFault`](Extensions::KHR_DeviceFault)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - fault_info
@@ -25125,7 +25274,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_AcquireWinrtDisplay`](Extensions::NV_AcquireWinrtDisplay)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -25159,7 +25308,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_AcquireWinrtDisplay`](Extensions::NV_AcquireWinrtDisplay)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -25201,7 +25350,7 @@ impl Instance {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DirectfbSurface`](Extensions::EXT_DirectfbSurface)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -25242,7 +25391,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DirectfbSurface`](Extensions::EXT_DirectfbSurface)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceDirectFBPresentationSupportEXT")]
     #[inline(always)]
@@ -25280,7 +25429,7 @@ impl CommandBuffer {
     /// - Extension [`EXT_VertexInputDynamicState`](Extensions::EXT_VertexInputDynamicState)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - vertex_binding_description_count
@@ -25336,7 +25485,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`FUCHSIA_ExternalMemory`](Extensions::FUCHSIA_ExternalMemory)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -25378,7 +25527,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`FUCHSIA_ExternalMemory`](Extensions::FUCHSIA_ExternalMemory)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -25425,7 +25574,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`FUCHSIA_ExternalSemaphore`](Extensions::FUCHSIA_ExternalSemaphore)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -25465,7 +25614,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`FUCHSIA_ExternalSemaphore`](Extensions::FUCHSIA_ExternalSemaphore)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -25507,7 +25656,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`FUCHSIA_BufferCollection`](Extensions::FUCHSIA_BufferCollection)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -25554,7 +25703,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`FUCHSIA_BufferCollection`](Extensions::FUCHSIA_BufferCollection)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -25599,7 +25748,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`FUCHSIA_BufferCollection`](Extensions::FUCHSIA_BufferCollection)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -25640,7 +25789,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`FUCHSIA_BufferCollection`](Extensions::FUCHSIA_BufferCollection)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -25676,7 +25825,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`FUCHSIA_BufferCollection`](Extensions::FUCHSIA_BufferCollection)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -25714,7 +25863,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`HUAWEI_SubpassShading`](Extensions::HUAWEI_SubpassShading)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -25754,7 +25903,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`HUAWEI_SubpassShading`](Extensions::HUAWEI_SubpassShading)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -25789,7 +25938,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`HUAWEI_InvocationMask`](Extensions::HUAWEI_InvocationMask)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - image_view
@@ -25835,7 +25984,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_ExternalMemoryRdma`](Extensions::NV_ExternalMemoryRdma)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -25871,7 +26020,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_PipelineProperties`](Extensions::EXT_PipelineProperties)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -25904,10 +26053,11 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     /// - Extension [`EXT_ExtendedDynamicState2`](Extensions::EXT_ExtendedDynamicState2)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -25941,10 +26091,11 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     /// - Extension [`EXT_ExtendedDynamicState2`](Extensions::EXT_ExtendedDynamicState2)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -25977,10 +26128,11 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     /// - Extension [`EXT_ExtendedDynamicState2`](Extensions::EXT_ExtendedDynamicState2)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -26012,10 +26164,11 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     /// - Extension [`EXT_ExtendedDynamicState2`](Extensions::EXT_ExtendedDynamicState2)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -26048,10 +26201,11 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
     /// - Extension [`EXT_ExtendedDynamicState2`](Extensions::EXT_ExtendedDynamicState2)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -26091,7 +26245,7 @@ impl Instance {
     /// This requires _at least_ one of the following:
     /// - Extension [`QNX_ScreenSurface`](Extensions::QNX_ScreenSurface)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -26132,7 +26286,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`QNX_ScreenSurface`](Extensions::QNX_ScreenSurface)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceScreenPresentationSupportQNX")]
     #[inline(always)]
@@ -26164,7 +26318,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_ColorWriteEnable`](Extensions::EXT_ColorWriteEnable)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -26204,7 +26358,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_MultiDraw`](Extensions::EXT_MultiDraw)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - draw_count
@@ -26265,7 +26419,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_MultiDraw`](Extensions::EXT_MultiDraw)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - draw_count
@@ -26325,8 +26479,9 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
+    /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -26366,8 +26521,9 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
+    /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - micromap
@@ -26399,8 +26555,9 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
+    /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -26442,8 +26599,9 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
+    /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - deferred_operation
@@ -26488,8 +26646,9 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
+    /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - deferred_operation
@@ -26533,8 +26692,9 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
+    /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - deferred_operation
@@ -26578,8 +26738,9 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
+    /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - deferred_operation
@@ -26627,8 +26788,9 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
+    /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -26679,8 +26841,9 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
+    /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -26714,8 +26877,9 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
+    /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -26750,8 +26914,9 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
+    /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -26786,8 +26951,9 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
+    /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -26841,8 +27007,9 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
+    /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceMicromapCompatibilityEXT")]
     #[inline(always)]
@@ -26875,8 +27042,9 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
+    /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetMicromapBuildSizesEXT")]
     #[inline(always)]
@@ -26905,7 +27073,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`HUAWEI_ClusterCullingShader`](Extensions::HUAWEI_ClusterCullingShader)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -26945,7 +27113,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`HUAWEI_ClusterCullingShader`](Extensions::HUAWEI_ClusterCullingShader)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -26981,7 +27149,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_PageableDeviceLocalMemory`](Extensions::EXT_PageableDeviceLocalMemory)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkSetDeviceMemoryPriorityEXT")]
     #[inline(always)]
@@ -27007,7 +27175,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`ARM_SchedulingControls`](Extensions::ARM_SchedulingControls)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -27049,7 +27217,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`VALVE_DescriptorSetHostMapping`](Extensions::VALVE_DescriptorSetHostMapping)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDescriptorSetLayoutHostMappingInfoVALVE")]
     #[inline(always)]
@@ -27081,7 +27249,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`VALVE_DescriptorSetHostMapping`](Extensions::VALVE_DescriptorSetHostMapping)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDescriptorSetHostMappingVALVE")]
     #[inline(always)]
@@ -27110,8 +27278,9 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_CopyMemoryIndirect`](Extensions::NV_CopyMemoryIndirect)
+    /// - Extension [`KHR_CopyMemoryIndirect`](Extensions::KHR_CopyMemoryIndirect)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -27159,8 +27328,9 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_CopyMemoryIndirect`](Extensions::NV_CopyMemoryIndirect)
+    /// - Extension [`KHR_CopyMemoryIndirect`](Extensions::KHR_CopyMemoryIndirect)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -27215,8 +27385,9 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_MemoryDecompression`](Extensions::NV_MemoryDecompression)
+    /// - Extension [`EXT_MemoryDecompression`](Extensions::EXT_MemoryDecompression)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -27261,8 +27432,9 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_MemoryDecompression`](Extensions::NV_MemoryDecompression)
+    /// - Extension [`EXT_MemoryDecompression`](Extensions::EXT_MemoryDecompression)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -27311,7 +27483,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_DeviceGeneratedCommandsCompute`](Extensions::NV_DeviceGeneratedCommandsCompute)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPipelineIndirectMemoryRequirementsNV")]
     #[inline(always)]
@@ -27343,7 +27515,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_DeviceGeneratedCommandsCompute`](Extensions::NV_DeviceGeneratedCommandsCompute)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -27385,7 +27557,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_DeviceGeneratedCommandsCompute`](Extensions::NV_DeviceGeneratedCommandsCompute)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPipelineIndirectDeviceAddressNV")]
     #[inline(always)]
@@ -27417,7 +27589,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`OHOS_ExternalMemory`](Extensions::OHOS_ExternalMemory)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -27458,7 +27630,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`OHOS_ExternalMemory`](Extensions::OHOS_ExternalMemory)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -27495,7 +27667,7 @@ impl CommandBuffer {
     /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -27531,7 +27703,7 @@ impl CommandBuffer {
     /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -27567,7 +27739,7 @@ impl CommandBuffer {
     /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -27604,7 +27776,7 @@ impl CommandBuffer {
     /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - sample_mask
@@ -27647,7 +27819,7 @@ impl CommandBuffer {
     /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -27683,7 +27855,7 @@ impl CommandBuffer {
     /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -27719,7 +27891,7 @@ impl CommandBuffer {
     /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -27755,7 +27927,7 @@ impl CommandBuffer {
     /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -27804,7 +27976,7 @@ impl CommandBuffer {
     /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -27853,7 +28025,7 @@ impl CommandBuffer {
     /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -27901,7 +28073,7 @@ impl CommandBuffer {
     /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -27940,7 +28112,7 @@ impl CommandBuffer {
     /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -27977,7 +28149,7 @@ impl CommandBuffer {
     /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -28019,7 +28191,7 @@ impl CommandBuffer {
     /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -28060,7 +28232,7 @@ impl CommandBuffer {
     /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -28096,7 +28268,7 @@ impl CommandBuffer {
     /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -28133,7 +28305,7 @@ impl CommandBuffer {
     /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -28182,7 +28354,7 @@ impl CommandBuffer {
     /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -28222,7 +28394,7 @@ impl CommandBuffer {
     /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -28261,7 +28433,7 @@ impl CommandBuffer {
     /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -28298,7 +28470,7 @@ impl CommandBuffer {
     /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -28335,7 +28507,7 @@ impl CommandBuffer {
     /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -28372,7 +28544,7 @@ impl CommandBuffer {
     /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -28420,7 +28592,7 @@ impl CommandBuffer {
     /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -28457,7 +28629,7 @@ impl CommandBuffer {
     /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -28494,7 +28666,7 @@ impl CommandBuffer {
     /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -28534,7 +28706,7 @@ impl CommandBuffer {
     /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -28576,7 +28748,7 @@ impl CommandBuffer {
     /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -28623,7 +28795,7 @@ impl CommandBuffer {
     /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -28660,7 +28832,7 @@ impl CommandBuffer {
     /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -28702,7 +28874,7 @@ impl CommandBuffer {
     /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -28745,7 +28917,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -28786,7 +28958,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - tensor
@@ -28823,7 +28995,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -28864,7 +29036,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - tensor_view
@@ -28900,7 +29072,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetTensorMemoryRequirementsARM")]
     #[inline(always)]
@@ -28930,7 +29102,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -28970,7 +29142,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceTensorMemoryRequirementsARM")]
     #[inline(always)]
@@ -29000,7 +29172,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -29040,7 +29212,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceExternalTensorPropertiesARM")]
     #[inline(always)]
@@ -29081,7 +29253,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -29125,7 +29297,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -29165,7 +29337,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_ShaderModuleIdentifier`](Extensions::EXT_ShaderModuleIdentifier)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetShaderModuleIdentifierEXT")]
     #[inline(always)]
@@ -29198,7 +29370,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_ShaderModuleIdentifier`](Extensions::EXT_ShaderModuleIdentifier)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetShaderModuleCreateInfoIdentifierEXT")]
     #[inline(always)]
@@ -29235,7 +29407,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - image_format_properties
@@ -29292,7 +29464,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -29334,7 +29506,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -29372,7 +29544,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - view
@@ -29418,7 +29590,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -29456,7 +29628,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`AMD_AntiLag`](Extensions::AMD_AntiLag)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkAntiLagUpdateAMD")]
     #[inline(always)]
@@ -29486,7 +29658,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -29538,7 +29710,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - shader
@@ -29571,7 +29743,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - data
@@ -29613,7 +29785,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - shaders
@@ -29658,7 +29830,7 @@ impl CommandBuffer {
     /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
     /// - Extension [`EXT_DepthClampControl`](Extensions::EXT_DepthClampControl)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - depth_clamp_range
@@ -29704,7 +29876,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`QCOM_TileProperties`](Extensions::QCOM_TileProperties)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - properties
@@ -29745,7 +29917,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`QCOM_TileProperties`](Extensions::QCOM_TileProperties)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -29787,7 +29959,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_CooperativeVector`](Extensions::NV_CooperativeVector)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - properties
@@ -29831,7 +30003,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_CooperativeVector`](Extensions::NV_CooperativeVector)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -29868,7 +30040,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_CooperativeVector`](Extensions::NV_CooperativeVector)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -29909,7 +30081,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_LowLatency2`](Extensions::NV_LowLatency2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -29945,7 +30117,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_LowLatency2`](Extensions::NV_LowLatency2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -29976,7 +30148,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_LowLatency2`](Extensions::NV_LowLatency2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkSetLatencyMarkerNV")]
     #[inline(always)]
@@ -30005,7 +30177,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_LowLatency2`](Extensions::NV_LowLatency2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetLatencyTimingsNV")]
     #[inline(always)]
@@ -30034,7 +30206,7 @@ impl Queue {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_LowLatency2`](Extensions::NV_LowLatency2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkQueueNotifyOutOfBandNV")]
     #[inline(always)]
@@ -30066,7 +30238,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - deferred_operation
@@ -30128,7 +30300,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -30175,7 +30347,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - bind_point_requirements
@@ -30231,7 +30403,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDataGraphPipelineSessionMemoryRequirementsARM")]
     #[inline(always)]
@@ -30267,7 +30439,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -30307,7 +30479,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -30343,7 +30515,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - info
@@ -30390,7 +30562,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - properties
@@ -30439,7 +30611,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -30484,7 +30656,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - queue_family_data_graph_properties
@@ -30541,7 +30713,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM")]
     #[inline(always)]
@@ -30587,7 +30759,7 @@ impl PhysicalDevice {
     /// - Extension [`ARM_DataGraphInstructionSetTosa`](Extensions::ARM_DataGraphInstructionSetTosa)
     /// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -30637,7 +30809,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_AttachmentFeedbackLoopDynamicState`](Extensions::EXT_AttachmentFeedbackLoopDynamicState)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - aspect_mask
@@ -30681,7 +30853,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`QNX_ExternalMemoryScreenBuffer`](Extensions::QNX_ExternalMemoryScreenBuffer)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -30719,7 +30891,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`QCOM_TileMemoryHeap`](Extensions::QCOM_TileMemoryHeap)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - tile_memory_bind_info
@@ -30761,7 +30933,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_MemoryDecompression`](Extensions::EXT_MemoryDecompression)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -30806,7 +30978,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_MemoryDecompression`](Extensions::EXT_MemoryDecompression)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -30863,7 +31035,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_ExternalComputeQueue`](Extensions::NV_ExternalComputeQueue)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -30905,7 +31077,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_ExternalComputeQueue`](Extensions::NV_ExternalComputeQueue)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -30940,7 +31112,7 @@ pub(crate) type FUN_GetExternalComputeQueueDataNV = unsafe extern "C" fn(
 /// This requires _at least_ one of the following:
 /// - Extension [`NV_ExternalComputeQueue`](Extensions::NV_ExternalComputeQueue)
 ///
-/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "vkGetExternalComputeQueueDataNV")]
 #[inline(always)]
@@ -30976,7 +31148,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetClusterAccelerationStructureBuildSizesNV")]
     #[inline(always)]
@@ -31008,7 +31180,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -31052,7 +31224,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_PartitionedAccelerationStructure`](Extensions::NV_PartitionedAccelerationStructure)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPartitionedAccelerationStructuresBuildSizesNV")]
     #[inline(always)]
@@ -31085,7 +31257,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_PartitionedAccelerationStructure`](Extensions::NV_PartitionedAccelerationStructure)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -31129,7 +31301,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetGeneratedCommandsMemoryRequirementsEXT")]
     #[inline(always)]
@@ -31161,7 +31333,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -31201,7 +31373,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -31246,7 +31418,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -31295,7 +31467,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - indirect_commands_layout
@@ -31333,7 +31505,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -31375,7 +31547,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - indirect_execution_set
@@ -31413,7 +31585,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkUpdateIndirectExecutionSetPipelineEXT")]
     #[inline(always)]
@@ -31457,7 +31629,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkUpdateIndirectExecutionSetShaderEXT")]
     #[inline(always)]
@@ -31499,7 +31671,7 @@ impl Instance {
     /// This requires _at least_ one of the following:
     /// - Extension [`OHOS_Surface`](Extensions::OHOS_Surface)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -31544,7 +31716,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_CooperativeMatrix2`](Extensions::NV_CooperativeMatrix2)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - properties
@@ -31593,7 +31765,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_ExternalMemoryMetal`](Extensions::EXT_ExternalMemoryMetal)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -31634,7 +31806,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_ExternalMemoryMetal`](Extensions::EXT_ExternalMemoryMetal)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -31686,7 +31858,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`ARM_PerformanceCountersByRegion`](Extensions::ARM_PerformanceCountersByRegion)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - counters
@@ -31748,7 +31920,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`ARM_ShaderInstrumentation`](Extensions::ARM_ShaderInstrumentation)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - descriptions
@@ -31798,7 +31970,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`ARM_ShaderInstrumentation`](Extensions::ARM_ShaderInstrumentation)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -31840,7 +32012,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`ARM_ShaderInstrumentation`](Extensions::ARM_ShaderInstrumentation)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - instrumentation
@@ -31874,7 +32046,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`ARM_ShaderInstrumentation`](Extensions::ARM_ShaderInstrumentation)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -31915,7 +32087,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`ARM_ShaderInstrumentation`](Extensions::ARM_ShaderInstrumentation)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -31959,7 +32131,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`ARM_ShaderInstrumentation`](Extensions::ARM_ShaderInstrumentation)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - metric_values
@@ -32012,7 +32184,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`ARM_ShaderInstrumentation`](Extensions::ARM_ShaderInstrumentation)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkClearShaderInstrumentationMetricsARM")]
     #[inline(always)]
@@ -32041,7 +32213,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_FragmentDensityMapOffset`](Extensions::EXT_FragmentDensityMapOffset)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - rendering_end_info
@@ -32080,7 +32252,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_CustomResolve`](Extensions::EXT_CustomResolve)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - begin_custom_resolve_info
@@ -32128,7 +32300,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - image_format_properties
@@ -32187,7 +32359,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_ComputeOccupancyPriority`](Extensions::NV_ComputeOccupancyPriority)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -32231,7 +32403,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_CooperativeMatrixMaintenance1`](Extensions::EXT_CooperativeMatrixMaintenance1)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - properties
@@ -32288,7 +32460,7 @@ impl Instance {
     /// This requires _at least_ one of the following:
     /// - Extension [`SEC_UbmSurface`](Extensions::SEC_UbmSurface)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -32329,7 +32501,7 @@ impl PhysicalDevice {
     /// This requires _at least_ one of the following:
     /// - Extension [`SEC_UbmSurface`](Extensions::SEC_UbmSurface)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetPhysicalDeviceUbmPresentationSupportSEC")]
     #[inline(always)]
@@ -32360,7 +32532,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_PrimitiveRestartIndex`](Extensions::EXT_PrimitiveRestartIndex)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - primitive_restart_index
@@ -32403,7 +32575,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - allocator
@@ -32445,7 +32617,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - acceleration_structure
@@ -32483,7 +32655,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -32530,7 +32702,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -32589,7 +32761,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - deferred_operation
@@ -32645,7 +32817,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - deferred_operation
@@ -32691,7 +32863,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - deferred_operation
@@ -32737,7 +32909,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - deferred_operation
@@ -32787,7 +32959,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -32841,7 +33013,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -32880,7 +33052,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -32921,7 +33093,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -32965,7 +33137,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetAccelerationStructureDeviceAddressKHR")]
     #[inline(always)]
@@ -33002,7 +33174,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -33059,7 +33231,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetDeviceAccelerationStructureCompatibilityKHR")]
     #[inline(always)]
@@ -33096,7 +33268,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - max_primitive_counts
@@ -33149,7 +33321,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -33211,7 +33383,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Optional parameters
     /// - deferred_operation
@@ -33272,7 +33444,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Result codes
     /// ## Success
@@ -33330,7 +33502,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -33381,7 +33553,7 @@ impl Device {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "vkGetRayTracingShaderGroupStackSizeKHR")]
     #[inline(always)]
@@ -33412,7 +33584,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `state`
@@ -33447,7 +33619,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_MeshShader`](Extensions::EXT_MeshShader)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -33487,7 +33659,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_MeshShader`](Extensions::EXT_MeshShader)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`
@@ -33529,7 +33701,7 @@ impl CommandBuffer {
     /// This requires _at least_ one of the following:
     /// - Extension [`EXT_MeshShader`](Extensions::EXT_MeshShader)
     ///
-    /// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     /// # Performed tasks
     /// - `action`

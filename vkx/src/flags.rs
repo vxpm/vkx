@@ -93,7 +93,7 @@ pub type DescriptorUpdateTemplateCreateFlagsKHR = DescriptorUpdateTemplateCreate
 /// This requires _at least_ one of the following:
 /// - Extension [`KHR_Display`](Extensions::KHR_Display)
 ///
-/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkDisplayModeCreateFlagsKHR")]
 pub type DisplayModeCreateFlagsKHR = u32;
@@ -104,7 +104,7 @@ pub type DisplayModeCreateFlagsKHR = u32;
 /// This requires _at least_ one of the following:
 /// - Extension [`KHR_Display`](Extensions::KHR_Display)
 ///
-/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkDisplaySurfaceCreateFlagsKHR")]
 pub type DisplaySurfaceCreateFlagsKHR = u32;
@@ -115,7 +115,7 @@ pub type DisplaySurfaceCreateFlagsKHR = u32;
 /// This requires _at least_ one of the following:
 /// - Extension [`KHR_XlibSurface`](Extensions::KHR_XlibSurface)
 ///
-/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkXlibSurfaceCreateFlagsKHR")]
 pub type XlibSurfaceCreateFlagsKHR = u32;
@@ -126,7 +126,7 @@ pub type XlibSurfaceCreateFlagsKHR = u32;
 /// This requires _at least_ one of the following:
 /// - Extension [`KHR_XcbSurface`](Extensions::KHR_XcbSurface)
 ///
-/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkXcbSurfaceCreateFlagsKHR")]
 pub type XcbSurfaceCreateFlagsKHR = u32;
@@ -137,7 +137,7 @@ pub type XcbSurfaceCreateFlagsKHR = u32;
 /// This requires _at least_ one of the following:
 /// - Extension [`KHR_WaylandSurface`](Extensions::KHR_WaylandSurface)
 ///
-/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkWaylandSurfaceCreateFlagsKHR")]
 pub type WaylandSurfaceCreateFlagsKHR = u32;
@@ -148,7 +148,7 @@ pub type WaylandSurfaceCreateFlagsKHR = u32;
 /// This requires _at least_ one of the following:
 /// - Extension [`KHR_AndroidSurface`](Extensions::KHR_AndroidSurface)
 ///
-/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkAndroidSurfaceCreateFlagsKHR")]
 pub type AndroidSurfaceCreateFlagsKHR = u32;
@@ -159,7 +159,7 @@ pub type AndroidSurfaceCreateFlagsKHR = u32;
 /// This requires _at least_ one of the following:
 /// - Extension [`KHR_Win32Surface`](Extensions::KHR_Win32Surface)
 ///
-/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkWin32SurfaceCreateFlagsKHR")]
 pub type Win32SurfaceCreateFlagsKHR = u32;
@@ -170,7 +170,7 @@ pub type Win32SurfaceCreateFlagsKHR = u32;
 /// This requires _at least_ one of the following:
 /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
 ///
-/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkVideoBeginCodingFlagsKHR")]
 pub type VideoBeginCodingFlagsKHR = u32;
@@ -181,7 +181,7 @@ pub type VideoBeginCodingFlagsKHR = u32;
 /// This requires _at least_ one of the following:
 /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
 ///
-/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkVideoEndCodingFlagsKHR")]
 pub type VideoEndCodingFlagsKHR = u32;
@@ -192,7 +192,7 @@ pub type VideoEndCodingFlagsKHR = u32;
 /// This requires _at least_ one of the following:
 /// - Extension [`KHR_VideoDecodeQueue`](Extensions::KHR_VideoDecodeQueue)
 ///
-/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkVideoDecodeFlagsKHR")]
 pub type VideoDecodeFlagsKHR = u32;
@@ -203,7 +203,7 @@ pub type VideoDecodeFlagsKHR = u32;
 /// This requires _at least_ one of the following:
 /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
 ///
-/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkVideoEncodeRateControlFlagsKHR")]
 pub type VideoEncodeRateControlFlagsKHR = u32;
@@ -214,7 +214,7 @@ pub type VideoEncodeRateControlFlagsKHR = u32;
 /// This requires _at least_ one of the following:
 /// - Extension [`EXT_TransformFeedback`](Extensions::EXT_TransformFeedback)
 ///
-/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkPipelineRasterizationStateStreamCreateFlagsEXT")]
 pub type PipelineRasterizationStateStreamCreateFlagsEXT = u32;
@@ -225,7 +225,7 @@ pub type PipelineRasterizationStateStreamCreateFlagsEXT = u32;
 /// This requires _at least_ one of the following:
 /// - Extension [`GGP_StreamDescriptorSurface`](Extensions::GGP_StreamDescriptorSurface)
 ///
-/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkStreamDescriptorSurfaceCreateFlagsGGP")]
 pub type StreamDescriptorSurfaceCreateFlagsGGP = u32;
@@ -236,7 +236,7 @@ pub type StreamDescriptorSurfaceCreateFlagsGGP = u32;
 /// This requires _at least_ one of the following:
 /// - Extension [`NN_ViSurface`](Extensions::NN_ViSurface)
 ///
-/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkViSurfaceCreateFlagsNN")]
 pub type ViSurfaceCreateFlagsNN = u32;
@@ -247,7 +247,7 @@ pub type ViSurfaceCreateFlagsNN = u32;
 /// This requires _at least_ one of the following:
 /// - Extension [`NV_ViewportSwizzle`](Extensions::NV_ViewportSwizzle)
 ///
-/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkPipelineViewportSwizzleStateCreateFlagsNV")]
 pub type PipelineViewportSwizzleStateCreateFlagsNV = u32;
@@ -258,7 +258,7 @@ pub type PipelineViewportSwizzleStateCreateFlagsNV = u32;
 /// This requires _at least_ one of the following:
 /// - Extension [`EXT_DiscardRectangles`](Extensions::EXT_DiscardRectangles)
 ///
-/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkPipelineDiscardRectangleStateCreateFlagsEXT")]
 pub type PipelineDiscardRectangleStateCreateFlagsEXT = u32;
@@ -269,7 +269,7 @@ pub type PipelineDiscardRectangleStateCreateFlagsEXT = u32;
 /// This requires _at least_ one of the following:
 /// - Extension [`EXT_ConservativeRasterization`](Extensions::EXT_ConservativeRasterization)
 ///
-/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkPipelineRasterizationConservativeStateCreateFlagsEXT")]
 pub type PipelineRasterizationConservativeStateCreateFlagsEXT = u32;
@@ -280,7 +280,7 @@ pub type PipelineRasterizationConservativeStateCreateFlagsEXT = u32;
 /// This requires _at least_ one of the following:
 /// - Extension [`EXT_DepthClipEnable`](Extensions::EXT_DepthClipEnable)
 ///
-/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkPipelineRasterizationDepthClipStateCreateFlagsEXT")]
 pub type PipelineRasterizationDepthClipStateCreateFlagsEXT = u32;
@@ -290,8 +290,9 @@ pub type PipelineRasterizationDepthClipStateCreateFlagsEXT = u32;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Extension [`MVK_IosSurface`](Extensions::MVK_IosSurface)
+/// - Extension [`EXT_MetalSurface`](Extensions::EXT_MetalSurface)
 ///
-/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkIOSSurfaceCreateFlagsMVK")]
 pub type IOSSurfaceCreateFlagsMVK = u32;
@@ -301,8 +302,9 @@ pub type IOSSurfaceCreateFlagsMVK = u32;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Extension [`MVK_MacosSurface`](Extensions::MVK_MacosSurface)
+/// - Extension [`EXT_MetalSurface`](Extensions::EXT_MetalSurface)
 ///
-/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkMacOSSurfaceCreateFlagsMVK")]
 pub type MacOSSurfaceCreateFlagsMVK = u32;
@@ -313,7 +315,7 @@ pub type MacOSSurfaceCreateFlagsMVK = u32;
 /// This requires _at least_ one of the following:
 /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
 ///
-/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkDebugUtilsMessengerCallbackDataFlagsEXT")]
 pub type DebugUtilsMessengerCallbackDataFlagsEXT = u32;
@@ -324,7 +326,7 @@ pub type DebugUtilsMessengerCallbackDataFlagsEXT = u32;
 /// This requires _at least_ one of the following:
 /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
 ///
-/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkDebugUtilsMessengerCreateFlagsEXT")]
 pub type DebugUtilsMessengerCreateFlagsEXT = u32;
@@ -335,7 +337,7 @@ pub type DebugUtilsMessengerCreateFlagsEXT = u32;
 /// This requires _at least_ one of the following:
 /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
 ///
-/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkGpaPerfBlockPropertiesFlagsAMD")]
 pub type GpaPerfBlockPropertiesFlagsAMD = u32;
@@ -346,7 +348,7 @@ pub type GpaPerfBlockPropertiesFlagsAMD = u32;
 /// This requires _at least_ one of the following:
 /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
 ///
-/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
@@ -359,7 +361,7 @@ pub type PhysicalDeviceGpaPropertiesFlagsAMD = u32;
 /// This requires _at least_ one of the following:
 /// - Extension [`NV_FragmentCoverageToColor`](Extensions::NV_FragmentCoverageToColor)
 ///
-/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkPipelineCoverageToColorStateCreateFlagsNV")]
 pub type PipelineCoverageToColorStateCreateFlagsNV = u32;
@@ -370,7 +372,7 @@ pub type PipelineCoverageToColorStateCreateFlagsNV = u32;
 /// This requires _at least_ one of the following:
 /// - Extension [`NV_FramebufferMixedSamples`](Extensions::NV_FramebufferMixedSamples)
 ///
-/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkPipelineCoverageModulationStateCreateFlagsNV")]
 pub type PipelineCoverageModulationStateCreateFlagsNV = u32;
@@ -381,7 +383,7 @@ pub type PipelineCoverageModulationStateCreateFlagsNV = u32;
 /// This requires _at least_ one of the following:
 /// - Extension [`EXT_ValidationCache`](Extensions::EXT_ValidationCache)
 ///
-/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkValidationCacheCreateFlagsEXT")]
 pub type ValidationCacheCreateFlagsEXT = u32;
@@ -392,7 +394,7 @@ pub type ValidationCacheCreateFlagsEXT = u32;
 /// This requires _at least_ one of the following:
 /// - Extension [`FUCHSIA_ImagepipeSurface`](Extensions::FUCHSIA_ImagepipeSurface)
 ///
-/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkImagePipeSurfaceCreateFlagsFUCHSIA")]
 pub type ImagePipeSurfaceCreateFlagsFUCHSIA = u32;
@@ -403,7 +405,7 @@ pub type ImagePipeSurfaceCreateFlagsFUCHSIA = u32;
 /// This requires _at least_ one of the following:
 /// - Extension [`EXT_MetalSurface`](Extensions::EXT_MetalSurface)
 ///
-/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkMetalSurfaceCreateFlagsEXT")]
 pub type MetalSurfaceCreateFlagsEXT = u32;
@@ -414,7 +416,7 @@ pub type MetalSurfaceCreateFlagsEXT = u32;
 /// This requires _at least_ one of the following:
 /// - Extension [`NV_CoverageReductionMode`](Extensions::NV_CoverageReductionMode)
 ///
-/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkPipelineCoverageReductionStateCreateFlagsNV")]
 pub type PipelineCoverageReductionStateCreateFlagsNV = u32;
@@ -425,7 +427,7 @@ pub type PipelineCoverageReductionStateCreateFlagsNV = u32;
 /// This requires _at least_ one of the following:
 /// - Extension [`EXT_HeadlessSurface`](Extensions::EXT_HeadlessSurface)
 ///
-/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkHeadlessSurfaceCreateFlagsEXT")]
 pub type HeadlessSurfaceCreateFlagsEXT = u32;
@@ -436,7 +438,7 @@ pub type HeadlessSurfaceCreateFlagsEXT = u32;
 /// This requires _at least_ one of the following:
 /// - Extension [`EXT_DeviceMemoryReport`](Extensions::EXT_DeviceMemoryReport)
 ///
-/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkDeviceMemoryReportFlagsEXT")]
 pub type DeviceMemoryReportFlagsEXT = u32;
@@ -447,7 +449,7 @@ pub type DeviceMemoryReportFlagsEXT = u32;
 /// This requires _at least_ one of the following:
 /// - Extension [`NV_RayTracingMotionBlur`](Extensions::NV_RayTracingMotionBlur)
 ///
-/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkAccelerationStructureMotionInfoFlagsNV")]
 pub type AccelerationStructureMotionInfoFlagsNV = u32;
@@ -458,7 +460,7 @@ pub type AccelerationStructureMotionInfoFlagsNV = u32;
 /// This requires _at least_ one of the following:
 /// - Extension [`NV_RayTracingMotionBlur`](Extensions::NV_RayTracingMotionBlur)
 ///
-/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkAccelerationStructureMotionInstanceFlagsNV")]
 pub type AccelerationStructureMotionInstanceFlagsNV = u32;
@@ -469,7 +471,7 @@ pub type AccelerationStructureMotionInstanceFlagsNV = u32;
 /// This requires _at least_ one of the following:
 /// - Extension [`EXT_DirectfbSurface`](Extensions::EXT_DirectfbSurface)
 ///
-/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkDirectFBSurfaceCreateFlagsEXT")]
 pub type DirectFBSurfaceCreateFlagsEXT = u32;
@@ -480,7 +482,7 @@ pub type DirectFBSurfaceCreateFlagsEXT = u32;
 /// This requires _at least_ one of the following:
 /// - Extension [`FUCHSIA_BufferCollection`](Extensions::FUCHSIA_BufferCollection)
 ///
-/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkImageFormatConstraintsFlagsFUCHSIA")]
 pub type ImageFormatConstraintsFlagsFUCHSIA = u32;
@@ -491,7 +493,7 @@ pub type ImageFormatConstraintsFlagsFUCHSIA = u32;
 /// This requires _at least_ one of the following:
 /// - Extension [`QNX_ScreenSurface`](Extensions::QNX_ScreenSurface)
 ///
-/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkScreenSurfaceCreateFlagsQNX")]
 pub type ScreenSurfaceCreateFlagsQNX = u32;
@@ -502,7 +504,7 @@ pub type ScreenSurfaceCreateFlagsQNX = u32;
 /// This requires _at least_ one of the following:
 /// - Extension [`LUNARG_DirectDriverLoading`](Extensions::LUNARG_DirectDriverLoading)
 ///
-/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkDirectDriverLoadingFlagsLUNARG")]
 pub type DirectDriverLoadingFlagsLUNARG = u32;
@@ -513,7 +515,7 @@ pub type DirectDriverLoadingFlagsLUNARG = u32;
 /// This requires _at least_ one of the following:
 /// - Extension [`OHOS_Surface`](Extensions::OHOS_Surface)
 ///
-/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkSurfaceCreateFlagsOHOS")]
 pub type SurfaceCreateFlagsOHOS = u32;
@@ -524,7 +526,7 @@ pub type SurfaceCreateFlagsOHOS = u32;
 /// This requires _at least_ one of the following:
 /// - Extension [`ARM_PerformanceCountersByRegion`](Extensions::ARM_PerformanceCountersByRegion)
 ///
-/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
@@ -537,7 +539,7 @@ pub type PerformanceCounterDescriptionFlagsARM = u32;
 /// This requires _at least_ one of the following:
 /// - Extension [`ARM_ShaderInstrumentation`](Extensions::ARM_ShaderInstrumentation)
 ///
-/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkShaderInstrumentationValuesFlagsARM")]
 pub type ShaderInstrumentationValuesFlagsARM = u32;
@@ -548,7 +550,7 @@ pub type ShaderInstrumentationValuesFlagsARM = u32;
 /// This requires _at least_ one of the following:
 /// - Extension [`SEC_UbmSurface`](Extensions::SEC_UbmSurface)
 ///
-/// Note this is not an exhaustive requirement list. For more information check vulkan documentation.
+/// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkUbmSurfaceCreateFlagsSEC")]
 pub type UbmSurfaceCreateFlagsSEC = u32;

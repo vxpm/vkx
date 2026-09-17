@@ -74,7 +74,13 @@ def const(name: str) -> str:
 
 def extension(name: str) -> str:
     name = name.removeprefix("VK_")
-    tag, name = name.split("_", maxsplit=1)
+    split = name.split("_", maxsplit=1)
+
+    if len(split) != 2:
+        print(name)
+        exit(-1)
+
+    tag, name = split
     return f"{tag}_{textcase.pascal(name)}"
 
 
