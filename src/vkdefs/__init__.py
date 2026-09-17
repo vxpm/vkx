@@ -411,8 +411,10 @@ class Context:
 
         # aliases
         for alias in x.aliases:
-            alias = alias.removeprefix("Vk")
-            out.writeln(f"pub type {alias} = {type_name};")
+            alias_name = alias.removeprefix("Vk")
+            vulkan_doc_header(out, alias)
+            out.writeln(f'#[doc(alias = "{alias}")]')
+            out.writeln(f"pub type {alias_name} = {type_name};")
 
         return Generated(type_name, out.content, x)
 
@@ -446,8 +448,10 @@ class Context:
 
         # aliases
         for alias in x.aliases:
-            alias = alias.removeprefix("Vk")
-            out.writeln(f"pub type {alias} = {raw_handle_type_name};")
+            alias_name = alias.removeprefix("Vk")
+            vulkan_doc_header(out, alias)
+            out.writeln(f'#[doc(alias = "{alias}")]')
+            out.writeln(f"pub type {alias_name} = {raw_handle_type_name};")
 
         return Generated(raw_handle_type_name, out.content, x)
 
@@ -499,8 +503,10 @@ class Context:
 
         # aliases
         for alias in x.aliases:
-            alias = alias.removeprefix("Vk")
-            out.writeln(f"pub type {alias} = {type_name};")
+            alias_name = alias.removeprefix("Vk")
+            vulkan_doc_header(out, alias)
+            out.writeln(f'#[doc(alias = "{alias}")]')
+            out.writeln(f"pub type {alias_name} = {type_name};")
 
         if len(field_aliases) > 0:
             out.writeln(f"impl {type_name} {{")
@@ -551,8 +557,10 @@ class Context:
 
         # aliases
         for alias in x.aliases:
-            alias = alias.removeprefix("Vk").replace("FlagBits", "Flags")
-            out.writeln(f"pub type {alias} = {type_name};")
+            alias_name = alias.removeprefix("Vk").replace("FlagBits", "Flags")
+            vulkan_doc_header(out, alias)
+            out.writeln(f'#[doc(alias = "{alias}")]')
+            out.writeln(f"pub type {alias_name} = {type_name};")
 
         if len(flag_aliases) > 0:
             out.writeln(f"impl {type_name} {{")
@@ -584,8 +592,10 @@ class Context:
 
         # aliases
         for alias in x.aliases:
-            alias = alias.removeprefix("Vk")
-            out.writeln(f"pub type {alias} = {type_name};")
+            alias_name = alias.removeprefix("Vk")
+            vulkan_doc_header(out, alias)
+            out.writeln(f'#[doc(alias = "{alias}")]')
+            out.writeln(f"pub type {alias_name} = {type_name};")
 
         return Generated(type_name, out.content, x)
 

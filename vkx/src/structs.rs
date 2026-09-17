@@ -4847,6 +4847,9 @@ unsafe impl Extendable for BindBufferMemoryInfo {
         }
     }
 }
+/// [`VkBindBufferMemoryInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBindBufferMemoryInfoKHR.html)
+///
+#[doc(alias = "VkBindBufferMemoryInfoKHR")]
 pub type BindBufferMemoryInfoKHR = BindBufferMemoryInfo;
 
 /// [`VkBindImageMemoryInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBindImageMemoryInfo.html)
@@ -4903,6 +4906,9 @@ unsafe impl Extendable for BindImageMemoryInfo {
         }
     }
 }
+/// [`VkBindImageMemoryInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBindImageMemoryInfoKHR.html)
+///
+#[doc(alias = "VkBindImageMemoryInfoKHR")]
 pub type BindImageMemoryInfoKHR = BindImageMemoryInfo;
 
 /// [`VkMemoryDedicatedRequirements`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryDedicatedRequirements.html)
@@ -4953,6 +4959,9 @@ unsafe impl Extendable for MemoryDedicatedRequirements {
     }
 }
 unsafe impl Extends<MemoryRequirements2> for MemoryDedicatedRequirements {}
+/// [`VkMemoryDedicatedRequirementsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryDedicatedRequirementsKHR.html)
+///
+#[doc(alias = "VkMemoryDedicatedRequirementsKHR")]
 pub type MemoryDedicatedRequirementsKHR = MemoryDedicatedRequirements;
 
 /// [`VkMemoryDedicatedAllocateInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryDedicatedAllocateInfo.html)
@@ -5005,6 +5014,9 @@ unsafe impl Extendable for MemoryDedicatedAllocateInfo {
     }
 }
 unsafe impl Extends<MemoryAllocateInfo> for MemoryDedicatedAllocateInfo {}
+/// [`VkMemoryDedicatedAllocateInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryDedicatedAllocateInfoKHR.html)
+///
+#[doc(alias = "VkMemoryDedicatedAllocateInfoKHR")]
 pub type MemoryDedicatedAllocateInfoKHR = MemoryDedicatedAllocateInfo;
 
 /// [`VkMemoryAllocateFlagsInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryAllocateFlagsInfo.html)
@@ -5056,6 +5068,9 @@ unsafe impl Extendable for MemoryAllocateFlagsInfo {
     }
 }
 unsafe impl Extends<MemoryAllocateInfo> for MemoryAllocateFlagsInfo {}
+/// [`VkMemoryAllocateFlagsInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryAllocateFlagsInfoKHR.html)
+///
+#[doc(alias = "VkMemoryAllocateFlagsInfoKHR")]
 pub type MemoryAllocateFlagsInfoKHR = MemoryAllocateFlagsInfo;
 
 /// [`VkDeviceGroupCommandBufferBeginInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceGroupCommandBufferBeginInfo.html)
@@ -5104,6 +5119,9 @@ unsafe impl Extendable for DeviceGroupCommandBufferBeginInfo {
     }
 }
 unsafe impl Extends<CommandBufferBeginInfo> for DeviceGroupCommandBufferBeginInfo {}
+/// [`VkDeviceGroupCommandBufferBeginInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceGroupCommandBufferBeginInfoKHR.html)
+///
+#[doc(alias = "VkDeviceGroupCommandBufferBeginInfoKHR")]
 pub type DeviceGroupCommandBufferBeginInfoKHR = DeviceGroupCommandBufferBeginInfo;
 
 /// [`VkDeviceGroupSubmitInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceGroupSubmitInfo.html)
@@ -5167,6 +5185,9 @@ unsafe impl Extendable for DeviceGroupSubmitInfo {
     }
 }
 unsafe impl Extends<SubmitInfo> for DeviceGroupSubmitInfo {}
+/// [`VkDeviceGroupSubmitInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceGroupSubmitInfoKHR.html)
+///
+#[doc(alias = "VkDeviceGroupSubmitInfoKHR")]
 pub type DeviceGroupSubmitInfoKHR = DeviceGroupSubmitInfo;
 
 /// [`VkDeviceGroupBindSparseInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceGroupBindSparseInfo.html)
@@ -5217,6 +5238,9 @@ unsafe impl Extendable for DeviceGroupBindSparseInfo {
     }
 }
 unsafe impl Extends<BindSparseInfo> for DeviceGroupBindSparseInfo {}
+/// [`VkDeviceGroupBindSparseInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceGroupBindSparseInfoKHR.html)
+///
+#[doc(alias = "VkDeviceGroupBindSparseInfoKHR")]
 pub type DeviceGroupBindSparseInfoKHR = DeviceGroupBindSparseInfo;
 
 /// [`VkBindBufferMemoryDeviceGroupInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBindBufferMemoryDeviceGroupInfo.html)
@@ -5268,6 +5292,9 @@ unsafe impl Extendable for BindBufferMemoryDeviceGroupInfo {
     }
 }
 unsafe impl Extends<BindBufferMemoryInfo> for BindBufferMemoryDeviceGroupInfo {}
+/// [`VkBindBufferMemoryDeviceGroupInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBindBufferMemoryDeviceGroupInfoKHR.html)
+///
+#[doc(alias = "VkBindBufferMemoryDeviceGroupInfoKHR")]
 pub type BindBufferMemoryDeviceGroupInfoKHR = BindBufferMemoryDeviceGroupInfo;
 
 /// [`VkBindImageMemoryDeviceGroupInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBindImageMemoryDeviceGroupInfo.html)
@@ -5324,6 +5351,9 @@ unsafe impl Extendable for BindImageMemoryDeviceGroupInfo {
     }
 }
 unsafe impl Extends<BindImageMemoryInfo> for BindImageMemoryDeviceGroupInfo {}
+/// [`VkBindImageMemoryDeviceGroupInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBindImageMemoryDeviceGroupInfoKHR.html)
+///
+#[doc(alias = "VkBindImageMemoryDeviceGroupInfoKHR")]
 pub type BindImageMemoryDeviceGroupInfoKHR = BindImageMemoryDeviceGroupInfo;
 
 /// [`VkPhysicalDeviceGroupProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceGroupProperties.html)
@@ -5375,6 +5405,9 @@ unsafe impl Extendable for PhysicalDeviceGroupProperties {
         }
     }
 }
+/// [`VkPhysicalDeviceGroupPropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceGroupPropertiesKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceGroupPropertiesKHR")]
 pub type PhysicalDeviceGroupPropertiesKHR = PhysicalDeviceGroupProperties;
 
 /// [`VkDeviceGroupDeviceCreateInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceGroupDeviceCreateInfo.html)
@@ -5426,6 +5459,9 @@ unsafe impl Extendable for DeviceGroupDeviceCreateInfo {
     }
 }
 unsafe impl Extends<DeviceCreateInfo> for DeviceGroupDeviceCreateInfo {}
+/// [`VkDeviceGroupDeviceCreateInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceGroupDeviceCreateInfoKHR.html)
+///
+#[doc(alias = "VkDeviceGroupDeviceCreateInfoKHR")]
 pub type DeviceGroupDeviceCreateInfoKHR = DeviceGroupDeviceCreateInfo;
 
 /// [`VkBufferMemoryRequirementsInfo2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferMemoryRequirementsInfo2.html)
@@ -5473,6 +5509,9 @@ unsafe impl Extendable for BufferMemoryRequirementsInfo2 {
         }
     }
 }
+/// [`VkBufferMemoryRequirementsInfo2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferMemoryRequirementsInfo2KHR.html)
+///
+#[doc(alias = "VkBufferMemoryRequirementsInfo2KHR")]
 pub type BufferMemoryRequirementsInfo2KHR = BufferMemoryRequirementsInfo2;
 
 /// [`VkImageMemoryRequirementsInfo2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageMemoryRequirementsInfo2.html)
@@ -5522,6 +5561,9 @@ unsafe impl Extendable for ImageMemoryRequirementsInfo2 {
         }
     }
 }
+/// [`VkImageMemoryRequirementsInfo2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageMemoryRequirementsInfo2KHR.html)
+///
+#[doc(alias = "VkImageMemoryRequirementsInfo2KHR")]
 pub type ImageMemoryRequirementsInfo2KHR = ImageMemoryRequirementsInfo2;
 
 /// [`VkImageSparseMemoryRequirementsInfo2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageSparseMemoryRequirementsInfo2.html)
@@ -5569,6 +5611,9 @@ unsafe impl Extendable for ImageSparseMemoryRequirementsInfo2 {
         }
     }
 }
+/// [`VkImageSparseMemoryRequirementsInfo2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageSparseMemoryRequirementsInfo2KHR.html)
+///
+#[doc(alias = "VkImageSparseMemoryRequirementsInfo2KHR")]
 pub type ImageSparseMemoryRequirementsInfo2KHR = ImageSparseMemoryRequirementsInfo2;
 
 /// [`VkMemoryRequirements2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryRequirements2.html)
@@ -5620,6 +5665,9 @@ unsafe impl Extendable for MemoryRequirements2 {
         }
     }
 }
+/// [`VkMemoryRequirements2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryRequirements2KHR.html)
+///
+#[doc(alias = "VkMemoryRequirements2KHR")]
 pub type MemoryRequirements2KHR = MemoryRequirements2;
 
 /// [`VkSparseImageMemoryRequirements2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSparseImageMemoryRequirements2.html)
@@ -5667,6 +5715,9 @@ unsafe impl Extendable for SparseImageMemoryRequirements2 {
         }
     }
 }
+/// [`VkSparseImageMemoryRequirements2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSparseImageMemoryRequirements2KHR.html)
+///
+#[doc(alias = "VkSparseImageMemoryRequirements2KHR")]
 pub type SparseImageMemoryRequirements2KHR = SparseImageMemoryRequirements2;
 
 /// [`VkPhysicalDeviceFeatures2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFeatures2.html)
@@ -5993,6 +6044,9 @@ unsafe impl Extendable for PhysicalDeviceFeatures2 {
     }
 }
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceFeatures2 {}
+/// [`VkPhysicalDeviceFeatures2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFeatures2KHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceFeatures2KHR")]
 pub type PhysicalDeviceFeatures2KHR = PhysicalDeviceFeatures2;
 
 /// [`VkPhysicalDeviceProperties2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceProperties2.html)
@@ -6167,6 +6221,9 @@ unsafe impl Extendable for PhysicalDeviceProperties2 {
         }
     }
 }
+/// [`VkPhysicalDeviceProperties2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceProperties2KHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceProperties2KHR")]
 pub type PhysicalDeviceProperties2KHR = PhysicalDeviceProperties2;
 
 /// [`VkFormatProperties2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkFormatProperties2.html)
@@ -6222,6 +6279,9 @@ unsafe impl Extendable for FormatProperties2 {
         }
     }
 }
+/// [`VkFormatProperties2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkFormatProperties2KHR.html)
+///
+#[doc(alias = "VkFormatProperties2KHR")]
 pub type FormatProperties2KHR = FormatProperties2;
 
 /// [`VkImageFormatProperties2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageFormatProperties2.html)
@@ -6279,6 +6339,9 @@ unsafe impl Extendable for ImageFormatProperties2 {
         }
     }
 }
+/// [`VkImageFormatProperties2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageFormatProperties2KHR.html)
+///
+#[doc(alias = "VkImageFormatProperties2KHR")]
 pub type ImageFormatProperties2KHR = ImageFormatProperties2;
 
 /// [`VkPhysicalDeviceImageFormatInfo2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceImageFormatInfo2.html)
@@ -6348,6 +6411,9 @@ unsafe impl Extendable for PhysicalDeviceImageFormatInfo2 {
         }
     }
 }
+/// [`VkPhysicalDeviceImageFormatInfo2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceImageFormatInfo2KHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceImageFormatInfo2KHR")]
 pub type PhysicalDeviceImageFormatInfo2KHR = PhysicalDeviceImageFormatInfo2;
 
 /// [`VkQueueFamilyProperties2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkQueueFamilyProperties2.html)
@@ -6403,6 +6469,9 @@ unsafe impl Extendable for QueueFamilyProperties2 {
         }
     }
 }
+/// [`VkQueueFamilyProperties2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkQueueFamilyProperties2KHR.html)
+///
+#[doc(alias = "VkQueueFamilyProperties2KHR")]
 pub type QueueFamilyProperties2KHR = QueueFamilyProperties2;
 
 /// [`VkPhysicalDeviceMemoryProperties2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMemoryProperties2.html)
@@ -6452,6 +6521,9 @@ unsafe impl Extendable for PhysicalDeviceMemoryProperties2 {
         }
     }
 }
+/// [`VkPhysicalDeviceMemoryProperties2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMemoryProperties2KHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceMemoryProperties2KHR")]
 pub type PhysicalDeviceMemoryProperties2KHR = PhysicalDeviceMemoryProperties2;
 
 /// [`VkSparseImageFormatProperties2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSparseImageFormatProperties2.html)
@@ -6499,6 +6571,9 @@ unsafe impl Extendable for SparseImageFormatProperties2 {
         }
     }
 }
+/// [`VkSparseImageFormatProperties2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSparseImageFormatProperties2KHR.html)
+///
+#[doc(alias = "VkSparseImageFormatProperties2KHR")]
 pub type SparseImageFormatProperties2KHR = SparseImageFormatProperties2;
 
 /// [`VkPhysicalDeviceSparseImageFormatInfo2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSparseImageFormatInfo2.html)
@@ -6556,6 +6631,9 @@ unsafe impl Extendable for PhysicalDeviceSparseImageFormatInfo2 {
         }
     }
 }
+/// [`VkPhysicalDeviceSparseImageFormatInfo2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSparseImageFormatInfo2KHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceSparseImageFormatInfo2KHR")]
 pub type PhysicalDeviceSparseImageFormatInfo2KHR = PhysicalDeviceSparseImageFormatInfo2;
 
 /// [`VkImageViewUsageCreateInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageViewUsageCreateInfo.html)
@@ -6604,6 +6682,9 @@ unsafe impl Extendable for ImageViewUsageCreateInfo {
     }
 }
 unsafe impl Extends<ImageViewCreateInfo> for ImageViewUsageCreateInfo {}
+/// [`VkImageViewUsageCreateInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageViewUsageCreateInfoKHR.html)
+///
+#[doc(alias = "VkImageViewUsageCreateInfoKHR")]
 pub type ImageViewUsageCreateInfoKHR = ImageViewUsageCreateInfo;
 
 /// [`VkPhysicalDeviceProtectedMemoryFeatures`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceProtectedMemoryFeatures.html)
@@ -6841,6 +6922,9 @@ unsafe impl Extendable for BindImagePlaneMemoryInfo {
     }
 }
 unsafe impl Extends<BindImageMemoryInfo> for BindImagePlaneMemoryInfo {}
+/// [`VkBindImagePlaneMemoryInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBindImagePlaneMemoryInfoKHR.html)
+///
+#[doc(alias = "VkBindImagePlaneMemoryInfoKHR")]
 pub type BindImagePlaneMemoryInfoKHR = BindImagePlaneMemoryInfo;
 
 /// [`VkImagePlaneMemoryRequirementsInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImagePlaneMemoryRequirementsInfo.html)
@@ -6889,6 +6973,9 @@ unsafe impl Extendable for ImagePlaneMemoryRequirementsInfo {
     }
 }
 unsafe impl Extends<ImageMemoryRequirementsInfo2> for ImagePlaneMemoryRequirementsInfo {}
+/// [`VkImagePlaneMemoryRequirementsInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImagePlaneMemoryRequirementsInfoKHR.html)
+///
+#[doc(alias = "VkImagePlaneMemoryRequirementsInfoKHR")]
 pub type ImagePlaneMemoryRequirementsInfoKHR = ImagePlaneMemoryRequirementsInfo;
 
 /// [`VkExternalMemoryProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalMemoryProperties.html)
@@ -6919,6 +7006,9 @@ impl Default for ExternalMemoryProperties {
         }
     }
 }
+/// [`VkExternalMemoryPropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalMemoryPropertiesKHR.html)
+///
+#[doc(alias = "VkExternalMemoryPropertiesKHR")]
 pub type ExternalMemoryPropertiesKHR = ExternalMemoryProperties;
 
 /// [`VkPhysicalDeviceExternalImageFormatInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceExternalImageFormatInfo.html)
@@ -6968,6 +7058,9 @@ unsafe impl Extendable for PhysicalDeviceExternalImageFormatInfo {
     }
 }
 unsafe impl Extends<PhysicalDeviceImageFormatInfo2> for PhysicalDeviceExternalImageFormatInfo {}
+/// [`VkPhysicalDeviceExternalImageFormatInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceExternalImageFormatInfoKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceExternalImageFormatInfoKHR")]
 pub type PhysicalDeviceExternalImageFormatInfoKHR = PhysicalDeviceExternalImageFormatInfo;
 
 /// [`VkExternalImageFormatProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalImageFormatProperties.html)
@@ -7016,6 +7109,9 @@ unsafe impl Extendable for ExternalImageFormatProperties {
     }
 }
 unsafe impl Extends<ImageFormatProperties2> for ExternalImageFormatProperties {}
+/// [`VkExternalImageFormatPropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalImageFormatPropertiesKHR.html)
+///
+#[doc(alias = "VkExternalImageFormatPropertiesKHR")]
 pub type ExternalImageFormatPropertiesKHR = ExternalImageFormatProperties;
 
 /// [`VkPhysicalDeviceExternalBufferInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceExternalBufferInfo.html)
@@ -7071,6 +7167,9 @@ unsafe impl Extendable for PhysicalDeviceExternalBufferInfo {
         }
     }
 }
+/// [`VkPhysicalDeviceExternalBufferInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceExternalBufferInfoKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceExternalBufferInfoKHR")]
 pub type PhysicalDeviceExternalBufferInfoKHR = PhysicalDeviceExternalBufferInfo;
 
 /// [`VkExternalBufferProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalBufferProperties.html)
@@ -7118,6 +7217,9 @@ unsafe impl Extendable for ExternalBufferProperties {
         }
     }
 }
+/// [`VkExternalBufferPropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalBufferPropertiesKHR.html)
+///
+#[doc(alias = "VkExternalBufferPropertiesKHR")]
 pub type ExternalBufferPropertiesKHR = ExternalBufferProperties;
 
 /// [`VkPhysicalDeviceIDProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceIDProperties.html)
@@ -7176,6 +7278,9 @@ unsafe impl Extendable for PhysicalDeviceIDProperties {
     }
 }
 unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceIDProperties {}
+/// [`VkPhysicalDeviceIDPropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceIDPropertiesKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceIDPropertiesKHR")]
 pub type PhysicalDeviceIDPropertiesKHR = PhysicalDeviceIDProperties;
 
 /// [`VkExternalMemoryImageCreateInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalMemoryImageCreateInfo.html)
@@ -7225,6 +7330,9 @@ unsafe impl Extendable for ExternalMemoryImageCreateInfo {
     }
 }
 unsafe impl Extends<ImageCreateInfo> for ExternalMemoryImageCreateInfo {}
+/// [`VkExternalMemoryImageCreateInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalMemoryImageCreateInfoKHR.html)
+///
+#[doc(alias = "VkExternalMemoryImageCreateInfoKHR")]
 pub type ExternalMemoryImageCreateInfoKHR = ExternalMemoryImageCreateInfo;
 
 /// [`VkExternalMemoryBufferCreateInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalMemoryBufferCreateInfo.html)
@@ -7274,6 +7382,9 @@ unsafe impl Extendable for ExternalMemoryBufferCreateInfo {
     }
 }
 unsafe impl Extends<BufferCreateInfo> for ExternalMemoryBufferCreateInfo {}
+/// [`VkExternalMemoryBufferCreateInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalMemoryBufferCreateInfoKHR.html)
+///
+#[doc(alias = "VkExternalMemoryBufferCreateInfoKHR")]
 pub type ExternalMemoryBufferCreateInfoKHR = ExternalMemoryBufferCreateInfo;
 
 /// [`VkExportMemoryAllocateInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExportMemoryAllocateInfo.html)
@@ -7323,6 +7434,9 @@ unsafe impl Extendable for ExportMemoryAllocateInfo {
     }
 }
 unsafe impl Extends<MemoryAllocateInfo> for ExportMemoryAllocateInfo {}
+/// [`VkExportMemoryAllocateInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExportMemoryAllocateInfoKHR.html)
+///
+#[doc(alias = "VkExportMemoryAllocateInfoKHR")]
 pub type ExportMemoryAllocateInfoKHR = ExportMemoryAllocateInfo;
 
 /// [`VkPhysicalDeviceExternalFenceInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceExternalFenceInfo.html)
@@ -7370,6 +7484,9 @@ unsafe impl Extendable for PhysicalDeviceExternalFenceInfo {
         }
     }
 }
+/// [`VkPhysicalDeviceExternalFenceInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceExternalFenceInfoKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceExternalFenceInfoKHR")]
 pub type PhysicalDeviceExternalFenceInfoKHR = PhysicalDeviceExternalFenceInfo;
 
 /// [`VkExternalFenceProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalFenceProperties.html)
@@ -7422,6 +7539,9 @@ unsafe impl Extendable for ExternalFenceProperties {
         }
     }
 }
+/// [`VkExternalFencePropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalFencePropertiesKHR.html)
+///
+#[doc(alias = "VkExternalFencePropertiesKHR")]
 pub type ExternalFencePropertiesKHR = ExternalFenceProperties;
 
 /// [`VkExportFenceCreateInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExportFenceCreateInfo.html)
@@ -7471,6 +7591,9 @@ unsafe impl Extendable for ExportFenceCreateInfo {
     }
 }
 unsafe impl Extends<FenceCreateInfo> for ExportFenceCreateInfo {}
+/// [`VkExportFenceCreateInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExportFenceCreateInfoKHR.html)
+///
+#[doc(alias = "VkExportFenceCreateInfoKHR")]
 pub type ExportFenceCreateInfoKHR = ExportFenceCreateInfo;
 
 /// [`VkExportSemaphoreCreateInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExportSemaphoreCreateInfo.html)
@@ -7520,6 +7643,9 @@ unsafe impl Extendable for ExportSemaphoreCreateInfo {
     }
 }
 unsafe impl Extends<SemaphoreCreateInfo> for ExportSemaphoreCreateInfo {}
+/// [`VkExportSemaphoreCreateInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExportSemaphoreCreateInfoKHR.html)
+///
+#[doc(alias = "VkExportSemaphoreCreateInfoKHR")]
 pub type ExportSemaphoreCreateInfoKHR = ExportSemaphoreCreateInfo;
 
 /// [`VkPhysicalDeviceExternalSemaphoreInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceExternalSemaphoreInfo.html)
@@ -7569,6 +7695,9 @@ unsafe impl Extendable for PhysicalDeviceExternalSemaphoreInfo {
         }
     }
 }
+/// [`VkPhysicalDeviceExternalSemaphoreInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceExternalSemaphoreInfoKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceExternalSemaphoreInfoKHR")]
 pub type PhysicalDeviceExternalSemaphoreInfoKHR = PhysicalDeviceExternalSemaphoreInfo;
 
 /// [`VkExternalSemaphoreProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalSemaphoreProperties.html)
@@ -7621,6 +7750,9 @@ unsafe impl Extendable for ExternalSemaphoreProperties {
         }
     }
 }
+/// [`VkExternalSemaphorePropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalSemaphorePropertiesKHR.html)
+///
+#[doc(alias = "VkExternalSemaphorePropertiesKHR")]
 pub type ExternalSemaphorePropertiesKHR = ExternalSemaphoreProperties;
 
 /// [`VkPhysicalDeviceSubgroupProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSubgroupProperties.html)
@@ -7728,6 +7860,9 @@ unsafe impl Extendable for PhysicalDevice16BitStorageFeatures {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDevice16BitStorageFeatures {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDevice16BitStorageFeatures {}
+/// [`VkPhysicalDevice16BitStorageFeaturesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevice16BitStorageFeaturesKHR.html)
+///
+#[doc(alias = "VkPhysicalDevice16BitStorageFeaturesKHR")]
 pub type PhysicalDevice16BitStorageFeaturesKHR = PhysicalDevice16BitStorageFeatures;
 
 /// [`VkPhysicalDeviceVariablePointersFeatures`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVariablePointersFeatures.html)
@@ -7779,8 +7914,17 @@ unsafe impl Extendable for PhysicalDeviceVariablePointersFeatures {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceVariablePointersFeatures {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceVariablePointersFeatures {}
+/// [`VkPhysicalDeviceVariablePointerFeatures`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVariablePointerFeatures.html)
+///
+#[doc(alias = "VkPhysicalDeviceVariablePointerFeatures")]
 pub type PhysicalDeviceVariablePointerFeatures = PhysicalDeviceVariablePointersFeatures;
+/// [`VkPhysicalDeviceVariablePointerFeaturesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVariablePointerFeaturesKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceVariablePointerFeaturesKHR")]
 pub type PhysicalDeviceVariablePointerFeaturesKHR = PhysicalDeviceVariablePointersFeatures;
+/// [`VkPhysicalDeviceVariablePointersFeaturesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVariablePointersFeaturesKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceVariablePointersFeaturesKHR")]
 pub type PhysicalDeviceVariablePointersFeaturesKHR = PhysicalDeviceVariablePointersFeatures;
 
 /// [`VkDescriptorUpdateTemplateEntry`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorUpdateTemplateEntry.html)
@@ -7816,6 +7960,9 @@ impl Default for DescriptorUpdateTemplateEntry {
         }
     }
 }
+/// [`VkDescriptorUpdateTemplateEntryKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorUpdateTemplateEntryKHR.html)
+///
+#[doc(alias = "VkDescriptorUpdateTemplateEntryKHR")]
 pub type DescriptorUpdateTemplateEntryKHR = DescriptorUpdateTemplateEntry;
 
 /// [`VkDescriptorUpdateTemplateCreateInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorUpdateTemplateCreateInfo.html)
@@ -7878,6 +8025,9 @@ unsafe impl Extendable for DescriptorUpdateTemplateCreateInfo {
         }
     }
 }
+/// [`VkDescriptorUpdateTemplateCreateInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorUpdateTemplateCreateInfoKHR.html)
+///
+#[doc(alias = "VkDescriptorUpdateTemplateCreateInfoKHR")]
 pub type DescriptorUpdateTemplateCreateInfoKHR = DescriptorUpdateTemplateCreateInfo;
 
 /// [`VkPhysicalDeviceMaintenance3Properties`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMaintenance3Properties.html)
@@ -7928,6 +8078,9 @@ unsafe impl Extendable for PhysicalDeviceMaintenance3Properties {
     }
 }
 unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceMaintenance3Properties {}
+/// [`VkPhysicalDeviceMaintenance3PropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMaintenance3PropertiesKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceMaintenance3PropertiesKHR")]
 pub type PhysicalDeviceMaintenance3PropertiesKHR = PhysicalDeviceMaintenance3Properties;
 
 /// [`VkDescriptorSetLayoutSupport`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorSetLayoutSupport.html)
@@ -7977,6 +8130,9 @@ unsafe impl Extendable for DescriptorSetLayoutSupport {
         }
     }
 }
+/// [`VkDescriptorSetLayoutSupportKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorSetLayoutSupportKHR.html)
+///
+#[doc(alias = "VkDescriptorSetLayoutSupportKHR")]
 pub type DescriptorSetLayoutSupportKHR = DescriptorSetLayoutSupport;
 
 /// [`VkSamplerYcbcrConversionCreateInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerYcbcrConversionCreateInfo.html)
@@ -8043,6 +8199,9 @@ unsafe impl Extendable for SamplerYcbcrConversionCreateInfo {
         }
     }
 }
+/// [`VkSamplerYcbcrConversionCreateInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerYcbcrConversionCreateInfoKHR.html)
+///
+#[doc(alias = "VkSamplerYcbcrConversionCreateInfoKHR")]
 pub type SamplerYcbcrConversionCreateInfoKHR = SamplerYcbcrConversionCreateInfo;
 
 /// [`VkSamplerYcbcrConversionInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerYcbcrConversionInfo.html)
@@ -8092,6 +8251,9 @@ unsafe impl Extendable for SamplerYcbcrConversionInfo {
 }
 unsafe impl Extends<SamplerCreateInfo> for SamplerYcbcrConversionInfo {}
 unsafe impl Extends<ImageViewCreateInfo> for SamplerYcbcrConversionInfo {}
+/// [`VkSamplerYcbcrConversionInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerYcbcrConversionInfoKHR.html)
+///
+#[doc(alias = "VkSamplerYcbcrConversionInfoKHR")]
 pub type SamplerYcbcrConversionInfoKHR = SamplerYcbcrConversionInfo;
 
 /// [`VkPhysicalDeviceSamplerYcbcrConversionFeatures`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSamplerYcbcrConversionFeatures.html)
@@ -8141,6 +8303,9 @@ unsafe impl Extendable for PhysicalDeviceSamplerYcbcrConversionFeatures {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceSamplerYcbcrConversionFeatures {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceSamplerYcbcrConversionFeatures {}
+/// [`VkPhysicalDeviceSamplerYcbcrConversionFeaturesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSamplerYcbcrConversionFeaturesKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceSamplerYcbcrConversionFeaturesKHR")]
 pub type PhysicalDeviceSamplerYcbcrConversionFeaturesKHR =
     PhysicalDeviceSamplerYcbcrConversionFeatures;
 
@@ -8190,6 +8355,9 @@ unsafe impl Extendable for SamplerYcbcrConversionImageFormatProperties {
     }
 }
 unsafe impl Extends<ImageFormatProperties2> for SamplerYcbcrConversionImageFormatProperties {}
+/// [`VkSamplerYcbcrConversionImageFormatPropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerYcbcrConversionImageFormatPropertiesKHR.html)
+///
+#[doc(alias = "VkSamplerYcbcrConversionImageFormatPropertiesKHR")]
 pub type SamplerYcbcrConversionImageFormatPropertiesKHR =
     SamplerYcbcrConversionImageFormatProperties;
 
@@ -8245,6 +8413,9 @@ unsafe impl Extendable for DeviceGroupRenderPassBeginInfo {
 }
 unsafe impl Extends<RenderPassBeginInfo> for DeviceGroupRenderPassBeginInfo {}
 unsafe impl Extends<RenderingInfo> for DeviceGroupRenderPassBeginInfo {}
+/// [`VkDeviceGroupRenderPassBeginInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceGroupRenderPassBeginInfoKHR.html)
+///
+#[doc(alias = "VkDeviceGroupRenderPassBeginInfoKHR")]
 pub type DeviceGroupRenderPassBeginInfoKHR = DeviceGroupRenderPassBeginInfo;
 
 /// [`VkPhysicalDevicePointClippingProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePointClippingProperties.html)
@@ -8293,6 +8464,9 @@ unsafe impl Extendable for PhysicalDevicePointClippingProperties {
     }
 }
 unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDevicePointClippingProperties {}
+/// [`VkPhysicalDevicePointClippingPropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePointClippingPropertiesKHR.html)
+///
+#[doc(alias = "VkPhysicalDevicePointClippingPropertiesKHR")]
 pub type PhysicalDevicePointClippingPropertiesKHR = PhysicalDevicePointClippingProperties;
 
 /// [`VkInputAttachmentAspectReference`](https://docs.vulkan.org/refpages/latest/refpages/source/VkInputAttachmentAspectReference.html)
@@ -8322,6 +8496,9 @@ impl Default for InputAttachmentAspectReference {
         }
     }
 }
+/// [`VkInputAttachmentAspectReferenceKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkInputAttachmentAspectReferenceKHR.html)
+///
+#[doc(alias = "VkInputAttachmentAspectReferenceKHR")]
 pub type InputAttachmentAspectReferenceKHR = InputAttachmentAspectReference;
 
 /// [`VkRenderPassInputAttachmentAspectCreateInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPassInputAttachmentAspectCreateInfo.html)
@@ -8372,6 +8549,9 @@ unsafe impl Extendable for RenderPassInputAttachmentAspectCreateInfo {
     }
 }
 unsafe impl Extends<RenderPassCreateInfo> for RenderPassInputAttachmentAspectCreateInfo {}
+/// [`VkRenderPassInputAttachmentAspectCreateInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPassInputAttachmentAspectCreateInfoKHR.html)
+///
+#[doc(alias = "VkRenderPassInputAttachmentAspectCreateInfoKHR")]
 pub type RenderPassInputAttachmentAspectCreateInfoKHR = RenderPassInputAttachmentAspectCreateInfo;
 
 /// [`VkPipelineTessellationDomainOriginStateCreateInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineTessellationDomainOriginStateCreateInfo.html)
@@ -8423,6 +8603,9 @@ unsafe impl Extends<PipelineTessellationStateCreateInfo>
     for PipelineTessellationDomainOriginStateCreateInfo
 {
 }
+/// [`VkPipelineTessellationDomainOriginStateCreateInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineTessellationDomainOriginStateCreateInfoKHR.html)
+///
+#[doc(alias = "VkPipelineTessellationDomainOriginStateCreateInfoKHR")]
 pub type PipelineTessellationDomainOriginStateCreateInfoKHR =
     PipelineTessellationDomainOriginStateCreateInfo;
 
@@ -8485,6 +8668,9 @@ unsafe impl Extendable for RenderPassMultiviewCreateInfo {
     }
 }
 unsafe impl Extends<RenderPassCreateInfo> for RenderPassMultiviewCreateInfo {}
+/// [`VkRenderPassMultiviewCreateInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPassMultiviewCreateInfoKHR.html)
+///
+#[doc(alias = "VkRenderPassMultiviewCreateInfoKHR")]
 pub type RenderPassMultiviewCreateInfoKHR = RenderPassMultiviewCreateInfo;
 
 /// [`VkPhysicalDeviceMultiviewFeatures`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMultiviewFeatures.html)
@@ -8538,6 +8724,9 @@ unsafe impl Extendable for PhysicalDeviceMultiviewFeatures {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceMultiviewFeatures {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceMultiviewFeatures {}
+/// [`VkPhysicalDeviceMultiviewFeaturesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMultiviewFeaturesKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceMultiviewFeaturesKHR")]
 pub type PhysicalDeviceMultiviewFeaturesKHR = PhysicalDeviceMultiviewFeatures;
 
 /// [`VkPhysicalDeviceMultiviewProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMultiviewProperties.html)
@@ -8588,6 +8777,9 @@ unsafe impl Extendable for PhysicalDeviceMultiviewProperties {
     }
 }
 unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceMultiviewProperties {}
+/// [`VkPhysicalDeviceMultiviewPropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMultiviewPropertiesKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceMultiviewPropertiesKHR")]
 pub type PhysicalDeviceMultiviewPropertiesKHR = PhysicalDeviceMultiviewProperties;
 
 /// [`VkPhysicalDeviceShaderDrawParametersFeatures`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderDrawParametersFeatures.html)
@@ -8636,6 +8828,9 @@ unsafe impl Extendable for PhysicalDeviceShaderDrawParametersFeatures {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderDrawParametersFeatures {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderDrawParametersFeatures {}
+/// [`VkPhysicalDeviceShaderDrawParameterFeatures`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderDrawParameterFeatures.html)
+///
+#[doc(alias = "VkPhysicalDeviceShaderDrawParameterFeatures")]
 pub type PhysicalDeviceShaderDrawParameterFeatures = PhysicalDeviceShaderDrawParametersFeatures;
 
 /// [`VkConformanceVersion`](https://docs.vulkan.org/refpages/latest/refpages/source/VkConformanceVersion.html)
@@ -8667,6 +8862,9 @@ impl Default for ConformanceVersion {
         }
     }
 }
+/// [`VkConformanceVersionKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkConformanceVersionKHR.html)
+///
+#[doc(alias = "VkConformanceVersionKHR")]
 pub type ConformanceVersionKHR = ConformanceVersion;
 
 /// [`VkPhysicalDeviceDriverProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDriverProperties.html)
@@ -8723,6 +8921,9 @@ unsafe impl Extendable for PhysicalDeviceDriverProperties {
     }
 }
 unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceDriverProperties {}
+/// [`VkPhysicalDeviceDriverPropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDriverPropertiesKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceDriverPropertiesKHR")]
 pub type PhysicalDeviceDriverPropertiesKHR = PhysicalDeviceDriverProperties;
 
 /// [`VkPhysicalDeviceVulkan11Features`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVulkan11Features.html)
@@ -9209,6 +9410,9 @@ unsafe impl Extendable for ImageFormatListCreateInfo {
 unsafe impl Extends<ImageCreateInfo> for ImageFormatListCreateInfo {}
 unsafe impl Extends<SwapchainCreateInfoKHR> for ImageFormatListCreateInfo {}
 unsafe impl Extends<PhysicalDeviceImageFormatInfo2> for ImageFormatListCreateInfo {}
+/// [`VkImageFormatListCreateInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageFormatListCreateInfoKHR.html)
+///
+#[doc(alias = "VkImageFormatListCreateInfoKHR")]
 pub type ImageFormatListCreateInfoKHR = ImageFormatListCreateInfo;
 
 /// [`VkPhysicalDeviceVulkanMemoryModelFeatures`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVulkanMemoryModelFeatures.html)
@@ -9262,6 +9466,9 @@ unsafe impl Extendable for PhysicalDeviceVulkanMemoryModelFeatures {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceVulkanMemoryModelFeatures {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceVulkanMemoryModelFeatures {}
+/// [`VkPhysicalDeviceVulkanMemoryModelFeaturesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVulkanMemoryModelFeaturesKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceVulkanMemoryModelFeaturesKHR")]
 pub type PhysicalDeviceVulkanMemoryModelFeaturesKHR = PhysicalDeviceVulkanMemoryModelFeatures;
 
 /// [`VkPhysicalDeviceHostQueryResetFeatures`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceHostQueryResetFeatures.html)
@@ -9311,6 +9518,9 @@ unsafe impl Extendable for PhysicalDeviceHostQueryResetFeatures {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceHostQueryResetFeatures {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceHostQueryResetFeatures {}
+/// [`VkPhysicalDeviceHostQueryResetFeaturesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceHostQueryResetFeaturesEXT.html)
+///
+#[doc(alias = "VkPhysicalDeviceHostQueryResetFeaturesEXT")]
 pub type PhysicalDeviceHostQueryResetFeaturesEXT = PhysicalDeviceHostQueryResetFeatures;
 
 /// [`VkPhysicalDeviceTimelineSemaphoreFeatures`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceTimelineSemaphoreFeatures.html)
@@ -9360,6 +9570,9 @@ unsafe impl Extendable for PhysicalDeviceTimelineSemaphoreFeatures {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceTimelineSemaphoreFeatures {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceTimelineSemaphoreFeatures {}
+/// [`VkPhysicalDeviceTimelineSemaphoreFeaturesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceTimelineSemaphoreFeaturesKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceTimelineSemaphoreFeaturesKHR")]
 pub type PhysicalDeviceTimelineSemaphoreFeaturesKHR = PhysicalDeviceTimelineSemaphoreFeatures;
 
 /// [`VkPhysicalDeviceTimelineSemaphoreProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceTimelineSemaphoreProperties.html)
@@ -9408,6 +9621,9 @@ unsafe impl Extendable for PhysicalDeviceTimelineSemaphoreProperties {
     }
 }
 unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceTimelineSemaphoreProperties {}
+/// [`VkPhysicalDeviceTimelineSemaphorePropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceTimelineSemaphorePropertiesKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceTimelineSemaphorePropertiesKHR")]
 pub type PhysicalDeviceTimelineSemaphorePropertiesKHR = PhysicalDeviceTimelineSemaphoreProperties;
 
 /// [`VkSemaphoreTypeCreateInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSemaphoreTypeCreateInfo.html)
@@ -9459,6 +9675,9 @@ unsafe impl Extendable for SemaphoreTypeCreateInfo {
 }
 unsafe impl Extends<SemaphoreCreateInfo> for SemaphoreTypeCreateInfo {}
 unsafe impl Extends<PhysicalDeviceExternalSemaphoreInfo> for SemaphoreTypeCreateInfo {}
+/// [`VkSemaphoreTypeCreateInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSemaphoreTypeCreateInfoKHR.html)
+///
+#[doc(alias = "VkSemaphoreTypeCreateInfoKHR")]
 pub type SemaphoreTypeCreateInfoKHR = SemaphoreTypeCreateInfo;
 
 /// [`VkTimelineSemaphoreSubmitInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkTimelineSemaphoreSubmitInfo.html)
@@ -9518,6 +9737,9 @@ unsafe impl Extendable for TimelineSemaphoreSubmitInfo {
 }
 unsafe impl Extends<SubmitInfo> for TimelineSemaphoreSubmitInfo {}
 unsafe impl Extends<BindSparseInfo> for TimelineSemaphoreSubmitInfo {}
+/// [`VkTimelineSemaphoreSubmitInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkTimelineSemaphoreSubmitInfoKHR.html)
+///
+#[doc(alias = "VkTimelineSemaphoreSubmitInfoKHR")]
 pub type TimelineSemaphoreSubmitInfoKHR = TimelineSemaphoreSubmitInfo;
 
 /// [`VkSemaphoreWaitInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSemaphoreWaitInfo.html)
@@ -9572,6 +9794,9 @@ unsafe impl Extendable for SemaphoreWaitInfo {
         }
     }
 }
+/// [`VkSemaphoreWaitInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSemaphoreWaitInfoKHR.html)
+///
+#[doc(alias = "VkSemaphoreWaitInfoKHR")]
 pub type SemaphoreWaitInfoKHR = SemaphoreWaitInfo;
 
 /// [`VkSemaphoreSignalInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSemaphoreSignalInfo.html)
@@ -9621,6 +9846,9 @@ unsafe impl Extendable for SemaphoreSignalInfo {
         }
     }
 }
+/// [`VkSemaphoreSignalInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSemaphoreSignalInfoKHR.html)
+///
+#[doc(alias = "VkSemaphoreSignalInfoKHR")]
 pub type SemaphoreSignalInfoKHR = SemaphoreSignalInfo;
 
 /// [`VkPhysicalDeviceBufferDeviceAddressFeatures`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceBufferDeviceAddressFeatures.html)
@@ -9674,6 +9902,9 @@ unsafe impl Extendable for PhysicalDeviceBufferDeviceAddressFeatures {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceBufferDeviceAddressFeatures {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceBufferDeviceAddressFeatures {}
+/// [`VkPhysicalDeviceBufferDeviceAddressFeaturesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceBufferDeviceAddressFeaturesKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceBufferDeviceAddressFeaturesKHR")]
 pub type PhysicalDeviceBufferDeviceAddressFeaturesKHR = PhysicalDeviceBufferDeviceAddressFeatures;
 
 /// [`VkBufferDeviceAddressInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferDeviceAddressInfo.html)
@@ -9722,7 +9953,13 @@ unsafe impl Extendable for BufferDeviceAddressInfo {
         }
     }
 }
+/// [`VkBufferDeviceAddressInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferDeviceAddressInfoKHR.html)
+///
+#[doc(alias = "VkBufferDeviceAddressInfoKHR")]
 pub type BufferDeviceAddressInfoKHR = BufferDeviceAddressInfo;
+/// [`VkBufferDeviceAddressInfoEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferDeviceAddressInfoEXT.html)
+///
+#[doc(alias = "VkBufferDeviceAddressInfoEXT")]
 pub type BufferDeviceAddressInfoEXT = BufferDeviceAddressInfo;
 
 /// [`VkBufferOpaqueCaptureAddressCreateInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferOpaqueCaptureAddressCreateInfo.html)
@@ -9771,6 +10008,9 @@ unsafe impl Extendable for BufferOpaqueCaptureAddressCreateInfo {
     }
 }
 unsafe impl Extends<BufferCreateInfo> for BufferOpaqueCaptureAddressCreateInfo {}
+/// [`VkBufferOpaqueCaptureAddressCreateInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferOpaqueCaptureAddressCreateInfoKHR.html)
+///
+#[doc(alias = "VkBufferOpaqueCaptureAddressCreateInfoKHR")]
 pub type BufferOpaqueCaptureAddressCreateInfoKHR = BufferOpaqueCaptureAddressCreateInfo;
 
 /// [`VkMemoryOpaqueCaptureAddressAllocateInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryOpaqueCaptureAddressAllocateInfo.html)
@@ -9819,6 +10059,9 @@ unsafe impl Extendable for MemoryOpaqueCaptureAddressAllocateInfo {
     }
 }
 unsafe impl Extends<MemoryAllocateInfo> for MemoryOpaqueCaptureAddressAllocateInfo {}
+/// [`VkMemoryOpaqueCaptureAddressAllocateInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryOpaqueCaptureAddressAllocateInfoKHR.html)
+///
+#[doc(alias = "VkMemoryOpaqueCaptureAddressAllocateInfoKHR")]
 pub type MemoryOpaqueCaptureAddressAllocateInfoKHR = MemoryOpaqueCaptureAddressAllocateInfo;
 
 /// [`VkDeviceMemoryOpaqueCaptureAddressInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceMemoryOpaqueCaptureAddressInfo.html)
@@ -9866,6 +10109,9 @@ unsafe impl Extendable for DeviceMemoryOpaqueCaptureAddressInfo {
         }
     }
 }
+/// [`VkDeviceMemoryOpaqueCaptureAddressInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceMemoryOpaqueCaptureAddressInfoKHR.html)
+///
+#[doc(alias = "VkDeviceMemoryOpaqueCaptureAddressInfoKHR")]
 pub type DeviceMemoryOpaqueCaptureAddressInfoKHR = DeviceMemoryOpaqueCaptureAddressInfo;
 
 /// [`VkPhysicalDevice8BitStorageFeatures`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevice8BitStorageFeatures.html)
@@ -9919,6 +10165,9 @@ unsafe impl Extendable for PhysicalDevice8BitStorageFeatures {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDevice8BitStorageFeatures {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDevice8BitStorageFeatures {}
+/// [`VkPhysicalDevice8BitStorageFeaturesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevice8BitStorageFeaturesKHR.html)
+///
+#[doc(alias = "VkPhysicalDevice8BitStorageFeaturesKHR")]
 pub type PhysicalDevice8BitStorageFeaturesKHR = PhysicalDevice8BitStorageFeatures;
 
 /// [`VkPhysicalDeviceShaderAtomicInt64Features`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderAtomicInt64Features.html)
@@ -9970,6 +10219,9 @@ unsafe impl Extendable for PhysicalDeviceShaderAtomicInt64Features {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderAtomicInt64Features {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderAtomicInt64Features {}
+/// [`VkPhysicalDeviceShaderAtomicInt64FeaturesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderAtomicInt64FeaturesKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceShaderAtomicInt64FeaturesKHR")]
 pub type PhysicalDeviceShaderAtomicInt64FeaturesKHR = PhysicalDeviceShaderAtomicInt64Features;
 
 /// [`VkPhysicalDeviceShaderFloat16Int8Features`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderFloat16Int8Features.html)
@@ -10021,7 +10273,13 @@ unsafe impl Extendable for PhysicalDeviceShaderFloat16Int8Features {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderFloat16Int8Features {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderFloat16Int8Features {}
+/// [`VkPhysicalDeviceShaderFloat16Int8FeaturesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderFloat16Int8FeaturesKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceShaderFloat16Int8FeaturesKHR")]
 pub type PhysicalDeviceShaderFloat16Int8FeaturesKHR = PhysicalDeviceShaderFloat16Int8Features;
+/// [`VkPhysicalDeviceFloat16Int8FeaturesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFloat16Int8FeaturesKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceFloat16Int8FeaturesKHR")]
 pub type PhysicalDeviceFloat16Int8FeaturesKHR = PhysicalDeviceShaderFloat16Int8Features;
 
 /// [`VkPhysicalDeviceFloatControlsProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFloatControlsProperties.html)
@@ -10102,6 +10360,9 @@ unsafe impl Extendable for PhysicalDeviceFloatControlsProperties {
     }
 }
 unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceFloatControlsProperties {}
+/// [`VkPhysicalDeviceFloatControlsPropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFloatControlsPropertiesKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceFloatControlsPropertiesKHR")]
 pub type PhysicalDeviceFloatControlsPropertiesKHR = PhysicalDeviceFloatControlsProperties;
 
 /// [`VkDescriptorSetLayoutBindingFlagsCreateInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorSetLayoutBindingFlagsCreateInfo.html)
@@ -10153,6 +10414,9 @@ unsafe impl Extendable for DescriptorSetLayoutBindingFlagsCreateInfo {
     }
 }
 unsafe impl Extends<DescriptorSetLayoutCreateInfo> for DescriptorSetLayoutBindingFlagsCreateInfo {}
+/// [`VkDescriptorSetLayoutBindingFlagsCreateInfoEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorSetLayoutBindingFlagsCreateInfoEXT.html)
+///
+#[doc(alias = "VkDescriptorSetLayoutBindingFlagsCreateInfoEXT")]
 pub type DescriptorSetLayoutBindingFlagsCreateInfoEXT = DescriptorSetLayoutBindingFlagsCreateInfo;
 
 /// [`VkPhysicalDeviceDescriptorIndexingFeatures`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDescriptorIndexingFeatures.html)
@@ -10240,6 +10504,9 @@ unsafe impl Extendable for PhysicalDeviceDescriptorIndexingFeatures {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceDescriptorIndexingFeatures {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceDescriptorIndexingFeatures {}
+/// [`VkPhysicalDeviceDescriptorIndexingFeaturesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDescriptorIndexingFeaturesEXT.html)
+///
+#[doc(alias = "VkPhysicalDeviceDescriptorIndexingFeaturesEXT")]
 pub type PhysicalDeviceDescriptorIndexingFeaturesEXT = PhysicalDeviceDescriptorIndexingFeatures;
 
 /// [`VkPhysicalDeviceDescriptorIndexingProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDescriptorIndexingProperties.html)
@@ -10332,6 +10599,9 @@ unsafe impl Extendable for PhysicalDeviceDescriptorIndexingProperties {
     }
 }
 unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceDescriptorIndexingProperties {}
+/// [`VkPhysicalDeviceDescriptorIndexingPropertiesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDescriptorIndexingPropertiesEXT.html)
+///
+#[doc(alias = "VkPhysicalDeviceDescriptorIndexingPropertiesEXT")]
 pub type PhysicalDeviceDescriptorIndexingPropertiesEXT = PhysicalDeviceDescriptorIndexingProperties;
 
 /// [`VkDescriptorSetVariableDescriptorCountAllocateInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorSetVariableDescriptorCountAllocateInfo.html)
@@ -10386,6 +10656,9 @@ unsafe impl Extends<DescriptorSetAllocateInfo>
     for DescriptorSetVariableDescriptorCountAllocateInfo
 {
 }
+/// [`VkDescriptorSetVariableDescriptorCountAllocateInfoEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorSetVariableDescriptorCountAllocateInfoEXT.html)
+///
+#[doc(alias = "VkDescriptorSetVariableDescriptorCountAllocateInfoEXT")]
 pub type DescriptorSetVariableDescriptorCountAllocateInfoEXT =
     DescriptorSetVariableDescriptorCountAllocateInfo;
 
@@ -10438,6 +10711,9 @@ unsafe impl Extends<DescriptorSetLayoutSupport>
     for DescriptorSetVariableDescriptorCountLayoutSupport
 {
 }
+/// [`VkDescriptorSetVariableDescriptorCountLayoutSupportEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorSetVariableDescriptorCountLayoutSupportEXT.html)
+///
+#[doc(alias = "VkDescriptorSetVariableDescriptorCountLayoutSupportEXT")]
 pub type DescriptorSetVariableDescriptorCountLayoutSupportEXT =
     DescriptorSetVariableDescriptorCountLayoutSupport;
 
@@ -10488,6 +10764,9 @@ unsafe impl Extendable for PhysicalDeviceScalarBlockLayoutFeatures {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceScalarBlockLayoutFeatures {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceScalarBlockLayoutFeatures {}
+/// [`VkPhysicalDeviceScalarBlockLayoutFeaturesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceScalarBlockLayoutFeaturesEXT.html)
+///
+#[doc(alias = "VkPhysicalDeviceScalarBlockLayoutFeaturesEXT")]
 pub type PhysicalDeviceScalarBlockLayoutFeaturesEXT = PhysicalDeviceScalarBlockLayoutFeatures;
 
 /// [`VkSamplerReductionModeCreateInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerReductionModeCreateInfo.html)
@@ -10536,6 +10815,9 @@ unsafe impl Extendable for SamplerReductionModeCreateInfo {
     }
 }
 unsafe impl Extends<SamplerCreateInfo> for SamplerReductionModeCreateInfo {}
+/// [`VkSamplerReductionModeCreateInfoEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerReductionModeCreateInfoEXT.html)
+///
+#[doc(alias = "VkSamplerReductionModeCreateInfoEXT")]
 pub type SamplerReductionModeCreateInfoEXT = SamplerReductionModeCreateInfo;
 
 /// [`VkPhysicalDeviceSamplerFilterMinmaxProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSamplerFilterMinmaxProperties.html)
@@ -10586,6 +10868,9 @@ unsafe impl Extendable for PhysicalDeviceSamplerFilterMinmaxProperties {
     }
 }
 unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceSamplerFilterMinmaxProperties {}
+/// [`VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT.html)
+///
+#[doc(alias = "VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT")]
 pub type PhysicalDeviceSamplerFilterMinmaxPropertiesEXT =
     PhysicalDeviceSamplerFilterMinmaxProperties;
 
@@ -10636,6 +10921,9 @@ unsafe impl Extendable for PhysicalDeviceUniformBufferStandardLayoutFeatures {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceUniformBufferStandardLayoutFeatures {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceUniformBufferStandardLayoutFeatures {}
+/// [`VkPhysicalDeviceUniformBufferStandardLayoutFeaturesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceUniformBufferStandardLayoutFeaturesKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceUniformBufferStandardLayoutFeaturesKHR")]
 pub type PhysicalDeviceUniformBufferStandardLayoutFeaturesKHR =
     PhysicalDeviceUniformBufferStandardLayoutFeatures;
 
@@ -10686,6 +10974,9 @@ unsafe impl Extendable for PhysicalDeviceShaderSubgroupExtendedTypesFeatures {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderSubgroupExtendedTypesFeatures {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderSubgroupExtendedTypesFeatures {}
+/// [`VkPhysicalDeviceShaderSubgroupExtendedTypesFeaturesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderSubgroupExtendedTypesFeaturesKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceShaderSubgroupExtendedTypesFeaturesKHR")]
 pub type PhysicalDeviceShaderSubgroupExtendedTypesFeaturesKHR =
     PhysicalDeviceShaderSubgroupExtendedTypesFeatures;
 
@@ -10755,6 +11046,9 @@ unsafe impl Extendable for AttachmentDescription2 {
         }
     }
 }
+/// [`VkAttachmentDescription2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAttachmentDescription2KHR.html)
+///
+#[doc(alias = "VkAttachmentDescription2KHR")]
 pub type AttachmentDescription2KHR = AttachmentDescription2;
 
 /// [`VkAttachmentReference2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAttachmentReference2.html)
@@ -10808,6 +11102,9 @@ unsafe impl Extendable for AttachmentReference2 {
         }
     }
 }
+/// [`VkAttachmentReference2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAttachmentReference2KHR.html)
+///
+#[doc(alias = "VkAttachmentReference2KHR")]
 pub type AttachmentReference2KHR = AttachmentReference2;
 
 /// [`VkSubpassDescription2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSubpassDescription2.html)
@@ -10887,6 +11184,9 @@ unsafe impl Extendable for SubpassDescription2 {
         }
     }
 }
+/// [`VkSubpassDescription2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSubpassDescription2KHR.html)
+///
+#[doc(alias = "VkSubpassDescription2KHR")]
 pub type SubpassDescription2KHR = SubpassDescription2;
 
 /// [`VkSubpassDependency2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSubpassDependency2.html)
@@ -10956,6 +11256,9 @@ unsafe impl Extendable for SubpassDependency2 {
         }
     }
 }
+/// [`VkSubpassDependency2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSubpassDependency2KHR.html)
+///
+#[doc(alias = "VkSubpassDependency2KHR")]
 pub type SubpassDependency2KHR = SubpassDependency2;
 
 /// [`VkSubpassBeginInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSubpassBeginInfo.html)
@@ -11003,6 +11306,9 @@ unsafe impl Extendable for SubpassBeginInfo {
         }
     }
 }
+/// [`VkSubpassBeginInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSubpassBeginInfoKHR.html)
+///
+#[doc(alias = "VkSubpassBeginInfoKHR")]
 pub type SubpassBeginInfoKHR = SubpassBeginInfo;
 
 /// [`VkSubpassEndInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSubpassEndInfo.html)
@@ -11050,6 +11356,9 @@ unsafe impl Extendable for SubpassEndInfo {
         }
     }
 }
+/// [`VkSubpassEndInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSubpassEndInfoKHR.html)
+///
+#[doc(alias = "VkSubpassEndInfoKHR")]
 pub type SubpassEndInfoKHR = SubpassEndInfo;
 
 /// [`VkRenderPassCreateInfo2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPassCreateInfo2.html)
@@ -11123,6 +11432,9 @@ unsafe impl Extendable for RenderPassCreateInfo2 {
         }
     }
 }
+/// [`VkRenderPassCreateInfo2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPassCreateInfo2KHR.html)
+///
+#[doc(alias = "VkRenderPassCreateInfo2KHR")]
 pub type RenderPassCreateInfo2KHR = RenderPassCreateInfo2;
 
 /// [`VkSubpassDescriptionDepthStencilResolve`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSubpassDescriptionDepthStencilResolve.html)
@@ -11178,6 +11490,9 @@ unsafe impl Extendable for SubpassDescriptionDepthStencilResolve {
     }
 }
 unsafe impl Extends<SubpassDescription2> for SubpassDescriptionDepthStencilResolve {}
+/// [`VkSubpassDescriptionDepthStencilResolveKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSubpassDescriptionDepthStencilResolveKHR.html)
+///
+#[doc(alias = "VkSubpassDescriptionDepthStencilResolveKHR")]
 pub type SubpassDescriptionDepthStencilResolveKHR = SubpassDescriptionDepthStencilResolve;
 
 /// [`VkPhysicalDeviceDepthStencilResolveProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDepthStencilResolveProperties.html)
@@ -11232,6 +11547,9 @@ unsafe impl Extendable for PhysicalDeviceDepthStencilResolveProperties {
     }
 }
 unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceDepthStencilResolveProperties {}
+/// [`VkPhysicalDeviceDepthStencilResolvePropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDepthStencilResolvePropertiesKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceDepthStencilResolvePropertiesKHR")]
 pub type PhysicalDeviceDepthStencilResolvePropertiesKHR =
     PhysicalDeviceDepthStencilResolveProperties;
 
@@ -11282,6 +11600,9 @@ unsafe impl Extendable for ImageStencilUsageCreateInfo {
 }
 unsafe impl Extends<ImageCreateInfo> for ImageStencilUsageCreateInfo {}
 unsafe impl Extends<PhysicalDeviceImageFormatInfo2> for ImageStencilUsageCreateInfo {}
+/// [`VkImageStencilUsageCreateInfoEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageStencilUsageCreateInfoEXT.html)
+///
+#[doc(alias = "VkImageStencilUsageCreateInfoEXT")]
 pub type ImageStencilUsageCreateInfoEXT = ImageStencilUsageCreateInfo;
 
 /// [`VkPhysicalDeviceImagelessFramebufferFeatures`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceImagelessFramebufferFeatures.html)
@@ -11331,6 +11652,9 @@ unsafe impl Extendable for PhysicalDeviceImagelessFramebufferFeatures {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceImagelessFramebufferFeatures {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceImagelessFramebufferFeatures {}
+/// [`VkPhysicalDeviceImagelessFramebufferFeaturesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceImagelessFramebufferFeaturesKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceImagelessFramebufferFeaturesKHR")]
 pub type PhysicalDeviceImagelessFramebufferFeaturesKHR = PhysicalDeviceImagelessFramebufferFeatures;
 
 /// [`VkFramebufferAttachmentImageInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkFramebufferAttachmentImageInfo.html)
@@ -11395,6 +11719,9 @@ unsafe impl Extendable for FramebufferAttachmentImageInfo {
         }
     }
 }
+/// [`VkFramebufferAttachmentImageInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkFramebufferAttachmentImageInfoKHR.html)
+///
+#[doc(alias = "VkFramebufferAttachmentImageInfoKHR")]
 pub type FramebufferAttachmentImageInfoKHR = FramebufferAttachmentImageInfo;
 
 /// [`VkRenderPassAttachmentBeginInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPassAttachmentBeginInfo.html)
@@ -11446,6 +11773,9 @@ unsafe impl Extendable for RenderPassAttachmentBeginInfo {
     }
 }
 unsafe impl Extends<RenderPassBeginInfo> for RenderPassAttachmentBeginInfo {}
+/// [`VkRenderPassAttachmentBeginInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPassAttachmentBeginInfoKHR.html)
+///
+#[doc(alias = "VkRenderPassAttachmentBeginInfoKHR")]
 pub type RenderPassAttachmentBeginInfoKHR = RenderPassAttachmentBeginInfo;
 
 /// [`VkFramebufferAttachmentsCreateInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkFramebufferAttachmentsCreateInfo.html)
@@ -11497,6 +11827,9 @@ unsafe impl Extendable for FramebufferAttachmentsCreateInfo {
     }
 }
 unsafe impl Extends<FramebufferCreateInfo> for FramebufferAttachmentsCreateInfo {}
+/// [`VkFramebufferAttachmentsCreateInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkFramebufferAttachmentsCreateInfoKHR.html)
+///
+#[doc(alias = "VkFramebufferAttachmentsCreateInfoKHR")]
 pub type FramebufferAttachmentsCreateInfoKHR = FramebufferAttachmentsCreateInfo;
 
 /// [`VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures.html)
@@ -11546,6 +11879,9 @@ unsafe impl Extendable for PhysicalDeviceSeparateDepthStencilLayoutsFeatures {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceSeparateDepthStencilLayoutsFeatures {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceSeparateDepthStencilLayoutsFeatures {}
+/// [`VkPhysicalDeviceSeparateDepthStencilLayoutsFeaturesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSeparateDepthStencilLayoutsFeaturesKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceSeparateDepthStencilLayoutsFeaturesKHR")]
 pub type PhysicalDeviceSeparateDepthStencilLayoutsFeaturesKHR =
     PhysicalDeviceSeparateDepthStencilLayoutsFeatures;
 
@@ -11595,6 +11931,9 @@ unsafe impl Extendable for AttachmentReferenceStencilLayout {
     }
 }
 unsafe impl Extends<AttachmentReference2> for AttachmentReferenceStencilLayout {}
+/// [`VkAttachmentReferenceStencilLayoutKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAttachmentReferenceStencilLayoutKHR.html)
+///
+#[doc(alias = "VkAttachmentReferenceStencilLayoutKHR")]
 pub type AttachmentReferenceStencilLayoutKHR = AttachmentReferenceStencilLayout;
 
 /// [`VkAttachmentDescriptionStencilLayout`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAttachmentDescriptionStencilLayout.html)
@@ -11645,6 +11984,9 @@ unsafe impl Extendable for AttachmentDescriptionStencilLayout {
     }
 }
 unsafe impl Extends<AttachmentDescription2> for AttachmentDescriptionStencilLayout {}
+/// [`VkAttachmentDescriptionStencilLayoutKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAttachmentDescriptionStencilLayoutKHR.html)
+///
+#[doc(alias = "VkAttachmentDescriptionStencilLayoutKHR")]
 pub type AttachmentDescriptionStencilLayoutKHR = AttachmentDescriptionStencilLayout;
 
 /// [`VkPhysicalDeviceVulkan13Features`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVulkan13Features.html)
@@ -11914,6 +12256,9 @@ unsafe impl Extendable for PhysicalDeviceToolProperties {
         }
     }
 }
+/// [`VkPhysicalDeviceToolPropertiesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceToolPropertiesEXT.html)
+///
+#[doc(alias = "VkPhysicalDeviceToolPropertiesEXT")]
 pub type PhysicalDeviceToolPropertiesEXT = PhysicalDeviceToolProperties;
 
 /// [`VkPhysicalDevicePrivateDataFeatures`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePrivateDataFeatures.html)
@@ -11963,6 +12308,9 @@ unsafe impl Extendable for PhysicalDevicePrivateDataFeatures {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDevicePrivateDataFeatures {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePrivateDataFeatures {}
+/// [`VkPhysicalDevicePrivateDataFeaturesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePrivateDataFeaturesEXT.html)
+///
+#[doc(alias = "VkPhysicalDevicePrivateDataFeaturesEXT")]
 pub type PhysicalDevicePrivateDataFeaturesEXT = PhysicalDevicePrivateDataFeatures;
 
 /// [`VkDevicePrivateDataCreateInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDevicePrivateDataCreateInfo.html)
@@ -12012,6 +12360,9 @@ unsafe impl Extendable for DevicePrivateDataCreateInfo {
 }
 unsafe impl Extends<DeviceCreateInfo> for DevicePrivateDataCreateInfo {}
 unsafe impl Extends<DevicePrivateDataCreateInfo> for DevicePrivateDataCreateInfo {}
+/// [`VkDevicePrivateDataCreateInfoEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDevicePrivateDataCreateInfoEXT.html)
+///
+#[doc(alias = "VkDevicePrivateDataCreateInfoEXT")]
 pub type DevicePrivateDataCreateInfoEXT = DevicePrivateDataCreateInfo;
 
 /// [`VkPrivateDataSlotCreateInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPrivateDataSlotCreateInfo.html)
@@ -12060,6 +12411,9 @@ unsafe impl Extendable for PrivateDataSlotCreateInfo {
         }
     }
 }
+/// [`VkPrivateDataSlotCreateInfoEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPrivateDataSlotCreateInfoEXT.html)
+///
+#[doc(alias = "VkPrivateDataSlotCreateInfoEXT")]
 pub type PrivateDataSlotCreateInfoEXT = PrivateDataSlotCreateInfo;
 
 /// [`VkMemoryBarrier2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryBarrier2.html)
@@ -12118,6 +12472,9 @@ unsafe impl Extendable for MemoryBarrier2 {
     }
 }
 unsafe impl Extends<SubpassDependency2> for MemoryBarrier2 {}
+/// [`VkMemoryBarrier2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryBarrier2KHR.html)
+///
+#[doc(alias = "VkMemoryBarrier2KHR")]
 pub type MemoryBarrier2KHR = MemoryBarrier2;
 
 /// [`VkBufferMemoryBarrier2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferMemoryBarrier2.html)
@@ -12188,6 +12545,9 @@ unsafe impl Extendable for BufferMemoryBarrier2 {
         }
     }
 }
+/// [`VkBufferMemoryBarrier2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferMemoryBarrier2KHR.html)
+///
+#[doc(alias = "VkBufferMemoryBarrier2KHR")]
 pub type BufferMemoryBarrier2KHR = BufferMemoryBarrier2;
 
 /// [`VkImageMemoryBarrier2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageMemoryBarrier2.html)
@@ -12261,6 +12621,9 @@ unsafe impl Extendable for ImageMemoryBarrier2 {
         }
     }
 }
+/// [`VkImageMemoryBarrier2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageMemoryBarrier2KHR.html)
+///
+#[doc(alias = "VkImageMemoryBarrier2KHR")]
 pub type ImageMemoryBarrier2KHR = ImageMemoryBarrier2;
 
 /// [`VkDependencyInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDependencyInfo.html)
@@ -12328,6 +12691,9 @@ unsafe impl Extendable for DependencyInfo {
         }
     }
 }
+/// [`VkDependencyInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDependencyInfoKHR.html)
+///
+#[doc(alias = "VkDependencyInfoKHR")]
 pub type DependencyInfoKHR = DependencyInfo;
 
 /// [`VkSemaphoreSubmitInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSemaphoreSubmitInfo.html)
@@ -12382,6 +12748,9 @@ unsafe impl Extendable for SemaphoreSubmitInfo {
         }
     }
 }
+/// [`VkSemaphoreSubmitInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSemaphoreSubmitInfoKHR.html)
+///
+#[doc(alias = "VkSemaphoreSubmitInfoKHR")]
 pub type SemaphoreSubmitInfoKHR = SemaphoreSubmitInfo;
 
 /// [`VkCommandBufferSubmitInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandBufferSubmitInfo.html)
@@ -12433,6 +12802,9 @@ unsafe impl Extendable for CommandBufferSubmitInfo {
         }
     }
 }
+/// [`VkCommandBufferSubmitInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandBufferSubmitInfoKHR.html)
+///
+#[doc(alias = "VkCommandBufferSubmitInfoKHR")]
 pub type CommandBufferSubmitInfoKHR = CommandBufferSubmitInfo;
 
 /// [`VkSubmitInfo2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSubmitInfo2.html)
@@ -12503,6 +12875,9 @@ unsafe impl Extendable for SubmitInfo2 {
         }
     }
 }
+/// [`VkSubmitInfo2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSubmitInfo2KHR.html)
+///
+#[doc(alias = "VkSubmitInfo2KHR")]
 pub type SubmitInfo2KHR = SubmitInfo2;
 
 /// [`VkPhysicalDeviceSynchronization2Features`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSynchronization2Features.html)
@@ -12552,6 +12927,9 @@ unsafe impl Extendable for PhysicalDeviceSynchronization2Features {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceSynchronization2Features {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceSynchronization2Features {}
+/// [`VkPhysicalDeviceSynchronization2FeaturesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSynchronization2FeaturesKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceSynchronization2FeaturesKHR")]
 pub type PhysicalDeviceSynchronization2FeaturesKHR = PhysicalDeviceSynchronization2Features;
 
 /// [`VkBufferCopy2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferCopy2.html)
@@ -12603,6 +12981,9 @@ unsafe impl Extendable for BufferCopy2 {
         }
     }
 }
+/// [`VkBufferCopy2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferCopy2KHR.html)
+///
+#[doc(alias = "VkBufferCopy2KHR")]
 pub type BufferCopy2KHR = BufferCopy2;
 
 /// [`VkCopyBufferInfo2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyBufferInfo2.html)
@@ -12656,6 +13037,9 @@ unsafe impl Extendable for CopyBufferInfo2 {
         }
     }
 }
+/// [`VkCopyBufferInfo2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyBufferInfo2KHR.html)
+///
+#[doc(alias = "VkCopyBufferInfo2KHR")]
 pub type CopyBufferInfo2KHR = CopyBufferInfo2;
 
 /// [`VkImageCopy2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageCopy2.html)
@@ -12711,6 +13095,9 @@ unsafe impl Extendable for ImageCopy2 {
         }
     }
 }
+/// [`VkImageCopy2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageCopy2KHR.html)
+///
+#[doc(alias = "VkImageCopy2KHR")]
 pub type ImageCopy2KHR = ImageCopy2;
 
 /// [`VkCopyImageInfo2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyImageInfo2.html)
@@ -12768,6 +13155,9 @@ unsafe impl Extendable for CopyImageInfo2 {
         }
     }
 }
+/// [`VkCopyImageInfo2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyImageInfo2KHR.html)
+///
+#[doc(alias = "VkCopyImageInfo2KHR")]
 pub type CopyImageInfo2KHR = CopyImageInfo2;
 
 /// [`VkBufferImageCopy2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferImageCopy2.html)
@@ -12827,6 +13217,9 @@ unsafe impl Extendable for BufferImageCopy2 {
         }
     }
 }
+/// [`VkBufferImageCopy2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferImageCopy2KHR.html)
+///
+#[doc(alias = "VkBufferImageCopy2KHR")]
 pub type BufferImageCopy2KHR = BufferImageCopy2;
 
 /// [`VkCopyBufferToImageInfo2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyBufferToImageInfo2.html)
@@ -12882,6 +13275,9 @@ unsafe impl Extendable for CopyBufferToImageInfo2 {
         }
     }
 }
+/// [`VkCopyBufferToImageInfo2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyBufferToImageInfo2KHR.html)
+///
+#[doc(alias = "VkCopyBufferToImageInfo2KHR")]
 pub type CopyBufferToImageInfo2KHR = CopyBufferToImageInfo2;
 
 /// [`VkCopyImageToBufferInfo2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyImageToBufferInfo2.html)
@@ -12937,6 +13333,9 @@ unsafe impl Extendable for CopyImageToBufferInfo2 {
         }
     }
 }
+/// [`VkCopyImageToBufferInfo2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyImageToBufferInfo2KHR.html)
+///
+#[doc(alias = "VkCopyImageToBufferInfo2KHR")]
 pub type CopyImageToBufferInfo2KHR = CopyImageToBufferInfo2;
 
 /// [`VkPhysicalDeviceTextureCompressionASTCHDRFeatures`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceTextureCompressionASTCHDRFeatures.html)
@@ -12986,6 +13385,9 @@ unsafe impl Extendable for PhysicalDeviceTextureCompressionASTCHDRFeatures {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceTextureCompressionASTCHDRFeatures {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceTextureCompressionASTCHDRFeatures {}
+/// [`VkPhysicalDeviceTextureCompressionASTCHDRFeaturesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceTextureCompressionASTCHDRFeaturesEXT.html)
+///
+#[doc(alias = "VkPhysicalDeviceTextureCompressionASTCHDRFeaturesEXT")]
 pub type PhysicalDeviceTextureCompressionASTCHDRFeaturesEXT =
     PhysicalDeviceTextureCompressionASTCHDRFeatures;
 
@@ -13042,6 +13444,9 @@ unsafe impl Extendable for FormatProperties3 {
     }
 }
 unsafe impl Extends<FormatProperties2> for FormatProperties3 {}
+/// [`VkFormatProperties3KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkFormatProperties3KHR.html)
+///
+#[doc(alias = "VkFormatProperties3KHR")]
 pub type FormatProperties3KHR = FormatProperties3;
 
 /// [`VkPhysicalDeviceMaintenance4Features`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMaintenance4Features.html)
@@ -13091,6 +13496,9 @@ unsafe impl Extendable for PhysicalDeviceMaintenance4Features {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceMaintenance4Features {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceMaintenance4Features {}
+/// [`VkPhysicalDeviceMaintenance4FeaturesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMaintenance4FeaturesKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceMaintenance4FeaturesKHR")]
 pub type PhysicalDeviceMaintenance4FeaturesKHR = PhysicalDeviceMaintenance4Features;
 
 /// [`VkPhysicalDeviceMaintenance4Properties`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMaintenance4Properties.html)
@@ -13139,6 +13547,9 @@ unsafe impl Extendable for PhysicalDeviceMaintenance4Properties {
     }
 }
 unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceMaintenance4Properties {}
+/// [`VkPhysicalDeviceMaintenance4PropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMaintenance4PropertiesKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceMaintenance4PropertiesKHR")]
 pub type PhysicalDeviceMaintenance4PropertiesKHR = PhysicalDeviceMaintenance4Properties;
 
 /// [`VkDeviceBufferMemoryRequirements`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceBufferMemoryRequirements.html)
@@ -13186,6 +13597,9 @@ unsafe impl Extendable for DeviceBufferMemoryRequirements {
         }
     }
 }
+/// [`VkDeviceBufferMemoryRequirementsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceBufferMemoryRequirementsKHR.html)
+///
+#[doc(alias = "VkDeviceBufferMemoryRequirementsKHR")]
 pub type DeviceBufferMemoryRequirementsKHR = DeviceBufferMemoryRequirements;
 
 /// [`VkDeviceImageMemoryRequirements`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceImageMemoryRequirements.html)
@@ -13236,6 +13650,9 @@ unsafe impl Extendable for DeviceImageMemoryRequirements {
         }
     }
 }
+/// [`VkDeviceImageMemoryRequirementsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceImageMemoryRequirementsKHR.html)
+///
+#[doc(alias = "VkDeviceImageMemoryRequirementsKHR")]
 pub type DeviceImageMemoryRequirementsKHR = DeviceImageMemoryRequirements;
 
 /// [`VkPipelineCreationFeedback`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCreationFeedback.html)
@@ -13263,6 +13680,9 @@ impl Default for PipelineCreationFeedback {
         }
     }
 }
+/// [`VkPipelineCreationFeedbackEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCreationFeedbackEXT.html)
+///
+#[doc(alias = "VkPipelineCreationFeedbackEXT")]
 pub type PipelineCreationFeedbackEXT = PipelineCreationFeedback;
 
 /// [`VkPipelineCreationFeedbackCreateInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCreationFeedbackCreateInfo.html)
@@ -13323,6 +13743,9 @@ unsafe impl Extends<RayTracingPipelineCreateInfoNV> for PipelineCreationFeedback
 unsafe impl Extends<RayTracingPipelineCreateInfoKHR> for PipelineCreationFeedbackCreateInfo {}
 unsafe impl Extends<ExecutionGraphPipelineCreateInfoAMDX> for PipelineCreationFeedbackCreateInfo {}
 unsafe impl Extends<DataGraphPipelineCreateInfoARM> for PipelineCreationFeedbackCreateInfo {}
+/// [`VkPipelineCreationFeedbackCreateInfoEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCreationFeedbackCreateInfoEXT.html)
+///
+#[doc(alias = "VkPipelineCreationFeedbackCreateInfoEXT")]
 pub type PipelineCreationFeedbackCreateInfoEXT = PipelineCreationFeedbackCreateInfo;
 
 /// [`VkPhysicalDeviceShaderTerminateInvocationFeatures`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderTerminateInvocationFeatures.html)
@@ -13372,6 +13795,9 @@ unsafe impl Extendable for PhysicalDeviceShaderTerminateInvocationFeatures {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderTerminateInvocationFeatures {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderTerminateInvocationFeatures {}
+/// [`VkPhysicalDeviceShaderTerminateInvocationFeaturesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderTerminateInvocationFeaturesKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceShaderTerminateInvocationFeaturesKHR")]
 pub type PhysicalDeviceShaderTerminateInvocationFeaturesKHR =
     PhysicalDeviceShaderTerminateInvocationFeatures;
 
@@ -13425,6 +13851,9 @@ unsafe impl Extends<PhysicalDeviceFeatures2>
 {
 }
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderDemoteToHelperInvocationFeatures {}
+/// [`VkPhysicalDeviceShaderDemoteToHelperInvocationFeaturesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderDemoteToHelperInvocationFeaturesEXT.html)
+///
+#[doc(alias = "VkPhysicalDeviceShaderDemoteToHelperInvocationFeaturesEXT")]
 pub type PhysicalDeviceShaderDemoteToHelperInvocationFeaturesEXT =
     PhysicalDeviceShaderDemoteToHelperInvocationFeatures;
 
@@ -13478,6 +13907,9 @@ unsafe impl Extends<PhysicalDeviceFeatures2>
 {
 }
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePipelineCreationCacheControlFeatures {}
+/// [`VkPhysicalDevicePipelineCreationCacheControlFeaturesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePipelineCreationCacheControlFeaturesEXT.html)
+///
+#[doc(alias = "VkPhysicalDevicePipelineCreationCacheControlFeaturesEXT")]
 pub type PhysicalDevicePipelineCreationCacheControlFeaturesEXT =
     PhysicalDevicePipelineCreationCacheControlFeatures;
 
@@ -13531,6 +13963,9 @@ unsafe impl Extends<PhysicalDeviceFeatures2>
 {
 }
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceZeroInitializeWorkgroupMemoryFeatures {}
+/// [`VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeaturesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeaturesKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeaturesKHR")]
 pub type PhysicalDeviceZeroInitializeWorkgroupMemoryFeaturesKHR =
     PhysicalDeviceZeroInitializeWorkgroupMemoryFeatures;
 
@@ -13581,6 +14016,9 @@ unsafe impl Extendable for PhysicalDeviceImageRobustnessFeatures {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceImageRobustnessFeatures {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceImageRobustnessFeatures {}
+/// [`VkPhysicalDeviceImageRobustnessFeaturesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceImageRobustnessFeaturesEXT.html)
+///
+#[doc(alias = "VkPhysicalDeviceImageRobustnessFeaturesEXT")]
 pub type PhysicalDeviceImageRobustnessFeaturesEXT = PhysicalDeviceImageRobustnessFeatures;
 
 /// [`VkPhysicalDeviceSubgroupSizeControlFeatures`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSubgroupSizeControlFeatures.html)
@@ -13632,6 +14070,9 @@ unsafe impl Extendable for PhysicalDeviceSubgroupSizeControlFeatures {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceSubgroupSizeControlFeatures {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceSubgroupSizeControlFeatures {}
+/// [`VkPhysicalDeviceSubgroupSizeControlFeaturesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSubgroupSizeControlFeaturesEXT.html)
+///
+#[doc(alias = "VkPhysicalDeviceSubgroupSizeControlFeaturesEXT")]
 pub type PhysicalDeviceSubgroupSizeControlFeaturesEXT = PhysicalDeviceSubgroupSizeControlFeatures;
 
 /// [`VkPhysicalDeviceSubgroupSizeControlProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSubgroupSizeControlProperties.html)
@@ -13686,6 +14127,9 @@ unsafe impl Extendable for PhysicalDeviceSubgroupSizeControlProperties {
     }
 }
 unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceSubgroupSizeControlProperties {}
+/// [`VkPhysicalDeviceSubgroupSizeControlPropertiesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSubgroupSizeControlPropertiesEXT.html)
+///
+#[doc(alias = "VkPhysicalDeviceSubgroupSizeControlPropertiesEXT")]
 pub type PhysicalDeviceSubgroupSizeControlPropertiesEXT =
     PhysicalDeviceSubgroupSizeControlProperties;
 
@@ -13740,8 +14184,14 @@ unsafe impl Extends<PipelineShaderStageCreateInfo>
 {
 }
 unsafe impl Extends<ShaderCreateInfoEXT> for PipelineShaderStageRequiredSubgroupSizeCreateInfo {}
+/// [`VkPipelineShaderStageRequiredSubgroupSizeCreateInfoEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineShaderStageRequiredSubgroupSizeCreateInfoEXT.html)
+///
+#[doc(alias = "VkPipelineShaderStageRequiredSubgroupSizeCreateInfoEXT")]
 pub type PipelineShaderStageRequiredSubgroupSizeCreateInfoEXT =
     PipelineShaderStageRequiredSubgroupSizeCreateInfo;
+/// [`VkShaderRequiredSubgroupSizeCreateInfoEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderRequiredSubgroupSizeCreateInfoEXT.html)
+///
+#[doc(alias = "VkShaderRequiredSubgroupSizeCreateInfoEXT")]
 pub type ShaderRequiredSubgroupSizeCreateInfoEXT =
     PipelineShaderStageRequiredSubgroupSizeCreateInfo;
 
@@ -13794,6 +14244,9 @@ unsafe impl Extendable for PhysicalDeviceInlineUniformBlockFeatures {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceInlineUniformBlockFeatures {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceInlineUniformBlockFeatures {}
+/// [`VkPhysicalDeviceInlineUniformBlockFeaturesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceInlineUniformBlockFeaturesEXT.html)
+///
+#[doc(alias = "VkPhysicalDeviceInlineUniformBlockFeaturesEXT")]
 pub type PhysicalDeviceInlineUniformBlockFeaturesEXT = PhysicalDeviceInlineUniformBlockFeatures;
 
 /// [`VkPhysicalDeviceInlineUniformBlockProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceInlineUniformBlockProperties.html)
@@ -13850,6 +14303,9 @@ unsafe impl Extendable for PhysicalDeviceInlineUniformBlockProperties {
     }
 }
 unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceInlineUniformBlockProperties {}
+/// [`VkPhysicalDeviceInlineUniformBlockPropertiesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceInlineUniformBlockPropertiesEXT.html)
+///
+#[doc(alias = "VkPhysicalDeviceInlineUniformBlockPropertiesEXT")]
 pub type PhysicalDeviceInlineUniformBlockPropertiesEXT = PhysicalDeviceInlineUniformBlockProperties;
 
 /// [`VkWriteDescriptorSetInlineUniformBlock`](https://docs.vulkan.org/refpages/latest/refpages/source/VkWriteDescriptorSetInlineUniformBlock.html)
@@ -13900,6 +14356,9 @@ unsafe impl Extendable for WriteDescriptorSetInlineUniformBlock {
     }
 }
 unsafe impl Extends<WriteDescriptorSet> for WriteDescriptorSetInlineUniformBlock {}
+/// [`VkWriteDescriptorSetInlineUniformBlockEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkWriteDescriptorSetInlineUniformBlockEXT.html)
+///
+#[doc(alias = "VkWriteDescriptorSetInlineUniformBlockEXT")]
 pub type WriteDescriptorSetInlineUniformBlockEXT = WriteDescriptorSetInlineUniformBlock;
 
 /// [`VkDescriptorPoolInlineUniformBlockCreateInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorPoolInlineUniformBlockCreateInfo.html)
@@ -13948,6 +14407,9 @@ unsafe impl Extendable for DescriptorPoolInlineUniformBlockCreateInfo {
     }
 }
 unsafe impl Extends<DescriptorPoolCreateInfo> for DescriptorPoolInlineUniformBlockCreateInfo {}
+/// [`VkDescriptorPoolInlineUniformBlockCreateInfoEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorPoolInlineUniformBlockCreateInfoEXT.html)
+///
+#[doc(alias = "VkDescriptorPoolInlineUniformBlockCreateInfoEXT")]
 pub type DescriptorPoolInlineUniformBlockCreateInfoEXT = DescriptorPoolInlineUniformBlockCreateInfo;
 
 /// [`VkPhysicalDeviceShaderIntegerDotProductFeatures`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderIntegerDotProductFeatures.html)
@@ -13997,6 +14459,9 @@ unsafe impl Extendable for PhysicalDeviceShaderIntegerDotProductFeatures {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderIntegerDotProductFeatures {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderIntegerDotProductFeatures {}
+/// [`VkPhysicalDeviceShaderIntegerDotProductFeaturesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderIntegerDotProductFeaturesKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceShaderIntegerDotProductFeaturesKHR")]
 pub type PhysicalDeviceShaderIntegerDotProductFeaturesKHR =
     PhysicalDeviceShaderIntegerDotProductFeatures;
 
@@ -14105,6 +14570,9 @@ unsafe impl Extendable for PhysicalDeviceShaderIntegerDotProductProperties {
     }
 }
 unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceShaderIntegerDotProductProperties {}
+/// [`VkPhysicalDeviceShaderIntegerDotProductPropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderIntegerDotProductPropertiesKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceShaderIntegerDotProductPropertiesKHR")]
 pub type PhysicalDeviceShaderIntegerDotProductPropertiesKHR =
     PhysicalDeviceShaderIntegerDotProductProperties;
 
@@ -14160,6 +14628,9 @@ unsafe impl Extendable for PhysicalDeviceTexelBufferAlignmentProperties {
     }
 }
 unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceTexelBufferAlignmentProperties {}
+/// [`VkPhysicalDeviceTexelBufferAlignmentPropertiesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceTexelBufferAlignmentPropertiesEXT.html)
+///
+#[doc(alias = "VkPhysicalDeviceTexelBufferAlignmentPropertiesEXT")]
 pub type PhysicalDeviceTexelBufferAlignmentPropertiesEXT =
     PhysicalDeviceTexelBufferAlignmentProperties;
 
@@ -14216,6 +14687,9 @@ unsafe impl Extendable for ImageBlit2 {
         }
     }
 }
+/// [`VkImageBlit2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageBlit2KHR.html)
+///
+#[doc(alias = "VkImageBlit2KHR")]
 pub type ImageBlit2KHR = ImageBlit2;
 
 /// [`VkBlitImageInfo2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBlitImageInfo2.html)
@@ -14277,6 +14751,9 @@ unsafe impl Extendable for BlitImageInfo2 {
         }
     }
 }
+/// [`VkBlitImageInfo2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBlitImageInfo2KHR.html)
+///
+#[doc(alias = "VkBlitImageInfo2KHR")]
 pub type BlitImageInfo2KHR = BlitImageInfo2;
 
 /// [`VkImageResolve2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageResolve2.html)
@@ -14332,6 +14809,9 @@ unsafe impl Extendable for ImageResolve2 {
         }
     }
 }
+/// [`VkImageResolve2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageResolve2KHR.html)
+///
+#[doc(alias = "VkImageResolve2KHR")]
 pub type ImageResolve2KHR = ImageResolve2;
 
 /// [`VkResolveImageInfo2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkResolveImageInfo2.html)
@@ -14391,6 +14871,9 @@ unsafe impl Extendable for ResolveImageInfo2 {
         }
     }
 }
+/// [`VkResolveImageInfo2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkResolveImageInfo2KHR.html)
+///
+#[doc(alias = "VkResolveImageInfo2KHR")]
 pub type ResolveImageInfo2KHR = ResolveImageInfo2;
 
 /// [`VkRenderingAttachmentInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderingAttachmentInfo.html)
@@ -14458,6 +14941,9 @@ unsafe impl Extendable for RenderingAttachmentInfo {
         }
     }
 }
+/// [`VkRenderingAttachmentInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderingAttachmentInfoKHR.html)
+///
+#[doc(alias = "VkRenderingAttachmentInfoKHR")]
 pub type RenderingAttachmentInfoKHR = RenderingAttachmentInfo;
 
 /// [`VkRenderingInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderingInfo.html)
@@ -14535,6 +15021,9 @@ unsafe impl Extendable for RenderingInfo {
         }
     }
 }
+/// [`VkRenderingInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderingInfoKHR.html)
+///
+#[doc(alias = "VkRenderingInfoKHR")]
 pub type RenderingInfoKHR = RenderingInfo;
 
 /// [`VkPipelineRenderingCreateInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineRenderingCreateInfo.html)
@@ -14592,6 +15081,9 @@ unsafe impl Extendable for PipelineRenderingCreateInfo {
     }
 }
 unsafe impl Extends<GraphicsPipelineCreateInfo> for PipelineRenderingCreateInfo {}
+/// [`VkPipelineRenderingCreateInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineRenderingCreateInfoKHR.html)
+///
+#[doc(alias = "VkPipelineRenderingCreateInfoKHR")]
 pub type PipelineRenderingCreateInfoKHR = PipelineRenderingCreateInfo;
 
 /// [`VkPhysicalDeviceDynamicRenderingFeatures`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDynamicRenderingFeatures.html)
@@ -14641,6 +15133,9 @@ unsafe impl Extendable for PhysicalDeviceDynamicRenderingFeatures {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceDynamicRenderingFeatures {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceDynamicRenderingFeatures {}
+/// [`VkPhysicalDeviceDynamicRenderingFeaturesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDynamicRenderingFeaturesKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceDynamicRenderingFeaturesKHR")]
 pub type PhysicalDeviceDynamicRenderingFeaturesKHR = PhysicalDeviceDynamicRenderingFeatures;
 
 /// [`VkCommandBufferInheritanceRenderingInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandBufferInheritanceRenderingInfo.html)
@@ -14704,6 +15199,9 @@ unsafe impl Extendable for CommandBufferInheritanceRenderingInfo {
     }
 }
 unsafe impl Extends<CommandBufferInheritanceInfo> for CommandBufferInheritanceRenderingInfo {}
+/// [`VkCommandBufferInheritanceRenderingInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandBufferInheritanceRenderingInfoKHR.html)
+///
+#[doc(alias = "VkCommandBufferInheritanceRenderingInfoKHR")]
 pub type CommandBufferInheritanceRenderingInfoKHR = CommandBufferInheritanceRenderingInfo;
 
 /// [`VkPhysicalDeviceVulkan14Features`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVulkan14Features.html)
@@ -14939,7 +15437,13 @@ unsafe impl Extendable for DeviceQueueGlobalPriorityCreateInfo {
     }
 }
 unsafe impl Extends<DeviceQueueCreateInfo> for DeviceQueueGlobalPriorityCreateInfo {}
+/// [`VkDeviceQueueGlobalPriorityCreateInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceQueueGlobalPriorityCreateInfoKHR.html)
+///
+#[doc(alias = "VkDeviceQueueGlobalPriorityCreateInfoKHR")]
 pub type DeviceQueueGlobalPriorityCreateInfoKHR = DeviceQueueGlobalPriorityCreateInfo;
+/// [`VkDeviceQueueGlobalPriorityCreateInfoEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceQueueGlobalPriorityCreateInfoEXT.html)
+///
+#[doc(alias = "VkDeviceQueueGlobalPriorityCreateInfoEXT")]
 pub type DeviceQueueGlobalPriorityCreateInfoEXT = DeviceQueueGlobalPriorityCreateInfo;
 
 /// [`VkPhysicalDeviceGlobalPriorityQueryFeatures`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceGlobalPriorityQueryFeatures.html)
@@ -14990,7 +15494,13 @@ unsafe impl Extendable for PhysicalDeviceGlobalPriorityQueryFeatures {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceGlobalPriorityQueryFeatures {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceGlobalPriorityQueryFeatures {}
+/// [`VkPhysicalDeviceGlobalPriorityQueryFeaturesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceGlobalPriorityQueryFeaturesKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceGlobalPriorityQueryFeaturesKHR")]
 pub type PhysicalDeviceGlobalPriorityQueryFeaturesKHR = PhysicalDeviceGlobalPriorityQueryFeatures;
+/// [`VkPhysicalDeviceGlobalPriorityQueryFeaturesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceGlobalPriorityQueryFeaturesEXT.html)
+///
+#[doc(alias = "VkPhysicalDeviceGlobalPriorityQueryFeaturesEXT")]
 pub type PhysicalDeviceGlobalPriorityQueryFeaturesEXT = PhysicalDeviceGlobalPriorityQueryFeatures;
 
 /// [`VkQueueFamilyGlobalPriorityProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/VkQueueFamilyGlobalPriorityProperties.html)
@@ -15042,7 +15552,13 @@ unsafe impl Extendable for QueueFamilyGlobalPriorityProperties {
     }
 }
 unsafe impl Extends<QueueFamilyProperties2> for QueueFamilyGlobalPriorityProperties {}
+/// [`VkQueueFamilyGlobalPriorityPropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkQueueFamilyGlobalPriorityPropertiesKHR.html)
+///
+#[doc(alias = "VkQueueFamilyGlobalPriorityPropertiesKHR")]
 pub type QueueFamilyGlobalPriorityPropertiesKHR = QueueFamilyGlobalPriorityProperties;
+/// [`VkQueueFamilyGlobalPriorityPropertiesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkQueueFamilyGlobalPriorityPropertiesEXT.html)
+///
+#[doc(alias = "VkQueueFamilyGlobalPriorityPropertiesEXT")]
 pub type QueueFamilyGlobalPriorityPropertiesEXT = QueueFamilyGlobalPriorityProperties;
 
 /// [`VkPhysicalDeviceIndexTypeUint8Features`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceIndexTypeUint8Features.html)
@@ -15093,7 +15609,13 @@ unsafe impl Extendable for PhysicalDeviceIndexTypeUint8Features {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceIndexTypeUint8Features {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceIndexTypeUint8Features {}
+/// [`VkPhysicalDeviceIndexTypeUint8FeaturesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceIndexTypeUint8FeaturesKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceIndexTypeUint8FeaturesKHR")]
 pub type PhysicalDeviceIndexTypeUint8FeaturesKHR = PhysicalDeviceIndexTypeUint8Features;
+/// [`VkPhysicalDeviceIndexTypeUint8FeaturesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceIndexTypeUint8FeaturesEXT.html)
+///
+#[doc(alias = "VkPhysicalDeviceIndexTypeUint8FeaturesEXT")]
 pub type PhysicalDeviceIndexTypeUint8FeaturesEXT = PhysicalDeviceIndexTypeUint8Features;
 
 /// [`VkMemoryMapInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryMapInfo.html)
@@ -15150,6 +15672,9 @@ unsafe impl Extendable for MemoryMapInfo {
         }
     }
 }
+/// [`VkMemoryMapInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryMapInfoKHR.html)
+///
+#[doc(alias = "VkMemoryMapInfoKHR")]
 pub type MemoryMapInfoKHR = MemoryMapInfo;
 
 /// [`VkMemoryUnmapInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryUnmapInfo.html)
@@ -15200,6 +15725,9 @@ unsafe impl Extendable for MemoryUnmapInfo {
         }
     }
 }
+/// [`VkMemoryUnmapInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryUnmapInfoKHR.html)
+///
+#[doc(alias = "VkMemoryUnmapInfoKHR")]
 pub type MemoryUnmapInfoKHR = MemoryUnmapInfo;
 
 /// [`VkPhysicalDeviceMaintenance5Features`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMaintenance5Features.html)
@@ -15249,6 +15777,9 @@ unsafe impl Extendable for PhysicalDeviceMaintenance5Features {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceMaintenance5Features {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceMaintenance5Features {}
+/// [`VkPhysicalDeviceMaintenance5FeaturesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMaintenance5FeaturesKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceMaintenance5FeaturesKHR")]
 pub type PhysicalDeviceMaintenance5FeaturesKHR = PhysicalDeviceMaintenance5Features;
 
 /// [`VkPhysicalDeviceMaintenance5Properties`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMaintenance5Properties.html)
@@ -15307,6 +15838,9 @@ unsafe impl Extendable for PhysicalDeviceMaintenance5Properties {
     }
 }
 unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceMaintenance5Properties {}
+/// [`VkPhysicalDeviceMaintenance5PropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMaintenance5PropertiesKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceMaintenance5PropertiesKHR")]
 pub type PhysicalDeviceMaintenance5PropertiesKHR = PhysicalDeviceMaintenance5Properties;
 
 /// [`VkSubresourceLayout2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSubresourceLayout2.html)
@@ -15359,7 +15893,13 @@ unsafe impl Extendable for SubresourceLayout2 {
         }
     }
 }
+/// [`VkSubresourceLayout2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSubresourceLayout2KHR.html)
+///
+#[doc(alias = "VkSubresourceLayout2KHR")]
 pub type SubresourceLayout2KHR = SubresourceLayout2;
+/// [`VkSubresourceLayout2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSubresourceLayout2EXT.html)
+///
+#[doc(alias = "VkSubresourceLayout2EXT")]
 pub type SubresourceLayout2EXT = SubresourceLayout2;
 
 /// [`VkImageSubresource2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageSubresource2.html)
@@ -15409,7 +15949,13 @@ unsafe impl Extendable for ImageSubresource2 {
         }
     }
 }
+/// [`VkImageSubresource2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageSubresource2KHR.html)
+///
+#[doc(alias = "VkImageSubresource2KHR")]
 pub type ImageSubresource2KHR = ImageSubresource2;
+/// [`VkImageSubresource2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageSubresource2EXT.html)
+///
+#[doc(alias = "VkImageSubresource2EXT")]
 pub type ImageSubresource2EXT = ImageSubresource2;
 
 /// [`VkDeviceImageSubresourceInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceImageSubresourceInfo.html)
@@ -15459,6 +16005,9 @@ unsafe impl Extendable for DeviceImageSubresourceInfo {
         }
     }
 }
+/// [`VkDeviceImageSubresourceInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceImageSubresourceInfoKHR.html)
+///
+#[doc(alias = "VkDeviceImageSubresourceInfoKHR")]
 pub type DeviceImageSubresourceInfoKHR = DeviceImageSubresourceInfo;
 
 /// [`VkBufferUsageFlags2CreateInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferUsageFlags2CreateInfo.html)
@@ -15511,6 +16060,9 @@ unsafe impl Extends<BufferViewCreateInfo> for BufferUsageFlags2CreateInfo {}
 unsafe impl Extends<BufferCreateInfo> for BufferUsageFlags2CreateInfo {}
 unsafe impl Extends<PhysicalDeviceExternalBufferInfo> for BufferUsageFlags2CreateInfo {}
 unsafe impl Extends<DescriptorBufferBindingInfoEXT> for BufferUsageFlags2CreateInfo {}
+/// [`VkBufferUsageFlags2CreateInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferUsageFlags2CreateInfoKHR.html)
+///
+#[doc(alias = "VkBufferUsageFlags2CreateInfoKHR")]
 pub type BufferUsageFlags2CreateInfoKHR = BufferUsageFlags2CreateInfo;
 
 /// [`VkPhysicalDeviceMaintenance6Features`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMaintenance6Features.html)
@@ -15560,6 +16112,9 @@ unsafe impl Extendable for PhysicalDeviceMaintenance6Features {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceMaintenance6Features {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceMaintenance6Features {}
+/// [`VkPhysicalDeviceMaintenance6FeaturesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMaintenance6FeaturesKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceMaintenance6FeaturesKHR")]
 pub type PhysicalDeviceMaintenance6FeaturesKHR = PhysicalDeviceMaintenance6Features;
 
 /// [`VkPhysicalDeviceMaintenance6Properties`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMaintenance6Properties.html)
@@ -15612,6 +16167,9 @@ unsafe impl Extendable for PhysicalDeviceMaintenance6Properties {
     }
 }
 unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceMaintenance6Properties {}
+/// [`VkPhysicalDeviceMaintenance6PropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMaintenance6PropertiesKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceMaintenance6PropertiesKHR")]
 pub type PhysicalDeviceMaintenance6PropertiesKHR = PhysicalDeviceMaintenance6Properties;
 
 /// [`VkBindMemoryStatus`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBindMemoryStatus.html)
@@ -15661,6 +16219,9 @@ unsafe impl Extendable for BindMemoryStatus {
 }
 unsafe impl Extends<BindBufferMemoryInfo> for BindMemoryStatus {}
 unsafe impl Extends<BindImageMemoryInfo> for BindMemoryStatus {}
+/// [`VkBindMemoryStatusKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBindMemoryStatusKHR.html)
+///
+#[doc(alias = "VkBindMemoryStatusKHR")]
 pub type BindMemoryStatusKHR = BindMemoryStatus;
 
 /// [`VkPhysicalDeviceHostImageCopyFeatures`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceHostImageCopyFeatures.html)
@@ -15710,6 +16271,9 @@ unsafe impl Extendable for PhysicalDeviceHostImageCopyFeatures {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceHostImageCopyFeatures {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceHostImageCopyFeatures {}
+/// [`VkPhysicalDeviceHostImageCopyFeaturesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceHostImageCopyFeaturesEXT.html)
+///
+#[doc(alias = "VkPhysicalDeviceHostImageCopyFeaturesEXT")]
 pub type PhysicalDeviceHostImageCopyFeaturesEXT = PhysicalDeviceHostImageCopyFeatures;
 
 /// [`VkPhysicalDeviceHostImageCopyProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceHostImageCopyProperties.html)
@@ -15773,6 +16337,9 @@ unsafe impl Extendable for PhysicalDeviceHostImageCopyProperties {
     }
 }
 unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceHostImageCopyProperties {}
+/// [`VkPhysicalDeviceHostImageCopyPropertiesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceHostImageCopyPropertiesEXT.html)
+///
+#[doc(alias = "VkPhysicalDeviceHostImageCopyPropertiesEXT")]
 pub type PhysicalDeviceHostImageCopyPropertiesEXT = PhysicalDeviceHostImageCopyProperties;
 
 /// [`VkMemoryToImageCopy`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryToImageCopy.html)
@@ -15830,6 +16397,9 @@ unsafe impl Extendable for MemoryToImageCopy {
         }
     }
 }
+/// [`VkMemoryToImageCopyEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryToImageCopyEXT.html)
+///
+#[doc(alias = "VkMemoryToImageCopyEXT")]
 pub type MemoryToImageCopyEXT = MemoryToImageCopy;
 
 /// [`VkImageToMemoryCopy`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageToMemoryCopy.html)
@@ -15887,6 +16457,9 @@ unsafe impl Extendable for ImageToMemoryCopy {
         }
     }
 }
+/// [`VkImageToMemoryCopyEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageToMemoryCopyEXT.html)
+///
+#[doc(alias = "VkImageToMemoryCopyEXT")]
 pub type ImageToMemoryCopyEXT = ImageToMemoryCopy;
 
 /// [`VkCopyMemoryToImageInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyMemoryToImageInfo.html)
@@ -15943,6 +16516,9 @@ unsafe impl Extendable for CopyMemoryToImageInfo {
         }
     }
 }
+/// [`VkCopyMemoryToImageInfoEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyMemoryToImageInfoEXT.html)
+///
+#[doc(alias = "VkCopyMemoryToImageInfoEXT")]
 pub type CopyMemoryToImageInfoEXT = CopyMemoryToImageInfo;
 
 /// [`VkCopyImageToMemoryInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyImageToMemoryInfo.html)
@@ -15999,6 +16575,9 @@ unsafe impl Extendable for CopyImageToMemoryInfo {
         }
     }
 }
+/// [`VkCopyImageToMemoryInfoEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyImageToMemoryInfoEXT.html)
+///
+#[doc(alias = "VkCopyImageToMemoryInfoEXT")]
 pub type CopyImageToMemoryInfoEXT = CopyImageToMemoryInfo;
 
 /// [`VkCopyImageToImageInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyImageToImageInfo.html)
@@ -16059,6 +16638,9 @@ unsafe impl Extendable for CopyImageToImageInfo {
         }
     }
 }
+/// [`VkCopyImageToImageInfoEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyImageToImageInfoEXT.html)
+///
+#[doc(alias = "VkCopyImageToImageInfoEXT")]
 pub type CopyImageToImageInfoEXT = CopyImageToImageInfo;
 
 /// [`VkHostImageLayoutTransitionInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkHostImageLayoutTransitionInfo.html)
@@ -16112,6 +16694,9 @@ unsafe impl Extendable for HostImageLayoutTransitionInfo {
         }
     }
 }
+/// [`VkHostImageLayoutTransitionInfoEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkHostImageLayoutTransitionInfoEXT.html)
+///
+#[doc(alias = "VkHostImageLayoutTransitionInfoEXT")]
 pub type HostImageLayoutTransitionInfoEXT = HostImageLayoutTransitionInfo;
 
 /// [`VkSubresourceHostMemcpySize`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSubresourceHostMemcpySize.html)
@@ -16160,6 +16745,9 @@ unsafe impl Extendable for SubresourceHostMemcpySize {
     }
 }
 unsafe impl Extends<SubresourceLayout2> for SubresourceHostMemcpySize {}
+/// [`VkSubresourceHostMemcpySizeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSubresourceHostMemcpySizeEXT.html)
+///
+#[doc(alias = "VkSubresourceHostMemcpySizeEXT")]
 pub type SubresourceHostMemcpySizeEXT = SubresourceHostMemcpySize;
 
 /// [`VkHostImageCopyDevicePerformanceQuery`](https://docs.vulkan.org/refpages/latest/refpages/source/VkHostImageCopyDevicePerformanceQuery.html)
@@ -16210,6 +16798,9 @@ unsafe impl Extendable for HostImageCopyDevicePerformanceQuery {
     }
 }
 unsafe impl Extends<ImageFormatProperties2> for HostImageCopyDevicePerformanceQuery {}
+/// [`VkHostImageCopyDevicePerformanceQueryEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkHostImageCopyDevicePerformanceQueryEXT.html)
+///
+#[doc(alias = "VkHostImageCopyDevicePerformanceQueryEXT")]
 pub type HostImageCopyDevicePerformanceQueryEXT = HostImageCopyDevicePerformanceQuery;
 
 /// [`VkPhysicalDeviceShaderSubgroupRotateFeatures`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderSubgroupRotateFeatures.html)
@@ -16261,6 +16852,9 @@ unsafe impl Extendable for PhysicalDeviceShaderSubgroupRotateFeatures {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderSubgroupRotateFeatures {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderSubgroupRotateFeatures {}
+/// [`VkPhysicalDeviceShaderSubgroupRotateFeaturesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderSubgroupRotateFeaturesKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceShaderSubgroupRotateFeaturesKHR")]
 pub type PhysicalDeviceShaderSubgroupRotateFeaturesKHR = PhysicalDeviceShaderSubgroupRotateFeatures;
 
 /// [`VkPhysicalDeviceShaderFloatControls2Features`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderFloatControls2Features.html)
@@ -16310,6 +16904,9 @@ unsafe impl Extendable for PhysicalDeviceShaderFloatControls2Features {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderFloatControls2Features {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderFloatControls2Features {}
+/// [`VkPhysicalDeviceShaderFloatControls2FeaturesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderFloatControls2FeaturesKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceShaderFloatControls2FeaturesKHR")]
 pub type PhysicalDeviceShaderFloatControls2FeaturesKHR = PhysicalDeviceShaderFloatControls2Features;
 
 /// [`VkPhysicalDeviceShaderExpectAssumeFeatures`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderExpectAssumeFeatures.html)
@@ -16359,6 +16956,9 @@ unsafe impl Extendable for PhysicalDeviceShaderExpectAssumeFeatures {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceShaderExpectAssumeFeatures {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderExpectAssumeFeatures {}
+/// [`VkPhysicalDeviceShaderExpectAssumeFeaturesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceShaderExpectAssumeFeaturesKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceShaderExpectAssumeFeaturesKHR")]
 pub type PhysicalDeviceShaderExpectAssumeFeaturesKHR = PhysicalDeviceShaderExpectAssumeFeatures;
 
 /// [`VkPipelineCreateFlags2CreateInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCreateFlags2CreateInfo.html)
@@ -16412,6 +17012,9 @@ unsafe impl Extends<ComputePipelineCreateInfo> for PipelineCreateFlags2CreateInf
 unsafe impl Extends<GraphicsPipelineCreateInfo> for PipelineCreateFlags2CreateInfo {}
 unsafe impl Extends<RayTracingPipelineCreateInfoNV> for PipelineCreateFlags2CreateInfo {}
 unsafe impl Extends<RayTracingPipelineCreateInfoKHR> for PipelineCreateFlags2CreateInfo {}
+/// [`VkPipelineCreateFlags2CreateInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCreateFlags2CreateInfoKHR.html)
+///
+#[doc(alias = "VkPipelineCreateFlags2CreateInfoKHR")]
 pub type PipelineCreateFlags2CreateInfoKHR = PipelineCreateFlags2CreateInfo;
 
 /// [`VkPhysicalDevicePushDescriptorProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePushDescriptorProperties.html)
@@ -16460,6 +17063,9 @@ unsafe impl Extendable for PhysicalDevicePushDescriptorProperties {
     }
 }
 unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDevicePushDescriptorProperties {}
+/// [`VkPhysicalDevicePushDescriptorPropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePushDescriptorPropertiesKHR.html)
+///
+#[doc(alias = "VkPhysicalDevicePushDescriptorPropertiesKHR")]
 pub type PhysicalDevicePushDescriptorPropertiesKHR = PhysicalDevicePushDescriptorProperties;
 
 /// [`VkBindDescriptorSetsInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBindDescriptorSetsInfo.html)
@@ -16525,6 +17131,9 @@ unsafe impl Extendable for BindDescriptorSetsInfo {
         }
     }
 }
+/// [`VkBindDescriptorSetsInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBindDescriptorSetsInfoKHR.html)
+///
+#[doc(alias = "VkBindDescriptorSetsInfoKHR")]
 pub type BindDescriptorSetsInfoKHR = BindDescriptorSetsInfo;
 
 /// [`VkPushConstantsInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPushConstantsInfo.html)
@@ -16585,6 +17194,9 @@ unsafe impl Extendable for PushConstantsInfo {
         }
     }
 }
+/// [`VkPushConstantsInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPushConstantsInfoKHR.html)
+///
+#[doc(alias = "VkPushConstantsInfoKHR")]
 pub type PushConstantsInfoKHR = PushConstantsInfo;
 
 /// [`VkPushDescriptorSetInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPushDescriptorSetInfo.html)
@@ -16644,6 +17256,9 @@ unsafe impl Extendable for PushDescriptorSetInfo {
         }
     }
 }
+/// [`VkPushDescriptorSetInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPushDescriptorSetInfoKHR.html)
+///
+#[doc(alias = "VkPushDescriptorSetInfoKHR")]
 pub type PushDescriptorSetInfoKHR = PushDescriptorSetInfo;
 
 /// [`VkPushDescriptorSetWithTemplateInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPushDescriptorSetWithTemplateInfo.html)
@@ -16701,6 +17316,9 @@ unsafe impl Extendable for PushDescriptorSetWithTemplateInfo {
         }
     }
 }
+/// [`VkPushDescriptorSetWithTemplateInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPushDescriptorSetWithTemplateInfoKHR.html)
+///
+#[doc(alias = "VkPushDescriptorSetWithTemplateInfoKHR")]
 pub type PushDescriptorSetWithTemplateInfoKHR = PushDescriptorSetWithTemplateInfo;
 
 /// [`VkPhysicalDevicePipelineProtectedAccessFeatures`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePipelineProtectedAccessFeatures.html)
@@ -16750,6 +17368,9 @@ unsafe impl Extendable for PhysicalDevicePipelineProtectedAccessFeatures {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDevicePipelineProtectedAccessFeatures {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePipelineProtectedAccessFeatures {}
+/// [`VkPhysicalDevicePipelineProtectedAccessFeaturesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePipelineProtectedAccessFeaturesEXT.html)
+///
+#[doc(alias = "VkPhysicalDevicePipelineProtectedAccessFeaturesEXT")]
 pub type PhysicalDevicePipelineProtectedAccessFeaturesEXT =
     PhysicalDevicePipelineProtectedAccessFeatures;
 
@@ -16800,6 +17421,9 @@ unsafe impl Extendable for PhysicalDevicePipelineRobustnessFeatures {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDevicePipelineRobustnessFeatures {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePipelineRobustnessFeatures {}
+/// [`VkPhysicalDevicePipelineRobustnessFeaturesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePipelineRobustnessFeaturesEXT.html)
+///
+#[doc(alias = "VkPhysicalDevicePipelineRobustnessFeaturesEXT")]
 pub type PhysicalDevicePipelineRobustnessFeaturesEXT = PhysicalDevicePipelineRobustnessFeatures;
 
 /// [`VkPhysicalDevicePipelineRobustnessProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePipelineRobustnessProperties.html)
@@ -16854,6 +17478,9 @@ unsafe impl Extendable for PhysicalDevicePipelineRobustnessProperties {
     }
 }
 unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDevicePipelineRobustnessProperties {}
+/// [`VkPhysicalDevicePipelineRobustnessPropertiesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePipelineRobustnessPropertiesEXT.html)
+///
+#[doc(alias = "VkPhysicalDevicePipelineRobustnessPropertiesEXT")]
 pub type PhysicalDevicePipelineRobustnessPropertiesEXT = PhysicalDevicePipelineRobustnessProperties;
 
 /// [`VkPipelineRobustnessCreateInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineRobustnessCreateInfo.html)
@@ -16911,6 +17538,9 @@ unsafe impl Extends<GraphicsPipelineCreateInfo> for PipelineRobustnessCreateInfo
 unsafe impl Extends<ComputePipelineCreateInfo> for PipelineRobustnessCreateInfo {}
 unsafe impl Extends<PipelineShaderStageCreateInfo> for PipelineRobustnessCreateInfo {}
 unsafe impl Extends<RayTracingPipelineCreateInfoKHR> for PipelineRobustnessCreateInfo {}
+/// [`VkPipelineRobustnessCreateInfoEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineRobustnessCreateInfoEXT.html)
+///
+#[doc(alias = "VkPipelineRobustnessCreateInfoEXT")]
 pub type PipelineRobustnessCreateInfoEXT = PipelineRobustnessCreateInfo;
 
 /// [`VkPhysicalDeviceLineRasterizationFeatures`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceLineRasterizationFeatures.html)
@@ -16971,7 +17601,13 @@ unsafe impl Extendable for PhysicalDeviceLineRasterizationFeatures {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceLineRasterizationFeatures {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceLineRasterizationFeatures {}
+/// [`VkPhysicalDeviceLineRasterizationFeaturesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceLineRasterizationFeaturesKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceLineRasterizationFeaturesKHR")]
 pub type PhysicalDeviceLineRasterizationFeaturesKHR = PhysicalDeviceLineRasterizationFeatures;
+/// [`VkPhysicalDeviceLineRasterizationFeaturesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceLineRasterizationFeaturesEXT.html)
+///
+#[doc(alias = "VkPhysicalDeviceLineRasterizationFeaturesEXT")]
 pub type PhysicalDeviceLineRasterizationFeaturesEXT = PhysicalDeviceLineRasterizationFeatures;
 
 /// [`VkPhysicalDeviceLineRasterizationProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceLineRasterizationProperties.html)
@@ -17021,7 +17657,13 @@ unsafe impl Extendable for PhysicalDeviceLineRasterizationProperties {
     }
 }
 unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceLineRasterizationProperties {}
+/// [`VkPhysicalDeviceLineRasterizationPropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceLineRasterizationPropertiesKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceLineRasterizationPropertiesKHR")]
 pub type PhysicalDeviceLineRasterizationPropertiesKHR = PhysicalDeviceLineRasterizationProperties;
+/// [`VkPhysicalDeviceLineRasterizationPropertiesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceLineRasterizationPropertiesEXT.html)
+///
+#[doc(alias = "VkPhysicalDeviceLineRasterizationPropertiesEXT")]
 pub type PhysicalDeviceLineRasterizationPropertiesEXT = PhysicalDeviceLineRasterizationProperties;
 
 /// [`VkPipelineRasterizationLineStateCreateInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineRasterizationLineStateCreateInfo.html)
@@ -17080,7 +17722,13 @@ unsafe impl Extends<PipelineRasterizationStateCreateInfo>
     for PipelineRasterizationLineStateCreateInfo
 {
 }
+/// [`VkPipelineRasterizationLineStateCreateInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineRasterizationLineStateCreateInfoKHR.html)
+///
+#[doc(alias = "VkPipelineRasterizationLineStateCreateInfoKHR")]
 pub type PipelineRasterizationLineStateCreateInfoKHR = PipelineRasterizationLineStateCreateInfo;
+/// [`VkPipelineRasterizationLineStateCreateInfoEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineRasterizationLineStateCreateInfoEXT.html)
+///
+#[doc(alias = "VkPipelineRasterizationLineStateCreateInfoEXT")]
 pub type PipelineRasterizationLineStateCreateInfoEXT = PipelineRasterizationLineStateCreateInfo;
 
 /// [`VkPhysicalDeviceVertexAttributeDivisorProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVertexAttributeDivisorProperties.html)
@@ -17131,6 +17779,9 @@ unsafe impl Extendable for PhysicalDeviceVertexAttributeDivisorProperties {
     }
 }
 unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceVertexAttributeDivisorProperties {}
+/// [`VkPhysicalDeviceVertexAttributeDivisorPropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVertexAttributeDivisorPropertiesKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceVertexAttributeDivisorPropertiesKHR")]
 pub type PhysicalDeviceVertexAttributeDivisorPropertiesKHR =
     PhysicalDeviceVertexAttributeDivisorProperties;
 
@@ -17160,7 +17811,13 @@ impl Default for VertexInputBindingDivisorDescription {
         }
     }
 }
+/// [`VkVertexInputBindingDivisorDescriptionKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVertexInputBindingDivisorDescriptionKHR.html)
+///
+#[doc(alias = "VkVertexInputBindingDivisorDescriptionKHR")]
 pub type VertexInputBindingDivisorDescriptionKHR = VertexInputBindingDivisorDescription;
+/// [`VkVertexInputBindingDivisorDescriptionEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVertexInputBindingDivisorDescriptionEXT.html)
+///
+#[doc(alias = "VkVertexInputBindingDivisorDescriptionEXT")]
 pub type VertexInputBindingDivisorDescriptionEXT = VertexInputBindingDivisorDescription;
 
 /// [`VkPipelineVertexInputDivisorStateCreateInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineVertexInputDivisorStateCreateInfo.html)
@@ -17215,7 +17872,13 @@ unsafe impl Extends<PipelineVertexInputStateCreateInfo>
     for PipelineVertexInputDivisorStateCreateInfo
 {
 }
+/// [`VkPipelineVertexInputDivisorStateCreateInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineVertexInputDivisorStateCreateInfoKHR.html)
+///
+#[doc(alias = "VkPipelineVertexInputDivisorStateCreateInfoKHR")]
 pub type PipelineVertexInputDivisorStateCreateInfoKHR = PipelineVertexInputDivisorStateCreateInfo;
+/// [`VkPipelineVertexInputDivisorStateCreateInfoEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineVertexInputDivisorStateCreateInfoEXT.html)
+///
+#[doc(alias = "VkPipelineVertexInputDivisorStateCreateInfoEXT")]
 pub type PipelineVertexInputDivisorStateCreateInfoEXT = PipelineVertexInputDivisorStateCreateInfo;
 
 /// [`VkPhysicalDeviceVertexAttributeDivisorFeatures`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVertexAttributeDivisorFeatures.html)
@@ -17268,8 +17931,14 @@ unsafe impl Extendable for PhysicalDeviceVertexAttributeDivisorFeatures {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceVertexAttributeDivisorFeatures {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceVertexAttributeDivisorFeatures {}
+/// [`VkPhysicalDeviceVertexAttributeDivisorFeaturesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVertexAttributeDivisorFeaturesKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceVertexAttributeDivisorFeaturesKHR")]
 pub type PhysicalDeviceVertexAttributeDivisorFeaturesKHR =
     PhysicalDeviceVertexAttributeDivisorFeatures;
+/// [`VkPhysicalDeviceVertexAttributeDivisorFeaturesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVertexAttributeDivisorFeaturesEXT.html)
+///
+#[doc(alias = "VkPhysicalDeviceVertexAttributeDivisorFeaturesEXT")]
 pub type PhysicalDeviceVertexAttributeDivisorFeaturesEXT =
     PhysicalDeviceVertexAttributeDivisorFeatures;
 
@@ -17327,6 +17996,9 @@ unsafe impl Extendable for RenderingAreaInfo {
         }
     }
 }
+/// [`VkRenderingAreaInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderingAreaInfoKHR.html)
+///
+#[doc(alias = "VkRenderingAreaInfoKHR")]
 pub type RenderingAreaInfoKHR = RenderingAreaInfo;
 
 /// [`VkPhysicalDeviceDynamicRenderingLocalReadFeatures`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDynamicRenderingLocalReadFeatures.html)
@@ -17376,6 +18048,9 @@ unsafe impl Extendable for PhysicalDeviceDynamicRenderingLocalReadFeatures {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceDynamicRenderingLocalReadFeatures {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceDynamicRenderingLocalReadFeatures {}
+/// [`VkPhysicalDeviceDynamicRenderingLocalReadFeaturesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDynamicRenderingLocalReadFeaturesKHR.html)
+///
+#[doc(alias = "VkPhysicalDeviceDynamicRenderingLocalReadFeaturesKHR")]
 pub type PhysicalDeviceDynamicRenderingLocalReadFeaturesKHR =
     PhysicalDeviceDynamicRenderingLocalReadFeatures;
 
@@ -17429,6 +18104,9 @@ unsafe impl Extendable for RenderingAttachmentLocationInfo {
 }
 unsafe impl Extends<GraphicsPipelineCreateInfo> for RenderingAttachmentLocationInfo {}
 unsafe impl Extends<CommandBufferInheritanceInfo> for RenderingAttachmentLocationInfo {}
+/// [`VkRenderingAttachmentLocationInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderingAttachmentLocationInfoKHR.html)
+///
+#[doc(alias = "VkRenderingAttachmentLocationInfoKHR")]
 pub type RenderingAttachmentLocationInfoKHR = RenderingAttachmentLocationInfo;
 
 /// [`VkRenderingInputAttachmentIndexInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderingInputAttachmentIndexInfo.html)
@@ -17492,6 +18170,9 @@ unsafe impl Extendable for RenderingInputAttachmentIndexInfo {
 }
 unsafe impl Extends<GraphicsPipelineCreateInfo> for RenderingInputAttachmentIndexInfo {}
 unsafe impl Extends<CommandBufferInheritanceInfo> for RenderingInputAttachmentIndexInfo {}
+/// [`VkRenderingInputAttachmentIndexInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderingInputAttachmentIndexInfoKHR.html)
+///
+#[doc(alias = "VkRenderingInputAttachmentIndexInfoKHR")]
 pub type RenderingInputAttachmentIndexInfoKHR = RenderingInputAttachmentIndexInfo;
 
 /// [`VkSurfaceCapabilitiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfaceCapabilitiesKHR.html)
@@ -24784,6 +25465,9 @@ unsafe impl Extendable for PipelineInfoKHR {
         }
     }
 }
+/// [`VkPipelineInfoEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineInfoEXT.html)
+///
+#[doc(alias = "VkPipelineInfoEXT")]
 pub type PipelineInfoEXT = PipelineInfoKHR;
 
 /// [`VkPipelineExecutablePropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineExecutablePropertiesKHR.html)
@@ -25781,6 +26465,9 @@ impl Default for DeviceAddressRangeKHR {
         }
     }
 }
+/// [`VkDeviceAddressRangeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceAddressRangeEXT.html)
+///
+#[doc(alias = "VkDeviceAddressRangeEXT")]
 pub type DeviceAddressRangeEXT = DeviceAddressRangeKHR;
 
 /// [`VkStridedDeviceAddressRangeKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkStridedDeviceAddressRangeKHR.html)
@@ -26694,6 +27381,9 @@ unsafe impl Extends<PhysicalDeviceFeatures2>
 {
 }
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceFragmentShaderBarycentricFeaturesKHR {}
+/// [`VkPhysicalDeviceFragmentShaderBarycentricFeaturesNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFragmentShaderBarycentricFeaturesNV.html)
+///
+#[doc(alias = "VkPhysicalDeviceFragmentShaderBarycentricFeaturesNV")]
 pub type PhysicalDeviceFragmentShaderBarycentricFeaturesNV =
     PhysicalDeviceFragmentShaderBarycentricFeaturesKHR;
 
@@ -27956,6 +28646,9 @@ unsafe impl Extendable for SurfacePresentModeKHR {
     }
 }
 unsafe impl Extends<PhysicalDeviceSurfaceInfo2KHR> for SurfacePresentModeKHR {}
+/// [`VkSurfacePresentModeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfacePresentModeEXT.html)
+///
+#[doc(alias = "VkSurfacePresentModeEXT")]
 pub type SurfacePresentModeEXT = SurfacePresentModeKHR;
 
 /// [`VkSurfacePresentScalingCapabilitiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfacePresentScalingCapabilitiesKHR.html)
@@ -28017,6 +28710,9 @@ unsafe impl Extendable for SurfacePresentScalingCapabilitiesKHR {
     }
 }
 unsafe impl Extends<SurfaceCapabilities2KHR> for SurfacePresentScalingCapabilitiesKHR {}
+/// [`VkSurfacePresentScalingCapabilitiesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfacePresentScalingCapabilitiesEXT.html)
+///
+#[doc(alias = "VkSurfacePresentScalingCapabilitiesEXT")]
 pub type SurfacePresentScalingCapabilitiesEXT = SurfacePresentScalingCapabilitiesKHR;
 
 /// [`VkSurfacePresentModeCompatibilityKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfacePresentModeCompatibilityKHR.html)
@@ -28069,6 +28765,9 @@ unsafe impl Extendable for SurfacePresentModeCompatibilityKHR {
     }
 }
 unsafe impl Extends<SurfaceCapabilities2KHR> for SurfacePresentModeCompatibilityKHR {}
+/// [`VkSurfacePresentModeCompatibilityEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfacePresentModeCompatibilityEXT.html)
+///
+#[doc(alias = "VkSurfacePresentModeCompatibilityEXT")]
 pub type SurfacePresentModeCompatibilityEXT = SurfacePresentModeCompatibilityKHR;
 
 /// [`VkPhysicalDeviceSwapchainMaintenance1FeaturesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSwapchainMaintenance1FeaturesKHR.html)
@@ -28118,6 +28817,9 @@ unsafe impl Extendable for PhysicalDeviceSwapchainMaintenance1FeaturesKHR {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceSwapchainMaintenance1FeaturesKHR {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceSwapchainMaintenance1FeaturesKHR {}
+/// [`VkPhysicalDeviceSwapchainMaintenance1FeaturesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSwapchainMaintenance1FeaturesEXT.html)
+///
+#[doc(alias = "VkPhysicalDeviceSwapchainMaintenance1FeaturesEXT")]
 pub type PhysicalDeviceSwapchainMaintenance1FeaturesEXT =
     PhysicalDeviceSwapchainMaintenance1FeaturesKHR;
 
@@ -28169,6 +28871,9 @@ unsafe impl Extendable for SwapchainPresentFenceInfoKHR {
     }
 }
 unsafe impl Extends<PresentInfoKHR> for SwapchainPresentFenceInfoKHR {}
+/// [`VkSwapchainPresentFenceInfoEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSwapchainPresentFenceInfoEXT.html)
+///
+#[doc(alias = "VkSwapchainPresentFenceInfoEXT")]
 pub type SwapchainPresentFenceInfoEXT = SwapchainPresentFenceInfoKHR;
 
 /// [`VkSwapchainPresentModesCreateInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSwapchainPresentModesCreateInfoKHR.html)
@@ -28219,6 +28924,9 @@ unsafe impl Extendable for SwapchainPresentModesCreateInfoKHR {
     }
 }
 unsafe impl Extends<SwapchainCreateInfoKHR> for SwapchainPresentModesCreateInfoKHR {}
+/// [`VkSwapchainPresentModesCreateInfoEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSwapchainPresentModesCreateInfoEXT.html)
+///
+#[doc(alias = "VkSwapchainPresentModesCreateInfoEXT")]
 pub type SwapchainPresentModesCreateInfoEXT = SwapchainPresentModesCreateInfoKHR;
 
 /// [`VkSwapchainPresentModeInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSwapchainPresentModeInfoKHR.html)
@@ -28269,6 +28977,9 @@ unsafe impl Extendable for SwapchainPresentModeInfoKHR {
     }
 }
 unsafe impl Extends<PresentInfoKHR> for SwapchainPresentModeInfoKHR {}
+/// [`VkSwapchainPresentModeInfoEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSwapchainPresentModeInfoEXT.html)
+///
+#[doc(alias = "VkSwapchainPresentModeInfoEXT")]
 pub type SwapchainPresentModeInfoEXT = SwapchainPresentModeInfoKHR;
 
 /// [`VkSwapchainPresentScalingCreateInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSwapchainPresentScalingCreateInfoKHR.html)
@@ -28324,6 +29035,9 @@ unsafe impl Extendable for SwapchainPresentScalingCreateInfoKHR {
     }
 }
 unsafe impl Extends<SwapchainCreateInfoKHR> for SwapchainPresentScalingCreateInfoKHR {}
+/// [`VkSwapchainPresentScalingCreateInfoEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSwapchainPresentScalingCreateInfoEXT.html)
+///
+#[doc(alias = "VkSwapchainPresentScalingCreateInfoEXT")]
 pub type SwapchainPresentScalingCreateInfoEXT = SwapchainPresentScalingCreateInfoKHR;
 
 /// [`VkReleaseSwapchainImagesInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkReleaseSwapchainImagesInfoKHR.html)
@@ -28375,6 +29089,9 @@ unsafe impl Extendable for ReleaseSwapchainImagesInfoKHR {
         }
     }
 }
+/// [`VkReleaseSwapchainImagesInfoEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkReleaseSwapchainImagesInfoEXT.html)
+///
+#[doc(alias = "VkReleaseSwapchainImagesInfoEXT")]
 pub type ReleaseSwapchainImagesInfoEXT = ReleaseSwapchainImagesInfoKHR;
 
 /// [`VkPhysicalDeviceInternallySynchronizedQueuesFeaturesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceInternallySynchronizedQueuesFeaturesKHR.html)
@@ -28632,6 +29349,9 @@ unsafe impl Extendable for PhysicalDeviceComputeShaderDerivativesFeaturesKHR {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceComputeShaderDerivativesFeaturesKHR {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceComputeShaderDerivativesFeaturesKHR {}
+/// [`VkPhysicalDeviceComputeShaderDerivativesFeaturesNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceComputeShaderDerivativesFeaturesNV.html)
+///
+#[doc(alias = "VkPhysicalDeviceComputeShaderDerivativesFeaturesNV")]
 pub type PhysicalDeviceComputeShaderDerivativesFeaturesNV =
     PhysicalDeviceComputeShaderDerivativesFeaturesKHR;
 
@@ -30056,6 +30776,9 @@ unsafe impl Extendable for CalibratedTimestampInfoKHR {
         }
     }
 }
+/// [`VkCalibratedTimestampInfoEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCalibratedTimestampInfoEXT.html)
+///
+#[doc(alias = "VkCalibratedTimestampInfoEXT")]
 pub type CalibratedTimestampInfoEXT = CalibratedTimestampInfoKHR;
 
 /// [`VkSetDescriptorBufferOffsetsInfoEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSetDescriptorBufferOffsetsInfoEXT.html)
@@ -30197,6 +30920,9 @@ impl Default for CopyMemoryIndirectCommandKHR {
         }
     }
 }
+/// [`VkCopyMemoryIndirectCommandNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyMemoryIndirectCommandNV.html)
+///
+#[doc(alias = "VkCopyMemoryIndirectCommandNV")]
 pub type CopyMemoryIndirectCommandNV = CopyMemoryIndirectCommandKHR;
 
 /// [`VkCopyMemoryIndirectInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyMemoryIndirectInfoKHR.html)
@@ -30285,6 +31011,9 @@ impl Default for CopyMemoryToImageIndirectCommandKHR {
         }
     }
 }
+/// [`VkCopyMemoryToImageIndirectCommandNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyMemoryToImageIndirectCommandNV.html)
+///
+#[doc(alias = "VkCopyMemoryToImageIndirectCommandNV")]
 pub type CopyMemoryToImageIndirectCommandNV = CopyMemoryToImageIndirectCommandKHR;
 
 /// [`VkCopyMemoryToImageIndirectInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyMemoryToImageIndirectInfoKHR.html)
@@ -30438,6 +31167,9 @@ unsafe impl Extendable for PhysicalDeviceCopyMemoryIndirectPropertiesKHR {
     }
 }
 unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceCopyMemoryIndirectPropertiesKHR {}
+/// [`VkPhysicalDeviceCopyMemoryIndirectPropertiesNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCopyMemoryIndirectPropertiesNV.html)
+///
+#[doc(alias = "VkPhysicalDeviceCopyMemoryIndirectPropertiesNV")]
 pub type PhysicalDeviceCopyMemoryIndirectPropertiesNV =
     PhysicalDeviceCopyMemoryIndirectPropertiesKHR;
 
@@ -31598,6 +32330,9 @@ impl Default for DeviceFaultAddressInfoKHR {
         }
     }
 }
+/// [`VkDeviceFaultAddressInfoEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceFaultAddressInfoEXT.html)
+///
+#[doc(alias = "VkDeviceFaultAddressInfoEXT")]
 pub type DeviceFaultAddressInfoEXT = DeviceFaultAddressInfoKHR;
 
 /// [`VkDeviceFaultVendorInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceFaultVendorInfoKHR.html)
@@ -31628,6 +32363,9 @@ impl Default for DeviceFaultVendorInfoKHR {
         }
     }
 }
+/// [`VkDeviceFaultVendorInfoEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceFaultVendorInfoEXT.html)
+///
+#[doc(alias = "VkDeviceFaultVendorInfoEXT")]
 pub type DeviceFaultVendorInfoEXT = DeviceFaultVendorInfoKHR;
 
 /// [`VkDeviceFaultInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceFaultInfoKHR.html)
@@ -31782,6 +32520,9 @@ impl Default for DeviceFaultVendorBinaryHeaderVersionOneKHR {
         }
     }
 }
+/// [`VkDeviceFaultVendorBinaryHeaderVersionOneEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceFaultVendorBinaryHeaderVersionOneEXT.html)
+///
+#[doc(alias = "VkDeviceFaultVendorBinaryHeaderVersionOneEXT")]
 pub type DeviceFaultVendorBinaryHeaderVersionOneEXT = DeviceFaultVendorBinaryHeaderVersionOneKHR;
 
 /// [`VkMemoryBarrierAccessFlags3KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryBarrierAccessFlags3KHR.html)
@@ -32465,6 +33206,9 @@ unsafe impl Extendable for PhysicalDeviceDepthClampZeroOneFeaturesKHR {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceDepthClampZeroOneFeaturesKHR {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceDepthClampZeroOneFeaturesKHR {}
+/// [`VkPhysicalDeviceDepthClampZeroOneFeaturesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceDepthClampZeroOneFeaturesEXT.html)
+///
+#[doc(alias = "VkPhysicalDeviceDepthClampZeroOneFeaturesEXT")]
 pub type PhysicalDeviceDepthClampZeroOneFeaturesEXT = PhysicalDeviceDepthClampZeroOneFeaturesKHR;
 
 /// [`VkPhysicalDeviceRobustness2FeaturesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceRobustness2FeaturesKHR.html)
@@ -32518,6 +33262,9 @@ unsafe impl Extendable for PhysicalDeviceRobustness2FeaturesKHR {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceRobustness2FeaturesKHR {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceRobustness2FeaturesKHR {}
+/// [`VkPhysicalDeviceRobustness2FeaturesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceRobustness2FeaturesEXT.html)
+///
+#[doc(alias = "VkPhysicalDeviceRobustness2FeaturesEXT")]
 pub type PhysicalDeviceRobustness2FeaturesEXT = PhysicalDeviceRobustness2FeaturesKHR;
 
 /// [`VkPhysicalDeviceRobustness2PropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceRobustness2PropertiesKHR.html)
@@ -32568,6 +33315,9 @@ unsafe impl Extendable for PhysicalDeviceRobustness2PropertiesKHR {
     }
 }
 unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceRobustness2PropertiesKHR {}
+/// [`VkPhysicalDeviceRobustness2PropertiesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceRobustness2PropertiesEXT.html)
+///
+#[doc(alias = "VkPhysicalDeviceRobustness2PropertiesEXT")]
 pub type PhysicalDeviceRobustness2PropertiesEXT = PhysicalDeviceRobustness2PropertiesKHR;
 
 /// [`VkPhysicalDevicePresentModeFifoLatestReadyFeaturesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePresentModeFifoLatestReadyFeaturesKHR.html)
@@ -32620,6 +33370,9 @@ unsafe impl Extends<PhysicalDeviceFeatures2>
 {
 }
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePresentModeFifoLatestReadyFeaturesKHR {}
+/// [`VkPhysicalDevicePresentModeFifoLatestReadyFeaturesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePresentModeFifoLatestReadyFeaturesEXT.html)
+///
+#[doc(alias = "VkPhysicalDevicePresentModeFifoLatestReadyFeaturesEXT")]
 pub type PhysicalDevicePresentModeFifoLatestReadyFeaturesEXT =
     PhysicalDevicePresentModeFifoLatestReadyFeaturesKHR;
 
@@ -32838,6 +33591,9 @@ impl Default for MicromapTriangleKHR {
         }
     }
 }
+/// [`VkMicromapTriangleEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMicromapTriangleEXT.html)
+///
+#[doc(alias = "VkMicromapTriangleEXT")]
 pub type MicromapTriangleEXT = MicromapTriangleKHR;
 
 /// [`VkAccelerationStructureTrianglesOpacityMicromapKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureTrianglesOpacityMicromapKHR.html)
@@ -33044,6 +33800,9 @@ unsafe impl Extendable for RenderingEndInfoKHR {
         }
     }
 }
+/// [`VkRenderingEndInfoEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderingEndInfoEXT.html)
+///
+#[doc(alias = "VkRenderingEndInfoEXT")]
 pub type RenderingEndInfoEXT = RenderingEndInfoKHR;
 
 /// [`VkRenderingAttachmentFlagsInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderingAttachmentFlagsInfoKHR.html)
@@ -33196,6 +33955,9 @@ unsafe impl Extends<PhysicalDeviceFeatures2>
 {
 }
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePipelineLibraryGroupHandlesFeaturesKHR {}
+/// [`VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT.html)
+///
+#[doc(alias = "VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT")]
 pub type PhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT =
     PhysicalDevicePipelineLibraryGroupHandlesFeaturesKHR;
 
@@ -39257,6 +40019,9 @@ unsafe impl Extendable for AttachmentSampleCountInfoAMD {
 }
 unsafe impl Extends<CommandBufferInheritanceInfo> for AttachmentSampleCountInfoAMD {}
 unsafe impl Extends<GraphicsPipelineCreateInfo> for AttachmentSampleCountInfoAMD {}
+/// [`VkAttachmentSampleCountInfoNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAttachmentSampleCountInfoNV.html)
+///
+#[doc(alias = "VkAttachmentSampleCountInfoNV")]
 pub type AttachmentSampleCountInfoNV = AttachmentSampleCountInfoAMD;
 
 /// [`VkSampleLocationEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSampleLocationEXT.html)
@@ -41358,6 +42123,9 @@ impl Default for TransformMatrixKHR {
         }
     }
 }
+/// [`VkTransformMatrixNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkTransformMatrixNV.html)
+///
+#[doc(alias = "VkTransformMatrixNV")]
 pub type TransformMatrixNV = TransformMatrixKHR;
 
 /// [`VkAabbPositionsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAabbPositionsKHR.html)
@@ -41393,6 +42161,9 @@ impl Default for AabbPositionsKHR {
         }
     }
 }
+/// [`VkAabbPositionsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAabbPositionsNV.html)
+///
+#[doc(alias = "VkAabbPositionsNV")]
 pub type AabbPositionsNV = AabbPositionsKHR;
 
 /// [`VkAccelerationStructureInstanceKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureInstanceKHR.html)
@@ -41429,6 +42200,9 @@ impl Default for AccelerationStructureInstanceKHR {
         }
     }
 }
+/// [`VkAccelerationStructureInstanceNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureInstanceNV.html)
+///
+#[doc(alias = "VkAccelerationStructureInstanceNV")]
 pub type AccelerationStructureInstanceNV = AccelerationStructureInstanceKHR;
 
 /// [`VkPhysicalDeviceRepresentativeFragmentTestFeaturesNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceRepresentativeFragmentTestFeaturesNV.html)
@@ -43334,6 +44108,9 @@ unsafe impl Extendable for QueryPoolPerformanceQueryCreateInfoINTEL {
     }
 }
 unsafe impl Extends<QueryPoolCreateInfo> for QueryPoolPerformanceQueryCreateInfoINTEL {}
+/// [`VkQueryPoolCreateInfoINTEL`](https://docs.vulkan.org/refpages/latest/refpages/source/VkQueryPoolCreateInfoINTEL.html)
+///
+#[doc(alias = "VkQueryPoolCreateInfoINTEL")]
 pub type QueryPoolCreateInfoINTEL = QueryPoolPerformanceQueryCreateInfoINTEL;
 
 /// [`VkPerformanceMarkerInfoINTEL`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceMarkerInfoINTEL.html)
@@ -44341,6 +45118,9 @@ unsafe impl Extendable for PhysicalDeviceBufferDeviceAddressFeaturesEXT {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceBufferDeviceAddressFeaturesEXT {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceBufferDeviceAddressFeaturesEXT {}
+/// [`VkPhysicalDeviceBufferAddressFeaturesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceBufferAddressFeaturesEXT.html)
+///
+#[doc(alias = "VkPhysicalDeviceBufferAddressFeaturesEXT")]
 pub type PhysicalDeviceBufferAddressFeaturesEXT = PhysicalDeviceBufferDeviceAddressFeaturesEXT;
 
 /// [`VkBufferDeviceAddressCreateInfoEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferDeviceAddressCreateInfoEXT.html)
@@ -50742,6 +51522,9 @@ unsafe impl Extends<DeviceCreateInfo>
     for PhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT
 {
 }
+/// [`VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesARM.html)
+///
+#[doc(alias = "VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesARM")]
 pub type PhysicalDeviceRasterizationOrderAttachmentAccessFeaturesARM =
     PhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT;
 
@@ -50889,6 +51672,9 @@ unsafe impl Extendable for PhysicalDeviceMutableDescriptorTypeFeaturesEXT {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceMutableDescriptorTypeFeaturesEXT {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceMutableDescriptorTypeFeaturesEXT {}
+/// [`VkPhysicalDeviceMutableDescriptorTypeFeaturesVALVE`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMutableDescriptorTypeFeaturesVALVE.html)
+///
+#[doc(alias = "VkPhysicalDeviceMutableDescriptorTypeFeaturesVALVE")]
 pub type PhysicalDeviceMutableDescriptorTypeFeaturesVALVE =
     PhysicalDeviceMutableDescriptorTypeFeaturesEXT;
 
@@ -50918,6 +51704,9 @@ impl Default for MutableDescriptorTypeListEXT {
         }
     }
 }
+/// [`VkMutableDescriptorTypeListVALVE`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMutableDescriptorTypeListVALVE.html)
+///
+#[doc(alias = "VkMutableDescriptorTypeListVALVE")]
 pub type MutableDescriptorTypeListVALVE = MutableDescriptorTypeListEXT;
 
 /// [`VkMutableDescriptorTypeCreateInfoEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMutableDescriptorTypeCreateInfoEXT.html)
@@ -50970,6 +51759,9 @@ unsafe impl Extendable for MutableDescriptorTypeCreateInfoEXT {
 }
 unsafe impl Extends<DescriptorSetLayoutCreateInfo> for MutableDescriptorTypeCreateInfoEXT {}
 unsafe impl Extends<DescriptorPoolCreateInfo> for MutableDescriptorTypeCreateInfoEXT {}
+/// [`VkMutableDescriptorTypeCreateInfoVALVE`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMutableDescriptorTypeCreateInfoVALVE.html)
+///
+#[doc(alias = "VkMutableDescriptorTypeCreateInfoVALVE")]
 pub type MutableDescriptorTypeCreateInfoVALVE = MutableDescriptorTypeCreateInfoEXT;
 
 /// [`VkPhysicalDeviceVertexInputDynamicStateFeaturesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceVertexInputDynamicStateFeaturesEXT.html)
@@ -55594,6 +56386,9 @@ unsafe impl Extendable for PhysicalDeviceFragmentDensityMapOffsetFeaturesEXT {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceFragmentDensityMapOffsetFeaturesEXT {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceFragmentDensityMapOffsetFeaturesEXT {}
+/// [`VkPhysicalDeviceFragmentDensityMapOffsetFeaturesQCOM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFragmentDensityMapOffsetFeaturesQCOM.html)
+///
+#[doc(alias = "VkPhysicalDeviceFragmentDensityMapOffsetFeaturesQCOM")]
 pub type PhysicalDeviceFragmentDensityMapOffsetFeaturesQCOM =
     PhysicalDeviceFragmentDensityMapOffsetFeaturesEXT;
 
@@ -55646,6 +56441,9 @@ unsafe impl Extends<PhysicalDeviceProperties2>
     for PhysicalDeviceFragmentDensityMapOffsetPropertiesEXT
 {
 }
+/// [`VkPhysicalDeviceFragmentDensityMapOffsetPropertiesQCOM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceFragmentDensityMapOffsetPropertiesQCOM.html)
+///
+#[doc(alias = "VkPhysicalDeviceFragmentDensityMapOffsetPropertiesQCOM")]
 pub type PhysicalDeviceFragmentDensityMapOffsetPropertiesQCOM =
     PhysicalDeviceFragmentDensityMapOffsetPropertiesEXT;
 
@@ -55699,6 +56497,9 @@ unsafe impl Extendable for RenderPassFragmentDensityMapOffsetEndInfoEXT {
 }
 unsafe impl Extends<SubpassEndInfo> for RenderPassFragmentDensityMapOffsetEndInfoEXT {}
 unsafe impl Extends<RenderingEndInfoKHR> for RenderPassFragmentDensityMapOffsetEndInfoEXT {}
+/// [`VkSubpassFragmentDensityMapOffsetEndInfoQCOM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSubpassFragmentDensityMapOffsetEndInfoQCOM.html)
+///
+#[doc(alias = "VkSubpassFragmentDensityMapOffsetEndInfoQCOM")]
 pub type SubpassFragmentDensityMapOffsetEndInfoQCOM = RenderPassFragmentDensityMapOffsetEndInfoEXT;
 
 /// [`VkPhysicalDeviceCopyMemoryIndirectFeaturesNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceCopyMemoryIndirectFeaturesNV.html)
@@ -55826,6 +56627,9 @@ unsafe impl Extendable for PhysicalDeviceMemoryDecompressionFeaturesEXT {
 }
 unsafe impl Extends<PhysicalDeviceFeatures2> for PhysicalDeviceMemoryDecompressionFeaturesEXT {}
 unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceMemoryDecompressionFeaturesEXT {}
+/// [`VkPhysicalDeviceMemoryDecompressionFeaturesNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMemoryDecompressionFeaturesNV.html)
+///
+#[doc(alias = "VkPhysicalDeviceMemoryDecompressionFeaturesNV")]
 pub type PhysicalDeviceMemoryDecompressionFeaturesNV = PhysicalDeviceMemoryDecompressionFeaturesEXT;
 
 /// [`VkPhysicalDeviceMemoryDecompressionPropertiesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMemoryDecompressionPropertiesEXT.html)
@@ -55876,6 +56680,9 @@ unsafe impl Extendable for PhysicalDeviceMemoryDecompressionPropertiesEXT {
     }
 }
 unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceMemoryDecompressionPropertiesEXT {}
+/// [`VkPhysicalDeviceMemoryDecompressionPropertiesNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceMemoryDecompressionPropertiesNV.html)
+///
+#[doc(alias = "VkPhysicalDeviceMemoryDecompressionPropertiesNV")]
 pub type PhysicalDeviceMemoryDecompressionPropertiesNV =
     PhysicalDeviceMemoryDecompressionPropertiesEXT;
 

@@ -1478,6 +1478,9 @@ bitflags::bitflags! {
         const GENERIC_DST = 8;
     }
 }
+/// [`VkPeerMemoryFeatureFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPeerMemoryFeatureFlagBitsKHR.html)
+///
+#[doc(alias = "VkPeerMemoryFeatureFlagBitsKHR")]
 pub type PeerMemoryFeatureFlagsKHR = PeerMemoryFeatureFlags;
 impl PeerMemoryFeatureFlags {
     #[doc(alias = "VK_PEER_MEMORY_FEATURE_COPY_SRC_BIT_KHR")]
@@ -1507,6 +1510,9 @@ bitflags::bitflags! {
         const ZERO_INITIALIZEEXT = 8;
     }
 }
+/// [`VkMemoryAllocateFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryAllocateFlagBitsKHR.html)
+///
+#[doc(alias = "VkMemoryAllocateFlagBitsKHR")]
 pub type MemoryAllocateFlagsKHR = MemoryAllocateFlags;
 impl MemoryAllocateFlags {
     #[doc(alias = "VK_MEMORY_ALLOCATE_DEVICE_MASK_BIT_KHR")]
@@ -1562,6 +1568,9 @@ bitflags::bitflags! {
         const MTLHEAPEXT = 262144;
     }
 }
+/// [`VkExternalMemoryHandleTypeFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalMemoryHandleTypeFlagBitsKHR.html)
+///
+#[doc(alias = "VkExternalMemoryHandleTypeFlagBitsKHR")]
 pub type ExternalMemoryHandleTypeFlagsKHR = ExternalMemoryHandleTypeFlags;
 impl ExternalMemoryHandleTypeFlags {
     #[doc(alias = "VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_FD_BIT_KHR")]
@@ -1595,6 +1604,9 @@ bitflags::bitflags! {
         const IMPORTABLE = 4;
     }
 }
+/// [`VkExternalMemoryFeatureFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalMemoryFeatureFlagBitsKHR.html)
+///
+#[doc(alias = "VkExternalMemoryFeatureFlagBitsKHR")]
 pub type ExternalMemoryFeatureFlagsKHR = ExternalMemoryFeatureFlags;
 impl ExternalMemoryFeatureFlags {
     #[doc(alias = "VK_EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT_KHR")]
@@ -1622,6 +1634,9 @@ bitflags::bitflags! {
         const SYNC_FD = 8;
     }
 }
+/// [`VkExternalFenceHandleTypeFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalFenceHandleTypeFlagBitsKHR.html)
+///
+#[doc(alias = "VkExternalFenceHandleTypeFlagBitsKHR")]
 pub type ExternalFenceHandleTypeFlagsKHR = ExternalFenceHandleTypeFlags;
 impl ExternalFenceHandleTypeFlags {
     #[doc(alias = "VK_EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_FD_BIT_KHR")]
@@ -1647,6 +1662,9 @@ bitflags::bitflags! {
         const IMPORTABLE = 2;
     }
 }
+/// [`VkExternalFenceFeatureFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalFenceFeatureFlagBitsKHR.html)
+///
+#[doc(alias = "VkExternalFenceFeatureFlagBitsKHR")]
 pub type ExternalFenceFeatureFlagsKHR = ExternalFenceFeatureFlags;
 impl ExternalFenceFeatureFlags {
     #[doc(alias = "VK_EXTERNAL_FENCE_FEATURE_EXPORTABLE_BIT_KHR")]
@@ -1666,6 +1684,9 @@ bitflags::bitflags! {
         const TEMPORARY = 1;
     }
 }
+/// [`VkFenceImportFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkFenceImportFlagBitsKHR.html)
+///
+#[doc(alias = "VkFenceImportFlagBitsKHR")]
 pub type FenceImportFlagsKHR = FenceImportFlags;
 impl FenceImportFlags {
     #[doc(alias = "VK_FENCE_IMPORT_TEMPORARY_BIT_KHR")]
@@ -1683,6 +1704,9 @@ bitflags::bitflags! {
         const TEMPORARY = 1;
     }
 }
+/// [`VkSemaphoreImportFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSemaphoreImportFlagBitsKHR.html)
+///
+#[doc(alias = "VkSemaphoreImportFlagBitsKHR")]
 pub type SemaphoreImportFlagsKHR = SemaphoreImportFlags;
 impl SemaphoreImportFlags {
     #[doc(alias = "VK_SEMAPHORE_IMPORT_TEMPORARY_BIT_KHR")]
@@ -1710,6 +1734,9 @@ bitflags::bitflags! {
         const ZIRCON_EVENTFUCHSIA = 128;
     }
 }
+/// [`VkExternalSemaphoreHandleTypeFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalSemaphoreHandleTypeFlagBitsKHR.html)
+///
+#[doc(alias = "VkExternalSemaphoreHandleTypeFlagBitsKHR")]
 pub type ExternalSemaphoreHandleTypeFlagsKHR = ExternalSemaphoreHandleTypeFlags;
 impl ExternalSemaphoreHandleTypeFlags {
     #[doc(alias = "VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_FD_BIT_KHR")]
@@ -1739,6 +1766,9 @@ bitflags::bitflags! {
         const IMPORTABLE = 2;
     }
 }
+/// [`VkExternalSemaphoreFeatureFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalSemaphoreFeatureFlagBitsKHR.html)
+///
+#[doc(alias = "VkExternalSemaphoreFeatureFlagBitsKHR")]
 pub type ExternalSemaphoreFeatureFlagsKHR = ExternalSemaphoreFeatureFlags;
 impl ExternalSemaphoreFeatureFlags {
     #[doc(alias = "VK_EXTERNAL_SEMAPHORE_FEATURE_EXPORTABLE_BIT_KHR")]
@@ -1770,6 +1800,9 @@ bitflags::bitflags! {
         const CUSTOMEXT = 32;
     }
 }
+/// [`VkResolveModeFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkResolveModeFlagBitsKHR.html)
+///
+#[doc(alias = "VkResolveModeFlagBitsKHR")]
 pub type ResolveModeFlagsKHR = ResolveModeFlags;
 impl ResolveModeFlags {
     #[doc(alias = "VK_RESOLVE_MODE_NONE_KHR")]
@@ -1797,6 +1830,9 @@ bitflags::bitflags! {
         const ANY = 1;
     }
 }
+/// [`VkSemaphoreWaitFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSemaphoreWaitFlagBitsKHR.html)
+///
+#[doc(alias = "VkSemaphoreWaitFlagBitsKHR")]
 pub type SemaphoreWaitFlagsKHR = SemaphoreWaitFlags;
 impl SemaphoreWaitFlags {
     #[doc(alias = "VK_SEMAPHORE_WAIT_ANY_BIT_KHR")]
@@ -1820,6 +1856,9 @@ bitflags::bitflags! {
         const VARIABLE_DESCRIPTOR_COUNT = 8;
     }
 }
+/// [`VkDescriptorBindingFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorBindingFlagBitsEXT.html)
+///
+#[doc(alias = "VkDescriptorBindingFlagBitsEXT")]
 pub type DescriptorBindingFlagsEXT = DescriptorBindingFlags;
 impl DescriptorBindingFlags {
     #[doc(alias = "VK_DESCRIPTOR_BINDING_UPDATE_AFTER_BIND_BIT_EXT")]
@@ -1855,6 +1894,9 @@ bitflags::bitflags! {
         const DEBUG_MARKERSEXT = 64;
     }
 }
+/// [`VkToolPurposeFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkToolPurposeFlagBitsEXT.html)
+///
+#[doc(alias = "VkToolPurposeFlagBitsEXT")]
 pub type ToolPurposeFlagsEXT = ToolPurposeFlags;
 impl ToolPurposeFlags {
     #[doc(alias = "VK_TOOL_PURPOSE_VALIDATION_BIT_EXT")]
@@ -1880,6 +1922,9 @@ bitflags::bitflags! {
         const BASE_OBJECT_HANDLENV = 1;
     }
 }
+/// [`VkPrivateDataSlotCreateFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPrivateDataSlotCreateFlagBitsEXT.html)
+///
+#[doc(alias = "VkPrivateDataSlotCreateFlagBitsEXT")]
 pub type PrivateDataSlotCreateFlagsEXT = PrivateDataSlotCreateFlags;
 
 bitflags::bitflags! {
@@ -1983,6 +2028,9 @@ bitflags::bitflags! {
         const MEMORY_DECOMPRESSIONEXT = 35184372088832;
     }
 }
+/// [`VkPipelineStageFlagBits2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineStageFlagBits2KHR.html)
+///
+#[doc(alias = "VkPipelineStageFlagBits2KHR")]
 pub type PipelineStageFlags2KHR = PipelineStageFlags2;
 impl PipelineStageFlags2 {
     #[doc(alias = "VK_PIPELINE_STAGE_2_NONE_KHR")]
@@ -2166,6 +2214,9 @@ bitflags::bitflags! {
         const MEMORY_DECOMPRESSION_WRITEEXT = 72057594037927936;
     }
 }
+/// [`VkAccessFlagBits2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAccessFlagBits2KHR.html)
+///
+#[doc(alias = "VkAccessFlagBits2KHR")]
 pub type AccessFlags2KHR = AccessFlags2;
 impl AccessFlags2 {
     #[doc(alias = "VK_ACCESS_2_NONE_KHR")]
@@ -2233,6 +2284,9 @@ bitflags::bitflags! {
         const PROTECTED = 1;
     }
 }
+/// [`VkSubmitFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSubmitFlagBitsKHR.html)
+///
+#[doc(alias = "VkSubmitFlagBitsKHR")]
 pub type SubmitFlagsKHR = SubmitFlags;
 impl SubmitFlags {
     #[doc(alias = "VK_SUBMIT_PROTECTED_BIT_KHR")]
@@ -2366,6 +2420,9 @@ bitflags::bitflags! {
         const DATA_GRAPH_OPTICAL_FLOW_COSTARM = 288230376151711744;
     }
 }
+/// [`VkFormatFeatureFlagBits2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkFormatFeatureFlagBits2KHR.html)
+///
+#[doc(alias = "VkFormatFeatureFlagBits2KHR")]
 pub type FormatFeatureFlags2KHR = FormatFeatureFlags2;
 impl FormatFeatureFlags2 {
     #[doc(alias = "VK_FORMAT_FEATURE_2_SAMPLED_IMAGE_BIT_KHR")]
@@ -2451,6 +2508,9 @@ bitflags::bitflags! {
         const BASE_PIPELINE_ACCELERATION = 4;
     }
 }
+/// [`VkPipelineCreationFeedbackFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCreationFeedbackFlagBitsEXT.html)
+///
+#[doc(alias = "VkPipelineCreationFeedbackFlagBitsEXT")]
 pub type PipelineCreationFeedbackFlagsEXT = PipelineCreationFeedbackFlags;
 impl PipelineCreationFeedbackFlags {
     #[doc(alias = "VK_PIPELINE_CREATION_FEEDBACK_VALID_BIT_EXT")]
@@ -2488,6 +2548,9 @@ bitflags::bitflags! {
         const LOCAL_READ_CONCURRENT_ACCESS_CONTROLKHR = 256;
     }
 }
+/// [`VkRenderingFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderingFlagBitsKHR.html)
+///
+#[doc(alias = "VkRenderingFlagBitsKHR")]
 pub type RenderingFlagsKHR = RenderingFlags;
 impl RenderingFlags {
     #[doc(alias = "VK_RENDERING_CONTENTS_SECONDARY_COMMAND_BUFFERS_BIT_KHR")]
@@ -2512,6 +2575,9 @@ bitflags::bitflags! {
         const RESERVEEXT = 1;
     }
 }
+/// [`VkMemoryUnmapFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryUnmapFlagBitsKHR.html)
+///
+#[doc(alias = "VkMemoryUnmapFlagBitsKHR")]
 pub type MemoryUnmapFlagsKHR = MemoryUnmapFlags;
 
 bitflags::bitflags! {
@@ -2587,6 +2653,9 @@ bitflags::bitflags! {
         const PREPROCESS_BUFFEREXT = 2147483648;
     }
 }
+/// [`VkBufferUsageFlagBits2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferUsageFlagBits2KHR.html)
+///
+#[doc(alias = "VkBufferUsageFlagBits2KHR")]
 pub type BufferUsageFlags2KHR = BufferUsageFlags2;
 impl BufferUsageFlags2 {
     #[doc(alias = "VK_BUFFER_USAGE_2_TRANSFER_SRC_BIT_KHR")]
@@ -2624,6 +2693,9 @@ bitflags::bitflags! {
         const MEMCPY = 1;
     }
 }
+/// [`VkHostImageCopyFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkHostImageCopyFlagBitsEXT.html)
+///
+#[doc(alias = "VkHostImageCopyFlagBitsEXT")]
 pub type HostImageCopyFlagsEXT = HostImageCopyFlags;
 impl HostImageCopyFlags {
     #[doc(alias = "VK_HOST_IMAGE_COPY_MEMCPY")]
@@ -2727,6 +2799,9 @@ bitflags::bitflags! {
         const _64INDEXINGEXT = 8796093022208;
     }
 }
+/// [`VkPipelineCreateFlagBits2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCreateFlagBits2KHR.html)
+///
+#[doc(alias = "VkPipelineCreateFlagBits2KHR")]
 pub type PipelineCreateFlags2KHR = PipelineCreateFlags2;
 impl PipelineCreateFlags2 {
     #[doc(alias = "VK_PIPELINE_CREATE_2_DISABLE_OPTIMIZATION_BIT_KHR")]
@@ -3500,6 +3575,9 @@ bitflags::bitflags! {
         const STRETCHKHR = 4;
     }
 }
+/// [`VkPresentScalingFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPresentScalingFlagBitsEXT.html)
+///
+#[doc(alias = "VkPresentScalingFlagBitsEXT")]
 pub type PresentScalingFlagsEXT = PresentScalingFlagsKHR;
 impl PresentScalingFlagsKHR {
     #[doc(alias = "VK_PRESENT_SCALING_ONE_TO_ONE_BIT_EXT")]
@@ -3525,6 +3603,9 @@ bitflags::bitflags! {
         const CENTEREDKHR = 4;
     }
 }
+/// [`VkPresentGravityFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPresentGravityFlagBitsEXT.html)
+///
+#[doc(alias = "VkPresentGravityFlagBitsEXT")]
 pub type PresentGravityFlagsEXT = PresentGravityFlagsKHR;
 impl PresentGravityFlagsKHR {
     #[doc(alias = "VK_PRESENT_GRAVITY_MIN_BIT_EXT")]
@@ -4032,6 +4113,9 @@ bitflags::bitflags! {
         const NO_DUPLICATE_ANY_HIT_INVOCATIONKHR = 2;
     }
 }
+/// [`VkGeometryFlagBitsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkGeometryFlagBitsNV.html)
+///
+#[doc(alias = "VkGeometryFlagBitsNV")]
 pub type GeometryFlagsNV = GeometryFlagsKHR;
 impl GeometryFlagsKHR {
     #[doc(alias = "VK_GEOMETRY_OPAQUE_BIT_NV")]
@@ -4062,6 +4146,9 @@ bitflags::bitflags! {
         const DISABLE_OPACITY_MICROMAPSKHR = 32;
     }
 }
+/// [`VkGeometryInstanceFlagBitsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkGeometryInstanceFlagBitsNV.html)
+///
+#[doc(alias = "VkGeometryInstanceFlagBitsNV")]
 pub type GeometryInstanceFlagsNV = GeometryInstanceFlagsKHR;
 impl GeometryInstanceFlagsKHR {
     #[doc(alias = "VK_GEOMETRY_INSTANCE_TRIANGLE_CULL_DISABLE_BIT_NV")]
@@ -4120,6 +4207,9 @@ bitflags::bitflags! {
         const MICROMAP_LOSSYKHR = 1024;
     }
 }
+/// [`VkBuildAccelerationStructureFlagBitsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBuildAccelerationStructureFlagBitsNV.html)
+///
+#[doc(alias = "VkBuildAccelerationStructureFlagBitsNV")]
 pub type BuildAccelerationStructureFlagsNV = BuildAccelerationStructureFlagsKHR;
 impl BuildAccelerationStructureFlagsKHR {
     #[doc(alias = "VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_UPDATE_BIT_NV")]
@@ -4540,6 +4630,9 @@ bitflags::bitflags! {
         const GDEFLATE_1_0EXT = 1;
     }
 }
+/// [`VkMemoryDecompressionMethodFlagBitsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryDecompressionMethodFlagBitsNV.html)
+///
+#[doc(alias = "VkMemoryDecompressionMethodFlagBitsNV")]
 pub type MemoryDecompressionMethodFlagsNV = MemoryDecompressionMethodFlagsEXT;
 impl MemoryDecompressionMethodFlagsEXT {
     #[doc(alias = "VK_MEMORY_DECOMPRESSION_METHOD_GDEFLATE_1_0_BIT_NV")]

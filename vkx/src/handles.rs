@@ -242,6 +242,9 @@ pub struct DescriptorPool(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct DescriptorUpdateTemplate(u64);
+/// [`VkDescriptorUpdateTemplateKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorUpdateTemplateKHR.html)
+///
+#[doc(alias = "VkDescriptorUpdateTemplateKHR")]
 pub type DescriptorUpdateTemplateKHR = DescriptorUpdateTemplate;
 
 /// [`VkSamplerYcbcrConversion`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerYcbcrConversion.html)
@@ -252,6 +255,9 @@ pub type DescriptorUpdateTemplateKHR = DescriptorUpdateTemplate;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct SamplerYcbcrConversion(u64);
+/// [`VkSamplerYcbcrConversionKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerYcbcrConversionKHR.html)
+///
+#[doc(alias = "VkSamplerYcbcrConversionKHR")]
 pub type SamplerYcbcrConversionKHR = SamplerYcbcrConversion;
 
 /// [`VkPrivateDataSlot`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPrivateDataSlot.html)
@@ -262,6 +268,9 @@ pub type SamplerYcbcrConversionKHR = SamplerYcbcrConversion;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct PrivateDataSlot(u64);
+/// [`VkPrivateDataSlotEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPrivateDataSlotEXT.html)
+///
+#[doc(alias = "VkPrivateDataSlotEXT")]
 pub type PrivateDataSlotEXT = PrivateDataSlot;
 
 /// [`VkSurfaceKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfaceKHR.html)

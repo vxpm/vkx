@@ -9889,6 +9889,9 @@ pub enum PointClippingBehavior {
     #[doc(alias = "VK_POINT_CLIPPING_BEHAVIOR_USER_CLIP_PLANES_ONLY")]
     USER_CLIP_PLANES_ONLY = 1,
 }
+/// [`VkPointClippingBehaviorKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPointClippingBehaviorKHR.html)
+///
+#[doc(alias = "VkPointClippingBehaviorKHR")]
 pub type PointClippingBehaviorKHR = PointClippingBehavior;
 impl PointClippingBehavior {
     #[doc(alias = "VK_POINT_CLIPPING_BEHAVIOR_ALL_CLIP_PLANES_KHR")]
@@ -9910,6 +9913,9 @@ pub enum DescriptorUpdateTemplateType {
     #[doc(alias = "VK_DESCRIPTOR_UPDATE_TEMPLATE_TYPE_PUSH_DESCRIPTORS")]
     PUSH_DESCRIPTORS = 1,
 }
+/// [`VkDescriptorUpdateTemplateTypeKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorUpdateTemplateTypeKHR.html)
+///
+#[doc(alias = "VkDescriptorUpdateTemplateTypeKHR")]
 pub type DescriptorUpdateTemplateTypeKHR = DescriptorUpdateTemplateType;
 impl DescriptorUpdateTemplateType {
     #[doc(alias = "VK_DESCRIPTOR_UPDATE_TEMPLATE_TYPE_DESCRIPTOR_SET_KHR")]
@@ -9937,6 +9943,9 @@ pub enum SamplerYcbcrModelConversion {
     #[doc(alias = "VK_SAMPLER_YCBCR_MODEL_CONVERSION_YCBCR_2020")]
     YCBCR_2020 = 4,
 }
+/// [`VkSamplerYcbcrModelConversionKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerYcbcrModelConversionKHR.html)
+///
+#[doc(alias = "VkSamplerYcbcrModelConversionKHR")]
 pub type SamplerYcbcrModelConversionKHR = SamplerYcbcrModelConversion;
 impl SamplerYcbcrModelConversion {
     #[doc(alias = "VK_SAMPLER_YCBCR_MODEL_CONVERSION_RGB_IDENTITY_KHR")]
@@ -9964,6 +9973,9 @@ pub enum SamplerYcbcrRange {
     #[doc(alias = "VK_SAMPLER_YCBCR_RANGE_ITU_NARROW")]
     ITU_NARROW = 1,
 }
+/// [`VkSamplerYcbcrRangeKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerYcbcrRangeKHR.html)
+///
+#[doc(alias = "VkSamplerYcbcrRangeKHR")]
 pub type SamplerYcbcrRangeKHR = SamplerYcbcrRange;
 impl SamplerYcbcrRange {
     #[doc(alias = "VK_SAMPLER_YCBCR_RANGE_ITU_FULL_KHR")]
@@ -9985,6 +9997,9 @@ pub enum ChromaLocation {
     #[doc(alias = "VK_CHROMA_LOCATION_MIDPOINT")]
     MIDPOINT = 1,
 }
+/// [`VkChromaLocationKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkChromaLocationKHR.html)
+///
+#[doc(alias = "VkChromaLocationKHR")]
 pub type ChromaLocationKHR = ChromaLocation;
 impl ChromaLocation {
     #[doc(alias = "VK_CHROMA_LOCATION_COSITED_EVEN_KHR")]
@@ -10006,6 +10021,9 @@ pub enum TessellationDomainOrigin {
     #[doc(alias = "VK_TESSELLATION_DOMAIN_ORIGIN_LOWER_LEFT")]
     LOWER_LEFT = 1,
 }
+/// [`VkTessellationDomainOriginKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkTessellationDomainOriginKHR.html)
+///
+#[doc(alias = "VkTessellationDomainOriginKHR")]
 pub type TessellationDomainOriginKHR = TessellationDomainOrigin;
 impl TessellationDomainOrigin {
     #[doc(alias = "VK_TESSELLATION_DOMAIN_ORIGIN_UPPER_LEFT_KHR")]
@@ -10085,6 +10103,9 @@ pub enum DriverId {
     #[doc(alias = "VK_DRIVER_ID_RESERVED_31")]
     RESERVED_31 = 31,
 }
+/// [`VkDriverIdKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDriverIdKHR.html)
+///
+#[doc(alias = "VkDriverIdKHR")]
 pub type DriverIdKHR = DriverId;
 impl DriverId {
     #[doc(alias = "VK_DRIVER_ID_AMD_PROPRIETARY_KHR")]
@@ -10128,6 +10149,9 @@ pub enum ShaderFloatControlsIndependence {
     #[doc(alias = "VK_SHADER_FLOAT_CONTROLS_INDEPENDENCE_NONE")]
     NONE = 2,
 }
+/// [`VkShaderFloatControlsIndependenceKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderFloatControlsIndependenceKHR.html)
+///
+#[doc(alias = "VkShaderFloatControlsIndependenceKHR")]
 pub type ShaderFloatControlsIndependenceKHR = ShaderFloatControlsIndependence;
 impl ShaderFloatControlsIndependence {
     #[doc(alias = "VK_SHADER_FLOAT_CONTROLS_INDEPENDENCE_32_BIT_ONLY_KHR")]
@@ -10151,6 +10175,9 @@ pub enum SemaphoreType {
     #[doc(alias = "VK_SEMAPHORE_TYPE_TIMELINE")]
     TIMELINE = 1,
 }
+/// [`VkSemaphoreTypeKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSemaphoreTypeKHR.html)
+///
+#[doc(alias = "VkSemaphoreTypeKHR")]
 pub type SemaphoreTypeKHR = SemaphoreType;
 impl SemaphoreType {
     #[doc(alias = "VK_SEMAPHORE_TYPE_BINARY_KHR")]
@@ -10176,6 +10203,9 @@ pub enum SamplerReductionMode {
     #[doc(alias = "VK_SAMPLER_REDUCTION_MODE_WEIGHTED_AVERAGE_RANGECLAMP_QCOM")]
     WEIGHTED_AVERAGE_RANGECLAMP_QCOM = 1000521000,
 }
+/// [`VkSamplerReductionModeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerReductionModeEXT.html)
+///
+#[doc(alias = "VkSamplerReductionModeEXT")]
 pub type SamplerReductionModeEXT = SamplerReductionMode;
 impl SamplerReductionMode {
     #[doc(alias = "VK_SAMPLER_REDUCTION_MODE_WEIGHTED_AVERAGE_EXT")]
@@ -10203,6 +10233,9 @@ pub enum PipelineRobustnessBufferBehavior {
     #[doc(alias = "VK_PIPELINE_ROBUSTNESS_BUFFER_BEHAVIOR_ROBUST_BUFFER_ACCESS_2")]
     ROBUST_BUFFER_ACCESS_2 = 3,
 }
+/// [`VkPipelineRobustnessBufferBehaviorEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineRobustnessBufferBehaviorEXT.html)
+///
+#[doc(alias = "VkPipelineRobustnessBufferBehaviorEXT")]
 pub type PipelineRobustnessBufferBehaviorEXT = PipelineRobustnessBufferBehavior;
 impl PipelineRobustnessBufferBehavior {
     #[doc(alias = "VK_PIPELINE_ROBUSTNESS_BUFFER_BEHAVIOR_DEVICE_DEFAULT_EXT")]
@@ -10232,6 +10265,9 @@ pub enum PipelineRobustnessImageBehavior {
     #[doc(alias = "VK_PIPELINE_ROBUSTNESS_IMAGE_BEHAVIOR_ROBUST_IMAGE_ACCESS_2")]
     ROBUST_IMAGE_ACCESS_2 = 3,
 }
+/// [`VkPipelineRobustnessImageBehaviorEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineRobustnessImageBehaviorEXT.html)
+///
+#[doc(alias = "VkPipelineRobustnessImageBehaviorEXT")]
 pub type PipelineRobustnessImageBehaviorEXT = PipelineRobustnessImageBehavior;
 impl PipelineRobustnessImageBehavior {
     #[doc(alias = "VK_PIPELINE_ROBUSTNESS_IMAGE_BEHAVIOR_DEVICE_DEFAULT_EXT")]
@@ -10261,7 +10297,13 @@ pub enum QueueGlobalPriority {
     #[doc(alias = "VK_QUEUE_GLOBAL_PRIORITY_REALTIME")]
     REALTIME = 1024,
 }
+/// [`VkQueueGlobalPriorityKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkQueueGlobalPriorityKHR.html)
+///
+#[doc(alias = "VkQueueGlobalPriorityKHR")]
 pub type QueueGlobalPriorityKHR = QueueGlobalPriority;
+/// [`VkQueueGlobalPriorityEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkQueueGlobalPriorityEXT.html)
+///
+#[doc(alias = "VkQueueGlobalPriorityEXT")]
 pub type QueueGlobalPriorityEXT = QueueGlobalPriority;
 impl QueueGlobalPriority {
     #[doc(alias = "VK_QUEUE_GLOBAL_PRIORITY_LOW_EXT")]
@@ -10299,7 +10341,13 @@ pub enum LineRasterizationMode {
     #[doc(alias = "VK_LINE_RASTERIZATION_MODE_RECTANGULAR_SMOOTH")]
     RECTANGULAR_SMOOTH = 3,
 }
+/// [`VkLineRasterizationModeKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkLineRasterizationModeKHR.html)
+///
+#[doc(alias = "VkLineRasterizationModeKHR")]
 pub type LineRasterizationModeKHR = LineRasterizationMode;
+/// [`VkLineRasterizationModeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkLineRasterizationModeEXT.html)
+///
+#[doc(alias = "VkLineRasterizationModeEXT")]
 pub type LineRasterizationModeEXT = LineRasterizationMode;
 impl LineRasterizationMode {
     #[doc(alias = "VK_LINE_RASTERIZATION_MODE_DEFAULT_EXT")]
@@ -10568,6 +10616,9 @@ pub enum AccelerationStructureTypeKHR {
     #[doc(alias = "VK_ACCELERATION_STRUCTURE_TYPE_OPACITY_MICROMAP_KHR")]
     ACCELERATION_STRUCTURE_TYPE_OPACITY_MICROMAP_KHR = 1000623000,
 }
+/// [`VkAccelerationStructureTypeNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureTypeNV.html)
+///
+#[doc(alias = "VkAccelerationStructureTypeNV")]
 pub type AccelerationStructureTypeNV = AccelerationStructureTypeKHR;
 impl AccelerationStructureTypeKHR {
     #[doc(alias = "VK_ACCELERATION_STRUCTURE_TYPE_TOP_LEVEL_NV")]
@@ -10629,6 +10680,9 @@ pub enum ComponentTypeKHR {
     #[doc(alias = "VK_COMPONENT_TYPE_MXINT8_EXT")]
     COMPONENT_TYPE_MXINT8_EXT = 1000672004,
 }
+/// [`VkComponentTypeNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkComponentTypeNV.html)
+///
+#[doc(alias = "VkComponentTypeNV")]
 pub type ComponentTypeNV = ComponentTypeKHR;
 impl ComponentTypeKHR {
     #[doc(alias = "VK_COMPONENT_TYPE_FLOAT16_NV")]
@@ -10676,6 +10730,9 @@ pub enum ScopeKHR {
     #[doc(alias = "VK_SCOPE_QUEUE_FAMILY_KHR")]
     SCOPE_QUEUE_FAMILY_KHR = 5,
 }
+/// [`VkScopeNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkScopeNV.html)
+///
+#[doc(alias = "VkScopeNV")]
 pub type ScopeNV = ScopeKHR;
 impl ScopeKHR {
     #[doc(alias = "VK_SCOPE_DEVICE_NV")]
@@ -10743,6 +10800,9 @@ pub enum TimeDomainKHR {
     #[doc(alias = "VK_TIME_DOMAIN_SWAPCHAIN_LOCAL_EXT")]
     TIME_DOMAIN_SWAPCHAIN_LOCAL_EXT = 1000208001,
 }
+/// [`VkTimeDomainEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkTimeDomainEXT.html)
+///
+#[doc(alias = "VkTimeDomainEXT")]
 pub type TimeDomainEXT = TimeDomainKHR;
 impl TimeDomainKHR {
     #[doc(alias = "VK_TIME_DOMAIN_DEVICE_EXT")]
@@ -10799,6 +10859,9 @@ pub enum DeviceFaultAddressTypeKHR {
     #[doc(alias = "VK_DEVICE_FAULT_ADDRESS_TYPE_INSTRUCTION_POINTER_FAULT_KHR")]
     DEVICE_FAULT_ADDRESS_TYPE_INSTRUCTION_POINTER_FAULT_KHR = 6,
 }
+/// [`VkDeviceFaultAddressTypeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceFaultAddressTypeEXT.html)
+///
+#[doc(alias = "VkDeviceFaultAddressTypeEXT")]
 pub type DeviceFaultAddressTypeEXT = DeviceFaultAddressTypeKHR;
 impl DeviceFaultAddressTypeKHR {
     #[doc(alias = "VK_DEVICE_FAULT_ADDRESS_TYPE_NONE_EXT")]
@@ -10834,6 +10897,9 @@ pub enum DeviceFaultVendorBinaryHeaderVersionKHR {
     #[doc(alias = "VK_DEVICE_FAULT_VENDOR_BINARY_HEADER_VERSION_ONE_KHR")]
     DEVICE_FAULT_VENDOR_BINARY_HEADER_VERSION_ONE_KHR = 1,
 }
+/// [`VkDeviceFaultVendorBinaryHeaderVersionEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceFaultVendorBinaryHeaderVersionEXT.html)
+///
+#[doc(alias = "VkDeviceFaultVendorBinaryHeaderVersionEXT")]
 pub type DeviceFaultVendorBinaryHeaderVersionEXT = DeviceFaultVendorBinaryHeaderVersionKHR;
 impl DeviceFaultVendorBinaryHeaderVersionKHR {
     #[doc(alias = "VK_DEVICE_FAULT_VENDOR_BINARY_HEADER_VERSION_ONE_EXT")]
@@ -10868,6 +10934,9 @@ pub enum OpacityMicromapFormatKHR {
     #[doc(alias = "VK_OPACITY_MICROMAP_FORMAT_4_STATE_KHR")]
     OPACITY_MICROMAP_FORMAT_4_STATE_KHR = 2,
 }
+/// [`VkOpacityMicromapFormatEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkOpacityMicromapFormatEXT.html)
+///
+#[doc(alias = "VkOpacityMicromapFormatEXT")]
 pub type OpacityMicromapFormatEXT = OpacityMicromapFormatKHR;
 impl OpacityMicromapFormatKHR {
     #[doc(alias = "VK_OPACITY_MICROMAP_FORMAT_2_STATE_EXT")]
@@ -10895,6 +10964,9 @@ pub enum OpacityMicromapSpecialIndexKHR {
     #[doc(alias = "VK_OPACITY_MICROMAP_SPECIAL_INDEX_CLUSTER_GEOMETRY_DISABLE_OPACITY_MICROMAP_NV")]
     OPACITY_MICROMAP_SPECIAL_INDEX_CLUSTER_GEOMETRY_DISABLE_OPACITY_MICROMAP_NV = -5,
 }
+/// [`VkOpacityMicromapSpecialIndexEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkOpacityMicromapSpecialIndexEXT.html)
+///
+#[doc(alias = "VkOpacityMicromapSpecialIndexEXT")]
 pub type OpacityMicromapSpecialIndexEXT = OpacityMicromapSpecialIndexKHR;
 impl OpacityMicromapSpecialIndexKHR {
     #[doc(alias = "VK_OPACITY_MICROMAP_SPECIAL_INDEX_FULLY_TRANSPARENT_EXT")]
@@ -11482,6 +11554,9 @@ pub enum RayTracingShaderGroupTypeKHR {
     #[doc(alias = "VK_RAY_TRACING_SHADER_GROUP_TYPE_PROCEDURAL_HIT_GROUP_KHR")]
     RAY_TRACING_SHADER_GROUP_TYPE_PROCEDURAL_HIT_GROUP_KHR = 2,
 }
+/// [`VkRayTracingShaderGroupTypeNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkRayTracingShaderGroupTypeNV.html)
+///
+#[doc(alias = "VkRayTracingShaderGroupTypeNV")]
 pub type RayTracingShaderGroupTypeNV = RayTracingShaderGroupTypeKHR;
 impl RayTracingShaderGroupTypeKHR {
     #[doc(alias = "VK_RAY_TRACING_SHADER_GROUP_TYPE_GENERAL_NV")]
@@ -11518,6 +11593,9 @@ pub enum GeometryTypeKHR {
     #[doc(alias = "VK_GEOMETRY_TYPE_MICROMAP_KHR")]
     GEOMETRY_TYPE_MICROMAP_KHR = 1000623000,
 }
+/// [`VkGeometryTypeNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkGeometryTypeNV.html)
+///
+#[doc(alias = "VkGeometryTypeNV")]
 pub type GeometryTypeNV = GeometryTypeKHR;
 impl GeometryTypeKHR {
     #[doc(alias = "VK_GEOMETRY_TYPE_TRIANGLES_NV")]
@@ -11543,6 +11621,9 @@ pub enum CopyAccelerationStructureModeKHR {
     #[doc(alias = "VK_COPY_ACCELERATION_STRUCTURE_MODE_DESERIALIZE_KHR")]
     COPY_ACCELERATION_STRUCTURE_MODE_DESERIALIZE_KHR = 3,
 }
+/// [`VkCopyAccelerationStructureModeNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCopyAccelerationStructureModeNV.html)
+///
+#[doc(alias = "VkCopyAccelerationStructureModeNV")]
 pub type CopyAccelerationStructureModeNV = CopyAccelerationStructureModeKHR;
 impl CopyAccelerationStructureModeKHR {
     #[doc(alias = "VK_COPY_ACCELERATION_STRUCTURE_MODE_CLONE_NV")]
@@ -12240,6 +12321,9 @@ pub enum RayTracingInvocationReorderModeEXT {
     #[doc(alias = "VK_RAY_TRACING_INVOCATION_REORDER_MODE_REORDER_EXT")]
     RAY_TRACING_INVOCATION_REORDER_MODE_REORDER_EXT = 1,
 }
+/// [`VkRayTracingInvocationReorderModeNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkRayTracingInvocationReorderModeNV.html)
+///
+#[doc(alias = "VkRayTracingInvocationReorderModeNV")]
 pub type RayTracingInvocationReorderModeNV = RayTracingInvocationReorderModeEXT;
 impl RayTracingInvocationReorderModeEXT {
     #[doc(alias = "VK_RAY_TRACING_INVOCATION_REORDER_MODE_NONE_NV")]

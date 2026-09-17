@@ -71,12 +71,18 @@ pub type PipelineViewportStateCreateFlags = u32;
 ///
 #[doc(alias = "VkCommandPoolTrimFlags")]
 pub type CommandPoolTrimFlags = u32;
+/// [`VkCommandPoolTrimFlagsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandPoolTrimFlagsKHR.html)
+///
+#[doc(alias = "VkCommandPoolTrimFlagsKHR")]
 pub type CommandPoolTrimFlagsKHR = CommandPoolTrimFlags;
 
 /// [`VkDescriptorUpdateTemplateCreateFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorUpdateTemplateCreateFlags.html)
 ///
 #[doc(alias = "VkDescriptorUpdateTemplateCreateFlags")]
 pub type DescriptorUpdateTemplateCreateFlags = u32;
+/// [`VkDescriptorUpdateTemplateCreateFlagsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorUpdateTemplateCreateFlagsKHR.html)
+///
+#[doc(alias = "VkDescriptorUpdateTemplateCreateFlagsKHR")]
 pub type DescriptorUpdateTemplateCreateFlagsKHR = DescriptorUpdateTemplateCreateFlags;
 
 /// [`VkDisplayModeCreateFlagsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplayModeCreateFlagsKHR.html)
