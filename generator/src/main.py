@@ -66,6 +66,7 @@ use crate::enums::*;
 
 HANDLES_MODULE_PREFIX: str = """
 use crate::internal::*;
+use crate::enums::*;
 """
 
 
@@ -171,15 +172,25 @@ class Context:
                 minimum_version = None
 
             # preprocess all extensions
+            # TODO: ordered set instead of list
             all_extensions: list[str] = []
             for ext_name in extensions:
-                all_extensions.append(ext_name)
+                if ext_name not in all_extensions:
+                    all_extensions.append(ext_name)
                 ext = self.vk.extensions[ext_name]
 
-                if ext.deprecatedBy is not None and ext.deprecatedBy != "":
+                if (
+                    ext.deprecatedBy is not None
+                    and ext.deprecatedBy != ""
+                    and ext.deprecatedBy not in all_extensions
+                ):
                     all_extensions.append(ext.deprecatedBy)
 
-                if ext.obsoletedBy is not None and ext.obsoletedBy != "":
+                if (
+                    ext.obsoletedBy is not None
+                    and ext.obsoletedBy != ""
+                    and ext.obsoletedBy not in all_extensions
+                ):
                     all_extensions.append(ext.obsoletedBy)
 
                 if ext.promotedTo is not None and ext.promotedTo != "":
@@ -192,7 +203,7 @@ class Context:
                             minimum_version = min(minimum_version, promoted_version)
                         else:
                             minimum_version = promoted_version
-                    else:
+                    elif ext.promotedTo not in all_extensions:
                         all_extensions.append(ext.promotedTo)
 
             # doc

@@ -341,7 +341,6 @@ bitflags::bitflags! {
         /// This requires _at least_ one of the following:
         /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
         /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
-        /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -390,7 +389,6 @@ bitflags::bitflags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Extension [`QCOM_FragmentDensityMapOffset`](Extensions::QCOM_FragmentDensityMapOffset)
-        /// - Extension [`EXT_FragmentDensityMapOffset`](Extensions::EXT_FragmentDensityMapOffset)
         /// - Extension [`EXT_FragmentDensityMapOffset`](Extensions::EXT_FragmentDensityMapOffset)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
@@ -824,7 +822,6 @@ bitflags::bitflags! {
         /// This requires _at least_ one of the following:
         /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
         /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
-        /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -833,7 +830,6 @@ bitflags::bitflags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-        /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
         /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
@@ -844,7 +840,6 @@ bitflags::bitflags! {
         /// This requires _at least_ one of the following:
         /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
         /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
-        /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -853,7 +848,6 @@ bitflags::bitflags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-        /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
         /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
@@ -864,7 +858,6 @@ bitflags::bitflags! {
         /// This requires _at least_ one of the following:
         /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
         /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
-        /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -873,7 +866,6 @@ bitflags::bitflags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-        /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
         /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
@@ -1050,7 +1042,6 @@ bitflags::bitflags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-        /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
         /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
@@ -1418,7 +1409,6 @@ bitflags::bitflags! {
         /// - Version 1.2 with appropriate features
         /// - Extension [`KHR_BufferDeviceAddress`](Extensions::KHR_BufferDeviceAddress)
         /// - Extension [`EXT_BufferDeviceAddress`](Extensions::EXT_BufferDeviceAddress)
-        /// - Extension [`KHR_BufferDeviceAddress`](Extensions::KHR_BufferDeviceAddress)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1484,7 +1474,6 @@ bitflags::bitflags! {
         /// - Version 1.2 with appropriate features
         /// - Extension [`KHR_BufferDeviceAddress`](Extensions::KHR_BufferDeviceAddress)
         /// - Extension [`EXT_BufferDeviceAddress`](Extensions::EXT_BufferDeviceAddress)
-        /// - Extension [`KHR_BufferDeviceAddress`](Extensions::KHR_BufferDeviceAddress)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1565,7 +1554,6 @@ bitflags::bitflags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-        /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
         /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
@@ -2299,7 +2287,6 @@ bitflags::bitflags! {
         /// This requires _at least_ one of the following:
         /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
         /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-        /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2496,7 +2483,6 @@ bitflags::bitflags! {
         /// This requires _at least_ one of the following:
         /// - Extension [`VALVE_MutableDescriptorType`](Extensions::VALVE_MutableDescriptorType)
         /// - Extension [`EXT_MutableDescriptorType`](Extensions::EXT_MutableDescriptorType)
-        /// - Extension [`EXT_MutableDescriptorType`](Extensions::EXT_MutableDescriptorType)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2586,7 +2572,6 @@ bitflags::bitflags! {
         /// This requires _at least_ one of the following:
         /// - Extension [`VALVE_MutableDescriptorType`](Extensions::VALVE_MutableDescriptorType)
         /// - Extension [`EXT_MutableDescriptorType`](Extensions::EXT_MutableDescriptorType)
-        /// - Extension [`EXT_MutableDescriptorType`](Extensions::EXT_MutableDescriptorType)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2665,7 +2650,6 @@ bitflags::bitflags! {
         /// This requires _at least_ one of the following:
         /// - Extension [`ARM_RasterizationOrderAttachmentAccess`](Extensions::ARM_RasterizationOrderAttachmentAccess)
         /// - Extension [`EXT_RasterizationOrderAttachmentAccess`](Extensions::EXT_RasterizationOrderAttachmentAccess)
-        /// - Extension [`EXT_RasterizationOrderAttachmentAccess`](Extensions::EXT_RasterizationOrderAttachmentAccess)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2694,7 +2678,6 @@ bitflags::bitflags! {
         /// This requires _at least_ one of the following:
         /// - Extension [`ARM_RasterizationOrderAttachmentAccess`](Extensions::ARM_RasterizationOrderAttachmentAccess)
         /// - Extension [`EXT_RasterizationOrderAttachmentAccess`](Extensions::EXT_RasterizationOrderAttachmentAccess)
-        /// - Extension [`EXT_RasterizationOrderAttachmentAccess`](Extensions::EXT_RasterizationOrderAttachmentAccess)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2703,7 +2686,6 @@ bitflags::bitflags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Extension [`ARM_RasterizationOrderAttachmentAccess`](Extensions::ARM_RasterizationOrderAttachmentAccess)
-        /// - Extension [`EXT_RasterizationOrderAttachmentAccess`](Extensions::EXT_RasterizationOrderAttachmentAccess)
         /// - Extension [`EXT_RasterizationOrderAttachmentAccess`](Extensions::EXT_RasterizationOrderAttachmentAccess)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
@@ -2843,7 +2825,6 @@ bitflags::bitflags! {
         /// This requires _at least_ one of the following:
         /// - Extension [`ARM_RasterizationOrderAttachmentAccess`](Extensions::ARM_RasterizationOrderAttachmentAccess)
         /// - Extension [`EXT_RasterizationOrderAttachmentAccess`](Extensions::EXT_RasterizationOrderAttachmentAccess)
-        /// - Extension [`EXT_RasterizationOrderAttachmentAccess`](Extensions::EXT_RasterizationOrderAttachmentAccess)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2853,7 +2834,6 @@ bitflags::bitflags! {
         /// This requires _at least_ one of the following:
         /// - Extension [`ARM_RasterizationOrderAttachmentAccess`](Extensions::ARM_RasterizationOrderAttachmentAccess)
         /// - Extension [`EXT_RasterizationOrderAttachmentAccess`](Extensions::EXT_RasterizationOrderAttachmentAccess)
-        /// - Extension [`EXT_RasterizationOrderAttachmentAccess`](Extensions::EXT_RasterizationOrderAttachmentAccess)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2862,7 +2842,6 @@ bitflags::bitflags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Extension [`ARM_RasterizationOrderAttachmentAccess`](Extensions::ARM_RasterizationOrderAttachmentAccess)
-        /// - Extension [`EXT_RasterizationOrderAttachmentAccess`](Extensions::EXT_RasterizationOrderAttachmentAccess)
         /// - Extension [`EXT_RasterizationOrderAttachmentAccess`](Extensions::EXT_RasterizationOrderAttachmentAccess)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
@@ -2881,7 +2860,6 @@ bitflags::bitflags! {
         /// This requires _at least_ one of the following:
         /// - Extension [`QCOM_RenderPassShaderResolve`](Extensions::QCOM_RenderPassShaderResolve)
         /// - Extension [`EXT_CustomResolve`](Extensions::EXT_CustomResolve)
-        /// - Extension [`EXT_CustomResolve`](Extensions::EXT_CustomResolve)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2890,7 +2868,6 @@ bitflags::bitflags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Extension [`QCOM_RenderPassShaderResolve`](Extensions::QCOM_RenderPassShaderResolve)
-        /// - Extension [`EXT_CustomResolve`](Extensions::EXT_CustomResolve)
         /// - Extension [`EXT_CustomResolve`](Extensions::EXT_CustomResolve)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
@@ -2993,7 +2970,6 @@ bitflags::bitflags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Extension [`NV_ShaderSubgroupPartitioned`](Extensions::NV_ShaderSubgroupPartitioned)
-        /// - Extension [`EXT_ShaderSubgroupPartitioned`](Extensions::EXT_ShaderSubgroupPartitioned)
         /// - Extension [`EXT_ShaderSubgroupPartitioned`](Extensions::EXT_ShaderSubgroupPartitioned)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
@@ -6972,7 +6948,6 @@ bitflags::bitflags! {
         /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
         /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
         /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-        /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7260,7 +7235,6 @@ bitflags::bitflags! {
         /// This requires _at least_ one of the following:
         /// - Extension [`KHR_SwapchainMaintenance1`](Extensions::KHR_SwapchainMaintenance1)
         /// - Extension [`EXT_SwapchainMaintenance1`](Extensions::EXT_SwapchainMaintenance1)
-        /// - Extension [`KHR_SwapchainMaintenance1`](Extensions::KHR_SwapchainMaintenance1)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9179,7 +9153,6 @@ bitflags::bitflags! {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_SurfaceMaintenance1`](Extensions::KHR_SurfaceMaintenance1)
     /// - Extension [`EXT_SurfaceMaintenance1`](Extensions::EXT_SurfaceMaintenance1)
-    /// - Extension [`KHR_SurfaceMaintenance1`](Extensions::KHR_SurfaceMaintenance1)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -9239,7 +9212,6 @@ bitflags::bitflags! {
     /// This requires _at least_ one of the following:
     /// - Extension [`KHR_SurfaceMaintenance1`](Extensions::KHR_SurfaceMaintenance1)
     /// - Extension [`EXT_SurfaceMaintenance1`](Extensions::EXT_SurfaceMaintenance1)
-    /// - Extension [`KHR_SurfaceMaintenance1`](Extensions::KHR_SurfaceMaintenance1)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -10805,7 +10777,6 @@ bitflags::bitflags! {
         /// This requires _at least_ one of the following:
         /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
         /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-        /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10815,7 +10786,6 @@ bitflags::bitflags! {
         /// This requires _at least_ one of the following:
         /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
         /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-        /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10977,7 +10947,6 @@ bitflags::bitflags! {
         /// This requires _at least_ one of the following:
         /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
         /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-        /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10987,7 +10956,6 @@ bitflags::bitflags! {
         /// This requires _at least_ one of the following:
         /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
         /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-        /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12060,7 +12028,6 @@ bitflags::bitflags! {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Extension [`NV_MemoryDecompression`](Extensions::NV_MemoryDecompression)
-    /// - Extension [`EXT_MemoryDecompression`](Extensions::EXT_MemoryDecompression)
     /// - Extension [`EXT_MemoryDecompression`](Extensions::EXT_MemoryDecompression)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
