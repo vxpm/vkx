@@ -1,5 +1,6 @@
 //! Manually implemented items.
 
+use std::sync::Arc;
 use std::sync::OnceLock;
 
 use libloading::Library;
@@ -73,7 +74,7 @@ pub type DeviceSize = u64;
 pub type SampleMask = u32;
 
 #[derive(Debug)]
-pub(crate) struct LoadedCommands<const N: usize>(Box<[vkVoidFunction; N]>);
+pub(crate) struct LoadedCommands<const N: usize>(Arc<[vkVoidFunction; N]>);
 
 impl<const N: usize> LoadedCommands<N> {
     pub fn get(&self, index: usize) -> Option<vkVoidFunction> {
@@ -123,22 +124,22 @@ pub unsafe fn setup() -> Result<(), SetupError> {
     Ok(())
 }
 
-pub struct Instance {
-    handle: crate::InstanceHandle,
-}
-
-pub struct PhysicalDevice {
-    handle: crate::PhysicalDeviceHandle,
-}
-
-pub struct Device {
-    handle: crate::DeviceHandle,
-}
-
-pub struct Queue {
-    handle: crate::QueueHandle,
-}
-
-pub struct CommandBuffer {
-    handle: crate::CommandBufferHandle,
-}
+// pub struct Instance {
+//     handle: crate::InstanceHandle,
+// }
+//
+// pub struct PhysicalDevice {
+//     handle: crate::PhysicalDeviceHandle,
+// }
+//
+// pub struct Device {
+//     handle: crate::DeviceHandle,
+// }
+//
+// pub struct Queue {
+//     handle: crate::QueueHandle,
+// }
+//
+// pub struct CommandBuffer {
+//     handle: crate::CommandBufferHandle,
+// }

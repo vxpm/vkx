@@ -8,7 +8,7 @@ import textcase
 from vulkan_object import get_vulkan_object
 from vulkan_object import vulkan_object as vkobj
 
-from .rust_types import RustPointer, RustType
+from .rust_types import RustPointer, RustType, CTypeParser
 
 MODULE_PREFIX: str = """ // WARNING: AUTO GENERATED MODULE
 #![allow(nonstandard_style)]
@@ -240,11 +240,15 @@ class Context:
     root: Path
     vk: vkobj.VulkanObject = get_vulkan_object(video=True)
     reg: Registry = Registry()
+    ty_parser: CTypeParser = CTypeParser()
+    dispatchable_handles: set[str]
     global_commands: list[str]
     instance_commands: list[str]
 
     def __init__(self, root: Path):
+        self.ty_parser.add_mapping("VkResult", "ResultCode")
         self.root = root
+        self.dispatchable_handles = set()
         self.global_commands = []
         self.instance_commands = []
 
@@ -291,7 +295,7 @@ class Context:
             if field_name == "p_next":
                 has_p_next = True
 
-            type = RustType.parse(member.fullType)
+            type = self.ty_parser.parse(member.fullType)
             for size in member.fixedSizeArray:
                 type = type.array(size)
 
@@ -413,8 +417,6 @@ class Context:
         out = CodeWriter()
 
         type_name = x.name.removeprefix("Vk")
-        if x.dispatchable:
-            type_name = f"{type_name}Handle"
 
         vulkan_doc_header(out, x.name)
         out.writeln("/// # Handle type")
@@ -427,17 +429,36 @@ class Context:
         out.writeln("#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]")
         out.writeln("#[repr(transparent)]")
 
+        raw_handle_type_name = type_name
         if x.dispatchable:
-            out.writeln(f"pub struct {type_name}(usize);")
+            raw_handle_type_name = f"{type_name}Handle"
+            self.dispatchable_handles.add(type_name)
+            self.ty_parser.add_mapping(x.name, raw_handle_type_name)
+
+            out.writeln(f"pub struct {raw_handle_type_name}(usize);")
+
+            # handle with commands
+            out.writeln(
+                f"/// A wrapper around [`{raw_handle_type_name}`] with a dispatch table."
+            )
+            out.writeln("#[derive(Debug, Clone, PartialEq, Eq)]")
+            out.writeln(f"pub struct {type_name} {{")
+            out.indent()
+            out.writeln(f"pub(crate) handle: {type_name}Handle,")
+            out.writeln(
+                "pub(crate) commands: LoadedCommands<{ InstanceCommands::VARIANTS.len() }>,"
+            )
+            out.deindent()
+            out.writeln("}")
         else:
-            out.writeln(f"pub struct {type_name}(u64);")
+            out.writeln(f"pub struct {raw_handle_type_name}(u64);")
 
         # aliases
         for alias in x.aliases:
             alias = alias.removeprefix("Vk")
-            out.writeln(f"pub type {alias} = {type_name};")
+            out.writeln(f"pub type {alias} = {raw_handle_type_name};")
 
-        return Generated(type_name, out.content, x)
+        return Generated(raw_handle_type_name, out.content, x)
 
     def generate_enum(self, x: vkobj.Enum) -> Generated[vkobj.Enum]:
         out = CodeWriter()
@@ -585,14 +606,14 @@ class Context:
         vulkan_doc_header(out, x.name)
         out.writeln(f'#[doc(alias = "{x.name}")]')
 
-        params: list[str] = []
+        params: list[RustType] = []
         for param in x.params:
-            params.append(str(RustType.parse(param.fullType)))
+            params.append(self.ty_parser.parse(param.fullType))
 
         return_ty = (
-            "" if x.returnType == "void" else f"-> {RustType.parse(x.returnType)}"
+            "" if x.returnType == "void" else f"-> {self.ty_parser.parse(x.returnType)}"
         )
-        signature = f'unsafe extern "C" fn({", ".join(params)}) {return_ty}'
+        signature = f'unsafe extern "C" fn({", ".join(map(str, params))}) {return_ty}'
         out.writeln(f"pub type {type_name} = {signature};")
 
         return Generated(type_name, out.content, x)
@@ -601,7 +622,7 @@ class Context:
         out = CodeWriter()
 
         const_name = x.name
-        const_ty = RustType.parse(x.type)
+        const_ty = self.ty_parser.parse(x.type)
         const_value = x.value
 
         vulkan_doc_header(out, x.name)
@@ -613,7 +634,7 @@ class Context:
         out = CodeWriter()
 
         const_name = x.name.removeprefix("VK_").removeprefix("STD_VIDEO_")
-        const_ty = RustType.parse(x.type)
+        const_ty = self.ty_parser.parse(x.type)
 
         vulkan_doc_header(out, x.name)
         out.writeln(f'#[doc(alias = "{x.name}")]')
@@ -628,16 +649,7 @@ class Context:
         method_name = textcase.snake(fn_alias_name)
 
         handle = None
-        dispatchable_handles = {
-            "Instance",
-            "PhysicalDevice",
-            "Device",
-            "Queue",
-            "CommandBuffer",
-        }
-
-        params: list[str] = []
-        params_ty: list[str] = []
+        params: list[tuple[str, RustType]] = []
         for param in x.params:
             name = command_param_name(param.name)
 
@@ -645,7 +657,7 @@ class Context:
                 # it's actually a pointer. amazing
                 is_const = param.fullType.startswith("const ")
                 ty = param.fullType.removeprefix("const ")
-                ty = RustType.parse(ty)
+                ty = self.ty_parser.parse(ty)
 
                 for size in param.fixedSizeArray:
                     ty = ty.array(size)
@@ -653,23 +665,22 @@ class Context:
                 # make it a pointer
                 ty = RustPointer(is_const, ty)
             else:
-                ty = RustType.parse(param.fullType)
+                ty = self.ty_parser.parse(param.fullType)
 
-            if handle is None and str(ty) in dispatchable_handles:
+            if handle is None and str(ty) in self.dispatchable_handles:
                 handle = ty
                 continue
 
-            params.append(f"{name}: {ty}")
-            params_ty.append(str(ty))
+            params.append((name, ty))
 
         return_ty = (
-            "" if x.returnType == "void" else f"-> {RustType.parse(x.returnType)}"
+            "" if x.returnType == "void" else f"-> {self.ty_parser.parse(x.returnType)}"
         )
 
         if handle is not None:
             self.instance_commands.append(x.name)
             out.writeln(
-                f'pub(crate) type FUN_{fn_alias_name} = unsafe extern "C" fn({handle}Handle, {", ".join(params_ty)}) {return_ty};'
+                f'pub(crate) type FUN_{fn_alias_name} = unsafe extern "C" fn({handle}Handle, {", ".join(str(x[0]) for x in params)}) {return_ty};'
             )
 
             if str(handle) != "Device":
@@ -679,9 +690,7 @@ class Context:
                 if method_name == old_method_name:
                     method_name = method_name.replace(f"_{handle_snake}", "", count=1)
 
-            signature = (
-                f"pub unsafe fn {method_name}(self, {', '.join(params)}) {return_ty}"
-            )
+            signature = f"pub unsafe fn {method_name}(self, {', '.join(f'{x[0]}: {x[1]}' for x in params)}) {return_ty}"
 
             out.writeln(f"impl {handle} {{")
             out.indent()
@@ -702,10 +711,10 @@ class Context:
         else:
             self.global_commands.append(x.name)
             out.writeln(
-                f'pub(crate) type FUN_{fn_alias_name} = unsafe extern "C" fn({", ".join(params_ty)}) {return_ty};'
+                f'pub(crate) type FUN_{fn_alias_name} = unsafe extern "C" fn({", ".join(str(x[1]) for x in params)}) {return_ty};'
             )
 
-            signature = f"pub unsafe fn {method_name}({', '.join(params)}) {return_ty}"
+            signature = f"pub unsafe fn {method_name}({', '.join(f'{x[0]}: {x[1]}' for x in params)}) {return_ty}"
 
             vulkan_doc_header(out, x.name)
             command_doc_header(out, x)
@@ -825,6 +834,11 @@ class Context:
     def fill_registry(self):
         assert self.vk.videoStd is not None
 
+        # handles
+        for handle in self.vk.handles.values():
+            handle = self.generate_handle(handle)
+            self.reg.handles.append(handle)
+
         # structs
         for struct in self.vk.structs.values():
             struct = self.generate_struct(struct)
@@ -833,11 +847,6 @@ class Context:
         for struct in self.vk.videoStd.structs.values():
             struct = self.generate_struct(struct)
             self.reg.structs.append(struct)
-
-        # handles
-        for handle in self.vk.handles.values():
-            handle = self.generate_handle(handle)
-            self.reg.handles.append(handle)
 
         # enums
         for enum in self.vk.enums.values():
@@ -941,8 +950,8 @@ class Context:
         instance_commands_enum = self.generate_commands_enum(
             "InstanceCommands", self.instance_commands
         )
-        internal = "\n".join(
-            [extensions_enum, global_commands_enum, instance_commands_enum]
+        internal = (
+            f"{extensions_enum}\n{global_commands_enum}\n{instance_commands_enum}"
         )
         self.write_module("internal.rs", internal)
 

@@ -1,32 +1,15 @@
 from __future__ import annotations
+
 from dataclasses import dataclass
 from typing import override
 
 
-# A rust type.
-class RustType:
-    @staticmethod
-    def parse(type: str) -> RustType:
-        if type.endswith(" const *"):
-            type = type.removesuffix(" const *")
-            return RustPointer(True, RustType.parse(type))
+# Parses C type declarations to their Rust equivalent
+class CTypeParser:
+    mappings: dict[str, str]
 
-        if type.endswith(" const*"):
-            type = type.removesuffix(" const*")
-            return RustPointer(True, RustType.parse(type))
-
-        if type.endswith("*"):
-            type = type.removesuffix("*")
-            const = False
-
-            if type.startswith("const "):
-                type = type.removeprefix("const ")
-                const = True
-
-            return RustPointer(const, RustType.parse(type))
-
-        # a raw name - map it
-        mapping = {
+    def __init__(self):
+        self.mappings = {
             # primitives
             "uint8_t": "u8",
             "uint16_t": "u16",
@@ -42,20 +25,43 @@ class RustType:
             "float": "f32",
             "double": "f64",
             "char": "c_char",
-            # special
             "void": "c_void",
-            "VkResult": "ResultCode",
-            "VkInstance": "InstanceHandle",
-            "VkPhysicalDevice": "PhysicalDeviceHandle",
-            "VkDevice": "DeviceHandle",
-            "VkQueue": "QueueHandle",
-            "VkCommandBuffer": "CommandBufferHandle",
-            "VkExternalComputeQueueNV": "ExternalComputeQueueNVHandle",
+            # special
+            # "VkResult": "ResultCode",
+            # "VkInstance": "InstanceHandle",
+            # "VkPhysicalDevice": "PhysicalDeviceHandle",
+            # "VkDevice": "DeviceHandle",
+            # "VkQueue": "QueueHandle",
+            # "VkCommandBuffer": "CommandBufferHandle",
+            # "VkExternalComputeQueueNV": "ExternalComputeQueueNVHandle",
         }
 
-        rust = mapping.get(type)
-        if rust is None:
-            rust = (
+    def add_mapping(self, key: str, value: str):
+        self.mappings[key] = value
+
+    def parse(self, type: str) -> RustType:
+        if type.endswith(" const *"):
+            type = type.removesuffix(" const *")
+            return RustPointer(True, self.parse(type))
+
+        if type.endswith(" const*"):
+            type = type.removesuffix(" const*")
+            return RustPointer(True, self.parse(type))
+
+        if type.endswith("*"):
+            type = type.removesuffix("*")
+            const = False
+
+            if type.startswith("const "):
+                type = type.removeprefix("const ")
+                const = True
+
+            return RustPointer(const, self.parse(type))
+
+        # atom - map it
+        atom = self.mappings.get(type)
+        if atom is None:
+            atom = (
                 type.removeprefix("struct ")
                 .removeprefix("Vk")
                 .removeprefix("StdVideo")
@@ -63,15 +69,18 @@ class RustType:
                 .replace("FlagBits", "Flags")
             )
 
-        return RustBasic(rust)
+        return RustAtom(atom)
 
+
+# A rust type.
+class RustType:
     def array(self, size: str) -> RustArray:
         return RustArray(self, size)
 
 
 # A rust type that cannot be broken down further.
 @dataclass
-class RustBasic(RustType):
+class RustAtom(RustType):
     value: str
 
     @override
