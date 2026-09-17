@@ -2154,8 +2154,8 @@ impl CommandBuffer {
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
-    /// - [`VIDEO_ENCODEKHR`](QueueFlags::VIDEO_ENCODEKHR)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
     ///
     #[doc(alias = "vkCmdPipelineBarrier")]
     #[inline(always)]
@@ -2214,8 +2214,8 @@ impl CommandBuffer {
     /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
-    /// - [`VIDEO_ENCODEKHR`](QueueFlags::VIDEO_ENCODEKHR)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
     ///
     #[doc(alias = "vkCmdBeginQuery")]
     #[inline(always)]
@@ -2247,8 +2247,8 @@ impl CommandBuffer {
     /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
-    /// - [`VIDEO_ENCODEKHR`](QueueFlags::VIDEO_ENCODEKHR)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
     ///
     #[doc(alias = "vkCmdEndQuery")]
     #[inline(always)]
@@ -2275,9 +2275,9 @@ impl CommandBuffer {
     /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
-    /// - [`VIDEO_ENCODEKHR`](QueueFlags::VIDEO_ENCODEKHR)
-    /// - [`OPTICAL_FLOWNV`](QueueFlags::OPTICAL_FLOWNV)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
+    /// - [`OPTICAL_FLOW_NV`](QueueFlags::OPTICAL_FLOW_NV)
     ///
     #[doc(alias = "vkCmdResetQueryPool")]
     #[inline(always)]
@@ -2314,9 +2314,9 @@ impl CommandBuffer {
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
-    /// - [`VIDEO_ENCODEKHR`](QueueFlags::VIDEO_ENCODEKHR)
-    /// - [`OPTICAL_FLOWNV`](QueueFlags::OPTICAL_FLOWNV)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
+    /// - [`OPTICAL_FLOW_NV`](QueueFlags::OPTICAL_FLOW_NV)
     ///
     #[doc(alias = "vkCmdWriteTimestamp")]
     #[inline(always)]
@@ -3321,7 +3321,7 @@ impl CommandBuffer {
     /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`DATA_GRAPHARM`](QueueFlags::DATA_GRAPHARM)
+    /// - [`DATA_GRAPH_ARM`](QueueFlags::DATA_GRAPH_ARM)
     ///
     #[doc(alias = "vkCmdBindPipeline")]
     #[inline(always)]
@@ -3367,7 +3367,7 @@ impl CommandBuffer {
     /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`DATA_GRAPHARM`](QueueFlags::DATA_GRAPHARM)
+    /// - [`DATA_GRAPH_ARM`](QueueFlags::DATA_GRAPH_ARM)
     ///
     #[doc(alias = "vkCmdBindDescriptorSets")]
     #[inline(always)]
@@ -3517,8 +3517,8 @@ impl CommandBuffer {
     /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
-    /// - [`VIDEO_ENCODEKHR`](QueueFlags::VIDEO_ENCODEKHR)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
     ///
     #[doc(alias = "vkCmdSetEvent")]
     #[inline(always)]
@@ -3548,8 +3548,8 @@ impl CommandBuffer {
     /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
-    /// - [`VIDEO_ENCODEKHR`](QueueFlags::VIDEO_ENCODEKHR)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
     ///
     #[doc(alias = "vkCmdResetEvent")]
     #[inline(always)]
@@ -3594,8 +3594,8 @@ impl CommandBuffer {
     /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
-    /// - [`VIDEO_ENCODEKHR`](QueueFlags::VIDEO_ENCODEKHR)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
     ///
     #[doc(alias = "vkCmdWaitEvents")]
     #[inline(always)]
@@ -6431,8 +6431,8 @@ impl CommandBuffer {
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
-    /// - [`VIDEO_ENCODEKHR`](QueueFlags::VIDEO_ENCODEKHR)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
     ///
     #[doc(alias = "vkCmdPipelineBarrier2")]
     #[inline(always)]
@@ -6473,8 +6473,8 @@ impl CommandBuffer {
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
-    /// - [`VIDEO_ENCODEKHR`](QueueFlags::VIDEO_ENCODEKHR)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
     ///
     #[doc(alias = "vkCmdWriteTimestamp2")]
     #[inline(always)]
@@ -6814,8 +6814,8 @@ impl CommandBuffer {
     /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
-    /// - [`VIDEO_ENCODEKHR`](QueueFlags::VIDEO_ENCODEKHR)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
     ///
     #[doc(alias = "vkCmdSetEvent2")]
     #[inline(always)]
@@ -6851,8 +6851,8 @@ impl CommandBuffer {
     /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
-    /// - [`VIDEO_ENCODEKHR`](QueueFlags::VIDEO_ENCODEKHR)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
     ///
     #[doc(alias = "vkCmdResetEvent2")]
     #[inline(always)]
@@ -6885,8 +6885,8 @@ impl CommandBuffer {
     /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
-    /// - [`VIDEO_ENCODEKHR`](QueueFlags::VIDEO_ENCODEKHR)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
     ///
     #[doc(alias = "vkCmdWaitEvents2")]
     #[inline(always)]
@@ -10133,8 +10133,8 @@ impl CommandBuffer {
     /// - Primary
     ///
     /// # Allowed queues
-    /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
-    /// - [`VIDEO_ENCODEKHR`](QueueFlags::VIDEO_ENCODEKHR)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
     ///
     #[doc(alias = "vkCmdBeginVideoCodingKHR")]
     #[inline(always)]
@@ -10169,8 +10169,8 @@ impl CommandBuffer {
     /// - Primary
     ///
     /// # Allowed queues
-    /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
-    /// - [`VIDEO_ENCODEKHR`](QueueFlags::VIDEO_ENCODEKHR)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
     ///
     #[doc(alias = "vkCmdEndVideoCodingKHR")]
     #[inline(always)]
@@ -10204,8 +10204,8 @@ impl CommandBuffer {
     /// - Primary
     ///
     /// # Allowed queues
-    /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
-    /// - [`VIDEO_ENCODEKHR`](QueueFlags::VIDEO_ENCODEKHR)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
     ///
     #[doc(alias = "vkCmdControlVideoCodingKHR")]
     #[inline(always)]
@@ -10242,7 +10242,7 @@ impl CommandBuffer {
     /// - Primary
     ///
     /// # Allowed queues
-    /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
     ///
     #[doc(alias = "vkCmdDecodeVideoKHR")]
     #[inline(always)]
@@ -13589,7 +13589,7 @@ impl CommandBuffer {
     /// - Primary
     ///
     /// # Allowed queues
-    /// - [`VIDEO_ENCODEKHR`](QueueFlags::VIDEO_ENCODEKHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
     ///
     #[doc(alias = "vkCmdEncodeVideoKHR")]
     #[inline(always)]
@@ -13626,8 +13626,8 @@ impl CommandBuffer {
     /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
-    /// - [`VIDEO_ENCODEKHR`](QueueFlags::VIDEO_ENCODEKHR)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
     ///
     #[doc(alias = "vkCmdSetEvent2KHR")]
     #[inline(always)]
@@ -13667,8 +13667,8 @@ impl CommandBuffer {
     /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
-    /// - [`VIDEO_ENCODEKHR`](QueueFlags::VIDEO_ENCODEKHR)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
     ///
     #[doc(alias = "vkCmdResetEvent2KHR")]
     #[inline(always)]
@@ -13705,8 +13705,8 @@ impl CommandBuffer {
     /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
-    /// - [`VIDEO_ENCODEKHR`](QueueFlags::VIDEO_ENCODEKHR)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
     ///
     #[doc(alias = "vkCmdWaitEvents2KHR")]
     #[inline(always)]
@@ -13749,8 +13749,8 @@ impl CommandBuffer {
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
-    /// - [`VIDEO_ENCODEKHR`](QueueFlags::VIDEO_ENCODEKHR)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
     ///
     #[doc(alias = "vkCmdPipelineBarrier2KHR")]
     #[inline(always)]
@@ -13791,8 +13791,8 @@ impl CommandBuffer {
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
-    /// - [`VIDEO_ENCODEKHR`](QueueFlags::VIDEO_ENCODEKHR)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
     ///
     #[doc(alias = "vkCmdWriteTimestamp2KHR")]
     #[inline(always)]
@@ -15966,7 +15966,7 @@ impl CommandBuffer {
     /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`DATA_GRAPHARM`](QueueFlags::DATA_GRAPHARM)
+    /// - [`DATA_GRAPH_ARM`](QueueFlags::DATA_GRAPH_ARM)
     ///
     #[doc(alias = "vkCmdSetDescriptorBufferOffsets2EXT")]
     #[inline(always)]
@@ -16456,9 +16456,9 @@ impl CommandBuffer {
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
-    /// - [`VIDEO_ENCODEKHR`](QueueFlags::VIDEO_ENCODEKHR)
-    /// - [`OPTICAL_FLOWNV`](QueueFlags::OPTICAL_FLOWNV)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
+    /// - [`OPTICAL_FLOW_NV`](QueueFlags::OPTICAL_FLOW_NV)
     ///
     #[doc(alias = "vkCmdDebugMarkerBeginEXT")]
     #[inline(always)]
@@ -16495,9 +16495,9 @@ impl CommandBuffer {
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
-    /// - [`VIDEO_ENCODEKHR`](QueueFlags::VIDEO_ENCODEKHR)
-    /// - [`OPTICAL_FLOWNV`](QueueFlags::OPTICAL_FLOWNV)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
+    /// - [`OPTICAL_FLOW_NV`](QueueFlags::OPTICAL_FLOW_NV)
     ///
     #[doc(alias = "vkCmdDebugMarkerEndEXT")]
     #[inline(always)]
@@ -16535,9 +16535,9 @@ impl CommandBuffer {
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
-    /// - [`VIDEO_ENCODEKHR`](QueueFlags::VIDEO_ENCODEKHR)
-    /// - [`OPTICAL_FLOWNV`](QueueFlags::OPTICAL_FLOWNV)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
+    /// - [`OPTICAL_FLOW_NV`](QueueFlags::OPTICAL_FLOW_NV)
     ///
     #[doc(alias = "vkCmdDebugMarkerInsertEXT")]
     #[inline(always)]
@@ -16747,8 +16747,8 @@ impl CommandBuffer {
     /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
-    /// - [`VIDEO_ENCODEKHR`](QueueFlags::VIDEO_ENCODEKHR)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
     ///
     #[doc(alias = "vkCmdBeginQueryIndexedEXT")]
     #[inline(always)]
@@ -16792,8 +16792,8 @@ impl CommandBuffer {
     /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
-    /// - [`VIDEO_ENCODEKHR`](QueueFlags::VIDEO_ENCODEKHR)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
     ///
     #[doc(alias = "vkCmdEndQueryIndexedEXT")]
     #[inline(always)]
@@ -18503,9 +18503,9 @@ impl CommandBuffer {
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
-    /// - [`VIDEO_ENCODEKHR`](QueueFlags::VIDEO_ENCODEKHR)
-    /// - [`OPTICAL_FLOWNV`](QueueFlags::OPTICAL_FLOWNV)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
+    /// - [`OPTICAL_FLOW_NV`](QueueFlags::OPTICAL_FLOW_NV)
     ///
     #[doc(alias = "vkCmdBeginDebugUtilsLabelEXT")]
     #[inline(always)]
@@ -18543,9 +18543,9 @@ impl CommandBuffer {
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
-    /// - [`VIDEO_ENCODEKHR`](QueueFlags::VIDEO_ENCODEKHR)
-    /// - [`OPTICAL_FLOWNV`](QueueFlags::OPTICAL_FLOWNV)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
+    /// - [`OPTICAL_FLOW_NV`](QueueFlags::OPTICAL_FLOW_NV)
     ///
     #[doc(alias = "vkCmdEndDebugUtilsLabelEXT")]
     #[inline(always)]
@@ -18583,9 +18583,9 @@ impl CommandBuffer {
     /// - [`TRANSFER`](QueueFlags::TRANSFER)
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODEKHR`](QueueFlags::VIDEO_DECODEKHR)
-    /// - [`VIDEO_ENCODEKHR`](QueueFlags::VIDEO_ENCODEKHR)
-    /// - [`OPTICAL_FLOWNV`](QueueFlags::OPTICAL_FLOWNV)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
+    /// - [`OPTICAL_FLOW_NV`](QueueFlags::OPTICAL_FLOW_NV)
     ///
     #[doc(alias = "vkCmdInsertDebugUtilsLabelEXT")]
     #[inline(always)]
@@ -24684,7 +24684,7 @@ impl CommandBuffer {
     /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`DATA_GRAPHARM`](QueueFlags::DATA_GRAPHARM)
+    /// - [`DATA_GRAPH_ARM`](QueueFlags::DATA_GRAPH_ARM)
     ///
     #[doc(alias = "vkCmdBindDescriptorBuffersEXT")]
     #[inline(always)]
@@ -24733,7 +24733,7 @@ impl CommandBuffer {
     /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`DATA_GRAPHARM`](QueueFlags::DATA_GRAPHARM)
+    /// - [`DATA_GRAPH_ARM`](QueueFlags::DATA_GRAPH_ARM)
     ///
     #[doc(alias = "vkCmdSetDescriptorBufferOffsetsEXT")]
     #[inline(always)]
@@ -29428,7 +29428,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`OPTICAL_FLOWNV`](QueueFlags::OPTICAL_FLOWNV)
+    /// - [`OPTICAL_FLOW_NV`](QueueFlags::OPTICAL_FLOW_NV)
     ///
     #[doc(alias = "vkCmdOpticalFlowExecuteNV")]
     #[inline(always)]
@@ -30356,7 +30356,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`DATA_GRAPHARM`](QueueFlags::DATA_GRAPHARM)
+    /// - [`DATA_GRAPH_ARM`](QueueFlags::DATA_GRAPH_ARM)
     ///
     #[doc(alias = "vkCmdDispatchDataGraphARM")]
     #[inline(always)]
@@ -31887,7 +31887,7 @@ impl CommandBuffer {
     /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`DATA_GRAPHARM`](QueueFlags::DATA_GRAPHARM)
+    /// - [`DATA_GRAPH_ARM`](QueueFlags::DATA_GRAPH_ARM)
     ///
     #[doc(alias = "vkCmdBeginShaderInstrumentationARM")]
     #[inline(always)]
@@ -31928,7 +31928,7 @@ impl CommandBuffer {
     /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
     /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`DATA_GRAPHARM`](QueueFlags::DATA_GRAPHARM)
+    /// - [`DATA_GRAPH_ARM`](QueueFlags::DATA_GRAPH_ARM)
     ///
     #[doc(alias = "vkCmdEndShaderInstrumentationARM")]
     #[inline(always)]

@@ -8,6 +8,7 @@ import textcase
 from vulkan_object import get_vulkan_object
 from vulkan_object import vulkan_object as vkobj
 
+import names
 from rust_types import CTypeParser, RustPointer, RustType
 
 MODULE_PREFIX: str = """ // WARNING: AUTO GENERATED MODULE
@@ -53,6 +54,10 @@ use crate::flags::*;
 use crate::fn_ptrs::*;
 use crate::handles::*;
 use crate::structs::*;
+"""
+
+BITMASKS_MODULE_PREFIX: str = """
+use crate::enums::*;
 """
 
 FLAGS_MODULE_PREFIX: str = """
@@ -113,29 +118,6 @@ class Registry:
     commands: list[Generated[vkobj.Command]] = field(default_factory=list)
 
 
-def struct_name(name: str) -> str:
-    return name.removeprefix("Vk").removeprefix("StdVideo")
-
-
-def bitmask_flag_name(name: str, parent: str) -> str:
-    name = name.removeprefix("VK_").removeprefix(f"{parent}_")
-    if name[0].isdigit():
-        name = f"_{name}"
-
-    if name.endswith("_BIT"):
-        name = name.removesuffix("_BIT")
-    else:
-        name = name.replace("_BIT_", "")
-
-    return name
-
-
-def extension_name(name: str) -> str:
-    name = name.removeprefix("VK_")
-    tag, name = name.split("_", maxsplit=1)
-    return f"{tag}_{textcase.pascal(name)}"
-
-
 def version_number(ver: str) -> str:
     return ver.removeprefix("VK_VERSION_").replace("_", ".")
 
@@ -160,7 +142,7 @@ def requirements_doc_header(
             out.writeln(f"/// - Version {version_num} with appropriate features")
 
         for ext in extensions:
-            ext_name = extension_name(ext)
+            ext_name = names.extension(ext)
             out.writeln(f"/// - Extension [`{ext_name}`](Extensions::{ext_name})")
 
         out.writeln("///")
@@ -170,121 +152,110 @@ def requirements_doc_header(
         out.writeln("///")
 
 
-def struct_field_name(name: str) -> str:
-    name = textcase.snake(name)
-    if name == "type":
-        name = "type_"
-
-    return name
-
-
-def command_param_name(name: str) -> str:
-    name = textcase.snake(name).removeprefix("pp_").removeprefix("p_")
-    if name == "type":
-        name = "type_"
-
-    return name
-
-
-def command_doc_header(out: CodeWriter, command: vkobj.Command):
-    optional_params = [param for param in command.params if param.optional]
-
-    if len(optional_params) > 0:
-        out.writeln("/// # Optional parameters")
-        for param in optional_params:
-            name = command_param_name(param.name)
-            out.writeln(f"/// - {name}")
-        out.writeln("///")
-
-    if len(command.tasks) > 0:
-        out.writeln("/// # Performed tasks")
-        for task in command.tasks:
-            out.writeln(f"/// - `{task}`")
-
-        out.writeln("///")
-
-    if command.primary or command.secondary:
-        out.writeln("/// # Allowed command buffers")
-
-        if command.primary:
-            out.writeln("/// - Primary")
-
-        if command.secondary:
-            out.writeln("/// - Secondary")
-
-        out.writeln("///")
-
-    if len(command.queues) > 0:
-        out.writeln("/// # Allowed queues")
-        for queue in command.queues:
-            queue = bitmask_flag_name(queue, "QUEUE")
-            out.writeln(f"/// - [`{queue}`](QueueFlags::{queue})")
-
-        out.writeln("///")
-
-    if len(command.successCodes) > 0 or len(command.errorCodes) > 0:
-        assert len(command.successCodes) > 0
-        assert len(command.errorCodes) > 0
-        out.writeln("/// # Result codes")
-
-        out.writeln("/// ## Success")
-        for success in command.successCodes:
-            success = success.removeprefix("VK_")
-            out.writeln(f"/// - [`{success}`](ResultCode::{success})")
-
-        out.writeln("/// ## Error")
-        for error in command.errorCodes:
-            if error.startswith("VK_ERROR_"):
-                error = error.removeprefix("VK_ERROR_")
-                variant = f"ERROR_{error}"
-            else:
-                error = error.removeprefix("VK_")
-                variant = error
-
-            out.writeln(f"/// - [`{error}`](ResultCode::{variant})")
-
-
 class Context:
     root: Path
     vk: vkobj.VulkanObject = get_vulkan_object(video=True)
     reg: Registry = Registry()
     ty_parser: CTypeParser = CTypeParser()
-    dispatchable_handles: dict[str, str] = {}
+    dispatchable_handles: dict[str, str]
     global_commands: list[str]
     instance_commands: list[str]
 
     def __init__(self, root: Path):
         self.ty_parser.add_mapping("VkResult", "ResultCode")
         self.root = root
+        self.dispatchable_handles = {}
         self.global_commands = []
         self.instance_commands = []
 
     def remove_vendor_tag(self, name: str) -> str:
-        last = name[-3:]
-        if last in self.vk.vendorTags:
-            return name[:-3]
+        split = name.rsplit("_", maxsplit=1)
+
+        if len(split) < 2:
+            return name
+
+        prefix, suffix = split
+        if suffix in self.vk.vendorTags:
+            return prefix
         else:
             return name
+
+    def command_doc_header(self, out: CodeWriter, command: vkobj.Command):
+        optional_params = [param for param in command.params if param.optional]
+
+        if len(optional_params) > 0:
+            out.writeln("/// # Optional parameters")
+            for param in optional_params:
+                name = names.command_param(param.name)
+                out.writeln(f"/// - {name}")
+            out.writeln("///")
+
+        if len(command.tasks) > 0:
+            out.writeln("/// # Performed tasks")
+            for task in command.tasks:
+                out.writeln(f"/// - `{task}`")
+
+            out.writeln("///")
+
+        if command.primary or command.secondary:
+            out.writeln("/// # Allowed command buffers")
+
+            if command.primary:
+                out.writeln("/// - Primary")
+
+            if command.secondary:
+                out.writeln("/// - Secondary")
+
+            out.writeln("///")
+
+        if len(command.queues) > 0:
+            out.writeln("/// # Allowed queues")
+            for queue in command.queues:
+                name = names.bitmask_flag(queue, "QUEUE")
+                out.writeln(f"/// - [`{name}`](QueueFlags::{name})")
+
+            out.writeln("///")
+
+        if len(command.successCodes) > 0 or len(command.errorCodes) > 0:
+            assert len(command.successCodes) > 0
+            assert len(command.errorCodes) > 0
+            out.writeln("/// # Result codes")
+
+            out.writeln("/// ## Success")
+            for success in command.successCodes:
+                success = success.removeprefix("VK_")
+                out.writeln(f"/// - [`{success}`](ResultCode::{success})")
+
+            out.writeln("/// ## Error")
+            for error in command.errorCodes:
+                if error.startswith("VK_ERROR_"):
+                    error = error.removeprefix("VK_ERROR_")
+                    variant = f"ERROR_{error}"
+                else:
+                    error = error.removeprefix("VK_")
+                    variant = error
+
+                out.writeln(f"/// - [`{error}`](ResultCode::{variant})")
 
     # Generates a struct (or union) definition from a vulkan struct.
     def generate_struct(self, x: vkobj.Struct) -> Generated[vkobj.Struct]:
         assert self.vk.videoStd is not None
         out = CodeWriter()
 
-        type_name = struct_name(x.name)
+        type_name = names.struct(x.name)
 
         # docs
         vulkan_doc_header(out, x.name)
         requirements_doc_header(out, x.version, x.extensions)
 
         if not x.union and len(x.extends) > 0:
-            parents = (f"[`{struct_name(parent)}`]" for parent in x.extends)
+            parents = (f"[`{names.struct(parent)}`]" for parent in x.extends)
             out.writeln("/// # Extends")
             for parent in parents:
                 out.writeln(f"/// - {parent}")
 
         if not x.union and len(x.extendedBy) > 0:
-            children = (f"[`{struct_name(child)}`]" for child in x.extendedBy)
+            children = (f"[`{names.struct(child)}`]" for child in x.extendedBy)
             out.writeln("/// # Extended by")
             for child in children:
                 out.writeln(f"/// - {child}")
@@ -310,7 +281,7 @@ class Context:
 
         has_p_next = False
         for member in x.members:
-            field_name = struct_field_name(member.name)
+            field_name = names.struct_field(member.name)
             if field_name == "p_next":
                 has_p_next = True
 
@@ -344,7 +315,7 @@ class Context:
 
         # default impl
         if x.union:
-            field_name = struct_field_name(x.members[0].name)
+            field_name = names.struct_field(x.members[0].name)
             out.writeln(f"impl Default for {type_name} {{")
             out.indent()
             out.writeln("fn default() -> Self {")
@@ -364,7 +335,7 @@ class Context:
             out.writeln("Self {")
             out.indent()
             for member in x.members:
-                field_name = struct_field_name(member.name)
+                field_name = names.struct_field(member.name)
                 if field_name == "s_type" and x.sType is not None:
                     s_type = x.sType.removeprefix("VK_STRUCTURE_TYPE_")
                     out.writeln(f"{field_name}: StructureType::{s_type},")
@@ -418,7 +389,7 @@ class Context:
         for parent in x.extends:
             assert has_p_next
             assert not x.union
-            parent_type_name = struct_name(parent)
+            parent_type_name = names.struct(parent)
             out.writeln(f"unsafe impl Extends<{parent_type_name}> for {type_name} {{}}")
 
         if x.allowDuplicate:
@@ -427,7 +398,7 @@ class Context:
 
         # aliases
         for alias in x.aliases:
-            alias_name = alias.removeprefix("Vk")
+            alias_name = names.struct(alias)
             vulkan_doc_header(out, alias)
             out.writeln(f'#[doc(alias = "{alias}")]')
             out.writeln(f"pub type {alias_name} = {type_name};")
@@ -437,7 +408,7 @@ class Context:
     def generate_handle(self, x: vkobj.Handle) -> Generated[vkobj.Handle]:
         out = CodeWriter()
 
-        type_name = x.name.removeprefix("Vk")
+        handle_name = names.handle(x.name)
 
         vulkan_doc_header(out, x.name)
         out.writeln("/// # Handle type")
@@ -451,43 +422,36 @@ class Context:
         out.writeln("#[repr(transparent)]")
 
         if x.dispatchable and len(x.extensions) == 0:
-            raw_handle_type_name = f"{type_name}Handle"
+            raw_handle_name = f"{handle_name}Handle"
             inner_handle_type = "usize"
 
-            self.dispatchable_handles[raw_handle_type_name] = type_name
-            self.ty_parser.add_mapping(x.name, raw_handle_type_name)
+            self.dispatchable_handles[raw_handle_name] = handle_name
+            self.ty_parser.add_mapping(x.name, raw_handle_name)
         else:
-            raw_handle_type_name = type_name
+            raw_handle_name = handle_name
             inner_handle_type = "u64"
 
-        out.writeln(f"pub struct {raw_handle_type_name}({inner_handle_type});")
+        out.writeln(f"pub struct {raw_handle_name}({inner_handle_type});")
 
         # aliases
         for alias in x.aliases:
-            alias_name = alias.removeprefix("Vk")
+            alias_name = names.handle(alias)
             vulkan_doc_header(out, alias)
             out.writeln(f'#[doc(alias = "{alias}")]')
-            out.writeln(f"pub type {alias_name} = {raw_handle_type_name};")
+            out.writeln(f"pub type {alias_name} = {raw_handle_name};")
 
-        return Generated(raw_handle_type_name, out.content, x)
+        return Generated(raw_handle_name, out.content, x)
 
     def generate_enum(self, x: vkobj.Enum) -> Generated[vkobj.Enum]:
         out = CodeWriter()
 
-        type_name = x.name.removeprefix("Vk")
-        type_name_snake = textcase.snake(type_name).upper()
+        enum_name = names.enum(x.name)
+        variant_prefix = names.enum_variant_prefix(x.name)
         repr_type = "i32" if x.bitWidth == 32 else "i64"
 
-        # hacks for video variants
-        if type_name_snake.startswith("STD_VIDEO"):
-            type_name = type_name.removeprefix("StdVideo")
-            type_name_snake = type_name_snake.replace("_H_264", "_H264")
-            type_name_snake = type_name_snake.replace("_H_265", "_H265")
-            type_name_snake = type_name_snake.replace("_AV_1", "_AV1")
-            type_name_snake = type_name_snake.replace("_VP_9", "_VP9")
-
-        if type_name == "Result":
-            type_name = "ResultCode"
+        # special case result
+        if enum_name == "Result":
+            enum_name = "ResultCode"
 
         vulkan_doc_header(out, x.name)
         if x.returnedOnly:
@@ -500,58 +464,55 @@ class Context:
         out.writeln("#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]")
         out.writeln("#[non_exhaustive]")
         out.writeln(f"#[repr({repr_type})]")
-        out.writeln(f"pub enum {type_name} {{")
+        out.writeln(f"pub enum {enum_name} {{")
         out.indent()
 
-        first_field = True
-        field_aliases: list[tuple[str, str]] = []
-        for field in x.fields:
-            name = field.name.removeprefix("VK_").removeprefix(f"{type_name_snake}_")
-            if name[0].isdigit():
-                name = f"_{name}"
+        first_variant = True
+        variant_aliases: list[tuple[str, str]] = []
+        for variant in x.fields:
+            name = names.enum_variant(variant_prefix, variant.name)
 
-            for alias in field.aliases:
-                field_aliases.append((name, alias))
+            for alias in variant.aliases:
+                variant_aliases.append((name, alias))
 
-            if first_field:
+            if first_variant:
                 out.writeln("#[default]")
-                first_field = False
+                first_variant = False
 
-            out.writeln(f'#[doc(alias = "{field.name}")]')
-            out.writeln(f"{name} = {field.value},")
+            out.writeln(f'#[doc(alias = "{variant.name}")]')
+            out.writeln(f"{name} = {variant.value},")
 
         out.deindent()
         out.writeln("}")
 
         # aliases
         for alias in x.aliases:
-            alias_name = alias.removeprefix("Vk")
+            alias_name = names.enum(alias)
             vulkan_doc_header(out, alias)
             out.writeln(f'#[doc(alias = "{alias}")]')
-            out.writeln(f"pub type {alias_name} = {type_name};")
+            out.writeln(f"pub type {alias_name} = {enum_name};")
 
-        if len(field_aliases) > 0:
-            out.writeln(f"impl {type_name} {{")
+        if len(variant_aliases) > 0:
+            out.writeln(f"impl {enum_name} {{")
             out.indent()
-            for variant, alias in field_aliases:
-                name = alias.removeprefix("VK_").removeprefix(f"{type_name_snake}_")
-                if name[0].isdigit():
-                    name = f"_{name}"
 
+            for variant, alias in variant_aliases:
+                alias_name = names.enum_variant(variant_prefix, alias)
                 out.writeln(f'#[doc(alias = "{alias}")]')
-                out.writeln(f"pub const {name}: Self = Self::{variant};")
+                out.writeln(f"pub const {alias_name}: Self = Self::{variant};")
+
             out.deindent()
             out.writeln("}")
 
-        return Generated(type_name, out.content, x)
+        return Generated(enum_name, out.content, x)
 
-    def generate_bitmasks(self, x: vkobj.Bitmask) -> Generated[vkobj.Bitmask]:
+    def generate_bitmask(self, x: vkobj.Bitmask) -> Generated[vkobj.Bitmask]:
         out = CodeWriter()
 
-        type_name = x.name.removeprefix("Vk").replace("FlagBits", "Flags")
-        type_name_snake = textcase.snake(
-            self.remove_vendor_tag(x.name.removeprefix("Vk").replace("FlagBits", ""))
-        ).upper()
+        bitmask_name = names.bitmask(x.name)
+        flag_prefix = self.remove_vendor_tag(
+            textcase.snake(x.name.removeprefix("Vk").replace("FlagBits", "")).upper()
+        )
         repr_type = "u32" if x.bitWidth == 32 else "u64"
 
         out.writeln("bitflags::bitflags! {")
@@ -568,15 +529,16 @@ class Context:
         out.writeln(f'#[doc(alias = "{x.name}")]')
         out.writeln("#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]")
         out.writeln("#[repr(transparent)]")
-        out.writeln(f"pub struct {type_name}: {repr_type} {{")
+        out.writeln(f"pub struct {bitmask_name}: {repr_type} {{")
         out.indent()
 
         flag_aliases: list[tuple[str, str]] = []
         for flag in x.flags:
-            name = bitmask_flag_name(flag.name, type_name_snake)
+            name = names.bitmask_flag(flag.name, flag_prefix)
             for alias in flag.aliases:
                 flag_aliases.append((name, alias))
 
+            requirements_doc_header(out, None, flag.extensions)
             out.writeln(f'#[doc(alias = "{flag.name}")]')
             out.writeln(f"const {name} = {flag.value};")
 
@@ -587,33 +549,30 @@ class Context:
 
         # aliases
         for alias in x.aliases:
-            alias_name = alias.removeprefix("Vk").replace("FlagBits", "Flags")
+            alias_name = names.bitmask(alias)
             vulkan_doc_header(out, alias)
             out.writeln(f'#[doc(alias = "{alias}")]')
-            out.writeln(f"pub type {alias_name} = {type_name};")
+            out.writeln(f"pub type {alias_name} = {bitmask_name};")
 
         if len(flag_aliases) > 0:
-            out.writeln(f"impl {type_name} {{")
+            out.writeln(f"impl {bitmask_name} {{")
             out.indent()
-            for variant, alias in flag_aliases:
-                name = alias.removeprefix("VK_").removeprefix(f"{type_name_snake}_")
-                if name[0].isdigit():
-                    name = f"_{name}"
-
-                if name == variant:
+            for flag, alias in flag_aliases:
+                name = names.bitmask_flag(alias, flag_prefix)
+                if name == flag:
                     name = f"ALIAS_{name}"
 
                 out.writeln(f'#[doc(alias = "{alias}")]')
-                out.writeln(f"pub const {name}: Self = Self::{variant};")
+                out.writeln(f"pub const {name}: Self = Self::{flag};")
             out.deindent()
             out.writeln("}")
 
-        return Generated(type_name, out.content, x)
+        return Generated(bitmask_name, out.content, x)
 
     def generate_flags(self, x: vkobj.Flags) -> Generated[vkobj.Flags]:
         out = CodeWriter()
 
-        type_name = x.name.removeprefix("Vk")
+        flags_name = names.flags(x.name)
         repr_type = "u32" if x.bitWidth == 32 else "u64"
 
         vulkan_doc_header(out, x.name)
@@ -625,16 +584,16 @@ class Context:
             )
 
         out.writeln(f'#[doc(alias = "{x.name}")]')
-        out.writeln(f"pub type {type_name} = {repr_type};")
+        out.writeln(f"pub type {flags_name} = {repr_type};")
 
         # aliases
         for alias in x.aliases:
-            alias_name = alias.removeprefix("Vk")
+            alias_name = names.flags(alias)
             vulkan_doc_header(out, alias)
             out.writeln(f'#[doc(alias = "{alias}")]')
-            out.writeln(f"pub type {alias_name} = {type_name};")
+            out.writeln(f"pub type {alias_name} = {flags_name};")
 
-        return Generated(type_name, out.content, x)
+        return Generated(flags_name, out.content, x)
 
     def generate_fnptr(self, x: vkobj.FuncPointer) -> Generated[vkobj.FuncPointer]:
         out = CodeWriter()
@@ -671,7 +630,7 @@ class Context:
     def generate_const(self, x: vkobj.Constant) -> Generated[vkobj.Constant]:
         out = CodeWriter()
 
-        const_name = x.name.removeprefix("VK_").removeprefix("STD_VIDEO_")
+        const_name = names.const(x.name)
         const_ty = self.ty_parser.parse(x.type)
 
         vulkan_doc_header(out, x.name)
@@ -683,13 +642,14 @@ class Context:
     def generate_command(self, x: vkobj.Command) -> Generated[vkobj.Command]:
         out = CodeWriter()
 
-        fn_alias_name = x.name.removeprefix("vk")
-        method_name = textcase.snake(fn_alias_name)
+        command_name = names.command(x.name)
+        command_fn_alias_name = names.command_fn_alias(x.name)
 
+        # preprocess parameters
         handle = None
         params: list[tuple[str, RustType]] = []
         for param in x.params:
-            name = command_param_name(param.name)
+            param_name = names.command_param(param.name)
 
             if len(param.fixedSizeArray) > 0:
                 # it's actually a pointer. amazing
@@ -710,33 +670,34 @@ class Context:
                 handle = handle_with_dispatch
                 continue
 
-            params.append((name, ty))
+            params.append((param_name, ty))
 
         return_ty = (
             "" if x.returnType == "void" else f"-> {self.ty_parser.parse(x.returnType)}"
         )
 
         if handle is not None:
+            # method on a handle
             self.instance_commands.append(x.name)
             out.writeln(
-                f'pub(crate) type FUN_{fn_alias_name} = unsafe extern "C" fn({handle}Handle, {", ".join(str(x[1]) for x in params)}) {return_ty};'
+                f'pub(crate) type FUN_{command_fn_alias_name} = unsafe extern "C" fn({handle}Handle, {", ".join(str(x[1]) for x in params)}) {return_ty};'
             )
 
             if str(handle) != "Device":
                 handle_snake = textcase.snake(str(handle))
-                old_method_name = method_name
-                method_name = method_name.replace(f"{handle_snake}_", "", count=1)
-                if method_name == old_method_name:
-                    method_name = method_name.replace(f"_{handle_snake}", "", count=1)
+                old_method_name = command_name
+                command_name = command_name.replace(f"{handle_snake}_", "", count=1)
+                if command_name == old_method_name:
+                    command_name = command_name.replace(f"_{handle_snake}", "", count=1)
 
-            signature = f"pub unsafe fn {method_name}(self, {', '.join(f'{x[0]}: {x[1]}' for x in params)}) {return_ty}"
+            signature = f"pub unsafe fn {command_name}(self, {', '.join(f'{x[0]}: {x[1]}' for x in params)}) {return_ty}"
 
             out.writeln(f"impl {handle} {{")
             out.indent()
 
             vulkan_doc_header(out, x.name)
             requirements_doc_header(out, x.version, x.extensions)
-            command_doc_header(out, x)
+            self.command_doc_header(out, x)
             out.writeln(f'#[doc(alias = "{x.name}")]')
             out.writeln("#[inline(always)]")
             out.writeln(f"{signature} {{")
@@ -746,7 +707,7 @@ class Context:
                 f'let command = vtable_get(&*self.vtable(), InstanceCommands::{x.name} as usize).expect("command should not be null");'
             )
             out.writeln(
-                f"let command = unsafe {{ std::mem::transmute::<vkVoidFunction, FUN_{fn_alias_name}>(command) }};"
+                f"let command = unsafe {{ std::mem::transmute::<vkVoidFunction, FUN_{command_fn_alias_name}>(command) }};"
             )
             out.writeln(
                 f"unsafe {{ (command)(self.handle, {', '.join(x[0] for x in params)}) }}"
@@ -758,16 +719,17 @@ class Context:
             out.deindent()
             out.writeln("}")
         else:
+            # free function
             self.global_commands.append(x.name)
             out.writeln(
-                f'pub(crate) type FUN_{fn_alias_name} = unsafe extern "C" fn({", ".join(str(x[1]) for x in params)}) {return_ty};'
+                f'pub(crate) type FUN_{command_fn_alias_name} = unsafe extern "C" fn({", ".join(str(x[1]) for x in params)}) {return_ty};'
             )
 
-            signature = f"pub unsafe fn {method_name}({', '.join(f'{x[0]}: {x[1]}' for x in params)}) {return_ty}"
+            signature = f"pub unsafe fn {command_name}({', '.join(f'{x[0]}: {x[1]}' for x in params)}) {return_ty}"
 
             vulkan_doc_header(out, x.name)
             requirements_doc_header(out, x.version, x.extensions)
-            command_doc_header(out, x)
+            self.command_doc_header(out, x)
             out.writeln(f'#[doc(alias = "{x.name}")]')
             out.writeln("#[inline(always)]")
             out.writeln(f"{signature} {{")
@@ -779,13 +741,13 @@ class Context:
                 f'let command = vtable_get(&commands, GlobalCommands::{x.name} as usize).expect("command should not be null");'
             )
             out.writeln(
-                f"let command = unsafe {{ std::mem::transmute::<vkVoidFunction, FUN_{fn_alias_name}>(command) }};"
+                f"let command = unsafe {{ std::mem::transmute::<vkVoidFunction, FUN_{command_fn_alias_name}>(command) }};"
             )
             out.writeln(f"unsafe {{ (command)({', '.join(x[0] for x in params)}) }}")
             out.deindent()
             out.writeln("}")
 
-        return Generated(method_name, out.content, x)
+        return Generated(command_name, out.content, x)
 
     def generate_extensions(self) -> str:
         out = CodeWriter()
@@ -798,23 +760,23 @@ class Context:
 
         for ext in self.vk.extensions.values():
             assert ext.vendorTag is not None
-            name = extension_name(ext.name)
+            name = names.extension(ext.name)
 
             if ext.promotedTo is not None and ext.promotedTo != "":
                 to = ext.promotedTo
                 if to.startswith("VK_VERSION_"):
                     to = f"core in version {version_number(to)}"
                 else:
-                    to = f"[`Self::{extension_name(to)}`]"
+                    to = f"[`Self::{names.extension(to)}`]"
 
                 out.writeln(f"/// Promoted to {to}.")
 
             if ext.deprecatedBy is not None and ext.deprecatedBy != "":
                 by = ext.deprecatedBy
                 if by.startswith("VK_VERSION_"):
-                    by = version_number(by)
+                    by = f"version {version_number(by)}"
                 else:
-                    by = f"[`Self::{extension_name(by)}`]"
+                    by = f"[`Self::{names.extension(by)}`]"
 
                 out.writeln(f"/// Deprecated by {by}.")
 
@@ -918,7 +880,7 @@ class Context:
 
         # bitmasks
         for bitmask in self.vk.bitmasks.values():
-            bitmask = self.generate_bitmasks(bitmask)
+            bitmask = self.generate_bitmask(bitmask)
             self.reg.bitmasks.append(bitmask)
 
         # flags
@@ -998,7 +960,9 @@ class Context:
         print(f"- Structs: {len(self.reg.structs)}")
 
         print("Generating source files...")
-        self.write_generated_to_module("bitmasks.rs", "", self.reg.bitmasks)
+        self.write_generated_to_module(
+            "bitmasks.rs", BITMASKS_MODULE_PREFIX, self.reg.bitmasks
+        )
         self.write_generated_to_module(
             "commands.rs", COMMANDS_MODULE_PREFIX, self.reg.commands
         )
