@@ -2295,17 +2295,9 @@ bitflags::bitflags! {
     }
 }
 impl PipelineCreateFlags {
-    /// [`VK_PIPELINE_CREATE_DISPATCH_BASE`](https://docs.vulkan.org/refpages/latest/refpages/source/VK_PIPELINE_CREATE_DISPATCH_BASE.html)
-    ///
-    #[doc(alias = "VK_PIPELINE_CREATE_DISPATCH_BASE")]
-    pub const ALIAS_DISPATCH_BASE: Self = Self::DISPATCH_BASE;
     /// [`VK_PIPELINE_CREATE_DISPATCH_BASE_BIT_KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VK_PIPELINE_CREATE_DISPATCH_BASE_BIT_KHR.html)
     ///
     #[doc(alias = "VK_PIPELINE_CREATE_DISPATCH_BASE_BIT_KHR")]
-    pub const DISPATCH_BASE_KHR: Self = Self::DISPATCH_BASE;
-    /// [`VK_PIPELINE_CREATE_DISPATCH_BASE_KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VK_PIPELINE_CREATE_DISPATCH_BASE_KHR.html)
-    ///
-    #[doc(alias = "VK_PIPELINE_CREATE_DISPATCH_BASE_KHR")]
     pub const DISPATCH_BASE_KHR: Self = Self::DISPATCH_BASE;
     /// [`VK_PIPELINE_CREATE_VIEW_INDEX_FROM_DEVICE_INDEX_BIT_KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VK_PIPELINE_CREATE_VIEW_INDEX_FROM_DEVICE_INDEX_BIT_KHR.html)
     ///
@@ -3855,11 +3847,6 @@ impl ResolveModeFlags {
     ///
     #[doc(alias = "VK_RESOLVE_MODE_MAX_BIT_KHR")]
     pub const MAX_KHR: Self = Self::MAX;
-    /// [`VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_ANDROID`](https://docs.vulkan.org/refpages/latest/refpages/source/VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_ANDROID.html)
-    ///
-    #[doc(alias = "VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_ANDROID")]
-    pub const ALIAS_EXTERNAL_FORMAT_DOWNSAMPLE_ANDROID: Self =
-        Self::EXTERNAL_FORMAT_DOWNSAMPLE_ANDROID;
 }
 
 bitflags::bitflags! {
@@ -6538,17 +6525,9 @@ bitflags::bitflags! {
 #[doc(alias = "VkHostImageCopyFlagBitsEXT")]
 pub type HostImageCopyFlagsEXT = HostImageCopyFlags;
 impl HostImageCopyFlags {
-    /// [`VK_HOST_IMAGE_COPY_MEMCPY`](https://docs.vulkan.org/refpages/latest/refpages/source/VK_HOST_IMAGE_COPY_MEMCPY.html)
-    ///
-    #[doc(alias = "VK_HOST_IMAGE_COPY_MEMCPY")]
-    pub const ALIAS_MEMCPY: Self = Self::MEMCPY;
     /// [`VK_HOST_IMAGE_COPY_MEMCPY_BIT_EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VK_HOST_IMAGE_COPY_MEMCPY_BIT_EXT.html)
     ///
     #[doc(alias = "VK_HOST_IMAGE_COPY_MEMCPY_BIT_EXT")]
-    pub const MEMCPY_EXT: Self = Self::MEMCPY;
-    /// [`VK_HOST_IMAGE_COPY_MEMCPY_EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VK_HOST_IMAGE_COPY_MEMCPY_EXT.html)
-    ///
-    #[doc(alias = "VK_HOST_IMAGE_COPY_MEMCPY_EXT")]
     pub const MEMCPY_EXT: Self = Self::MEMCPY;
 }
 
@@ -8652,16 +8631,7 @@ bitflags::bitflags! {
         const CONCURRENTLY_IMPACTED_KHR = 2;
     }
 }
-impl PerformanceCounterDescriptionFlagsKHR {
-    /// [`VK_PERFORMANCE_COUNTER_DESCRIPTION_PERFORMANCE_IMPACTING_KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VK_PERFORMANCE_COUNTER_DESCRIPTION_PERFORMANCE_IMPACTING_KHR.html)
-    ///
-    #[doc(alias = "VK_PERFORMANCE_COUNTER_DESCRIPTION_PERFORMANCE_IMPACTING_KHR")]
-    pub const ALIAS_PERFORMANCE_IMPACTING_KHR: Self = Self::PERFORMANCE_IMPACTING_KHR;
-    /// [`VK_PERFORMANCE_COUNTER_DESCRIPTION_CONCURRENTLY_IMPACTED_KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VK_PERFORMANCE_COUNTER_DESCRIPTION_CONCURRENTLY_IMPACTED_KHR.html)
-    ///
-    #[doc(alias = "VK_PERFORMANCE_COUNTER_DESCRIPTION_CONCURRENTLY_IMPACTED_KHR")]
-    pub const ALIAS_CONCURRENTLY_IMPACTED_KHR: Self = Self::CONCURRENTLY_IMPACTED_KHR;
-}
+impl PerformanceCounterDescriptionFlagsKHR {}
 
 bitflags::bitflags! {
     /// [`VkAcquireProfilingLockFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAcquireProfilingLockFlagBitsKHR.html)
@@ -10362,12 +10332,7 @@ bitflags::bitflags! {
         const VBLANK_EXT = 1;
     }
 }
-impl SurfaceCounterFlagsEXT {
-    /// [`VK_SURFACE_COUNTER_VBLANK_EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VK_SURFACE_COUNTER_VBLANK_EXT.html)
-    ///
-    #[doc(alias = "VK_SURFACE_COUNTER_VBLANK_EXT")]
-    pub const ALIAS_VBLANK_EXT: Self = Self::VBLANK_EXT;
-}
+impl SurfaceCounterFlagsEXT {}
 
 bitflags::bitflags! {
     /// [`VkDebugUtilsMessageSeverityFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDebugUtilsMessageSeverityFlagBitsEXT.html)
@@ -10822,17 +10787,9 @@ impl GeometryInstanceFlagsKHR {
     ///
     #[doc(alias = "VK_GEOMETRY_INSTANCE_FORCE_OPACITY_MICROMAP_2_STATE_BIT_EXT")]
     pub const FORCE_OPACITY_MICROMAP_2_STATE_EXT: Self = Self::FORCE_OPACITY_MICROMAP_2_STATE_KHR;
-    /// [`VK_GEOMETRY_INSTANCE_FORCE_OPACITY_MICROMAP_2_STATE_EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VK_GEOMETRY_INSTANCE_FORCE_OPACITY_MICROMAP_2_STATE_EXT.html)
-    ///
-    #[doc(alias = "VK_GEOMETRY_INSTANCE_FORCE_OPACITY_MICROMAP_2_STATE_EXT")]
-    pub const FORCE_OPACITY_MICROMAP_2_STATE_EXT: Self = Self::FORCE_OPACITY_MICROMAP_2_STATE_KHR;
     /// [`VK_GEOMETRY_INSTANCE_DISABLE_OPACITY_MICROMAPS_BIT_EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VK_GEOMETRY_INSTANCE_DISABLE_OPACITY_MICROMAPS_BIT_EXT.html)
     ///
     #[doc(alias = "VK_GEOMETRY_INSTANCE_DISABLE_OPACITY_MICROMAPS_BIT_EXT")]
-    pub const DISABLE_OPACITY_MICROMAPS_EXT: Self = Self::DISABLE_OPACITY_MICROMAPS_KHR;
-    /// [`VK_GEOMETRY_INSTANCE_DISABLE_OPACITY_MICROMAPS_EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VK_GEOMETRY_INSTANCE_DISABLE_OPACITY_MICROMAPS_EXT.html)
-    ///
-    #[doc(alias = "VK_GEOMETRY_INSTANCE_DISABLE_OPACITY_MICROMAPS_EXT")]
     pub const DISABLE_OPACITY_MICROMAPS_EXT: Self = Self::DISABLE_OPACITY_MICROMAPS_KHR;
 }
 
@@ -10996,35 +10953,13 @@ impl BuildAccelerationStructureFlagsKHR {
     ///
     #[doc(alias = "VK_BUILD_ACCELERATION_STRUCTURE_LOW_MEMORY_BIT_NV")]
     pub const LOW_MEMORY_NV: Self = Self::LOW_MEMORY_KHR;
-    /// [`VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_OPACITY_MICROMAP_DATA_UPDATE_EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_OPACITY_MICROMAP_DATA_UPDATE_EXT.html)
-    ///
-    #[doc(alias = "VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_OPACITY_MICROMAP_DATA_UPDATE_EXT")]
-    pub const ALIAS_ALLOW_OPACITY_MICROMAP_DATA_UPDATE_EXT: Self =
-        Self::ALLOW_OPACITY_MICROMAP_DATA_UPDATE_EXT;
-    /// [`VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DISPLACEMENT_MICROMAP_UPDATE_NV`](https://docs.vulkan.org/refpages/latest/refpages/source/VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DISPLACEMENT_MICROMAP_UPDATE_NV.html)
-    ///
-    #[doc(alias = "VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DISPLACEMENT_MICROMAP_UPDATE_NV")]
-    pub const ALIAS_ALLOW_DISPLACEMENT_MICROMAP_UPDATE_NV: Self =
-        Self::ALLOW_DISPLACEMENT_MICROMAP_UPDATE_NV;
-    /// [`VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DATA_ACCESS_KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DATA_ACCESS_KHR.html)
-    ///
-    #[doc(alias = "VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DATA_ACCESS_KHR")]
-    pub const ALIAS_ALLOW_DATA_ACCESS_KHR: Self = Self::ALLOW_DATA_ACCESS_KHR;
     /// [`VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_OPACITY_MICROMAP_UPDATE_BIT_EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_OPACITY_MICROMAP_UPDATE_BIT_EXT.html)
     ///
     #[doc(alias = "VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_OPACITY_MICROMAP_UPDATE_BIT_EXT")]
     pub const ALLOW_OPACITY_MICROMAP_UPDATE_EXT: Self = Self::ALLOW_OPACITY_MICROMAP_UPDATE_KHR;
-    /// [`VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_OPACITY_MICROMAP_UPDATE_EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_OPACITY_MICROMAP_UPDATE_EXT.html)
-    ///
-    #[doc(alias = "VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_OPACITY_MICROMAP_UPDATE_EXT")]
-    pub const ALLOW_OPACITY_MICROMAP_UPDATE_EXT: Self = Self::ALLOW_OPACITY_MICROMAP_UPDATE_KHR;
     /// [`VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DISABLE_OPACITY_MICROMAPS_BIT_EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DISABLE_OPACITY_MICROMAPS_BIT_EXT.html)
     ///
     #[doc(alias = "VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DISABLE_OPACITY_MICROMAPS_BIT_EXT")]
-    pub const ALLOW_DISABLE_OPACITY_MICROMAPS_EXT: Self = Self::ALLOW_DISABLE_OPACITY_MICROMAPS_KHR;
-    /// [`VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DISABLE_OPACITY_MICROMAPS_EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DISABLE_OPACITY_MICROMAPS_EXT.html)
-    ///
-    #[doc(alias = "VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DISABLE_OPACITY_MICROMAPS_EXT")]
     pub const ALLOW_DISABLE_OPACITY_MICROMAPS_EXT: Self = Self::ALLOW_DISABLE_OPACITY_MICROMAPS_KHR;
 }
 

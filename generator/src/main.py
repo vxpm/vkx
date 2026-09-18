@@ -610,11 +610,14 @@ class Context:
         if len(flag_aliases) > 0:
             out.writeln(f"impl {bitmask_name} {{")
             out.indent()
+
+            generated_aliases: list[str] = []
             for flag, alias in flag_aliases:
                 alias_name = names.bitmask_flag(alias, flag_prefix)
-                if alias_name == flag:
-                    alias_name = f"ALIAS_{alias_name}"
+                if alias_name == flag or alias_name in generated_aliases:
+                    continue
 
+                generated_aliases.append(alias_name)
                 self.vulkan_doc_header(out, alias)
                 out.writeln(f'#[doc(alias = "{alias}")]')
                 out.writeln(f"pub const {alias_name}: Self = Self::{flag};")
