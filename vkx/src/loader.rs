@@ -70,17 +70,18 @@ pub unsafe fn setup() -> Result<(), libloading::Error> {
 /// This type is like a smart version of an [`InstanceHandle`](crate::InstanceHandle): it knows how
 /// to call every instance function and will also destroy itself at drop time.
 ///
-/// Children handles of this instance carry a reference to the same vtable, but calling any
+/// Child handles of this instance carry a reference to the same vtable, but calling any
 /// function on them _after_ this instance is destroyed is _undefined behaviour_.
 pub struct Instance {
     pub(crate) handle: crate::InstanceHandle,
-    pub(crate) vtable: &'static InstanceVTable,
+    pub(crate) vtable: *const InstanceVTable,
 }
 
 impl Instance {
     #[inline(always)]
     pub(crate) fn vtable(&self) -> &InstanceVTable {
-        self.vtable
+        // SAFETY: the vtable is alive as long as the instance is
+        unsafe { self.vtable.as_ref_unchecked() }
     }
 
     /// Creates a new [`Instance`]. This is a wrapper around [`create_instance`](crate::create_instance).
@@ -139,20 +140,24 @@ impl Instance {
 
 impl Drop for Instance {
     fn drop(&mut self) {
-        unsafe { self.destroy(std::ptr::null()) };
+        unsafe {
+            self.destroy(std::ptr::null());
+            std::mem::drop(Box::from_raw(self.vtable.cast_mut()))
+        };
     }
 }
 
 pub struct PhysicalDevice {
     pub(crate) handle: crate::PhysicalDeviceHandle,
-    pub(crate) vtable: &'static VTable<{ crate::InstanceCommands::VARIANTS.len() }>,
+    pub(crate) vtable: *const VTable<{ crate::InstanceCommands::VARIANTS.len() }>,
 }
 
 impl PhysicalDevice {
     #[track_caller]
     #[inline(always)]
     pub(crate) fn vtable(&self) -> &InstanceVTable {
-        self.vtable
+        // SAFETY: user contract - parent instance must be alive
+        unsafe { self.vtable.as_ref_unchecked() }
     }
 
     /// Creates a [`Device`] - a wrapper around [`Self::raw_create_device`].
@@ -176,14 +181,14 @@ impl PhysicalDevice {
 
 pub struct Device {
     pub(crate) handle: crate::DeviceHandle,
-    pub(crate) vtable: &'static VTable<{ crate::InstanceCommands::VARIANTS.len() }>,
+    pub(crate) vtable: *const VTable<{ crate::InstanceCommands::VARIANTS.len() }>,
 }
 
 impl Device {
-    #[track_caller]
     #[inline(always)]
     pub(crate) fn vtable(&self) -> &InstanceVTable {
-        self.vtable
+        // SAFETY: user contract - parent instance must be alive
+        unsafe { self.vtable.as_ref_unchecked() }
     }
 }
 

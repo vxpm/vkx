@@ -70,7 +70,7 @@ pub type DeviceSize = u64;
 pub type SampleMask = u32;
 
 /// A version number.
-#[derive(Clone, Copy, PartialEq, Eq, Default)]
+#[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Default)]
 pub struct Version(u32);
 
 impl core::fmt::Debug for Version {
@@ -113,8 +113,8 @@ impl Version {
     #[inline(always)]
     pub const fn new(variant: u8, major: u8, minor: u16, patch: u16) -> Self {
         assert!((patch as u32) < (1 << 12));
-        assert!((minor as u32) < (1 << 9));
-        assert!((major as u32) < (1 << 8));
+        assert!((minor as u32) < (1 << 10));
+        assert!((major as u32) < (1 << 7));
         assert!((variant as u32) < (1 << 3));
         let patch = patch as u32;
         let minor = (minor as u32) << 12;
@@ -138,19 +138,25 @@ impl Version {
     /// Returns the major version number.
     #[inline(always)]
     pub const fn major(self) -> u8 {
-        (self.0 >> 22) as u8
+        (self.0 >> 22) as u8 & 0x7F
     }
 
     /// Returns the minor version number.
     #[inline(always)]
     pub const fn minor(self) -> u16 {
-        ((self.0 >> 12) as u16) & 0x1FF
+        ((self.0 >> 12) as u16) & 0x3FF
     }
 
     /// Returns the patch version number.
     #[inline(always)]
     pub const fn patch(self) -> u16 {
         (self.0 as u16) & 0xFFF
+    }
+}
+
+impl From<u32> for Version {
+    fn from(value: u32) -> Self {
+        Self(value)
     }
 }
 
