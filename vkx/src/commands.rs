@@ -363,7 +363,7 @@ impl PhysicalDevice {
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkCreateDevice")]
     #[inline(always)]
-    pub unsafe fn create_device(
+    pub unsafe fn raw_create_device(
         &self,
         p_create_info: *const DeviceCreateInfo,
         p_allocator: *const AllocationCallbacks,

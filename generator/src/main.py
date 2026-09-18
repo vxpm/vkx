@@ -746,6 +746,7 @@ class Context:
             # these commands are prefixed with raw to not clash with their smart handle implementation
             raw_prefixed_commands = {
                 "enumerate_physical_devices",
+                "create_device",
             }
 
             if command_name in raw_prefixed_commands:

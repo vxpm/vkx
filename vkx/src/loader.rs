@@ -80,7 +80,7 @@ pub struct Instance {
 impl Instance {
     #[inline(always)]
     pub(crate) fn vtable(&self) -> &InstanceVTable {
-        &self.vtable
+        self.vtable
     }
 
     /// Creates a new [`Instance`]. This is a wrapper around [`create_instance`](crate::create_instance).
@@ -111,7 +111,7 @@ impl Instance {
         })
     }
 
-    /// Enumerates physical devices.
+    /// Enumerates physical devices - a wrapper around [`Self::raw_enumerate_physical_devices`].
     pub unsafe fn enumerate_physical_devices(
         &self,
     ) -> Result<Vec<PhysicalDevice>, crate::ErrorCode> {
@@ -153,6 +153,24 @@ impl PhysicalDevice {
     #[inline(always)]
     pub(crate) fn vtable(&self) -> &InstanceVTable {
         self.vtable
+    }
+
+    /// Creates a [`Device`] - a wrapper around [`Self::raw_create_device`].
+    pub fn create_device(
+        &self,
+        create_info: *const crate::DeviceCreateInfo,
+        allocator: *const crate::AllocationCallbacks,
+    ) -> Result<Device, crate::ErrorCode> {
+        let mut device = crate::DeviceHandle::default();
+        unsafe {
+            self.raw_create_device(create_info, allocator, &mut device)
+                .success()?;
+        }
+
+        Ok(Device {
+            handle: device,
+            vtable: self.vtable,
+        })
     }
 }
 
