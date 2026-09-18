@@ -782,10 +782,7 @@ class Context:
             out.indent()
 
             out.writeln(
-                f'let command = vtable_get(&*self.vtable(), InstanceCommands::{x.name} as usize).expect("command should not be null");'
-            )
-            out.writeln(
-                f"let command = unsafe {{ std::mem::transmute::<vkVoidFunction, FUN_{command_fn_alias_name}>(command) }};"
+                f"let command = unsafe {{ std::mem::transmute::<vkVoidFunction, FUN_{command_fn_alias_name}>(vtable_get(self.vtable(), InstanceCommands::{x.name} as usize)) }};"
             )
             out.writeln(
                 f"unsafe {{ (command)(self.handle, {', '.join(x[0] for x in params)}) }}"
@@ -819,10 +816,7 @@ class Context:
                 'let commands = GLOBAL.get().expect("vkx setup should have been run").commands;'
             )
             out.writeln(
-                f'let command = vtable_get(&commands, GlobalCommands::{x.name} as usize).expect("command should not be null");'
-            )
-            out.writeln(
-                f"let command = unsafe {{ std::mem::transmute::<vkVoidFunction, FUN_{command_fn_alias_name}>(command) }};"
+                f"let command = unsafe {{ std::mem::transmute::<vkVoidFunction, FUN_{command_fn_alias_name}>(vtable_get(&commands, GlobalCommands::{x.name} as usize)) }};"
             )
             out.writeln(f"unsafe {{ (command)({', '.join(x[0] for x in params)}) }}")
             out.deindent()

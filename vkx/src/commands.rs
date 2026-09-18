@@ -49,9 +49,12 @@ pub unsafe fn create_instance(
         .get()
         .expect("vkx setup should have been run")
         .commands;
-    let command = vtable_get(&commands, GlobalCommands::vkCreateInstance as usize)
-        .expect("command should not be null");
-    let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateInstance>(command) };
+    let command = unsafe {
+        std::mem::transmute::<vkVoidFunction, FUN_CreateInstance>(vtable_get(
+            &commands,
+            GlobalCommands::vkCreateInstance as usize,
+        ))
+    };
     unsafe { (command)(p_create_info, p_allocator, p_instance) }
 }
 
@@ -67,13 +70,12 @@ impl Instance {
     #[doc(alias = "vkDestroyInstance")]
     #[inline(always)]
     pub unsafe fn destroy(&self, p_allocator: *const AllocationCallbacks) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroyInstance as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_DestroyInstance>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyInstance>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyInstance as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_allocator) }
     }
 }
@@ -103,13 +105,12 @@ impl Instance {
         p_physical_device_count: *mut u32,
         p_physical_devices: *mut PhysicalDeviceHandle,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkEnumeratePhysicalDevices as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_EnumeratePhysicalDevices>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_EnumeratePhysicalDevices>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkEnumeratePhysicalDevices as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_physical_device_count, p_physical_devices) }
     }
 }
@@ -122,13 +123,11 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceFeatures")]
     #[inline(always)]
     pub unsafe fn get_features(&self, p_features: *mut PhysicalDeviceFeatures) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceFeatures as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceFeatures>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceFeatures>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetPhysicalDeviceFeatures as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_features) }
     }
@@ -146,13 +145,13 @@ impl PhysicalDevice {
         format: Format,
         p_format_properties: *mut FormatProperties,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceFormatProperties as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceFormatProperties>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceFormatProperties>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceFormatProperties as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, format, p_format_properties) }
     }
@@ -193,14 +192,12 @@ impl PhysicalDevice {
         flags: ImageCreateFlags,
         p_image_format_properties: *mut ImageFormatProperties,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceImageFormatProperties as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceImageFormatProperties>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceImageFormatProperties as usize,
+                ),
             )
         };
         unsafe {
@@ -225,13 +222,11 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceProperties")]
     #[inline(always)]
     pub unsafe fn get_properties(&self, p_properties: *mut PhysicalDeviceProperties) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceProperties as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceProperties>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceProperties>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetPhysicalDeviceProperties as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_properties) }
     }
@@ -252,14 +247,12 @@ impl PhysicalDevice {
         p_queue_family_property_count: *mut u32,
         p_queue_family_properties: *mut QueueFamilyProperties,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceQueueFamilyProperties as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceQueueFamilyProperties>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceQueueFamilyProperties as usize,
+                ),
             )
         };
         unsafe {
@@ -283,13 +276,13 @@ impl PhysicalDevice {
         &self,
         p_memory_properties: *mut PhysicalDeviceMemoryProperties,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceMemoryProperties as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceMemoryProperties>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceMemoryProperties>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceMemoryProperties as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, p_memory_properties) }
     }
@@ -306,13 +299,12 @@ impl Instance {
     #[doc(alias = "vkGetInstanceProcAddr")]
     #[inline(always)]
     pub unsafe fn get_proc_addr(&self, p_name: *const c_char) -> vkVoidFunction {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetInstanceProcAddr as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetInstanceProcAddr>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetInstanceProcAddr>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetInstanceProcAddr as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_name) }
     }
 }
@@ -325,13 +317,12 @@ impl Device {
     #[doc(alias = "vkGetDeviceProcAddr")]
     #[inline(always)]
     pub unsafe fn get_device_proc_addr(&self, p_name: *const c_char) -> vkVoidFunction {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDeviceProcAddr as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetDeviceProcAddr>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceProcAddr>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetDeviceProcAddr as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_name) }
     }
 }
@@ -369,9 +360,12 @@ impl PhysicalDevice {
         p_allocator: *const AllocationCallbacks,
         p_device: *mut DeviceHandle,
     ) -> ResultCode {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkCreateDevice as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateDevice>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateDevice>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateDevice as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_device) }
     }
 }
@@ -387,9 +381,12 @@ impl Device {
     #[doc(alias = "vkDestroyDevice")]
     #[inline(always)]
     pub unsafe fn destroy_device(&self, p_allocator: *const AllocationCallbacks) {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkDestroyDevice as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_DestroyDevice>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyDevice>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyDevice as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_allocator) }
     }
 }
@@ -423,13 +420,11 @@ pub unsafe fn enumerate_instance_extension_properties(
         .get()
         .expect("vkx setup should have been run")
         .commands;
-    let command = vtable_get(
-        &commands,
-        GlobalCommands::vkEnumerateInstanceExtensionProperties as usize,
-    )
-    .expect("command should not be null");
     let command = unsafe {
-        std::mem::transmute::<vkVoidFunction, FUN_EnumerateInstanceExtensionProperties>(command)
+        std::mem::transmute::<vkVoidFunction, FUN_EnumerateInstanceExtensionProperties>(vtable_get(
+            &commands,
+            GlobalCommands::vkEnumerateInstanceExtensionProperties as usize,
+        ))
     };
     unsafe { (command)(p_layer_name, p_property_count, p_properties) }
 }
@@ -465,13 +460,13 @@ impl PhysicalDevice {
         p_property_count: *mut u32,
         p_properties: *mut ExtensionProperties,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkEnumerateDeviceExtensionProperties as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_EnumerateDeviceExtensionProperties>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_EnumerateDeviceExtensionProperties>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkEnumerateDeviceExtensionProperties as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, p_layer_name, p_property_count, p_properties) }
     }
@@ -503,13 +498,11 @@ pub unsafe fn enumerate_instance_layer_properties(
         .get()
         .expect("vkx setup should have been run")
         .commands;
-    let command = vtable_get(
-        &commands,
-        GlobalCommands::vkEnumerateInstanceLayerProperties as usize,
-    )
-    .expect("command should not be null");
     let command = unsafe {
-        std::mem::transmute::<vkVoidFunction, FUN_EnumerateInstanceLayerProperties>(command)
+        std::mem::transmute::<vkVoidFunction, FUN_EnumerateInstanceLayerProperties>(vtable_get(
+            &commands,
+            GlobalCommands::vkEnumerateInstanceLayerProperties as usize,
+        ))
     };
     unsafe { (command)(p_property_count, p_properties) }
 }
@@ -538,13 +531,11 @@ impl PhysicalDevice {
         p_property_count: *mut u32,
         p_properties: *mut LayerProperties,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkEnumerateDeviceLayerProperties as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_EnumerateDeviceLayerProperties>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_EnumerateDeviceLayerProperties>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkEnumerateDeviceLayerProperties as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_property_count, p_properties) }
     }
@@ -562,9 +553,12 @@ impl Device {
         queue_index: u32,
         p_queue: *mut QueueHandle,
     ) {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkGetDeviceQueue as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetDeviceQueue>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceQueue>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetDeviceQueue as usize,
+            ))
+        };
         unsafe { (command)(self.handle, queue_family_index, queue_index, p_queue) }
     }
 }
@@ -595,9 +589,12 @@ impl Queue {
         p_submits: *const SubmitInfo,
         fence: Fence,
     ) -> ResultCode {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkQueueSubmit as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_QueueSubmit>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_QueueSubmit>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkQueueSubmit as usize,
+            ))
+        };
         unsafe { (command)(self.handle, submit_count, p_submits, fence) }
     }
 }
@@ -618,9 +615,12 @@ impl Queue {
     #[doc(alias = "vkQueueWaitIdle")]
     #[inline(always)]
     pub unsafe fn wait_idle(&self) -> ResultCode {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkQueueWaitIdle as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_QueueWaitIdle>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_QueueWaitIdle>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkQueueWaitIdle as usize,
+            ))
+        };
         unsafe { (command)(self.handle) }
     }
 }
@@ -641,9 +641,12 @@ impl Device {
     #[doc(alias = "vkDeviceWaitIdle")]
     #[inline(always)]
     pub unsafe fn device_wait_idle(&self) -> ResultCode {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkDeviceWaitIdle as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_DeviceWaitIdle>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_DeviceWaitIdle>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDeviceWaitIdle as usize,
+            ))
+        };
         unsafe { (command)(self.handle) }
     }
 }
@@ -678,9 +681,12 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_memory: *mut DeviceMemory,
     ) -> ResultCode {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkAllocateMemory as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_AllocateMemory>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_AllocateMemory>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkAllocateMemory as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_allocate_info, p_allocator, p_memory) }
     }
 }
@@ -701,9 +707,12 @@ impl Device {
         memory: DeviceMemory,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkFreeMemory as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_FreeMemory>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_FreeMemory>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkFreeMemory as usize,
+            ))
+        };
         unsafe { (command)(self.handle, memory, p_allocator) }
     }
 }
@@ -741,9 +750,12 @@ impl Device {
         flags: MemoryMapFlags,
         pp_data: *mut *mut c_void,
     ) -> ResultCode {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkMapMemory as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_MapMemory>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_MapMemory>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkMapMemory as usize,
+            ))
+        };
         unsafe { (command)(self.handle, memory, offset, size, flags, pp_data) }
     }
 }
@@ -755,9 +767,12 @@ impl Device {
     #[doc(alias = "vkUnmapMemory")]
     #[inline(always)]
     pub unsafe fn unmap_memory(&self, memory: DeviceMemory) {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkUnmapMemory as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_UnmapMemory>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_UnmapMemory>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkUnmapMemory as usize,
+            ))
+        };
         unsafe { (command)(self.handle, memory) }
     }
 }
@@ -782,13 +797,12 @@ impl Device {
         memory_range_count: u32,
         p_memory_ranges: *const MappedMemoryRange,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkFlushMappedMemoryRanges as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_FlushMappedMemoryRanges>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_FlushMappedMemoryRanges>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkFlushMappedMemoryRanges as usize,
+            ))
+        };
         unsafe { (command)(self.handle, memory_range_count, p_memory_ranges) }
     }
 }
@@ -813,13 +827,11 @@ impl Device {
         memory_range_count: u32,
         p_memory_ranges: *const MappedMemoryRange,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkInvalidateMappedMemoryRanges as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_InvalidateMappedMemoryRanges>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_InvalidateMappedMemoryRanges>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkInvalidateMappedMemoryRanges as usize,
+            ))
         };
         unsafe { (command)(self.handle, memory_range_count, p_memory_ranges) }
     }
@@ -837,13 +849,11 @@ impl Device {
         memory: DeviceMemory,
         p_committed_memory_in_bytes: *mut DeviceSize,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDeviceMemoryCommitment as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceMemoryCommitment>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceMemoryCommitment>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetDeviceMemoryCommitment as usize,
+            ))
         };
         unsafe { (command)(self.handle, memory, p_committed_memory_in_bytes) }
     }
@@ -871,13 +881,12 @@ impl Device {
         memory: DeviceMemory,
         memory_offset: DeviceSize,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkBindBufferMemory as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_BindBufferMemory>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_BindBufferMemory>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkBindBufferMemory as usize,
+            ))
+        };
         unsafe { (command)(self.handle, buffer, memory, memory_offset) }
     }
 }
@@ -903,13 +912,12 @@ impl Device {
         memory: DeviceMemory,
         memory_offset: DeviceSize,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkBindImageMemory as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_BindImageMemory>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_BindImageMemory>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkBindImageMemory as usize,
+            ))
+        };
         unsafe { (command)(self.handle, image, memory, memory_offset) }
     }
 }
@@ -926,13 +934,11 @@ impl Device {
         buffer: Buffer,
         p_memory_requirements: *mut MemoryRequirements,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetBufferMemoryRequirements as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetBufferMemoryRequirements>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetBufferMemoryRequirements>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetBufferMemoryRequirements as usize,
+            ))
         };
         unsafe { (command)(self.handle, buffer, p_memory_requirements) }
     }
@@ -950,13 +956,11 @@ impl Device {
         image: Image,
         p_memory_requirements: *mut MemoryRequirements,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetImageMemoryRequirements as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetImageMemoryRequirements>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetImageMemoryRequirements>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetImageMemoryRequirements as usize,
+            ))
         };
         unsafe { (command)(self.handle, image, p_memory_requirements) }
     }
@@ -978,13 +982,11 @@ impl Device {
         p_sparse_memory_requirement_count: *mut u32,
         p_sparse_memory_requirements: *mut SparseImageMemoryRequirements,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetImageSparseMemoryRequirements as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetImageSparseMemoryRequirements>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetImageSparseMemoryRequirements>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetImageSparseMemoryRequirements as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -1025,14 +1027,12 @@ impl PhysicalDevice {
         p_property_count: *mut u32,
         p_properties: *mut SparseImageFormatProperties,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceSparseImageFormatProperties as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceSparseImageFormatProperties>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceSparseImageFormatProperties as usize,
+                ),
             )
         };
         unsafe {
@@ -1079,13 +1079,12 @@ impl Queue {
         p_bind_info: *const BindSparseInfo,
         fence: Fence,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkQueueBindSparse as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_QueueBindSparse>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_QueueBindSparse>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkQueueBindSparse as usize,
+            ))
+        };
         unsafe { (command)(self.handle, bind_info_count, p_bind_info, fence) }
     }
 }
@@ -1118,9 +1117,12 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_fence: *mut Fence,
     ) -> ResultCode {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkCreateFence as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateFence>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateFence>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateFence as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_fence) }
     }
 }
@@ -1137,9 +1139,12 @@ impl Device {
     #[doc(alias = "vkDestroyFence")]
     #[inline(always)]
     pub unsafe fn destroy_fence(&self, fence: Fence, p_allocator: *const AllocationCallbacks) {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkDestroyFence as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_DestroyFence>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyFence>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyFence as usize,
+            ))
+        };
         unsafe { (command)(self.handle, fence, p_allocator) }
     }
 }
@@ -1159,9 +1164,12 @@ impl Device {
     #[doc(alias = "vkResetFences")]
     #[inline(always)]
     pub unsafe fn reset_fences(&self, fence_count: u32, p_fences: *const Fence) -> ResultCode {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkResetFences as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_ResetFences>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_ResetFences>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkResetFences as usize,
+            ))
+        };
         unsafe { (command)(self.handle, fence_count, p_fences) }
     }
 }
@@ -1183,9 +1191,12 @@ impl Device {
     #[doc(alias = "vkGetFenceStatus")]
     #[inline(always)]
     pub unsafe fn get_fence_status(&self, fence: Fence) -> ResultCode {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkGetFenceStatus as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetFenceStatus>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetFenceStatus>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetFenceStatus as usize,
+            ))
+        };
         unsafe { (command)(self.handle, fence) }
     }
 }
@@ -1214,9 +1225,12 @@ impl Device {
         wait_all: Bool32,
         timeout: u64,
     ) -> ResultCode {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkWaitForFences as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_WaitForFences>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_WaitForFences>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkWaitForFences as usize,
+            ))
+        };
         unsafe { (command)(self.handle, fence_count, p_fences, wait_all, timeout) }
     }
 }
@@ -1249,13 +1263,12 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_semaphore: *mut Semaphore,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateSemaphore as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateSemaphore>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateSemaphore>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateSemaphore as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_semaphore) }
     }
 }
@@ -1276,13 +1289,12 @@ impl Device {
         semaphore: Semaphore,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroySemaphore as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_DestroySemaphore>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_DestroySemaphore>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroySemaphore as usize,
+            ))
+        };
         unsafe { (command)(self.handle, semaphore, p_allocator) }
     }
 }
@@ -1315,13 +1327,12 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_query_pool: *mut QueryPool,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateQueryPool as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateQueryPool>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateQueryPool>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateQueryPool as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_query_pool) }
     }
 }
@@ -1342,13 +1353,12 @@ impl Device {
         query_pool: QueryPool,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroyQueryPool as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_DestroyQueryPool>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyQueryPool>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyQueryPool as usize,
+            ))
+        };
         unsafe { (command)(self.handle, query_pool, p_allocator) }
     }
 }
@@ -1391,13 +1401,12 @@ impl Device {
         stride: DeviceSize,
         flags: QueryResultFlags,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetQueryPoolResults as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetQueryPoolResults>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetQueryPoolResults>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetQueryPoolResults as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -1442,9 +1451,12 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_buffer: *mut Buffer,
     ) -> ResultCode {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkCreateBuffer as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateBuffer>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateBuffer>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateBuffer as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_buffer) }
     }
 }
@@ -1461,9 +1473,12 @@ impl Device {
     #[doc(alias = "vkDestroyBuffer")]
     #[inline(always)]
     pub unsafe fn destroy_buffer(&self, buffer: Buffer, p_allocator: *const AllocationCallbacks) {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkDestroyBuffer as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_DestroyBuffer>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyBuffer>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyBuffer as usize,
+            ))
+        };
         unsafe { (command)(self.handle, buffer, p_allocator) }
     }
 }
@@ -1498,9 +1513,12 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_image: *mut Image,
     ) -> ResultCode {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkCreateImage as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateImage>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateImage>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateImage as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_image) }
     }
 }
@@ -1517,9 +1535,12 @@ impl Device {
     #[doc(alias = "vkDestroyImage")]
     #[inline(always)]
     pub unsafe fn destroy_image(&self, image: Image, p_allocator: *const AllocationCallbacks) {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkDestroyImage as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_DestroyImage>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyImage>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyImage as usize,
+            ))
+        };
         unsafe { (command)(self.handle, image, p_allocator) }
     }
 }
@@ -1537,13 +1558,11 @@ impl Device {
         p_subresource: *const ImageSubresource,
         p_layout: *mut SubresourceLayout,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetImageSubresourceLayout as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetImageSubresourceLayout>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetImageSubresourceLayout>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetImageSubresourceLayout as usize,
+            ))
         };
         unsafe { (command)(self.handle, image, p_subresource, p_layout) }
     }
@@ -1578,13 +1597,12 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_view: *mut ImageView,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateImageView as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateImageView>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateImageView>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateImageView as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_view) }
     }
 }
@@ -1605,13 +1623,12 @@ impl Device {
         image_view: ImageView,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroyImageView as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_DestroyImageView>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyImageView>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyImageView as usize,
+            ))
+        };
         unsafe { (command)(self.handle, image_view, p_allocator) }
     }
 }
@@ -1644,13 +1661,12 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_command_pool: *mut CommandPool,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateCommandPool as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateCommandPool>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateCommandPool>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateCommandPool as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_command_pool) }
     }
 }
@@ -1671,13 +1687,12 @@ impl Device {
         command_pool: CommandPool,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroyCommandPool as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_DestroyCommandPool>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyCommandPool>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyCommandPool as usize,
+            ))
+        };
         unsafe { (command)(self.handle, command_pool, p_allocator) }
     }
 }
@@ -1704,13 +1719,12 @@ impl Device {
         command_pool: CommandPool,
         flags: CommandPoolResetFlags,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkResetCommandPool as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_ResetCommandPool>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_ResetCommandPool>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkResetCommandPool as usize,
+            ))
+        };
         unsafe { (command)(self.handle, command_pool, flags) }
     }
 }
@@ -1738,13 +1752,12 @@ impl Device {
         p_allocate_info: *const CommandBufferAllocateInfo,
         p_command_buffers: *mut CommandBufferHandle,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkAllocateCommandBuffers as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_AllocateCommandBuffers>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_AllocateCommandBuffers>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkAllocateCommandBuffers as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_allocate_info, p_command_buffers) }
     }
 }
@@ -1762,13 +1775,12 @@ impl Device {
         command_buffer_count: u32,
         p_command_buffers: *const CommandBufferHandle,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkFreeCommandBuffers as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_FreeCommandBuffers>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_FreeCommandBuffers>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkFreeCommandBuffers as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -1796,13 +1808,12 @@ impl CommandBuffer {
     #[doc(alias = "vkBeginCommandBuffer")]
     #[inline(always)]
     pub unsafe fn begin(&self, p_begin_info: *const CommandBufferBeginInfo) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkBeginCommandBuffer as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_BeginCommandBuffer>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_BeginCommandBuffer>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkBeginCommandBuffer as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_begin_info) }
     }
 }
@@ -1823,13 +1834,12 @@ impl CommandBuffer {
     #[doc(alias = "vkEndCommandBuffer")]
     #[inline(always)]
     pub unsafe fn end(&self) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkEndCommandBuffer as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_EndCommandBuffer>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_EndCommandBuffer>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkEndCommandBuffer as usize,
+            ))
+        };
         unsafe { (command)(self.handle) }
     }
 }
@@ -1852,13 +1862,12 @@ impl CommandBuffer {
     #[doc(alias = "vkResetCommandBuffer")]
     #[inline(always)]
     pub unsafe fn reset(&self, flags: CommandBufferResetFlags) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkResetCommandBuffer as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_ResetCommandBuffer>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_ResetCommandBuffer>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkResetCommandBuffer as usize,
+            ))
+        };
         unsafe { (command)(self.handle, flags) }
     }
 }
@@ -1889,9 +1898,12 @@ impl CommandBuffer {
         region_count: u32,
         p_regions: *const BufferCopy,
     ) {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkCmdCopyBuffer as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdCopyBuffer>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyBuffer>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdCopyBuffer as usize,
+            ))
+        };
         unsafe { (command)(self.handle, src_buffer, dst_buffer, region_count, p_regions) }
     }
 }
@@ -1931,9 +1943,12 @@ impl CommandBuffer {
         region_count: u32,
         p_regions: *const ImageCopy,
     ) {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkCmdCopyImage as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdCopyImage>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyImage>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdCopyImage as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -1981,13 +1996,12 @@ impl CommandBuffer {
         region_count: u32,
         p_regions: *const BufferImageCopy,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdCopyBufferToImage as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdCopyBufferToImage>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyBufferToImage>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdCopyBufferToImage as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -2034,13 +2048,12 @@ impl CommandBuffer {
         region_count: u32,
         p_regions: *const BufferImageCopy,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdCopyImageToBuffer as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdCopyImageToBuffer>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyImageToBuffer>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdCopyImageToBuffer as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -2080,13 +2093,12 @@ impl CommandBuffer {
         data_size: DeviceSize,
         p_data: *const c_void,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdUpdateBuffer as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdUpdateBuffer>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdUpdateBuffer>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdUpdateBuffer as usize,
+            ))
+        };
         unsafe { (command)(self.handle, dst_buffer, dst_offset, data_size, p_data) }
     }
 }
@@ -2117,9 +2129,12 @@ impl CommandBuffer {
         size: DeviceSize,
         data: u32,
     ) {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkCmdFillBuffer as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdFillBuffer>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdFillBuffer>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdFillBuffer as usize,
+            ))
+        };
         unsafe { (command)(self.handle, dst_buffer, dst_offset, size, data) }
     }
 }
@@ -2175,13 +2190,12 @@ impl CommandBuffer {
         image_memory_barrier_count: u32,
         p_image_memory_barriers: *const ImageMemoryBarrier,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdPipelineBarrier as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdPipelineBarrier>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdPipelineBarrier>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdPipelineBarrier as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -2229,9 +2243,12 @@ impl CommandBuffer {
         query: u32,
         flags: QueryControlFlags,
     ) {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkCmdBeginQuery as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdBeginQuery>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBeginQuery>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdBeginQuery as usize,
+            ))
+        };
         unsafe { (command)(self.handle, query_pool, query, flags) }
     }
 }
@@ -2257,9 +2274,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdEndQuery")]
     #[inline(always)]
     pub unsafe fn cmd_end_query(&self, query_pool: QueryPool, query: u32) {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkCmdEndQuery as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdEndQuery>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdEndQuery>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdEndQuery as usize,
+            ))
+        };
         unsafe { (command)(self.handle, query_pool, query) }
     }
 }
@@ -2291,13 +2311,12 @@ impl CommandBuffer {
         first_query: u32,
         query_count: u32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdResetQueryPool as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdResetQueryPool>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdResetQueryPool>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdResetQueryPool as usize,
+            ))
+        };
         unsafe { (command)(self.handle, query_pool, first_query, query_count) }
     }
 }
@@ -2330,13 +2349,12 @@ impl CommandBuffer {
         query_pool: QueryPool,
         query: u32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdWriteTimestamp as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdWriteTimestamp>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdWriteTimestamp>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdWriteTimestamp as usize,
+            ))
+        };
         unsafe { (command)(self.handle, pipeline_stage, query_pool, query) }
     }
 }
@@ -2380,13 +2398,12 @@ impl CommandBuffer {
         stride: DeviceSize,
         flags: QueryResultFlags,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdCopyQueryPoolResults as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdCopyQueryPoolResults>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyQueryPoolResults>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdCopyQueryPoolResults as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -2426,13 +2443,12 @@ impl CommandBuffer {
         command_buffer_count: u32,
         p_command_buffers: *const CommandBufferHandle,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdExecuteCommands as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdExecuteCommands>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdExecuteCommands>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdExecuteCommands as usize,
+            ))
+        };
         unsafe { (command)(self.handle, command_buffer_count, p_command_buffers) }
     }
 }
@@ -2465,9 +2481,12 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_event: *mut Event,
     ) -> ResultCode {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkCreateEvent as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateEvent>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateEvent>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateEvent as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_event) }
     }
 }
@@ -2484,9 +2503,12 @@ impl Device {
     #[doc(alias = "vkDestroyEvent")]
     #[inline(always)]
     pub unsafe fn destroy_event(&self, event: Event, p_allocator: *const AllocationCallbacks) {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkDestroyEvent as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_DestroyEvent>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyEvent>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyEvent as usize,
+            ))
+        };
         unsafe { (command)(self.handle, event, p_allocator) }
     }
 }
@@ -2508,9 +2530,12 @@ impl Device {
     #[doc(alias = "vkGetEventStatus")]
     #[inline(always)]
     pub unsafe fn get_event_status(&self, event: Event) -> ResultCode {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkGetEventStatus as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetEventStatus>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetEventStatus>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetEventStatus as usize,
+            ))
+        };
         unsafe { (command)(self.handle, event) }
     }
 }
@@ -2530,9 +2555,12 @@ impl Device {
     #[doc(alias = "vkSetEvent")]
     #[inline(always)]
     pub unsafe fn set_event(&self, event: Event) -> ResultCode {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkSetEvent as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_SetEvent>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_SetEvent>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkSetEvent as usize,
+            ))
+        };
         unsafe { (command)(self.handle, event) }
     }
 }
@@ -2551,9 +2579,12 @@ impl Device {
     #[doc(alias = "vkResetEvent")]
     #[inline(always)]
     pub unsafe fn reset_event(&self, event: Event) -> ResultCode {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkResetEvent as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_ResetEvent>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_ResetEvent>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkResetEvent as usize,
+            ))
+        };
         unsafe { (command)(self.handle, event) }
     }
 }
@@ -2586,13 +2617,12 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_view: *mut BufferView,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateBufferView as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateBufferView>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateBufferView>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateBufferView as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_view) }
     }
 }
@@ -2613,13 +2643,12 @@ impl Device {
         buffer_view: BufferView,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroyBufferView as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_DestroyBufferView>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyBufferView>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyBufferView as usize,
+            ))
+        };
         unsafe { (command)(self.handle, buffer_view, p_allocator) }
     }
 }
@@ -2653,13 +2682,12 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_shader_module: *mut ShaderModule,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateShaderModule as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateShaderModule>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateShaderModule>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateShaderModule as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_shader_module) }
     }
 }
@@ -2680,13 +2708,12 @@ impl Device {
         shader_module: ShaderModule,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroyShaderModule as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_DestroyShaderModule>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyShaderModule>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyShaderModule as usize,
+            ))
+        };
         unsafe { (command)(self.handle, shader_module, p_allocator) }
     }
 }
@@ -2719,13 +2746,12 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_pipeline_cache: *mut PipelineCache,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreatePipelineCache as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreatePipelineCache>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreatePipelineCache>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreatePipelineCache as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_pipeline_cache) }
     }
 }
@@ -2746,13 +2772,12 @@ impl Device {
         pipeline_cache: PipelineCache,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroyPipelineCache as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_DestroyPipelineCache>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyPipelineCache>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyPipelineCache as usize,
+            ))
+        };
         unsafe { (command)(self.handle, pipeline_cache, p_allocator) }
     }
 }
@@ -2782,13 +2807,12 @@ impl Device {
         p_data_size: *mut usize,
         p_data: *mut c_void,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPipelineCacheData as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetPipelineCacheData>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetPipelineCacheData>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetPipelineCacheData as usize,
+            ))
+        };
         unsafe { (command)(self.handle, pipeline_cache, p_data_size, p_data) }
     }
 }
@@ -2814,13 +2838,12 @@ impl Device {
         src_cache_count: u32,
         p_src_caches: *const PipelineCache,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkMergePipelineCaches as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_MergePipelineCaches>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_MergePipelineCaches>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkMergePipelineCaches as usize,
+            ))
+        };
         unsafe { (command)(self.handle, dst_cache, src_cache_count, p_src_caches) }
     }
 }
@@ -2860,13 +2883,12 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_pipelines: *mut Pipeline,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateComputePipelines as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateComputePipelines>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateComputePipelines>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateComputePipelines as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -2896,13 +2918,12 @@ impl Device {
         pipeline: Pipeline,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroyPipeline as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_DestroyPipeline>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyPipeline>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyPipeline as usize,
+            ))
+        };
         unsafe { (command)(self.handle, pipeline, p_allocator) }
     }
 }
@@ -2935,13 +2956,12 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_pipeline_layout: *mut PipelineLayout,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreatePipelineLayout as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreatePipelineLayout>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreatePipelineLayout>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreatePipelineLayout as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_pipeline_layout) }
     }
 }
@@ -2962,13 +2982,12 @@ impl Device {
         pipeline_layout: PipelineLayout,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroyPipelineLayout as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_DestroyPipelineLayout>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyPipelineLayout>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyPipelineLayout as usize,
+            ))
+        };
         unsafe { (command)(self.handle, pipeline_layout, p_allocator) }
     }
 }
@@ -3002,9 +3021,12 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_sampler: *mut Sampler,
     ) -> ResultCode {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkCreateSampler as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateSampler>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateSampler>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateSampler as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_sampler) }
     }
 }
@@ -3025,9 +3047,12 @@ impl Device {
         sampler: Sampler,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkDestroySampler as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_DestroySampler>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_DestroySampler>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroySampler as usize,
+            ))
+        };
         unsafe { (command)(self.handle, sampler, p_allocator) }
     }
 }
@@ -3060,13 +3085,11 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_set_layout: *mut DescriptorSetLayout,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateDescriptorSetLayout as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateDescriptorSetLayout>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CreateDescriptorSetLayout>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateDescriptorSetLayout as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_set_layout) }
     }
@@ -3088,13 +3111,11 @@ impl Device {
         descriptor_set_layout: DescriptorSetLayout,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroyDescriptorSetLayout as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyDescriptorSetLayout>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyDescriptorSetLayout>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyDescriptorSetLayout as usize,
+            ))
         };
         unsafe { (command)(self.handle, descriptor_set_layout, p_allocator) }
     }
@@ -3129,13 +3150,12 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_descriptor_pool: *mut DescriptorPool,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateDescriptorPool as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateDescriptorPool>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateDescriptorPool>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateDescriptorPool as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_descriptor_pool) }
     }
 }
@@ -3156,13 +3176,12 @@ impl Device {
         descriptor_pool: DescriptorPool,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroyDescriptorPool as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_DestroyDescriptorPool>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyDescriptorPool>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyDescriptorPool as usize,
+            ))
+        };
         unsafe { (command)(self.handle, descriptor_pool, p_allocator) }
     }
 }
@@ -3188,13 +3207,12 @@ impl Device {
         descriptor_pool: DescriptorPool,
         flags: DescriptorPoolResetFlags,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkResetDescriptorPool as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_ResetDescriptorPool>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_ResetDescriptorPool>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkResetDescriptorPool as usize,
+            ))
+        };
         unsafe { (command)(self.handle, descriptor_pool, flags) }
     }
 }
@@ -3224,13 +3242,12 @@ impl Device {
         p_allocate_info: *const DescriptorSetAllocateInfo,
         p_descriptor_sets: *mut DescriptorSet,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkAllocateDescriptorSets as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_AllocateDescriptorSets>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_AllocateDescriptorSets>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkAllocateDescriptorSets as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_allocate_info, p_descriptor_sets) }
     }
 }
@@ -3254,13 +3271,12 @@ impl Device {
         descriptor_set_count: u32,
         p_descriptor_sets: *const DescriptorSet,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkFreeDescriptorSets as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_FreeDescriptorSets>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_FreeDescriptorSets>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkFreeDescriptorSets as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -3295,13 +3311,12 @@ impl Device {
         descriptor_copy_count: u32,
         p_descriptor_copies: *const CopyDescriptorSet,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkUpdateDescriptorSets as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_UpdateDescriptorSets>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_UpdateDescriptorSets>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkUpdateDescriptorSets as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -3338,13 +3353,12 @@ impl CommandBuffer {
         pipeline_bind_point: PipelineBindPoint,
         pipeline: Pipeline,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBindPipeline as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdBindPipeline>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBindPipeline>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdBindPipeline as usize,
+            ))
+        };
         unsafe { (command)(self.handle, pipeline_bind_point, pipeline) }
     }
 }
@@ -3389,13 +3403,12 @@ impl CommandBuffer {
         dynamic_offset_count: u32,
         p_dynamic_offsets: *const u32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBindDescriptorSets as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdBindDescriptorSets>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBindDescriptorSets>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdBindDescriptorSets as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -3443,13 +3456,12 @@ impl CommandBuffer {
         range_count: u32,
         p_ranges: *const ImageSubresourceRange,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdClearColorImage as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdClearColorImage>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdClearColorImage>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdClearColorImage as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -3480,9 +3492,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDispatch")]
     #[inline(always)]
     pub unsafe fn cmd_dispatch(&self, group_count_x: u32, group_count_y: u32, group_count_z: u32) {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkCmdDispatch as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdDispatch>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDispatch>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdDispatch as usize,
+            ))
+        };
         unsafe { (command)(self.handle, group_count_x, group_count_y, group_count_z) }
     }
 }
@@ -3505,13 +3520,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDispatchIndirect")]
     #[inline(always)]
     pub unsafe fn cmd_dispatch_indirect(&self, buffer: Buffer, offset: DeviceSize) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdDispatchIndirect as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdDispatchIndirect>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDispatchIndirect>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdDispatchIndirect as usize,
+            ))
+        };
         unsafe { (command)(self.handle, buffer, offset) }
     }
 }
@@ -3540,9 +3554,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetEvent")]
     #[inline(always)]
     pub unsafe fn cmd_set_event(&self, event: Event, stage_mask: PipelineStageFlags) {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkCmdSetEvent as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetEvent>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetEvent>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetEvent as usize,
+            ))
+        };
         unsafe { (command)(self.handle, event, stage_mask) }
     }
 }
@@ -3571,9 +3588,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdResetEvent")]
     #[inline(always)]
     pub unsafe fn cmd_reset_event(&self, event: Event, stage_mask: PipelineStageFlags) {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkCmdResetEvent as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdResetEvent>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdResetEvent>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdResetEvent as usize,
+            ))
+        };
         unsafe { (command)(self.handle, event, stage_mask) }
     }
 }
@@ -3629,9 +3649,12 @@ impl CommandBuffer {
         image_memory_barrier_count: u32,
         p_image_memory_barriers: *const ImageMemoryBarrier,
     ) {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkCmdWaitEvents as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdWaitEvents>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdWaitEvents>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdWaitEvents as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -3682,13 +3705,12 @@ impl CommandBuffer {
         size: u32,
         p_values: *const c_void,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdPushConstants as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdPushConstants>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdPushConstants>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdPushConstants as usize,
+            ))
+        };
         unsafe { (command)(self.handle, layout, stage_flags, offset, size, p_values) }
     }
 }
@@ -3728,13 +3750,12 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_pipelines: *mut Pipeline,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateGraphicsPipelines as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateGraphicsPipelines>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateGraphicsPipelines>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateGraphicsPipelines as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -3776,13 +3797,12 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_framebuffer: *mut Framebuffer,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateFramebuffer as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateFramebuffer>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateFramebuffer>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateFramebuffer as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_framebuffer) }
     }
 }
@@ -3803,13 +3823,12 @@ impl Device {
         framebuffer: Framebuffer,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroyFramebuffer as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_DestroyFramebuffer>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyFramebuffer>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyFramebuffer as usize,
+            ))
+        };
         unsafe { (command)(self.handle, framebuffer, p_allocator) }
     }
 }
@@ -3842,13 +3861,12 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_render_pass: *mut RenderPass,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateRenderPass as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateRenderPass>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateRenderPass>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateRenderPass as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_render_pass) }
     }
 }
@@ -3869,13 +3887,12 @@ impl Device {
         render_pass: RenderPass,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroyRenderPass as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_DestroyRenderPass>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyRenderPass>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyRenderPass as usize,
+            ))
+        };
         unsafe { (command)(self.handle, render_pass, p_allocator) }
     }
 }
@@ -3892,13 +3909,12 @@ impl Device {
         render_pass: RenderPass,
         p_granularity: *mut Extent2D,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetRenderAreaGranularity as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetRenderAreaGranularity>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetRenderAreaGranularity>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetRenderAreaGranularity as usize,
+            ))
+        };
         unsafe { (command)(self.handle, render_pass, p_granularity) }
     }
 }
@@ -3926,9 +3942,12 @@ impl CommandBuffer {
         viewport_count: u32,
         p_viewports: *const Viewport,
     ) {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkCmdSetViewport as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetViewport>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetViewport>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetViewport as usize,
+            ))
+        };
         unsafe { (command)(self.handle, first_viewport, viewport_count, p_viewports) }
     }
 }
@@ -3956,9 +3975,12 @@ impl CommandBuffer {
         scissor_count: u32,
         p_scissors: *const Rect2D,
     ) {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkCmdSetScissor as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetScissor>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetScissor>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetScissor as usize,
+            ))
+        };
         unsafe { (command)(self.handle, first_scissor, scissor_count, p_scissors) }
     }
 }
@@ -3980,13 +4002,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetLineWidth")]
     #[inline(always)]
     pub unsafe fn cmd_set_line_width(&self, line_width: f32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetLineWidth as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetLineWidth>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetLineWidth>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetLineWidth as usize,
+            ))
+        };
         unsafe { (command)(self.handle, line_width) }
     }
 }
@@ -4013,13 +4034,12 @@ impl CommandBuffer {
         depth_bias_clamp: f32,
         depth_bias_slope_factor: f32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetDepthBias as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthBias>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthBias>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetDepthBias as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -4049,13 +4069,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetBlendConstants")]
     #[inline(always)]
     pub unsafe fn cmd_set_blend_constants(&self, blend_constants: *const [f32; 4 as usize]) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetBlendConstants as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetBlendConstants>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetBlendConstants>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetBlendConstants as usize,
+            ))
+        };
         unsafe { (command)(self.handle, blend_constants) }
     }
 }
@@ -4077,13 +4096,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetDepthBounds")]
     #[inline(always)]
     pub unsafe fn cmd_set_depth_bounds(&self, min_depth_bounds: f32, max_depth_bounds: f32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetDepthBounds as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthBounds>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthBounds>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetDepthBounds as usize,
+            ))
+        };
         unsafe { (command)(self.handle, min_depth_bounds, max_depth_bounds) }
     }
 }
@@ -4110,13 +4128,12 @@ impl CommandBuffer {
         face_mask: StencilFaceFlags,
         compare_mask: u32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetStencilCompareMask as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetStencilCompareMask>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetStencilCompareMask>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetStencilCompareMask as usize,
+            ))
+        };
         unsafe { (command)(self.handle, face_mask, compare_mask) }
     }
 }
@@ -4139,13 +4156,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetStencilWriteMask")]
     #[inline(always)]
     pub unsafe fn cmd_set_stencil_write_mask(&self, face_mask: StencilFaceFlags, write_mask: u32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetStencilWriteMask as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetStencilWriteMask>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetStencilWriteMask>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetStencilWriteMask as usize,
+            ))
+        };
         unsafe { (command)(self.handle, face_mask, write_mask) }
     }
 }
@@ -4168,13 +4184,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetStencilReference")]
     #[inline(always)]
     pub unsafe fn cmd_set_stencil_reference(&self, face_mask: StencilFaceFlags, reference: u32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetStencilReference as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetStencilReference>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetStencilReference>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetStencilReference as usize,
+            ))
+        };
         unsafe { (command)(self.handle, face_mask, reference) }
     }
 }
@@ -4205,13 +4220,12 @@ impl CommandBuffer {
         offset: DeviceSize,
         index_type: IndexType,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBindIndexBuffer as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdBindIndexBuffer>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBindIndexBuffer>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdBindIndexBuffer as usize,
+            ))
+        };
         unsafe { (command)(self.handle, buffer, offset, index_type) }
     }
 }
@@ -4240,13 +4254,12 @@ impl CommandBuffer {
         p_buffers: *const Buffer,
         p_offsets: *const DeviceSize,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBindVertexBuffers as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdBindVertexBuffers>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBindVertexBuffers>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdBindVertexBuffers as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -4282,9 +4295,12 @@ impl CommandBuffer {
         first_vertex: u32,
         first_instance: u32,
     ) {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkCmdDraw as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdDraw>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDraw>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdDraw as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -4322,9 +4338,12 @@ impl CommandBuffer {
         vertex_offset: i32,
         first_instance: u32,
     ) {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkCmdDrawIndexed as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndexed>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndexed>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdDrawIndexed as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -4362,13 +4381,12 @@ impl CommandBuffer {
         draw_count: u32,
         stride: u32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdDrawIndirect as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndirect>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndirect>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdDrawIndirect as usize,
+            ))
+        };
         unsafe { (command)(self.handle, buffer, offset, draw_count, stride) }
     }
 }
@@ -4397,13 +4415,12 @@ impl CommandBuffer {
         draw_count: u32,
         stride: u32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdDrawIndexedIndirect as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndexedIndirect>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndexedIndirect>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdDrawIndexedIndirect as usize,
+            ))
+        };
         unsafe { (command)(self.handle, buffer, offset, draw_count, stride) }
     }
 }
@@ -4443,9 +4460,12 @@ impl CommandBuffer {
         p_regions: *const ImageBlit,
         filter: Filter,
     ) {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkCmdBlitImage as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdBlitImage>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBlitImage>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdBlitImage as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -4492,13 +4512,11 @@ impl CommandBuffer {
         range_count: u32,
         p_ranges: *const ImageSubresourceRange,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdClearDepthStencilImage as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdClearDepthStencilImage>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdClearDepthStencilImage>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdClearDepthStencilImage as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -4537,13 +4555,12 @@ impl CommandBuffer {
         rect_count: u32,
         p_rects: *const ClearRect,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdClearAttachments as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdClearAttachments>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdClearAttachments>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdClearAttachments as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -4589,13 +4606,12 @@ impl CommandBuffer {
         region_count: u32,
         p_regions: *const ImageResolve,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdResolveImage as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdResolveImage>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdResolveImage>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdResolveImage as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -4633,13 +4649,12 @@ impl CommandBuffer {
         p_render_pass_begin: *const RenderPassBeginInfo,
         contents: SubpassContents,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBeginRenderPass as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdBeginRenderPass>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBeginRenderPass>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdBeginRenderPass as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_render_pass_begin, contents) }
     }
 }
@@ -4662,9 +4677,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdNextSubpass")]
     #[inline(always)]
     pub unsafe fn cmd_next_subpass(&self, contents: SubpassContents) {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkCmdNextSubpass as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdNextSubpass>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdNextSubpass>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdNextSubpass as usize,
+            ))
+        };
         unsafe { (command)(self.handle, contents) }
     }
 }
@@ -4687,13 +4705,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdEndRenderPass")]
     #[inline(always)]
     pub unsafe fn cmd_end_render_pass(&self) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdEndRenderPass as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdEndRenderPass>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdEndRenderPass>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdEndRenderPass as usize,
+            ))
+        };
         unsafe { (command)(self.handle) }
     }
 }
@@ -4721,13 +4738,12 @@ pub unsafe fn enumerate_instance_version(p_api_version: *mut u32) -> ResultCode 
         .get()
         .expect("vkx setup should have been run")
         .commands;
-    let command = vtable_get(
-        &commands,
-        GlobalCommands::vkEnumerateInstanceVersion as usize,
-    )
-    .expect("command should not be null");
-    let command =
-        unsafe { std::mem::transmute::<vkVoidFunction, FUN_EnumerateInstanceVersion>(command) };
+    let command = unsafe {
+        std::mem::transmute::<vkVoidFunction, FUN_EnumerateInstanceVersion>(vtable_get(
+            &commands,
+            GlobalCommands::vkEnumerateInstanceVersion as usize,
+        ))
+    };
     unsafe { (command)(p_api_version) }
 }
 
@@ -4758,13 +4774,12 @@ impl Device {
         bind_info_count: u32,
         p_bind_infos: *const BindBufferMemoryInfo,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkBindBufferMemory2 as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_BindBufferMemory2>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_BindBufferMemory2>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkBindBufferMemory2 as usize,
+            ))
+        };
         unsafe { (command)(self.handle, bind_info_count, p_bind_infos) }
     }
 }
@@ -4795,13 +4810,12 @@ impl Device {
         bind_info_count: u32,
         p_bind_infos: *const BindImageMemoryInfo,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkBindImageMemory2 as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_BindImageMemory2>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_BindImageMemory2>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkBindImageMemory2 as usize,
+            ))
+        };
         unsafe { (command)(self.handle, bind_info_count, p_bind_infos) }
     }
 }
@@ -4826,13 +4840,11 @@ impl Device {
         remote_device_index: u32,
         p_peer_memory_features: *mut PeerMemoryFeatureFlags,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDeviceGroupPeerMemoryFeatures as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceGroupPeerMemoryFeatures>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceGroupPeerMemoryFeatures>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetDeviceGroupPeerMemoryFeatures as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -4871,13 +4883,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetDeviceMask")]
     #[inline(always)]
     pub unsafe fn cmd_set_device_mask(&self, device_mask: u32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetDeviceMask as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetDeviceMask>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDeviceMask>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetDeviceMask as usize,
+            ))
+        };
         unsafe { (command)(self.handle, device_mask) }
     }
 }
@@ -4916,13 +4927,11 @@ impl Instance {
         p_physical_device_group_count: *mut u32,
         p_physical_device_group_properties: *mut PhysicalDeviceGroupProperties,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkEnumeratePhysicalDeviceGroups as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_EnumeratePhysicalDeviceGroups>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_EnumeratePhysicalDeviceGroups>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkEnumeratePhysicalDeviceGroups as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -4955,13 +4964,11 @@ impl Device {
         p_info: *const ImageMemoryRequirementsInfo2,
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetImageMemoryRequirements2 as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetImageMemoryRequirements2>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetImageMemoryRequirements2>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetImageMemoryRequirements2 as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_info, p_memory_requirements) }
     }
@@ -4988,13 +4995,11 @@ impl Device {
         p_info: *const BufferMemoryRequirementsInfo2,
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetBufferMemoryRequirements2 as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetBufferMemoryRequirements2>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetBufferMemoryRequirements2>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetBufferMemoryRequirements2 as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_info, p_memory_requirements) }
     }
@@ -5026,13 +5031,13 @@ impl Device {
         p_sparse_memory_requirement_count: *mut u32,
         p_sparse_memory_requirements: *mut SparseImageMemoryRequirements2,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetImageSparseMemoryRequirements2 as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetImageSparseMemoryRequirements2>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetImageSparseMemoryRequirements2>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetImageSparseMemoryRequirements2 as usize,
+                ),
+            )
         };
         unsafe {
             (command)(
@@ -5059,13 +5064,11 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceFeatures2")]
     #[inline(always)]
     pub unsafe fn get_features_2(&self, p_features: *mut PhysicalDeviceFeatures2) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceFeatures2 as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceFeatures2>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceFeatures2>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetPhysicalDeviceFeatures2 as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_features) }
     }
@@ -5085,13 +5088,11 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceProperties2")]
     #[inline(always)]
     pub unsafe fn get_properties_2(&self, p_properties: *mut PhysicalDeviceProperties2) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceProperties2 as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceProperties2>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceProperties2>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetPhysicalDeviceProperties2 as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_properties) }
     }
@@ -5115,13 +5116,13 @@ impl PhysicalDevice {
         format: Format,
         p_format_properties: *mut FormatProperties2,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceFormatProperties2 as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceFormatProperties2>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceFormatProperties2>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceFormatProperties2 as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, format, p_format_properties) }
     }
@@ -5162,14 +5163,12 @@ impl PhysicalDevice {
         p_image_format_info: *const PhysicalDeviceImageFormatInfo2,
         p_image_format_properties: *mut ImageFormatProperties2,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceImageFormatProperties2 as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceImageFormatProperties2>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceImageFormatProperties2 as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, p_image_format_info, p_image_format_properties) }
@@ -5197,14 +5196,12 @@ impl PhysicalDevice {
         p_queue_family_property_count: *mut u32,
         p_queue_family_properties: *mut QueueFamilyProperties2,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceQueueFamilyProperties2 as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceQueueFamilyProperties2>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceQueueFamilyProperties2 as usize,
+                ),
             )
         };
         unsafe {
@@ -5234,13 +5231,13 @@ impl PhysicalDevice {
         &self,
         p_memory_properties: *mut PhysicalDeviceMemoryProperties2,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceMemoryProperties2 as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceMemoryProperties2>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceMemoryProperties2>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceMemoryProperties2 as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, p_memory_properties) }
     }
@@ -5272,14 +5269,12 @@ impl PhysicalDevice {
         p_property_count: *mut u32,
         p_properties: *mut SparseImageFormatProperties2,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceSparseImageFormatProperties2 as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceSparseImageFormatProperties2>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceSparseImageFormatProperties2 as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, p_format_info, p_property_count, p_properties) }
@@ -5303,13 +5298,12 @@ impl Device {
     #[doc(alias = "vkTrimCommandPool")]
     #[inline(always)]
     pub unsafe fn trim_command_pool(&self, command_pool: CommandPool, flags: CommandPoolTrimFlags) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkTrimCommandPool as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_TrimCommandPool>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_TrimCommandPool>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkTrimCommandPool as usize,
+            ))
+        };
         unsafe { (command)(self.handle, command_pool, flags) }
     }
 }
@@ -5332,13 +5326,12 @@ impl Device {
         p_queue_info: *const DeviceQueueInfo2,
         p_queue: *mut QueueHandle,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDeviceQueue2 as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetDeviceQueue2>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceQueue2>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetDeviceQueue2 as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_queue_info, p_queue) }
     }
 }
@@ -5364,14 +5357,12 @@ impl PhysicalDevice {
         p_external_buffer_info: *const PhysicalDeviceExternalBufferInfo,
         p_external_buffer_properties: *mut ExternalBufferProperties,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceExternalBufferProperties as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceExternalBufferProperties>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceExternalBufferProperties as usize,
+                ),
             )
         };
         unsafe {
@@ -5405,14 +5396,12 @@ impl PhysicalDevice {
         p_external_fence_info: *const PhysicalDeviceExternalFenceInfo,
         p_external_fence_properties: *mut ExternalFenceProperties,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceExternalFenceProperties as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceExternalFenceProperties>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceExternalFenceProperties as usize,
+                ),
             )
         };
         unsafe {
@@ -5446,14 +5435,12 @@ impl PhysicalDevice {
         p_external_semaphore_info: *const PhysicalDeviceExternalSemaphoreInfo,
         p_external_semaphore_properties: *mut ExternalSemaphoreProperties,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceExternalSemaphoreProperties as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceExternalSemaphoreProperties>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceExternalSemaphoreProperties as usize,
+                ),
             )
         };
         unsafe {
@@ -5498,13 +5485,12 @@ impl CommandBuffer {
         group_count_y: u32,
         group_count_z: u32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdDispatchBase as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdDispatchBase>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDispatchBase>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdDispatchBase as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -5553,13 +5539,11 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_descriptor_update_template: *mut DescriptorUpdateTemplate,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateDescriptorUpdateTemplate as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateDescriptorUpdateTemplate>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CreateDescriptorUpdateTemplate>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateDescriptorUpdateTemplate as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -5594,13 +5578,11 @@ impl Device {
         descriptor_update_template: DescriptorUpdateTemplate,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroyDescriptorUpdateTemplate as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyDescriptorUpdateTemplate>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyDescriptorUpdateTemplate>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyDescriptorUpdateTemplate as usize,
+            ))
         };
         unsafe { (command)(self.handle, descriptor_update_template, p_allocator) }
     }
@@ -5625,13 +5607,11 @@ impl Device {
         descriptor_update_template: DescriptorUpdateTemplate,
         p_data: *const c_void,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkUpdateDescriptorSetWithTemplate as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_UpdateDescriptorSetWithTemplate>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_UpdateDescriptorSetWithTemplate>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkUpdateDescriptorSetWithTemplate as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -5665,13 +5645,11 @@ impl Device {
         p_create_info: *const DescriptorSetLayoutCreateInfo,
         p_support: *mut DescriptorSetLayoutSupport,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDescriptorSetLayoutSupport as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDescriptorSetLayoutSupport>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetDescriptorSetLayoutSupport>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetDescriptorSetLayoutSupport as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_create_info, p_support) }
     }
@@ -5711,13 +5689,11 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_ycbcr_conversion: *mut SamplerYcbcrConversion,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateSamplerYcbcrConversion as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateSamplerYcbcrConversion>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CreateSamplerYcbcrConversion>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateSamplerYcbcrConversion as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_ycbcr_conversion) }
     }
@@ -5745,13 +5721,11 @@ impl Device {
         ycbcr_conversion: SamplerYcbcrConversion,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroySamplerYcbcrConversion as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroySamplerYcbcrConversion>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_DestroySamplerYcbcrConversion>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroySamplerYcbcrConversion as usize,
+            ))
         };
         unsafe { (command)(self.handle, ycbcr_conversion, p_allocator) }
     }
@@ -5775,9 +5749,12 @@ impl Device {
         first_query: u32,
         query_count: u32,
     ) {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkResetQueryPool as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_ResetQueryPool>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_ResetQueryPool>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkResetQueryPool as usize,
+            ))
+        };
         unsafe { (command)(self.handle, query_pool, first_query, query_count) }
     }
 }
@@ -5809,13 +5786,12 @@ impl Device {
         semaphore: Semaphore,
         p_value: *mut u64,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetSemaphoreCounterValue as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetSemaphoreCounterValue>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetSemaphoreCounterValue>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetSemaphoreCounterValue as usize,
+            ))
+        };
         unsafe { (command)(self.handle, semaphore, p_value) }
     }
 }
@@ -5848,9 +5824,12 @@ impl Device {
         p_wait_info: *const SemaphoreWaitInfo,
         timeout: u64,
     ) -> ResultCode {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkWaitSemaphores as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_WaitSemaphores>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_WaitSemaphores>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkWaitSemaphores as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_wait_info, timeout) }
     }
 }
@@ -5877,13 +5856,12 @@ impl Device {
     #[doc(alias = "vkSignalSemaphore")]
     #[inline(always)]
     pub unsafe fn signal_semaphore(&self, p_signal_info: *const SemaphoreSignalInfo) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkSignalSemaphore as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_SignalSemaphore>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_SignalSemaphore>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkSignalSemaphore as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_signal_info) }
     }
 }
@@ -5905,13 +5883,12 @@ impl Device {
         &self,
         p_info: *const BufferDeviceAddressInfo,
     ) -> DeviceAddress {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetBufferDeviceAddress as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetBufferDeviceAddress>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetBufferDeviceAddress>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetBufferDeviceAddress as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_info) }
     }
 }
@@ -5933,13 +5910,11 @@ impl Device {
         &self,
         p_info: *const BufferDeviceAddressInfo,
     ) -> u64 {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetBufferOpaqueCaptureAddress as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetBufferOpaqueCaptureAddress>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetBufferOpaqueCaptureAddress>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetBufferOpaqueCaptureAddress as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_info) }
     }
@@ -5962,13 +5937,13 @@ impl Device {
         &self,
         p_info: *const DeviceMemoryOpaqueCaptureAddressInfo,
     ) -> u64 {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDeviceMemoryOpaqueCaptureAddress as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceMemoryOpaqueCaptureAddress>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceMemoryOpaqueCaptureAddress>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetDeviceMemoryOpaqueCaptureAddress as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, p_info) }
     }
@@ -6006,13 +5981,12 @@ impl CommandBuffer {
         max_draw_count: u32,
         stride: u32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdDrawIndirectCount as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndirectCount>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndirectCount>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdDrawIndirectCount as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -6059,13 +6033,11 @@ impl CommandBuffer {
         max_draw_count: u32,
         stride: u32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdDrawIndexedIndirectCount as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndexedIndirectCount>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndexedIndirectCount>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdDrawIndexedIndirectCount as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -6115,13 +6087,12 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_render_pass: *mut RenderPass,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateRenderPass2 as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateRenderPass2>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateRenderPass2>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateRenderPass2 as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_render_pass) }
     }
 }
@@ -6155,13 +6126,12 @@ impl CommandBuffer {
         p_render_pass_begin: *const RenderPassBeginInfo,
         p_subpass_begin_info: *const SubpassBeginInfo,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBeginRenderPass2 as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdBeginRenderPass2>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBeginRenderPass2>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdBeginRenderPass2 as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_render_pass_begin, p_subpass_begin_info) }
     }
 }
@@ -6195,13 +6165,12 @@ impl CommandBuffer {
         p_subpass_begin_info: *const SubpassBeginInfo,
         p_subpass_end_info: *const SubpassEndInfo,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdNextSubpass2 as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdNextSubpass2>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdNextSubpass2>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdNextSubpass2 as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_subpass_begin_info, p_subpass_end_info) }
     }
 }
@@ -6231,13 +6200,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdEndRenderPass2")]
     #[inline(always)]
     pub unsafe fn cmd_end_render_pass_2(&self, p_subpass_end_info: *const SubpassEndInfo) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdEndRenderPass2 as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdEndRenderPass2>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdEndRenderPass2>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdEndRenderPass2 as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_subpass_end_info) }
     }
 }
@@ -6274,13 +6242,11 @@ impl PhysicalDevice {
         p_tool_count: *mut u32,
         p_tool_properties: *mut PhysicalDeviceToolProperties,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceToolProperties as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceToolProperties>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceToolProperties>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetPhysicalDeviceToolProperties as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_tool_count, p_tool_properties) }
     }
@@ -6319,13 +6285,12 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_private_data_slot: *mut PrivateDataSlot,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreatePrivateDataSlot as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreatePrivateDataSlot>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreatePrivateDataSlot>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreatePrivateDataSlot as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_private_data_slot) }
     }
 }
@@ -6352,13 +6317,12 @@ impl Device {
         private_data_slot: PrivateDataSlot,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroyPrivateDataSlot as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_DestroyPrivateDataSlot>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyPrivateDataSlot>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyPrivateDataSlot as usize,
+            ))
+        };
         unsafe { (command)(self.handle, private_data_slot, p_allocator) }
     }
 }
@@ -6390,9 +6354,12 @@ impl Device {
         private_data_slot: PrivateDataSlot,
         data: u64,
     ) -> ResultCode {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkSetPrivateData as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_SetPrivateData>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_SetPrivateData>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkSetPrivateData as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -6425,9 +6392,12 @@ impl Device {
         private_data_slot: PrivateDataSlot,
         p_data: *mut u64,
     ) {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkGetPrivateData as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetPrivateData>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetPrivateData>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetPrivateData as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -6468,13 +6438,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdPipelineBarrier2")]
     #[inline(always)]
     pub unsafe fn cmd_pipeline_barrier_2(&self, p_dependency_info: *const DependencyInfo) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdPipelineBarrier2 as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdPipelineBarrier2>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdPipelineBarrier2>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdPipelineBarrier2 as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_dependency_info) }
     }
 }
@@ -6515,13 +6484,12 @@ impl CommandBuffer {
         query_pool: QueryPool,
         query: u32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdWriteTimestamp2 as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdWriteTimestamp2>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdWriteTimestamp2>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdWriteTimestamp2 as usize,
+            ))
+        };
         unsafe { (command)(self.handle, stage, query_pool, query) }
     }
 }
@@ -6558,9 +6526,12 @@ impl Queue {
         p_submits: *const SubmitInfo2,
         fence: Fence,
     ) -> ResultCode {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkQueueSubmit2 as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_QueueSubmit2>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_QueueSubmit2>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkQueueSubmit2 as usize,
+            ))
+        };
         unsafe { (command)(self.handle, submit_count, p_submits, fence) }
     }
 }
@@ -6591,9 +6562,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdCopyBuffer2")]
     #[inline(always)]
     pub unsafe fn cmd_copy_buffer_2(&self, p_copy_buffer_info: *const CopyBufferInfo2) {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkCmdCopyBuffer2 as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdCopyBuffer2>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyBuffer2>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdCopyBuffer2 as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_copy_buffer_info) }
     }
 }
@@ -6624,9 +6598,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdCopyImage2")]
     #[inline(always)]
     pub unsafe fn cmd_copy_image_2(&self, p_copy_image_info: *const CopyImageInfo2) {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkCmdCopyImage2 as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdCopyImage2>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyImage2>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdCopyImage2 as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_copy_image_info) }
     }
 }
@@ -6660,13 +6637,12 @@ impl CommandBuffer {
         &self,
         p_copy_buffer_to_image_info: *const CopyBufferToImageInfo2,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdCopyBufferToImage2 as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdCopyBufferToImage2>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyBufferToImage2>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdCopyBufferToImage2 as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_copy_buffer_to_image_info) }
     }
 }
@@ -6700,13 +6676,12 @@ impl CommandBuffer {
         &self,
         p_copy_image_to_buffer_info: *const CopyImageToBufferInfo2,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdCopyImageToBuffer2 as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdCopyImageToBuffer2>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyImageToBuffer2>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdCopyImageToBuffer2 as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_copy_image_to_buffer_info) }
     }
 }
@@ -6732,13 +6707,13 @@ impl Device {
         p_info: *const DeviceBufferMemoryRequirements,
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDeviceBufferMemoryRequirements as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceBufferMemoryRequirements>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceBufferMemoryRequirements>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetDeviceBufferMemoryRequirements as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, p_info, p_memory_requirements) }
     }
@@ -6765,13 +6740,11 @@ impl Device {
         p_info: *const DeviceImageMemoryRequirements,
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDeviceImageMemoryRequirements as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceImageMemoryRequirements>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceImageMemoryRequirements>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetDeviceImageMemoryRequirements as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_info, p_memory_requirements) }
     }
@@ -6803,14 +6776,12 @@ impl Device {
         p_sparse_memory_requirement_count: *mut u32,
         p_sparse_memory_requirements: *mut SparseImageMemoryRequirements2,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDeviceImageSparseMemoryRequirements as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetDeviceImageSparseMemoryRequirements>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetDeviceImageSparseMemoryRequirements as usize,
+                ),
             )
         };
         unsafe {
@@ -6851,9 +6822,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetEvent2")]
     #[inline(always)]
     pub unsafe fn cmd_set_event_2(&self, event: Event, p_dependency_info: *const DependencyInfo) {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkCmdSetEvent2 as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetEvent2>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetEvent2>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetEvent2 as usize,
+            ))
+        };
         unsafe { (command)(self.handle, event, p_dependency_info) }
     }
 }
@@ -6888,9 +6862,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdResetEvent2")]
     #[inline(always)]
     pub unsafe fn cmd_reset_event_2(&self, event: Event, stage_mask: PipelineStageFlags2) {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkCmdResetEvent2 as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdResetEvent2>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdResetEvent2>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdResetEvent2 as usize,
+            ))
+        };
         unsafe { (command)(self.handle, event, stage_mask) }
     }
 }
@@ -6927,9 +6904,12 @@ impl CommandBuffer {
         p_events: *const Event,
         p_dependency_infos: *const DependencyInfo,
     ) {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkCmdWaitEvents2 as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdWaitEvents2>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdWaitEvents2>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdWaitEvents2 as usize,
+            ))
+        };
         unsafe { (command)(self.handle, event_count, p_events, p_dependency_infos) }
     }
 }
@@ -6958,9 +6938,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBlitImage2")]
     #[inline(always)]
     pub unsafe fn cmd_blit_image_2(&self, p_blit_image_info: *const BlitImageInfo2) {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkCmdBlitImage2 as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdBlitImage2>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBlitImage2>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdBlitImage2 as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_blit_image_info) }
     }
 }
@@ -6989,13 +6972,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdResolveImage2")]
     #[inline(always)]
     pub unsafe fn cmd_resolve_image_2(&self, p_resolve_image_info: *const ResolveImageInfo2) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdResolveImage2 as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdResolveImage2>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdResolveImage2>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdResolveImage2 as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_resolve_image_info) }
     }
 }
@@ -7025,13 +7007,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBeginRendering")]
     #[inline(always)]
     pub unsafe fn cmd_begin_rendering(&self, p_rendering_info: *const RenderingInfo) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBeginRendering as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdBeginRendering>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBeginRendering>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdBeginRendering as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_rendering_info) }
     }
 }
@@ -7060,13 +7041,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdEndRendering")]
     #[inline(always)]
     pub unsafe fn cmd_end_rendering(&self) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdEndRendering as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdEndRendering>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdEndRendering>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdEndRendering as usize,
+            ))
+        };
         unsafe { (command)(self.handle) }
     }
 }
@@ -7097,9 +7077,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetCullMode")]
     #[inline(always)]
     pub unsafe fn cmd_set_cull_mode(&self, cull_mode: CullModeFlags) {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkCmdSetCullMode as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetCullMode>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetCullMode>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetCullMode as usize,
+            ))
+        };
         unsafe { (command)(self.handle, cull_mode) }
     }
 }
@@ -7127,13 +7110,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetFrontFace")]
     #[inline(always)]
     pub unsafe fn cmd_set_front_face(&self, front_face: FrontFace) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetFrontFace as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetFrontFace>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetFrontFace>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetFrontFace as usize,
+            ))
+        };
         unsafe { (command)(self.handle, front_face) }
     }
 }
@@ -7162,13 +7144,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetPrimitiveTopology")]
     #[inline(always)]
     pub unsafe fn cmd_set_primitive_topology(&self, primitive_topology: PrimitiveTopology) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetPrimitiveTopology as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetPrimitiveTopology>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetPrimitiveTopology>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetPrimitiveTopology as usize,
+            ))
+        };
         unsafe { (command)(self.handle, primitive_topology) }
     }
 }
@@ -7201,13 +7182,12 @@ impl CommandBuffer {
         viewport_count: u32,
         p_viewports: *const Viewport,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetViewportWithCount as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetViewportWithCount>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetViewportWithCount>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetViewportWithCount as usize,
+            ))
+        };
         unsafe { (command)(self.handle, viewport_count, p_viewports) }
     }
 }
@@ -7236,13 +7216,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetScissorWithCount")]
     #[inline(always)]
     pub unsafe fn cmd_set_scissor_with_count(&self, scissor_count: u32, p_scissors: *const Rect2D) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetScissorWithCount as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetScissorWithCount>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetScissorWithCount>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetScissorWithCount as usize,
+            ))
+        };
         unsafe { (command)(self.handle, scissor_count, p_scissors) }
     }
 }
@@ -7290,13 +7269,12 @@ impl CommandBuffer {
         p_sizes: *const DeviceSize,
         p_strides: *const DeviceSize,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBindVertexBuffers2 as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdBindVertexBuffers2>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBindVertexBuffers2>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdBindVertexBuffers2 as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -7334,13 +7312,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetDepthTestEnable")]
     #[inline(always)]
     pub unsafe fn cmd_set_depth_test_enable(&self, depth_test_enable: Bool32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetDepthTestEnable as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthTestEnable>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthTestEnable>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetDepthTestEnable as usize,
+            ))
+        };
         unsafe { (command)(self.handle, depth_test_enable) }
     }
 }
@@ -7368,13 +7345,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetDepthWriteEnable")]
     #[inline(always)]
     pub unsafe fn cmd_set_depth_write_enable(&self, depth_write_enable: Bool32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetDepthWriteEnable as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthWriteEnable>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthWriteEnable>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetDepthWriteEnable as usize,
+            ))
+        };
         unsafe { (command)(self.handle, depth_write_enable) }
     }
 }
@@ -7402,13 +7378,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetDepthCompareOp")]
     #[inline(always)]
     pub unsafe fn cmd_set_depth_compare_op(&self, depth_compare_op: CompareOp) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetDepthCompareOp as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthCompareOp>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthCompareOp>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetDepthCompareOp as usize,
+            ))
+        };
         unsafe { (command)(self.handle, depth_compare_op) }
     }
 }
@@ -7436,13 +7411,11 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetDepthBoundsTestEnable")]
     #[inline(always)]
     pub unsafe fn cmd_set_depth_bounds_test_enable(&self, depth_bounds_test_enable: Bool32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetDepthBoundsTestEnable as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthBoundsTestEnable>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthBoundsTestEnable>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetDepthBoundsTestEnable as usize,
+            ))
         };
         unsafe { (command)(self.handle, depth_bounds_test_enable) }
     }
@@ -7471,13 +7444,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetStencilTestEnable")]
     #[inline(always)]
     pub unsafe fn cmd_set_stencil_test_enable(&self, stencil_test_enable: Bool32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetStencilTestEnable as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetStencilTestEnable>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetStencilTestEnable>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetStencilTestEnable as usize,
+            ))
+        };
         unsafe { (command)(self.handle, stencil_test_enable) }
     }
 }
@@ -7519,13 +7491,12 @@ impl CommandBuffer {
         depth_fail_op: StencilOp,
         compare_op: CompareOp,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetStencilOp as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetStencilOp>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetStencilOp>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetStencilOp as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -7563,13 +7534,11 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetRasterizerDiscardEnable")]
     #[inline(always)]
     pub unsafe fn cmd_set_rasterizer_discard_enable(&self, rasterizer_discard_enable: Bool32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetRasterizerDiscardEnable as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetRasterizerDiscardEnable>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetRasterizerDiscardEnable>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetRasterizerDiscardEnable as usize,
+            ))
         };
         unsafe { (command)(self.handle, rasterizer_discard_enable) }
     }
@@ -7598,13 +7567,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetDepthBiasEnable")]
     #[inline(always)]
     pub unsafe fn cmd_set_depth_bias_enable(&self, depth_bias_enable: Bool32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetDepthBiasEnable as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthBiasEnable>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthBiasEnable>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetDepthBiasEnable as usize,
+            ))
+        };
         unsafe { (command)(self.handle, depth_bias_enable) }
     }
 }
@@ -7633,13 +7601,11 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetPrimitiveRestartEnable")]
     #[inline(always)]
     pub unsafe fn cmd_set_primitive_restart_enable(&self, primitive_restart_enable: Bool32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetPrimitiveRestartEnable as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetPrimitiveRestartEnable>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetPrimitiveRestartEnable>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetPrimitiveRestartEnable as usize,
+            ))
         };
         unsafe { (command)(self.handle, primitive_restart_enable) }
     }
@@ -7672,9 +7638,12 @@ impl Device {
         p_memory_map_info: *const MemoryMapInfo,
         pp_data: *mut *mut c_void,
     ) -> ResultCode {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkMapMemory2 as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_MapMemory2>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_MapMemory2>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkMapMemory2 as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_memory_map_info, pp_data) }
     }
 }
@@ -7700,9 +7669,12 @@ impl Device {
     #[doc(alias = "vkUnmapMemory2")]
     #[inline(always)]
     pub unsafe fn unmap_memory_2(&self, p_memory_unmap_info: *const MemoryUnmapInfo) -> ResultCode {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkUnmapMemory2 as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_UnmapMemory2>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_UnmapMemory2>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkUnmapMemory2 as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_memory_unmap_info) }
     }
 }
@@ -7725,13 +7697,11 @@ impl Device {
         p_info: *const DeviceImageSubresourceInfo,
         p_layout: *mut SubresourceLayout2,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDeviceImageSubresourceLayout as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceImageSubresourceLayout>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceImageSubresourceLayout>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetDeviceImageSubresourceLayout as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_info, p_layout) }
     }
@@ -7756,13 +7726,11 @@ impl Device {
         p_subresource: *const ImageSubresource2,
         p_layout: *mut SubresourceLayout2,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetImageSubresourceLayout2 as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetImageSubresourceLayout2>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetImageSubresourceLayout2>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetImageSubresourceLayout2 as usize,
+            ))
         };
         unsafe { (command)(self.handle, image, p_subresource, p_layout) }
     }
@@ -7795,13 +7763,12 @@ impl Device {
         &self,
         p_copy_memory_to_image_info: *const CopyMemoryToImageInfo,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCopyMemoryToImage as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CopyMemoryToImage>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CopyMemoryToImage>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCopyMemoryToImage as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_copy_memory_to_image_info) }
     }
 }
@@ -7833,13 +7800,12 @@ impl Device {
         &self,
         p_copy_image_to_memory_info: *const CopyImageToMemoryInfo,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCopyImageToMemory as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CopyImageToMemory>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CopyImageToMemory>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCopyImageToMemory as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_copy_image_to_memory_info) }
     }
 }
@@ -7871,13 +7837,12 @@ impl Device {
         &self,
         p_copy_image_to_image_info: *const CopyImageToImageInfo,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCopyImageToImage as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CopyImageToImage>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CopyImageToImage>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCopyImageToImage as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_copy_image_to_image_info) }
     }
 }
@@ -7910,13 +7875,12 @@ impl Device {
         transition_count: u32,
         p_transitions: *const HostImageLayoutTransitionInfo,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkTransitionImageLayout as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_TransitionImageLayout>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_TransitionImageLayout>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkTransitionImageLayout as usize,
+            ))
+        };
         unsafe { (command)(self.handle, transition_count, p_transitions) }
     }
 }
@@ -7959,13 +7923,12 @@ impl CommandBuffer {
         descriptor_write_count: u32,
         p_descriptor_writes: *const WriteDescriptorSet,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdPushDescriptorSet as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdPushDescriptorSet>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdPushDescriptorSet>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdPushDescriptorSet as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -8015,13 +7978,11 @@ impl CommandBuffer {
         set: u32,
         p_data: *const c_void,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdPushDescriptorSetWithTemplate as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdPushDescriptorSetWithTemplate>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdPushDescriptorSetWithTemplate>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdPushDescriptorSetWithTemplate as usize,
+            ))
         };
         unsafe { (command)(self.handle, descriptor_update_template, layout, set, p_data) }
     }
@@ -8055,13 +8016,12 @@ impl CommandBuffer {
         &self,
         p_bind_descriptor_sets_info: *const BindDescriptorSetsInfo,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBindDescriptorSets2 as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdBindDescriptorSets2>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBindDescriptorSets2>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdBindDescriptorSets2 as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_bind_descriptor_sets_info) }
     }
 }
@@ -8091,13 +8051,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdPushConstants2")]
     #[inline(always)]
     pub unsafe fn cmd_push_constants_2(&self, p_push_constants_info: *const PushConstantsInfo) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdPushConstants2 as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdPushConstants2>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdPushConstants2>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdPushConstants2 as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_push_constants_info) }
     }
 }
@@ -8130,13 +8089,12 @@ impl CommandBuffer {
         &self,
         p_push_descriptor_set_info: *const PushDescriptorSetInfo,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdPushDescriptorSet2 as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdPushDescriptorSet2>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdPushDescriptorSet2>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdPushDescriptorSet2 as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_push_descriptor_set_info) }
     }
 }
@@ -8169,13 +8127,13 @@ impl CommandBuffer {
         &self,
         p_push_descriptor_set_with_template_info: *const PushDescriptorSetWithTemplateInfo,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdPushDescriptorSetWithTemplate2 as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdPushDescriptorSetWithTemplate2>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdPushDescriptorSetWithTemplate2>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkCmdPushDescriptorSetWithTemplate2 as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, p_push_descriptor_set_with_template_info) }
     }
@@ -8204,13 +8162,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetLineStipple")]
     #[inline(always)]
     pub unsafe fn cmd_set_line_stipple(&self, line_stipple_factor: u32, line_stipple_pattern: u16) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetLineStipple as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetLineStipple>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetLineStipple>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetLineStipple as usize,
+            ))
+        };
         unsafe { (command)(self.handle, line_stipple_factor, line_stipple_pattern) }
     }
 }
@@ -8248,13 +8205,12 @@ impl CommandBuffer {
         size: DeviceSize,
         index_type: IndexType,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBindIndexBuffer2 as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdBindIndexBuffer2>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBindIndexBuffer2>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdBindIndexBuffer2 as usize,
+            ))
+        };
         unsafe { (command)(self.handle, buffer, offset, size, index_type) }
     }
 }
@@ -8277,13 +8233,11 @@ impl Device {
         p_rendering_area_info: *const RenderingAreaInfo,
         p_granularity: *mut Extent2D,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetRenderingAreaGranularity as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetRenderingAreaGranularity>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetRenderingAreaGranularity>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetRenderingAreaGranularity as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_rendering_area_info, p_granularity) }
     }
@@ -8316,13 +8270,13 @@ impl CommandBuffer {
         &self,
         p_location_info: *const RenderingAttachmentLocationInfo,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetRenderingAttachmentLocations as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetRenderingAttachmentLocations>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetRenderingAttachmentLocations>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkCmdSetRenderingAttachmentLocations as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, p_location_info) }
     }
@@ -8355,14 +8309,12 @@ impl CommandBuffer {
         &self,
         p_input_attachment_index_info: *const RenderingInputAttachmentIndexInfo,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetRenderingInputAttachmentIndices as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetRenderingInputAttachmentIndices>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkCmdSetRenderingInputAttachmentIndices as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, p_input_attachment_index_info) }
@@ -8391,13 +8343,12 @@ impl Instance {
         surface: SurfaceKHR,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroySurfaceKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_DestroySurfaceKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_DestroySurfaceKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroySurfaceKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, surface, p_allocator) }
     }
 }
@@ -8430,13 +8381,13 @@ impl PhysicalDevice {
         surface: SurfaceKHR,
         p_supported: *mut Bool32,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceSurfaceSupportKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceSurfaceSupportKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceSurfaceSupportKHR>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceSurfaceSupportKHR as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, queue_family_index, surface, p_supported) }
     }
@@ -8472,14 +8423,12 @@ impl PhysicalDevice {
         surface: SurfaceKHR,
         p_surface_capabilities: *mut SurfaceCapabilitiesKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceSurfaceCapabilitiesKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceSurfaceCapabilitiesKHR>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceSurfaceCapabilitiesKHR as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, surface, p_surface_capabilities) }
@@ -8523,13 +8472,13 @@ impl PhysicalDevice {
         p_surface_format_count: *mut u32,
         p_surface_formats: *mut SurfaceFormatKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceSurfaceFormatsKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceSurfaceFormatsKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceSurfaceFormatsKHR>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceSurfaceFormatsKHR as usize,
+                ),
+            )
         };
         unsafe {
             (command)(
@@ -8579,14 +8528,12 @@ impl PhysicalDevice {
         p_present_mode_count: *mut u32,
         p_present_modes: *mut PresentModeKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceSurfacePresentModesKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceSurfacePresentModesKHR>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceSurfacePresentModesKHR as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, surface, p_present_mode_count, p_present_modes) }
@@ -8632,13 +8579,12 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_swapchain: *mut SwapchainKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateSwapchainKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateSwapchainKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateSwapchainKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateSwapchainKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_swapchain) }
     }
 }
@@ -8665,13 +8611,12 @@ impl Device {
         swapchain: SwapchainKHR,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroySwapchainKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_DestroySwapchainKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_DestroySwapchainKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroySwapchainKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, swapchain, p_allocator) }
     }
 }
@@ -8707,13 +8652,12 @@ impl Device {
         p_swapchain_image_count: *mut u32,
         p_swapchain_images: *mut Image,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetSwapchainImagesKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetSwapchainImagesKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetSwapchainImagesKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetSwapchainImagesKHR as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -8765,13 +8709,12 @@ impl Device {
         fence: Fence,
         p_image_index: *mut u32,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkAcquireNextImageKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_AcquireNextImageKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_AcquireNextImageKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkAcquireNextImageKHR as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -8813,13 +8756,12 @@ impl Queue {
     #[doc(alias = "vkQueuePresentKHR")]
     #[inline(always)]
     pub unsafe fn present_khr(&self, p_present_info: *const PresentInfoKHR) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkQueuePresentKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_QueuePresentKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_QueuePresentKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkQueuePresentKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_present_info) }
     }
 }
@@ -8851,13 +8793,13 @@ impl Device {
         &self,
         p_device_group_present_capabilities: *mut DeviceGroupPresentCapabilitiesKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDeviceGroupPresentCapabilitiesKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceGroupPresentCapabilitiesKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceGroupPresentCapabilitiesKHR>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetDeviceGroupPresentCapabilitiesKHR as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, p_device_group_present_capabilities) }
     }
@@ -8895,13 +8837,13 @@ impl Device {
         surface: SurfaceKHR,
         p_modes: *mut DeviceGroupPresentModeFlagsKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDeviceGroupSurfacePresentModesKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceGroupSurfacePresentModesKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceGroupSurfacePresentModesKHR>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetDeviceGroupSurfacePresentModesKHR as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, surface, p_modes) }
     }
@@ -8940,14 +8882,12 @@ impl PhysicalDevice {
         p_rect_count: *mut u32,
         p_rects: *mut Rect2D,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDevicePresentRectanglesKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDevicePresentRectanglesKHR>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDevicePresentRectanglesKHR as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, surface, p_rect_count, p_rects) }
@@ -8989,13 +8929,12 @@ impl Device {
         p_acquire_info: *const AcquireNextImageInfoKHR,
         p_image_index: *mut u32,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkAcquireNextImage2KHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_AcquireNextImage2KHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_AcquireNextImage2KHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkAcquireNextImage2KHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_acquire_info, p_image_index) }
     }
 }
@@ -9030,14 +8969,12 @@ impl PhysicalDevice {
         p_property_count: *mut u32,
         p_properties: *mut DisplayPropertiesKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceDisplayPropertiesKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceDisplayPropertiesKHR>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceDisplayPropertiesKHR as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, p_property_count, p_properties) }
@@ -9078,14 +9015,12 @@ impl PhysicalDevice {
         p_property_count: *mut u32,
         p_properties: *mut DisplayPlanePropertiesKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceDisplayPlanePropertiesKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceDisplayPlanePropertiesKHR>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceDisplayPlanePropertiesKHR as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, p_property_count, p_properties) }
@@ -9123,13 +9058,13 @@ impl PhysicalDevice {
         p_display_count: *mut u32,
         p_displays: *mut DisplayKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDisplayPlaneSupportedDisplaysKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDisplayPlaneSupportedDisplaysKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetDisplayPlaneSupportedDisplaysKHR>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetDisplayPlaneSupportedDisplaysKHR as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, plane_index, p_display_count, p_displays) }
     }
@@ -9170,13 +9105,11 @@ impl PhysicalDevice {
         p_property_count: *mut u32,
         p_properties: *mut DisplayModePropertiesKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDisplayModePropertiesKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDisplayModePropertiesKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetDisplayModePropertiesKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetDisplayModePropertiesKHR as usize,
+            ))
         };
         unsafe { (command)(self.handle, display, p_property_count, p_properties) }
     }
@@ -9219,13 +9152,12 @@ impl PhysicalDevice {
         p_allocator: *const AllocationCallbacks,
         p_mode: *mut DisplayModeKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateDisplayModeKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateDisplayModeKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateDisplayModeKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateDisplayModeKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, display, p_create_info, p_allocator, p_mode) }
     }
 }
@@ -9261,13 +9193,11 @@ impl PhysicalDevice {
         plane_index: u32,
         p_capabilities: *mut DisplayPlaneCapabilitiesKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDisplayPlaneCapabilitiesKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDisplayPlaneCapabilitiesKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetDisplayPlaneCapabilitiesKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetDisplayPlaneCapabilitiesKHR as usize,
+            ))
         };
         unsafe { (command)(self.handle, mode, plane_index, p_capabilities) }
     }
@@ -9307,13 +9237,11 @@ impl Instance {
         p_allocator: *const AllocationCallbacks,
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateDisplayPlaneSurfaceKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateDisplayPlaneSurfaceKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CreateDisplayPlaneSurfaceKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateDisplayPlaneSurfaceKHR as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
     }
@@ -9358,13 +9286,11 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_swapchains: *mut SwapchainKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateSharedSwapchainsKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateSharedSwapchainsKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CreateSharedSwapchainsKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateSharedSwapchainsKHR as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -9412,13 +9338,12 @@ impl Instance {
         p_allocator: *const AllocationCallbacks,
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateXlibSurfaceKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateXlibSurfaceKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateXlibSurfaceKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateXlibSurfaceKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
     }
 }
@@ -9442,14 +9367,12 @@ impl PhysicalDevice {
         dpy: *mut Display,
         visual_id: VisualID,
     ) -> Bool32 {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceXlibPresentationSupportKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceXlibPresentationSupportKHR>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceXlibPresentationSupportKHR as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, queue_family_index, dpy, visual_id) }
@@ -9490,13 +9413,12 @@ impl Instance {
         p_allocator: *const AllocationCallbacks,
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateXcbSurfaceKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateXcbSurfaceKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateXcbSurfaceKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateXcbSurfaceKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
     }
 }
@@ -9524,14 +9446,12 @@ impl PhysicalDevice {
         connection: *mut xcb_connection_t,
         visual_id: xcb_visualid_t,
     ) -> Bool32 {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceXcbPresentationSupportKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceXcbPresentationSupportKHR>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceXcbPresentationSupportKHR as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, queue_family_index, connection, visual_id) }
@@ -9572,13 +9492,12 @@ impl Instance {
         p_allocator: *const AllocationCallbacks,
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateWaylandSurfaceKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateWaylandSurfaceKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateWaylandSurfaceKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateWaylandSurfaceKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
     }
 }
@@ -9601,14 +9520,12 @@ impl PhysicalDevice {
         queue_family_index: u32,
         display: *mut wl_display,
     ) -> Bool32 {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceWaylandPresentationSupportKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceWaylandPresentationSupportKHR>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceWaylandPresentationSupportKHR as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, queue_family_index, display) }
@@ -9650,13 +9567,12 @@ impl Instance {
         p_allocator: *const AllocationCallbacks,
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateAndroidSurfaceKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateAndroidSurfaceKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateAndroidSurfaceKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateAndroidSurfaceKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
     }
 }
@@ -9695,13 +9611,12 @@ impl Instance {
         p_allocator: *const AllocationCallbacks,
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateWin32SurfaceKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateWin32SurfaceKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateWin32SurfaceKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateWin32SurfaceKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
     }
 }
@@ -9720,14 +9635,12 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceWin32PresentationSupportKHR")]
     #[inline(always)]
     pub unsafe fn get_win_32_presentation_support_khr(&self, queue_family_index: u32) -> Bool32 {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceWin32PresentationSupportKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceWin32PresentationSupportKHR>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceWin32PresentationSupportKHR as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, queue_family_index) }
@@ -9767,14 +9680,12 @@ impl PhysicalDevice {
         p_video_profile: *const VideoProfileInfoKHR,
         p_capabilities: *mut VideoCapabilitiesKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceVideoCapabilitiesKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceVideoCapabilitiesKHR>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceVideoCapabilitiesKHR as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, p_video_profile, p_capabilities) }
@@ -9821,14 +9732,12 @@ impl PhysicalDevice {
         p_video_format_property_count: *mut u32,
         p_video_format_properties: *mut VideoFormatPropertiesKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceVideoFormatPropertiesKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceVideoFormatPropertiesKHR>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceVideoFormatPropertiesKHR as usize,
+                ),
             )
         };
         unsafe {
@@ -9879,13 +9788,12 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_video_session: *mut VideoSessionKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateVideoSessionKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateVideoSessionKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateVideoSessionKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateVideoSessionKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_video_session) }
     }
 }
@@ -9912,13 +9820,12 @@ impl Device {
         video_session: VideoSessionKHR,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroyVideoSessionKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_DestroyVideoSessionKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyVideoSessionKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyVideoSessionKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, video_session, p_allocator) }
     }
 }
@@ -9956,13 +9863,13 @@ impl Device {
         p_memory_requirements_count: *mut u32,
         p_memory_requirements: *mut VideoSessionMemoryRequirementsKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetVideoSessionMemoryRequirementsKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetVideoSessionMemoryRequirementsKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetVideoSessionMemoryRequirementsKHR>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetVideoSessionMemoryRequirementsKHR as usize,
+                ),
+            )
         };
         unsafe {
             (command)(
@@ -10006,13 +9913,11 @@ impl Device {
         bind_session_memory_info_count: u32,
         p_bind_session_memory_infos: *const BindVideoSessionMemoryInfoKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkBindVideoSessionMemoryKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_BindVideoSessionMemoryKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_BindVideoSessionMemoryKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkBindVideoSessionMemoryKHR as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -10061,13 +9966,11 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_video_session_parameters: *mut VideoSessionParametersKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateVideoSessionParametersKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateVideoSessionParametersKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CreateVideoSessionParametersKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateVideoSessionParametersKHR as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -10110,13 +10013,11 @@ impl Device {
         video_session_parameters: VideoSessionParametersKHR,
         p_update_info: *const VideoSessionParametersUpdateInfoKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkUpdateVideoSessionParametersKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_UpdateVideoSessionParametersKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_UpdateVideoSessionParametersKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkUpdateVideoSessionParametersKHR as usize,
+            ))
         };
         unsafe { (command)(self.handle, video_session_parameters, p_update_info) }
     }
@@ -10144,13 +10045,11 @@ impl Device {
         video_session_parameters: VideoSessionParametersKHR,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroyVideoSessionParametersKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyVideoSessionParametersKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyVideoSessionParametersKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyVideoSessionParametersKHR as usize,
+            ))
         };
         unsafe { (command)(self.handle, video_session_parameters, p_allocator) }
     }
@@ -10181,13 +10080,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBeginVideoCodingKHR")]
     #[inline(always)]
     pub unsafe fn cmd_begin_video_coding_khr(&self, p_begin_info: *const VideoBeginCodingInfoKHR) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBeginVideoCodingKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdBeginVideoCodingKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBeginVideoCodingKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdBeginVideoCodingKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_begin_info) }
     }
 }
@@ -10217,13 +10115,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdEndVideoCodingKHR")]
     #[inline(always)]
     pub unsafe fn cmd_end_video_coding_khr(&self, p_end_coding_info: *const VideoEndCodingInfoKHR) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdEndVideoCodingKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdEndVideoCodingKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdEndVideoCodingKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdEndVideoCodingKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_end_coding_info) }
     }
 }
@@ -10255,13 +10152,12 @@ impl CommandBuffer {
         &self,
         p_coding_control_info: *const VideoCodingControlInfoKHR,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdControlVideoCodingKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdControlVideoCodingKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdControlVideoCodingKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdControlVideoCodingKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_coding_control_info) }
     }
 }
@@ -10289,13 +10185,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDecodeVideoKHR")]
     #[inline(always)]
     pub unsafe fn cmd_decode_video_khr(&self, p_decode_info: *const VideoDecodeInfoKHR) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdDecodeVideoKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdDecodeVideoKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDecodeVideoKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdDecodeVideoKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_decode_info) }
     }
 }
@@ -10326,13 +10221,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBeginRenderingKHR")]
     #[inline(always)]
     pub unsafe fn cmd_begin_rendering_khr(&self, p_rendering_info: *const RenderingInfo) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBeginRenderingKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdBeginRenderingKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBeginRenderingKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdBeginRenderingKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_rendering_info) }
     }
 }
@@ -10362,13 +10256,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdEndRenderingKHR")]
     #[inline(always)]
     pub unsafe fn cmd_end_rendering_khr(&self) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdEndRenderingKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdEndRenderingKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdEndRenderingKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdEndRenderingKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle) }
     }
 }
@@ -10388,13 +10281,11 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceFeatures2KHR")]
     #[inline(always)]
     pub unsafe fn get_features_2_khr(&self, p_features: *mut PhysicalDeviceFeatures2) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceFeatures2KHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceFeatures2KHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceFeatures2KHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetPhysicalDeviceFeatures2KHR as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_features) }
     }
@@ -10415,13 +10306,11 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceProperties2KHR")]
     #[inline(always)]
     pub unsafe fn get_properties_2_khr(&self, p_properties: *mut PhysicalDeviceProperties2) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceProperties2KHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceProperties2KHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceProperties2KHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetPhysicalDeviceProperties2KHR as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_properties) }
     }
@@ -10446,14 +10335,12 @@ impl PhysicalDevice {
         format: Format,
         p_format_properties: *mut FormatProperties2,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceFormatProperties2KHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceFormatProperties2KHR>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceFormatProperties2KHR as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, format, p_format_properties) }
@@ -10497,14 +10384,12 @@ impl PhysicalDevice {
         p_image_format_info: *const PhysicalDeviceImageFormatInfo2,
         p_image_format_properties: *mut ImageFormatProperties2,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceImageFormatProperties2KHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceImageFormatProperties2KHR>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceImageFormatProperties2KHR as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, p_image_format_info, p_image_format_properties) }
@@ -10533,14 +10418,12 @@ impl PhysicalDevice {
         p_queue_family_property_count: *mut u32,
         p_queue_family_properties: *mut QueueFamilyProperties2,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceQueueFamilyProperties2KHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceQueueFamilyProperties2KHR>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceQueueFamilyProperties2KHR as usize,
+                ),
             )
         };
         unsafe {
@@ -10571,14 +10454,12 @@ impl PhysicalDevice {
         &self,
         p_memory_properties: *mut PhysicalDeviceMemoryProperties2,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceMemoryProperties2KHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceMemoryProperties2KHR>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceMemoryProperties2KHR as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, p_memory_properties) }
@@ -10612,16 +10493,14 @@ impl PhysicalDevice {
         p_property_count: *mut u32,
         p_properties: *mut SparseImageFormatProperties2,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceSparseImageFormatProperties2KHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<
                 vkVoidFunction,
                 FUN_GetPhysicalDeviceSparseImageFormatProperties2KHR,
-            >(command)
+            >(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetPhysicalDeviceSparseImageFormatProperties2KHR as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_format_info, p_property_count, p_properties) }
     }
@@ -10648,13 +10527,13 @@ impl Device {
         remote_device_index: u32,
         p_peer_memory_features: *mut PeerMemoryFeatureFlags,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDeviceGroupPeerMemoryFeaturesKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceGroupPeerMemoryFeaturesKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceGroupPeerMemoryFeaturesKHR>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetDeviceGroupPeerMemoryFeaturesKHR as usize,
+                ),
+            )
         };
         unsafe {
             (command)(
@@ -10694,13 +10573,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetDeviceMaskKHR")]
     #[inline(always)]
     pub unsafe fn cmd_set_device_mask_khr(&self, device_mask: u32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetDeviceMaskKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetDeviceMaskKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDeviceMaskKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetDeviceMaskKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, device_mask) }
     }
 }
@@ -10738,13 +10616,12 @@ impl CommandBuffer {
         group_count_y: u32,
         group_count_z: u32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdDispatchBaseKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdDispatchBaseKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDispatchBaseKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdDispatchBaseKHR as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -10781,13 +10658,12 @@ impl Device {
         command_pool: CommandPool,
         flags: CommandPoolTrimFlags,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkTrimCommandPoolKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_TrimCommandPoolKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_TrimCommandPoolKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkTrimCommandPoolKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, command_pool, flags) }
     }
 }
@@ -10827,13 +10703,11 @@ impl Instance {
         p_physical_device_group_count: *mut u32,
         p_physical_device_group_properties: *mut PhysicalDeviceGroupProperties,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkEnumeratePhysicalDeviceGroupsKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_EnumeratePhysicalDeviceGroupsKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_EnumeratePhysicalDeviceGroupsKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkEnumeratePhysicalDeviceGroupsKHR as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -10867,14 +10741,12 @@ impl PhysicalDevice {
         p_external_buffer_info: *const PhysicalDeviceExternalBufferInfo,
         p_external_buffer_properties: *mut ExternalBufferProperties,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceExternalBufferPropertiesKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceExternalBufferPropertiesKHR>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceExternalBufferPropertiesKHR as usize,
+                ),
             )
         };
         unsafe {
@@ -10916,13 +10788,12 @@ impl Device {
         p_get_win_32_handle_info: *const MemoryGetWin32HandleInfoKHR,
         p_handle: *mut HANDLE,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetMemoryWin32HandleKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetMemoryWin32HandleKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetMemoryWin32HandleKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetMemoryWin32HandleKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_get_win_32_handle_info, p_handle) }
     }
 }
@@ -10958,13 +10829,13 @@ impl Device {
         handle: HANDLE,
         p_memory_win_32_handle_properties: *mut MemoryWin32HandlePropertiesKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetMemoryWin32HandlePropertiesKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetMemoryWin32HandlePropertiesKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetMemoryWin32HandlePropertiesKHR>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetMemoryWin32HandlePropertiesKHR as usize,
+                ),
+            )
         };
         unsafe {
             (command)(
@@ -11003,9 +10874,12 @@ impl Device {
         p_get_fd_info: *const MemoryGetFdInfoKHR,
         p_fd: *mut c_int,
     ) -> ResultCode {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkGetMemoryFdKHR as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetMemoryFdKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetMemoryFdKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetMemoryFdKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_get_fd_info, p_fd) }
     }
 }
@@ -11041,13 +10915,12 @@ impl Device {
         fd: c_int,
         p_memory_fd_properties: *mut MemoryFdPropertiesKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetMemoryFdPropertiesKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetMemoryFdPropertiesKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetMemoryFdPropertiesKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetMemoryFdPropertiesKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, handle_type, fd, p_memory_fd_properties) }
     }
 }
@@ -11074,14 +10947,12 @@ impl PhysicalDevice {
         p_external_semaphore_info: *const PhysicalDeviceExternalSemaphoreInfo,
         p_external_semaphore_properties: *mut ExternalSemaphoreProperties,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceExternalSemaphorePropertiesKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceExternalSemaphorePropertiesKHR>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceExternalSemaphorePropertiesKHR as usize,
+                ),
             )
         };
         unsafe {
@@ -11119,13 +10990,11 @@ impl Device {
         &self,
         p_import_semaphore_win_32_handle_info: *const ImportSemaphoreWin32HandleInfoKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkImportSemaphoreWin32HandleKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_ImportSemaphoreWin32HandleKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_ImportSemaphoreWin32HandleKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkImportSemaphoreWin32HandleKHR as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_import_semaphore_win_32_handle_info) }
     }
@@ -11160,13 +11029,11 @@ impl Device {
         p_get_win_32_handle_info: *const SemaphoreGetWin32HandleInfoKHR,
         p_handle: *mut HANDLE,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetSemaphoreWin32HandleKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetSemaphoreWin32HandleKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetSemaphoreWin32HandleKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetSemaphoreWin32HandleKHR as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_get_win_32_handle_info, p_handle) }
     }
@@ -11197,13 +11064,12 @@ impl Device {
         &self,
         p_import_semaphore_fd_info: *const ImportSemaphoreFdInfoKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkImportSemaphoreFdKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_ImportSemaphoreFdKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_ImportSemaphoreFdKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkImportSemaphoreFdKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_import_semaphore_fd_info) }
     }
 }
@@ -11234,13 +11100,12 @@ impl Device {
         p_get_fd_info: *const SemaphoreGetFdInfoKHR,
         p_fd: *mut c_int,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetSemaphoreFdKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetSemaphoreFdKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetSemaphoreFdKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetSemaphoreFdKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_get_fd_info, p_fd) }
     }
 }
@@ -11284,13 +11149,12 @@ impl CommandBuffer {
         descriptor_write_count: u32,
         p_descriptor_writes: *const WriteDescriptorSet,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdPushDescriptorSetKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdPushDescriptorSetKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdPushDescriptorSetKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdPushDescriptorSetKHR as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -11342,13 +11206,13 @@ impl CommandBuffer {
         set: u32,
         p_data: *const c_void,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdPushDescriptorSetWithTemplateKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdPushDescriptorSetWithTemplateKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdPushDescriptorSetWithTemplateKHR>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkCmdPushDescriptorSetWithTemplateKHR as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, descriptor_update_template, layout, set, p_data) }
     }
@@ -11389,13 +11253,13 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_descriptor_update_template: *mut DescriptorUpdateTemplate,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateDescriptorUpdateTemplateKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateDescriptorUpdateTemplateKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CreateDescriptorUpdateTemplateKHR>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkCreateDescriptorUpdateTemplateKHR as usize,
+                ),
+            )
         };
         unsafe {
             (command)(
@@ -11431,13 +11295,13 @@ impl Device {
         descriptor_update_template: DescriptorUpdateTemplate,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroyDescriptorUpdateTemplateKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyDescriptorUpdateTemplateKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyDescriptorUpdateTemplateKHR>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkDestroyDescriptorUpdateTemplateKHR as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, descriptor_update_template, p_allocator) }
     }
@@ -11463,13 +11327,13 @@ impl Device {
         descriptor_update_template: DescriptorUpdateTemplate,
         p_data: *const c_void,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkUpdateDescriptorSetWithTemplateKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_UpdateDescriptorSetWithTemplateKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_UpdateDescriptorSetWithTemplateKHR>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkUpdateDescriptorSetWithTemplateKHR as usize,
+                ),
+            )
         };
         unsafe {
             (command)(
@@ -11517,13 +11381,12 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_render_pass: *mut RenderPass,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateRenderPass2KHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateRenderPass2KHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateRenderPass2KHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateRenderPass2KHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_render_pass) }
     }
 }
@@ -11558,13 +11421,12 @@ impl CommandBuffer {
         p_render_pass_begin: *const RenderPassBeginInfo,
         p_subpass_begin_info: *const SubpassBeginInfo,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBeginRenderPass2KHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdBeginRenderPass2KHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBeginRenderPass2KHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdBeginRenderPass2KHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_render_pass_begin, p_subpass_begin_info) }
     }
 }
@@ -11599,13 +11461,12 @@ impl CommandBuffer {
         p_subpass_begin_info: *const SubpassBeginInfo,
         p_subpass_end_info: *const SubpassEndInfo,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdNextSubpass2KHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdNextSubpass2KHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdNextSubpass2KHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdNextSubpass2KHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_subpass_begin_info, p_subpass_end_info) }
     }
 }
@@ -11636,13 +11497,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdEndRenderPass2KHR")]
     #[inline(always)]
     pub unsafe fn cmd_end_render_pass_2_khr(&self, p_subpass_end_info: *const SubpassEndInfo) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdEndRenderPass2KHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdEndRenderPass2KHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdEndRenderPass2KHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdEndRenderPass2KHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_subpass_end_info) }
     }
 }
@@ -11674,13 +11534,12 @@ impl Device {
     #[doc(alias = "vkGetSwapchainStatusKHR")]
     #[inline(always)]
     pub unsafe fn get_swapchain_status_khr(&self, swapchain: SwapchainKHR) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetSwapchainStatusKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetSwapchainStatusKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetSwapchainStatusKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetSwapchainStatusKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, swapchain) }
     }
 }
@@ -11707,14 +11566,12 @@ impl PhysicalDevice {
         p_external_fence_info: *const PhysicalDeviceExternalFenceInfo,
         p_external_fence_properties: *mut ExternalFenceProperties,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceExternalFencePropertiesKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceExternalFencePropertiesKHR>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceExternalFencePropertiesKHR as usize,
+                ),
             )
         };
         unsafe {
@@ -11752,13 +11609,11 @@ impl Device {
         &self,
         p_import_fence_win_32_handle_info: *const ImportFenceWin32HandleInfoKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkImportFenceWin32HandleKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_ImportFenceWin32HandleKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_ImportFenceWin32HandleKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkImportFenceWin32HandleKHR as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_import_fence_win_32_handle_info) }
     }
@@ -11793,13 +11648,12 @@ impl Device {
         p_get_win_32_handle_info: *const FenceGetWin32HandleInfoKHR,
         p_handle: *mut HANDLE,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetFenceWin32HandleKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetFenceWin32HandleKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetFenceWin32HandleKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetFenceWin32HandleKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_get_win_32_handle_info, p_handle) }
     }
 }
@@ -11829,13 +11683,12 @@ impl Device {
         &self,
         p_import_fence_fd_info: *const ImportFenceFdInfoKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkImportFenceFdKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_ImportFenceFdKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_ImportFenceFdKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkImportFenceFdKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_import_fence_fd_info) }
     }
 }
@@ -11866,9 +11719,12 @@ impl Device {
         p_get_fd_info: *const FenceGetFdInfoKHR,
         p_fd: *mut c_int,
     ) -> ResultCode {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkGetFenceFdKHR as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetFenceFdKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetFenceFdKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetFenceFdKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_get_fd_info, p_fd) }
     }
 }
@@ -11913,17 +11769,15 @@ impl PhysicalDevice {
         p_counters: *mut PerformanceCounterKHR,
         p_counter_descriptions: *mut PerformanceCounterDescriptionKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR
-                as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<
                 vkVoidFunction,
                 FUN_EnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR,
-            >(command)
+            >(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR
+                    as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -11955,16 +11809,14 @@ impl PhysicalDevice {
         p_performance_query_create_info: *const QueryPoolPerformanceCreateInfoKHR,
         p_num_passes: *mut u32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<
                 vkVoidFunction,
                 FUN_GetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR,
-            >(command)
+            >(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_performance_query_create_info, p_num_passes) }
     }
@@ -11995,13 +11847,12 @@ impl Device {
         &self,
         p_info: *const AcquireProfilingLockInfoKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkAcquireProfilingLockKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_AcquireProfilingLockKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_AcquireProfilingLockKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkAcquireProfilingLockKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_info) }
     }
 }
@@ -12019,13 +11870,12 @@ impl Device {
     #[doc(alias = "vkReleaseProfilingLockKHR")]
     #[inline(always)]
     pub unsafe fn release_profiling_lock_khr(&self) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkReleaseProfilingLockKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_ReleaseProfilingLockKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_ReleaseProfilingLockKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkReleaseProfilingLockKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle) }
     }
 }
@@ -12060,14 +11910,12 @@ impl PhysicalDevice {
         p_surface_info: *const PhysicalDeviceSurfaceInfo2KHR,
         p_surface_capabilities: *mut SurfaceCapabilities2KHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceSurfaceCapabilities2KHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceSurfaceCapabilities2KHR>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceSurfaceCapabilities2KHR as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, p_surface_info, p_surface_capabilities) }
@@ -12110,13 +11958,13 @@ impl PhysicalDevice {
         p_surface_format_count: *mut u32,
         p_surface_formats: *mut SurfaceFormat2KHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceSurfaceFormats2KHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceSurfaceFormats2KHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceSurfaceFormats2KHR>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceSurfaceFormats2KHR as usize,
+                ),
+            )
         };
         unsafe {
             (command)(
@@ -12159,14 +12007,12 @@ impl PhysicalDevice {
         p_property_count: *mut u32,
         p_properties: *mut DisplayProperties2KHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceDisplayProperties2KHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceDisplayProperties2KHR>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceDisplayProperties2KHR as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, p_property_count, p_properties) }
@@ -12207,14 +12053,12 @@ impl PhysicalDevice {
         p_property_count: *mut u32,
         p_properties: *mut DisplayPlaneProperties2KHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceDisplayPlaneProperties2KHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceDisplayPlaneProperties2KHR>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceDisplayPlaneProperties2KHR as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, p_property_count, p_properties) }
@@ -12256,13 +12100,11 @@ impl PhysicalDevice {
         p_property_count: *mut u32,
         p_properties: *mut DisplayModeProperties2KHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDisplayModeProperties2KHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDisplayModeProperties2KHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetDisplayModeProperties2KHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetDisplayModeProperties2KHR as usize,
+            ))
         };
         unsafe { (command)(self.handle, display, p_property_count, p_properties) }
     }
@@ -12297,13 +12139,11 @@ impl PhysicalDevice {
         p_display_plane_info: *const DisplayPlaneInfo2KHR,
         p_capabilities: *mut DisplayPlaneCapabilities2KHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDisplayPlaneCapabilities2KHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDisplayPlaneCapabilities2KHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetDisplayPlaneCapabilities2KHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetDisplayPlaneCapabilities2KHR as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_display_plane_info, p_capabilities) }
     }
@@ -12331,13 +12171,11 @@ impl Device {
         p_info: *const ImageMemoryRequirementsInfo2,
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetImageMemoryRequirements2KHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetImageMemoryRequirements2KHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetImageMemoryRequirements2KHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetImageMemoryRequirements2KHR as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_info, p_memory_requirements) }
     }
@@ -12365,13 +12203,11 @@ impl Device {
         p_info: *const BufferMemoryRequirementsInfo2,
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetBufferMemoryRequirements2KHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetBufferMemoryRequirements2KHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetBufferMemoryRequirements2KHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetBufferMemoryRequirements2KHR as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_info, p_memory_requirements) }
     }
@@ -12404,13 +12240,13 @@ impl Device {
         p_sparse_memory_requirement_count: *mut u32,
         p_sparse_memory_requirements: *mut SparseImageMemoryRequirements2,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetImageSparseMemoryRequirements2KHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetImageSparseMemoryRequirements2KHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetImageSparseMemoryRequirements2KHR>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetImageSparseMemoryRequirements2KHR as usize,
+                ),
+            )
         };
         unsafe {
             (command)(
@@ -12458,13 +12294,11 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_ycbcr_conversion: *mut SamplerYcbcrConversion,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateSamplerYcbcrConversionKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateSamplerYcbcrConversionKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CreateSamplerYcbcrConversionKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateSamplerYcbcrConversionKHR as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_ycbcr_conversion) }
     }
@@ -12493,13 +12327,11 @@ impl Device {
         ycbcr_conversion: SamplerYcbcrConversion,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroySamplerYcbcrConversionKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroySamplerYcbcrConversionKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_DestroySamplerYcbcrConversionKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroySamplerYcbcrConversionKHR as usize,
+            ))
         };
         unsafe { (command)(self.handle, ycbcr_conversion, p_allocator) }
     }
@@ -12533,13 +12365,12 @@ impl Device {
         bind_info_count: u32,
         p_bind_infos: *const BindBufferMemoryInfo,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkBindBufferMemory2KHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_BindBufferMemory2KHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_BindBufferMemory2KHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkBindBufferMemory2KHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, bind_info_count, p_bind_infos) }
     }
 }
@@ -12571,13 +12402,12 @@ impl Device {
         bind_info_count: u32,
         p_bind_infos: *const BindImageMemoryInfo,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkBindImageMemory2KHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_BindImageMemory2KHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_BindImageMemory2KHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkBindImageMemory2KHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, bind_info_count, p_bind_infos) }
     }
 }
@@ -12604,13 +12434,11 @@ impl Device {
         p_create_info: *const DescriptorSetLayoutCreateInfo,
         p_support: *mut DescriptorSetLayoutSupport,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDescriptorSetLayoutSupportKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDescriptorSetLayoutSupportKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetDescriptorSetLayoutSupportKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetDescriptorSetLayoutSupportKHR as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_create_info, p_support) }
     }
@@ -12649,13 +12477,12 @@ impl CommandBuffer {
         max_draw_count: u32,
         stride: u32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdDrawIndirectCountKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndirectCountKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndirectCountKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdDrawIndirectCountKHR as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -12703,13 +12530,11 @@ impl CommandBuffer {
         max_draw_count: u32,
         stride: u32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdDrawIndexedIndirectCountKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndexedIndirectCountKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndexedIndirectCountKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdDrawIndexedIndirectCountKHR as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -12753,13 +12578,11 @@ impl Device {
         semaphore: Semaphore,
         p_value: *mut u64,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetSemaphoreCounterValueKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetSemaphoreCounterValueKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetSemaphoreCounterValueKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetSemaphoreCounterValueKHR as usize,
+            ))
         };
         unsafe { (command)(self.handle, semaphore, p_value) }
     }
@@ -12794,13 +12617,12 @@ impl Device {
         p_wait_info: *const SemaphoreWaitInfo,
         timeout: u64,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkWaitSemaphoresKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_WaitSemaphoresKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_WaitSemaphoresKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkWaitSemaphoresKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_wait_info, timeout) }
     }
 }
@@ -12831,13 +12653,12 @@ impl Device {
         &self,
         p_signal_info: *const SemaphoreSignalInfo,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkSignalSemaphoreKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_SignalSemaphoreKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_SignalSemaphoreKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkSignalSemaphoreKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_signal_info) }
     }
 }
@@ -12874,14 +12695,12 @@ impl PhysicalDevice {
         p_fragment_shading_rate_count: *mut u32,
         p_fragment_shading_rates: *mut PhysicalDeviceFragmentShadingRateKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceFragmentShadingRatesKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceFragmentShadingRatesKHR>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceFragmentShadingRatesKHR as usize,
+                ),
             )
         };
         unsafe {
@@ -12925,13 +12744,11 @@ impl CommandBuffer {
         p_fragment_size: *const Extent2D,
         combiner_ops: *const [FragmentShadingRateCombinerOpKHR; 2 as usize],
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetFragmentShadingRateKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetFragmentShadingRateKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetFragmentShadingRateKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetFragmentShadingRateKHR as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_fragment_size, combiner_ops) }
     }
@@ -12965,14 +12782,12 @@ impl CommandBuffer {
         &self,
         p_location_info: *const RenderingAttachmentLocationInfo,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetRenderingAttachmentLocationsKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetRenderingAttachmentLocationsKHR>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkCmdSetRenderingAttachmentLocationsKHR as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, p_location_info) }
@@ -13007,14 +12822,12 @@ impl CommandBuffer {
         &self,
         p_input_attachment_index_info: *const RenderingInputAttachmentIndexInfo,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetRenderingInputAttachmentIndicesKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetRenderingInputAttachmentIndicesKHR>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkCmdSetRenderingInputAttachmentIndicesKHR as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, p_input_attachment_index_info) }
@@ -13054,13 +12867,12 @@ impl Device {
         present_id: u64,
         timeout: u64,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkWaitForPresentKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_WaitForPresentKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_WaitForPresentKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkWaitForPresentKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, swapchain, present_id, timeout) }
     }
 }
@@ -13083,13 +12895,11 @@ impl Device {
         &self,
         p_info: *const BufferDeviceAddressInfo,
     ) -> DeviceAddress {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetBufferDeviceAddressKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetBufferDeviceAddressKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetBufferDeviceAddressKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetBufferDeviceAddressKHR as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_info) }
     }
@@ -13113,13 +12923,11 @@ impl Device {
         &self,
         p_info: *const BufferDeviceAddressInfo,
     ) -> u64 {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetBufferOpaqueCaptureAddressKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetBufferOpaqueCaptureAddressKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetBufferOpaqueCaptureAddressKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetBufferOpaqueCaptureAddressKHR as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_info) }
     }
@@ -13143,14 +12951,12 @@ impl Device {
         &self,
         p_info: *const DeviceMemoryOpaqueCaptureAddressInfo,
     ) -> u64 {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDeviceMemoryOpaqueCaptureAddressKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetDeviceMemoryOpaqueCaptureAddressKHR>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetDeviceMemoryOpaqueCaptureAddressKHR as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, p_info) }
@@ -13188,13 +12994,11 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_deferred_operation: *mut DeferredOperationKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateDeferredOperationKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateDeferredOperationKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CreateDeferredOperationKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateDeferredOperationKHR as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_allocator, p_deferred_operation) }
     }
@@ -13222,13 +13026,11 @@ impl Device {
         operation: DeferredOperationKHR,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroyDeferredOperationKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyDeferredOperationKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyDeferredOperationKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyDeferredOperationKHR as usize,
+            ))
         };
         unsafe { (command)(self.handle, operation, p_allocator) }
     }
@@ -13251,14 +13053,12 @@ impl Device {
         &self,
         operation: DeferredOperationKHR,
     ) -> u32 {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDeferredOperationMaxConcurrencyKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetDeferredOperationMaxConcurrencyKHR>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetDeferredOperationMaxConcurrencyKHR as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, operation) }
@@ -13289,13 +13089,11 @@ impl Device {
         &self,
         operation: DeferredOperationKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDeferredOperationResultKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeferredOperationResultKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetDeferredOperationResultKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetDeferredOperationResultKHR as usize,
+            ))
         };
         unsafe { (command)(self.handle, operation) }
     }
@@ -13328,13 +13126,12 @@ impl Device {
         &self,
         operation: DeferredOperationKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDeferredOperationJoinKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_DeferredOperationJoinKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_DeferredOperationJoinKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDeferredOperationJoinKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, operation) }
     }
 }
@@ -13374,13 +13171,13 @@ impl Device {
         p_executable_count: *mut u32,
         p_properties: *mut PipelineExecutablePropertiesKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPipelineExecutablePropertiesKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPipelineExecutablePropertiesKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetPipelineExecutablePropertiesKHR>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPipelineExecutablePropertiesKHR as usize,
+                ),
+            )
         };
         unsafe {
             (command)(
@@ -13428,13 +13225,13 @@ impl Device {
         p_statistic_count: *mut u32,
         p_statistics: *mut PipelineExecutableStatisticKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPipelineExecutableStatisticsKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPipelineExecutableStatisticsKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetPipelineExecutableStatisticsKHR>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPipelineExecutableStatisticsKHR as usize,
+                ),
+            )
         };
         unsafe {
             (command)(
@@ -13483,14 +13280,12 @@ impl Device {
         p_internal_representation_count: *mut u32,
         p_internal_representations: *mut PipelineExecutableInternalRepresentationKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPipelineExecutableInternalRepresentationsKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPipelineExecutableInternalRepresentationsKHR>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPipelineExecutableInternalRepresentationsKHR as usize,
+                ),
             )
         };
         unsafe {
@@ -13532,9 +13327,12 @@ impl Device {
         p_memory_map_info: *const MemoryMapInfo,
         pp_data: *mut *mut c_void,
     ) -> ResultCode {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkMapMemory2KHR as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_MapMemory2KHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_MapMemory2KHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkMapMemory2KHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_memory_map_info, pp_data) }
     }
 }
@@ -13564,13 +13362,12 @@ impl Device {
         &self,
         p_memory_unmap_info: *const MemoryUnmapInfo,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkUnmapMemory2KHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_UnmapMemory2KHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_UnmapMemory2KHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkUnmapMemory2KHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_memory_unmap_info) }
     }
 }
@@ -13609,16 +13406,14 @@ impl PhysicalDevice {
         p_quality_level_info: *const PhysicalDeviceVideoEncodeQualityLevelInfoKHR,
         p_quality_level_properties: *mut VideoEncodeQualityLevelPropertiesKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<
                 vkVoidFunction,
                 FUN_GetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR,
-            >(command)
+            >(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -13668,13 +13463,13 @@ impl Device {
         p_data_size: *mut usize,
         p_data: *mut c_void,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetEncodedVideoSessionParametersKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetEncodedVideoSessionParametersKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetEncodedVideoSessionParametersKHR>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetEncodedVideoSessionParametersKHR as usize,
+                ),
+            )
         };
         unsafe {
             (command)(
@@ -13711,13 +13506,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdEncodeVideoKHR")]
     #[inline(always)]
     pub unsafe fn cmd_encode_video_khr(&self, p_encode_info: *const VideoEncodeInfoKHR) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdEncodeVideoKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdEncodeVideoKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdEncodeVideoKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdEncodeVideoKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_encode_info) }
     }
 }
@@ -13754,13 +13548,12 @@ impl CommandBuffer {
         event: Event,
         p_dependency_info: *const DependencyInfo,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetEvent2KHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetEvent2KHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetEvent2KHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetEvent2KHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, event, p_dependency_info) }
     }
 }
@@ -13796,13 +13589,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdResetEvent2KHR")]
     #[inline(always)]
     pub unsafe fn cmd_reset_event_2_khr(&self, event: Event, stage_mask: PipelineStageFlags2) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdResetEvent2KHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdResetEvent2KHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdResetEvent2KHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdResetEvent2KHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, event, stage_mask) }
     }
 }
@@ -13840,13 +13632,12 @@ impl CommandBuffer {
         p_events: *const Event,
         p_dependency_infos: *const DependencyInfo,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdWaitEvents2KHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdWaitEvents2KHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdWaitEvents2KHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdWaitEvents2KHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, event_count, p_events, p_dependency_infos) }
     }
 }
@@ -13880,13 +13671,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdPipelineBarrier2KHR")]
     #[inline(always)]
     pub unsafe fn cmd_pipeline_barrier_2_khr(&self, p_dependency_info: *const DependencyInfo) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdPipelineBarrier2KHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdPipelineBarrier2KHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdPipelineBarrier2KHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdPipelineBarrier2KHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_dependency_info) }
     }
 }
@@ -13928,13 +13718,12 @@ impl CommandBuffer {
         query_pool: QueryPool,
         query: u32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdWriteTimestamp2KHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdWriteTimestamp2KHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdWriteTimestamp2KHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdWriteTimestamp2KHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, stage, query_pool, query) }
     }
 }
@@ -13972,13 +13761,12 @@ impl Queue {
         p_submits: *const SubmitInfo2,
         fence: Fence,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkQueueSubmit2KHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_QueueSubmit2KHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_QueueSubmit2KHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkQueueSubmit2KHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, submit_count, p_submits, fence) }
     }
 }
@@ -14007,13 +13795,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBindIndexBuffer3KHR")]
     #[inline(always)]
     pub unsafe fn cmd_bind_index_buffer_3_khr(&self, p_info: *const BindIndexBuffer3InfoKHR) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBindIndexBuffer3KHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdBindIndexBuffer3KHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBindIndexBuffer3KHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdBindIndexBuffer3KHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_info) }
     }
 }
@@ -14047,13 +13834,12 @@ impl CommandBuffer {
         binding_count: u32,
         p_binding_infos: *const BindVertexBuffer3InfoKHR,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBindVertexBuffers3KHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdBindVertexBuffers3KHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBindVertexBuffers3KHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdBindVertexBuffers3KHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, first_binding, binding_count, p_binding_infos) }
     }
 }
@@ -14082,13 +13868,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDrawIndirect2KHR")]
     #[inline(always)]
     pub unsafe fn cmd_draw_indirect_2_khr(&self, p_info: *const DrawIndirect2InfoKHR) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdDrawIndirect2KHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndirect2KHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndirect2KHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdDrawIndirect2KHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_info) }
     }
 }
@@ -14117,13 +13902,11 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDrawIndexedIndirect2KHR")]
     #[inline(always)]
     pub unsafe fn cmd_draw_indexed_indirect_2_khr(&self, p_info: *const DrawIndirect2InfoKHR) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdDrawIndexedIndirect2KHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndexedIndirect2KHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndexedIndirect2KHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdDrawIndexedIndirect2KHR as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_info) }
     }
@@ -14153,13 +13936,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDispatchIndirect2KHR")]
     #[inline(always)]
     pub unsafe fn cmd_dispatch_indirect_2_khr(&self, p_info: *const DispatchIndirect2InfoKHR) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdDispatchIndirect2KHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdDispatchIndirect2KHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDispatchIndirect2KHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdDispatchIndirect2KHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_info) }
     }
 }
@@ -14191,13 +13973,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdCopyMemoryKHR")]
     #[inline(always)]
     pub unsafe fn cmd_copy_memory_khr(&self, p_copy_memory_info: *const CopyDeviceMemoryInfoKHR) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdCopyMemoryKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdCopyMemoryKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyMemoryKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdCopyMemoryKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_copy_memory_info) }
     }
 }
@@ -14232,13 +14013,12 @@ impl CommandBuffer {
         &self,
         p_copy_memory_info: *const CopyDeviceMemoryImageInfoKHR,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdCopyMemoryToImageKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdCopyMemoryToImageKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyMemoryToImageKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdCopyMemoryToImageKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_copy_memory_info) }
     }
 }
@@ -14273,13 +14053,12 @@ impl CommandBuffer {
         &self,
         p_copy_memory_info: *const CopyDeviceMemoryImageInfoKHR,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdCopyImageToMemoryKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdCopyImageToMemoryKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyImageToMemoryKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdCopyImageToMemoryKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_copy_memory_info) }
     }
 }
@@ -14322,13 +14101,12 @@ impl CommandBuffer {
         data_size: DeviceSize,
         p_data: *const c_void,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdUpdateMemoryKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdUpdateMemoryKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdUpdateMemoryKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdUpdateMemoryKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_dst_range, dst_flags, data_size, p_data) }
     }
 }
@@ -14369,13 +14147,12 @@ impl CommandBuffer {
         dst_flags: AddressCommandFlagsKHR,
         data: u32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdFillMemoryKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdFillMemoryKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdFillMemoryKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdFillMemoryKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_dst_range, dst_flags, data) }
     }
 }
@@ -14423,13 +14200,13 @@ impl CommandBuffer {
         dst_flags: AddressCommandFlagsKHR,
         query_result_flags: QueryResultFlags,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdCopyQueryPoolResultsToMemoryKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyQueryPoolResultsToMemoryKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyQueryPoolResultsToMemoryKHR>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkCmdCopyQueryPoolResultsToMemoryKHR as usize,
+                ),
+            )
         };
         unsafe {
             (command)(
@@ -14469,13 +14246,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDrawIndirectCount2KHR")]
     #[inline(always)]
     pub unsafe fn cmd_draw_indirect_count_2_khr(&self, p_info: *const DrawIndirectCount2InfoKHR) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdDrawIndirectCount2KHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndirectCount2KHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndirectCount2KHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdDrawIndirectCount2KHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_info) }
     }
 }
@@ -14507,13 +14283,11 @@ impl CommandBuffer {
         &self,
         p_info: *const DrawIndirectCount2InfoKHR,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdDrawIndexedIndirectCount2KHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndexedIndirectCount2KHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndexedIndirectCount2KHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdDrawIndexedIndirectCount2KHR as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_info) }
     }
@@ -14548,13 +14322,11 @@ impl CommandBuffer {
         &self,
         p_conditional_rendering_begin: *const ConditionalRenderingBeginInfo2EXT,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBeginConditionalRendering2EXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBeginConditionalRendering2EXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBeginConditionalRendering2EXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdBeginConditionalRendering2EXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_conditional_rendering_begin) }
     }
@@ -14592,13 +14364,13 @@ impl CommandBuffer {
         binding_count: u32,
         p_binding_infos: *const BindTransformFeedbackBuffer2InfoEXT,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBindTransformFeedbackBuffers2EXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBindTransformFeedbackBuffers2EXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBindTransformFeedbackBuffers2EXT>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkCmdBindTransformFeedbackBuffers2EXT as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, first_binding, binding_count, p_binding_infos) }
     }
@@ -14637,13 +14409,11 @@ impl CommandBuffer {
         counter_range_count: u32,
         p_counter_infos: *const BindTransformFeedbackBuffer2InfoEXT,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBeginTransformFeedback2EXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBeginTransformFeedback2EXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBeginTransformFeedback2EXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdBeginTransformFeedback2EXT as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -14689,13 +14459,11 @@ impl CommandBuffer {
         counter_range_count: u32,
         p_counter_infos: *const BindTransformFeedbackBuffer2InfoEXT,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdEndTransformFeedback2EXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdEndTransformFeedback2EXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdEndTransformFeedback2EXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdEndTransformFeedback2EXT as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -14745,13 +14513,11 @@ impl CommandBuffer {
         counter_offset: u32,
         vertex_stride: u32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdDrawIndirectByteCount2EXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndirectByteCount2EXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndirectByteCount2EXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdDrawIndirectByteCount2EXT as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -14790,13 +14556,11 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDrawMeshTasksIndirect2EXT")]
     #[inline(always)]
     pub unsafe fn cmd_draw_mesh_tasks_indirect_2_ext(&self, p_info: *const DrawIndirect2InfoKHR) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdDrawMeshTasksIndirect2EXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawMeshTasksIndirect2EXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawMeshTasksIndirect2EXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdDrawMeshTasksIndirect2EXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_info) }
     }
@@ -14829,13 +14593,13 @@ impl CommandBuffer {
         &self,
         p_info: *const DrawIndirectCount2InfoKHR,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdDrawMeshTasksIndirectCount2EXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawMeshTasksIndirectCount2EXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawMeshTasksIndirectCount2EXT>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkCmdDrawMeshTasksIndirectCount2EXT as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, p_info) }
     }
@@ -14867,13 +14631,11 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdWriteMarkerToMemoryAMD")]
     #[inline(always)]
     pub unsafe fn cmd_write_marker_to_memory_amd(&self, p_info: *const MemoryMarkerInfoAMD) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdWriteMarkerToMemoryAMD as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdWriteMarkerToMemoryAMD>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdWriteMarkerToMemoryAMD>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdWriteMarkerToMemoryAMD as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_info) }
     }
@@ -14913,13 +14675,11 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_acceleration_structure: *mut AccelerationStructureKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateAccelerationStructure2KHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateAccelerationStructure2KHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CreateAccelerationStructure2KHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateAccelerationStructure2KHR as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -14959,13 +14719,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdCopyBuffer2KHR")]
     #[inline(always)]
     pub unsafe fn cmd_copy_buffer_2_khr(&self, p_copy_buffer_info: *const CopyBufferInfo2) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdCopyBuffer2KHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdCopyBuffer2KHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyBuffer2KHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdCopyBuffer2KHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_copy_buffer_info) }
     }
 }
@@ -14997,13 +14756,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdCopyImage2KHR")]
     #[inline(always)]
     pub unsafe fn cmd_copy_image_2_khr(&self, p_copy_image_info: *const CopyImageInfo2) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdCopyImage2KHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdCopyImage2KHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyImage2KHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdCopyImage2KHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_copy_image_info) }
     }
 }
@@ -15038,13 +14796,12 @@ impl CommandBuffer {
         &self,
         p_copy_buffer_to_image_info: *const CopyBufferToImageInfo2,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdCopyBufferToImage2KHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdCopyBufferToImage2KHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyBufferToImage2KHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdCopyBufferToImage2KHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_copy_buffer_to_image_info) }
     }
 }
@@ -15079,13 +14836,12 @@ impl CommandBuffer {
         &self,
         p_copy_image_to_buffer_info: *const CopyImageToBufferInfo2,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdCopyImageToBuffer2KHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdCopyImageToBuffer2KHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyImageToBuffer2KHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdCopyImageToBuffer2KHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_copy_image_to_buffer_info) }
     }
 }
@@ -15115,13 +14871,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBlitImage2KHR")]
     #[inline(always)]
     pub unsafe fn cmd_blit_image_2_khr(&self, p_blit_image_info: *const BlitImageInfo2) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBlitImage2KHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdBlitImage2KHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBlitImage2KHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdBlitImage2KHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_blit_image_info) }
     }
 }
@@ -15151,13 +14906,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdResolveImage2KHR")]
     #[inline(always)]
     pub unsafe fn cmd_resolve_image_2_khr(&self, p_resolve_image_info: *const ResolveImageInfo2) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdResolveImage2KHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdResolveImage2KHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdResolveImage2KHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdResolveImage2KHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_resolve_image_info) }
     }
 }
@@ -15186,13 +14940,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdTraceRaysIndirect2KHR")]
     #[inline(always)]
     pub unsafe fn cmd_trace_rays_indirect_2_khr(&self, indirect_device_address: DeviceAddress) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdTraceRaysIndirect2KHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdTraceRaysIndirect2KHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdTraceRaysIndirect2KHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdTraceRaysIndirect2KHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, indirect_device_address) }
     }
 }
@@ -15219,13 +14972,13 @@ impl Device {
         p_info: *const DeviceBufferMemoryRequirements,
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDeviceBufferMemoryRequirementsKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceBufferMemoryRequirementsKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceBufferMemoryRequirementsKHR>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetDeviceBufferMemoryRequirementsKHR as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, p_info, p_memory_requirements) }
     }
@@ -15253,13 +15006,13 @@ impl Device {
         p_info: *const DeviceImageMemoryRequirements,
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDeviceImageMemoryRequirementsKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceImageMemoryRequirementsKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceImageMemoryRequirementsKHR>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetDeviceImageMemoryRequirementsKHR as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, p_info, p_memory_requirements) }
     }
@@ -15292,14 +15045,12 @@ impl Device {
         p_sparse_memory_requirement_count: *mut u32,
         p_sparse_memory_requirements: *mut SparseImageMemoryRequirements2,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDeviceImageSparseMemoryRequirementsKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetDeviceImageSparseMemoryRequirementsKHR>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetDeviceImageSparseMemoryRequirementsKHR as usize,
+                ),
             )
         };
         unsafe {
@@ -15347,13 +15098,12 @@ impl CommandBuffer {
         size: DeviceSize,
         index_type: IndexType,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBindIndexBuffer2KHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdBindIndexBuffer2KHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBindIndexBuffer2KHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdBindIndexBuffer2KHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, buffer, offset, size, index_type) }
     }
 }
@@ -15377,13 +15127,11 @@ impl Device {
         p_rendering_area_info: *const RenderingAreaInfo,
         p_granularity: *mut Extent2D,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetRenderingAreaGranularityKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetRenderingAreaGranularityKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetRenderingAreaGranularityKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetRenderingAreaGranularityKHR as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_rendering_area_info, p_granularity) }
     }
@@ -15408,13 +15156,13 @@ impl Device {
         p_info: *const DeviceImageSubresourceInfo,
         p_layout: *mut SubresourceLayout2,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDeviceImageSubresourceLayoutKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceImageSubresourceLayoutKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceImageSubresourceLayoutKHR>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetDeviceImageSubresourceLayoutKHR as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, p_info, p_layout) }
     }
@@ -15440,13 +15188,11 @@ impl Device {
         p_subresource: *const ImageSubresource2,
         p_layout: *mut SubresourceLayout2,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetImageSubresourceLayout2KHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetImageSubresourceLayout2KHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetImageSubresourceLayout2KHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetImageSubresourceLayout2KHR as usize,
+            ))
         };
         unsafe { (command)(self.handle, image, p_subresource, p_layout) }
     }
@@ -15484,13 +15230,12 @@ impl Device {
         swapchain: SwapchainKHR,
         p_present_wait_2_info: *const PresentWait2InfoKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkWaitForPresent2KHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_WaitForPresent2KHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_WaitForPresent2KHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkWaitForPresent2KHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, swapchain, p_present_wait_2_info) }
     }
 }
@@ -15532,13 +15277,11 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_binaries: *mut PipelineBinaryHandlesInfoKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreatePipelineBinariesKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreatePipelineBinariesKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CreatePipelineBinariesKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreatePipelineBinariesKHR as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_binaries) }
     }
@@ -15566,13 +15309,12 @@ impl Device {
         pipeline_binary: PipelineBinaryKHR,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroyPipelineBinaryKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_DestroyPipelineBinaryKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyPipelineBinaryKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyPipelineBinaryKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, pipeline_binary, p_allocator) }
     }
 }
@@ -15609,13 +15351,12 @@ impl Device {
         p_pipeline_create_info: *const PipelineCreateInfoKHR,
         p_pipeline_key: *mut PipelineBinaryKeyKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPipelineKeyKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetPipelineKeyKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetPipelineKeyKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetPipelineKeyKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_pipeline_create_info, p_pipeline_key) }
     }
 }
@@ -15657,13 +15398,12 @@ impl Device {
         p_pipeline_binary_data_size: *mut usize,
         p_pipeline_binary_data: *mut c_void,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPipelineBinaryDataKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetPipelineBinaryDataKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetPipelineBinaryDataKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetPipelineBinaryDataKHR as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -15706,13 +15446,11 @@ impl Device {
         p_info: *const ReleaseCapturedPipelineDataInfoKHR,
         p_allocator: *const AllocationCallbacks,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkReleaseCapturedPipelineDataKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_ReleaseCapturedPipelineDataKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_ReleaseCapturedPipelineDataKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkReleaseCapturedPipelineDataKHR as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_info, p_allocator) }
     }
@@ -15742,13 +15480,11 @@ impl Device {
         &self,
         p_release_info: *const ReleaseSwapchainImagesInfoKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkReleaseSwapchainImagesKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_ReleaseSwapchainImagesKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_ReleaseSwapchainImagesKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkReleaseSwapchainImagesKHR as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_release_info) }
     }
@@ -15788,14 +15524,12 @@ impl PhysicalDevice {
         p_property_count: *mut u32,
         p_properties: *mut CooperativeMatrixPropertiesKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceCooperativeMatrixPropertiesKHR>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, p_property_count, p_properties) }
@@ -15830,13 +15564,12 @@ impl CommandBuffer {
         line_stipple_factor: u32,
         line_stipple_pattern: u16,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetLineStippleKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetLineStippleKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetLineStippleKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetLineStippleKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, line_stipple_factor, line_stipple_pattern) }
     }
 }
@@ -15871,14 +15604,12 @@ impl PhysicalDevice {
         p_time_domain_count: *mut u32,
         p_time_domains: *mut TimeDomainKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceCalibrateableTimeDomainsKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceCalibrateableTimeDomainsKHR>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceCalibrateableTimeDomainsKHR as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, p_time_domain_count, p_time_domains) }
@@ -15918,13 +15649,11 @@ impl Device {
         p_timestamps: *mut u64,
         p_max_deviation: *mut u64,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetCalibratedTimestampsKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetCalibratedTimestampsKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetCalibratedTimestampsKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetCalibratedTimestampsKHR as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -15967,13 +15696,11 @@ impl CommandBuffer {
         &self,
         p_bind_descriptor_sets_info: *const BindDescriptorSetsInfo,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBindDescriptorSets2KHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBindDescriptorSets2KHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBindDescriptorSets2KHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdBindDescriptorSets2KHR as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_bind_descriptor_sets_info) }
     }
@@ -16005,13 +15732,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdPushConstants2KHR")]
     #[inline(always)]
     pub unsafe fn cmd_push_constants_2_khr(&self, p_push_constants_info: *const PushConstantsInfo) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdPushConstants2KHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdPushConstants2KHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdPushConstants2KHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdPushConstants2KHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_push_constants_info) }
     }
 }
@@ -16045,13 +15771,12 @@ impl CommandBuffer {
         &self,
         p_push_descriptor_set_info: *const PushDescriptorSetInfo,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdPushDescriptorSet2KHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdPushDescriptorSet2KHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdPushDescriptorSet2KHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdPushDescriptorSet2KHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_push_descriptor_set_info) }
     }
 }
@@ -16085,13 +15810,13 @@ impl CommandBuffer {
         &self,
         p_push_descriptor_set_with_template_info: *const PushDescriptorSetWithTemplateInfo,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdPushDescriptorSetWithTemplate2KHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdPushDescriptorSetWithTemplate2KHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdPushDescriptorSetWithTemplate2KHR>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkCmdPushDescriptorSetWithTemplate2KHR as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, p_push_descriptor_set_with_template_info) }
     }
@@ -16127,13 +15852,13 @@ impl CommandBuffer {
         &self,
         p_set_descriptor_buffer_offsets_info: *const SetDescriptorBufferOffsetsInfoEXT,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetDescriptorBufferOffsets2EXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDescriptorBufferOffsets2EXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDescriptorBufferOffsets2EXT>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkCmdSetDescriptorBufferOffsets2EXT as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, p_set_descriptor_buffer_offsets_info) }
     }
@@ -16168,14 +15893,12 @@ impl CommandBuffer {
         &self,
         p_bind_descriptor_buffer_embedded_samplers_info: *const BindDescriptorBufferEmbeddedSamplersInfoEXT,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBindDescriptorBufferEmbeddedSamplers2EXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBindDescriptorBufferEmbeddedSamplers2EXT>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkCmdBindDescriptorBufferEmbeddedSamplers2EXT as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, p_bind_descriptor_buffer_embedded_samplers_info) }
@@ -16211,13 +15934,12 @@ impl CommandBuffer {
         &self,
         p_copy_memory_indirect_info: *const CopyMemoryIndirectInfoKHR,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdCopyMemoryIndirectKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdCopyMemoryIndirectKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyMemoryIndirectKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdCopyMemoryIndirectKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_copy_memory_indirect_info) }
     }
 }
@@ -16251,13 +15973,11 @@ impl CommandBuffer {
         &self,
         p_copy_memory_to_image_indirect_info: *const CopyMemoryToImageIndirectInfoKHR,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdCopyMemoryToImageIndirectKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyMemoryToImageIndirectKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyMemoryToImageIndirectKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdCopyMemoryToImageIndirectKHR as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_copy_memory_to_image_indirect_info) }
     }
@@ -16294,13 +16014,12 @@ impl Device {
         p_fault_counts: *mut u32,
         p_fault_info: *mut DeviceFaultInfoKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDeviceFaultReportsKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetDeviceFaultReportsKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceFaultReportsKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetDeviceFaultReportsKHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, timeout, p_fault_counts, p_fault_info) }
     }
 }
@@ -16331,13 +16050,11 @@ impl Device {
         &self,
         p_debug_info: *mut DeviceFaultDebugInfoKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDeviceFaultDebugInfoKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceFaultDebugInfoKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceFaultDebugInfoKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetDeviceFaultDebugInfoKHR as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_debug_info) }
     }
@@ -16371,13 +16088,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdEndRendering2KHR")]
     #[inline(always)]
     pub unsafe fn cmd_end_rendering_2_khr(&self, p_rendering_end_info: *const RenderingEndInfoKHR) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdEndRendering2KHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdEndRendering2KHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdEndRendering2KHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdEndRendering2KHR as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_rendering_end_info) }
     }
 }
@@ -16416,13 +16132,11 @@ impl Instance {
         p_allocator: *const AllocationCallbacks,
         p_callback: *mut DebugReportCallbackEXT,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateDebugReportCallbackEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateDebugReportCallbackEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CreateDebugReportCallbackEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateDebugReportCallbackEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_callback) }
     }
@@ -16451,13 +16165,11 @@ impl Instance {
         callback: DebugReportCallbackEXT,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroyDebugReportCallbackEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyDebugReportCallbackEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyDebugReportCallbackEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyDebugReportCallbackEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, callback, p_allocator) }
     }
@@ -16495,13 +16207,12 @@ impl Instance {
         p_layer_prefix: *const c_char,
         p_message: *const c_char,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDebugReportMessageEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_DebugReportMessageEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_DebugReportMessageEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDebugReportMessageEXT as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -16543,13 +16254,11 @@ impl Device {
         &self,
         p_tag_info: *const DebugMarkerObjectTagInfoEXT,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDebugMarkerSetObjectTagEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DebugMarkerSetObjectTagEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_DebugMarkerSetObjectTagEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDebugMarkerSetObjectTagEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_tag_info) }
     }
@@ -16581,13 +16290,11 @@ impl Device {
         &self,
         p_name_info: *const DebugMarkerObjectNameInfoEXT,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDebugMarkerSetObjectNameEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DebugMarkerSetObjectNameEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_DebugMarkerSetObjectNameEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDebugMarkerSetObjectNameEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_name_info) }
     }
@@ -16626,13 +16333,12 @@ impl CommandBuffer {
         &self,
         p_marker_info: *const DebugMarkerMarkerInfoEXT,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdDebugMarkerBeginEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdDebugMarkerBeginEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDebugMarkerBeginEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdDebugMarkerBeginEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_marker_info) }
     }
 }
@@ -16666,13 +16372,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDebugMarkerEndEXT")]
     #[inline(always)]
     pub unsafe fn cmd_debug_marker_end_ext(&self) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdDebugMarkerEndEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdDebugMarkerEndEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDebugMarkerEndEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdDebugMarkerEndEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle) }
     }
 }
@@ -16710,13 +16415,12 @@ impl CommandBuffer {
         &self,
         p_marker_info: *const DebugMarkerMarkerInfoEXT,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdDebugMarkerInsertEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdDebugMarkerInsertEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDebugMarkerInsertEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdDebugMarkerInsertEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_marker_info) }
     }
 }
@@ -16761,13 +16465,13 @@ impl CommandBuffer {
         p_offsets: *const DeviceSize,
         p_sizes: *const DeviceSize,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBindTransformFeedbackBuffersEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBindTransformFeedbackBuffersEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBindTransformFeedbackBuffersEXT>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkCmdBindTransformFeedbackBuffersEXT as usize,
+                ),
+            )
         };
         unsafe {
             (command)(
@@ -16816,13 +16520,11 @@ impl CommandBuffer {
         p_counter_buffers: *const Buffer,
         p_counter_buffer_offsets: *const DeviceSize,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBeginTransformFeedbackEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBeginTransformFeedbackEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBeginTransformFeedbackEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdBeginTransformFeedbackEXT as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -16870,13 +16572,11 @@ impl CommandBuffer {
         p_counter_buffers: *const Buffer,
         p_counter_buffer_offsets: *const DeviceSize,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdEndTransformFeedbackEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdEndTransformFeedbackEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdEndTransformFeedbackEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdEndTransformFeedbackEXT as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -16927,13 +16627,12 @@ impl CommandBuffer {
         flags: QueryControlFlags,
         index: u32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBeginQueryIndexedEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdBeginQueryIndexedEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBeginQueryIndexedEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdBeginQueryIndexedEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, query_pool, query, flags, index) }
     }
 }
@@ -16966,13 +16665,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdEndQueryIndexedEXT")]
     #[inline(always)]
     pub unsafe fn cmd_end_query_indexed_ext(&self, query_pool: QueryPool, query: u32, index: u32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdEndQueryIndexedEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdEndQueryIndexedEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdEndQueryIndexedEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdEndQueryIndexedEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, query_pool, query, index) }
     }
 }
@@ -17009,13 +16707,11 @@ impl CommandBuffer {
         counter_offset: u32,
         vertex_stride: u32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdDrawIndirectByteCountEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndirectByteCountEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndirectByteCountEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdDrawIndirectByteCountEXT as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -17065,13 +16761,12 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_module: *mut CuModuleNVX,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateCuModuleNVX as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateCuModuleNVX>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateCuModuleNVX>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateCuModuleNVX as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_module) }
     }
 }
@@ -17110,13 +16805,12 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_function: *mut CuFunctionNVX,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateCuFunctionNVX as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateCuFunctionNVX>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateCuFunctionNVX>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateCuFunctionNVX as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_function) }
     }
 }
@@ -17142,13 +16836,12 @@ impl Device {
         module: CuModuleNVX,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroyCuModuleNVX as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_DestroyCuModuleNVX>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyCuModuleNVX>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyCuModuleNVX as usize,
+            ))
+        };
         unsafe { (command)(self.handle, module, p_allocator) }
     }
 }
@@ -17174,13 +16867,12 @@ impl Device {
         function: CuFunctionNVX,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroyCuFunctionNVX as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_DestroyCuFunctionNVX>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyCuFunctionNVX>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyCuFunctionNVX as usize,
+            ))
+        };
         unsafe { (command)(self.handle, function, p_allocator) }
     }
 }
@@ -17210,13 +16902,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdCuLaunchKernelNVX")]
     #[inline(always)]
     pub unsafe fn cmd_cu_launch_kernel_nvx(&self, p_launch_info: *const CuLaunchInfoNVX) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdCuLaunchKernelNVX as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdCuLaunchKernelNVX>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdCuLaunchKernelNVX>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdCuLaunchKernelNVX as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_launch_info) }
     }
 }
@@ -17235,13 +16926,12 @@ impl Device {
     #[doc(alias = "vkGetImageViewHandleNVX")]
     #[inline(always)]
     pub unsafe fn get_image_view_handle_nvx(&self, p_info: *const ImageViewHandleInfoNVX) -> u32 {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetImageViewHandleNVX as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetImageViewHandleNVX>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetImageViewHandleNVX>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetImageViewHandleNVX as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_info) }
     }
 }
@@ -17263,13 +16953,12 @@ impl Device {
         &self,
         p_info: *const ImageViewHandleInfoNVX,
     ) -> u64 {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetImageViewHandle64NVX as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetImageViewHandle64NVX>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetImageViewHandle64NVX>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetImageViewHandle64NVX as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_info) }
     }
 }
@@ -17299,13 +16988,12 @@ impl Device {
         image_view: ImageView,
         p_properties: *mut ImageViewAddressPropertiesNVX,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetImageViewAddressNVX as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetImageViewAddressNVX>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetImageViewAddressNVX>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetImageViewAddressNVX as usize,
+            ))
+        };
         unsafe { (command)(self.handle, image_view, p_properties) }
     }
 }
@@ -17328,14 +17016,12 @@ impl Device {
         image_view_index: u64,
         sampler_index: u64,
     ) -> u64 {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDeviceCombinedImageSamplerIndexNVX as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetDeviceCombinedImageSamplerIndexNVX>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetDeviceCombinedImageSamplerIndexNVX as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, image_view_index, sampler_index) }
@@ -17375,13 +17061,12 @@ impl CommandBuffer {
         max_draw_count: u32,
         stride: u32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdDrawIndirectCountAMD as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndirectCountAMD>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndirectCountAMD>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdDrawIndirectCountAMD as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -17429,13 +17114,11 @@ impl CommandBuffer {
         max_draw_count: u32,
         stride: u32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdDrawIndexedIndirectCountAMD as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndexedIndirectCountAMD>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndexedIndirectCountAMD>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdDrawIndexedIndirectCountAMD as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -17490,13 +17173,12 @@ impl Device {
         p_info_size: *mut usize,
         p_info: *mut c_void,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetShaderInfoAMD as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetShaderInfoAMD>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetShaderInfoAMD>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetShaderInfoAMD as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -17545,13 +17227,11 @@ impl Instance {
         p_allocator: *const AllocationCallbacks,
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateStreamDescriptorSurfaceGGP as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateStreamDescriptorSurfaceGGP>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CreateStreamDescriptorSurfaceGGP>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateStreamDescriptorSurfaceGGP as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
     }
@@ -17603,16 +17283,14 @@ impl PhysicalDevice {
         external_handle_type: ExternalMemoryHandleTypeFlagsNV,
         p_external_image_format_properties: *mut ExternalImageFormatPropertiesNV,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceExternalImageFormatPropertiesNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<
                 vkVoidFunction,
                 FUN_GetPhysicalDeviceExternalImageFormatPropertiesNV,
-            >(command)
+            >(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetPhysicalDeviceExternalImageFormatPropertiesNV as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -17661,13 +17339,12 @@ impl Device {
         handle_type: ExternalMemoryHandleTypeFlagsNV,
         p_handle: *mut HANDLE,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetMemoryWin32HandleNV as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetMemoryWin32HandleNV>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetMemoryWin32HandleNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetMemoryWin32HandleNV as usize,
+            ))
+        };
         unsafe { (command)(self.handle, memory, handle_type, p_handle) }
     }
 }
@@ -17707,13 +17384,12 @@ impl Instance {
         p_allocator: *const AllocationCallbacks,
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateViSurfaceNN as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateViSurfaceNN>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateViSurfaceNN>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateViSurfaceNN as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
     }
 }
@@ -17747,13 +17423,11 @@ impl CommandBuffer {
         &self,
         p_conditional_rendering_begin: *const ConditionalRenderingBeginInfoEXT,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBeginConditionalRenderingEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBeginConditionalRenderingEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBeginConditionalRenderingEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdBeginConditionalRenderingEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_conditional_rendering_begin) }
     }
@@ -17784,13 +17458,11 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdEndConditionalRenderingEXT")]
     #[inline(always)]
     pub unsafe fn cmd_end_conditional_rendering_ext(&self) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdEndConditionalRenderingEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdEndConditionalRenderingEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdEndConditionalRenderingEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdEndConditionalRenderingEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle) }
     }
@@ -17825,13 +17497,12 @@ impl CommandBuffer {
         viewport_count: u32,
         p_viewport_w_scalings: *const ViewportWScalingNV,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetViewportWScalingNV as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetViewportWScalingNV>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetViewportWScalingNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetViewportWScalingNV as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -17863,13 +17534,12 @@ impl PhysicalDevice {
     #[doc(alias = "vkReleaseDisplayEXT")]
     #[inline(always)]
     pub unsafe fn release_display_ext(&self, display: DisplayKHR) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkReleaseDisplayEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_ReleaseDisplayEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_ReleaseDisplayEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkReleaseDisplayEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, display) }
     }
 }
@@ -17900,13 +17570,12 @@ impl PhysicalDevice {
         dpy: *mut Display,
         display: DisplayKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkAcquireXlibDisplayEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_AcquireXlibDisplayEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_AcquireXlibDisplayEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkAcquireXlibDisplayEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, dpy, display) }
     }
 }
@@ -17941,13 +17610,12 @@ impl PhysicalDevice {
         rr_output: RROutput,
         p_display: *mut DisplayKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetRandROutputDisplayEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetRandROutputDisplayEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetRandROutputDisplayEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetRandROutputDisplayEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, dpy, rr_output, p_display) }
     }
 }
@@ -17982,14 +17650,12 @@ impl PhysicalDevice {
         surface: SurfaceKHR,
         p_surface_capabilities: *mut SurfaceCapabilities2EXT,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceSurfaceCapabilities2EXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceSurfaceCapabilities2EXT>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceSurfaceCapabilities2EXT as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, surface, p_surface_capabilities) }
@@ -18021,13 +17687,12 @@ impl Device {
         display: DisplayKHR,
         p_display_power_info: *const DisplayPowerInfoEXT,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDisplayPowerControlEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_DisplayPowerControlEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_DisplayPowerControlEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDisplayPowerControlEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, display, p_display_power_info) }
     }
 }
@@ -18065,13 +17730,12 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_fence: *mut Fence,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkRegisterDeviceEventEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_RegisterDeviceEventEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_RegisterDeviceEventEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkRegisterDeviceEventEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_device_event_info, p_allocator, p_fence) }
     }
 }
@@ -18111,13 +17775,12 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_fence: *mut Fence,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkRegisterDisplayEventEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_RegisterDisplayEventEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_RegisterDisplayEventEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkRegisterDisplayEventEXT as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -18162,13 +17825,12 @@ impl Device {
         counter: SurfaceCounterFlagsEXT,
         p_counter_value: *mut u64,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetSwapchainCounterEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetSwapchainCounterEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetSwapchainCounterEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetSwapchainCounterEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, swapchain, counter, p_counter_value) }
     }
 }
@@ -18200,13 +17862,11 @@ impl Device {
         swapchain: SwapchainKHR,
         p_display_timing_properties: *mut RefreshCycleDurationGOOGLE,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetRefreshCycleDurationGOOGLE as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetRefreshCycleDurationGOOGLE>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetRefreshCycleDurationGOOGLE>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetRefreshCycleDurationGOOGLE as usize,
+            ))
         };
         unsafe { (command)(self.handle, swapchain, p_display_timing_properties) }
     }
@@ -18249,13 +17909,11 @@ impl Device {
         p_presentation_timing_count: *mut u32,
         p_presentation_timings: *mut PastPresentationTimingGOOGLE,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPastPresentationTimingGOOGLE as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPastPresentationTimingGOOGLE>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetPastPresentationTimingGOOGLE>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetPastPresentationTimingGOOGLE as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -18297,13 +17955,11 @@ impl CommandBuffer {
         discard_rectangle_count: u32,
         p_discard_rectangles: *const Rect2D,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetDiscardRectangleEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDiscardRectangleEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDiscardRectangleEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetDiscardRectangleEXT as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -18340,13 +17996,11 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetDiscardRectangleEnableEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_discard_rectangle_enable_ext(&self, discard_rectangle_enable: Bool32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetDiscardRectangleEnableEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDiscardRectangleEnableEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDiscardRectangleEnableEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetDiscardRectangleEnableEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, discard_rectangle_enable) }
     }
@@ -18379,13 +18033,11 @@ impl CommandBuffer {
         &self,
         discard_rectangle_mode: DiscardRectangleModeEXT,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetDiscardRectangleModeEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDiscardRectangleModeEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDiscardRectangleModeEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetDiscardRectangleModeEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, discard_rectangle_mode) }
     }
@@ -18410,13 +18062,12 @@ impl Device {
         p_swapchains: *const SwapchainKHR,
         p_metadata: *const HdrMetadataEXT,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkSetHdrMetadataEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_SetHdrMetadataEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_SetHdrMetadataEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkSetHdrMetadataEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, swapchain_count, p_swapchains, p_metadata) }
     }
 }
@@ -18457,13 +18108,12 @@ impl Instance {
         p_allocator: *const AllocationCallbacks,
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateIOSSurfaceMVK as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateIOSSurfaceMVK>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateIOSSurfaceMVK>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateIOSSurfaceMVK as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
     }
 }
@@ -18504,13 +18154,12 @@ impl Instance {
         p_allocator: *const AllocationCallbacks,
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateMacOSSurfaceMVK as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateMacOSSurfaceMVK>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateMacOSSurfaceMVK>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateMacOSSurfaceMVK as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
     }
 }
@@ -18540,13 +18189,11 @@ impl Device {
         &self,
         p_name_info: *const DebugUtilsObjectNameInfoEXT,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkSetDebugUtilsObjectNameEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_SetDebugUtilsObjectNameEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_SetDebugUtilsObjectNameEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkSetDebugUtilsObjectNameEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_name_info) }
     }
@@ -18577,13 +18224,11 @@ impl Device {
         &self,
         p_tag_info: *const DebugUtilsObjectTagInfoEXT,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkSetDebugUtilsObjectTagEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_SetDebugUtilsObjectTagEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_SetDebugUtilsObjectTagEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkSetDebugUtilsObjectTagEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_tag_info) }
     }
@@ -18603,13 +18248,11 @@ impl Queue {
     #[doc(alias = "vkQueueBeginDebugUtilsLabelEXT")]
     #[inline(always)]
     pub unsafe fn begin_debug_utils_label_ext(&self, p_label_info: *const DebugUtilsLabelEXT) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkQueueBeginDebugUtilsLabelEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_QueueBeginDebugUtilsLabelEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_QueueBeginDebugUtilsLabelEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkQueueBeginDebugUtilsLabelEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_label_info) }
     }
@@ -18628,13 +18271,11 @@ impl Queue {
     #[doc(alias = "vkQueueEndDebugUtilsLabelEXT")]
     #[inline(always)]
     pub unsafe fn end_debug_utils_label_ext(&self) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkQueueEndDebugUtilsLabelEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_QueueEndDebugUtilsLabelEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_QueueEndDebugUtilsLabelEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkQueueEndDebugUtilsLabelEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle) }
     }
@@ -18654,13 +18295,11 @@ impl Queue {
     #[doc(alias = "vkQueueInsertDebugUtilsLabelEXT")]
     #[inline(always)]
     pub unsafe fn insert_debug_utils_label_ext(&self, p_label_info: *const DebugUtilsLabelEXT) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkQueueInsertDebugUtilsLabelEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_QueueInsertDebugUtilsLabelEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_QueueInsertDebugUtilsLabelEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkQueueInsertDebugUtilsLabelEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_label_info) }
     }
@@ -18695,13 +18334,11 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBeginDebugUtilsLabelEXT")]
     #[inline(always)]
     pub unsafe fn cmd_begin_debug_utils_label_ext(&self, p_label_info: *const DebugUtilsLabelEXT) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBeginDebugUtilsLabelEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBeginDebugUtilsLabelEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBeginDebugUtilsLabelEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdBeginDebugUtilsLabelEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_label_info) }
     }
@@ -18735,13 +18372,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdEndDebugUtilsLabelEXT")]
     #[inline(always)]
     pub unsafe fn cmd_end_debug_utils_label_ext(&self) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdEndDebugUtilsLabelEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdEndDebugUtilsLabelEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdEndDebugUtilsLabelEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdEndDebugUtilsLabelEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle) }
     }
 }
@@ -18775,13 +18411,11 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdInsertDebugUtilsLabelEXT")]
     #[inline(always)]
     pub unsafe fn cmd_insert_debug_utils_label_ext(&self, p_label_info: *const DebugUtilsLabelEXT) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdInsertDebugUtilsLabelEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdInsertDebugUtilsLabelEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdInsertDebugUtilsLabelEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdInsertDebugUtilsLabelEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_label_info) }
     }
@@ -18820,13 +18454,11 @@ impl Instance {
         p_allocator: *const AllocationCallbacks,
         p_messenger: *mut DebugUtilsMessengerEXT,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateDebugUtilsMessengerEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateDebugUtilsMessengerEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CreateDebugUtilsMessengerEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateDebugUtilsMessengerEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_messenger) }
     }
@@ -18854,13 +18486,11 @@ impl Instance {
         messenger: DebugUtilsMessengerEXT,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroyDebugUtilsMessengerEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyDebugUtilsMessengerEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyDebugUtilsMessengerEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyDebugUtilsMessengerEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, messenger, p_allocator) }
     }
@@ -18889,13 +18519,11 @@ impl Instance {
         message_types: DebugUtilsMessageTypeFlagsEXT,
         p_callback_data: *const DebugUtilsMessengerCallbackDataEXT,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkSubmitDebugUtilsMessageEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_SubmitDebugUtilsMessageEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_SubmitDebugUtilsMessageEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkSubmitDebugUtilsMessageEXT as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -18937,14 +18565,12 @@ impl Device {
         buffer: *const AHardwareBuffer,
         p_properties: *mut AndroidHardwareBufferPropertiesANDROID,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetAndroidHardwareBufferPropertiesANDROID as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetAndroidHardwareBufferPropertiesANDROID>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetAndroidHardwareBufferPropertiesANDROID as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, buffer, p_properties) }
@@ -18980,14 +18606,12 @@ impl Device {
         p_info: *const MemoryGetAndroidHardwareBufferInfoANDROID,
         p_buffer: *mut *mut AHardwareBuffer,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetMemoryAndroidHardwareBufferANDROID as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetMemoryAndroidHardwareBufferANDROID>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetMemoryAndroidHardwareBufferANDROID as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, p_info, p_buffer) }
@@ -19028,13 +18652,12 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_gpa_session: *mut GpaSessionAMD,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateGpaSessionAMD as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateGpaSessionAMD>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateGpaSessionAMD>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateGpaSessionAMD as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_gpa_session) }
     }
 }
@@ -19061,13 +18684,12 @@ impl Device {
         gpa_session: GpaSessionAMD,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroyGpaSessionAMD as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_DestroyGpaSessionAMD>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyGpaSessionAMD>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyGpaSessionAMD as usize,
+            ))
+        };
         unsafe { (command)(self.handle, gpa_session, p_allocator) }
     }
 }
@@ -19097,13 +18719,12 @@ impl Device {
         &self,
         p_info: *mut GpaDeviceClockModeInfoAMD,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkSetGpaDeviceClockModeAMD as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_SetGpaDeviceClockModeAMD>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_SetGpaDeviceClockModeAMD>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkSetGpaDeviceClockModeAMD as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_info) }
     }
 }
@@ -19133,13 +18754,12 @@ impl Device {
         &self,
         p_info: *mut GpaDeviceGetClockInfoAMD,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetGpaDeviceClockInfoAMD as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetGpaDeviceClockInfoAMD>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetGpaDeviceClockInfoAMD>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetGpaDeviceClockInfoAMD as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_info) }
     }
 }
@@ -19178,13 +18798,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBeginGpaSessionAMD")]
     #[inline(always)]
     pub unsafe fn cmd_begin_gpa_session_amd(&self, gpa_session: GpaSessionAMD) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBeginGpaSessionAMD as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdBeginGpaSessionAMD>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBeginGpaSessionAMD>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdBeginGpaSessionAMD as usize,
+            ))
+        };
         unsafe { (command)(self.handle, gpa_session) }
     }
 }
@@ -19223,13 +18842,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdEndGpaSessionAMD")]
     #[inline(always)]
     pub unsafe fn cmd_end_gpa_session_amd(&self, gpa_session: GpaSessionAMD) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdEndGpaSessionAMD as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdEndGpaSessionAMD>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdEndGpaSessionAMD>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdEndGpaSessionAMD as usize,
+            ))
+        };
         unsafe { (command)(self.handle, gpa_session) }
     }
 }
@@ -19277,13 +18895,12 @@ impl CommandBuffer {
         p_gpa_sample_begin_info: *const GpaSampleBeginInfoAMD,
         p_sample_id: *mut u32,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBeginGpaSampleAMD as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdBeginGpaSampleAMD>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBeginGpaSampleAMD>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdBeginGpaSampleAMD as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -19321,13 +18938,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdEndGpaSampleAMD")]
     #[inline(always)]
     pub unsafe fn cmd_end_gpa_sample_amd(&self, gpa_session: GpaSessionAMD, sample_id: u32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdEndGpaSampleAMD as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdEndGpaSampleAMD>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdEndGpaSampleAMD>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdEndGpaSampleAMD as usize,
+            ))
+        };
         unsafe { (command)(self.handle, gpa_session, sample_id) }
     }
 }
@@ -19354,13 +18970,12 @@ impl Device {
     #[doc(alias = "vkGetGpaSessionStatusAMD")]
     #[inline(always)]
     pub unsafe fn get_gpa_session_status_amd(&self, gpa_session: GpaSessionAMD) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetGpaSessionStatusAMD as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetGpaSessionStatusAMD>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetGpaSessionStatusAMD>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetGpaSessionStatusAMD as usize,
+            ))
+        };
         unsafe { (command)(self.handle, gpa_session) }
     }
 }
@@ -19396,13 +19011,12 @@ impl Device {
         p_size_in_bytes: *mut usize,
         p_data: *mut c_void,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetGpaSessionResultsAMD as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetGpaSessionResultsAMD>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetGpaSessionResultsAMD>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetGpaSessionResultsAMD as usize,
+            ))
+        };
         unsafe { (command)(self.handle, gpa_session, sample_id, p_size_in_bytes, p_data) }
     }
 }
@@ -19429,13 +19043,12 @@ impl Device {
     #[doc(alias = "vkResetGpaSessionAMD")]
     #[inline(always)]
     pub unsafe fn reset_gpa_session_amd(&self, gpa_session: GpaSessionAMD) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkResetGpaSessionAMD as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_ResetGpaSessionAMD>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_ResetGpaSessionAMD>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkResetGpaSessionAMD as usize,
+            ))
+        };
         unsafe { (command)(self.handle, gpa_session) }
     }
 }
@@ -19467,13 +19080,11 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdCopyGpaSessionResultsAMD")]
     #[inline(always)]
     pub unsafe fn cmd_copy_gpa_session_results_amd(&self, gpa_session: GpaSessionAMD) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdCopyGpaSessionResultsAMD as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyGpaSessionResultsAMD>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyGpaSessionResultsAMD>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdCopyGpaSessionResultsAMD as usize,
+            ))
         };
         unsafe { (command)(self.handle, gpa_session) }
     }
@@ -19519,13 +19130,13 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_pipelines: *mut Pipeline,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateExecutionGraphPipelinesAMDX as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateExecutionGraphPipelinesAMDX>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CreateExecutionGraphPipelinesAMDX>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkCreateExecutionGraphPipelinesAMDX as usize,
+                ),
+            )
         };
         unsafe {
             (command)(
@@ -19568,14 +19179,12 @@ impl Device {
         execution_graph: Pipeline,
         p_size_info: *mut ExecutionGraphPipelineScratchSizeAMDX,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetExecutionGraphPipelineScratchSizeAMDX as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetExecutionGraphPipelineScratchSizeAMDX>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetExecutionGraphPipelineScratchSizeAMDX as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, execution_graph, p_size_info) }
@@ -19612,14 +19221,12 @@ impl Device {
         p_node_info: *const PipelineShaderStageNodeCreateInfoAMDX,
         p_node_index: *mut u32,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetExecutionGraphPipelineNodeIndexAMDX as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetExecutionGraphPipelineNodeIndexAMDX>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetExecutionGraphPipelineNodeIndexAMDX as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, execution_graph, p_node_info, p_node_index) }
@@ -19655,13 +19262,13 @@ impl CommandBuffer {
         scratch: DeviceAddress,
         scratch_size: DeviceSize,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdInitializeGraphScratchMemoryAMDX as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdInitializeGraphScratchMemoryAMDX>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdInitializeGraphScratchMemoryAMDX>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkCmdInitializeGraphScratchMemoryAMDX as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, execution_graph, scratch, scratch_size) }
     }
@@ -19700,13 +19307,12 @@ impl CommandBuffer {
         scratch_size: DeviceSize,
         p_count_info: *const DispatchGraphCountInfoAMDX,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdDispatchGraphAMDX as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdDispatchGraphAMDX>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDispatchGraphAMDX>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdDispatchGraphAMDX as usize,
+            ))
+        };
         unsafe { (command)(self.handle, scratch, scratch_size, p_count_info) }
     }
 }
@@ -19744,13 +19350,11 @@ impl CommandBuffer {
         scratch_size: DeviceSize,
         p_count_info: *const DispatchGraphCountInfoAMDX,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdDispatchGraphIndirectAMDX as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDispatchGraphIndirectAMDX>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDispatchGraphIndirectAMDX>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdDispatchGraphIndirectAMDX as usize,
+            ))
         };
         unsafe { (command)(self.handle, scratch, scratch_size, p_count_info) }
     }
@@ -19785,13 +19389,13 @@ impl CommandBuffer {
         scratch_size: DeviceSize,
         count_info: DeviceAddress,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdDispatchGraphIndirectCountAMDX as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDispatchGraphIndirectCountAMDX>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDispatchGraphIndirectCountAMDX>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkCmdDispatchGraphIndirectCountAMDX as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, scratch, scratch_size, count_info) }
     }
@@ -19828,13 +19432,11 @@ impl Device {
         p_samplers: *const SamplerCreateInfo,
         p_descriptors: *const HostAddressRangeEXT,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkWriteSamplerDescriptorsEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_WriteSamplerDescriptorsEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_WriteSamplerDescriptorsEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkWriteSamplerDescriptorsEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, sampler_count, p_samplers, p_descriptors) }
     }
@@ -19871,13 +19473,11 @@ impl Device {
         p_resources: *const ResourceDescriptorInfoEXT,
         p_descriptors: *const HostAddressRangeEXT,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkWriteResourceDescriptorsEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_WriteResourceDescriptorsEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_WriteResourceDescriptorsEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkWriteResourceDescriptorsEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, resource_count, p_resources, p_descriptors) }
     }
@@ -19908,13 +19508,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBindSamplerHeapEXT")]
     #[inline(always)]
     pub unsafe fn cmd_bind_sampler_heap_ext(&self, p_bind_info: *const BindHeapInfoEXT) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBindSamplerHeapEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdBindSamplerHeapEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBindSamplerHeapEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdBindSamplerHeapEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_bind_info) }
     }
 }
@@ -19944,13 +19543,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBindResourceHeapEXT")]
     #[inline(always)]
     pub unsafe fn cmd_bind_resource_heap_ext(&self, p_bind_info: *const BindHeapInfoEXT) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBindResourceHeapEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdBindResourceHeapEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBindResourceHeapEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdBindResourceHeapEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_bind_info) }
     }
 }
@@ -19980,9 +19578,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdPushDataEXT")]
     #[inline(always)]
     pub unsafe fn cmd_push_data_ext(&self, p_push_data_info: *const PushDataInfoEXT) {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkCmdPushDataEXT as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdPushDataEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdPushDataEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdPushDataEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_push_data_info) }
     }
 }
@@ -20014,13 +19615,11 @@ impl Device {
         p_images: *const Image,
         p_datas: *mut HostAddressRangeEXT,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetImageOpaqueCaptureDataEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetImageOpaqueCaptureDataEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetImageOpaqueCaptureDataEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetImageOpaqueCaptureDataEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, image_count, p_images, p_datas) }
     }
@@ -20040,13 +19639,13 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceDescriptorSizeEXT")]
     #[inline(always)]
     pub unsafe fn get_descriptor_size_ext(&self, descriptor_type: DescriptorType) -> DeviceSize {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceDescriptorSizeEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceDescriptorSizeEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceDescriptorSizeEXT>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceDescriptorSizeEXT as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, descriptor_type) }
     }
@@ -20085,13 +19684,11 @@ impl Device {
         request_index: Bool32,
         p_index: *mut u32,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkRegisterCustomBorderColorEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_RegisterCustomBorderColorEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_RegisterCustomBorderColorEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkRegisterCustomBorderColorEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_border_color, request_index, p_index) }
     }
@@ -20110,13 +19707,11 @@ impl Device {
     #[doc(alias = "vkUnregisterCustomBorderColorEXT")]
     #[inline(always)]
     pub unsafe fn unregister_custom_border_color_ext(&self, index: u32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkUnregisterCustomBorderColorEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_UnregisterCustomBorderColorEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_UnregisterCustomBorderColorEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkUnregisterCustomBorderColorEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, index) }
     }
@@ -20153,13 +19748,11 @@ impl Device {
         p_tensors: *const TensorARM,
         p_datas: *mut HostAddressRangeEXT,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetTensorOpaqueCaptureDataARM as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetTensorOpaqueCaptureDataARM>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetTensorOpaqueCaptureDataARM>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetTensorOpaqueCaptureDataARM as usize,
+            ))
         };
         unsafe { (command)(self.handle, tensor_count, p_tensors, p_datas) }
     }
@@ -20192,13 +19785,12 @@ impl CommandBuffer {
         &self,
         p_sample_locations_info: *const SampleLocationsInfoEXT,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetSampleLocationsEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetSampleLocationsEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetSampleLocationsEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetSampleLocationsEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_sample_locations_info) }
     }
 }
@@ -20221,14 +19813,12 @@ impl PhysicalDevice {
         samples: SampleCountFlags,
         p_multisample_properties: *mut MultisamplePropertiesEXT,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceMultisamplePropertiesEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceMultisamplePropertiesEXT>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceMultisamplePropertiesEXT as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, samples, p_multisample_properties) }
@@ -20263,14 +19853,12 @@ impl Device {
         image: Image,
         p_properties: *mut ImageDrmFormatModifierPropertiesEXT,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetImageDrmFormatModifierPropertiesEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetImageDrmFormatModifierPropertiesEXT>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetImageDrmFormatModifierPropertiesEXT as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, image, p_properties) }
@@ -20310,13 +19898,12 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_validation_cache: *mut ValidationCacheEXT,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateValidationCacheEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateValidationCacheEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateValidationCacheEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateValidationCacheEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_validation_cache) }
     }
 }
@@ -20343,13 +19930,11 @@ impl Device {
         validation_cache: ValidationCacheEXT,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroyValidationCacheEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyValidationCacheEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyValidationCacheEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyValidationCacheEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, validation_cache, p_allocator) }
     }
@@ -20386,13 +19971,12 @@ impl Device {
         src_cache_count: u32,
         p_src_caches: *const ValidationCacheEXT,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkMergeValidationCachesEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_MergeValidationCachesEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_MergeValidationCachesEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkMergeValidationCachesEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, dst_cache, src_cache_count, p_src_caches) }
     }
 }
@@ -20428,13 +20012,11 @@ impl Device {
         p_data_size: *mut usize,
         p_data: *mut c_void,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetValidationCacheDataEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetValidationCacheDataEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetValidationCacheDataEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetValidationCacheDataEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, validation_cache, p_data_size, p_data) }
     }
@@ -20471,13 +20053,11 @@ impl CommandBuffer {
         image_view: ImageView,
         image_layout: ImageLayout,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBindShadingRateImageNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBindShadingRateImageNV>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBindShadingRateImageNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdBindShadingRateImageNV as usize,
+            ))
         };
         unsafe { (command)(self.handle, image_view, image_layout) }
     }
@@ -20512,13 +20092,13 @@ impl CommandBuffer {
         viewport_count: u32,
         p_shading_rate_palettes: *const ShadingRatePaletteNV,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetViewportShadingRatePaletteNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetViewportShadingRatePaletteNV>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetViewportShadingRatePaletteNV>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkCmdSetViewportShadingRatePaletteNV as usize,
+                ),
+            )
         };
         unsafe {
             (command)(
@@ -20567,13 +20147,11 @@ impl CommandBuffer {
         custom_sample_order_count: u32,
         p_custom_sample_orders: *const CoarseSampleOrderCustomNV,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetCoarseSampleOrderNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetCoarseSampleOrderNV>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetCoarseSampleOrderNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetCoarseSampleOrderNV as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -20620,13 +20198,11 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_acceleration_structure: *mut AccelerationStructureNV,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateAccelerationStructureNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateAccelerationStructureNV>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CreateAccelerationStructureNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateAccelerationStructureNV as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -20662,13 +20238,11 @@ impl Device {
         acceleration_structure: AccelerationStructureNV,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroyAccelerationStructureNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyAccelerationStructureNV>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyAccelerationStructureNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyAccelerationStructureNV as usize,
+            ))
         };
         unsafe { (command)(self.handle, acceleration_structure, p_allocator) }
     }
@@ -20696,14 +20270,12 @@ impl Device {
         p_info: *const AccelerationStructureMemoryRequirementsInfoNV,
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetAccelerationStructureMemoryRequirementsNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetAccelerationStructureMemoryRequirementsNV>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetAccelerationStructureMemoryRequirementsNV as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, p_info, p_memory_requirements) }
@@ -20740,13 +20312,13 @@ impl Device {
         bind_info_count: u32,
         p_bind_infos: *const BindAccelerationStructureMemoryInfoNV,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkBindAccelerationStructureMemoryNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_BindAccelerationStructureMemoryNV>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_BindAccelerationStructureMemoryNV>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkBindAccelerationStructureMemoryNV as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, bind_info_count, p_bind_infos) }
     }
@@ -20800,13 +20372,11 @@ impl CommandBuffer {
         scratch: Buffer,
         scratch_offset: DeviceSize,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBuildAccelerationStructureNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBuildAccelerationStructureNV>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBuildAccelerationStructureNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdBuildAccelerationStructureNV as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -20858,13 +20428,11 @@ impl CommandBuffer {
         src: AccelerationStructureNV,
         mode: CopyAccelerationStructureModeKHR,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdCopyAccelerationStructureNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyAccelerationStructureNV>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyAccelerationStructureNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdCopyAccelerationStructureNV as usize,
+            ))
         };
         unsafe { (command)(self.handle, dst, src, mode) }
     }
@@ -20931,9 +20499,12 @@ impl CommandBuffer {
         height: u32,
         depth: u32,
     ) {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkCmdTraceRaysNV as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdTraceRaysNV>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdTraceRaysNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdTraceRaysNV as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -20998,13 +20569,11 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_pipelines: *mut Pipeline,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateRayTracingPipelinesNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateRayTracingPipelinesNV>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CreateRayTracingPipelinesNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateRayTracingPipelinesNV as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -21048,13 +20617,13 @@ impl Device {
         data_size: usize,
         p_data: *mut c_void,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetRayTracingShaderGroupHandlesKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetRayTracingShaderGroupHandlesKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetRayTracingShaderGroupHandlesKHR>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetRayTracingShaderGroupHandlesKHR as usize,
+                ),
+            )
         };
         unsafe {
             (command)(
@@ -21099,13 +20668,13 @@ impl Device {
         data_size: usize,
         p_data: *mut c_void,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetRayTracingShaderGroupHandlesNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetRayTracingShaderGroupHandlesNV>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetRayTracingShaderGroupHandlesNV>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetRayTracingShaderGroupHandlesNV as usize,
+                ),
+            )
         };
         unsafe {
             (command)(
@@ -21148,13 +20717,11 @@ impl Device {
         data_size: usize,
         p_data: *mut c_void,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetAccelerationStructureHandleNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetAccelerationStructureHandleNV>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetAccelerationStructureHandleNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetAccelerationStructureHandleNV as usize,
+            ))
         };
         unsafe { (command)(self.handle, acceleration_structure, data_size, p_data) }
     }
@@ -21198,14 +20765,12 @@ impl CommandBuffer {
         query_pool: QueryPool,
         first_query: u32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdWriteAccelerationStructuresPropertiesNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdWriteAccelerationStructuresPropertiesNV>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkCmdWriteAccelerationStructuresPropertiesNV as usize,
+                ),
             )
         };
         unsafe {
@@ -21244,13 +20809,12 @@ impl Device {
     #[doc(alias = "vkCompileDeferredNV")]
     #[inline(always)]
     pub unsafe fn compile_deferred_nv(&self, pipeline: Pipeline, shader: u32) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCompileDeferredNV as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CompileDeferredNV>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CompileDeferredNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCompileDeferredNV as usize,
+            ))
+        };
         unsafe { (command)(self.handle, pipeline, shader) }
     }
 }
@@ -21286,13 +20850,13 @@ impl Device {
         p_host_pointer: *const c_void,
         p_memory_host_pointer_properties: *mut MemoryHostPointerPropertiesEXT,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetMemoryHostPointerPropertiesEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetMemoryHostPointerPropertiesEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetMemoryHostPointerPropertiesEXT>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetMemoryHostPointerPropertiesEXT as usize,
+                ),
+            )
         };
         unsafe {
             (command)(
@@ -21340,13 +20904,12 @@ impl CommandBuffer {
         dst_offset: DeviceSize,
         marker: u32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdWriteBufferMarkerAMD as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdWriteBufferMarkerAMD>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdWriteBufferMarkerAMD>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdWriteBufferMarkerAMD as usize,
+            ))
+        };
         unsafe { (command)(self.handle, pipeline_stage, dst_buffer, dst_offset, marker) }
     }
 }
@@ -21386,13 +20949,12 @@ impl CommandBuffer {
         dst_offset: DeviceSize,
         marker: u32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdWriteBufferMarker2AMD as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdWriteBufferMarker2AMD>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdWriteBufferMarker2AMD>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdWriteBufferMarker2AMD as usize,
+            ))
+        };
         unsafe { (command)(self.handle, stage, dst_buffer, dst_offset, marker) }
     }
 }
@@ -21428,14 +20990,12 @@ impl PhysicalDevice {
         p_time_domain_count: *mut u32,
         p_time_domains: *mut TimeDomainKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceCalibrateableTimeDomainsEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceCalibrateableTimeDomainsEXT>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceCalibrateableTimeDomainsEXT as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, p_time_domain_count, p_time_domains) }
@@ -21476,13 +21036,11 @@ impl Device {
         p_timestamps: *mut u64,
         p_max_deviation: *mut u64,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetCalibratedTimestampsEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetCalibratedTimestampsEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetCalibratedTimestampsEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetCalibratedTimestampsEXT as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -21519,13 +21077,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDrawMeshTasksNV")]
     #[inline(always)]
     pub unsafe fn cmd_draw_mesh_tasks_nv(&self, task_count: u32, first_task: u32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdDrawMeshTasksNV as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdDrawMeshTasksNV>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawMeshTasksNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdDrawMeshTasksNV as usize,
+            ))
+        };
         unsafe { (command)(self.handle, task_count, first_task) }
     }
 }
@@ -21560,13 +21117,11 @@ impl CommandBuffer {
         draw_count: u32,
         stride: u32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdDrawMeshTasksIndirectNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawMeshTasksIndirectNV>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawMeshTasksIndirectNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdDrawMeshTasksIndirectNV as usize,
+            ))
         };
         unsafe { (command)(self.handle, buffer, offset, draw_count, stride) }
     }
@@ -21604,13 +21159,11 @@ impl CommandBuffer {
         max_draw_count: u32,
         stride: u32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdDrawMeshTasksIndirectCountNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawMeshTasksIndirectCountNV>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawMeshTasksIndirectCountNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdDrawMeshTasksIndirectCountNV as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -21655,13 +21208,11 @@ impl CommandBuffer {
         exclusive_scissor_count: u32,
         p_exclusive_scissor_enables: *const Bool32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetExclusiveScissorEnableNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetExclusiveScissorEnableNV>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetExclusiveScissorEnableNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetExclusiveScissorEnableNV as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -21703,13 +21254,12 @@ impl CommandBuffer {
         exclusive_scissor_count: u32,
         p_exclusive_scissors: *const Rect2D,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetExclusiveScissorNV as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetExclusiveScissorNV>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetExclusiveScissorNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetExclusiveScissorNV as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -21746,13 +21296,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetCheckpointNV")]
     #[inline(always)]
     pub unsafe fn cmd_set_checkpoint_nv(&self, p_checkpoint_marker: *const c_void) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetCheckpointNV as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetCheckpointNV>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetCheckpointNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetCheckpointNV as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_checkpoint_marker) }
     }
 }
@@ -21778,13 +21327,12 @@ impl Queue {
         p_checkpoint_data_count: *mut u32,
         p_checkpoint_data: *mut CheckpointDataNV,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetQueueCheckpointDataNV as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetQueueCheckpointDataNV>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetQueueCheckpointDataNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetQueueCheckpointDataNV as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_checkpoint_data_count, p_checkpoint_data) }
     }
 }
@@ -21810,13 +21358,11 @@ impl Queue {
         p_checkpoint_data_count: *mut u32,
         p_checkpoint_data: *mut CheckpointData2NV,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetQueueCheckpointData2NV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetQueueCheckpointData2NV>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetQueueCheckpointData2NV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetQueueCheckpointData2NV as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_checkpoint_data_count, p_checkpoint_data) }
     }
@@ -21849,14 +21395,12 @@ impl Device {
         swapchain: SwapchainKHR,
         size: u32,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkSetSwapchainPresentTimingQueueSizeEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_SetSwapchainPresentTimingQueueSizeEXT>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkSetSwapchainPresentTimingQueueSizeEXT as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, swapchain, size) }
@@ -21899,13 +21443,11 @@ impl Device {
         p_swapchain_timing_properties: *mut SwapchainTimingPropertiesEXT,
         p_swapchain_timing_properties_counter: *mut u64,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetSwapchainTimingPropertiesEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetSwapchainTimingPropertiesEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetSwapchainTimingPropertiesEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetSwapchainTimingPropertiesEXT as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -21954,13 +21496,13 @@ impl Device {
         p_swapchain_time_domain_properties: *mut SwapchainTimeDomainPropertiesEXT,
         p_time_domains_counter: *mut u64,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetSwapchainTimeDomainPropertiesEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetSwapchainTimeDomainPropertiesEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetSwapchainTimeDomainPropertiesEXT>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetSwapchainTimeDomainPropertiesEXT as usize,
+                ),
+            )
         };
         unsafe {
             (command)(
@@ -22004,13 +21546,11 @@ impl Device {
         p_past_presentation_timing_info: *const PastPresentationTimingInfoEXT,
         p_past_presentation_timing_properties: *mut PastPresentationTimingPropertiesEXT,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPastPresentationTimingEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPastPresentationTimingEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetPastPresentationTimingEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetPastPresentationTimingEXT as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -22047,13 +21587,11 @@ impl Device {
         &self,
         p_initialize_info: *const InitializePerformanceApiInfoINTEL,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkInitializePerformanceApiINTEL as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_InitializePerformanceApiINTEL>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_InitializePerformanceApiINTEL>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkInitializePerformanceApiINTEL as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_initialize_info) }
     }
@@ -22072,13 +21610,11 @@ impl Device {
     #[doc(alias = "vkUninitializePerformanceApiINTEL")]
     #[inline(always)]
     pub unsafe fn uninitialize_performance_api_intel(&self) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkUninitializePerformanceApiINTEL as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_UninitializePerformanceApiINTEL>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_UninitializePerformanceApiINTEL>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkUninitializePerformanceApiINTEL as usize,
+            ))
         };
         unsafe { (command)(self.handle) }
     }
@@ -22122,13 +21658,11 @@ impl CommandBuffer {
         &self,
         p_marker_info: *const PerformanceMarkerInfoINTEL,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetPerformanceMarkerINTEL as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetPerformanceMarkerINTEL>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetPerformanceMarkerINTEL>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetPerformanceMarkerINTEL as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_marker_info) }
     }
@@ -22174,13 +21708,13 @@ impl CommandBuffer {
         &self,
         p_marker_info: *const PerformanceStreamMarkerInfoINTEL,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetPerformanceStreamMarkerINTEL as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetPerformanceStreamMarkerINTEL>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetPerformanceStreamMarkerINTEL>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkCmdSetPerformanceStreamMarkerINTEL as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, p_marker_info) }
     }
@@ -22223,13 +21757,11 @@ impl CommandBuffer {
         &self,
         p_override_info: *const PerformanceOverrideInfoINTEL,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetPerformanceOverrideINTEL as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetPerformanceOverrideINTEL>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetPerformanceOverrideINTEL>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetPerformanceOverrideINTEL as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_override_info) }
     }
@@ -22264,13 +21796,13 @@ impl Device {
         p_acquire_info: *const PerformanceConfigurationAcquireInfoINTEL,
         p_configuration: *mut PerformanceConfigurationINTEL,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkAcquirePerformanceConfigurationINTEL as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_AcquirePerformanceConfigurationINTEL>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_AcquirePerformanceConfigurationINTEL>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkAcquirePerformanceConfigurationINTEL as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, p_acquire_info, p_configuration) }
     }
@@ -22304,13 +21836,13 @@ impl Device {
         &self,
         configuration: PerformanceConfigurationINTEL,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkReleasePerformanceConfigurationINTEL as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_ReleasePerformanceConfigurationINTEL>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_ReleasePerformanceConfigurationINTEL>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkReleasePerformanceConfigurationINTEL as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, configuration) }
     }
@@ -22341,14 +21873,12 @@ impl Queue {
         &self,
         configuration: PerformanceConfigurationINTEL,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkQueueSetPerformanceConfigurationINTEL as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_QueueSetPerformanceConfigurationINTEL>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkQueueSetPerformanceConfigurationINTEL as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, configuration) }
@@ -22384,13 +21914,11 @@ impl Device {
         parameter: PerformanceParameterTypeINTEL,
         p_value: *mut PerformanceValueINTEL,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPerformanceParameterINTEL as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPerformanceParameterINTEL>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetPerformanceParameterINTEL>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetPerformanceParameterINTEL as usize,
+            ))
         };
         unsafe { (command)(self.handle, parameter, p_value) }
     }
@@ -22413,13 +21941,12 @@ impl Device {
         swap_chain: SwapchainKHR,
         local_dimming_enable: Bool32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkSetLocalDimmingAMD as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_SetLocalDimmingAMD>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_SetLocalDimmingAMD>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkSetLocalDimmingAMD as usize,
+            ))
+        };
         unsafe { (command)(self.handle, swap_chain, local_dimming_enable) }
     }
 }
@@ -22458,13 +21985,11 @@ impl Instance {
         p_allocator: *const AllocationCallbacks,
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateImagePipeSurfaceFUCHSIA as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateImagePipeSurfaceFUCHSIA>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CreateImagePipeSurfaceFUCHSIA>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateImagePipeSurfaceFUCHSIA as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
     }
@@ -22505,13 +22030,12 @@ impl Instance {
         p_allocator: *const AllocationCallbacks,
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateMetalSurfaceEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateMetalSurfaceEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateMetalSurfaceEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateMetalSurfaceEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
     }
 }
@@ -22534,13 +22058,11 @@ impl Device {
         &self,
         p_info: *const BufferDeviceAddressInfo,
     ) -> DeviceAddress {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetBufferDeviceAddressEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetBufferDeviceAddressEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetBufferDeviceAddressEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetBufferDeviceAddressEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_info) }
     }
@@ -22579,13 +22101,13 @@ impl PhysicalDevice {
         p_tool_count: *mut u32,
         p_tool_properties: *mut PhysicalDeviceToolProperties,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceToolPropertiesEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceToolPropertiesEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceToolPropertiesEXT>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceToolPropertiesEXT as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, p_tool_count, p_tool_properties) }
     }
@@ -22625,14 +22147,12 @@ impl PhysicalDevice {
         p_property_count: *mut u32,
         p_properties: *mut CooperativeMatrixPropertiesNV,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceCooperativeMatrixPropertiesNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceCooperativeMatrixPropertiesNV>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceCooperativeMatrixPropertiesNV as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, p_property_count, p_properties) }
@@ -22673,17 +22193,15 @@ impl PhysicalDevice {
         p_combination_count: *mut u32,
         p_combinations: *mut FramebufferMixedSamplesCombinationNV,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV
-                as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<
                 vkVoidFunction,
                 FUN_GetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV,
-            >(command)
+            >(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV
+                    as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_combination_count, p_combinations) }
     }
@@ -22725,14 +22243,12 @@ impl PhysicalDevice {
         p_present_mode_count: *mut u32,
         p_present_modes: *mut PresentModeKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceSurfacePresentModes2EXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceSurfacePresentModes2EXT>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceSurfacePresentModes2EXT as usize,
+                ),
             )
         };
         unsafe {
@@ -22773,13 +22289,13 @@ impl Device {
         &self,
         swapchain: SwapchainKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkAcquireFullScreenExclusiveModeEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_AcquireFullScreenExclusiveModeEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_AcquireFullScreenExclusiveModeEXT>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkAcquireFullScreenExclusiveModeEXT as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, swapchain) }
     }
@@ -22811,13 +22327,13 @@ impl Device {
         &self,
         swapchain: SwapchainKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkReleaseFullScreenExclusiveModeEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_ReleaseFullScreenExclusiveModeEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_ReleaseFullScreenExclusiveModeEXT>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkReleaseFullScreenExclusiveModeEXT as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, swapchain) }
     }
@@ -22853,14 +22369,12 @@ impl Device {
         p_surface_info: *const PhysicalDeviceSurfaceInfo2KHR,
         p_modes: *mut DeviceGroupPresentModeFlagsKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDeviceGroupSurfacePresentModes2EXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetDeviceGroupSurfacePresentModes2EXT>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetDeviceGroupSurfacePresentModes2EXT as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, p_surface_info, p_modes) }
@@ -22901,13 +22415,12 @@ impl Instance {
         p_allocator: *const AllocationCallbacks,
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateHeadlessSurfaceEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateHeadlessSurfaceEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateHeadlessSurfaceEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateHeadlessSurfaceEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
     }
 }
@@ -22940,13 +22453,12 @@ impl CommandBuffer {
         line_stipple_factor: u32,
         line_stipple_pattern: u16,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetLineStippleEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetLineStippleEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetLineStippleEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetLineStippleEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, line_stipple_factor, line_stipple_pattern) }
     }
 }
@@ -22970,13 +22482,12 @@ impl Device {
         first_query: u32,
         query_count: u32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkResetQueryPoolEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_ResetQueryPoolEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_ResetQueryPoolEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkResetQueryPoolEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, query_pool, first_query, query_count) }
     }
 }
@@ -23009,13 +22520,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetCullModeEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_cull_mode_ext(&self, cull_mode: CullModeFlags) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetCullModeEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetCullModeEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetCullModeEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetCullModeEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, cull_mode) }
     }
 }
@@ -23045,13 +22555,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetFrontFaceEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_front_face_ext(&self, front_face: FrontFace) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetFrontFaceEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetFrontFaceEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetFrontFaceEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetFrontFaceEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, front_face) }
     }
 }
@@ -23082,13 +22591,11 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetPrimitiveTopologyEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_primitive_topology_ext(&self, primitive_topology: PrimitiveTopology) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetPrimitiveTopologyEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetPrimitiveTopologyEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetPrimitiveTopologyEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetPrimitiveTopologyEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, primitive_topology) }
     }
@@ -23124,13 +22631,11 @@ impl CommandBuffer {
         viewport_count: u32,
         p_viewports: *const Viewport,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetViewportWithCountEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetViewportWithCountEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetViewportWithCountEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetViewportWithCountEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, viewport_count, p_viewports) }
     }
@@ -23166,13 +22671,11 @@ impl CommandBuffer {
         scissor_count: u32,
         p_scissors: *const Rect2D,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetScissorWithCountEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetScissorWithCountEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetScissorWithCountEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetScissorWithCountEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, scissor_count, p_scissors) }
     }
@@ -23223,13 +22726,12 @@ impl CommandBuffer {
         p_sizes: *const DeviceSize,
         p_strides: *const DeviceSize,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBindVertexBuffers2EXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdBindVertexBuffers2EXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBindVertexBuffers2EXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdBindVertexBuffers2EXT as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -23269,13 +22771,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetDepthTestEnableEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_depth_test_enable_ext(&self, depth_test_enable: Bool32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetDepthTestEnableEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthTestEnableEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthTestEnableEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetDepthTestEnableEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, depth_test_enable) }
     }
 }
@@ -23305,13 +22806,11 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetDepthWriteEnableEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_depth_write_enable_ext(&self, depth_write_enable: Bool32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetDepthWriteEnableEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthWriteEnableEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthWriteEnableEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetDepthWriteEnableEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, depth_write_enable) }
     }
@@ -23342,13 +22841,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetDepthCompareOpEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_depth_compare_op_ext(&self, depth_compare_op: CompareOp) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetDepthCompareOpEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthCompareOpEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthCompareOpEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetDepthCompareOpEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, depth_compare_op) }
     }
 }
@@ -23379,13 +22877,11 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetDepthBoundsTestEnableEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_depth_bounds_test_enable_ext(&self, depth_bounds_test_enable: Bool32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetDepthBoundsTestEnableEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthBoundsTestEnableEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthBoundsTestEnableEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetDepthBoundsTestEnableEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, depth_bounds_test_enable) }
     }
@@ -23416,13 +22912,11 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetStencilTestEnableEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_stencil_test_enable_ext(&self, stencil_test_enable: Bool32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetStencilTestEnableEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetStencilTestEnableEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetStencilTestEnableEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetStencilTestEnableEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, stencil_test_enable) }
     }
@@ -23467,13 +22961,12 @@ impl CommandBuffer {
         depth_fail_op: StencilOp,
         compare_op: CompareOp,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetStencilOpEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetStencilOpEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetStencilOpEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetStencilOpEXT as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -23515,13 +23008,12 @@ impl Device {
         &self,
         p_copy_memory_to_image_info: *const CopyMemoryToImageInfo,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCopyMemoryToImageEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CopyMemoryToImageEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CopyMemoryToImageEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCopyMemoryToImageEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_copy_memory_to_image_info) }
     }
 }
@@ -23554,13 +23046,12 @@ impl Device {
         &self,
         p_copy_image_to_memory_info: *const CopyImageToMemoryInfo,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCopyImageToMemoryEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CopyImageToMemoryEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CopyImageToMemoryEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCopyImageToMemoryEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_copy_image_to_memory_info) }
     }
 }
@@ -23593,13 +23084,12 @@ impl Device {
         &self,
         p_copy_image_to_image_info: *const CopyImageToImageInfo,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCopyImageToImageEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CopyImageToImageEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CopyImageToImageEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCopyImageToImageEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_copy_image_to_image_info) }
     }
 }
@@ -23633,13 +23123,12 @@ impl Device {
         transition_count: u32,
         p_transitions: *const HostImageLayoutTransitionInfo,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkTransitionImageLayoutEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_TransitionImageLayoutEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_TransitionImageLayoutEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkTransitionImageLayoutEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, transition_count, p_transitions) }
     }
 }
@@ -23665,13 +23154,11 @@ impl Device {
         p_subresource: *const ImageSubresource2,
         p_layout: *mut SubresourceLayout2,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetImageSubresourceLayout2EXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetImageSubresourceLayout2EXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetImageSubresourceLayout2EXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetImageSubresourceLayout2EXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, image, p_subresource, p_layout) }
     }
@@ -23702,13 +23189,11 @@ impl Device {
         &self,
         p_release_info: *const ReleaseSwapchainImagesInfoKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkReleaseSwapchainImagesEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_ReleaseSwapchainImagesEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_ReleaseSwapchainImagesEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkReleaseSwapchainImagesEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_release_info) }
     }
@@ -23735,14 +23220,12 @@ impl Device {
         p_info: *const GeneratedCommandsMemoryRequirementsInfoNV,
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetGeneratedCommandsMemoryRequirementsNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetGeneratedCommandsMemoryRequirementsNV>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetGeneratedCommandsMemoryRequirementsNV as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, p_info, p_memory_requirements) }
@@ -23777,13 +23260,11 @@ impl CommandBuffer {
         &self,
         p_generated_commands_info: *const GeneratedCommandsInfoNV,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdPreprocessGeneratedCommandsNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdPreprocessGeneratedCommandsNV>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdPreprocessGeneratedCommandsNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdPreprocessGeneratedCommandsNV as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_generated_commands_info) }
     }
@@ -23819,13 +23300,11 @@ impl CommandBuffer {
         is_preprocessed: Bool32,
         p_generated_commands_info: *const GeneratedCommandsInfoNV,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdExecuteGeneratedCommandsNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdExecuteGeneratedCommandsNV>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdExecuteGeneratedCommandsNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdExecuteGeneratedCommandsNV as usize,
+            ))
         };
         unsafe { (command)(self.handle, is_preprocessed, p_generated_commands_info) }
     }
@@ -23861,13 +23340,11 @@ impl CommandBuffer {
         pipeline: Pipeline,
         group_index: u32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBindPipelineShaderGroupNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBindPipelineShaderGroupNV>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBindPipelineShaderGroupNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdBindPipelineShaderGroupNV as usize,
+            ))
         };
         unsafe { (command)(self.handle, pipeline_bind_point, pipeline, group_index) }
     }
@@ -23907,13 +23384,11 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_indirect_commands_layout: *mut IndirectCommandsLayoutNV,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateIndirectCommandsLayoutNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateIndirectCommandsLayoutNV>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CreateIndirectCommandsLayoutNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateIndirectCommandsLayoutNV as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -23948,13 +23423,11 @@ impl Device {
         indirect_commands_layout: IndirectCommandsLayoutNV,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroyIndirectCommandsLayoutNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyIndirectCommandsLayoutNV>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyIndirectCommandsLayoutNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyIndirectCommandsLayoutNV as usize,
+            ))
         };
         unsafe { (command)(self.handle, indirect_commands_layout, p_allocator) }
     }
@@ -23984,13 +23457,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetDepthBias2EXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_depth_bias_2_ext(&self, p_depth_bias_info: *const DepthBiasInfoEXT) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetDepthBias2EXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthBias2EXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthBias2EXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetDepthBias2EXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_depth_bias_info) }
     }
 }
@@ -24016,13 +23488,12 @@ impl PhysicalDevice {
     #[doc(alias = "vkAcquireDrmDisplayEXT")]
     #[inline(always)]
     pub unsafe fn acquire_drm_display_ext(&self, drm_fd: i32, display: DisplayKHR) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkAcquireDrmDisplayEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_AcquireDrmDisplayEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_AcquireDrmDisplayEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkAcquireDrmDisplayEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, drm_fd, display) }
     }
 }
@@ -24054,13 +23525,12 @@ impl PhysicalDevice {
         connector_id: u32,
         display: *mut DisplayKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDrmDisplayEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetDrmDisplayEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetDrmDisplayEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetDrmDisplayEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, drm_fd, connector_id, display) }
     }
 }
@@ -24099,13 +23569,12 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_private_data_slot: *mut PrivateDataSlot,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreatePrivateDataSlotEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreatePrivateDataSlotEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreatePrivateDataSlotEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreatePrivateDataSlotEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_private_data_slot) }
     }
 }
@@ -24133,13 +23602,11 @@ impl Device {
         private_data_slot: PrivateDataSlot,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroyPrivateDataSlotEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyPrivateDataSlotEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyPrivateDataSlotEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyPrivateDataSlotEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, private_data_slot, p_allocator) }
     }
@@ -24173,13 +23640,12 @@ impl Device {
         private_data_slot: PrivateDataSlot,
         data: u64,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkSetPrivateDataEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_SetPrivateDataEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_SetPrivateDataEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkSetPrivateDataEXT as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -24213,13 +23679,12 @@ impl Device {
         private_data_slot: PrivateDataSlot,
         p_data: *mut u64,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPrivateDataEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetPrivateDataEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetPrivateDataEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetPrivateDataEXT as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -24256,13 +23721,12 @@ impl Queue {
         &self,
         p_perf_hint_info: *const PerfHintInfoQCOM,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkQueueSetPerfHintQCOM as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_QueueSetPerfHintQCOM>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_QueueSetPerfHintQCOM>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkQueueSetPerfHintQCOM as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_perf_hint_info) }
     }
 }
@@ -24301,13 +23765,12 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_module: *mut CudaModuleNV,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateCudaModuleNV as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateCudaModuleNV>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateCudaModuleNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateCudaModuleNV as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_module) }
     }
 }
@@ -24342,13 +23805,12 @@ impl Device {
         p_cache_size: *mut usize,
         p_cache_data: *mut c_void,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetCudaModuleCacheNV as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetCudaModuleCacheNV>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetCudaModuleCacheNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetCudaModuleCacheNV as usize,
+            ))
+        };
         unsafe { (command)(self.handle, module, p_cache_size, p_cache_data) }
     }
 }
@@ -24387,13 +23849,12 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_function: *mut CudaFunctionNV,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateCudaFunctionNV as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateCudaFunctionNV>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateCudaFunctionNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateCudaFunctionNV as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_function) }
     }
 }
@@ -24419,13 +23880,12 @@ impl Device {
         module: CudaModuleNV,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroyCudaModuleNV as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_DestroyCudaModuleNV>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyCudaModuleNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyCudaModuleNV as usize,
+            ))
+        };
         unsafe { (command)(self.handle, module, p_allocator) }
     }
 }
@@ -24451,13 +23911,12 @@ impl Device {
         function: CudaFunctionNV,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroyCudaFunctionNV as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_DestroyCudaFunctionNV>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyCudaFunctionNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyCudaFunctionNV as usize,
+            ))
+        };
         unsafe { (command)(self.handle, function, p_allocator) }
     }
 }
@@ -24487,13 +23946,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdCudaLaunchKernelNV")]
     #[inline(always)]
     pub unsafe fn cmd_cuda_launch_kernel_nv(&self, p_launch_info: *const CudaLaunchInfoNV) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdCudaLaunchKernelNV as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdCudaLaunchKernelNV>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdCudaLaunchKernelNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdCudaLaunchKernelNV as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_launch_info) }
     }
 }
@@ -24522,13 +23980,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDispatchTileQCOM")]
     #[inline(always)]
     pub unsafe fn cmd_dispatch_tile_qcom(&self, p_dispatch_tile_info: *const DispatchTileInfoQCOM) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdDispatchTileQCOM as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdDispatchTileQCOM>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDispatchTileQCOM>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdDispatchTileQCOM as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_dispatch_tile_info) }
     }
 }
@@ -24561,13 +24018,11 @@ impl CommandBuffer {
         &self,
         p_per_tile_begin_info: *const PerTileBeginInfoQCOM,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBeginPerTileExecutionQCOM as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBeginPerTileExecutionQCOM>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBeginPerTileExecutionQCOM>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdBeginPerTileExecutionQCOM as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_per_tile_begin_info) }
     }
@@ -24601,13 +24056,11 @@ impl CommandBuffer {
         &self,
         p_per_tile_end_info: *const PerTileEndInfoQCOM,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdEndPerTileExecutionQCOM as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdEndPerTileExecutionQCOM>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdEndPerTileExecutionQCOM>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdEndPerTileExecutionQCOM as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_per_tile_end_info) }
     }
@@ -24633,13 +24086,11 @@ impl Device {
         low_latency_boost: Bool32,
         minimum_interval_us: u32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkSetLatencySleepModeLegacyNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_SetLatencySleepModeLegacyNV>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_SetLatencySleepModeLegacyNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkSetLatencySleepModeLegacyNV as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -24666,13 +24117,12 @@ impl Device {
     #[doc(alias = "vkLatencySleepLegacyNV")]
     #[inline(always)]
     pub unsafe fn latency_sleep_legacy_nv(&self, signal_semaphore: Semaphore, value: u64) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkLatencySleepLegacyNV as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_LatencySleepLegacyNV>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_LatencySleepLegacyNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkLatencySleepLegacyNV as usize,
+            ))
+        };
         unsafe { (command)(self.handle, signal_semaphore, value) }
     }
 }
@@ -24691,13 +24141,12 @@ impl Device {
     #[doc(alias = "vkSetLatencyMarkerLegacyNV")]
     #[inline(always)]
     pub unsafe fn set_latency_marker_legacy_nv(&self, frame_id: u64, marker: u32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkSetLatencyMarkerLegacyNV as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_SetLatencyMarkerLegacyNV>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_SetLatencyMarkerLegacyNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkSetLatencyMarkerLegacyNV as usize,
+            ))
+        };
         unsafe { (command)(self.handle, frame_id, marker) }
     }
 }
@@ -24716,13 +24165,11 @@ impl Device {
     #[doc(alias = "vkGetLatencyTimingsLegacyNV")]
     #[inline(always)]
     pub unsafe fn get_latency_timings_legacy_nv(&self, p_timings: *mut c_void) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetLatencyTimingsLegacyNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetLatencyTimingsLegacyNV>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetLatencyTimingsLegacyNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetLatencyTimingsLegacyNV as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_timings) }
     }
@@ -24742,13 +24189,11 @@ impl Queue {
     #[doc(alias = "vkQueueNotifyOutOfBandLegacyNV")]
     #[inline(always)]
     pub unsafe fn notify_out_of_band_legacy_nv(&self, queue_type: u32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkQueueNotifyOutOfBandLegacyNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_QueueNotifyOutOfBandLegacyNV>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_QueueNotifyOutOfBandLegacyNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkQueueNotifyOutOfBandLegacyNV as usize,
+            ))
         };
         unsafe { (command)(self.handle, queue_type) }
     }
@@ -24768,13 +24213,12 @@ impl Device {
     #[doc(alias = "vkGetSleepStatusLegacyNV")]
     #[inline(always)]
     pub unsafe fn get_sleep_status_legacy_nv(&self, p_low_latency_mode: *mut Bool32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetSleepStatusLegacyNV as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetSleepStatusLegacyNV>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetSleepStatusLegacyNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetSleepStatusLegacyNV as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_low_latency_mode) }
     }
 }
@@ -24793,13 +24237,11 @@ impl Device {
     #[doc(alias = "vkShutdownLatencyDeviceLegacyNV")]
     #[inline(always)]
     pub unsafe fn shutdown_latency_device_legacy_nv(&self) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkShutdownLatencyDeviceLegacyNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_ShutdownLatencyDeviceLegacyNV>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_ShutdownLatencyDeviceLegacyNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkShutdownLatencyDeviceLegacyNV as usize,
+            ))
         };
         unsafe { (command)(self.handle) }
     }
@@ -24822,13 +24264,12 @@ impl Device {
         &self,
         p_metal_objects_info: *mut ExportMetalObjectsInfoEXT,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkExportMetalObjectsEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_ExportMetalObjectsEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_ExportMetalObjectsEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkExportMetalObjectsEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_metal_objects_info) }
     }
 }
@@ -24852,13 +24293,11 @@ impl Device {
         layout: DescriptorSetLayout,
         p_layout_size_in_bytes: *mut DeviceSize,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDescriptorSetLayoutSizeEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDescriptorSetLayoutSizeEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetDescriptorSetLayoutSizeEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetDescriptorSetLayoutSizeEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, layout, p_layout_size_in_bytes) }
     }
@@ -24884,14 +24323,12 @@ impl Device {
         binding: u32,
         p_offset: *mut DeviceSize,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDescriptorSetLayoutBindingOffsetEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetDescriptorSetLayoutBindingOffsetEXT>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetDescriptorSetLayoutBindingOffsetEXT as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, layout, binding, p_offset) }
@@ -24918,13 +24355,12 @@ impl Device {
         data_size: usize,
         p_descriptor: *mut c_void,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDescriptorEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetDescriptorEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetDescriptorEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetDescriptorEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_descriptor_info, data_size, p_descriptor) }
     }
 }
@@ -24960,13 +24396,11 @@ impl CommandBuffer {
         buffer_count: u32,
         p_binding_infos: *const DescriptorBufferBindingInfoEXT,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBindDescriptorBuffersEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBindDescriptorBuffersEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBindDescriptorBuffersEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdBindDescriptorBuffersEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, buffer_count, p_binding_infos) }
     }
@@ -25014,13 +24448,11 @@ impl CommandBuffer {
         p_buffer_indices: *const u32,
         p_offsets: *const DeviceSize,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetDescriptorBufferOffsetsEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDescriptorBufferOffsetsEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDescriptorBufferOffsetsEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetDescriptorBufferOffsetsEXT as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -25067,14 +24499,12 @@ impl CommandBuffer {
         layout: PipelineLayout,
         set: u32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBindDescriptorBufferEmbeddedSamplersEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBindDescriptorBufferEmbeddedSamplersEXT>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkCmdBindDescriptorBufferEmbeddedSamplersEXT as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, pipeline_bind_point, layout, set) }
@@ -25111,14 +24541,12 @@ impl Device {
         p_info: *const BufferCaptureDescriptorDataInfoEXT,
         p_data: *mut c_void,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetBufferOpaqueCaptureDescriptorDataEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetBufferOpaqueCaptureDescriptorDataEXT>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetBufferOpaqueCaptureDescriptorDataEXT as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, p_info, p_data) }
@@ -25155,14 +24583,12 @@ impl Device {
         p_info: *const ImageCaptureDescriptorDataInfoEXT,
         p_data: *mut c_void,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetImageOpaqueCaptureDescriptorDataEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetImageOpaqueCaptureDescriptorDataEXT>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetImageOpaqueCaptureDescriptorDataEXT as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, p_info, p_data) }
@@ -25200,14 +24626,12 @@ impl Device {
         p_info: *const ImageViewCaptureDescriptorDataInfoEXT,
         p_data: *mut c_void,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetImageViewOpaqueCaptureDescriptorDataEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetImageViewOpaqueCaptureDescriptorDataEXT>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetImageViewOpaqueCaptureDescriptorDataEXT as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, p_info, p_data) }
@@ -25244,14 +24668,12 @@ impl Device {
         p_info: *const SamplerCaptureDescriptorDataInfoEXT,
         p_data: *mut c_void,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetSamplerOpaqueCaptureDescriptorDataEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetSamplerOpaqueCaptureDescriptorDataEXT>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetSamplerOpaqueCaptureDescriptorDataEXT as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, p_info, p_data) }
@@ -25289,16 +24711,14 @@ impl Device {
         p_info: *const AccelerationStructureCaptureDescriptorDataInfoEXT,
         p_data: *mut c_void,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<
                 vkVoidFunction,
                 FUN_GetAccelerationStructureOpaqueCaptureDescriptorDataEXT,
-            >(command)
+            >(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_info, p_data) }
     }
@@ -25335,13 +24755,11 @@ impl CommandBuffer {
         shading_rate: FragmentShadingRateNV,
         combiner_ops: *const [FragmentShadingRateCombinerOpKHR; 2 as usize],
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetFragmentShadingRateEnumNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetFragmentShadingRateEnumNV>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetFragmentShadingRateEnumNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetFragmentShadingRateEnumNV as usize,
+            ))
         };
         unsafe { (command)(self.handle, shading_rate, combiner_ops) }
     }
@@ -25380,13 +24798,12 @@ impl Device {
         p_fault_counts: *mut DeviceFaultCountsEXT,
         p_fault_info: *mut DeviceFaultInfoEXT,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDeviceFaultInfoEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetDeviceFaultInfoEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceFaultInfoEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetDeviceFaultInfoEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_fault_counts, p_fault_info) }
     }
 }
@@ -25414,13 +24831,12 @@ impl PhysicalDevice {
     #[doc(alias = "vkAcquireWinrtDisplayNV")]
     #[inline(always)]
     pub unsafe fn acquire_winrt_display_nv(&self, display: DisplayKHR) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkAcquireWinrtDisplayNV as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_AcquireWinrtDisplayNV>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_AcquireWinrtDisplayNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkAcquireWinrtDisplayNV as usize,
+            ))
+        };
         unsafe { (command)(self.handle, display) }
     }
 }
@@ -25452,13 +24868,12 @@ impl PhysicalDevice {
         device_relative_id: u32,
         p_display: *mut DisplayKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetWinrtDisplayNV as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetWinrtDisplayNV>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetWinrtDisplayNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetWinrtDisplayNV as usize,
+            ))
+        };
         unsafe { (command)(self.handle, device_relative_id, p_display) }
     }
 }
@@ -25497,13 +24912,12 @@ impl Instance {
         p_allocator: *const AllocationCallbacks,
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateDirectFBSurfaceEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateDirectFBSurfaceEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateDirectFBSurfaceEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateDirectFBSurfaceEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
     }
 }
@@ -25526,14 +24940,12 @@ impl PhysicalDevice {
         queue_family_index: u32,
         dfb: *mut IDirectFB,
     ) -> Bool32 {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceDirectFBPresentationSupportEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceDirectFBPresentationSupportEXT>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceDirectFBPresentationSupportEXT as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, queue_family_index, dfb) }
@@ -25580,13 +24992,12 @@ impl CommandBuffer {
         vertex_attribute_description_count: u32,
         p_vertex_attribute_descriptions: *const VertexInputAttributeDescription2EXT,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetVertexInputEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetVertexInputEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetVertexInputEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetVertexInputEXT as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -25628,13 +25039,11 @@ impl Device {
         p_get_zircon_handle_info: *const MemoryGetZirconHandleInfoFUCHSIA,
         p_zircon_handle: *mut zx_handle_t,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetMemoryZirconHandleFUCHSIA as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetMemoryZirconHandleFUCHSIA>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetMemoryZirconHandleFUCHSIA>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetMemoryZirconHandleFUCHSIA as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_get_zircon_handle_info, p_zircon_handle) }
     }
@@ -25670,14 +25079,12 @@ impl Device {
         zircon_handle: zx_handle_t,
         p_memory_zircon_handle_properties: *mut MemoryZirconHandlePropertiesFUCHSIA,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetMemoryZirconHandlePropertiesFUCHSIA as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetMemoryZirconHandlePropertiesFUCHSIA>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetMemoryZirconHandlePropertiesFUCHSIA as usize,
+                ),
             )
         };
         unsafe {
@@ -25716,13 +25123,13 @@ impl Device {
         &self,
         p_import_semaphore_zircon_handle_info: *const ImportSemaphoreZirconHandleInfoFUCHSIA,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkImportSemaphoreZirconHandleFUCHSIA as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_ImportSemaphoreZirconHandleFUCHSIA>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_ImportSemaphoreZirconHandleFUCHSIA>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkImportSemaphoreZirconHandleFUCHSIA as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, p_import_semaphore_zircon_handle_info) }
     }
@@ -25757,13 +25164,11 @@ impl Device {
         p_get_zircon_handle_info: *const SemaphoreGetZirconHandleInfoFUCHSIA,
         p_zircon_handle: *mut zx_handle_t,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetSemaphoreZirconHandleFUCHSIA as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetSemaphoreZirconHandleFUCHSIA>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetSemaphoreZirconHandleFUCHSIA>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetSemaphoreZirconHandleFUCHSIA as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_get_zircon_handle_info, p_zircon_handle) }
     }
@@ -25804,13 +25209,11 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_collection: *mut BufferCollectionFUCHSIA,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateBufferCollectionFUCHSIA as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateBufferCollectionFUCHSIA>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CreateBufferCollectionFUCHSIA>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateBufferCollectionFUCHSIA as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_collection) }
     }
@@ -25847,14 +25250,12 @@ impl Device {
         collection: BufferCollectionFUCHSIA,
         p_image_constraints_info: *const ImageConstraintsInfoFUCHSIA,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkSetBufferCollectionImageConstraintsFUCHSIA as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_SetBufferCollectionImageConstraintsFUCHSIA>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkSetBufferCollectionImageConstraintsFUCHSIA as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, collection, p_image_constraints_info) }
@@ -25892,14 +25293,12 @@ impl Device {
         collection: BufferCollectionFUCHSIA,
         p_buffer_constraints_info: *const BufferConstraintsInfoFUCHSIA,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkSetBufferCollectionBufferConstraintsFUCHSIA as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_SetBufferCollectionBufferConstraintsFUCHSIA>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkSetBufferCollectionBufferConstraintsFUCHSIA as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, collection, p_buffer_constraints_info) }
@@ -25927,13 +25326,11 @@ impl Device {
         collection: BufferCollectionFUCHSIA,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroyBufferCollectionFUCHSIA as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyBufferCollectionFUCHSIA>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyBufferCollectionFUCHSIA>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyBufferCollectionFUCHSIA as usize,
+            ))
         };
         unsafe { (command)(self.handle, collection, p_allocator) }
     }
@@ -25968,13 +25365,13 @@ impl Device {
         collection: BufferCollectionFUCHSIA,
         p_properties: *mut BufferCollectionPropertiesFUCHSIA,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetBufferCollectionPropertiesFUCHSIA as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetBufferCollectionPropertiesFUCHSIA>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetBufferCollectionPropertiesFUCHSIA>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetBufferCollectionPropertiesFUCHSIA as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, collection, p_properties) }
     }
@@ -26007,14 +25404,12 @@ impl Device {
         renderpass: RenderPass,
         p_max_workgroup_size: *mut Extent2D,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, renderpass, p_max_workgroup_size) }
@@ -26044,13 +25439,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSubpassShadingHUAWEI")]
     #[inline(always)]
     pub unsafe fn cmd_subpass_shading_huawei(&self) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSubpassShadingHUAWEI as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSubpassShadingHUAWEI>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSubpassShadingHUAWEI>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSubpassShadingHUAWEI as usize,
+            ))
+        };
         unsafe { (command)(self.handle) }
     }
 }
@@ -26086,13 +25480,11 @@ impl CommandBuffer {
         image_view: ImageView,
         image_layout: ImageLayout,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBindInvocationMaskHUAWEI as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBindInvocationMaskHUAWEI>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBindInvocationMaskHUAWEI>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdBindInvocationMaskHUAWEI as usize,
+            ))
         };
         unsafe { (command)(self.handle, image_view, image_layout) }
     }
@@ -26126,13 +25518,12 @@ impl Device {
         p_memory_get_remote_address_info: *const MemoryGetRemoteAddressInfoNV,
         p_address: *mut RemoteAddressNV,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetMemoryRemoteAddressNV as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetMemoryRemoteAddressNV>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetMemoryRemoteAddressNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetMemoryRemoteAddressNV as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_memory_get_remote_address_info, p_address) }
     }
 }
@@ -26162,13 +25553,12 @@ impl Device {
         p_pipeline_info: *const PipelineInfoKHR,
         p_pipeline_properties: *mut BaseOutStructure,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPipelinePropertiesEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetPipelinePropertiesEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetPipelinePropertiesEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetPipelinePropertiesEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_pipeline_info, p_pipeline_properties) }
     }
 }
@@ -26198,13 +25588,11 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetPatchControlPointsEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_patch_control_points_ext(&self, patch_control_points: u32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetPatchControlPointsEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetPatchControlPointsEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetPatchControlPointsEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetPatchControlPointsEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, patch_control_points) }
     }
@@ -26236,13 +25624,11 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetRasterizerDiscardEnableEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_rasterizer_discard_enable_ext(&self, rasterizer_discard_enable: Bool32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetRasterizerDiscardEnableEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetRasterizerDiscardEnableEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetRasterizerDiscardEnableEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetRasterizerDiscardEnableEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, rasterizer_discard_enable) }
     }
@@ -26273,13 +25659,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetDepthBiasEnableEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_depth_bias_enable_ext(&self, depth_bias_enable: Bool32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetDepthBiasEnableEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthBiasEnableEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthBiasEnableEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetDepthBiasEnableEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, depth_bias_enable) }
     }
 }
@@ -26309,13 +25694,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetLogicOpEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_logic_op_ext(&self, logic_op: LogicOp) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetLogicOpEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetLogicOpEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetLogicOpEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetLogicOpEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, logic_op) }
     }
 }
@@ -26346,13 +25730,11 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetPrimitiveRestartEnableEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_primitive_restart_enable_ext(&self, primitive_restart_enable: Bool32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetPrimitiveRestartEnableEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetPrimitiveRestartEnableEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetPrimitiveRestartEnableEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetPrimitiveRestartEnableEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, primitive_restart_enable) }
     }
@@ -26392,13 +25774,12 @@ impl Instance {
         p_allocator: *const AllocationCallbacks,
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateScreenSurfaceQNX as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateScreenSurfaceQNX>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateScreenSurfaceQNX>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateScreenSurfaceQNX as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
     }
 }
@@ -26421,14 +25802,12 @@ impl PhysicalDevice {
         queue_family_index: u32,
         window: *mut _screen_window,
     ) -> Bool32 {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceScreenPresentationSupportQNX as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceScreenPresentationSupportQNX>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceScreenPresentationSupportQNX as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, queue_family_index, window) }
@@ -26463,13 +25842,11 @@ impl CommandBuffer {
         attachment_count: u32,
         p_color_write_enables: *const Bool32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetColorWriteEnableEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetColorWriteEnableEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetColorWriteEnableEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetColorWriteEnableEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, attachment_count, p_color_write_enables) }
     }
@@ -26509,13 +25886,12 @@ impl CommandBuffer {
         first_instance: u32,
         stride: u32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdDrawMultiEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdDrawMultiEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawMultiEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdDrawMultiEXT as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -26572,13 +25948,12 @@ impl CommandBuffer {
         stride: u32,
         p_vertex_offset: *const i32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdDrawMultiIndexedEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdDrawMultiIndexedEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawMultiIndexedEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdDrawMultiIndexedEXT as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -26628,13 +26003,12 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_micromap: *mut MicromapEXT,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateMicromapEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateMicromapEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateMicromapEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateMicromapEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_micromap) }
     }
 }
@@ -26662,13 +26036,12 @@ impl Device {
         micromap: MicromapEXT,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroyMicromapEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_DestroyMicromapEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyMicromapEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyMicromapEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, micromap, p_allocator) }
     }
 }
@@ -26702,13 +26075,12 @@ impl CommandBuffer {
         info_count: u32,
         p_infos: *const MicromapBuildInfoEXT,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBuildMicromapsEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdBuildMicromapsEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBuildMicromapsEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdBuildMicromapsEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, info_count, p_infos) }
     }
 }
@@ -26750,13 +26122,12 @@ impl Device {
         info_count: u32,
         p_infos: *const MicromapBuildInfoEXT,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkBuildMicromapsEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_BuildMicromapsEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_BuildMicromapsEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkBuildMicromapsEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, deferred_operation, info_count, p_infos) }
     }
 }
@@ -26796,13 +26167,12 @@ impl Device {
         deferred_operation: DeferredOperationKHR,
         p_info: *const CopyMicromapInfoEXT,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCopyMicromapEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CopyMicromapEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CopyMicromapEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCopyMicromapEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, deferred_operation, p_info) }
     }
 }
@@ -26842,13 +26212,12 @@ impl Device {
         deferred_operation: DeferredOperationKHR,
         p_info: *const CopyMicromapToMemoryInfoEXT,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCopyMicromapToMemoryEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CopyMicromapToMemoryEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CopyMicromapToMemoryEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCopyMicromapToMemoryEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, deferred_operation, p_info) }
     }
 }
@@ -26888,13 +26257,12 @@ impl Device {
         deferred_operation: DeferredOperationKHR,
         p_info: *const CopyMemoryToMicromapInfoEXT,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCopyMemoryToMicromapEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CopyMemoryToMicromapEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CopyMemoryToMicromapEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCopyMemoryToMicromapEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, deferred_operation, p_info) }
     }
 }
@@ -26937,13 +26305,11 @@ impl Device {
         p_data: *mut c_void,
         stride: usize,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkWriteMicromapsPropertiesEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_WriteMicromapsPropertiesEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_WriteMicromapsPropertiesEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkWriteMicromapsPropertiesEXT as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -26984,13 +26350,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdCopyMicromapEXT")]
     #[inline(always)]
     pub unsafe fn cmd_copy_micromap_ext(&self, p_info: *const CopyMicromapInfoEXT) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdCopyMicromapEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdCopyMicromapEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyMicromapEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdCopyMicromapEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_info) }
     }
 }
@@ -27023,13 +26388,11 @@ impl CommandBuffer {
         &self,
         p_info: *const CopyMicromapToMemoryInfoEXT,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdCopyMicromapToMemoryEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyMicromapToMemoryEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyMicromapToMemoryEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdCopyMicromapToMemoryEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_info) }
     }
@@ -27063,13 +26426,11 @@ impl CommandBuffer {
         &self,
         p_info: *const CopyMemoryToMicromapInfoEXT,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdCopyMemoryToMicromapEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyMemoryToMicromapEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyMemoryToMicromapEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdCopyMemoryToMicromapEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_info) }
     }
@@ -27107,13 +26468,11 @@ impl CommandBuffer {
         query_pool: QueryPool,
         first_query: u32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdWriteMicromapsPropertiesEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdWriteMicromapsPropertiesEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdWriteMicromapsPropertiesEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdWriteMicromapsPropertiesEXT as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -27150,13 +26509,13 @@ impl Device {
         p_version_info: *const MicromapVersionInfoEXT,
         p_compatibility: *mut AccelerationStructureCompatibilityKHR,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDeviceMicromapCompatibilityEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceMicromapCompatibilityEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceMicromapCompatibilityEXT>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetDeviceMicromapCompatibilityEXT as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, p_version_info, p_compatibility) }
     }
@@ -27186,13 +26545,12 @@ impl Device {
         p_build_info: *const MicromapBuildInfoEXT,
         p_size_info: *mut MicromapBuildSizesInfoEXT,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetMicromapBuildSizesEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetMicromapBuildSizesEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetMicromapBuildSizesEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetMicromapBuildSizesEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, build_type, p_build_info, p_size_info) }
     }
 }
@@ -27225,13 +26583,12 @@ impl CommandBuffer {
         group_count_y: u32,
         group_count_z: u32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdDrawClusterHUAWEI as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdDrawClusterHUAWEI>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawClusterHUAWEI>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdDrawClusterHUAWEI as usize,
+            ))
+        };
         unsafe { (command)(self.handle, group_count_x, group_count_y, group_count_z) }
     }
 }
@@ -27260,13 +26617,11 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDrawClusterIndirectHUAWEI")]
     #[inline(always)]
     pub unsafe fn cmd_draw_cluster_indirect_huawei(&self, buffer: Buffer, offset: DeviceSize) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdDrawClusterIndirectHUAWEI as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawClusterIndirectHUAWEI>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawClusterIndirectHUAWEI>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdDrawClusterIndirectHUAWEI as usize,
+            ))
         };
         unsafe { (command)(self.handle, buffer, offset) }
     }
@@ -27286,13 +26641,11 @@ impl Device {
     #[doc(alias = "vkSetDeviceMemoryPriorityEXT")]
     #[inline(always)]
     pub unsafe fn set_device_memory_priority_ext(&self, memory: DeviceMemory, priority: f32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkSetDeviceMemoryPriorityEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_SetDeviceMemoryPriorityEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_SetDeviceMemoryPriorityEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkSetDeviceMemoryPriorityEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, memory, priority) }
     }
@@ -27325,13 +26678,11 @@ impl CommandBuffer {
         &self,
         p_dispatch_parameters: *const DispatchParametersARM,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetDispatchParametersARM as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDispatchParametersARM>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDispatchParametersARM>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetDispatchParametersARM as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_dispatch_parameters) }
     }
@@ -27358,14 +26709,12 @@ impl Device {
         p_binding_reference: *const DescriptorSetBindingReferenceVALVE,
         p_host_mapping: *mut DescriptorSetLayoutHostMappingInfoVALVE,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDescriptorSetLayoutHostMappingInfoVALVE as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetDescriptorSetLayoutHostMappingInfoVALVE>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetDescriptorSetLayoutHostMappingInfoVALVE as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, p_binding_reference, p_host_mapping) }
@@ -27390,13 +26739,11 @@ impl Device {
         descriptor_set: DescriptorSet,
         pp_data: *mut *mut c_void,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDescriptorSetHostMappingVALVE as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDescriptorSetHostMappingVALVE>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetDescriptorSetHostMappingVALVE>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetDescriptorSetHostMappingVALVE as usize,
+            ))
         };
         unsafe { (command)(self.handle, descriptor_set, pp_data) }
     }
@@ -27434,13 +26781,12 @@ impl CommandBuffer {
         copy_count: u32,
         stride: u32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdCopyMemoryIndirectNV as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdCopyMemoryIndirectNV>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyMemoryIndirectNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdCopyMemoryIndirectNV as usize,
+            ))
+        };
         unsafe { (command)(self.handle, copy_buffer_address, copy_count, stride) }
     }
 }
@@ -27487,13 +26833,11 @@ impl CommandBuffer {
         dst_image_layout: ImageLayout,
         p_image_subresources: *const ImageSubresourceLayers,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdCopyMemoryToImageIndirectNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyMemoryToImageIndirectNV>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyMemoryToImageIndirectNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdCopyMemoryToImageIndirectNV as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -27539,13 +26883,12 @@ impl CommandBuffer {
         decompress_region_count: u32,
         p_decompress_memory_regions: *const DecompressMemoryRegionNV,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdDecompressMemoryNV as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdDecompressMemoryNV>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDecompressMemoryNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdDecompressMemoryNV as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -27587,13 +26930,13 @@ impl CommandBuffer {
         indirect_commands_count_address: DeviceAddress,
         stride: u32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdDecompressMemoryIndirectCountNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDecompressMemoryIndirectCountNV>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDecompressMemoryIndirectCountNV>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkCmdDecompressMemoryIndirectCountNV as usize,
+                ),
+            )
         };
         unsafe {
             (command)(
@@ -27624,14 +26967,12 @@ impl Device {
         p_create_info: *const ComputePipelineCreateInfo,
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPipelineIndirectMemoryRequirementsNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPipelineIndirectMemoryRequirementsNV>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPipelineIndirectMemoryRequirementsNV as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, p_create_info, p_memory_requirements) }
@@ -27668,13 +27009,13 @@ impl CommandBuffer {
         pipeline_bind_point: PipelineBindPoint,
         pipeline: Pipeline,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdUpdatePipelineIndirectBufferNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdUpdatePipelineIndirectBufferNV>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdUpdatePipelineIndirectBufferNV>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkCmdUpdatePipelineIndirectBufferNV as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, pipeline_bind_point, pipeline) }
     }
@@ -27697,13 +27038,13 @@ impl Device {
         &self,
         p_info: *const PipelineIndirectDeviceAddressInfoNV,
     ) -> DeviceAddress {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPipelineIndirectDeviceAddressNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPipelineIndirectDeviceAddressNV>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetPipelineIndirectDeviceAddressNV>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPipelineIndirectDeviceAddressNV as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, p_info) }
     }
@@ -27738,13 +27079,11 @@ impl Device {
         buffer: *const OH_NativeBuffer,
         p_properties: *mut NativeBufferPropertiesOHOS,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetNativeBufferPropertiesOHOS as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetNativeBufferPropertiesOHOS>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetNativeBufferPropertiesOHOS>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetNativeBufferPropertiesOHOS as usize,
+            ))
         };
         unsafe { (command)(self.handle, buffer, p_properties) }
     }
@@ -27778,13 +27117,11 @@ impl Device {
         p_info: *const MemoryGetNativeBufferInfoOHOS,
         p_buffer: *mut *mut OH_NativeBuffer,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetMemoryNativeBufferOHOS as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetMemoryNativeBufferOHOS>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetMemoryNativeBufferOHOS>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetMemoryNativeBufferOHOS as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_info, p_buffer) }
     }
@@ -27814,13 +27151,11 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetDepthClampEnableEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_depth_clamp_enable_ext(&self, depth_clamp_enable: Bool32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetDepthClampEnableEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthClampEnableEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthClampEnableEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetDepthClampEnableEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, depth_clamp_enable) }
     }
@@ -27850,13 +27185,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetPolygonModeEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_polygon_mode_ext(&self, polygon_mode: PolygonMode) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetPolygonModeEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetPolygonModeEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetPolygonModeEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetPolygonModeEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, polygon_mode) }
     }
 }
@@ -27889,13 +27223,11 @@ impl CommandBuffer {
         &self,
         rasterization_samples: SampleCountFlags,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetRasterizationSamplesEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetRasterizationSamplesEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetRasterizationSamplesEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetRasterizationSamplesEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, rasterization_samples) }
     }
@@ -27933,13 +27265,12 @@ impl CommandBuffer {
         samples: SampleCountFlags,
         p_sample_mask: *const SampleMask,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetSampleMaskEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetSampleMaskEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetSampleMaskEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetSampleMaskEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, samples, p_sample_mask) }
     }
 }
@@ -27969,13 +27300,11 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetAlphaToCoverageEnableEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_alpha_to_coverage_enable_ext(&self, alpha_to_coverage_enable: Bool32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetAlphaToCoverageEnableEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetAlphaToCoverageEnableEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetAlphaToCoverageEnableEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetAlphaToCoverageEnableEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, alpha_to_coverage_enable) }
     }
@@ -28005,13 +27334,11 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetAlphaToOneEnableEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_alpha_to_one_enable_ext(&self, alpha_to_one_enable: Bool32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetAlphaToOneEnableEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetAlphaToOneEnableEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetAlphaToOneEnableEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetAlphaToOneEnableEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, alpha_to_one_enable) }
     }
@@ -28041,13 +27368,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetLogicOpEnableEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_logic_op_enable_ext(&self, logic_op_enable: Bool32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetLogicOpEnableEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetLogicOpEnableEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetLogicOpEnableEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetLogicOpEnableEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, logic_op_enable) }
     }
 }
@@ -28082,13 +27408,11 @@ impl CommandBuffer {
         attachment_count: u32,
         p_color_blend_enables: *const Bool32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetColorBlendEnableEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetColorBlendEnableEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetColorBlendEnableEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetColorBlendEnableEXT as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -28131,13 +27455,11 @@ impl CommandBuffer {
         attachment_count: u32,
         p_color_blend_equations: *const ColorBlendEquationEXT,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetColorBlendEquationEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetColorBlendEquationEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetColorBlendEquationEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetColorBlendEquationEXT as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -28180,13 +27502,12 @@ impl CommandBuffer {
         attachment_count: u32,
         p_color_write_masks: *const ColorComponentFlags,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetColorWriteMaskEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetColorWriteMaskEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetColorWriteMaskEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetColorWriteMaskEXT as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -28226,13 +27547,13 @@ impl CommandBuffer {
         &self,
         domain_origin: TessellationDomainOrigin,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetTessellationDomainOriginEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetTessellationDomainOriginEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetTessellationDomainOriginEXT>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkCmdSetTessellationDomainOriginEXT as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, domain_origin) }
     }
@@ -28262,13 +27583,11 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetRasterizationStreamEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_rasterization_stream_ext(&self, rasterization_stream: u32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetRasterizationStreamEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetRasterizationStreamEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetRasterizationStreamEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetRasterizationStreamEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, rasterization_stream) }
     }
@@ -28302,14 +27621,12 @@ impl CommandBuffer {
         &self,
         conservative_rasterization_mode: ConservativeRasterizationModeEXT,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetConservativeRasterizationModeEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetConservativeRasterizationModeEXT>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkCmdSetConservativeRasterizationModeEXT as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, conservative_rasterization_mode) }
@@ -28344,14 +27661,12 @@ impl CommandBuffer {
         &self,
         extra_primitive_overestimation_size: f32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetExtraPrimitiveOverestimationSizeEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetExtraPrimitiveOverestimationSizeEXT>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkCmdSetExtraPrimitiveOverestimationSizeEXT as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, extra_primitive_overestimation_size) }
@@ -28382,13 +27697,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetDepthClipEnableEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_depth_clip_enable_ext(&self, depth_clip_enable: Bool32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetDepthClipEnableEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthClipEnableEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthClipEnableEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetDepthClipEnableEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, depth_clip_enable) }
     }
 }
@@ -28418,13 +27732,11 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetSampleLocationsEnableEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_sample_locations_enable_ext(&self, sample_locations_enable: Bool32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetSampleLocationsEnableEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetSampleLocationsEnableEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetSampleLocationsEnableEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetSampleLocationsEnableEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, sample_locations_enable) }
     }
@@ -28460,13 +27772,11 @@ impl CommandBuffer {
         attachment_count: u32,
         p_color_blend_advanced: *const ColorBlendAdvancedEXT,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetColorBlendAdvancedEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetColorBlendAdvancedEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetColorBlendAdvancedEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetColorBlendAdvancedEXT as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -28507,13 +27817,11 @@ impl CommandBuffer {
         &self,
         provoking_vertex_mode: ProvokingVertexModeEXT,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetProvokingVertexModeEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetProvokingVertexModeEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetProvokingVertexModeEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetProvokingVertexModeEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, provoking_vertex_mode) }
     }
@@ -28547,13 +27855,11 @@ impl CommandBuffer {
         &self,
         line_rasterization_mode: LineRasterizationModeEXT,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetLineRasterizationModeEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetLineRasterizationModeEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetLineRasterizationModeEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetLineRasterizationModeEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, line_rasterization_mode) }
     }
@@ -28583,13 +27889,11 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetLineStippleEnableEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_line_stipple_enable_ext(&self, stippled_line_enable: Bool32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetLineStippleEnableEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetLineStippleEnableEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetLineStippleEnableEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetLineStippleEnableEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, stippled_line_enable) }
     }
@@ -28620,13 +27924,13 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetDepthClipNegativeOneToOneEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_depth_clip_negative_one_to_one_ext(&self, negative_one_to_one: Bool32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetDepthClipNegativeOneToOneEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthClipNegativeOneToOneEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthClipNegativeOneToOneEXT>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkCmdSetDepthClipNegativeOneToOneEXT as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, negative_one_to_one) }
     }
@@ -28657,13 +27961,11 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetViewportWScalingEnableNV")]
     #[inline(always)]
     pub unsafe fn cmd_set_viewport_w_scaling_enable_nv(&self, viewport_w_scaling_enable: Bool32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetViewportWScalingEnableNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetViewportWScalingEnableNV>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetViewportWScalingEnableNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetViewportWScalingEnableNV as usize,
+            ))
         };
         unsafe { (command)(self.handle, viewport_w_scaling_enable) }
     }
@@ -28699,13 +28001,12 @@ impl CommandBuffer {
         viewport_count: u32,
         p_viewport_swizzles: *const ViewportSwizzleNV,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetViewportSwizzleNV as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetViewportSwizzleNV>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetViewportSwizzleNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetViewportSwizzleNV as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -28742,13 +28043,11 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetCoverageToColorEnableNV")]
     #[inline(always)]
     pub unsafe fn cmd_set_coverage_to_color_enable_nv(&self, coverage_to_color_enable: Bool32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetCoverageToColorEnableNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetCoverageToColorEnableNV>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetCoverageToColorEnableNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetCoverageToColorEnableNV as usize,
+            ))
         };
         unsafe { (command)(self.handle, coverage_to_color_enable) }
     }
@@ -28779,13 +28078,11 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetCoverageToColorLocationNV")]
     #[inline(always)]
     pub unsafe fn cmd_set_coverage_to_color_location_nv(&self, coverage_to_color_location: u32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetCoverageToColorLocationNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetCoverageToColorLocationNV>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetCoverageToColorLocationNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetCoverageToColorLocationNV as usize,
+            ))
         };
         unsafe { (command)(self.handle, coverage_to_color_location) }
     }
@@ -28819,13 +28116,11 @@ impl CommandBuffer {
         &self,
         coverage_modulation_mode: CoverageModulationModeNV,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetCoverageModulationModeNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetCoverageModulationModeNV>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetCoverageModulationModeNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetCoverageModulationModeNV as usize,
+            ))
         };
         unsafe { (command)(self.handle, coverage_modulation_mode) }
     }
@@ -28859,14 +28154,12 @@ impl CommandBuffer {
         &self,
         coverage_modulation_table_enable: Bool32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetCoverageModulationTableEnableNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetCoverageModulationTableEnableNV>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkCmdSetCoverageModulationTableEnableNV as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, coverage_modulation_table_enable) }
@@ -28902,13 +28195,11 @@ impl CommandBuffer {
         coverage_modulation_table_count: u32,
         p_coverage_modulation_table: *const f32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetCoverageModulationTableNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetCoverageModulationTableNV>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetCoverageModulationTableNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetCoverageModulationTableNV as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -28945,13 +28236,11 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetShadingRateImageEnableNV")]
     #[inline(always)]
     pub unsafe fn cmd_set_shading_rate_image_enable_nv(&self, shading_rate_image_enable: Bool32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetShadingRateImageEnableNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetShadingRateImageEnableNV>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetShadingRateImageEnableNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetShadingRateImageEnableNV as usize,
+            ))
         };
         unsafe { (command)(self.handle, shading_rate_image_enable) }
     }
@@ -28985,14 +28274,12 @@ impl CommandBuffer {
         &self,
         representative_fragment_test_enable: Bool32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetRepresentativeFragmentTestEnableNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetRepresentativeFragmentTestEnableNV>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkCmdSetRepresentativeFragmentTestEnableNV as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, representative_fragment_test_enable) }
@@ -29027,13 +28314,11 @@ impl CommandBuffer {
         &self,
         coverage_reduction_mode: CoverageReductionModeNV,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetCoverageReductionModeNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetCoverageReductionModeNV>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetCoverageReductionModeNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetCoverageReductionModeNV as usize,
+            ))
         };
         unsafe { (command)(self.handle, coverage_reduction_mode) }
     }
@@ -29073,13 +28358,12 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_tensor: *mut TensorARM,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateTensorARM as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateTensorARM>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateTensorARM>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateTensorARM as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_tensor) }
     }
 }
@@ -29106,13 +28390,12 @@ impl Device {
         tensor: TensorARM,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroyTensorARM as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_DestroyTensorARM>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyTensorARM>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyTensorARM as usize,
+            ))
+        };
         unsafe { (command)(self.handle, tensor, p_allocator) }
     }
 }
@@ -29151,13 +28434,12 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_view: *mut TensorViewARM,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateTensorViewARM as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateTensorViewARM>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateTensorViewARM>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateTensorViewARM as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_view) }
     }
 }
@@ -29184,13 +28466,12 @@ impl Device {
         tensor_view: TensorViewARM,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroyTensorViewARM as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_DestroyTensorViewARM>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyTensorViewARM>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyTensorViewARM as usize,
+            ))
+        };
         unsafe { (command)(self.handle, tensor_view, p_allocator) }
     }
 }
@@ -29216,13 +28497,11 @@ impl Device {
         p_info: *const TensorMemoryRequirementsInfoARM,
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetTensorMemoryRequirementsARM as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetTensorMemoryRequirementsARM>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetTensorMemoryRequirementsARM>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetTensorMemoryRequirementsARM as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_info, p_memory_requirements) }
     }
@@ -29254,13 +28533,12 @@ impl Device {
         bind_info_count: u32,
         p_bind_infos: *const BindTensorMemoryInfoARM,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkBindTensorMemoryARM as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_BindTensorMemoryARM>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_BindTensorMemoryARM>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkBindTensorMemoryARM as usize,
+            ))
+        };
         unsafe { (command)(self.handle, bind_info_count, p_bind_infos) }
     }
 }
@@ -29286,13 +28564,13 @@ impl Device {
         p_info: *const DeviceTensorMemoryRequirementsARM,
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDeviceTensorMemoryRequirementsARM as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceTensorMemoryRequirementsARM>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceTensorMemoryRequirementsARM>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetDeviceTensorMemoryRequirementsARM as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, p_info, p_memory_requirements) }
     }
@@ -29324,13 +28602,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdCopyTensorARM")]
     #[inline(always)]
     pub unsafe fn cmd_copy_tensor_arm(&self, p_copy_tensor_info: *const CopyTensorInfoARM) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdCopyTensorARM as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdCopyTensorARM>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyTensorARM>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdCopyTensorARM as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_copy_tensor_info) }
     }
 }
@@ -29356,14 +28633,12 @@ impl PhysicalDevice {
         p_external_tensor_info: *const PhysicalDeviceExternalTensorInfoARM,
         p_external_tensor_properties: *mut ExternalTensorPropertiesARM,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceExternalTensorPropertiesARM as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceExternalTensorPropertiesARM>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceExternalTensorPropertiesARM as usize,
+                ),
             )
         };
         unsafe {
@@ -29405,14 +28680,12 @@ impl Device {
         p_info: *const TensorCaptureDescriptorDataInfoARM,
         p_data: *mut c_void,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetTensorOpaqueCaptureDescriptorDataARM as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetTensorOpaqueCaptureDescriptorDataARM>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetTensorOpaqueCaptureDescriptorDataARM as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, p_info, p_data) }
@@ -29449,14 +28722,12 @@ impl Device {
         p_info: *const TensorViewCaptureDescriptorDataInfoARM,
         p_data: *mut c_void,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetTensorViewOpaqueCaptureDescriptorDataARM as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetTensorViewOpaqueCaptureDescriptorDataARM>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetTensorViewOpaqueCaptureDescriptorDataARM as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, p_info, p_data) }
@@ -29481,13 +28752,11 @@ impl Device {
         shader_module: ShaderModule,
         p_identifier: *mut ShaderModuleIdentifierEXT,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetShaderModuleIdentifierEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetShaderModuleIdentifierEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetShaderModuleIdentifierEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetShaderModuleIdentifierEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, shader_module, p_identifier) }
     }
@@ -29514,14 +28783,12 @@ impl Device {
         p_create_info: *const ShaderModuleCreateInfo,
         p_identifier: *mut ShaderModuleIdentifierEXT,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetShaderModuleCreateInfoIdentifierEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetShaderModuleCreateInfoIdentifierEXT>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetShaderModuleCreateInfoIdentifierEXT as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, p_create_info, p_identifier) }
@@ -29565,14 +28832,12 @@ impl PhysicalDevice {
         p_format_count: *mut u32,
         p_image_format_properties: *mut OpticalFlowImageFormatPropertiesNV,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceOpticalFlowImageFormatsNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceOpticalFlowImageFormatsNV>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceOpticalFlowImageFormatsNV as usize,
+                ),
             )
         };
         unsafe {
@@ -29620,13 +28885,11 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_session: *mut OpticalFlowSessionNV,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateOpticalFlowSessionNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateOpticalFlowSessionNV>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CreateOpticalFlowSessionNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateOpticalFlowSessionNV as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_session) }
     }
@@ -29653,13 +28916,11 @@ impl Device {
         session: OpticalFlowSessionNV,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroyOpticalFlowSessionNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyOpticalFlowSessionNV>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyOpticalFlowSessionNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyOpticalFlowSessionNV as usize,
+            ))
         };
         unsafe { (command)(self.handle, session, p_allocator) }
     }
@@ -29701,13 +28962,11 @@ impl Device {
         view: ImageView,
         layout: ImageLayout,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkBindOpticalFlowSessionImageNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_BindOpticalFlowSessionImageNV>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_BindOpticalFlowSessionImageNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkBindOpticalFlowSessionImageNV as usize,
+            ))
         };
         unsafe { (command)(self.handle, session, binding_point, view, layout) }
     }
@@ -29744,13 +29003,12 @@ impl CommandBuffer {
         session: OpticalFlowSessionNV,
         p_execute_info: *const OpticalFlowExecuteInfoNV,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdOpticalFlowExecuteNV as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdOpticalFlowExecuteNV>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdOpticalFlowExecuteNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdOpticalFlowExecuteNV as usize,
+            ))
+        };
         unsafe { (command)(self.handle, session, p_execute_info) }
     }
 }
@@ -29768,13 +29026,12 @@ impl Device {
     #[doc(alias = "vkAntiLagUpdateAMD")]
     #[inline(always)]
     pub unsafe fn anti_lag_update_amd(&self, p_data: *const AntiLagDataAMD) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkAntiLagUpdateAMD as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_AntiLagUpdateAMD>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_AntiLagUpdateAMD>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkAntiLagUpdateAMD as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_data) }
     }
 }
@@ -29817,13 +29074,12 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_shaders: *mut ShaderEXT,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateShadersEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateShadersEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateShadersEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateShadersEXT as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -29858,13 +29114,12 @@ impl Device {
         shader: ShaderEXT,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroyShaderEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_DestroyShaderEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyShaderEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyShaderEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, shader, p_allocator) }
     }
 }
@@ -29900,13 +29155,12 @@ impl Device {
         p_data_size: *mut usize,
         p_data: *mut c_void,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetShaderBinaryDataEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetShaderBinaryDataEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetShaderBinaryDataEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetShaderBinaryDataEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, shader, p_data_size, p_data) }
     }
 }
@@ -29944,13 +29198,12 @@ impl CommandBuffer {
         p_stages: *const ShaderStageFlags,
         p_shaders: *const ShaderEXT,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBindShadersEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdBindShadersEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBindShadersEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdBindShadersEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, stage_count, p_stages, p_shaders) }
     }
 }
@@ -29987,13 +29240,12 @@ impl CommandBuffer {
         depth_clamp_mode: DepthClampModeEXT,
         p_depth_clamp_range: *const DepthClampRangeEXT,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetDepthClampRangeEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthClampRangeEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthClampRangeEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetDepthClampRangeEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, depth_clamp_mode, p_depth_clamp_range) }
     }
 }
@@ -30031,13 +29283,11 @@ impl Device {
         p_properties_count: *mut u32,
         p_properties: *mut TilePropertiesQCOM,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetFramebufferTilePropertiesQCOM as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetFramebufferTilePropertiesQCOM>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetFramebufferTilePropertiesQCOM>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetFramebufferTilePropertiesQCOM as usize,
+            ))
         };
         unsafe { (command)(self.handle, framebuffer, p_properties_count, p_properties) }
     }
@@ -30067,14 +29317,12 @@ impl Device {
         p_rendering_info: *const RenderingInfo,
         p_properties: *mut TilePropertiesQCOM,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDynamicRenderingTilePropertiesQCOM as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetDynamicRenderingTilePropertiesQCOM>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetDynamicRenderingTilePropertiesQCOM as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, p_rendering_info, p_properties) }
@@ -30115,14 +29363,12 @@ impl PhysicalDevice {
         p_property_count: *mut u32,
         p_properties: *mut CooperativeVectorPropertiesNV,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceCooperativeVectorPropertiesNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceCooperativeVectorPropertiesNV>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceCooperativeVectorPropertiesNV as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, p_property_count, p_properties) }
@@ -30154,13 +29400,11 @@ impl Device {
         &self,
         p_info: *const ConvertCooperativeVectorMatrixInfoNV,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkConvertCooperativeVectorMatrixNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_ConvertCooperativeVectorMatrixNV>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_ConvertCooperativeVectorMatrixNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkConvertCooperativeVectorMatrixNV as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_info) }
     }
@@ -30195,13 +29439,13 @@ impl CommandBuffer {
         info_count: u32,
         p_infos: *const ConvertCooperativeVectorMatrixInfoNV,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdConvertCooperativeVectorMatrixNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdConvertCooperativeVectorMatrixNV>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdConvertCooperativeVectorMatrixNV>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkCmdConvertCooperativeVectorMatrixNV as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, info_count, p_infos) }
     }
@@ -30232,13 +29476,12 @@ impl Device {
         swapchain: SwapchainKHR,
         p_sleep_mode_info: *const LatencySleepModeInfoNV,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkSetLatencySleepModeNV as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_SetLatencySleepModeNV>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_SetLatencySleepModeNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkSetLatencySleepModeNV as usize,
+            ))
+        };
         unsafe { (command)(self.handle, swapchain, p_sleep_mode_info) }
     }
 }
@@ -30267,9 +29510,12 @@ impl Device {
         swapchain: SwapchainKHR,
         p_sleep_info: *const LatencySleepInfoNV,
     ) -> ResultCode {
-        let command = vtable_get(&*self.vtable(), InstanceCommands::vkLatencySleepNV as usize)
-            .expect("command should not be null");
-        let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_LatencySleepNV>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_LatencySleepNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkLatencySleepNV as usize,
+            ))
+        };
         unsafe { (command)(self.handle, swapchain, p_sleep_info) }
     }
 }
@@ -30292,13 +29538,12 @@ impl Device {
         swapchain: SwapchainKHR,
         p_latency_marker_info: *const SetLatencyMarkerInfoNV,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkSetLatencyMarkerNV as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_SetLatencyMarkerNV>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_SetLatencyMarkerNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkSetLatencyMarkerNV as usize,
+            ))
+        };
         unsafe { (command)(self.handle, swapchain, p_latency_marker_info) }
     }
 }
@@ -30321,13 +29566,12 @@ impl Device {
         swapchain: SwapchainKHR,
         p_latency_marker_info: *mut GetLatencyMarkerInfoNV,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetLatencyTimingsNV as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetLatencyTimingsNV>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetLatencyTimingsNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetLatencyTimingsNV as usize,
+            ))
+        };
         unsafe { (command)(self.handle, swapchain, p_latency_marker_info) }
     }
 }
@@ -30346,13 +29590,12 @@ impl Queue {
     #[doc(alias = "vkQueueNotifyOutOfBandNV")]
     #[inline(always)]
     pub unsafe fn notify_out_of_band_nv(&self, p_queue_type_info: *const OutOfBandQueueTypeInfoNV) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkQueueNotifyOutOfBandNV as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_QueueNotifyOutOfBandNV>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_QueueNotifyOutOfBandNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkQueueNotifyOutOfBandNV as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_queue_type_info) }
     }
 }
@@ -30400,13 +29643,11 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_pipelines: *mut Pipeline,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateDataGraphPipelinesARM as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateDataGraphPipelinesARM>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CreateDataGraphPipelinesARM>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateDataGraphPipelinesARM as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -30456,13 +29697,13 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_session: *mut DataGraphPipelineSessionARM,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateDataGraphPipelineSessionARM as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateDataGraphPipelineSessionARM>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CreateDataGraphPipelineSessionARM>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkCreateDataGraphPipelineSessionARM as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_session) }
     }
@@ -30504,16 +29745,14 @@ impl Device {
         p_bind_point_requirement_count: *mut u32,
         p_bind_point_requirements: *mut DataGraphPipelineSessionBindPointRequirementARM,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDataGraphPipelineSessionBindPointRequirementsARM as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<
                 vkVoidFunction,
                 FUN_GetDataGraphPipelineSessionBindPointRequirementsARM,
-            >(command)
+            >(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetDataGraphPipelineSessionBindPointRequirementsARM as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -30547,16 +29786,14 @@ impl Device {
         p_info: *const DataGraphPipelineSessionMemoryRequirementsInfoARM,
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDataGraphPipelineSessionMemoryRequirementsARM as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<
                 vkVoidFunction,
                 FUN_GetDataGraphPipelineSessionMemoryRequirementsARM,
-            >(command)
+            >(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetDataGraphPipelineSessionMemoryRequirementsARM as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_info, p_memory_requirements) }
     }
@@ -30591,14 +29828,12 @@ impl Device {
         bind_info_count: u32,
         p_bind_infos: *const BindDataGraphPipelineSessionMemoryInfoARM,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkBindDataGraphPipelineSessionMemoryARM as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_BindDataGraphPipelineSessionMemoryARM>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkBindDataGraphPipelineSessionMemoryARM as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, bind_info_count, p_bind_infos) }
@@ -30626,13 +29861,13 @@ impl Device {
         session: DataGraphPipelineSessionARM,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroyDataGraphPipelineSessionARM as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyDataGraphPipelineSessionARM>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyDataGraphPipelineSessionARM>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkDestroyDataGraphPipelineSessionARM as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, session, p_allocator) }
     }
@@ -30672,13 +29907,12 @@ impl CommandBuffer {
         session: DataGraphPipelineSessionARM,
         p_info: *const DataGraphPipelineDispatchInfoARM,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdDispatchDataGraphARM as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdDispatchDataGraphARM>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDispatchDataGraphARM>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdDispatchDataGraphARM as usize,
+            ))
+        };
         unsafe { (command)(self.handle, session, p_info) }
     }
 }
@@ -30719,14 +29953,12 @@ impl Device {
         p_properties_count: *mut u32,
         p_properties: *mut DataGraphPipelinePropertyARM,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDataGraphPipelineAvailablePropertiesARM as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetDataGraphPipelineAvailablePropertiesARM>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetDataGraphPipelineAvailablePropertiesARM as usize,
+                ),
             )
         };
         unsafe {
@@ -30772,13 +30004,13 @@ impl Device {
         properties_count: u32,
         p_properties: *mut DataGraphPipelinePropertyQueryResultARM,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDataGraphPipelinePropertiesARM as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDataGraphPipelinePropertiesARM>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetDataGraphPipelinePropertiesARM>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetDataGraphPipelinePropertiesARM as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, p_pipeline_info, properties_count, p_properties) }
     }
@@ -30820,16 +30052,14 @@ impl PhysicalDevice {
         p_queue_family_data_graph_property_count: *mut u32,
         p_queue_family_data_graph_properties: *mut QueueFamilyDataGraphPropertiesARM,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<
                 vkVoidFunction,
                 FUN_GetPhysicalDeviceQueueFamilyDataGraphPropertiesARM,
-            >(command)
+            >(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -30864,17 +30094,8 @@ impl PhysicalDevice {
         p_queue_family_data_graph_processing_engine_info: *const PhysicalDeviceQueueFamilyDataGraphProcessingEngineInfoARM,
         p_queue_family_data_graph_processing_engine_properties: *mut QueueFamilyDataGraphProcessingEnginePropertiesARM,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM
-                as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<
-                vkVoidFunction,
-                FUN_GetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM,
-            >(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM>(vtable_get(self.vtable(), InstanceCommands::vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM as usize))
         };
         unsafe {
             (command)(
@@ -30919,17 +30140,8 @@ impl PhysicalDevice {
         p_queue_family_data_graph_properties: *const QueueFamilyDataGraphPropertiesARM,
         p_properties: *mut BaseOutStructure,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceQueueFamilyDataGraphEngineOperationPropertiesARM
-                as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<
-                vkVoidFunction,
-                FUN_GetPhysicalDeviceQueueFamilyDataGraphEngineOperationPropertiesARM,
-            >(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceQueueFamilyDataGraphEngineOperationPropertiesARM>(vtable_get(self.vtable(), InstanceCommands::vkGetPhysicalDeviceQueueFamilyDataGraphEngineOperationPropertiesARM as usize))
         };
         unsafe {
             (command)(
@@ -30972,14 +30184,12 @@ impl CommandBuffer {
         &self,
         aspect_mask: ImageAspectFlags,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetAttachmentFeedbackLoopEnableEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetAttachmentFeedbackLoopEnableEXT>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkCmdSetAttachmentFeedbackLoopEnableEXT as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, aspect_mask) }
@@ -31015,13 +30225,11 @@ impl Device {
         buffer: *const _screen_buffer,
         p_properties: *mut ScreenBufferPropertiesQNX,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetScreenBufferPropertiesQNX as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetScreenBufferPropertiesQNX>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetScreenBufferPropertiesQNX>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetScreenBufferPropertiesQNX as usize,
+            ))
         };
         unsafe { (command)(self.handle, buffer, p_properties) }
     }
@@ -31058,13 +30266,12 @@ impl CommandBuffer {
         &self,
         p_tile_memory_bind_info: *const TileMemoryBindInfoQCOM,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBindTileMemoryQCOM as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdBindTileMemoryQCOM>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBindTileMemoryQCOM>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdBindTileMemoryQCOM as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_tile_memory_bind_info) }
     }
 }
@@ -31097,13 +30304,12 @@ impl CommandBuffer {
         &self,
         p_decompress_memory_info_ext: *const DecompressMemoryInfoEXT,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdDecompressMemoryEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdDecompressMemoryEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDecompressMemoryEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdDecompressMemoryEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_decompress_memory_info_ext) }
     }
 }
@@ -31146,13 +30352,13 @@ impl CommandBuffer {
         max_decompression_count: u32,
         stride: u32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdDecompressMemoryIndirectCountEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDecompressMemoryIndirectCountEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDecompressMemoryIndirectCountEXT>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkCmdDecompressMemoryIndirectCountEXT as usize,
+                ),
+            )
         };
         unsafe {
             (command)(
@@ -31201,13 +30407,11 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_external_queue: *mut ExternalComputeQueueNV,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateExternalComputeQueueNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateExternalComputeQueueNV>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CreateExternalComputeQueueNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateExternalComputeQueueNV as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_external_queue) }
     }
@@ -31234,13 +30438,11 @@ impl Device {
         external_queue: ExternalComputeQueueNV,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroyExternalComputeQueueNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyExternalComputeQueueNV>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyExternalComputeQueueNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyExternalComputeQueueNV as usize,
+            ))
         };
         unsafe { (command)(self.handle, external_queue, p_allocator) }
     }
@@ -31270,13 +30472,11 @@ pub unsafe fn get_external_compute_queue_data_nv(
         .get()
         .expect("vkx setup should have been run")
         .commands;
-    let command = vtable_get(
-        &commands,
-        GlobalCommands::vkGetExternalComputeQueueDataNV as usize,
-    )
-    .expect("command should not be null");
     let command = unsafe {
-        std::mem::transmute::<vkVoidFunction, FUN_GetExternalComputeQueueDataNV>(command)
+        std::mem::transmute::<vkVoidFunction, FUN_GetExternalComputeQueueDataNV>(vtable_get(
+            &commands,
+            GlobalCommands::vkGetExternalComputeQueueDataNV as usize,
+        ))
     };
     unsafe { (command)(external_queue, params, p_data) }
 }
@@ -31302,14 +30502,12 @@ impl Device {
         p_info: *const ClusterAccelerationStructureInputInfoNV,
         p_size_info: *mut AccelerationStructureBuildSizesInfoKHR,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetClusterAccelerationStructureBuildSizesNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetClusterAccelerationStructureBuildSizesNV>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetClusterAccelerationStructureBuildSizesNV as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, p_info, p_size_info) }
@@ -31343,14 +30541,12 @@ impl CommandBuffer {
         &self,
         p_command_infos: *const ClusterAccelerationStructureCommandsInfoNV,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBuildClusterAccelerationStructureIndirectNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBuildClusterAccelerationStructureIndirectNV>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkCmdBuildClusterAccelerationStructureIndirectNV as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, p_command_infos) }
@@ -31378,16 +30574,14 @@ impl Device {
         p_info: *const PartitionedAccelerationStructureInstancesInputNV,
         p_size_info: *mut AccelerationStructureBuildSizesInfoKHR,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPartitionedAccelerationStructuresBuildSizesNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<
                 vkVoidFunction,
                 FUN_GetPartitionedAccelerationStructuresBuildSizesNV,
-            >(command)
+            >(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetPartitionedAccelerationStructuresBuildSizesNV as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_info, p_size_info) }
     }
@@ -31420,14 +30614,12 @@ impl CommandBuffer {
         &self,
         p_build_info: *const BuildPartitionedAccelerationStructureInfoNV,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBuildPartitionedAccelerationStructuresNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBuildPartitionedAccelerationStructuresNV>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkCmdBuildPartitionedAccelerationStructuresNV as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, p_build_info) }
@@ -31455,14 +30647,12 @@ impl Device {
         p_info: *const GeneratedCommandsMemoryRequirementsInfoEXT,
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetGeneratedCommandsMemoryRequirementsEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetGeneratedCommandsMemoryRequirementsEXT>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetGeneratedCommandsMemoryRequirementsEXT as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, p_info, p_memory_requirements) }
@@ -31497,13 +30687,13 @@ impl CommandBuffer {
         p_generated_commands_info: *const GeneratedCommandsInfoEXT,
         state_command_buffer: CommandBufferHandle,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdPreprocessGeneratedCommandsEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdPreprocessGeneratedCommandsEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdPreprocessGeneratedCommandsEXT>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkCmdPreprocessGeneratedCommandsEXT as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, p_generated_commands_info, state_command_buffer) }
     }
@@ -31538,13 +30728,11 @@ impl CommandBuffer {
         is_preprocessed: Bool32,
         p_generated_commands_info: *const GeneratedCommandsInfoEXT,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdExecuteGeneratedCommandsEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdExecuteGeneratedCommandsEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdExecuteGeneratedCommandsEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdExecuteGeneratedCommandsEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, is_preprocessed, p_generated_commands_info) }
     }
@@ -31584,13 +30772,11 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_indirect_commands_layout: *mut IndirectCommandsLayoutEXT,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateIndirectCommandsLayoutEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateIndirectCommandsLayoutEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CreateIndirectCommandsLayoutEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateIndirectCommandsLayoutEXT as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -31625,13 +30811,11 @@ impl Device {
         indirect_commands_layout: IndirectCommandsLayoutEXT,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroyIndirectCommandsLayoutEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyIndirectCommandsLayoutEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyIndirectCommandsLayoutEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyIndirectCommandsLayoutEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, indirect_commands_layout, p_allocator) }
     }
@@ -31671,13 +30855,11 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_indirect_execution_set: *mut IndirectExecutionSetEXT,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateIndirectExecutionSetEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateIndirectExecutionSetEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CreateIndirectExecutionSetEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateIndirectExecutionSetEXT as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -31712,13 +30894,11 @@ impl Device {
         indirect_execution_set: IndirectExecutionSetEXT,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroyIndirectExecutionSetEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyIndirectExecutionSetEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyIndirectExecutionSetEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyIndirectExecutionSetEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, indirect_execution_set, p_allocator) }
     }
@@ -31747,14 +30927,12 @@ impl Device {
         execution_set_write_count: u32,
         p_execution_set_writes: *const WriteIndirectExecutionSetPipelineEXT,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkUpdateIndirectExecutionSetPipelineEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_UpdateIndirectExecutionSetPipelineEXT>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkUpdateIndirectExecutionSetPipelineEXT as usize,
+                ),
             )
         };
         unsafe {
@@ -31791,13 +30969,13 @@ impl Device {
         execution_set_write_count: u32,
         p_execution_set_writes: *const WriteIndirectExecutionSetShaderEXT,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkUpdateIndirectExecutionSetShaderEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_UpdateIndirectExecutionSetShaderEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_UpdateIndirectExecutionSetShaderEXT>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkUpdateIndirectExecutionSetShaderEXT as usize,
+                ),
+            )
         };
         unsafe {
             (command)(
@@ -31844,13 +31022,12 @@ impl Instance {
         p_allocator: *const AllocationCallbacks,
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateSurfaceOHOS as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateSurfaceOHOS>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateSurfaceOHOS>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateSurfaceOHOS as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
     }
 }
@@ -31889,17 +31066,15 @@ impl PhysicalDevice {
         p_property_count: *mut u32,
         p_properties: *mut CooperativeMatrixFlexibleDimensionsPropertiesNV,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV
-                as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<
                 vkVoidFunction,
                 FUN_GetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV,
-            >(command)
+            >(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV
+                    as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_property_count, p_properties) }
     }
@@ -31934,13 +31109,12 @@ impl Device {
         p_get_metal_handle_info: *const MemoryGetMetalHandleInfoEXT,
         p_handle: *mut *mut c_void,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetMemoryMetalHandleEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetMemoryMetalHandleEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_GetMemoryMetalHandleEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetMemoryMetalHandleEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_get_metal_handle_info, p_handle) }
     }
 }
@@ -31976,13 +31150,13 @@ impl Device {
         p_handle: *const c_void,
         p_memory_metal_handle_properties: *mut MemoryMetalHandlePropertiesEXT,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetMemoryMetalHandlePropertiesEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetMemoryMetalHandlePropertiesEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetMemoryMetalHandlePropertiesEXT>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetMemoryMetalHandlePropertiesEXT as usize,
+                ),
+            )
         };
         unsafe {
             (command)(
@@ -32035,17 +31209,15 @@ impl PhysicalDevice {
         p_counters: *mut PerformanceCounterARM,
         p_counter_descriptions: *mut PerformanceCounterDescriptionARM,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkEnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM
-                as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<
                 vkVoidFunction,
                 FUN_EnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM,
-            >(command)
+            >(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkEnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM
+                    as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -32094,16 +31266,14 @@ impl PhysicalDevice {
         p_description_count: *mut u32,
         p_descriptions: *mut ShaderInstrumentationMetricDescriptionARM,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkEnumeratePhysicalDeviceShaderInstrumentationMetricsARM as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<
                 vkVoidFunction,
                 FUN_EnumeratePhysicalDeviceShaderInstrumentationMetricsARM,
-            >(command)
+            >(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkEnumeratePhysicalDeviceShaderInstrumentationMetricsARM as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_description_count, p_descriptions) }
     }
@@ -32143,13 +31313,11 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_instrumentation: *mut ShaderInstrumentationARM,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateShaderInstrumentationARM as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateShaderInstrumentationARM>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CreateShaderInstrumentationARM>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateShaderInstrumentationARM as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_instrumentation) }
     }
@@ -32177,13 +31345,11 @@ impl Device {
         instrumentation: ShaderInstrumentationARM,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroyShaderInstrumentationARM as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyShaderInstrumentationARM>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyShaderInstrumentationARM>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyShaderInstrumentationARM as usize,
+            ))
         };
         unsafe { (command)(self.handle, instrumentation, p_allocator) }
     }
@@ -32219,13 +31385,11 @@ impl CommandBuffer {
         &self,
         instrumentation: ShaderInstrumentationARM,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBeginShaderInstrumentationARM as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBeginShaderInstrumentationARM>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBeginShaderInstrumentationARM>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdBeginShaderInstrumentationARM as usize,
+            ))
         };
         unsafe { (command)(self.handle, instrumentation) }
     }
@@ -32257,13 +31421,11 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdEndShaderInstrumentationARM")]
     #[inline(always)]
     pub unsafe fn cmd_end_shader_instrumentation_arm(&self) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdEndShaderInstrumentationARM as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdEndShaderInstrumentationARM>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdEndShaderInstrumentationARM>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdEndShaderInstrumentationARM as usize,
+            ))
         };
         unsafe { (command)(self.handle) }
     }
@@ -32307,13 +31469,13 @@ impl Device {
         p_metric_values: *mut c_void,
         flags: ShaderInstrumentationValuesFlagsARM,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetShaderInstrumentationValuesARM as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetShaderInstrumentationValuesARM>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetShaderInstrumentationValuesARM>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetShaderInstrumentationValuesARM as usize,
+                ),
+            )
         };
         unsafe {
             (command)(
@@ -32344,13 +31506,13 @@ impl Device {
         &self,
         instrumentation: ShaderInstrumentationARM,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkClearShaderInstrumentationMetricsARM as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_ClearShaderInstrumentationMetricsARM>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_ClearShaderInstrumentationMetricsARM>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkClearShaderInstrumentationMetricsARM as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, instrumentation) }
     }
@@ -32384,13 +31546,12 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdEndRendering2EXT")]
     #[inline(always)]
     pub unsafe fn cmd_end_rendering_2_ext(&self, p_rendering_end_info: *const RenderingEndInfoKHR) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdEndRendering2EXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdEndRendering2EXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdEndRendering2EXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdEndRendering2EXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_rendering_end_info) }
     }
 }
@@ -32425,13 +31586,12 @@ impl CommandBuffer {
         &self,
         p_begin_custom_resolve_info: *const BeginCustomResolveInfoEXT,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBeginCustomResolveEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdBeginCustomResolveEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBeginCustomResolveEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdBeginCustomResolveEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_begin_custom_resolve_info) }
     }
 }
@@ -32477,17 +31637,15 @@ impl PhysicalDevice {
         p_format_count: *mut u32,
         p_image_format_properties: *mut DataGraphOpticalFlowImageFormatPropertiesARM,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceQueueFamilyDataGraphOpticalFlowImageFormatsARM
-                as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<
                 vkVoidFunction,
                 FUN_GetPhysicalDeviceQueueFamilyDataGraphOpticalFlowImageFormatsARM,
-            >(command)
+            >(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetPhysicalDeviceQueueFamilyDataGraphOpticalFlowImageFormatsARM
+                    as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -32529,13 +31687,11 @@ impl CommandBuffer {
         &self,
         p_parameters: *const ComputeOccupancyPriorityParametersNV,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetComputeOccupancyPriorityNV as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetComputeOccupancyPriorityNV>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetComputeOccupancyPriorityNV>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetComputeOccupancyPriorityNV as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_parameters) }
     }
@@ -32577,16 +31733,14 @@ impl PhysicalDevice {
         p_property_count: *mut u32,
         p_properties: *mut CooperativeMatrixProperties2EXT,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceCooperativeMatrixProperties2EXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<
                 vkVoidFunction,
                 FUN_GetPhysicalDeviceCooperativeMatrixProperties2EXT,
-            >(command)
+            >(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkGetPhysicalDeviceCooperativeMatrixProperties2EXT as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -32633,13 +31787,12 @@ impl Instance {
         p_allocator: *const AllocationCallbacks,
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateUbmSurfaceSEC as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CreateUbmSurfaceSEC>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CreateUbmSurfaceSEC>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateUbmSurfaceSEC as usize,
+            ))
+        };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
     }
 }
@@ -32662,14 +31815,12 @@ impl PhysicalDevice {
         queue_family_index: u32,
         device: *mut ubm_device,
     ) -> Bool32 {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetPhysicalDeviceUbmPresentationSupportSEC as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceUbmPresentationSupportSEC>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetPhysicalDeviceUbmPresentationSupportSEC as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, queue_family_index, device) }
@@ -32702,13 +31853,11 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetPrimitiveRestartIndexEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_primitive_restart_index_ext(&self, primitive_restart_index: u32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetPrimitiveRestartIndexEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetPrimitiveRestartIndexEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetPrimitiveRestartIndexEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdSetPrimitiveRestartIndexEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, primitive_restart_index) }
     }
@@ -32748,13 +31897,11 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_acceleration_structure: *mut AccelerationStructureKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateAccelerationStructureKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateAccelerationStructureKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CreateAccelerationStructureKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateAccelerationStructureKHR as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -32789,13 +31936,11 @@ impl Device {
         acceleration_structure: AccelerationStructureKHR,
         p_allocator: *const AllocationCallbacks,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkDestroyAccelerationStructureKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyAccelerationStructureKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_DestroyAccelerationStructureKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkDestroyAccelerationStructureKHR as usize,
+            ))
         };
         unsafe { (command)(self.handle, acceleration_structure, p_allocator) }
     }
@@ -32834,13 +31979,13 @@ impl CommandBuffer {
         p_infos: *const AccelerationStructureBuildGeometryInfoKHR,
         pp_build_range_infos: *const *const AccelerationStructureBuildRangeInfoKHR,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBuildAccelerationStructuresKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBuildAccelerationStructuresKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdBuildAccelerationStructuresKHR>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkCmdBuildAccelerationStructuresKHR as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, info_count, p_infos, pp_build_range_infos) }
     }
@@ -32883,14 +32028,12 @@ impl CommandBuffer {
         p_indirect_strides: *const u32,
         pp_max_primitive_counts: *const *const u32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdBuildAccelerationStructuresIndirectKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBuildAccelerationStructuresIndirectKHR>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkCmdBuildAccelerationStructuresIndirectKHR as usize,
+                ),
             )
         };
         unsafe {
@@ -32944,13 +32087,11 @@ impl Device {
         p_infos: *const AccelerationStructureBuildGeometryInfoKHR,
         pp_build_range_infos: *const *const AccelerationStructureBuildRangeInfoKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkBuildAccelerationStructuresKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_BuildAccelerationStructuresKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_BuildAccelerationStructuresKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkBuildAccelerationStructuresKHR as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -32998,13 +32139,11 @@ impl Device {
         deferred_operation: DeferredOperationKHR,
         p_info: *const CopyAccelerationStructureInfoKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCopyAccelerationStructureKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CopyAccelerationStructureKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CopyAccelerationStructureKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCopyAccelerationStructureKHR as usize,
+            ))
         };
         unsafe { (command)(self.handle, deferred_operation, p_info) }
     }
@@ -33044,13 +32183,13 @@ impl Device {
         deferred_operation: DeferredOperationKHR,
         p_info: *const CopyAccelerationStructureToMemoryInfoKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCopyAccelerationStructureToMemoryKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CopyAccelerationStructureToMemoryKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CopyAccelerationStructureToMemoryKHR>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkCopyAccelerationStructureToMemoryKHR as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, deferred_operation, p_info) }
     }
@@ -33090,13 +32229,13 @@ impl Device {
         deferred_operation: DeferredOperationKHR,
         p_info: *const CopyMemoryToAccelerationStructureInfoKHR,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCopyMemoryToAccelerationStructureKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CopyMemoryToAccelerationStructureKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CopyMemoryToAccelerationStructureKHR>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkCopyMemoryToAccelerationStructureKHR as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, deferred_operation, p_info) }
     }
@@ -33139,14 +32278,12 @@ impl Device {
         p_data: *mut c_void,
         stride: usize,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkWriteAccelerationStructuresPropertiesKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_WriteAccelerationStructuresPropertiesKHR>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkWriteAccelerationStructuresPropertiesKHR as usize,
+                ),
             )
         };
         unsafe {
@@ -33190,13 +32327,11 @@ impl CommandBuffer {
         &self,
         p_info: *const CopyAccelerationStructureInfoKHR,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdCopyAccelerationStructureKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyAccelerationStructureKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyAccelerationStructureKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdCopyAccelerationStructureKHR as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_info) }
     }
@@ -33229,14 +32364,12 @@ impl CommandBuffer {
         &self,
         p_info: *const CopyAccelerationStructureToMemoryInfoKHR,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdCopyAccelerationStructureToMemoryKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdCopyAccelerationStructureToMemoryKHR>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkCmdCopyAccelerationStructureToMemoryKHR as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, p_info) }
@@ -33270,14 +32403,12 @@ impl CommandBuffer {
         &self,
         p_info: *const CopyMemoryToAccelerationStructureInfoKHR,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdCopyMemoryToAccelerationStructureKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdCopyMemoryToAccelerationStructureKHR>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkCmdCopyMemoryToAccelerationStructureKHR as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, p_info) }
@@ -33304,14 +32435,12 @@ impl Device {
         &self,
         p_info: *const AccelerationStructureDeviceAddressInfoKHR,
     ) -> DeviceAddress {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetAccelerationStructureDeviceAddressKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetAccelerationStructureDeviceAddressKHR>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetAccelerationStructureDeviceAddressKHR as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, p_info) }
@@ -33355,14 +32484,12 @@ impl CommandBuffer {
         query_pool: QueryPool,
         first_query: u32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdWriteAccelerationStructuresPropertiesKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdWriteAccelerationStructuresPropertiesKHR>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkCmdWriteAccelerationStructuresPropertiesKHR as usize,
+                ),
             )
         };
         unsafe {
@@ -33399,14 +32526,12 @@ impl Device {
         p_version_info: *const AccelerationStructureVersionInfoKHR,
         p_compatibility: *mut AccelerationStructureCompatibilityKHR,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetDeviceAccelerationStructureCompatibilityKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetDeviceAccelerationStructureCompatibilityKHR>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetDeviceAccelerationStructureCompatibilityKHR as usize,
+                ),
             )
         };
         unsafe { (command)(self.handle, p_version_info, p_compatibility) }
@@ -33441,14 +32566,12 @@ impl Device {
         p_max_primitive_counts: *const u32,
         p_size_info: *mut AccelerationStructureBuildSizesInfoKHR,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetAccelerationStructureBuildSizesKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetAccelerationStructureBuildSizesKHR>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetAccelerationStructureBuildSizesKHR as usize,
+                ),
             )
         };
         unsafe {
@@ -33504,13 +32627,12 @@ impl CommandBuffer {
         height: u32,
         depth: u32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdTraceRaysKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdTraceRaysKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdTraceRaysKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdTraceRaysKHR as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -33572,13 +32694,11 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
         p_pipelines: *mut Pipeline,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCreateRayTracingPipelinesKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateRayTracingPipelinesKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CreateRayTracingPipelinesKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCreateRayTracingPipelinesKHR as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -33623,14 +32743,12 @@ impl Device {
         data_size: usize,
         p_data: *mut c_void,
     ) -> ResultCode {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetRayTracingCaptureReplayShaderGroupHandlesKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetRayTracingCaptureReplayShaderGroupHandlesKHR>(
-                command,
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetRayTracingCaptureReplayShaderGroupHandlesKHR as usize,
+                ),
             )
         };
         unsafe {
@@ -33683,13 +32801,12 @@ impl CommandBuffer {
         p_callable_shader_binding_table: *const StridedDeviceAddressRegionKHR,
         indirect_device_address: DeviceAddress,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdTraceRaysIndirectKHR as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdTraceRaysIndirectKHR>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdTraceRaysIndirectKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdTraceRaysIndirectKHR as usize,
+            ))
+        };
         unsafe {
             (command)(
                 self.handle,
@@ -33722,13 +32839,13 @@ impl Device {
         group: u32,
         group_shader: ShaderGroupShaderKHR,
     ) -> DeviceSize {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkGetRayTracingShaderGroupStackSizeKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetRayTracingShaderGroupStackSizeKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_GetRayTracingShaderGroupStackSizeKHR>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkGetRayTracingShaderGroupStackSizeKHR as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, pipeline, group, group_shader) }
     }
@@ -33758,13 +32875,13 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetRayTracingPipelineStackSizeKHR")]
     #[inline(always)]
     pub unsafe fn cmd_set_ray_tracing_pipeline_stack_size_khr(&self, pipeline_stack_size: u32) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdSetRayTracingPipelineStackSizeKHR as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetRayTracingPipelineStackSizeKHR>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdSetRayTracingPipelineStackSizeKHR>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommands::vkCmdSetRayTracingPipelineStackSizeKHR as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, pipeline_stack_size) }
     }
@@ -33798,13 +32915,12 @@ impl CommandBuffer {
         group_count_y: u32,
         group_count_z: u32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdDrawMeshTasksEXT as usize,
-        )
-        .expect("command should not be null");
-        let command =
-            unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdDrawMeshTasksEXT>(command) };
+        let command = unsafe {
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawMeshTasksEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdDrawMeshTasksEXT as usize,
+            ))
+        };
         unsafe { (command)(self.handle, group_count_x, group_count_y, group_count_z) }
     }
 }
@@ -33839,13 +32955,11 @@ impl CommandBuffer {
         draw_count: u32,
         stride: u32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdDrawMeshTasksIndirectEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawMeshTasksIndirectEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawMeshTasksIndirectEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdDrawMeshTasksIndirectEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, buffer, offset, draw_count, stride) }
     }
@@ -33883,13 +32997,11 @@ impl CommandBuffer {
         max_draw_count: u32,
         stride: u32,
     ) {
-        let command = vtable_get(
-            &*self.vtable(),
-            InstanceCommands::vkCmdDrawMeshTasksIndirectCountEXT as usize,
-        )
-        .expect("command should not be null");
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawMeshTasksIndirectCountEXT>(command)
+            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawMeshTasksIndirectCountEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommands::vkCmdDrawMeshTasksIndirectCountEXT as usize,
+            ))
         };
         unsafe {
             (command)(

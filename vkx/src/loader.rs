@@ -10,14 +10,12 @@ type GlobalVTable = VTable<{ crate::GlobalCommands::VARIANTS.len() }>;
 type InstanceVTable = VTable<{ crate::InstanceCommands::VARIANTS.len() }>;
 
 #[inline(always)]
-pub(crate) fn vtable_get<const N: usize>(
-    table: &VTable<N>,
-    index: usize,
-) -> Option<crate::vkVoidFunction> {
+pub(crate) fn vtable_get<const N: usize>(table: &VTable<N>, index: usize) -> crate::vkVoidFunction {
     let func = table[index];
     let ptr =
         unsafe { std::mem::transmute::<crate::vkVoidFunction, *const std::ffi::c_void>(func) };
-    (!ptr.is_null()).then_some(func)
+    assert!(!ptr.is_null(), "command should not be null");
+    func
 }
 
 pub(crate) struct Global {
