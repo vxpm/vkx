@@ -210,319 +210,319 @@ pub const MAX_DATA_GRAPH_TOSA_NAME_SIZE_ARM: u32 = VK_MAX_DATA_GRAPH_TOSA_NAME_S
 pub const MAX_TENSOR_CREATE_INFO_ROLLING_BACKING_WRAP_COUNT_ARM: u32 =
     VK_MAX_TENSOR_CREATE_INFO_ROLLING_BACKING_WRAP_COUNT_ARM;
 
-/// [`STD_VIDEO_H264_CPB_CNT_LIST_SIZE`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_H264_CPB_CNT_LIST_SIZE.html)
+/// [`STD_VIDEO_H264_CPB_CNT_LIST_SIZE`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_H264_CPB_CNT_LIST_SIZE")]
 pub const H264_CPB_CNT_LIST_SIZE: u32 = STD_VIDEO_H264_CPB_CNT_LIST_SIZE;
 
-/// [`STD_VIDEO_H264_SCALING_LIST_4X4_NUM_LISTS`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_H264_SCALING_LIST_4X4_NUM_LISTS.html)
+/// [`STD_VIDEO_H264_SCALING_LIST_4X4_NUM_LISTS`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_H264_SCALING_LIST_4X4_NUM_LISTS")]
 pub const H264_SCALING_LIST_4X4_NUM_LISTS: u32 = STD_VIDEO_H264_SCALING_LIST_4X4_NUM_LISTS;
 
-/// [`STD_VIDEO_H264_SCALING_LIST_4X4_NUM_ELEMENTS`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_H264_SCALING_LIST_4X4_NUM_ELEMENTS.html)
+/// [`STD_VIDEO_H264_SCALING_LIST_4X4_NUM_ELEMENTS`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_H264_SCALING_LIST_4X4_NUM_ELEMENTS")]
 pub const H264_SCALING_LIST_4X4_NUM_ELEMENTS: u32 = STD_VIDEO_H264_SCALING_LIST_4X4_NUM_ELEMENTS;
 
-/// [`STD_VIDEO_H264_SCALING_LIST_8X8_NUM_LISTS`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_H264_SCALING_LIST_8X8_NUM_LISTS.html)
+/// [`STD_VIDEO_H264_SCALING_LIST_8X8_NUM_LISTS`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_H264_SCALING_LIST_8X8_NUM_LISTS")]
 pub const H264_SCALING_LIST_8X8_NUM_LISTS: u32 = STD_VIDEO_H264_SCALING_LIST_8X8_NUM_LISTS;
 
-/// [`STD_VIDEO_H264_SCALING_LIST_8X8_NUM_ELEMENTS`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_H264_SCALING_LIST_8X8_NUM_ELEMENTS.html)
+/// [`STD_VIDEO_H264_SCALING_LIST_8X8_NUM_ELEMENTS`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_H264_SCALING_LIST_8X8_NUM_ELEMENTS")]
 pub const H264_SCALING_LIST_8X8_NUM_ELEMENTS: u32 = STD_VIDEO_H264_SCALING_LIST_8X8_NUM_ELEMENTS;
 
-/// [`STD_VIDEO_H264_MAX_NUM_LIST_REF`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_H264_MAX_NUM_LIST_REF.html)
+/// [`STD_VIDEO_H264_MAX_NUM_LIST_REF`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_H264_MAX_NUM_LIST_REF")]
 pub const H264_MAX_NUM_LIST_REF: u32 = STD_VIDEO_H264_MAX_NUM_LIST_REF;
 
-/// [`STD_VIDEO_H264_MAX_CHROMA_PLANES`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_H264_MAX_CHROMA_PLANES.html)
+/// [`STD_VIDEO_H264_MAX_CHROMA_PLANES`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_H264_MAX_CHROMA_PLANES")]
 pub const H264_MAX_CHROMA_PLANES: u32 = STD_VIDEO_H264_MAX_CHROMA_PLANES;
 
-/// [`STD_VIDEO_H264_NO_REFERENCE_PICTURE`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_H264_NO_REFERENCE_PICTURE.html)
+/// [`STD_VIDEO_H264_NO_REFERENCE_PICTURE`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_H264_NO_REFERENCE_PICTURE")]
 pub const H264_NO_REFERENCE_PICTURE: u8 = STD_VIDEO_H264_NO_REFERENCE_PICTURE;
 
-/// [`STD_VIDEO_DECODE_H264_FIELD_ORDER_COUNT_LIST_SIZE`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_DECODE_H264_FIELD_ORDER_COUNT_LIST_SIZE.html)
+/// [`STD_VIDEO_DECODE_H264_FIELD_ORDER_COUNT_LIST_SIZE`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_DECODE_H264_FIELD_ORDER_COUNT_LIST_SIZE")]
 pub const DECODE_H264_FIELD_ORDER_COUNT_LIST_SIZE: u32 =
     STD_VIDEO_DECODE_H264_FIELD_ORDER_COUNT_LIST_SIZE;
 
-/// [`STD_VIDEO_H265_CPB_CNT_LIST_SIZE`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_H265_CPB_CNT_LIST_SIZE.html)
+/// [`STD_VIDEO_H265_CPB_CNT_LIST_SIZE`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_H265_CPB_CNT_LIST_SIZE")]
 pub const H265_CPB_CNT_LIST_SIZE: u32 = STD_VIDEO_H265_CPB_CNT_LIST_SIZE;
 
-/// [`STD_VIDEO_H265_SUBLAYERS_LIST_SIZE`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_H265_SUBLAYERS_LIST_SIZE.html)
+/// [`STD_VIDEO_H265_SUBLAYERS_LIST_SIZE`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_H265_SUBLAYERS_LIST_SIZE")]
 pub const H265_SUBLAYERS_LIST_SIZE: u32 = STD_VIDEO_H265_SUBLAYERS_LIST_SIZE;
 
-/// [`STD_VIDEO_H265_SCALING_LIST_4X4_NUM_LISTS`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_H265_SCALING_LIST_4X4_NUM_LISTS.html)
+/// [`STD_VIDEO_H265_SCALING_LIST_4X4_NUM_LISTS`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_H265_SCALING_LIST_4X4_NUM_LISTS")]
 pub const H265_SCALING_LIST_4X4_NUM_LISTS: u32 = STD_VIDEO_H265_SCALING_LIST_4X4_NUM_LISTS;
 
-/// [`STD_VIDEO_H265_SCALING_LIST_4X4_NUM_ELEMENTS`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_H265_SCALING_LIST_4X4_NUM_ELEMENTS.html)
+/// [`STD_VIDEO_H265_SCALING_LIST_4X4_NUM_ELEMENTS`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_H265_SCALING_LIST_4X4_NUM_ELEMENTS")]
 pub const H265_SCALING_LIST_4X4_NUM_ELEMENTS: u32 = STD_VIDEO_H265_SCALING_LIST_4X4_NUM_ELEMENTS;
 
-/// [`STD_VIDEO_H265_SCALING_LIST_8X8_NUM_LISTS`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_H265_SCALING_LIST_8X8_NUM_LISTS.html)
+/// [`STD_VIDEO_H265_SCALING_LIST_8X8_NUM_LISTS`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_H265_SCALING_LIST_8X8_NUM_LISTS")]
 pub const H265_SCALING_LIST_8X8_NUM_LISTS: u32 = STD_VIDEO_H265_SCALING_LIST_8X8_NUM_LISTS;
 
-/// [`STD_VIDEO_H265_SCALING_LIST_8X8_NUM_ELEMENTS`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_H265_SCALING_LIST_8X8_NUM_ELEMENTS.html)
+/// [`STD_VIDEO_H265_SCALING_LIST_8X8_NUM_ELEMENTS`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_H265_SCALING_LIST_8X8_NUM_ELEMENTS")]
 pub const H265_SCALING_LIST_8X8_NUM_ELEMENTS: u32 = STD_VIDEO_H265_SCALING_LIST_8X8_NUM_ELEMENTS;
 
-/// [`STD_VIDEO_H265_SCALING_LIST_16X16_NUM_LISTS`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_H265_SCALING_LIST_16X16_NUM_LISTS.html)
+/// [`STD_VIDEO_H265_SCALING_LIST_16X16_NUM_LISTS`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_H265_SCALING_LIST_16X16_NUM_LISTS")]
 pub const H265_SCALING_LIST_16X16_NUM_LISTS: u32 = STD_VIDEO_H265_SCALING_LIST_16X16_NUM_LISTS;
 
-/// [`STD_VIDEO_H265_SCALING_LIST_16X16_NUM_ELEMENTS`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_H265_SCALING_LIST_16X16_NUM_ELEMENTS.html)
+/// [`STD_VIDEO_H265_SCALING_LIST_16X16_NUM_ELEMENTS`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_H265_SCALING_LIST_16X16_NUM_ELEMENTS")]
 pub const H265_SCALING_LIST_16X16_NUM_ELEMENTS: u32 =
     STD_VIDEO_H265_SCALING_LIST_16X16_NUM_ELEMENTS;
 
-/// [`STD_VIDEO_H265_SCALING_LIST_32X32_NUM_LISTS`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_H265_SCALING_LIST_32X32_NUM_LISTS.html)
+/// [`STD_VIDEO_H265_SCALING_LIST_32X32_NUM_LISTS`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_H265_SCALING_LIST_32X32_NUM_LISTS")]
 pub const H265_SCALING_LIST_32X32_NUM_LISTS: u32 = STD_VIDEO_H265_SCALING_LIST_32X32_NUM_LISTS;
 
-/// [`STD_VIDEO_H265_SCALING_LIST_32X32_NUM_ELEMENTS`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_H265_SCALING_LIST_32X32_NUM_ELEMENTS.html)
+/// [`STD_VIDEO_H265_SCALING_LIST_32X32_NUM_ELEMENTS`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_H265_SCALING_LIST_32X32_NUM_ELEMENTS")]
 pub const H265_SCALING_LIST_32X32_NUM_ELEMENTS: u32 =
     STD_VIDEO_H265_SCALING_LIST_32X32_NUM_ELEMENTS;
 
-/// [`STD_VIDEO_H265_CHROMA_QP_OFFSET_LIST_SIZE`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_H265_CHROMA_QP_OFFSET_LIST_SIZE.html)
+/// [`STD_VIDEO_H265_CHROMA_QP_OFFSET_LIST_SIZE`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_H265_CHROMA_QP_OFFSET_LIST_SIZE")]
 pub const H265_CHROMA_QP_OFFSET_LIST_SIZE: u32 = STD_VIDEO_H265_CHROMA_QP_OFFSET_LIST_SIZE;
 
-/// [`STD_VIDEO_H265_CHROMA_QP_OFFSET_TILE_COLS_LIST_SIZE`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_H265_CHROMA_QP_OFFSET_TILE_COLS_LIST_SIZE.html)
+/// [`STD_VIDEO_H265_CHROMA_QP_OFFSET_TILE_COLS_LIST_SIZE`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_H265_CHROMA_QP_OFFSET_TILE_COLS_LIST_SIZE")]
 pub const H265_CHROMA_QP_OFFSET_TILE_COLS_LIST_SIZE: u32 =
     STD_VIDEO_H265_CHROMA_QP_OFFSET_TILE_COLS_LIST_SIZE;
 
-/// [`STD_VIDEO_H265_CHROMA_QP_OFFSET_TILE_ROWS_LIST_SIZE`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_H265_CHROMA_QP_OFFSET_TILE_ROWS_LIST_SIZE.html)
+/// [`STD_VIDEO_H265_CHROMA_QP_OFFSET_TILE_ROWS_LIST_SIZE`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_H265_CHROMA_QP_OFFSET_TILE_ROWS_LIST_SIZE")]
 pub const H265_CHROMA_QP_OFFSET_TILE_ROWS_LIST_SIZE: u32 =
     STD_VIDEO_H265_CHROMA_QP_OFFSET_TILE_ROWS_LIST_SIZE;
 
-/// [`STD_VIDEO_H265_PREDICTOR_PALETTE_COMPONENTS_LIST_SIZE`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_H265_PREDICTOR_PALETTE_COMPONENTS_LIST_SIZE.html)
+/// [`STD_VIDEO_H265_PREDICTOR_PALETTE_COMPONENTS_LIST_SIZE`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_H265_PREDICTOR_PALETTE_COMPONENTS_LIST_SIZE")]
 pub const H265_PREDICTOR_PALETTE_COMPONENTS_LIST_SIZE: u32 =
     STD_VIDEO_H265_PREDICTOR_PALETTE_COMPONENTS_LIST_SIZE;
 
-/// [`STD_VIDEO_H265_PREDICTOR_PALETTE_COMP_ENTRIES_LIST_SIZE`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_H265_PREDICTOR_PALETTE_COMP_ENTRIES_LIST_SIZE.html)
+/// [`STD_VIDEO_H265_PREDICTOR_PALETTE_COMP_ENTRIES_LIST_SIZE`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_H265_PREDICTOR_PALETTE_COMP_ENTRIES_LIST_SIZE")]
 pub const H265_PREDICTOR_PALETTE_COMP_ENTRIES_LIST_SIZE: u32 =
     STD_VIDEO_H265_PREDICTOR_PALETTE_COMP_ENTRIES_LIST_SIZE;
 
-/// [`STD_VIDEO_H265_MAX_NUM_LIST_REF`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_H265_MAX_NUM_LIST_REF.html)
+/// [`STD_VIDEO_H265_MAX_NUM_LIST_REF`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_H265_MAX_NUM_LIST_REF")]
 pub const H265_MAX_NUM_LIST_REF: u32 = STD_VIDEO_H265_MAX_NUM_LIST_REF;
 
-/// [`STD_VIDEO_H265_MAX_CHROMA_PLANES`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_H265_MAX_CHROMA_PLANES.html)
+/// [`STD_VIDEO_H265_MAX_CHROMA_PLANES`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_H265_MAX_CHROMA_PLANES")]
 pub const H265_MAX_CHROMA_PLANES: u32 = STD_VIDEO_H265_MAX_CHROMA_PLANES;
 
-/// [`STD_VIDEO_H265_MAX_SHORT_TERM_REF_PIC_SETS`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_H265_MAX_SHORT_TERM_REF_PIC_SETS.html)
+/// [`STD_VIDEO_H265_MAX_SHORT_TERM_REF_PIC_SETS`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_H265_MAX_SHORT_TERM_REF_PIC_SETS")]
 pub const H265_MAX_SHORT_TERM_REF_PIC_SETS: u32 = STD_VIDEO_H265_MAX_SHORT_TERM_REF_PIC_SETS;
 
-/// [`STD_VIDEO_H265_MAX_DPB_SIZE`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_H265_MAX_DPB_SIZE.html)
+/// [`STD_VIDEO_H265_MAX_DPB_SIZE`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_H265_MAX_DPB_SIZE")]
 pub const H265_MAX_DPB_SIZE: u32 = STD_VIDEO_H265_MAX_DPB_SIZE;
 
-/// [`STD_VIDEO_H265_MAX_LONG_TERM_REF_PICS_SPS`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_H265_MAX_LONG_TERM_REF_PICS_SPS.html)
+/// [`STD_VIDEO_H265_MAX_LONG_TERM_REF_PICS_SPS`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_H265_MAX_LONG_TERM_REF_PICS_SPS")]
 pub const H265_MAX_LONG_TERM_REF_PICS_SPS: u32 = STD_VIDEO_H265_MAX_LONG_TERM_REF_PICS_SPS;
 
-/// [`STD_VIDEO_H265_MAX_LONG_TERM_PICS`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_H265_MAX_LONG_TERM_PICS.html)
+/// [`STD_VIDEO_H265_MAX_LONG_TERM_PICS`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_H265_MAX_LONG_TERM_PICS")]
 pub const H265_MAX_LONG_TERM_PICS: u32 = STD_VIDEO_H265_MAX_LONG_TERM_PICS;
 
-/// [`STD_VIDEO_H265_MAX_DELTA_POC`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_H265_MAX_DELTA_POC.html)
+/// [`STD_VIDEO_H265_MAX_DELTA_POC`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_H265_MAX_DELTA_POC")]
 pub const H265_MAX_DELTA_POC: u32 = STD_VIDEO_H265_MAX_DELTA_POC;
 
-/// [`STD_VIDEO_H265_NO_REFERENCE_PICTURE`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_H265_NO_REFERENCE_PICTURE.html)
+/// [`STD_VIDEO_H265_NO_REFERENCE_PICTURE`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_H265_NO_REFERENCE_PICTURE")]
 pub const H265_NO_REFERENCE_PICTURE: u8 = STD_VIDEO_H265_NO_REFERENCE_PICTURE;
 
-/// [`STD_VIDEO_DECODE_H265_REF_PIC_SET_LIST_SIZE`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_DECODE_H265_REF_PIC_SET_LIST_SIZE.html)
+/// [`STD_VIDEO_DECODE_H265_REF_PIC_SET_LIST_SIZE`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_DECODE_H265_REF_PIC_SET_LIST_SIZE")]
 pub const DECODE_H265_REF_PIC_SET_LIST_SIZE: u32 = STD_VIDEO_DECODE_H265_REF_PIC_SET_LIST_SIZE;
 
-/// [`STD_VIDEO_AV1_NUM_REF_FRAMES`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_AV1_NUM_REF_FRAMES.html)
+/// [`STD_VIDEO_AV1_NUM_REF_FRAMES`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_AV1_NUM_REF_FRAMES")]
 pub const AV1_NUM_REF_FRAMES: u32 = STD_VIDEO_AV1_NUM_REF_FRAMES;
 
-/// [`STD_VIDEO_AV1_REFS_PER_FRAME`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_AV1_REFS_PER_FRAME.html)
+/// [`STD_VIDEO_AV1_REFS_PER_FRAME`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_AV1_REFS_PER_FRAME")]
 pub const AV1_REFS_PER_FRAME: u32 = STD_VIDEO_AV1_REFS_PER_FRAME;
 
-/// [`STD_VIDEO_AV1_TOTAL_REFS_PER_FRAME`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_AV1_TOTAL_REFS_PER_FRAME.html)
+/// [`STD_VIDEO_AV1_TOTAL_REFS_PER_FRAME`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_AV1_TOTAL_REFS_PER_FRAME")]
 pub const AV1_TOTAL_REFS_PER_FRAME: u32 = STD_VIDEO_AV1_TOTAL_REFS_PER_FRAME;
 
-/// [`STD_VIDEO_AV1_MAX_TILE_COLS`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_AV1_MAX_TILE_COLS.html)
+/// [`STD_VIDEO_AV1_MAX_TILE_COLS`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_AV1_MAX_TILE_COLS")]
 pub const AV1_MAX_TILE_COLS: u32 = STD_VIDEO_AV1_MAX_TILE_COLS;
 
-/// [`STD_VIDEO_AV1_MAX_TILE_ROWS`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_AV1_MAX_TILE_ROWS.html)
+/// [`STD_VIDEO_AV1_MAX_TILE_ROWS`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_AV1_MAX_TILE_ROWS")]
 pub const AV1_MAX_TILE_ROWS: u32 = STD_VIDEO_AV1_MAX_TILE_ROWS;
 
-/// [`STD_VIDEO_AV1_MAX_SEGMENTS`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_AV1_MAX_SEGMENTS.html)
+/// [`STD_VIDEO_AV1_MAX_SEGMENTS`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_AV1_MAX_SEGMENTS")]
 pub const AV1_MAX_SEGMENTS: u32 = STD_VIDEO_AV1_MAX_SEGMENTS;
 
-/// [`STD_VIDEO_AV1_SEG_LVL_MAX`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_AV1_SEG_LVL_MAX.html)
+/// [`STD_VIDEO_AV1_SEG_LVL_MAX`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_AV1_SEG_LVL_MAX")]
 pub const AV1_SEG_LVL_MAX: u32 = STD_VIDEO_AV1_SEG_LVL_MAX;
 
-/// [`STD_VIDEO_AV1_PRIMARY_REF_NONE`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_AV1_PRIMARY_REF_NONE.html)
+/// [`STD_VIDEO_AV1_PRIMARY_REF_NONE`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_AV1_PRIMARY_REF_NONE")]
 pub const AV1_PRIMARY_REF_NONE: u8 = STD_VIDEO_AV1_PRIMARY_REF_NONE;
 
-/// [`STD_VIDEO_AV1_SELECT_INTEGER_MV`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_AV1_SELECT_INTEGER_MV.html)
+/// [`STD_VIDEO_AV1_SELECT_INTEGER_MV`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_AV1_SELECT_INTEGER_MV")]
 pub const AV1_SELECT_INTEGER_MV: u8 = STD_VIDEO_AV1_SELECT_INTEGER_MV;
 
-/// [`STD_VIDEO_AV1_SELECT_SCREEN_CONTENT_TOOLS`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_AV1_SELECT_SCREEN_CONTENT_TOOLS.html)
+/// [`STD_VIDEO_AV1_SELECT_SCREEN_CONTENT_TOOLS`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_AV1_SELECT_SCREEN_CONTENT_TOOLS")]
 pub const AV1_SELECT_SCREEN_CONTENT_TOOLS: u32 = STD_VIDEO_AV1_SELECT_SCREEN_CONTENT_TOOLS;
 
-/// [`STD_VIDEO_AV1_SKIP_MODE_FRAMES`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_AV1_SKIP_MODE_FRAMES.html)
+/// [`STD_VIDEO_AV1_SKIP_MODE_FRAMES`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_AV1_SKIP_MODE_FRAMES")]
 pub const AV1_SKIP_MODE_FRAMES: u32 = STD_VIDEO_AV1_SKIP_MODE_FRAMES;
 
-/// [`STD_VIDEO_AV1_MAX_LOOP_FILTER_STRENGTHS`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_AV1_MAX_LOOP_FILTER_STRENGTHS.html)
+/// [`STD_VIDEO_AV1_MAX_LOOP_FILTER_STRENGTHS`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_AV1_MAX_LOOP_FILTER_STRENGTHS")]
 pub const AV1_MAX_LOOP_FILTER_STRENGTHS: u32 = STD_VIDEO_AV1_MAX_LOOP_FILTER_STRENGTHS;
 
-/// [`STD_VIDEO_AV1_LOOP_FILTER_ADJUSTMENTS`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_AV1_LOOP_FILTER_ADJUSTMENTS.html)
+/// [`STD_VIDEO_AV1_LOOP_FILTER_ADJUSTMENTS`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_AV1_LOOP_FILTER_ADJUSTMENTS")]
 pub const AV1_LOOP_FILTER_ADJUSTMENTS: u32 = STD_VIDEO_AV1_LOOP_FILTER_ADJUSTMENTS;
 
-/// [`STD_VIDEO_AV1_MAX_CDEF_FILTER_STRENGTHS`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_AV1_MAX_CDEF_FILTER_STRENGTHS.html)
+/// [`STD_VIDEO_AV1_MAX_CDEF_FILTER_STRENGTHS`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_AV1_MAX_CDEF_FILTER_STRENGTHS")]
 pub const AV1_MAX_CDEF_FILTER_STRENGTHS: u32 = STD_VIDEO_AV1_MAX_CDEF_FILTER_STRENGTHS;
 
-/// [`STD_VIDEO_AV1_MAX_NUM_PLANES`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_AV1_MAX_NUM_PLANES.html)
+/// [`STD_VIDEO_AV1_MAX_NUM_PLANES`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_AV1_MAX_NUM_PLANES")]
 pub const AV1_MAX_NUM_PLANES: u32 = STD_VIDEO_AV1_MAX_NUM_PLANES;
 
-/// [`STD_VIDEO_AV1_GLOBAL_MOTION_PARAMS`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_AV1_GLOBAL_MOTION_PARAMS.html)
+/// [`STD_VIDEO_AV1_GLOBAL_MOTION_PARAMS`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_AV1_GLOBAL_MOTION_PARAMS")]
 pub const AV1_GLOBAL_MOTION_PARAMS: u32 = STD_VIDEO_AV1_GLOBAL_MOTION_PARAMS;
 
-/// [`STD_VIDEO_AV1_MAX_NUM_Y_POINTS`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_AV1_MAX_NUM_Y_POINTS.html)
+/// [`STD_VIDEO_AV1_MAX_NUM_Y_POINTS`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_AV1_MAX_NUM_Y_POINTS")]
 pub const AV1_MAX_NUM_Y_POINTS: u32 = STD_VIDEO_AV1_MAX_NUM_Y_POINTS;
 
-/// [`STD_VIDEO_AV1_MAX_NUM_CB_POINTS`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_AV1_MAX_NUM_CB_POINTS.html)
+/// [`STD_VIDEO_AV1_MAX_NUM_CB_POINTS`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_AV1_MAX_NUM_CB_POINTS")]
 pub const AV1_MAX_NUM_CB_POINTS: u32 = STD_VIDEO_AV1_MAX_NUM_CB_POINTS;
 
-/// [`STD_VIDEO_AV1_MAX_NUM_CR_POINTS`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_AV1_MAX_NUM_CR_POINTS.html)
+/// [`STD_VIDEO_AV1_MAX_NUM_CR_POINTS`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_AV1_MAX_NUM_CR_POINTS")]
 pub const AV1_MAX_NUM_CR_POINTS: u32 = STD_VIDEO_AV1_MAX_NUM_CR_POINTS;
 
-/// [`STD_VIDEO_AV1_MAX_NUM_POS_LUMA`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_AV1_MAX_NUM_POS_LUMA.html)
+/// [`STD_VIDEO_AV1_MAX_NUM_POS_LUMA`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_AV1_MAX_NUM_POS_LUMA")]
 pub const AV1_MAX_NUM_POS_LUMA: u32 = STD_VIDEO_AV1_MAX_NUM_POS_LUMA;
 
-/// [`STD_VIDEO_AV1_MAX_NUM_POS_CHROMA`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_AV1_MAX_NUM_POS_CHROMA.html)
+/// [`STD_VIDEO_AV1_MAX_NUM_POS_CHROMA`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_AV1_MAX_NUM_POS_CHROMA")]
 pub const AV1_MAX_NUM_POS_CHROMA: u32 = STD_VIDEO_AV1_MAX_NUM_POS_CHROMA;
 
-/// [`STD_VIDEO_VP9_NUM_REF_FRAMES`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_VP9_NUM_REF_FRAMES.html)
+/// [`STD_VIDEO_VP9_NUM_REF_FRAMES`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_VP9_NUM_REF_FRAMES")]
 pub const VP9_NUM_REF_FRAMES: u32 = STD_VIDEO_VP9_NUM_REF_FRAMES;
 
-/// [`STD_VIDEO_VP9_REFS_PER_FRAME`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_VP9_REFS_PER_FRAME.html)
+/// [`STD_VIDEO_VP9_REFS_PER_FRAME`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_VP9_REFS_PER_FRAME")]
 pub const VP9_REFS_PER_FRAME: u32 = STD_VIDEO_VP9_REFS_PER_FRAME;
 
-/// [`STD_VIDEO_VP9_MAX_REF_FRAMES`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_VP9_MAX_REF_FRAMES.html)
+/// [`STD_VIDEO_VP9_MAX_REF_FRAMES`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_VP9_MAX_REF_FRAMES")]
 pub const VP9_MAX_REF_FRAMES: u32 = STD_VIDEO_VP9_MAX_REF_FRAMES;
 
-/// [`STD_VIDEO_VP9_LOOP_FILTER_ADJUSTMENTS`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_VP9_LOOP_FILTER_ADJUSTMENTS.html)
+/// [`STD_VIDEO_VP9_LOOP_FILTER_ADJUSTMENTS`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_VP9_LOOP_FILTER_ADJUSTMENTS")]
 pub const VP9_LOOP_FILTER_ADJUSTMENTS: u32 = STD_VIDEO_VP9_LOOP_FILTER_ADJUSTMENTS;
 
-/// [`STD_VIDEO_VP9_MAX_SEGMENTS`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_VP9_MAX_SEGMENTS.html)
+/// [`STD_VIDEO_VP9_MAX_SEGMENTS`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_VP9_MAX_SEGMENTS")]
 pub const VP9_MAX_SEGMENTS: u32 = STD_VIDEO_VP9_MAX_SEGMENTS;
 
-/// [`STD_VIDEO_VP9_SEG_LVL_MAX`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_VP9_SEG_LVL_MAX.html)
+/// [`STD_VIDEO_VP9_SEG_LVL_MAX`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_VP9_SEG_LVL_MAX")]
 pub const VP9_SEG_LVL_MAX: u32 = STD_VIDEO_VP9_SEG_LVL_MAX;
 
-/// [`STD_VIDEO_VP9_MAX_SEGMENTATION_TREE_PROBS`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_VP9_MAX_SEGMENTATION_TREE_PROBS.html)
+/// [`STD_VIDEO_VP9_MAX_SEGMENTATION_TREE_PROBS`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_VP9_MAX_SEGMENTATION_TREE_PROBS")]
 pub const VP9_MAX_SEGMENTATION_TREE_PROBS: u32 = STD_VIDEO_VP9_MAX_SEGMENTATION_TREE_PROBS;
 
-/// [`STD_VIDEO_VP9_MAX_SEGMENTATION_PRED_PROB`](https://docs.vulkan.org/refpages/latest/refpages/source/STD_VIDEO_VP9_MAX_SEGMENTATION_PRED_PROB.html)
+/// [`STD_VIDEO_VP9_MAX_SEGMENTATION_PRED_PROB`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "STD_VIDEO_VP9_MAX_SEGMENTATION_PRED_PROB")]
 pub const VP9_MAX_SEGMENTATION_PRED_PROB: u32 = STD_VIDEO_VP9_MAX_SEGMENTATION_PRED_PROB;

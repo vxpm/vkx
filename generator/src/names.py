@@ -60,7 +60,6 @@ def bitmask_flag(name: str, prefix: str) -> str:
     else:
         result = result.replace("_BIT_", "_")
 
-    # print(name, prefix, result)
     return result
 
 

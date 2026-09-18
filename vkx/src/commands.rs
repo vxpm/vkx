@@ -66,7 +66,7 @@ impl Instance {
     ///
     #[doc(alias = "vkDestroyInstance")]
     #[inline(always)]
-    pub unsafe fn destroy(self, p_allocator: *const AllocationCallbacks) {
+    pub unsafe fn destroy(&self, p_allocator: *const AllocationCallbacks) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkDestroyInstance as usize,
@@ -98,8 +98,8 @@ impl Instance {
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkEnumeratePhysicalDevices")]
     #[inline(always)]
-    pub unsafe fn enumerate_physical_devices(
-        self,
+    pub unsafe fn raw_enumerate_physical_devices(
+        &self,
         p_physical_device_count: *mut u32,
         p_physical_devices: *mut PhysicalDeviceHandle,
     ) -> ResultCode {
@@ -121,7 +121,7 @@ impl PhysicalDevice {
     ///
     #[doc(alias = "vkGetPhysicalDeviceFeatures")]
     #[inline(always)]
-    pub unsafe fn get_features(self, p_features: *mut PhysicalDeviceFeatures) {
+    pub unsafe fn get_features(&self, p_features: *mut PhysicalDeviceFeatures) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkGetPhysicalDeviceFeatures as usize,
@@ -142,7 +142,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceFormatProperties")]
     #[inline(always)]
     pub unsafe fn get_format_properties(
-        self,
+        &self,
         format: Format,
         p_format_properties: *mut FormatProperties,
     ) {
@@ -185,7 +185,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceImageFormatProperties")]
     #[inline(always)]
     pub unsafe fn get_image_format_properties(
-        self,
+        &self,
         format: Format,
         type_: ImageType,
         tiling: ImageTiling,
@@ -224,7 +224,7 @@ impl PhysicalDevice {
     ///
     #[doc(alias = "vkGetPhysicalDeviceProperties")]
     #[inline(always)]
-    pub unsafe fn get_properties(self, p_properties: *mut PhysicalDeviceProperties) {
+    pub unsafe fn get_properties(&self, p_properties: *mut PhysicalDeviceProperties) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkGetPhysicalDeviceProperties as usize,
@@ -248,7 +248,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceQueueFamilyProperties")]
     #[inline(always)]
     pub unsafe fn get_queue_family_properties(
-        self,
+        &self,
         p_queue_family_property_count: *mut u32,
         p_queue_family_properties: *mut QueueFamilyProperties,
     ) {
@@ -280,7 +280,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceMemoryProperties")]
     #[inline(always)]
     pub unsafe fn get_memory_properties(
-        self,
+        &self,
         p_memory_properties: *mut PhysicalDeviceMemoryProperties,
     ) {
         let command = vtable_get(
@@ -305,7 +305,7 @@ impl Instance {
     ///
     #[doc(alias = "vkGetInstanceProcAddr")]
     #[inline(always)]
-    pub unsafe fn get_proc_addr(self, p_name: *const c_char) -> vkVoidFunction {
+    pub unsafe fn get_proc_addr(&self, p_name: *const c_char) -> vkVoidFunction {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkGetInstanceProcAddr as usize,
@@ -324,7 +324,7 @@ impl Device {
     ///
     #[doc(alias = "vkGetDeviceProcAddr")]
     #[inline(always)]
-    pub unsafe fn get_device_proc_addr(self, p_name: *const c_char) -> vkVoidFunction {
+    pub unsafe fn get_device_proc_addr(&self, p_name: *const c_char) -> vkVoidFunction {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkGetDeviceProcAddr as usize,
@@ -364,7 +364,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkCreateDevice")]
     #[inline(always)]
     pub unsafe fn create_device(
-        self,
+        &self,
         p_create_info: *const DeviceCreateInfo,
         p_allocator: *const AllocationCallbacks,
         p_device: *mut DeviceHandle,
@@ -386,7 +386,7 @@ impl Device {
     ///
     #[doc(alias = "vkDestroyDevice")]
     #[inline(always)]
-    pub unsafe fn destroy_device(self, p_allocator: *const AllocationCallbacks) {
+    pub unsafe fn destroy_device(&self, p_allocator: *const AllocationCallbacks) {
         let command = vtable_get(&*self.vtable(), InstanceCommands::vkDestroyDevice as usize)
             .expect("command should not be null");
         let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_DestroyDevice>(command) };
@@ -460,7 +460,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkEnumerateDeviceExtensionProperties")]
     #[inline(always)]
     pub unsafe fn enumerate_device_extension_properties(
-        self,
+        &self,
         p_layer_name: *const c_char,
         p_property_count: *mut u32,
         p_properties: *mut ExtensionProperties,
@@ -534,7 +534,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkEnumerateDeviceLayerProperties")]
     #[inline(always)]
     pub unsafe fn enumerate_device_layer_properties(
-        self,
+        &self,
         p_property_count: *mut u32,
         p_properties: *mut LayerProperties,
     ) -> ResultCode {
@@ -557,7 +557,7 @@ impl Device {
     #[doc(alias = "vkGetDeviceQueue")]
     #[inline(always)]
     pub unsafe fn get_device_queue(
-        self,
+        &self,
         queue_family_index: u32,
         queue_index: u32,
         p_queue: *mut QueueHandle,
@@ -590,7 +590,7 @@ impl Queue {
     #[doc(alias = "vkQueueSubmit")]
     #[inline(always)]
     pub unsafe fn submit(
-        self,
+        &self,
         submit_count: u32,
         p_submits: *const SubmitInfo,
         fence: Fence,
@@ -617,7 +617,7 @@ impl Queue {
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkQueueWaitIdle")]
     #[inline(always)]
-    pub unsafe fn wait_idle(self) -> ResultCode {
+    pub unsafe fn wait_idle(&self) -> ResultCode {
         let command = vtable_get(&*self.vtable(), InstanceCommands::vkQueueWaitIdle as usize)
             .expect("command should not be null");
         let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_QueueWaitIdle>(command) };
@@ -640,7 +640,7 @@ impl Device {
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkDeviceWaitIdle")]
     #[inline(always)]
-    pub unsafe fn device_wait_idle(self) -> ResultCode {
+    pub unsafe fn device_wait_idle(&self) -> ResultCode {
         let command = vtable_get(&*self.vtable(), InstanceCommands::vkDeviceWaitIdle as usize)
             .expect("command should not be null");
         let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_DeviceWaitIdle>(command) };
@@ -673,7 +673,7 @@ impl Device {
     #[doc(alias = "vkAllocateMemory")]
     #[inline(always)]
     pub unsafe fn allocate_memory(
-        self,
+        &self,
         p_allocate_info: *const MemoryAllocateInfo,
         p_allocator: *const AllocationCallbacks,
         p_memory: *mut DeviceMemory,
@@ -696,7 +696,11 @@ impl Device {
     ///
     #[doc(alias = "vkFreeMemory")]
     #[inline(always)]
-    pub unsafe fn free_memory(self, memory: DeviceMemory, p_allocator: *const AllocationCallbacks) {
+    pub unsafe fn free_memory(
+        &self,
+        memory: DeviceMemory,
+        p_allocator: *const AllocationCallbacks,
+    ) {
         let command = vtable_get(&*self.vtable(), InstanceCommands::vkFreeMemory as usize)
             .expect("command should not be null");
         let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_FreeMemory>(command) };
@@ -730,7 +734,7 @@ impl Device {
     #[doc(alias = "vkMapMemory")]
     #[inline(always)]
     pub unsafe fn map_memory(
-        self,
+        &self,
         memory: DeviceMemory,
         offset: DeviceSize,
         size: DeviceSize,
@@ -750,7 +754,7 @@ impl Device {
     ///
     #[doc(alias = "vkUnmapMemory")]
     #[inline(always)]
-    pub unsafe fn unmap_memory(self, memory: DeviceMemory) {
+    pub unsafe fn unmap_memory(&self, memory: DeviceMemory) {
         let command = vtable_get(&*self.vtable(), InstanceCommands::vkUnmapMemory as usize)
             .expect("command should not be null");
         let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_UnmapMemory>(command) };
@@ -774,7 +778,7 @@ impl Device {
     #[doc(alias = "vkFlushMappedMemoryRanges")]
     #[inline(always)]
     pub unsafe fn flush_mapped_memory_ranges(
-        self,
+        &self,
         memory_range_count: u32,
         p_memory_ranges: *const MappedMemoryRange,
     ) -> ResultCode {
@@ -805,7 +809,7 @@ impl Device {
     #[doc(alias = "vkInvalidateMappedMemoryRanges")]
     #[inline(always)]
     pub unsafe fn invalidate_mapped_memory_ranges(
-        self,
+        &self,
         memory_range_count: u32,
         p_memory_ranges: *const MappedMemoryRange,
     ) -> ResultCode {
@@ -829,7 +833,7 @@ impl Device {
     #[doc(alias = "vkGetDeviceMemoryCommitment")]
     #[inline(always)]
     pub unsafe fn get_device_memory_commitment(
-        self,
+        &self,
         memory: DeviceMemory,
         p_committed_memory_in_bytes: *mut DeviceSize,
     ) {
@@ -862,7 +866,7 @@ impl Device {
     #[doc(alias = "vkBindBufferMemory")]
     #[inline(always)]
     pub unsafe fn bind_buffer_memory(
-        self,
+        &self,
         buffer: Buffer,
         memory: DeviceMemory,
         memory_offset: DeviceSize,
@@ -894,7 +898,7 @@ impl Device {
     #[doc(alias = "vkBindImageMemory")]
     #[inline(always)]
     pub unsafe fn bind_image_memory(
-        self,
+        &self,
         image: Image,
         memory: DeviceMemory,
         memory_offset: DeviceSize,
@@ -918,7 +922,7 @@ impl Device {
     #[doc(alias = "vkGetBufferMemoryRequirements")]
     #[inline(always)]
     pub unsafe fn get_buffer_memory_requirements(
-        self,
+        &self,
         buffer: Buffer,
         p_memory_requirements: *mut MemoryRequirements,
     ) {
@@ -942,7 +946,7 @@ impl Device {
     #[doc(alias = "vkGetImageMemoryRequirements")]
     #[inline(always)]
     pub unsafe fn get_image_memory_requirements(
-        self,
+        &self,
         image: Image,
         p_memory_requirements: *mut MemoryRequirements,
     ) {
@@ -969,7 +973,7 @@ impl Device {
     #[doc(alias = "vkGetImageSparseMemoryRequirements")]
     #[inline(always)]
     pub unsafe fn get_image_sparse_memory_requirements(
-        self,
+        &self,
         image: Image,
         p_sparse_memory_requirement_count: *mut u32,
         p_sparse_memory_requirements: *mut SparseImageMemoryRequirements,
@@ -1012,7 +1016,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceSparseImageFormatProperties")]
     #[inline(always)]
     pub unsafe fn get_sparse_image_format_properties(
-        self,
+        &self,
         format: Format,
         type_: ImageType,
         samples: SampleCountFlags,
@@ -1070,7 +1074,7 @@ impl Queue {
     #[doc(alias = "vkQueueBindSparse")]
     #[inline(always)]
     pub unsafe fn bind_sparse(
-        self,
+        &self,
         bind_info_count: u32,
         p_bind_info: *const BindSparseInfo,
         fence: Fence,
@@ -1109,7 +1113,7 @@ impl Device {
     #[doc(alias = "vkCreateFence")]
     #[inline(always)]
     pub unsafe fn create_fence(
-        self,
+        &self,
         p_create_info: *const FenceCreateInfo,
         p_allocator: *const AllocationCallbacks,
         p_fence: *mut Fence,
@@ -1132,7 +1136,7 @@ impl Device {
     ///
     #[doc(alias = "vkDestroyFence")]
     #[inline(always)]
-    pub unsafe fn destroy_fence(self, fence: Fence, p_allocator: *const AllocationCallbacks) {
+    pub unsafe fn destroy_fence(&self, fence: Fence, p_allocator: *const AllocationCallbacks) {
         let command = vtable_get(&*self.vtable(), InstanceCommands::vkDestroyFence as usize)
             .expect("command should not be null");
         let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_DestroyFence>(command) };
@@ -1154,7 +1158,7 @@ impl Device {
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkResetFences")]
     #[inline(always)]
-    pub unsafe fn reset_fences(self, fence_count: u32, p_fences: *const Fence) -> ResultCode {
+    pub unsafe fn reset_fences(&self, fence_count: u32, p_fences: *const Fence) -> ResultCode {
         let command = vtable_get(&*self.vtable(), InstanceCommands::vkResetFences as usize)
             .expect("command should not be null");
         let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_ResetFences>(command) };
@@ -1178,7 +1182,7 @@ impl Device {
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetFenceStatus")]
     #[inline(always)]
-    pub unsafe fn get_fence_status(self, fence: Fence) -> ResultCode {
+    pub unsafe fn get_fence_status(&self, fence: Fence) -> ResultCode {
         let command = vtable_get(&*self.vtable(), InstanceCommands::vkGetFenceStatus as usize)
             .expect("command should not be null");
         let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetFenceStatus>(command) };
@@ -1204,7 +1208,7 @@ impl Device {
     #[doc(alias = "vkWaitForFences")]
     #[inline(always)]
     pub unsafe fn wait_for_fences(
-        self,
+        &self,
         fence_count: u32,
         p_fences: *const Fence,
         wait_all: Bool32,
@@ -1240,7 +1244,7 @@ impl Device {
     #[doc(alias = "vkCreateSemaphore")]
     #[inline(always)]
     pub unsafe fn create_semaphore(
-        self,
+        &self,
         p_create_info: *const SemaphoreCreateInfo,
         p_allocator: *const AllocationCallbacks,
         p_semaphore: *mut Semaphore,
@@ -1268,7 +1272,7 @@ impl Device {
     #[doc(alias = "vkDestroySemaphore")]
     #[inline(always)]
     pub unsafe fn destroy_semaphore(
-        self,
+        &self,
         semaphore: Semaphore,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -1306,7 +1310,7 @@ impl Device {
     #[doc(alias = "vkCreateQueryPool")]
     #[inline(always)]
     pub unsafe fn create_query_pool(
-        self,
+        &self,
         p_create_info: *const QueryPoolCreateInfo,
         p_allocator: *const AllocationCallbacks,
         p_query_pool: *mut QueryPool,
@@ -1334,7 +1338,7 @@ impl Device {
     #[doc(alias = "vkDestroyQueryPool")]
     #[inline(always)]
     pub unsafe fn destroy_query_pool(
-        self,
+        &self,
         query_pool: QueryPool,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -1378,7 +1382,7 @@ impl Device {
     #[doc(alias = "vkGetQueryPoolResults")]
     #[inline(always)]
     pub unsafe fn get_query_pool_results(
-        self,
+        &self,
         query_pool: QueryPool,
         first_query: u32,
         query_count: u32,
@@ -1433,7 +1437,7 @@ impl Device {
     #[doc(alias = "vkCreateBuffer")]
     #[inline(always)]
     pub unsafe fn create_buffer(
-        self,
+        &self,
         p_create_info: *const BufferCreateInfo,
         p_allocator: *const AllocationCallbacks,
         p_buffer: *mut Buffer,
@@ -1456,7 +1460,7 @@ impl Device {
     ///
     #[doc(alias = "vkDestroyBuffer")]
     #[inline(always)]
-    pub unsafe fn destroy_buffer(self, buffer: Buffer, p_allocator: *const AllocationCallbacks) {
+    pub unsafe fn destroy_buffer(&self, buffer: Buffer, p_allocator: *const AllocationCallbacks) {
         let command = vtable_get(&*self.vtable(), InstanceCommands::vkDestroyBuffer as usize)
             .expect("command should not be null");
         let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_DestroyBuffer>(command) };
@@ -1489,7 +1493,7 @@ impl Device {
     #[doc(alias = "vkCreateImage")]
     #[inline(always)]
     pub unsafe fn create_image(
-        self,
+        &self,
         p_create_info: *const ImageCreateInfo,
         p_allocator: *const AllocationCallbacks,
         p_image: *mut Image,
@@ -1512,7 +1516,7 @@ impl Device {
     ///
     #[doc(alias = "vkDestroyImage")]
     #[inline(always)]
-    pub unsafe fn destroy_image(self, image: Image, p_allocator: *const AllocationCallbacks) {
+    pub unsafe fn destroy_image(&self, image: Image, p_allocator: *const AllocationCallbacks) {
         let command = vtable_get(&*self.vtable(), InstanceCommands::vkDestroyImage as usize)
             .expect("command should not be null");
         let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_DestroyImage>(command) };
@@ -1528,7 +1532,7 @@ impl Device {
     #[doc(alias = "vkGetImageSubresourceLayout")]
     #[inline(always)]
     pub unsafe fn get_image_subresource_layout(
-        self,
+        &self,
         image: Image,
         p_subresource: *const ImageSubresource,
         p_layout: *mut SubresourceLayout,
@@ -1569,7 +1573,7 @@ impl Device {
     #[doc(alias = "vkCreateImageView")]
     #[inline(always)]
     pub unsafe fn create_image_view(
-        self,
+        &self,
         p_create_info: *const ImageViewCreateInfo,
         p_allocator: *const AllocationCallbacks,
         p_view: *mut ImageView,
@@ -1597,7 +1601,7 @@ impl Device {
     #[doc(alias = "vkDestroyImageView")]
     #[inline(always)]
     pub unsafe fn destroy_image_view(
-        self,
+        &self,
         image_view: ImageView,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -1635,7 +1639,7 @@ impl Device {
     #[doc(alias = "vkCreateCommandPool")]
     #[inline(always)]
     pub unsafe fn create_command_pool(
-        self,
+        &self,
         p_create_info: *const CommandPoolCreateInfo,
         p_allocator: *const AllocationCallbacks,
         p_command_pool: *mut CommandPool,
@@ -1663,7 +1667,7 @@ impl Device {
     #[doc(alias = "vkDestroyCommandPool")]
     #[inline(always)]
     pub unsafe fn destroy_command_pool(
-        self,
+        &self,
         command_pool: CommandPool,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -1696,7 +1700,7 @@ impl Device {
     #[doc(alias = "vkResetCommandPool")]
     #[inline(always)]
     pub unsafe fn reset_command_pool(
-        self,
+        &self,
         command_pool: CommandPool,
         flags: CommandPoolResetFlags,
     ) -> ResultCode {
@@ -1730,7 +1734,7 @@ impl Device {
     #[doc(alias = "vkAllocateCommandBuffers")]
     #[inline(always)]
     pub unsafe fn allocate_command_buffers(
-        self,
+        &self,
         p_allocate_info: *const CommandBufferAllocateInfo,
         p_command_buffers: *mut CommandBufferHandle,
     ) -> ResultCode {
@@ -1753,7 +1757,7 @@ impl Device {
     #[doc(alias = "vkFreeCommandBuffers")]
     #[inline(always)]
     pub unsafe fn free_command_buffers(
-        self,
+        &self,
         command_pool: CommandPool,
         command_buffer_count: u32,
         p_command_buffers: *const CommandBufferHandle,
@@ -1791,7 +1795,7 @@ impl CommandBuffer {
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkBeginCommandBuffer")]
     #[inline(always)]
-    pub unsafe fn begin(self, p_begin_info: *const CommandBufferBeginInfo) -> ResultCode {
+    pub unsafe fn begin(&self, p_begin_info: *const CommandBufferBeginInfo) -> ResultCode {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkBeginCommandBuffer as usize,
@@ -1818,7 +1822,7 @@ impl CommandBuffer {
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkEndCommandBuffer")]
     #[inline(always)]
-    pub unsafe fn end(self) -> ResultCode {
+    pub unsafe fn end(&self) -> ResultCode {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkEndCommandBuffer as usize,
@@ -1847,7 +1851,7 @@ impl CommandBuffer {
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkResetCommandBuffer")]
     #[inline(always)]
-    pub unsafe fn reset(self, flags: CommandBufferResetFlags) -> ResultCode {
+    pub unsafe fn reset(&self, flags: CommandBufferResetFlags) -> ResultCode {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkResetCommandBuffer as usize,
@@ -1879,7 +1883,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdCopyBuffer")]
     #[inline(always)]
     pub unsafe fn cmd_copy_buffer(
-        self,
+        &self,
         src_buffer: Buffer,
         dst_buffer: Buffer,
         region_count: u32,
@@ -1919,7 +1923,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdCopyImage")]
     #[inline(always)]
     pub unsafe fn cmd_copy_image(
-        self,
+        &self,
         src_image: Image,
         src_image_layout: ImageLayout,
         dst_image: Image,
@@ -1970,7 +1974,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdCopyBufferToImage")]
     #[inline(always)]
     pub unsafe fn cmd_copy_buffer_to_image(
-        self,
+        &self,
         src_buffer: Buffer,
         dst_image: Image,
         dst_image_layout: ImageLayout,
@@ -2023,7 +2027,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdCopyImageToBuffer")]
     #[inline(always)]
     pub unsafe fn cmd_copy_image_to_buffer(
-        self,
+        &self,
         src_image: Image,
         src_image_layout: ImageLayout,
         dst_buffer: Buffer,
@@ -2070,7 +2074,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdUpdateBuffer")]
     #[inline(always)]
     pub unsafe fn cmd_update_buffer(
-        self,
+        &self,
         dst_buffer: Buffer,
         dst_offset: DeviceSize,
         data_size: DeviceSize,
@@ -2107,7 +2111,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdFillBuffer")]
     #[inline(always)]
     pub unsafe fn cmd_fill_buffer(
-        self,
+        &self,
         dst_buffer: Buffer,
         dst_offset: DeviceSize,
         size: DeviceSize,
@@ -2160,7 +2164,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdPipelineBarrier")]
     #[inline(always)]
     pub unsafe fn cmd_pipeline_barrier(
-        self,
+        &self,
         src_stage_mask: PipelineStageFlags,
         dst_stage_mask: PipelineStageFlags,
         dependency_flags: DependencyFlags,
@@ -2220,7 +2224,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBeginQuery")]
     #[inline(always)]
     pub unsafe fn cmd_begin_query(
-        self,
+        &self,
         query_pool: QueryPool,
         query: u32,
         flags: QueryControlFlags,
@@ -2252,7 +2256,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdEndQuery")]
     #[inline(always)]
-    pub unsafe fn cmd_end_query(self, query_pool: QueryPool, query: u32) {
+    pub unsafe fn cmd_end_query(&self, query_pool: QueryPool, query: u32) {
         let command = vtable_get(&*self.vtable(), InstanceCommands::vkCmdEndQuery as usize)
             .expect("command should not be null");
         let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdEndQuery>(command) };
@@ -2282,7 +2286,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdResetQueryPool")]
     #[inline(always)]
     pub unsafe fn cmd_reset_query_pool(
-        self,
+        &self,
         query_pool: QueryPool,
         first_query: u32,
         query_count: u32,
@@ -2321,7 +2325,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdWriteTimestamp")]
     #[inline(always)]
     pub unsafe fn cmd_write_timestamp(
-        self,
+        &self,
         pipeline_stage: PipelineStageFlags,
         query_pool: QueryPool,
         query: u32,
@@ -2367,7 +2371,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdCopyQueryPoolResults")]
     #[inline(always)]
     pub unsafe fn cmd_copy_query_pool_results(
-        self,
+        &self,
         query_pool: QueryPool,
         first_query: u32,
         query_count: u32,
@@ -2418,7 +2422,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdExecuteCommands")]
     #[inline(always)]
     pub unsafe fn cmd_execute_commands(
-        self,
+        &self,
         command_buffer_count: u32,
         p_command_buffers: *const CommandBufferHandle,
     ) {
@@ -2456,7 +2460,7 @@ impl Device {
     #[doc(alias = "vkCreateEvent")]
     #[inline(always)]
     pub unsafe fn create_event(
-        self,
+        &self,
         p_create_info: *const EventCreateInfo,
         p_allocator: *const AllocationCallbacks,
         p_event: *mut Event,
@@ -2479,7 +2483,7 @@ impl Device {
     ///
     #[doc(alias = "vkDestroyEvent")]
     #[inline(always)]
-    pub unsafe fn destroy_event(self, event: Event, p_allocator: *const AllocationCallbacks) {
+    pub unsafe fn destroy_event(&self, event: Event, p_allocator: *const AllocationCallbacks) {
         let command = vtable_get(&*self.vtable(), InstanceCommands::vkDestroyEvent as usize)
             .expect("command should not be null");
         let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_DestroyEvent>(command) };
@@ -2503,7 +2507,7 @@ impl Device {
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetEventStatus")]
     #[inline(always)]
-    pub unsafe fn get_event_status(self, event: Event) -> ResultCode {
+    pub unsafe fn get_event_status(&self, event: Event) -> ResultCode {
         let command = vtable_get(&*self.vtable(), InstanceCommands::vkGetEventStatus as usize)
             .expect("command should not be null");
         let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_GetEventStatus>(command) };
@@ -2525,7 +2529,7 @@ impl Device {
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkSetEvent")]
     #[inline(always)]
-    pub unsafe fn set_event(self, event: Event) -> ResultCode {
+    pub unsafe fn set_event(&self, event: Event) -> ResultCode {
         let command = vtable_get(&*self.vtable(), InstanceCommands::vkSetEvent as usize)
             .expect("command should not be null");
         let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_SetEvent>(command) };
@@ -2546,7 +2550,7 @@ impl Device {
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkResetEvent")]
     #[inline(always)]
-    pub unsafe fn reset_event(self, event: Event) -> ResultCode {
+    pub unsafe fn reset_event(&self, event: Event) -> ResultCode {
         let command = vtable_get(&*self.vtable(), InstanceCommands::vkResetEvent as usize)
             .expect("command should not be null");
         let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_ResetEvent>(command) };
@@ -2577,7 +2581,7 @@ impl Device {
     #[doc(alias = "vkCreateBufferView")]
     #[inline(always)]
     pub unsafe fn create_buffer_view(
-        self,
+        &self,
         p_create_info: *const BufferViewCreateInfo,
         p_allocator: *const AllocationCallbacks,
         p_view: *mut BufferView,
@@ -2605,7 +2609,7 @@ impl Device {
     #[doc(alias = "vkDestroyBufferView")]
     #[inline(always)]
     pub unsafe fn destroy_buffer_view(
-        self,
+        &self,
         buffer_view: BufferView,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -2644,7 +2648,7 @@ impl Device {
     #[doc(alias = "vkCreateShaderModule")]
     #[inline(always)]
     pub unsafe fn create_shader_module(
-        self,
+        &self,
         p_create_info: *const ShaderModuleCreateInfo,
         p_allocator: *const AllocationCallbacks,
         p_shader_module: *mut ShaderModule,
@@ -2672,7 +2676,7 @@ impl Device {
     #[doc(alias = "vkDestroyShaderModule")]
     #[inline(always)]
     pub unsafe fn destroy_shader_module(
-        self,
+        &self,
         shader_module: ShaderModule,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -2710,7 +2714,7 @@ impl Device {
     #[doc(alias = "vkCreatePipelineCache")]
     #[inline(always)]
     pub unsafe fn create_pipeline_cache(
-        self,
+        &self,
         p_create_info: *const PipelineCacheCreateInfo,
         p_allocator: *const AllocationCallbacks,
         p_pipeline_cache: *mut PipelineCache,
@@ -2738,7 +2742,7 @@ impl Device {
     #[doc(alias = "vkDestroyPipelineCache")]
     #[inline(always)]
     pub unsafe fn destroy_pipeline_cache(
-        self,
+        &self,
         pipeline_cache: PipelineCache,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -2773,7 +2777,7 @@ impl Device {
     #[doc(alias = "vkGetPipelineCacheData")]
     #[inline(always)]
     pub unsafe fn get_pipeline_cache_data(
-        self,
+        &self,
         pipeline_cache: PipelineCache,
         p_data_size: *mut usize,
         p_data: *mut c_void,
@@ -2805,7 +2809,7 @@ impl Device {
     #[doc(alias = "vkMergePipelineCaches")]
     #[inline(always)]
     pub unsafe fn merge_pipeline_caches(
-        self,
+        &self,
         dst_cache: PipelineCache,
         src_cache_count: u32,
         p_src_caches: *const PipelineCache,
@@ -2849,7 +2853,7 @@ impl Device {
     #[doc(alias = "vkCreateComputePipelines")]
     #[inline(always)]
     pub unsafe fn create_compute_pipelines(
-        self,
+        &self,
         pipeline_cache: PipelineCache,
         create_info_count: u32,
         p_create_infos: *const ComputePipelineCreateInfo,
@@ -2888,7 +2892,7 @@ impl Device {
     #[doc(alias = "vkDestroyPipeline")]
     #[inline(always)]
     pub unsafe fn destroy_pipeline(
-        self,
+        &self,
         pipeline: Pipeline,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -2926,7 +2930,7 @@ impl Device {
     #[doc(alias = "vkCreatePipelineLayout")]
     #[inline(always)]
     pub unsafe fn create_pipeline_layout(
-        self,
+        &self,
         p_create_info: *const PipelineLayoutCreateInfo,
         p_allocator: *const AllocationCallbacks,
         p_pipeline_layout: *mut PipelineLayout,
@@ -2954,7 +2958,7 @@ impl Device {
     #[doc(alias = "vkDestroyPipelineLayout")]
     #[inline(always)]
     pub unsafe fn destroy_pipeline_layout(
-        self,
+        &self,
         pipeline_layout: PipelineLayout,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -2993,7 +2997,7 @@ impl Device {
     #[doc(alias = "vkCreateSampler")]
     #[inline(always)]
     pub unsafe fn create_sampler(
-        self,
+        &self,
         p_create_info: *const SamplerCreateInfo,
         p_allocator: *const AllocationCallbacks,
         p_sampler: *mut Sampler,
@@ -3016,7 +3020,11 @@ impl Device {
     ///
     #[doc(alias = "vkDestroySampler")]
     #[inline(always)]
-    pub unsafe fn destroy_sampler(self, sampler: Sampler, p_allocator: *const AllocationCallbacks) {
+    pub unsafe fn destroy_sampler(
+        &self,
+        sampler: Sampler,
+        p_allocator: *const AllocationCallbacks,
+    ) {
         let command = vtable_get(&*self.vtable(), InstanceCommands::vkDestroySampler as usize)
             .expect("command should not be null");
         let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_DestroySampler>(command) };
@@ -3047,7 +3055,7 @@ impl Device {
     #[doc(alias = "vkCreateDescriptorSetLayout")]
     #[inline(always)]
     pub unsafe fn create_descriptor_set_layout(
-        self,
+        &self,
         p_create_info: *const DescriptorSetLayoutCreateInfo,
         p_allocator: *const AllocationCallbacks,
         p_set_layout: *mut DescriptorSetLayout,
@@ -3076,7 +3084,7 @@ impl Device {
     #[doc(alias = "vkDestroyDescriptorSetLayout")]
     #[inline(always)]
     pub unsafe fn destroy_descriptor_set_layout(
-        self,
+        &self,
         descriptor_set_layout: DescriptorSetLayout,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -3116,7 +3124,7 @@ impl Device {
     #[doc(alias = "vkCreateDescriptorPool")]
     #[inline(always)]
     pub unsafe fn create_descriptor_pool(
-        self,
+        &self,
         p_create_info: *const DescriptorPoolCreateInfo,
         p_allocator: *const AllocationCallbacks,
         p_descriptor_pool: *mut DescriptorPool,
@@ -3144,7 +3152,7 @@ impl Device {
     #[doc(alias = "vkDestroyDescriptorPool")]
     #[inline(always)]
     pub unsafe fn destroy_descriptor_pool(
-        self,
+        &self,
         descriptor_pool: DescriptorPool,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -3176,7 +3184,7 @@ impl Device {
     #[doc(alias = "vkResetDescriptorPool")]
     #[inline(always)]
     pub unsafe fn reset_descriptor_pool(
-        self,
+        &self,
         descriptor_pool: DescriptorPool,
         flags: DescriptorPoolResetFlags,
     ) -> ResultCode {
@@ -3212,7 +3220,7 @@ impl Device {
     #[doc(alias = "vkAllocateDescriptorSets")]
     #[inline(always)]
     pub unsafe fn allocate_descriptor_sets(
-        self,
+        &self,
         p_allocate_info: *const DescriptorSetAllocateInfo,
         p_descriptor_sets: *mut DescriptorSet,
     ) -> ResultCode {
@@ -3241,7 +3249,7 @@ impl Device {
     #[doc(alias = "vkFreeDescriptorSets")]
     #[inline(always)]
     pub unsafe fn free_descriptor_sets(
-        self,
+        &self,
         descriptor_pool: DescriptorPool,
         descriptor_set_count: u32,
         p_descriptor_sets: *const DescriptorSet,
@@ -3281,7 +3289,7 @@ impl Device {
     #[doc(alias = "vkUpdateDescriptorSets")]
     #[inline(always)]
     pub unsafe fn update_descriptor_sets(
-        self,
+        &self,
         descriptor_write_count: u32,
         p_descriptor_writes: *const WriteDescriptorSet,
         descriptor_copy_count: u32,
@@ -3326,7 +3334,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBindPipeline")]
     #[inline(always)]
     pub unsafe fn cmd_bind_pipeline(
-        self,
+        &self,
         pipeline_bind_point: PipelineBindPoint,
         pipeline: Pipeline,
     ) {
@@ -3372,7 +3380,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBindDescriptorSets")]
     #[inline(always)]
     pub unsafe fn cmd_bind_descriptor_sets(
-        self,
+        &self,
         pipeline_bind_point: PipelineBindPoint,
         layout: PipelineLayout,
         first_set: u32,
@@ -3428,7 +3436,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdClearColorImage")]
     #[inline(always)]
     pub unsafe fn cmd_clear_color_image(
-        self,
+        &self,
         image: Image,
         image_layout: ImageLayout,
         p_color: *const ClearColorValue,
@@ -3471,7 +3479,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdDispatch")]
     #[inline(always)]
-    pub unsafe fn cmd_dispatch(self, group_count_x: u32, group_count_y: u32, group_count_z: u32) {
+    pub unsafe fn cmd_dispatch(&self, group_count_x: u32, group_count_y: u32, group_count_z: u32) {
         let command = vtable_get(&*self.vtable(), InstanceCommands::vkCmdDispatch as usize)
             .expect("command should not be null");
         let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdDispatch>(command) };
@@ -3496,7 +3504,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdDispatchIndirect")]
     #[inline(always)]
-    pub unsafe fn cmd_dispatch_indirect(self, buffer: Buffer, offset: DeviceSize) {
+    pub unsafe fn cmd_dispatch_indirect(&self, buffer: Buffer, offset: DeviceSize) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdDispatchIndirect as usize,
@@ -3531,7 +3539,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetEvent")]
     #[inline(always)]
-    pub unsafe fn cmd_set_event(self, event: Event, stage_mask: PipelineStageFlags) {
+    pub unsafe fn cmd_set_event(&self, event: Event, stage_mask: PipelineStageFlags) {
         let command = vtable_get(&*self.vtable(), InstanceCommands::vkCmdSetEvent as usize)
             .expect("command should not be null");
         let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetEvent>(command) };
@@ -3562,7 +3570,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdResetEvent")]
     #[inline(always)]
-    pub unsafe fn cmd_reset_event(self, event: Event, stage_mask: PipelineStageFlags) {
+    pub unsafe fn cmd_reset_event(&self, event: Event, stage_mask: PipelineStageFlags) {
         let command = vtable_get(&*self.vtable(), InstanceCommands::vkCmdResetEvent as usize)
             .expect("command should not be null");
         let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdResetEvent>(command) };
@@ -3609,7 +3617,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdWaitEvents")]
     #[inline(always)]
     pub unsafe fn cmd_wait_events(
-        self,
+        &self,
         event_count: u32,
         p_events: *const Event,
         src_stage_mask: PipelineStageFlags,
@@ -3667,7 +3675,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdPushConstants")]
     #[inline(always)]
     pub unsafe fn cmd_push_constants(
-        self,
+        &self,
         layout: PipelineLayout,
         stage_flags: ShaderStageFlags,
         offset: u32,
@@ -3713,7 +3721,7 @@ impl Device {
     #[doc(alias = "vkCreateGraphicsPipelines")]
     #[inline(always)]
     pub unsafe fn create_graphics_pipelines(
-        self,
+        &self,
         pipeline_cache: PipelineCache,
         create_info_count: u32,
         p_create_infos: *const GraphicsPipelineCreateInfo,
@@ -3763,7 +3771,7 @@ impl Device {
     #[doc(alias = "vkCreateFramebuffer")]
     #[inline(always)]
     pub unsafe fn create_framebuffer(
-        self,
+        &self,
         p_create_info: *const FramebufferCreateInfo,
         p_allocator: *const AllocationCallbacks,
         p_framebuffer: *mut Framebuffer,
@@ -3791,7 +3799,7 @@ impl Device {
     #[doc(alias = "vkDestroyFramebuffer")]
     #[inline(always)]
     pub unsafe fn destroy_framebuffer(
-        self,
+        &self,
         framebuffer: Framebuffer,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -3829,7 +3837,7 @@ impl Device {
     #[doc(alias = "vkCreateRenderPass")]
     #[inline(always)]
     pub unsafe fn create_render_pass(
-        self,
+        &self,
         p_create_info: *const RenderPassCreateInfo,
         p_allocator: *const AllocationCallbacks,
         p_render_pass: *mut RenderPass,
@@ -3857,7 +3865,7 @@ impl Device {
     #[doc(alias = "vkDestroyRenderPass")]
     #[inline(always)]
     pub unsafe fn destroy_render_pass(
-        self,
+        &self,
         render_pass: RenderPass,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -3880,7 +3888,7 @@ impl Device {
     #[doc(alias = "vkGetRenderAreaGranularity")]
     #[inline(always)]
     pub unsafe fn get_render_area_granularity(
-        self,
+        &self,
         render_pass: RenderPass,
         p_granularity: *mut Extent2D,
     ) {
@@ -3913,7 +3921,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetViewport")]
     #[inline(always)]
     pub unsafe fn cmd_set_viewport(
-        self,
+        &self,
         first_viewport: u32,
         viewport_count: u32,
         p_viewports: *const Viewport,
@@ -3943,7 +3951,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetScissor")]
     #[inline(always)]
     pub unsafe fn cmd_set_scissor(
-        self,
+        &self,
         first_scissor: u32,
         scissor_count: u32,
         p_scissors: *const Rect2D,
@@ -3971,7 +3979,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetLineWidth")]
     #[inline(always)]
-    pub unsafe fn cmd_set_line_width(self, line_width: f32) {
+    pub unsafe fn cmd_set_line_width(&self, line_width: f32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetLineWidth as usize,
@@ -4000,7 +4008,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetDepthBias")]
     #[inline(always)]
     pub unsafe fn cmd_set_depth_bias(
-        self,
+        &self,
         depth_bias_constant_factor: f32,
         depth_bias_clamp: f32,
         depth_bias_slope_factor: f32,
@@ -4040,7 +4048,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetBlendConstants")]
     #[inline(always)]
-    pub unsafe fn cmd_set_blend_constants(self, blend_constants: *const [f32; 4 as usize]) {
+    pub unsafe fn cmd_set_blend_constants(&self, blend_constants: *const [f32; 4 as usize]) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetBlendConstants as usize,
@@ -4068,7 +4076,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetDepthBounds")]
     #[inline(always)]
-    pub unsafe fn cmd_set_depth_bounds(self, min_depth_bounds: f32, max_depth_bounds: f32) {
+    pub unsafe fn cmd_set_depth_bounds(&self, min_depth_bounds: f32, max_depth_bounds: f32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetDepthBounds as usize,
@@ -4098,7 +4106,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetStencilCompareMask")]
     #[inline(always)]
     pub unsafe fn cmd_set_stencil_compare_mask(
-        self,
+        &self,
         face_mask: StencilFaceFlags,
         compare_mask: u32,
     ) {
@@ -4130,7 +4138,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetStencilWriteMask")]
     #[inline(always)]
-    pub unsafe fn cmd_set_stencil_write_mask(self, face_mask: StencilFaceFlags, write_mask: u32) {
+    pub unsafe fn cmd_set_stencil_write_mask(&self, face_mask: StencilFaceFlags, write_mask: u32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetStencilWriteMask as usize,
@@ -4159,7 +4167,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetStencilReference")]
     #[inline(always)]
-    pub unsafe fn cmd_set_stencil_reference(self, face_mask: StencilFaceFlags, reference: u32) {
+    pub unsafe fn cmd_set_stencil_reference(&self, face_mask: StencilFaceFlags, reference: u32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetStencilReference as usize,
@@ -4192,7 +4200,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBindIndexBuffer")]
     #[inline(always)]
     pub unsafe fn cmd_bind_index_buffer(
-        self,
+        &self,
         buffer: Buffer,
         offset: DeviceSize,
         index_type: IndexType,
@@ -4226,7 +4234,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBindVertexBuffers")]
     #[inline(always)]
     pub unsafe fn cmd_bind_vertex_buffers(
-        self,
+        &self,
         first_binding: u32,
         binding_count: u32,
         p_buffers: *const Buffer,
@@ -4268,7 +4276,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDraw")]
     #[inline(always)]
     pub unsafe fn cmd_draw(
-        self,
+        &self,
         vertex_count: u32,
         instance_count: u32,
         first_vertex: u32,
@@ -4307,7 +4315,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDrawIndexed")]
     #[inline(always)]
     pub unsafe fn cmd_draw_indexed(
-        self,
+        &self,
         index_count: u32,
         instance_count: u32,
         first_index: u32,
@@ -4348,7 +4356,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDrawIndirect")]
     #[inline(always)]
     pub unsafe fn cmd_draw_indirect(
-        self,
+        &self,
         buffer: Buffer,
         offset: DeviceSize,
         draw_count: u32,
@@ -4383,7 +4391,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDrawIndexedIndirect")]
     #[inline(always)]
     pub unsafe fn cmd_draw_indexed_indirect(
-        self,
+        &self,
         buffer: Buffer,
         offset: DeviceSize,
         draw_count: u32,
@@ -4426,7 +4434,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBlitImage")]
     #[inline(always)]
     pub unsafe fn cmd_blit_image(
-        self,
+        &self,
         src_image: Image,
         src_image_layout: ImageLayout,
         dst_image: Image,
@@ -4477,7 +4485,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdClearDepthStencilImage")]
     #[inline(always)]
     pub unsafe fn cmd_clear_depth_stencil_image(
-        self,
+        &self,
         image: Image,
         image_layout: ImageLayout,
         p_depth_stencil: *const ClearDepthStencilValue,
@@ -4523,7 +4531,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdClearAttachments")]
     #[inline(always)]
     pub unsafe fn cmd_clear_attachments(
-        self,
+        &self,
         attachment_count: u32,
         p_attachments: *const ClearAttachment,
         rect_count: u32,
@@ -4573,7 +4581,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdResolveImage")]
     #[inline(always)]
     pub unsafe fn cmd_resolve_image(
-        self,
+        &self,
         src_image: Image,
         src_image_layout: ImageLayout,
         dst_image: Image,
@@ -4621,7 +4629,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBeginRenderPass")]
     #[inline(always)]
     pub unsafe fn cmd_begin_render_pass(
-        self,
+        &self,
         p_render_pass_begin: *const RenderPassBeginInfo,
         contents: SubpassContents,
     ) {
@@ -4653,7 +4661,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdNextSubpass")]
     #[inline(always)]
-    pub unsafe fn cmd_next_subpass(self, contents: SubpassContents) {
+    pub unsafe fn cmd_next_subpass(&self, contents: SubpassContents) {
         let command = vtable_get(&*self.vtable(), InstanceCommands::vkCmdNextSubpass as usize)
             .expect("command should not be null");
         let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdNextSubpass>(command) };
@@ -4678,7 +4686,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdEndRenderPass")]
     #[inline(always)]
-    pub unsafe fn cmd_end_render_pass(self) {
+    pub unsafe fn cmd_end_render_pass(&self) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdEndRenderPass as usize,
@@ -4746,7 +4754,7 @@ impl Device {
     #[doc(alias = "vkBindBufferMemory2")]
     #[inline(always)]
     pub unsafe fn bind_buffer_memory_2(
-        self,
+        &self,
         bind_info_count: u32,
         p_bind_infos: *const BindBufferMemoryInfo,
     ) -> ResultCode {
@@ -4783,7 +4791,7 @@ impl Device {
     #[doc(alias = "vkBindImageMemory2")]
     #[inline(always)]
     pub unsafe fn bind_image_memory_2(
-        self,
+        &self,
         bind_info_count: u32,
         p_bind_infos: *const BindImageMemoryInfo,
     ) -> ResultCode {
@@ -4812,7 +4820,7 @@ impl Device {
     #[doc(alias = "vkGetDeviceGroupPeerMemoryFeatures")]
     #[inline(always)]
     pub unsafe fn get_device_group_peer_memory_features(
-        self,
+        &self,
         heap_index: u32,
         local_device_index: u32,
         remote_device_index: u32,
@@ -4862,7 +4870,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetDeviceMask")]
     #[inline(always)]
-    pub unsafe fn cmd_set_device_mask(self, device_mask: u32) {
+    pub unsafe fn cmd_set_device_mask(&self, device_mask: u32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetDeviceMask as usize,
@@ -4904,7 +4912,7 @@ impl Instance {
     #[doc(alias = "vkEnumeratePhysicalDeviceGroups")]
     #[inline(always)]
     pub unsafe fn enumerate_physical_device_groups(
-        self,
+        &self,
         p_physical_device_group_count: *mut u32,
         p_physical_device_group_properties: *mut PhysicalDeviceGroupProperties,
     ) -> ResultCode {
@@ -4943,7 +4951,7 @@ impl Device {
     #[doc(alias = "vkGetImageMemoryRequirements2")]
     #[inline(always)]
     pub unsafe fn get_image_memory_requirements_2(
-        self,
+        &self,
         p_info: *const ImageMemoryRequirementsInfo2,
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
@@ -4976,7 +4984,7 @@ impl Device {
     #[doc(alias = "vkGetBufferMemoryRequirements2")]
     #[inline(always)]
     pub unsafe fn get_buffer_memory_requirements_2(
-        self,
+        &self,
         p_info: *const BufferMemoryRequirementsInfo2,
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
@@ -5013,7 +5021,7 @@ impl Device {
     #[doc(alias = "vkGetImageSparseMemoryRequirements2")]
     #[inline(always)]
     pub unsafe fn get_image_sparse_memory_requirements_2(
-        self,
+        &self,
         p_info: *const ImageSparseMemoryRequirementsInfo2,
         p_sparse_memory_requirement_count: *mut u32,
         p_sparse_memory_requirements: *mut SparseImageMemoryRequirements2,
@@ -5050,7 +5058,7 @@ impl PhysicalDevice {
     ///
     #[doc(alias = "vkGetPhysicalDeviceFeatures2")]
     #[inline(always)]
-    pub unsafe fn get_features_2(self, p_features: *mut PhysicalDeviceFeatures2) {
+    pub unsafe fn get_features_2(&self, p_features: *mut PhysicalDeviceFeatures2) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkGetPhysicalDeviceFeatures2 as usize,
@@ -5076,7 +5084,7 @@ impl PhysicalDevice {
     ///
     #[doc(alias = "vkGetPhysicalDeviceProperties2")]
     #[inline(always)]
-    pub unsafe fn get_properties_2(self, p_properties: *mut PhysicalDeviceProperties2) {
+    pub unsafe fn get_properties_2(&self, p_properties: *mut PhysicalDeviceProperties2) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkGetPhysicalDeviceProperties2 as usize,
@@ -5103,7 +5111,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceFormatProperties2")]
     #[inline(always)]
     pub unsafe fn get_format_properties_2(
-        self,
+        &self,
         format: Format,
         p_format_properties: *mut FormatProperties2,
     ) {
@@ -5150,7 +5158,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceImageFormatProperties2")]
     #[inline(always)]
     pub unsafe fn get_image_format_properties_2(
-        self,
+        &self,
         p_image_format_info: *const PhysicalDeviceImageFormatInfo2,
         p_image_format_properties: *mut ImageFormatProperties2,
     ) -> ResultCode {
@@ -5185,7 +5193,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceQueueFamilyProperties2")]
     #[inline(always)]
     pub unsafe fn get_queue_family_properties_2(
-        self,
+        &self,
         p_queue_family_property_count: *mut u32,
         p_queue_family_properties: *mut QueueFamilyProperties2,
     ) {
@@ -5223,7 +5231,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceMemoryProperties2")]
     #[inline(always)]
     pub unsafe fn get_memory_properties_2(
-        self,
+        &self,
         p_memory_properties: *mut PhysicalDeviceMemoryProperties2,
     ) {
         let command = vtable_get(
@@ -5259,7 +5267,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceSparseImageFormatProperties2")]
     #[inline(always)]
     pub unsafe fn get_sparse_image_format_properties_2(
-        self,
+        &self,
         p_format_info: *const PhysicalDeviceSparseImageFormatInfo2,
         p_property_count: *mut u32,
         p_properties: *mut SparseImageFormatProperties2,
@@ -5294,7 +5302,7 @@ impl Device {
     ///
     #[doc(alias = "vkTrimCommandPool")]
     #[inline(always)]
-    pub unsafe fn trim_command_pool(self, command_pool: CommandPool, flags: CommandPoolTrimFlags) {
+    pub unsafe fn trim_command_pool(&self, command_pool: CommandPool, flags: CommandPoolTrimFlags) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkTrimCommandPool as usize,
@@ -5320,7 +5328,7 @@ impl Device {
     #[doc(alias = "vkGetDeviceQueue2")]
     #[inline(always)]
     pub unsafe fn get_device_queue_2(
-        self,
+        &self,
         p_queue_info: *const DeviceQueueInfo2,
         p_queue: *mut QueueHandle,
     ) {
@@ -5352,7 +5360,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceExternalBufferProperties")]
     #[inline(always)]
     pub unsafe fn get_external_buffer_properties(
-        self,
+        &self,
         p_external_buffer_info: *const PhysicalDeviceExternalBufferInfo,
         p_external_buffer_properties: *mut ExternalBufferProperties,
     ) {
@@ -5393,7 +5401,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceExternalFenceProperties")]
     #[inline(always)]
     pub unsafe fn get_external_fence_properties(
-        self,
+        &self,
         p_external_fence_info: *const PhysicalDeviceExternalFenceInfo,
         p_external_fence_properties: *mut ExternalFenceProperties,
     ) {
@@ -5434,7 +5442,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceExternalSemaphoreProperties")]
     #[inline(always)]
     pub unsafe fn get_external_semaphore_properties(
-        self,
+        &self,
         p_external_semaphore_info: *const PhysicalDeviceExternalSemaphoreInfo,
         p_external_semaphore_properties: *mut ExternalSemaphoreProperties,
     ) {
@@ -5482,7 +5490,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDispatchBase")]
     #[inline(always)]
     pub unsafe fn cmd_dispatch_base(
-        self,
+        &self,
         base_group_x: u32,
         base_group_y: u32,
         base_group_z: u32,
@@ -5540,7 +5548,7 @@ impl Device {
     #[doc(alias = "vkCreateDescriptorUpdateTemplate")]
     #[inline(always)]
     pub unsafe fn create_descriptor_update_template(
-        self,
+        &self,
         p_create_info: *const DescriptorUpdateTemplateCreateInfo,
         p_allocator: *const AllocationCallbacks,
         p_descriptor_update_template: *mut DescriptorUpdateTemplate,
@@ -5582,7 +5590,7 @@ impl Device {
     #[doc(alias = "vkDestroyDescriptorUpdateTemplate")]
     #[inline(always)]
     pub unsafe fn destroy_descriptor_update_template(
-        self,
+        &self,
         descriptor_update_template: DescriptorUpdateTemplate,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -5612,7 +5620,7 @@ impl Device {
     #[doc(alias = "vkUpdateDescriptorSetWithTemplate")]
     #[inline(always)]
     pub unsafe fn update_descriptor_set_with_template(
-        self,
+        &self,
         descriptor_set: DescriptorSet,
         descriptor_update_template: DescriptorUpdateTemplate,
         p_data: *const c_void,
@@ -5653,7 +5661,7 @@ impl Device {
     #[doc(alias = "vkGetDescriptorSetLayoutSupport")]
     #[inline(always)]
     pub unsafe fn get_descriptor_set_layout_support(
-        self,
+        &self,
         p_create_info: *const DescriptorSetLayoutCreateInfo,
         p_support: *mut DescriptorSetLayoutSupport,
     ) {
@@ -5698,7 +5706,7 @@ impl Device {
     #[doc(alias = "vkCreateSamplerYcbcrConversion")]
     #[inline(always)]
     pub unsafe fn create_sampler_ycbcr_conversion(
-        self,
+        &self,
         p_create_info: *const SamplerYcbcrConversionCreateInfo,
         p_allocator: *const AllocationCallbacks,
         p_ycbcr_conversion: *mut SamplerYcbcrConversion,
@@ -5733,7 +5741,7 @@ impl Device {
     #[doc(alias = "vkDestroySamplerYcbcrConversion")]
     #[inline(always)]
     pub unsafe fn destroy_sampler_ycbcr_conversion(
-        self,
+        &self,
         ycbcr_conversion: SamplerYcbcrConversion,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -5762,7 +5770,7 @@ impl Device {
     #[doc(alias = "vkResetQueryPool")]
     #[inline(always)]
     pub unsafe fn reset_query_pool(
-        self,
+        &self,
         query_pool: QueryPool,
         first_query: u32,
         query_count: u32,
@@ -5797,7 +5805,7 @@ impl Device {
     #[doc(alias = "vkGetSemaphoreCounterValue")]
     #[inline(always)]
     pub unsafe fn get_semaphore_counter_value(
-        self,
+        &self,
         semaphore: Semaphore,
         p_value: *mut u64,
     ) -> ResultCode {
@@ -5836,7 +5844,7 @@ impl Device {
     #[doc(alias = "vkWaitSemaphores")]
     #[inline(always)]
     pub unsafe fn wait_semaphores(
-        self,
+        &self,
         p_wait_info: *const SemaphoreWaitInfo,
         timeout: u64,
     ) -> ResultCode {
@@ -5868,7 +5876,7 @@ impl Device {
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkSignalSemaphore")]
     #[inline(always)]
-    pub unsafe fn signal_semaphore(self, p_signal_info: *const SemaphoreSignalInfo) -> ResultCode {
+    pub unsafe fn signal_semaphore(&self, p_signal_info: *const SemaphoreSignalInfo) -> ResultCode {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkSignalSemaphore as usize,
@@ -5894,7 +5902,7 @@ impl Device {
     #[doc(alias = "vkGetBufferDeviceAddress")]
     #[inline(always)]
     pub unsafe fn get_buffer_device_address(
-        self,
+        &self,
         p_info: *const BufferDeviceAddressInfo,
     ) -> DeviceAddress {
         let command = vtable_get(
@@ -5922,7 +5930,7 @@ impl Device {
     #[doc(alias = "vkGetBufferOpaqueCaptureAddress")]
     #[inline(always)]
     pub unsafe fn get_buffer_opaque_capture_address(
-        self,
+        &self,
         p_info: *const BufferDeviceAddressInfo,
     ) -> u64 {
         let command = vtable_get(
@@ -5951,7 +5959,7 @@ impl Device {
     #[doc(alias = "vkGetDeviceMemoryOpaqueCaptureAddress")]
     #[inline(always)]
     pub unsafe fn get_device_memory_opaque_capture_address(
-        self,
+        &self,
         p_info: *const DeviceMemoryOpaqueCaptureAddressInfo,
     ) -> u64 {
         let command = vtable_get(
@@ -5990,7 +5998,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDrawIndirectCount")]
     #[inline(always)]
     pub unsafe fn cmd_draw_indirect_count(
-        self,
+        &self,
         buffer: Buffer,
         offset: DeviceSize,
         count_buffer: Buffer,
@@ -6043,7 +6051,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDrawIndexedIndirectCount")]
     #[inline(always)]
     pub unsafe fn cmd_draw_indexed_indirect_count(
-        self,
+        &self,
         buffer: Buffer,
         offset: DeviceSize,
         count_buffer: Buffer,
@@ -6102,7 +6110,7 @@ impl Device {
     #[doc(alias = "vkCreateRenderPass2")]
     #[inline(always)]
     pub unsafe fn create_render_pass_2(
-        self,
+        &self,
         p_create_info: *const RenderPassCreateInfo2,
         p_allocator: *const AllocationCallbacks,
         p_render_pass: *mut RenderPass,
@@ -6143,7 +6151,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBeginRenderPass2")]
     #[inline(always)]
     pub unsafe fn cmd_begin_render_pass_2(
-        self,
+        &self,
         p_render_pass_begin: *const RenderPassBeginInfo,
         p_subpass_begin_info: *const SubpassBeginInfo,
     ) {
@@ -6183,7 +6191,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdNextSubpass2")]
     #[inline(always)]
     pub unsafe fn cmd_next_subpass_2(
-        self,
+        &self,
         p_subpass_begin_info: *const SubpassBeginInfo,
         p_subpass_end_info: *const SubpassEndInfo,
     ) {
@@ -6222,7 +6230,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdEndRenderPass2")]
     #[inline(always)]
-    pub unsafe fn cmd_end_render_pass_2(self, p_subpass_end_info: *const SubpassEndInfo) {
+    pub unsafe fn cmd_end_render_pass_2(&self, p_subpass_end_info: *const SubpassEndInfo) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdEndRenderPass2 as usize,
@@ -6262,7 +6270,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceToolProperties")]
     #[inline(always)]
     pub unsafe fn get_tool_properties(
-        self,
+        &self,
         p_tool_count: *mut u32,
         p_tool_properties: *mut PhysicalDeviceToolProperties,
     ) -> ResultCode {
@@ -6306,7 +6314,7 @@ impl Device {
     #[doc(alias = "vkCreatePrivateDataSlot")]
     #[inline(always)]
     pub unsafe fn create_private_data_slot(
-        self,
+        &self,
         p_create_info: *const PrivateDataSlotCreateInfo,
         p_allocator: *const AllocationCallbacks,
         p_private_data_slot: *mut PrivateDataSlot,
@@ -6340,7 +6348,7 @@ impl Device {
     #[doc(alias = "vkDestroyPrivateDataSlot")]
     #[inline(always)]
     pub unsafe fn destroy_private_data_slot(
-        self,
+        &self,
         private_data_slot: PrivateDataSlot,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -6376,7 +6384,7 @@ impl Device {
     #[doc(alias = "vkSetPrivateData")]
     #[inline(always)]
     pub unsafe fn set_private_data(
-        self,
+        &self,
         object_type: ObjectType,
         object_handle: u64,
         private_data_slot: PrivateDataSlot,
@@ -6411,7 +6419,7 @@ impl Device {
     #[doc(alias = "vkGetPrivateData")]
     #[inline(always)]
     pub unsafe fn get_private_data(
-        self,
+        &self,
         object_type: ObjectType,
         object_handle: u64,
         private_data_slot: PrivateDataSlot,
@@ -6459,7 +6467,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdPipelineBarrier2")]
     #[inline(always)]
-    pub unsafe fn cmd_pipeline_barrier_2(self, p_dependency_info: *const DependencyInfo) {
+    pub unsafe fn cmd_pipeline_barrier_2(&self, p_dependency_info: *const DependencyInfo) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdPipelineBarrier2 as usize,
@@ -6502,7 +6510,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdWriteTimestamp2")]
     #[inline(always)]
     pub unsafe fn cmd_write_timestamp_2(
-        self,
+        &self,
         stage: PipelineStageFlags2,
         query_pool: QueryPool,
         query: u32,
@@ -6545,7 +6553,7 @@ impl Queue {
     #[doc(alias = "vkQueueSubmit2")]
     #[inline(always)]
     pub unsafe fn submit_2(
-        self,
+        &self,
         submit_count: u32,
         p_submits: *const SubmitInfo2,
         fence: Fence,
@@ -6582,7 +6590,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdCopyBuffer2")]
     #[inline(always)]
-    pub unsafe fn cmd_copy_buffer_2(self, p_copy_buffer_info: *const CopyBufferInfo2) {
+    pub unsafe fn cmd_copy_buffer_2(&self, p_copy_buffer_info: *const CopyBufferInfo2) {
         let command = vtable_get(&*self.vtable(), InstanceCommands::vkCmdCopyBuffer2 as usize)
             .expect("command should not be null");
         let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdCopyBuffer2>(command) };
@@ -6615,7 +6623,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdCopyImage2")]
     #[inline(always)]
-    pub unsafe fn cmd_copy_image_2(self, p_copy_image_info: *const CopyImageInfo2) {
+    pub unsafe fn cmd_copy_image_2(&self, p_copy_image_info: *const CopyImageInfo2) {
         let command = vtable_get(&*self.vtable(), InstanceCommands::vkCmdCopyImage2 as usize)
             .expect("command should not be null");
         let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdCopyImage2>(command) };
@@ -6649,7 +6657,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdCopyBufferToImage2")]
     #[inline(always)]
     pub unsafe fn cmd_copy_buffer_to_image_2(
-        self,
+        &self,
         p_copy_buffer_to_image_info: *const CopyBufferToImageInfo2,
     ) {
         let command = vtable_get(
@@ -6689,7 +6697,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdCopyImageToBuffer2")]
     #[inline(always)]
     pub unsafe fn cmd_copy_image_to_buffer_2(
-        self,
+        &self,
         p_copy_image_to_buffer_info: *const CopyImageToBufferInfo2,
     ) {
         let command = vtable_get(
@@ -6720,7 +6728,7 @@ impl Device {
     #[doc(alias = "vkGetDeviceBufferMemoryRequirements")]
     #[inline(always)]
     pub unsafe fn get_device_buffer_memory_requirements(
-        self,
+        &self,
         p_info: *const DeviceBufferMemoryRequirements,
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
@@ -6753,7 +6761,7 @@ impl Device {
     #[doc(alias = "vkGetDeviceImageMemoryRequirements")]
     #[inline(always)]
     pub unsafe fn get_device_image_memory_requirements(
-        self,
+        &self,
         p_info: *const DeviceImageMemoryRequirements,
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
@@ -6790,7 +6798,7 @@ impl Device {
     #[doc(alias = "vkGetDeviceImageSparseMemoryRequirements")]
     #[inline(always)]
     pub unsafe fn get_device_image_sparse_memory_requirements(
-        self,
+        &self,
         p_info: *const DeviceImageMemoryRequirements,
         p_sparse_memory_requirement_count: *mut u32,
         p_sparse_memory_requirements: *mut SparseImageMemoryRequirements2,
@@ -6842,7 +6850,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetEvent2")]
     #[inline(always)]
-    pub unsafe fn cmd_set_event_2(self, event: Event, p_dependency_info: *const DependencyInfo) {
+    pub unsafe fn cmd_set_event_2(&self, event: Event, p_dependency_info: *const DependencyInfo) {
         let command = vtable_get(&*self.vtable(), InstanceCommands::vkCmdSetEvent2 as usize)
             .expect("command should not be null");
         let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetEvent2>(command) };
@@ -6879,7 +6887,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdResetEvent2")]
     #[inline(always)]
-    pub unsafe fn cmd_reset_event_2(self, event: Event, stage_mask: PipelineStageFlags2) {
+    pub unsafe fn cmd_reset_event_2(&self, event: Event, stage_mask: PipelineStageFlags2) {
         let command = vtable_get(&*self.vtable(), InstanceCommands::vkCmdResetEvent2 as usize)
             .expect("command should not be null");
         let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdResetEvent2>(command) };
@@ -6914,7 +6922,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdWaitEvents2")]
     #[inline(always)]
     pub unsafe fn cmd_wait_events_2(
-        self,
+        &self,
         event_count: u32,
         p_events: *const Event,
         p_dependency_infos: *const DependencyInfo,
@@ -6949,7 +6957,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdBlitImage2")]
     #[inline(always)]
-    pub unsafe fn cmd_blit_image_2(self, p_blit_image_info: *const BlitImageInfo2) {
+    pub unsafe fn cmd_blit_image_2(&self, p_blit_image_info: *const BlitImageInfo2) {
         let command = vtable_get(&*self.vtable(), InstanceCommands::vkCmdBlitImage2 as usize)
             .expect("command should not be null");
         let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdBlitImage2>(command) };
@@ -6980,7 +6988,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdResolveImage2")]
     #[inline(always)]
-    pub unsafe fn cmd_resolve_image_2(self, p_resolve_image_info: *const ResolveImageInfo2) {
+    pub unsafe fn cmd_resolve_image_2(&self, p_resolve_image_info: *const ResolveImageInfo2) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdResolveImage2 as usize,
@@ -7016,7 +7024,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdBeginRendering")]
     #[inline(always)]
-    pub unsafe fn cmd_begin_rendering(self, p_rendering_info: *const RenderingInfo) {
+    pub unsafe fn cmd_begin_rendering(&self, p_rendering_info: *const RenderingInfo) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdBeginRendering as usize,
@@ -7051,7 +7059,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdEndRendering")]
     #[inline(always)]
-    pub unsafe fn cmd_end_rendering(self) {
+    pub unsafe fn cmd_end_rendering(&self) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdEndRendering as usize,
@@ -7088,7 +7096,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetCullMode")]
     #[inline(always)]
-    pub unsafe fn cmd_set_cull_mode(self, cull_mode: CullModeFlags) {
+    pub unsafe fn cmd_set_cull_mode(&self, cull_mode: CullModeFlags) {
         let command = vtable_get(&*self.vtable(), InstanceCommands::vkCmdSetCullMode as usize)
             .expect("command should not be null");
         let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdSetCullMode>(command) };
@@ -7118,7 +7126,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetFrontFace")]
     #[inline(always)]
-    pub unsafe fn cmd_set_front_face(self, front_face: FrontFace) {
+    pub unsafe fn cmd_set_front_face(&self, front_face: FrontFace) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetFrontFace as usize,
@@ -7153,7 +7161,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetPrimitiveTopology")]
     #[inline(always)]
-    pub unsafe fn cmd_set_primitive_topology(self, primitive_topology: PrimitiveTopology) {
+    pub unsafe fn cmd_set_primitive_topology(&self, primitive_topology: PrimitiveTopology) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetPrimitiveTopology as usize,
@@ -7189,7 +7197,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetViewportWithCount")]
     #[inline(always)]
     pub unsafe fn cmd_set_viewport_with_count(
-        self,
+        &self,
         viewport_count: u32,
         p_viewports: *const Viewport,
     ) {
@@ -7227,7 +7235,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetScissorWithCount")]
     #[inline(always)]
-    pub unsafe fn cmd_set_scissor_with_count(self, scissor_count: u32, p_scissors: *const Rect2D) {
+    pub unsafe fn cmd_set_scissor_with_count(&self, scissor_count: u32, p_scissors: *const Rect2D) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetScissorWithCount as usize,
@@ -7274,7 +7282,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBindVertexBuffers2")]
     #[inline(always)]
     pub unsafe fn cmd_bind_vertex_buffers_2(
-        self,
+        &self,
         first_binding: u32,
         binding_count: u32,
         p_buffers: *const Buffer,
@@ -7325,7 +7333,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetDepthTestEnable")]
     #[inline(always)]
-    pub unsafe fn cmd_set_depth_test_enable(self, depth_test_enable: Bool32) {
+    pub unsafe fn cmd_set_depth_test_enable(&self, depth_test_enable: Bool32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetDepthTestEnable as usize,
@@ -7359,7 +7367,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetDepthWriteEnable")]
     #[inline(always)]
-    pub unsafe fn cmd_set_depth_write_enable(self, depth_write_enable: Bool32) {
+    pub unsafe fn cmd_set_depth_write_enable(&self, depth_write_enable: Bool32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetDepthWriteEnable as usize,
@@ -7393,7 +7401,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetDepthCompareOp")]
     #[inline(always)]
-    pub unsafe fn cmd_set_depth_compare_op(self, depth_compare_op: CompareOp) {
+    pub unsafe fn cmd_set_depth_compare_op(&self, depth_compare_op: CompareOp) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetDepthCompareOp as usize,
@@ -7427,7 +7435,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetDepthBoundsTestEnable")]
     #[inline(always)]
-    pub unsafe fn cmd_set_depth_bounds_test_enable(self, depth_bounds_test_enable: Bool32) {
+    pub unsafe fn cmd_set_depth_bounds_test_enable(&self, depth_bounds_test_enable: Bool32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetDepthBoundsTestEnable as usize,
@@ -7462,7 +7470,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetStencilTestEnable")]
     #[inline(always)]
-    pub unsafe fn cmd_set_stencil_test_enable(self, stencil_test_enable: Bool32) {
+    pub unsafe fn cmd_set_stencil_test_enable(&self, stencil_test_enable: Bool32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetStencilTestEnable as usize,
@@ -7504,7 +7512,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetStencilOp")]
     #[inline(always)]
     pub unsafe fn cmd_set_stencil_op(
-        self,
+        &self,
         face_mask: StencilFaceFlags,
         fail_op: StencilOp,
         pass_op: StencilOp,
@@ -7554,7 +7562,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetRasterizerDiscardEnable")]
     #[inline(always)]
-    pub unsafe fn cmd_set_rasterizer_discard_enable(self, rasterizer_discard_enable: Bool32) {
+    pub unsafe fn cmd_set_rasterizer_discard_enable(&self, rasterizer_discard_enable: Bool32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetRasterizerDiscardEnable as usize,
@@ -7589,7 +7597,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetDepthBiasEnable")]
     #[inline(always)]
-    pub unsafe fn cmd_set_depth_bias_enable(self, depth_bias_enable: Bool32) {
+    pub unsafe fn cmd_set_depth_bias_enable(&self, depth_bias_enable: Bool32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetDepthBiasEnable as usize,
@@ -7624,7 +7632,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetPrimitiveRestartEnable")]
     #[inline(always)]
-    pub unsafe fn cmd_set_primitive_restart_enable(self, primitive_restart_enable: Bool32) {
+    pub unsafe fn cmd_set_primitive_restart_enable(&self, primitive_restart_enable: Bool32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetPrimitiveRestartEnable as usize,
@@ -7660,7 +7668,7 @@ impl Device {
     #[doc(alias = "vkMapMemory2")]
     #[inline(always)]
     pub unsafe fn map_memory_2(
-        self,
+        &self,
         p_memory_map_info: *const MemoryMapInfo,
         pp_data: *mut *mut c_void,
     ) -> ResultCode {
@@ -7691,7 +7699,7 @@ impl Device {
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkUnmapMemory2")]
     #[inline(always)]
-    pub unsafe fn unmap_memory_2(self, p_memory_unmap_info: *const MemoryUnmapInfo) -> ResultCode {
+    pub unsafe fn unmap_memory_2(&self, p_memory_unmap_info: *const MemoryUnmapInfo) -> ResultCode {
         let command = vtable_get(&*self.vtable(), InstanceCommands::vkUnmapMemory2 as usize)
             .expect("command should not be null");
         let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_UnmapMemory2>(command) };
@@ -7713,7 +7721,7 @@ impl Device {
     #[doc(alias = "vkGetDeviceImageSubresourceLayout")]
     #[inline(always)]
     pub unsafe fn get_device_image_subresource_layout(
-        self,
+        &self,
         p_info: *const DeviceImageSubresourceInfo,
         p_layout: *mut SubresourceLayout2,
     ) {
@@ -7743,7 +7751,7 @@ impl Device {
     #[doc(alias = "vkGetImageSubresourceLayout2")]
     #[inline(always)]
     pub unsafe fn get_image_subresource_layout_2(
-        self,
+        &self,
         image: Image,
         p_subresource: *const ImageSubresource2,
         p_layout: *mut SubresourceLayout2,
@@ -7784,7 +7792,7 @@ impl Device {
     #[doc(alias = "vkCopyMemoryToImage")]
     #[inline(always)]
     pub unsafe fn copy_memory_to_image(
-        self,
+        &self,
         p_copy_memory_to_image_info: *const CopyMemoryToImageInfo,
     ) -> ResultCode {
         let command = vtable_get(
@@ -7822,7 +7830,7 @@ impl Device {
     #[doc(alias = "vkCopyImageToMemory")]
     #[inline(always)]
     pub unsafe fn copy_image_to_memory(
-        self,
+        &self,
         p_copy_image_to_memory_info: *const CopyImageToMemoryInfo,
     ) -> ResultCode {
         let command = vtable_get(
@@ -7860,7 +7868,7 @@ impl Device {
     #[doc(alias = "vkCopyImageToImage")]
     #[inline(always)]
     pub unsafe fn copy_image_to_image(
-        self,
+        &self,
         p_copy_image_to_image_info: *const CopyImageToImageInfo,
     ) -> ResultCode {
         let command = vtable_get(
@@ -7898,7 +7906,7 @@ impl Device {
     #[doc(alias = "vkTransitionImageLayout")]
     #[inline(always)]
     pub unsafe fn transition_image_layout(
-        self,
+        &self,
         transition_count: u32,
         p_transitions: *const HostImageLayoutTransitionInfo,
     ) -> ResultCode {
@@ -7944,7 +7952,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdPushDescriptorSet")]
     #[inline(always)]
     pub unsafe fn cmd_push_descriptor_set(
-        self,
+        &self,
         pipeline_bind_point: PipelineBindPoint,
         layout: PipelineLayout,
         set: u32,
@@ -8001,7 +8009,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdPushDescriptorSetWithTemplate")]
     #[inline(always)]
     pub unsafe fn cmd_push_descriptor_set_with_template(
-        self,
+        &self,
         descriptor_update_template: DescriptorUpdateTemplate,
         layout: PipelineLayout,
         set: u32,
@@ -8044,7 +8052,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBindDescriptorSets2")]
     #[inline(always)]
     pub unsafe fn cmd_bind_descriptor_sets_2(
-        self,
+        &self,
         p_bind_descriptor_sets_info: *const BindDescriptorSetsInfo,
     ) {
         let command = vtable_get(
@@ -8082,7 +8090,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdPushConstants2")]
     #[inline(always)]
-    pub unsafe fn cmd_push_constants_2(self, p_push_constants_info: *const PushConstantsInfo) {
+    pub unsafe fn cmd_push_constants_2(&self, p_push_constants_info: *const PushConstantsInfo) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdPushConstants2 as usize,
@@ -8119,7 +8127,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdPushDescriptorSet2")]
     #[inline(always)]
     pub unsafe fn cmd_push_descriptor_set_2(
-        self,
+        &self,
         p_push_descriptor_set_info: *const PushDescriptorSetInfo,
     ) {
         let command = vtable_get(
@@ -8158,7 +8166,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdPushDescriptorSetWithTemplate2")]
     #[inline(always)]
     pub unsafe fn cmd_push_descriptor_set_with_template_2(
-        self,
+        &self,
         p_push_descriptor_set_with_template_info: *const PushDescriptorSetWithTemplateInfo,
     ) {
         let command = vtable_get(
@@ -8195,7 +8203,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetLineStipple")]
     #[inline(always)]
-    pub unsafe fn cmd_set_line_stipple(self, line_stipple_factor: u32, line_stipple_pattern: u16) {
+    pub unsafe fn cmd_set_line_stipple(&self, line_stipple_factor: u32, line_stipple_pattern: u16) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetLineStipple as usize,
@@ -8234,7 +8242,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBindIndexBuffer2")]
     #[inline(always)]
     pub unsafe fn cmd_bind_index_buffer_2(
-        self,
+        &self,
         buffer: Buffer,
         offset: DeviceSize,
         size: DeviceSize,
@@ -8265,7 +8273,7 @@ impl Device {
     #[doc(alias = "vkGetRenderingAreaGranularity")]
     #[inline(always)]
     pub unsafe fn get_rendering_area_granularity(
-        self,
+        &self,
         p_rendering_area_info: *const RenderingAreaInfo,
         p_granularity: *mut Extent2D,
     ) {
@@ -8305,7 +8313,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetRenderingAttachmentLocations")]
     #[inline(always)]
     pub unsafe fn cmd_set_rendering_attachment_locations(
-        self,
+        &self,
         p_location_info: *const RenderingAttachmentLocationInfo,
     ) {
         let command = vtable_get(
@@ -8344,7 +8352,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetRenderingInputAttachmentIndices")]
     #[inline(always)]
     pub unsafe fn cmd_set_rendering_input_attachment_indices(
-        self,
+        &self,
         p_input_attachment_index_info: *const RenderingInputAttachmentIndexInfo,
     ) {
         let command = vtable_get(
@@ -8379,7 +8387,7 @@ impl Instance {
     #[doc(alias = "vkDestroySurfaceKHR")]
     #[inline(always)]
     pub unsafe fn destroy_surface_khr(
-        self,
+        &self,
         surface: SurfaceKHR,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -8417,7 +8425,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceSurfaceSupportKHR")]
     #[inline(always)]
     pub unsafe fn get_surface_support_khr(
-        self,
+        &self,
         queue_family_index: u32,
         surface: SurfaceKHR,
         p_supported: *mut Bool32,
@@ -8460,7 +8468,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceSurfaceCapabilitiesKHR")]
     #[inline(always)]
     pub unsafe fn get_surface_capabilities_khr(
-        self,
+        &self,
         surface: SurfaceKHR,
         p_surface_capabilities: *mut SurfaceCapabilitiesKHR,
     ) -> ResultCode {
@@ -8510,7 +8518,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceSurfaceFormatsKHR")]
     #[inline(always)]
     pub unsafe fn get_surface_formats_khr(
-        self,
+        &self,
         surface: SurfaceKHR,
         p_surface_format_count: *mut u32,
         p_surface_formats: *mut SurfaceFormatKHR,
@@ -8566,7 +8574,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceSurfacePresentModesKHR")]
     #[inline(always)]
     pub unsafe fn get_surface_present_modes_khr(
-        self,
+        &self,
         surface: SurfaceKHR,
         p_present_mode_count: *mut u32,
         p_present_modes: *mut PresentModeKHR,
@@ -8619,7 +8627,7 @@ impl Device {
     #[doc(alias = "vkCreateSwapchainKHR")]
     #[inline(always)]
     pub unsafe fn create_swapchain_khr(
-        self,
+        &self,
         p_create_info: *const SwapchainCreateInfoKHR,
         p_allocator: *const AllocationCallbacks,
         p_swapchain: *mut SwapchainKHR,
@@ -8653,7 +8661,7 @@ impl Device {
     #[doc(alias = "vkDestroySwapchainKHR")]
     #[inline(always)]
     pub unsafe fn destroy_swapchain_khr(
-        self,
+        &self,
         swapchain: SwapchainKHR,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -8694,7 +8702,7 @@ impl Device {
     #[doc(alias = "vkGetSwapchainImagesKHR")]
     #[inline(always)]
     pub unsafe fn get_swapchain_images_khr(
-        self,
+        &self,
         swapchain: SwapchainKHR,
         p_swapchain_image_count: *mut u32,
         p_swapchain_images: *mut Image,
@@ -8750,7 +8758,7 @@ impl Device {
     #[doc(alias = "vkAcquireNextImageKHR")]
     #[inline(always)]
     pub unsafe fn acquire_next_image_khr(
-        self,
+        &self,
         swapchain: SwapchainKHR,
         timeout: u64,
         semaphore: Semaphore,
@@ -8804,7 +8812,7 @@ impl Queue {
     /// - [`PRESENT_TIMING_QUEUE_FULL_EXT`](ResultCode::ERROR_PRESENT_TIMING_QUEUE_FULL_EXT)
     #[doc(alias = "vkQueuePresentKHR")]
     #[inline(always)]
-    pub unsafe fn present_khr(self, p_present_info: *const PresentInfoKHR) -> ResultCode {
+    pub unsafe fn present_khr(&self, p_present_info: *const PresentInfoKHR) -> ResultCode {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkQueuePresentKHR as usize,
@@ -8840,7 +8848,7 @@ impl Device {
     #[doc(alias = "vkGetDeviceGroupPresentCapabilitiesKHR")]
     #[inline(always)]
     pub unsafe fn get_device_group_present_capabilities_khr(
-        self,
+        &self,
         p_device_group_present_capabilities: *mut DeviceGroupPresentCapabilitiesKHR,
     ) -> ResultCode {
         let command = vtable_get(
@@ -8883,7 +8891,7 @@ impl Device {
     #[doc(alias = "vkGetDeviceGroupSurfacePresentModesKHR")]
     #[inline(always)]
     pub unsafe fn get_device_group_surface_present_modes_khr(
-        self,
+        &self,
         surface: SurfaceKHR,
         p_modes: *mut DeviceGroupPresentModeFlagsKHR,
     ) -> ResultCode {
@@ -8927,7 +8935,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDevicePresentRectanglesKHR")]
     #[inline(always)]
     pub unsafe fn get_present_rectangles_khr(
-        self,
+        &self,
         surface: SurfaceKHR,
         p_rect_count: *mut u32,
         p_rects: *mut Rect2D,
@@ -8977,7 +8985,7 @@ impl Device {
     #[doc(alias = "vkAcquireNextImage2KHR")]
     #[inline(always)]
     pub unsafe fn acquire_next_image_2_khr(
-        self,
+        &self,
         p_acquire_info: *const AcquireNextImageInfoKHR,
         p_image_index: *mut u32,
     ) -> ResultCode {
@@ -9018,7 +9026,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceDisplayPropertiesKHR")]
     #[inline(always)]
     pub unsafe fn get_display_properties_khr(
-        self,
+        &self,
         p_property_count: *mut u32,
         p_properties: *mut DisplayPropertiesKHR,
     ) -> ResultCode {
@@ -9066,7 +9074,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceDisplayPlanePropertiesKHR")]
     #[inline(always)]
     pub unsafe fn get_display_plane_properties_khr(
-        self,
+        &self,
         p_property_count: *mut u32,
         p_properties: *mut DisplayPlanePropertiesKHR,
     ) -> ResultCode {
@@ -9110,7 +9118,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetDisplayPlaneSupportedDisplaysKHR")]
     #[inline(always)]
     pub unsafe fn get_display_plane_supported_displays_khr(
-        self,
+        &self,
         plane_index: u32,
         p_display_count: *mut u32,
         p_displays: *mut DisplayKHR,
@@ -9157,7 +9165,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetDisplayModePropertiesKHR")]
     #[inline(always)]
     pub unsafe fn get_display_mode_properties_khr(
-        self,
+        &self,
         display: DisplayKHR,
         p_property_count: *mut u32,
         p_properties: *mut DisplayModePropertiesKHR,
@@ -9205,7 +9213,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkCreateDisplayModeKHR")]
     #[inline(always)]
     pub unsafe fn create_display_mode_khr(
-        self,
+        &self,
         display: DisplayKHR,
         p_create_info: *const DisplayModeCreateInfoKHR,
         p_allocator: *const AllocationCallbacks,
@@ -9248,7 +9256,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetDisplayPlaneCapabilitiesKHR")]
     #[inline(always)]
     pub unsafe fn get_display_plane_capabilities_khr(
-        self,
+        &self,
         mode: DisplayModeKHR,
         plane_index: u32,
         p_capabilities: *mut DisplayPlaneCapabilitiesKHR,
@@ -9294,7 +9302,7 @@ impl Instance {
     #[doc(alias = "vkCreateDisplayPlaneSurfaceKHR")]
     #[inline(always)]
     pub unsafe fn create_display_plane_surface_khr(
-        self,
+        &self,
         p_create_info: *const DisplaySurfaceCreateInfoKHR,
         p_allocator: *const AllocationCallbacks,
         p_surface: *mut SurfaceKHR,
@@ -9344,7 +9352,7 @@ impl Device {
     #[doc(alias = "vkCreateSharedSwapchainsKHR")]
     #[inline(always)]
     pub unsafe fn create_shared_swapchains_khr(
-        self,
+        &self,
         swapchain_count: u32,
         p_create_infos: *const SwapchainCreateInfoKHR,
         p_allocator: *const AllocationCallbacks,
@@ -9399,7 +9407,7 @@ impl Instance {
     #[doc(alias = "vkCreateXlibSurfaceKHR")]
     #[inline(always)]
     pub unsafe fn create_xlib_surface_khr(
-        self,
+        &self,
         p_create_info: *const XlibSurfaceCreateInfoKHR,
         p_allocator: *const AllocationCallbacks,
         p_surface: *mut SurfaceKHR,
@@ -9429,7 +9437,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceXlibPresentationSupportKHR")]
     #[inline(always)]
     pub unsafe fn get_xlib_presentation_support_khr(
-        self,
+        &self,
         queue_family_index: u32,
         dpy: *mut Display,
         visual_id: VisualID,
@@ -9477,7 +9485,7 @@ impl Instance {
     #[doc(alias = "vkCreateXcbSurfaceKHR")]
     #[inline(always)]
     pub unsafe fn create_xcb_surface_khr(
-        self,
+        &self,
         p_create_info: *const XcbSurfaceCreateInfoKHR,
         p_allocator: *const AllocationCallbacks,
         p_surface: *mut SurfaceKHR,
@@ -9511,7 +9519,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceXcbPresentationSupportKHR")]
     #[inline(always)]
     pub unsafe fn get_xcb_presentation_support_khr(
-        self,
+        &self,
         queue_family_index: u32,
         connection: *mut xcb_connection_t,
         visual_id: xcb_visualid_t,
@@ -9559,7 +9567,7 @@ impl Instance {
     #[doc(alias = "vkCreateWaylandSurfaceKHR")]
     #[inline(always)]
     pub unsafe fn create_wayland_surface_khr(
-        self,
+        &self,
         p_create_info: *const WaylandSurfaceCreateInfoKHR,
         p_allocator: *const AllocationCallbacks,
         p_surface: *mut SurfaceKHR,
@@ -9589,7 +9597,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceWaylandPresentationSupportKHR")]
     #[inline(always)]
     pub unsafe fn get_wayland_presentation_support_khr(
-        self,
+        &self,
         queue_family_index: u32,
         display: *mut wl_display,
     ) -> Bool32 {
@@ -9637,7 +9645,7 @@ impl Instance {
     #[doc(alias = "vkCreateAndroidSurfaceKHR")]
     #[inline(always)]
     pub unsafe fn create_android_surface_khr(
-        self,
+        &self,
         p_create_info: *const AndroidSurfaceCreateInfoKHR,
         p_allocator: *const AllocationCallbacks,
         p_surface: *mut SurfaceKHR,
@@ -9682,7 +9690,7 @@ impl Instance {
     #[doc(alias = "vkCreateWin32SurfaceKHR")]
     #[inline(always)]
     pub unsafe fn create_win_32_surface_khr(
-        self,
+        &self,
         p_create_info: *const Win32SurfaceCreateInfoKHR,
         p_allocator: *const AllocationCallbacks,
         p_surface: *mut SurfaceKHR,
@@ -9711,7 +9719,7 @@ impl PhysicalDevice {
     ///
     #[doc(alias = "vkGetPhysicalDeviceWin32PresentationSupportKHR")]
     #[inline(always)]
-    pub unsafe fn get_win_32_presentation_support_khr(self, queue_family_index: u32) -> Bool32 {
+    pub unsafe fn get_win_32_presentation_support_khr(&self, queue_family_index: u32) -> Bool32 {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkGetPhysicalDeviceWin32PresentationSupportKHR as usize,
@@ -9755,7 +9763,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceVideoCapabilitiesKHR")]
     #[inline(always)]
     pub unsafe fn get_video_capabilities_khr(
-        self,
+        &self,
         p_video_profile: *const VideoProfileInfoKHR,
         p_capabilities: *mut VideoCapabilitiesKHR,
     ) -> ResultCode {
@@ -9808,7 +9816,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceVideoFormatPropertiesKHR")]
     #[inline(always)]
     pub unsafe fn get_video_format_properties_khr(
-        self,
+        &self,
         p_video_format_info: *const PhysicalDeviceVideoFormatInfoKHR,
         p_video_format_property_count: *mut u32,
         p_video_format_properties: *mut VideoFormatPropertiesKHR,
@@ -9866,7 +9874,7 @@ impl Device {
     #[doc(alias = "vkCreateVideoSessionKHR")]
     #[inline(always)]
     pub unsafe fn create_video_session_khr(
-        self,
+        &self,
         p_create_info: *const VideoSessionCreateInfoKHR,
         p_allocator: *const AllocationCallbacks,
         p_video_session: *mut VideoSessionKHR,
@@ -9900,7 +9908,7 @@ impl Device {
     #[doc(alias = "vkDestroyVideoSessionKHR")]
     #[inline(always)]
     pub unsafe fn destroy_video_session_khr(
-        self,
+        &self,
         video_session: VideoSessionKHR,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -9943,7 +9951,7 @@ impl Device {
     #[doc(alias = "vkGetVideoSessionMemoryRequirementsKHR")]
     #[inline(always)]
     pub unsafe fn get_video_session_memory_requirements_khr(
-        self,
+        &self,
         video_session: VideoSessionKHR,
         p_memory_requirements_count: *mut u32,
         p_memory_requirements: *mut VideoSessionMemoryRequirementsKHR,
@@ -9993,7 +10001,7 @@ impl Device {
     #[doc(alias = "vkBindVideoSessionMemoryKHR")]
     #[inline(always)]
     pub unsafe fn bind_video_session_memory_khr(
-        self,
+        &self,
         video_session: VideoSessionKHR,
         bind_session_memory_info_count: u32,
         p_bind_session_memory_infos: *const BindVideoSessionMemoryInfoKHR,
@@ -10048,7 +10056,7 @@ impl Device {
     #[doc(alias = "vkCreateVideoSessionParametersKHR")]
     #[inline(always)]
     pub unsafe fn create_video_session_parameters_khr(
-        self,
+        &self,
         p_create_info: *const VideoSessionParametersCreateInfoKHR,
         p_allocator: *const AllocationCallbacks,
         p_video_session_parameters: *mut VideoSessionParametersKHR,
@@ -10098,7 +10106,7 @@ impl Device {
     #[doc(alias = "vkUpdateVideoSessionParametersKHR")]
     #[inline(always)]
     pub unsafe fn update_video_session_parameters_khr(
-        self,
+        &self,
         video_session_parameters: VideoSessionParametersKHR,
         p_update_info: *const VideoSessionParametersUpdateInfoKHR,
     ) -> ResultCode {
@@ -10132,7 +10140,7 @@ impl Device {
     #[doc(alias = "vkDestroyVideoSessionParametersKHR")]
     #[inline(always)]
     pub unsafe fn destroy_video_session_parameters_khr(
-        self,
+        &self,
         video_session_parameters: VideoSessionParametersKHR,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -10172,7 +10180,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdBeginVideoCodingKHR")]
     #[inline(always)]
-    pub unsafe fn cmd_begin_video_coding_khr(self, p_begin_info: *const VideoBeginCodingInfoKHR) {
+    pub unsafe fn cmd_begin_video_coding_khr(&self, p_begin_info: *const VideoBeginCodingInfoKHR) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdBeginVideoCodingKHR as usize,
@@ -10208,7 +10216,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdEndVideoCodingKHR")]
     #[inline(always)]
-    pub unsafe fn cmd_end_video_coding_khr(self, p_end_coding_info: *const VideoEndCodingInfoKHR) {
+    pub unsafe fn cmd_end_video_coding_khr(&self, p_end_coding_info: *const VideoEndCodingInfoKHR) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdEndVideoCodingKHR as usize,
@@ -10244,7 +10252,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdControlVideoCodingKHR")]
     #[inline(always)]
     pub unsafe fn cmd_control_video_coding_khr(
-        self,
+        &self,
         p_coding_control_info: *const VideoCodingControlInfoKHR,
     ) {
         let command = vtable_get(
@@ -10280,7 +10288,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdDecodeVideoKHR")]
     #[inline(always)]
-    pub unsafe fn cmd_decode_video_khr(self, p_decode_info: *const VideoDecodeInfoKHR) {
+    pub unsafe fn cmd_decode_video_khr(&self, p_decode_info: *const VideoDecodeInfoKHR) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdDecodeVideoKHR as usize,
@@ -10317,7 +10325,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdBeginRenderingKHR")]
     #[inline(always)]
-    pub unsafe fn cmd_begin_rendering_khr(self, p_rendering_info: *const RenderingInfo) {
+    pub unsafe fn cmd_begin_rendering_khr(&self, p_rendering_info: *const RenderingInfo) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdBeginRenderingKHR as usize,
@@ -10353,7 +10361,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdEndRenderingKHR")]
     #[inline(always)]
-    pub unsafe fn cmd_end_rendering_khr(self) {
+    pub unsafe fn cmd_end_rendering_khr(&self) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdEndRenderingKHR as usize,
@@ -10379,7 +10387,7 @@ impl PhysicalDevice {
     ///
     #[doc(alias = "vkGetPhysicalDeviceFeatures2KHR")]
     #[inline(always)]
-    pub unsafe fn get_features_2_khr(self, p_features: *mut PhysicalDeviceFeatures2) {
+    pub unsafe fn get_features_2_khr(&self, p_features: *mut PhysicalDeviceFeatures2) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkGetPhysicalDeviceFeatures2KHR as usize,
@@ -10406,7 +10414,7 @@ impl PhysicalDevice {
     ///
     #[doc(alias = "vkGetPhysicalDeviceProperties2KHR")]
     #[inline(always)]
-    pub unsafe fn get_properties_2_khr(self, p_properties: *mut PhysicalDeviceProperties2) {
+    pub unsafe fn get_properties_2_khr(&self, p_properties: *mut PhysicalDeviceProperties2) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkGetPhysicalDeviceProperties2KHR as usize,
@@ -10434,7 +10442,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceFormatProperties2KHR")]
     #[inline(always)]
     pub unsafe fn get_format_properties_2_khr(
-        self,
+        &self,
         format: Format,
         p_format_properties: *mut FormatProperties2,
     ) {
@@ -10485,7 +10493,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceImageFormatProperties2KHR")]
     #[inline(always)]
     pub unsafe fn get_image_format_properties_2_khr(
-        self,
+        &self,
         p_image_format_info: *const PhysicalDeviceImageFormatInfo2,
         p_image_format_properties: *mut ImageFormatProperties2,
     ) -> ResultCode {
@@ -10521,7 +10529,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceQueueFamilyProperties2KHR")]
     #[inline(always)]
     pub unsafe fn get_queue_family_properties_2_khr(
-        self,
+        &self,
         p_queue_family_property_count: *mut u32,
         p_queue_family_properties: *mut QueueFamilyProperties2,
     ) {
@@ -10560,7 +10568,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceMemoryProperties2KHR")]
     #[inline(always)]
     pub unsafe fn get_memory_properties_2_khr(
-        self,
+        &self,
         p_memory_properties: *mut PhysicalDeviceMemoryProperties2,
     ) {
         let command = vtable_get(
@@ -10599,7 +10607,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceSparseImageFormatProperties2KHR")]
     #[inline(always)]
     pub unsafe fn get_sparse_image_format_properties_2_khr(
-        self,
+        &self,
         p_format_info: *const PhysicalDeviceSparseImageFormatInfo2,
         p_property_count: *mut u32,
         p_properties: *mut SparseImageFormatProperties2,
@@ -10634,7 +10642,7 @@ impl Device {
     #[doc(alias = "vkGetDeviceGroupPeerMemoryFeaturesKHR")]
     #[inline(always)]
     pub unsafe fn get_device_group_peer_memory_features_khr(
-        self,
+        &self,
         heap_index: u32,
         local_device_index: u32,
         remote_device_index: u32,
@@ -10685,7 +10693,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetDeviceMaskKHR")]
     #[inline(always)]
-    pub unsafe fn cmd_set_device_mask_khr(self, device_mask: u32) {
+    pub unsafe fn cmd_set_device_mask_khr(&self, device_mask: u32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetDeviceMaskKHR as usize,
@@ -10722,7 +10730,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDispatchBaseKHR")]
     #[inline(always)]
     pub unsafe fn cmd_dispatch_base_khr(
-        self,
+        &self,
         base_group_x: u32,
         base_group_y: u32,
         base_group_z: u32,
@@ -10769,7 +10777,7 @@ impl Device {
     #[doc(alias = "vkTrimCommandPoolKHR")]
     #[inline(always)]
     pub unsafe fn trim_command_pool_khr(
-        self,
+        &self,
         command_pool: CommandPool,
         flags: CommandPoolTrimFlags,
     ) {
@@ -10815,7 +10823,7 @@ impl Instance {
     #[doc(alias = "vkEnumeratePhysicalDeviceGroupsKHR")]
     #[inline(always)]
     pub unsafe fn enumerate_physical_device_groups_khr(
-        self,
+        &self,
         p_physical_device_group_count: *mut u32,
         p_physical_device_group_properties: *mut PhysicalDeviceGroupProperties,
     ) -> ResultCode {
@@ -10855,7 +10863,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceExternalBufferPropertiesKHR")]
     #[inline(always)]
     pub unsafe fn get_external_buffer_properties_khr(
-        self,
+        &self,
         p_external_buffer_info: *const PhysicalDeviceExternalBufferInfo,
         p_external_buffer_properties: *mut ExternalBufferProperties,
     ) {
@@ -10904,7 +10912,7 @@ impl Device {
     #[doc(alias = "vkGetMemoryWin32HandleKHR")]
     #[inline(always)]
     pub unsafe fn get_memory_win_32_handle_khr(
-        self,
+        &self,
         p_get_win_32_handle_info: *const MemoryGetWin32HandleInfoKHR,
         p_handle: *mut HANDLE,
     ) -> ResultCode {
@@ -10945,7 +10953,7 @@ impl Device {
     #[doc(alias = "vkGetMemoryWin32HandlePropertiesKHR")]
     #[inline(always)]
     pub unsafe fn get_memory_win_32_handle_properties_khr(
-        self,
+        &self,
         handle_type: ExternalMemoryHandleTypeFlags,
         handle: HANDLE,
         p_memory_win_32_handle_properties: *mut MemoryWin32HandlePropertiesKHR,
@@ -10991,7 +10999,7 @@ impl Device {
     #[doc(alias = "vkGetMemoryFdKHR")]
     #[inline(always)]
     pub unsafe fn get_memory_fd_khr(
-        self,
+        &self,
         p_get_fd_info: *const MemoryGetFdInfoKHR,
         p_fd: *mut c_int,
     ) -> ResultCode {
@@ -11028,7 +11036,7 @@ impl Device {
     #[doc(alias = "vkGetMemoryFdPropertiesKHR")]
     #[inline(always)]
     pub unsafe fn get_memory_fd_properties_khr(
-        self,
+        &self,
         handle_type: ExternalMemoryHandleTypeFlags,
         fd: c_int,
         p_memory_fd_properties: *mut MemoryFdPropertiesKHR,
@@ -11062,7 +11070,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceExternalSemaphorePropertiesKHR")]
     #[inline(always)]
     pub unsafe fn get_external_semaphore_properties_khr(
-        self,
+        &self,
         p_external_semaphore_info: *const PhysicalDeviceExternalSemaphoreInfo,
         p_external_semaphore_properties: *mut ExternalSemaphoreProperties,
     ) {
@@ -11108,7 +11116,7 @@ impl Device {
     #[doc(alias = "vkImportSemaphoreWin32HandleKHR")]
     #[inline(always)]
     pub unsafe fn import_semaphore_win_32_handle_khr(
-        self,
+        &self,
         p_import_semaphore_win_32_handle_info: *const ImportSemaphoreWin32HandleInfoKHR,
     ) -> ResultCode {
         let command = vtable_get(
@@ -11148,7 +11156,7 @@ impl Device {
     #[doc(alias = "vkGetSemaphoreWin32HandleKHR")]
     #[inline(always)]
     pub unsafe fn get_semaphore_win_32_handle_khr(
-        self,
+        &self,
         p_get_win_32_handle_info: *const SemaphoreGetWin32HandleInfoKHR,
         p_handle: *mut HANDLE,
     ) -> ResultCode {
@@ -11186,7 +11194,7 @@ impl Device {
     #[doc(alias = "vkImportSemaphoreFdKHR")]
     #[inline(always)]
     pub unsafe fn import_semaphore_fd_khr(
-        self,
+        &self,
         p_import_semaphore_fd_info: *const ImportSemaphoreFdInfoKHR,
     ) -> ResultCode {
         let command = vtable_get(
@@ -11222,7 +11230,7 @@ impl Device {
     #[doc(alias = "vkGetSemaphoreFdKHR")]
     #[inline(always)]
     pub unsafe fn get_semaphore_fd_khr(
-        self,
+        &self,
         p_get_fd_info: *const SemaphoreGetFdInfoKHR,
         p_fd: *mut c_int,
     ) -> ResultCode {
@@ -11269,7 +11277,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdPushDescriptorSetKHR")]
     #[inline(always)]
     pub unsafe fn cmd_push_descriptor_set_khr(
-        self,
+        &self,
         pipeline_bind_point: PipelineBindPoint,
         layout: PipelineLayout,
         set: u32,
@@ -11328,7 +11336,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdPushDescriptorSetWithTemplateKHR")]
     #[inline(always)]
     pub unsafe fn cmd_push_descriptor_set_with_template_khr(
-        self,
+        &self,
         descriptor_update_template: DescriptorUpdateTemplate,
         layout: PipelineLayout,
         set: u32,
@@ -11376,7 +11384,7 @@ impl Device {
     #[doc(alias = "vkCreateDescriptorUpdateTemplateKHR")]
     #[inline(always)]
     pub unsafe fn create_descriptor_update_template_khr(
-        self,
+        &self,
         p_create_info: *const DescriptorUpdateTemplateCreateInfo,
         p_allocator: *const AllocationCallbacks,
         p_descriptor_update_template: *mut DescriptorUpdateTemplate,
@@ -11419,7 +11427,7 @@ impl Device {
     #[doc(alias = "vkDestroyDescriptorUpdateTemplateKHR")]
     #[inline(always)]
     pub unsafe fn destroy_descriptor_update_template_khr(
-        self,
+        &self,
         descriptor_update_template: DescriptorUpdateTemplate,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -11450,7 +11458,7 @@ impl Device {
     #[doc(alias = "vkUpdateDescriptorSetWithTemplateKHR")]
     #[inline(always)]
     pub unsafe fn update_descriptor_set_with_template_khr(
-        self,
+        &self,
         descriptor_set: DescriptorSet,
         descriptor_update_template: DescriptorUpdateTemplate,
         p_data: *const c_void,
@@ -11504,7 +11512,7 @@ impl Device {
     #[doc(alias = "vkCreateRenderPass2KHR")]
     #[inline(always)]
     pub unsafe fn create_render_pass_2_khr(
-        self,
+        &self,
         p_create_info: *const RenderPassCreateInfo2,
         p_allocator: *const AllocationCallbacks,
         p_render_pass: *mut RenderPass,
@@ -11546,7 +11554,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBeginRenderPass2KHR")]
     #[inline(always)]
     pub unsafe fn cmd_begin_render_pass_2_khr(
-        self,
+        &self,
         p_render_pass_begin: *const RenderPassBeginInfo,
         p_subpass_begin_info: *const SubpassBeginInfo,
     ) {
@@ -11587,7 +11595,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdNextSubpass2KHR")]
     #[inline(always)]
     pub unsafe fn cmd_next_subpass_2_khr(
-        self,
+        &self,
         p_subpass_begin_info: *const SubpassBeginInfo,
         p_subpass_end_info: *const SubpassEndInfo,
     ) {
@@ -11627,7 +11635,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdEndRenderPass2KHR")]
     #[inline(always)]
-    pub unsafe fn cmd_end_render_pass_2_khr(self, p_subpass_end_info: *const SubpassEndInfo) {
+    pub unsafe fn cmd_end_render_pass_2_khr(&self, p_subpass_end_info: *const SubpassEndInfo) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdEndRenderPass2KHR as usize,
@@ -11665,7 +11673,7 @@ impl Device {
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetSwapchainStatusKHR")]
     #[inline(always)]
-    pub unsafe fn get_swapchain_status_khr(self, swapchain: SwapchainKHR) -> ResultCode {
+    pub unsafe fn get_swapchain_status_khr(&self, swapchain: SwapchainKHR) -> ResultCode {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkGetSwapchainStatusKHR as usize,
@@ -11695,7 +11703,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceExternalFencePropertiesKHR")]
     #[inline(always)]
     pub unsafe fn get_external_fence_properties_khr(
-        self,
+        &self,
         p_external_fence_info: *const PhysicalDeviceExternalFenceInfo,
         p_external_fence_properties: *mut ExternalFenceProperties,
     ) {
@@ -11741,7 +11749,7 @@ impl Device {
     #[doc(alias = "vkImportFenceWin32HandleKHR")]
     #[inline(always)]
     pub unsafe fn import_fence_win_32_handle_khr(
-        self,
+        &self,
         p_import_fence_win_32_handle_info: *const ImportFenceWin32HandleInfoKHR,
     ) -> ResultCode {
         let command = vtable_get(
@@ -11781,7 +11789,7 @@ impl Device {
     #[doc(alias = "vkGetFenceWin32HandleKHR")]
     #[inline(always)]
     pub unsafe fn get_fence_win_32_handle_khr(
-        self,
+        &self,
         p_get_win_32_handle_info: *const FenceGetWin32HandleInfoKHR,
         p_handle: *mut HANDLE,
     ) -> ResultCode {
@@ -11818,7 +11826,7 @@ impl Device {
     #[doc(alias = "vkImportFenceFdKHR")]
     #[inline(always)]
     pub unsafe fn import_fence_fd_khr(
-        self,
+        &self,
         p_import_fence_fd_info: *const ImportFenceFdInfoKHR,
     ) -> ResultCode {
         let command = vtable_get(
@@ -11854,7 +11862,7 @@ impl Device {
     #[doc(alias = "vkGetFenceFdKHR")]
     #[inline(always)]
     pub unsafe fn get_fence_fd_khr(
-        self,
+        &self,
         p_get_fd_info: *const FenceGetFdInfoKHR,
         p_fd: *mut c_int,
     ) -> ResultCode {
@@ -11899,7 +11907,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR")]
     #[inline(always)]
     pub unsafe fn enumerate_queue_family_performance_query_counters_khr(
-        self,
+        &self,
         queue_family_index: u32,
         p_counter_count: *mut u32,
         p_counters: *mut PerformanceCounterKHR,
@@ -11943,7 +11951,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR")]
     #[inline(always)]
     pub unsafe fn get_queue_family_performance_query_passes_khr(
-        self,
+        &self,
         p_performance_query_create_info: *const QueryPoolPerformanceCreateInfoKHR,
         p_num_passes: *mut u32,
     ) {
@@ -11984,7 +11992,7 @@ impl Device {
     #[doc(alias = "vkAcquireProfilingLockKHR")]
     #[inline(always)]
     pub unsafe fn acquire_profiling_lock_khr(
-        self,
+        &self,
         p_info: *const AcquireProfilingLockInfoKHR,
     ) -> ResultCode {
         let command = vtable_get(
@@ -12010,7 +12018,7 @@ impl Device {
     ///
     #[doc(alias = "vkReleaseProfilingLockKHR")]
     #[inline(always)]
-    pub unsafe fn release_profiling_lock_khr(self) {
+    pub unsafe fn release_profiling_lock_khr(&self) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkReleaseProfilingLockKHR as usize,
@@ -12048,7 +12056,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceSurfaceCapabilities2KHR")]
     #[inline(always)]
     pub unsafe fn get_surface_capabilities_2_khr(
-        self,
+        &self,
         p_surface_info: *const PhysicalDeviceSurfaceInfo2KHR,
         p_surface_capabilities: *mut SurfaceCapabilities2KHR,
     ) -> ResultCode {
@@ -12097,7 +12105,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceSurfaceFormats2KHR")]
     #[inline(always)]
     pub unsafe fn get_surface_formats_2_khr(
-        self,
+        &self,
         p_surface_info: *const PhysicalDeviceSurfaceInfo2KHR,
         p_surface_format_count: *mut u32,
         p_surface_formats: *mut SurfaceFormat2KHR,
@@ -12147,7 +12155,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceDisplayProperties2KHR")]
     #[inline(always)]
     pub unsafe fn get_display_properties_2_khr(
-        self,
+        &self,
         p_property_count: *mut u32,
         p_properties: *mut DisplayProperties2KHR,
     ) -> ResultCode {
@@ -12195,7 +12203,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceDisplayPlaneProperties2KHR")]
     #[inline(always)]
     pub unsafe fn get_display_plane_properties_2_khr(
-        self,
+        &self,
         p_property_count: *mut u32,
         p_properties: *mut DisplayPlaneProperties2KHR,
     ) -> ResultCode {
@@ -12243,7 +12251,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetDisplayModeProperties2KHR")]
     #[inline(always)]
     pub unsafe fn get_display_mode_properties_2_khr(
-        self,
+        &self,
         display: DisplayKHR,
         p_property_count: *mut u32,
         p_properties: *mut DisplayModeProperties2KHR,
@@ -12285,7 +12293,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetDisplayPlaneCapabilities2KHR")]
     #[inline(always)]
     pub unsafe fn get_display_plane_capabilities_2_khr(
-        self,
+        &self,
         p_display_plane_info: *const DisplayPlaneInfo2KHR,
         p_capabilities: *mut DisplayPlaneCapabilities2KHR,
     ) -> ResultCode {
@@ -12319,7 +12327,7 @@ impl Device {
     #[doc(alias = "vkGetImageMemoryRequirements2KHR")]
     #[inline(always)]
     pub unsafe fn get_image_memory_requirements_2_khr(
-        self,
+        &self,
         p_info: *const ImageMemoryRequirementsInfo2,
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
@@ -12353,7 +12361,7 @@ impl Device {
     #[doc(alias = "vkGetBufferMemoryRequirements2KHR")]
     #[inline(always)]
     pub unsafe fn get_buffer_memory_requirements_2_khr(
-        self,
+        &self,
         p_info: *const BufferMemoryRequirementsInfo2,
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
@@ -12391,7 +12399,7 @@ impl Device {
     #[doc(alias = "vkGetImageSparseMemoryRequirements2KHR")]
     #[inline(always)]
     pub unsafe fn get_image_sparse_memory_requirements_2_khr(
-        self,
+        &self,
         p_info: *const ImageSparseMemoryRequirementsInfo2,
         p_sparse_memory_requirement_count: *mut u32,
         p_sparse_memory_requirements: *mut SparseImageMemoryRequirements2,
@@ -12445,7 +12453,7 @@ impl Device {
     #[doc(alias = "vkCreateSamplerYcbcrConversionKHR")]
     #[inline(always)]
     pub unsafe fn create_sampler_ycbcr_conversion_khr(
-        self,
+        &self,
         p_create_info: *const SamplerYcbcrConversionCreateInfo,
         p_allocator: *const AllocationCallbacks,
         p_ycbcr_conversion: *mut SamplerYcbcrConversion,
@@ -12481,7 +12489,7 @@ impl Device {
     #[doc(alias = "vkDestroySamplerYcbcrConversionKHR")]
     #[inline(always)]
     pub unsafe fn destroy_sampler_ycbcr_conversion_khr(
-        self,
+        &self,
         ycbcr_conversion: SamplerYcbcrConversion,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -12521,7 +12529,7 @@ impl Device {
     #[doc(alias = "vkBindBufferMemory2KHR")]
     #[inline(always)]
     pub unsafe fn bind_buffer_memory_2_khr(
-        self,
+        &self,
         bind_info_count: u32,
         p_bind_infos: *const BindBufferMemoryInfo,
     ) -> ResultCode {
@@ -12559,7 +12567,7 @@ impl Device {
     #[doc(alias = "vkBindImageMemory2KHR")]
     #[inline(always)]
     pub unsafe fn bind_image_memory_2_khr(
-        self,
+        &self,
         bind_info_count: u32,
         p_bind_infos: *const BindImageMemoryInfo,
     ) -> ResultCode {
@@ -12592,7 +12600,7 @@ impl Device {
     #[doc(alias = "vkGetDescriptorSetLayoutSupportKHR")]
     #[inline(always)]
     pub unsafe fn get_descriptor_set_layout_support_khr(
-        self,
+        &self,
         p_create_info: *const DescriptorSetLayoutCreateInfo,
         p_support: *mut DescriptorSetLayoutSupport,
     ) {
@@ -12633,7 +12641,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDrawIndirectCountKHR")]
     #[inline(always)]
     pub unsafe fn cmd_draw_indirect_count_khr(
-        self,
+        &self,
         buffer: Buffer,
         offset: DeviceSize,
         count_buffer: Buffer,
@@ -12687,7 +12695,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDrawIndexedIndirectCountKHR")]
     #[inline(always)]
     pub unsafe fn cmd_draw_indexed_indirect_count_khr(
-        self,
+        &self,
         buffer: Buffer,
         offset: DeviceSize,
         count_buffer: Buffer,
@@ -12741,7 +12749,7 @@ impl Device {
     #[doc(alias = "vkGetSemaphoreCounterValueKHR")]
     #[inline(always)]
     pub unsafe fn get_semaphore_counter_value_khr(
-        self,
+        &self,
         semaphore: Semaphore,
         p_value: *mut u64,
     ) -> ResultCode {
@@ -12782,7 +12790,7 @@ impl Device {
     #[doc(alias = "vkWaitSemaphoresKHR")]
     #[inline(always)]
     pub unsafe fn wait_semaphores_khr(
-        self,
+        &self,
         p_wait_info: *const SemaphoreWaitInfo,
         timeout: u64,
     ) -> ResultCode {
@@ -12820,7 +12828,7 @@ impl Device {
     #[doc(alias = "vkSignalSemaphoreKHR")]
     #[inline(always)]
     pub unsafe fn signal_semaphore_khr(
-        self,
+        &self,
         p_signal_info: *const SemaphoreSignalInfo,
     ) -> ResultCode {
         let command = vtable_get(
@@ -12862,7 +12870,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceFragmentShadingRatesKHR")]
     #[inline(always)]
     pub unsafe fn get_fragment_shading_rates_khr(
-        self,
+        &self,
         p_fragment_shading_rate_count: *mut u32,
         p_fragment_shading_rates: *mut PhysicalDeviceFragmentShadingRateKHR,
     ) -> ResultCode {
@@ -12913,7 +12921,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetFragmentShadingRateKHR")]
     #[inline(always)]
     pub unsafe fn cmd_set_fragment_shading_rate_khr(
-        self,
+        &self,
         p_fragment_size: *const Extent2D,
         combiner_ops: *const [FragmentShadingRateCombinerOpKHR; 2 as usize],
     ) {
@@ -12954,7 +12962,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetRenderingAttachmentLocationsKHR")]
     #[inline(always)]
     pub unsafe fn cmd_set_rendering_attachment_locations_khr(
-        self,
+        &self,
         p_location_info: *const RenderingAttachmentLocationInfo,
     ) {
         let command = vtable_get(
@@ -12996,7 +13004,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetRenderingInputAttachmentIndicesKHR")]
     #[inline(always)]
     pub unsafe fn cmd_set_rendering_input_attachment_indices_khr(
-        self,
+        &self,
         p_input_attachment_index_info: *const RenderingInputAttachmentIndexInfo,
     ) {
         let command = vtable_get(
@@ -13041,7 +13049,7 @@ impl Device {
     #[doc(alias = "vkWaitForPresentKHR")]
     #[inline(always)]
     pub unsafe fn wait_for_present_khr(
-        self,
+        &self,
         swapchain: SwapchainKHR,
         present_id: u64,
         timeout: u64,
@@ -13072,7 +13080,7 @@ impl Device {
     #[doc(alias = "vkGetBufferDeviceAddressKHR")]
     #[inline(always)]
     pub unsafe fn get_buffer_device_address_khr(
-        self,
+        &self,
         p_info: *const BufferDeviceAddressInfo,
     ) -> DeviceAddress {
         let command = vtable_get(
@@ -13102,7 +13110,7 @@ impl Device {
     #[doc(alias = "vkGetBufferOpaqueCaptureAddressKHR")]
     #[inline(always)]
     pub unsafe fn get_buffer_opaque_capture_address_khr(
-        self,
+        &self,
         p_info: *const BufferDeviceAddressInfo,
     ) -> u64 {
         let command = vtable_get(
@@ -13132,7 +13140,7 @@ impl Device {
     #[doc(alias = "vkGetDeviceMemoryOpaqueCaptureAddressKHR")]
     #[inline(always)]
     pub unsafe fn get_device_memory_opaque_capture_address_khr(
-        self,
+        &self,
         p_info: *const DeviceMemoryOpaqueCaptureAddressInfo,
     ) -> u64 {
         let command = vtable_get(
@@ -13176,7 +13184,7 @@ impl Device {
     #[doc(alias = "vkCreateDeferredOperationKHR")]
     #[inline(always)]
     pub unsafe fn create_deferred_operation_khr(
-        self,
+        &self,
         p_allocator: *const AllocationCallbacks,
         p_deferred_operation: *mut DeferredOperationKHR,
     ) -> ResultCode {
@@ -13210,7 +13218,7 @@ impl Device {
     #[doc(alias = "vkDestroyDeferredOperationKHR")]
     #[inline(always)]
     pub unsafe fn destroy_deferred_operation_khr(
-        self,
+        &self,
         operation: DeferredOperationKHR,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -13240,7 +13248,7 @@ impl Device {
     #[doc(alias = "vkGetDeferredOperationMaxConcurrencyKHR")]
     #[inline(always)]
     pub unsafe fn get_deferred_operation_max_concurrency_khr(
-        self,
+        &self,
         operation: DeferredOperationKHR,
     ) -> u32 {
         let command = vtable_get(
@@ -13278,7 +13286,7 @@ impl Device {
     #[doc(alias = "vkGetDeferredOperationResultKHR")]
     #[inline(always)]
     pub unsafe fn get_deferred_operation_result_khr(
-        self,
+        &self,
         operation: DeferredOperationKHR,
     ) -> ResultCode {
         let command = vtable_get(
@@ -13316,7 +13324,10 @@ impl Device {
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkDeferredOperationJoinKHR")]
     #[inline(always)]
-    pub unsafe fn deferred_operation_join_khr(self, operation: DeferredOperationKHR) -> ResultCode {
+    pub unsafe fn deferred_operation_join_khr(
+        &self,
+        operation: DeferredOperationKHR,
+    ) -> ResultCode {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkDeferredOperationJoinKHR as usize,
@@ -13358,7 +13369,7 @@ impl Device {
     #[doc(alias = "vkGetPipelineExecutablePropertiesKHR")]
     #[inline(always)]
     pub unsafe fn get_pipeline_executable_properties_khr(
-        self,
+        &self,
         p_pipeline_info: *const PipelineInfoKHR,
         p_executable_count: *mut u32,
         p_properties: *mut PipelineExecutablePropertiesKHR,
@@ -13412,7 +13423,7 @@ impl Device {
     #[doc(alias = "vkGetPipelineExecutableStatisticsKHR")]
     #[inline(always)]
     pub unsafe fn get_pipeline_executable_statistics_khr(
-        self,
+        &self,
         p_executable_info: *const PipelineExecutableInfoKHR,
         p_statistic_count: *mut u32,
         p_statistics: *mut PipelineExecutableStatisticKHR,
@@ -13467,7 +13478,7 @@ impl Device {
     #[doc(alias = "vkGetPipelineExecutableInternalRepresentationsKHR")]
     #[inline(always)]
     pub unsafe fn get_pipeline_executable_internal_representations_khr(
-        self,
+        &self,
         p_executable_info: *const PipelineExecutableInfoKHR,
         p_internal_representation_count: *mut u32,
         p_internal_representations: *mut PipelineExecutableInternalRepresentationKHR,
@@ -13517,7 +13528,7 @@ impl Device {
     #[doc(alias = "vkMapMemory2KHR")]
     #[inline(always)]
     pub unsafe fn map_memory_2_khr(
-        self,
+        &self,
         p_memory_map_info: *const MemoryMapInfo,
         pp_data: *mut *mut c_void,
     ) -> ResultCode {
@@ -13550,7 +13561,7 @@ impl Device {
     #[doc(alias = "vkUnmapMemory2KHR")]
     #[inline(always)]
     pub unsafe fn unmap_memory_2_khr(
-        self,
+        &self,
         p_memory_unmap_info: *const MemoryUnmapInfo,
     ) -> ResultCode {
         let command = vtable_get(
@@ -13594,7 +13605,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR")]
     #[inline(always)]
     pub unsafe fn get_video_encode_quality_level_properties_khr(
-        self,
+        &self,
         p_quality_level_info: *const PhysicalDeviceVideoEncodeQualityLevelInfoKHR,
         p_quality_level_properties: *mut VideoEncodeQualityLevelPropertiesKHR,
     ) -> ResultCode {
@@ -13651,7 +13662,7 @@ impl Device {
     #[doc(alias = "vkGetEncodedVideoSessionParametersKHR")]
     #[inline(always)]
     pub unsafe fn get_encoded_video_session_parameters_khr(
-        self,
+        &self,
         p_video_session_parameters_info: *const VideoEncodeSessionParametersGetInfoKHR,
         p_feedback_info: *mut VideoEncodeSessionParametersFeedbackInfoKHR,
         p_data_size: *mut usize,
@@ -13699,7 +13710,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdEncodeVideoKHR")]
     #[inline(always)]
-    pub unsafe fn cmd_encode_video_khr(self, p_encode_info: *const VideoEncodeInfoKHR) {
+    pub unsafe fn cmd_encode_video_khr(&self, p_encode_info: *const VideoEncodeInfoKHR) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdEncodeVideoKHR as usize,
@@ -13739,7 +13750,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetEvent2KHR")]
     #[inline(always)]
     pub unsafe fn cmd_set_event_2_khr(
-        self,
+        &self,
         event: Event,
         p_dependency_info: *const DependencyInfo,
     ) {
@@ -13784,7 +13795,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdResetEvent2KHR")]
     #[inline(always)]
-    pub unsafe fn cmd_reset_event_2_khr(self, event: Event, stage_mask: PipelineStageFlags2) {
+    pub unsafe fn cmd_reset_event_2_khr(&self, event: Event, stage_mask: PipelineStageFlags2) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdResetEvent2KHR as usize,
@@ -13824,7 +13835,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdWaitEvents2KHR")]
     #[inline(always)]
     pub unsafe fn cmd_wait_events_2_khr(
-        self,
+        &self,
         event_count: u32,
         p_events: *const Event,
         p_dependency_infos: *const DependencyInfo,
@@ -13868,7 +13879,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdPipelineBarrier2KHR")]
     #[inline(always)]
-    pub unsafe fn cmd_pipeline_barrier_2_khr(self, p_dependency_info: *const DependencyInfo) {
+    pub unsafe fn cmd_pipeline_barrier_2_khr(&self, p_dependency_info: *const DependencyInfo) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdPipelineBarrier2KHR as usize,
@@ -13912,7 +13923,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdWriteTimestamp2KHR")]
     #[inline(always)]
     pub unsafe fn cmd_write_timestamp_2_khr(
-        self,
+        &self,
         stage: PipelineStageFlags2,
         query_pool: QueryPool,
         query: u32,
@@ -13956,7 +13967,7 @@ impl Queue {
     #[doc(alias = "vkQueueSubmit2KHR")]
     #[inline(always)]
     pub unsafe fn submit_2_khr(
-        self,
+        &self,
         submit_count: u32,
         p_submits: *const SubmitInfo2,
         fence: Fence,
@@ -13995,7 +14006,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdBindIndexBuffer3KHR")]
     #[inline(always)]
-    pub unsafe fn cmd_bind_index_buffer_3_khr(self, p_info: *const BindIndexBuffer3InfoKHR) {
+    pub unsafe fn cmd_bind_index_buffer_3_khr(&self, p_info: *const BindIndexBuffer3InfoKHR) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdBindIndexBuffer3KHR as usize,
@@ -14031,7 +14042,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBindVertexBuffers3KHR")]
     #[inline(always)]
     pub unsafe fn cmd_bind_vertex_buffers_3_khr(
-        self,
+        &self,
         first_binding: u32,
         binding_count: u32,
         p_binding_infos: *const BindVertexBuffer3InfoKHR,
@@ -14070,7 +14081,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdDrawIndirect2KHR")]
     #[inline(always)]
-    pub unsafe fn cmd_draw_indirect_2_khr(self, p_info: *const DrawIndirect2InfoKHR) {
+    pub unsafe fn cmd_draw_indirect_2_khr(&self, p_info: *const DrawIndirect2InfoKHR) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdDrawIndirect2KHR as usize,
@@ -14105,7 +14116,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdDrawIndexedIndirect2KHR")]
     #[inline(always)]
-    pub unsafe fn cmd_draw_indexed_indirect_2_khr(self, p_info: *const DrawIndirect2InfoKHR) {
+    pub unsafe fn cmd_draw_indexed_indirect_2_khr(&self, p_info: *const DrawIndirect2InfoKHR) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdDrawIndexedIndirect2KHR as usize,
@@ -14141,7 +14152,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdDispatchIndirect2KHR")]
     #[inline(always)]
-    pub unsafe fn cmd_dispatch_indirect_2_khr(self, p_info: *const DispatchIndirect2InfoKHR) {
+    pub unsafe fn cmd_dispatch_indirect_2_khr(&self, p_info: *const DispatchIndirect2InfoKHR) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdDispatchIndirect2KHR as usize,
@@ -14179,7 +14190,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdCopyMemoryKHR")]
     #[inline(always)]
-    pub unsafe fn cmd_copy_memory_khr(self, p_copy_memory_info: *const CopyDeviceMemoryInfoKHR) {
+    pub unsafe fn cmd_copy_memory_khr(&self, p_copy_memory_info: *const CopyDeviceMemoryInfoKHR) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdCopyMemoryKHR as usize,
@@ -14218,7 +14229,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdCopyMemoryToImageKHR")]
     #[inline(always)]
     pub unsafe fn cmd_copy_memory_to_image_khr(
-        self,
+        &self,
         p_copy_memory_info: *const CopyDeviceMemoryImageInfoKHR,
     ) {
         let command = vtable_get(
@@ -14259,7 +14270,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdCopyImageToMemoryKHR")]
     #[inline(always)]
     pub unsafe fn cmd_copy_image_to_memory_khr(
-        self,
+        &self,
         p_copy_memory_info: *const CopyDeviceMemoryImageInfoKHR,
     ) {
         let command = vtable_get(
@@ -14305,7 +14316,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdUpdateMemoryKHR")]
     #[inline(always)]
     pub unsafe fn cmd_update_memory_khr(
-        self,
+        &self,
         p_dst_range: *const DeviceAddressRangeKHR,
         dst_flags: AddressCommandFlagsKHR,
         data_size: DeviceSize,
@@ -14353,7 +14364,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdFillMemoryKHR")]
     #[inline(always)]
     pub unsafe fn cmd_fill_memory_khr(
-        self,
+        &self,
         p_dst_range: *const DeviceAddressRangeKHR,
         dst_flags: AddressCommandFlagsKHR,
         data: u32,
@@ -14404,7 +14415,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdCopyQueryPoolResultsToMemoryKHR")]
     #[inline(always)]
     pub unsafe fn cmd_copy_query_pool_results_to_memory_khr(
-        self,
+        &self,
         query_pool: QueryPool,
         first_query: u32,
         query_count: u32,
@@ -14457,7 +14468,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdDrawIndirectCount2KHR")]
     #[inline(always)]
-    pub unsafe fn cmd_draw_indirect_count_2_khr(self, p_info: *const DrawIndirectCount2InfoKHR) {
+    pub unsafe fn cmd_draw_indirect_count_2_khr(&self, p_info: *const DrawIndirectCount2InfoKHR) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdDrawIndirectCount2KHR as usize,
@@ -14493,7 +14504,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDrawIndexedIndirectCount2KHR")]
     #[inline(always)]
     pub unsafe fn cmd_draw_indexed_indirect_count_2_khr(
-        self,
+        &self,
         p_info: *const DrawIndirectCount2InfoKHR,
     ) {
         let command = vtable_get(
@@ -14534,7 +14545,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBeginConditionalRendering2EXT")]
     #[inline(always)]
     pub unsafe fn cmd_begin_conditional_rendering_2_ext(
-        self,
+        &self,
         p_conditional_rendering_begin: *const ConditionalRenderingBeginInfo2EXT,
     ) {
         let command = vtable_get(
@@ -14576,7 +14587,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBindTransformFeedbackBuffers2EXT")]
     #[inline(always)]
     pub unsafe fn cmd_bind_transform_feedback_buffers_2_ext(
-        self,
+        &self,
         first_binding: u32,
         binding_count: u32,
         p_binding_infos: *const BindTransformFeedbackBuffer2InfoEXT,
@@ -14621,7 +14632,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBeginTransformFeedback2EXT")]
     #[inline(always)]
     pub unsafe fn cmd_begin_transform_feedback_2_ext(
-        self,
+        &self,
         first_counter_range: u32,
         counter_range_count: u32,
         p_counter_infos: *const BindTransformFeedbackBuffer2InfoEXT,
@@ -14673,7 +14684,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdEndTransformFeedback2EXT")]
     #[inline(always)]
     pub unsafe fn cmd_end_transform_feedback_2_ext(
-        self,
+        &self,
         first_counter_range: u32,
         counter_range_count: u32,
         p_counter_infos: *const BindTransformFeedbackBuffer2InfoEXT,
@@ -14727,7 +14738,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDrawIndirectByteCount2EXT")]
     #[inline(always)]
     pub unsafe fn cmd_draw_indirect_byte_count_2_ext(
-        self,
+        &self,
         instance_count: u32,
         first_instance: u32,
         p_counter_info: *const BindTransformFeedbackBuffer2InfoEXT,
@@ -14778,7 +14789,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdDrawMeshTasksIndirect2EXT")]
     #[inline(always)]
-    pub unsafe fn cmd_draw_mesh_tasks_indirect_2_ext(self, p_info: *const DrawIndirect2InfoKHR) {
+    pub unsafe fn cmd_draw_mesh_tasks_indirect_2_ext(&self, p_info: *const DrawIndirect2InfoKHR) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdDrawMeshTasksIndirect2EXT as usize,
@@ -14815,7 +14826,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDrawMeshTasksIndirectCount2EXT")]
     #[inline(always)]
     pub unsafe fn cmd_draw_mesh_tasks_indirect_count_2_ext(
-        self,
+        &self,
         p_info: *const DrawIndirectCount2InfoKHR,
     ) {
         let command = vtable_get(
@@ -14855,7 +14866,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdWriteMarkerToMemoryAMD")]
     #[inline(always)]
-    pub unsafe fn cmd_write_marker_to_memory_amd(self, p_info: *const MemoryMarkerInfoAMD) {
+    pub unsafe fn cmd_write_marker_to_memory_amd(&self, p_info: *const MemoryMarkerInfoAMD) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdWriteMarkerToMemoryAMD as usize,
@@ -14897,7 +14908,7 @@ impl Device {
     #[doc(alias = "vkCreateAccelerationStructure2KHR")]
     #[inline(always)]
     pub unsafe fn create_acceleration_structure_2_khr(
-        self,
+        &self,
         p_create_info: *const AccelerationStructureCreateInfo2KHR,
         p_allocator: *const AllocationCallbacks,
         p_acceleration_structure: *mut AccelerationStructureKHR,
@@ -14947,7 +14958,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdCopyBuffer2KHR")]
     #[inline(always)]
-    pub unsafe fn cmd_copy_buffer_2_khr(self, p_copy_buffer_info: *const CopyBufferInfo2) {
+    pub unsafe fn cmd_copy_buffer_2_khr(&self, p_copy_buffer_info: *const CopyBufferInfo2) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdCopyBuffer2KHR as usize,
@@ -14985,7 +14996,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdCopyImage2KHR")]
     #[inline(always)]
-    pub unsafe fn cmd_copy_image_2_khr(self, p_copy_image_info: *const CopyImageInfo2) {
+    pub unsafe fn cmd_copy_image_2_khr(&self, p_copy_image_info: *const CopyImageInfo2) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdCopyImage2KHR as usize,
@@ -15024,7 +15035,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdCopyBufferToImage2KHR")]
     #[inline(always)]
     pub unsafe fn cmd_copy_buffer_to_image_2_khr(
-        self,
+        &self,
         p_copy_buffer_to_image_info: *const CopyBufferToImageInfo2,
     ) {
         let command = vtable_get(
@@ -15065,7 +15076,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdCopyImageToBuffer2KHR")]
     #[inline(always)]
     pub unsafe fn cmd_copy_image_to_buffer_2_khr(
-        self,
+        &self,
         p_copy_image_to_buffer_info: *const CopyImageToBufferInfo2,
     ) {
         let command = vtable_get(
@@ -15103,7 +15114,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdBlitImage2KHR")]
     #[inline(always)]
-    pub unsafe fn cmd_blit_image_2_khr(self, p_blit_image_info: *const BlitImageInfo2) {
+    pub unsafe fn cmd_blit_image_2_khr(&self, p_blit_image_info: *const BlitImageInfo2) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdBlitImage2KHR as usize,
@@ -15139,7 +15150,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdResolveImage2KHR")]
     #[inline(always)]
-    pub unsafe fn cmd_resolve_image_2_khr(self, p_resolve_image_info: *const ResolveImageInfo2) {
+    pub unsafe fn cmd_resolve_image_2_khr(&self, p_resolve_image_info: *const ResolveImageInfo2) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdResolveImage2KHR as usize,
@@ -15174,7 +15185,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdTraceRaysIndirect2KHR")]
     #[inline(always)]
-    pub unsafe fn cmd_trace_rays_indirect_2_khr(self, indirect_device_address: DeviceAddress) {
+    pub unsafe fn cmd_trace_rays_indirect_2_khr(&self, indirect_device_address: DeviceAddress) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdTraceRaysIndirect2KHR as usize,
@@ -15204,7 +15215,7 @@ impl Device {
     #[doc(alias = "vkGetDeviceBufferMemoryRequirementsKHR")]
     #[inline(always)]
     pub unsafe fn get_device_buffer_memory_requirements_khr(
-        self,
+        &self,
         p_info: *const DeviceBufferMemoryRequirements,
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
@@ -15238,7 +15249,7 @@ impl Device {
     #[doc(alias = "vkGetDeviceImageMemoryRequirementsKHR")]
     #[inline(always)]
     pub unsafe fn get_device_image_memory_requirements_khr(
-        self,
+        &self,
         p_info: *const DeviceImageMemoryRequirements,
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
@@ -15276,7 +15287,7 @@ impl Device {
     #[doc(alias = "vkGetDeviceImageSparseMemoryRequirementsKHR")]
     #[inline(always)]
     pub unsafe fn get_device_image_sparse_memory_requirements_khr(
-        self,
+        &self,
         p_info: *const DeviceImageMemoryRequirements,
         p_sparse_memory_requirement_count: *mut u32,
         p_sparse_memory_requirements: *mut SparseImageMemoryRequirements2,
@@ -15330,7 +15341,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBindIndexBuffer2KHR")]
     #[inline(always)]
     pub unsafe fn cmd_bind_index_buffer_2_khr(
-        self,
+        &self,
         buffer: Buffer,
         offset: DeviceSize,
         size: DeviceSize,
@@ -15362,7 +15373,7 @@ impl Device {
     #[doc(alias = "vkGetRenderingAreaGranularityKHR")]
     #[inline(always)]
     pub unsafe fn get_rendering_area_granularity_khr(
-        self,
+        &self,
         p_rendering_area_info: *const RenderingAreaInfo,
         p_granularity: *mut Extent2D,
     ) {
@@ -15393,7 +15404,7 @@ impl Device {
     #[doc(alias = "vkGetDeviceImageSubresourceLayoutKHR")]
     #[inline(always)]
     pub unsafe fn get_device_image_subresource_layout_khr(
-        self,
+        &self,
         p_info: *const DeviceImageSubresourceInfo,
         p_layout: *mut SubresourceLayout2,
     ) {
@@ -15424,7 +15435,7 @@ impl Device {
     #[doc(alias = "vkGetImageSubresourceLayout2KHR")]
     #[inline(always)]
     pub unsafe fn get_image_subresource_layout_2_khr(
-        self,
+        &self,
         image: Image,
         p_subresource: *const ImageSubresource2,
         p_layout: *mut SubresourceLayout2,
@@ -15469,7 +15480,7 @@ impl Device {
     #[doc(alias = "vkWaitForPresent2KHR")]
     #[inline(always)]
     pub unsafe fn wait_for_present_2_khr(
-        self,
+        &self,
         swapchain: SwapchainKHR,
         p_present_wait_2_info: *const PresentWait2InfoKHR,
     ) -> ResultCode {
@@ -15516,7 +15527,7 @@ impl Device {
     #[doc(alias = "vkCreatePipelineBinariesKHR")]
     #[inline(always)]
     pub unsafe fn create_pipeline_binaries_khr(
-        self,
+        &self,
         p_create_info: *const PipelineBinaryCreateInfoKHR,
         p_allocator: *const AllocationCallbacks,
         p_binaries: *mut PipelineBinaryHandlesInfoKHR,
@@ -15551,7 +15562,7 @@ impl Device {
     #[doc(alias = "vkDestroyPipelineBinaryKHR")]
     #[inline(always)]
     pub unsafe fn destroy_pipeline_binary_khr(
-        self,
+        &self,
         pipeline_binary: PipelineBinaryKHR,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -15594,7 +15605,7 @@ impl Device {
     #[doc(alias = "vkGetPipelineKeyKHR")]
     #[inline(always)]
     pub unsafe fn get_pipeline_key_khr(
-        self,
+        &self,
         p_pipeline_create_info: *const PipelineCreateInfoKHR,
         p_pipeline_key: *mut PipelineBinaryKeyKHR,
     ) -> ResultCode {
@@ -15640,7 +15651,7 @@ impl Device {
     #[doc(alias = "vkGetPipelineBinaryDataKHR")]
     #[inline(always)]
     pub unsafe fn get_pipeline_binary_data_khr(
-        self,
+        &self,
         p_info: *const PipelineBinaryDataInfoKHR,
         p_pipeline_binary_key: *mut PipelineBinaryKeyKHR,
         p_pipeline_binary_data_size: *mut usize,
@@ -15691,7 +15702,7 @@ impl Device {
     #[doc(alias = "vkReleaseCapturedPipelineDataKHR")]
     #[inline(always)]
     pub unsafe fn release_captured_pipeline_data_khr(
-        self,
+        &self,
         p_info: *const ReleaseCapturedPipelineDataInfoKHR,
         p_allocator: *const AllocationCallbacks,
     ) -> ResultCode {
@@ -15728,7 +15739,7 @@ impl Device {
     #[doc(alias = "vkReleaseSwapchainImagesKHR")]
     #[inline(always)]
     pub unsafe fn release_swapchain_images_khr(
-        self,
+        &self,
         p_release_info: *const ReleaseSwapchainImagesInfoKHR,
     ) -> ResultCode {
         let command = vtable_get(
@@ -15773,7 +15784,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR")]
     #[inline(always)]
     pub unsafe fn get_cooperative_matrix_properties_khr(
-        self,
+        &self,
         p_property_count: *mut u32,
         p_properties: *mut CooperativeMatrixPropertiesKHR,
     ) -> ResultCode {
@@ -15815,7 +15826,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetLineStippleKHR")]
     #[inline(always)]
     pub unsafe fn cmd_set_line_stipple_khr(
-        self,
+        &self,
         line_stipple_factor: u32,
         line_stipple_pattern: u16,
     ) {
@@ -15856,7 +15867,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceCalibrateableTimeDomainsKHR")]
     #[inline(always)]
     pub unsafe fn get_calibrateable_time_domains_khr(
-        self,
+        &self,
         p_time_domain_count: *mut u32,
         p_time_domains: *mut TimeDomainKHR,
     ) -> ResultCode {
@@ -15901,7 +15912,7 @@ impl Device {
     #[doc(alias = "vkGetCalibratedTimestampsKHR")]
     #[inline(always)]
     pub unsafe fn get_calibrated_timestamps_khr(
-        self,
+        &self,
         timestamp_count: u32,
         p_timestamp_infos: *const CalibratedTimestampInfoKHR,
         p_timestamps: *mut u64,
@@ -15953,7 +15964,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBindDescriptorSets2KHR")]
     #[inline(always)]
     pub unsafe fn cmd_bind_descriptor_sets_2_khr(
-        self,
+        &self,
         p_bind_descriptor_sets_info: *const BindDescriptorSetsInfo,
     ) {
         let command = vtable_get(
@@ -15993,7 +16004,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdPushConstants2KHR")]
     #[inline(always)]
-    pub unsafe fn cmd_push_constants_2_khr(self, p_push_constants_info: *const PushConstantsInfo) {
+    pub unsafe fn cmd_push_constants_2_khr(&self, p_push_constants_info: *const PushConstantsInfo) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdPushConstants2KHR as usize,
@@ -16031,7 +16042,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdPushDescriptorSet2KHR")]
     #[inline(always)]
     pub unsafe fn cmd_push_descriptor_set_2_khr(
-        self,
+        &self,
         p_push_descriptor_set_info: *const PushDescriptorSetInfo,
     ) {
         let command = vtable_get(
@@ -16071,7 +16082,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdPushDescriptorSetWithTemplate2KHR")]
     #[inline(always)]
     pub unsafe fn cmd_push_descriptor_set_with_template_2_khr(
-        self,
+        &self,
         p_push_descriptor_set_with_template_info: *const PushDescriptorSetWithTemplateInfo,
     ) {
         let command = vtable_get(
@@ -16113,7 +16124,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetDescriptorBufferOffsets2EXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_descriptor_buffer_offsets_2_ext(
-        self,
+        &self,
         p_set_descriptor_buffer_offsets_info: *const SetDescriptorBufferOffsetsInfoEXT,
     ) {
         let command = vtable_get(
@@ -16154,7 +16165,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBindDescriptorBufferEmbeddedSamplers2EXT")]
     #[inline(always)]
     pub unsafe fn cmd_bind_descriptor_buffer_embedded_samplers_2_ext(
-        self,
+        &self,
         p_bind_descriptor_buffer_embedded_samplers_info: *const BindDescriptorBufferEmbeddedSamplersInfoEXT,
     ) {
         let command = vtable_get(
@@ -16197,7 +16208,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdCopyMemoryIndirectKHR")]
     #[inline(always)]
     pub unsafe fn cmd_copy_memory_indirect_khr(
-        self,
+        &self,
         p_copy_memory_indirect_info: *const CopyMemoryIndirectInfoKHR,
     ) {
         let command = vtable_get(
@@ -16237,7 +16248,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdCopyMemoryToImageIndirectKHR")]
     #[inline(always)]
     pub unsafe fn cmd_copy_memory_to_image_indirect_khr(
-        self,
+        &self,
         p_copy_memory_to_image_indirect_info: *const CopyMemoryToImageIndirectInfoKHR,
     ) {
         let command = vtable_get(
@@ -16278,7 +16289,7 @@ impl Device {
     #[doc(alias = "vkGetDeviceFaultReportsKHR")]
     #[inline(always)]
     pub unsafe fn get_device_fault_reports_khr(
-        self,
+        &self,
         timeout: u64,
         p_fault_counts: *mut u32,
         p_fault_info: *mut DeviceFaultInfoKHR,
@@ -16317,7 +16328,7 @@ impl Device {
     #[doc(alias = "vkGetDeviceFaultDebugInfoKHR")]
     #[inline(always)]
     pub unsafe fn get_device_fault_debug_info_khr(
-        self,
+        &self,
         p_debug_info: *mut DeviceFaultDebugInfoKHR,
     ) -> ResultCode {
         let command = vtable_get(
@@ -16359,7 +16370,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdEndRendering2KHR")]
     #[inline(always)]
-    pub unsafe fn cmd_end_rendering_2_khr(self, p_rendering_end_info: *const RenderingEndInfoKHR) {
+    pub unsafe fn cmd_end_rendering_2_khr(&self, p_rendering_end_info: *const RenderingEndInfoKHR) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdEndRendering2KHR as usize,
@@ -16400,7 +16411,7 @@ impl Instance {
     #[doc(alias = "vkCreateDebugReportCallbackEXT")]
     #[inline(always)]
     pub unsafe fn create_debug_report_callback_ext(
-        self,
+        &self,
         p_create_info: *const DebugReportCallbackCreateInfoEXT,
         p_allocator: *const AllocationCallbacks,
         p_callback: *mut DebugReportCallbackEXT,
@@ -16436,7 +16447,7 @@ impl Instance {
     #[doc(alias = "vkDestroyDebugReportCallbackEXT")]
     #[inline(always)]
     pub unsafe fn destroy_debug_report_callback_ext(
-        self,
+        &self,
         callback: DebugReportCallbackEXT,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -16475,7 +16486,7 @@ impl Instance {
     #[doc(alias = "vkDebugReportMessageEXT")]
     #[inline(always)]
     pub unsafe fn debug_report_message_ext(
-        self,
+        &self,
         flags: DebugReportFlagsEXT,
         object_type: DebugReportObjectTypeEXT,
         object: u64,
@@ -16529,7 +16540,7 @@ impl Device {
     #[doc(alias = "vkDebugMarkerSetObjectTagEXT")]
     #[inline(always)]
     pub unsafe fn debug_marker_set_object_tag_ext(
-        self,
+        &self,
         p_tag_info: *const DebugMarkerObjectTagInfoEXT,
     ) -> ResultCode {
         let command = vtable_get(
@@ -16567,7 +16578,7 @@ impl Device {
     #[doc(alias = "vkDebugMarkerSetObjectNameEXT")]
     #[inline(always)]
     pub unsafe fn debug_marker_set_object_name_ext(
-        self,
+        &self,
         p_name_info: *const DebugMarkerObjectNameInfoEXT,
     ) -> ResultCode {
         let command = vtable_get(
@@ -16611,7 +16622,10 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdDebugMarkerBeginEXT")]
     #[inline(always)]
-    pub unsafe fn cmd_debug_marker_begin_ext(self, p_marker_info: *const DebugMarkerMarkerInfoEXT) {
+    pub unsafe fn cmd_debug_marker_begin_ext(
+        &self,
+        p_marker_info: *const DebugMarkerMarkerInfoEXT,
+    ) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdDebugMarkerBeginEXT as usize,
@@ -16651,7 +16665,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdDebugMarkerEndEXT")]
     #[inline(always)]
-    pub unsafe fn cmd_debug_marker_end_ext(self) {
+    pub unsafe fn cmd_debug_marker_end_ext(&self) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdDebugMarkerEndEXT as usize,
@@ -16693,7 +16707,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDebugMarkerInsertEXT")]
     #[inline(always)]
     pub unsafe fn cmd_debug_marker_insert_ext(
-        self,
+        &self,
         p_marker_info: *const DebugMarkerMarkerInfoEXT,
     ) {
         let command = vtable_get(
@@ -16740,7 +16754,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBindTransformFeedbackBuffersEXT")]
     #[inline(always)]
     pub unsafe fn cmd_bind_transform_feedback_buffers_ext(
-        self,
+        &self,
         first_binding: u32,
         binding_count: u32,
         p_buffers: *const Buffer,
@@ -16796,7 +16810,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBeginTransformFeedbackEXT")]
     #[inline(always)]
     pub unsafe fn cmd_begin_transform_feedback_ext(
-        self,
+        &self,
         first_counter_buffer: u32,
         counter_buffer_count: u32,
         p_counter_buffers: *const Buffer,
@@ -16850,7 +16864,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdEndTransformFeedbackEXT")]
     #[inline(always)]
     pub unsafe fn cmd_end_transform_feedback_ext(
-        self,
+        &self,
         first_counter_buffer: u32,
         counter_buffer_count: u32,
         p_counter_buffers: *const Buffer,
@@ -16907,7 +16921,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBeginQueryIndexedEXT")]
     #[inline(always)]
     pub unsafe fn cmd_begin_query_indexed_ext(
-        self,
+        &self,
         query_pool: QueryPool,
         query: u32,
         flags: QueryControlFlags,
@@ -16951,7 +16965,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdEndQueryIndexedEXT")]
     #[inline(always)]
-    pub unsafe fn cmd_end_query_indexed_ext(self, query_pool: QueryPool, query: u32, index: u32) {
+    pub unsafe fn cmd_end_query_indexed_ext(&self, query_pool: QueryPool, query: u32, index: u32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdEndQueryIndexedEXT as usize,
@@ -16987,7 +17001,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDrawIndirectByteCountEXT")]
     #[inline(always)]
     pub unsafe fn cmd_draw_indirect_byte_count_ext(
-        self,
+        &self,
         instance_count: u32,
         first_instance: u32,
         counter_buffer: Buffer,
@@ -17046,7 +17060,7 @@ impl Device {
     #[doc(alias = "vkCreateCuModuleNVX")]
     #[inline(always)]
     pub unsafe fn create_cu_module_nvx(
-        self,
+        &self,
         p_create_info: *const CuModuleCreateInfoNVX,
         p_allocator: *const AllocationCallbacks,
         p_module: *mut CuModuleNVX,
@@ -17091,7 +17105,7 @@ impl Device {
     #[doc(alias = "vkCreateCuFunctionNVX")]
     #[inline(always)]
     pub unsafe fn create_cu_function_nvx(
-        self,
+        &self,
         p_create_info: *const CuFunctionCreateInfoNVX,
         p_allocator: *const AllocationCallbacks,
         p_function: *mut CuFunctionNVX,
@@ -17124,7 +17138,7 @@ impl Device {
     #[doc(alias = "vkDestroyCuModuleNVX")]
     #[inline(always)]
     pub unsafe fn destroy_cu_module_nvx(
-        self,
+        &self,
         module: CuModuleNVX,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -17156,7 +17170,7 @@ impl Device {
     #[doc(alias = "vkDestroyCuFunctionNVX")]
     #[inline(always)]
     pub unsafe fn destroy_cu_function_nvx(
-        self,
+        &self,
         function: CuFunctionNVX,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -17195,7 +17209,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdCuLaunchKernelNVX")]
     #[inline(always)]
-    pub unsafe fn cmd_cu_launch_kernel_nvx(self, p_launch_info: *const CuLaunchInfoNVX) {
+    pub unsafe fn cmd_cu_launch_kernel_nvx(&self, p_launch_info: *const CuLaunchInfoNVX) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdCuLaunchKernelNVX as usize,
@@ -17220,7 +17234,7 @@ impl Device {
     ///
     #[doc(alias = "vkGetImageViewHandleNVX")]
     #[inline(always)]
-    pub unsafe fn get_image_view_handle_nvx(self, p_info: *const ImageViewHandleInfoNVX) -> u32 {
+    pub unsafe fn get_image_view_handle_nvx(&self, p_info: *const ImageViewHandleInfoNVX) -> u32 {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkGetImageViewHandleNVX as usize,
@@ -17245,7 +17259,10 @@ impl Device {
     ///
     #[doc(alias = "vkGetImageViewHandle64NVX")]
     #[inline(always)]
-    pub unsafe fn get_image_view_handle_64_nvx(self, p_info: *const ImageViewHandleInfoNVX) -> u64 {
+    pub unsafe fn get_image_view_handle_64_nvx(
+        &self,
+        p_info: *const ImageViewHandleInfoNVX,
+    ) -> u64 {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkGetImageViewHandle64NVX as usize,
@@ -17278,7 +17295,7 @@ impl Device {
     #[doc(alias = "vkGetImageViewAddressNVX")]
     #[inline(always)]
     pub unsafe fn get_image_view_address_nvx(
-        self,
+        &self,
         image_view: ImageView,
         p_properties: *mut ImageViewAddressPropertiesNVX,
     ) -> ResultCode {
@@ -17307,7 +17324,7 @@ impl Device {
     #[doc(alias = "vkGetDeviceCombinedImageSamplerIndexNVX")]
     #[inline(always)]
     pub unsafe fn get_device_combined_image_sampler_index_nvx(
-        self,
+        &self,
         image_view_index: u64,
         sampler_index: u64,
     ) -> u64 {
@@ -17350,7 +17367,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDrawIndirectCountAMD")]
     #[inline(always)]
     pub unsafe fn cmd_draw_indirect_count_amd(
-        self,
+        &self,
         buffer: Buffer,
         offset: DeviceSize,
         count_buffer: Buffer,
@@ -17404,7 +17421,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDrawIndexedIndirectCountAMD")]
     #[inline(always)]
     pub unsafe fn cmd_draw_indexed_indirect_count_amd(
-        self,
+        &self,
         buffer: Buffer,
         offset: DeviceSize,
         count_buffer: Buffer,
@@ -17466,7 +17483,7 @@ impl Device {
     #[doc(alias = "vkGetShaderInfoAMD")]
     #[inline(always)]
     pub unsafe fn get_shader_info_amd(
-        self,
+        &self,
         pipeline: Pipeline,
         shader_stage: ShaderStageFlags,
         info_type: ShaderInfoTypeAMD,
@@ -17523,7 +17540,7 @@ impl Instance {
     #[doc(alias = "vkCreateStreamDescriptorSurfaceGGP")]
     #[inline(always)]
     pub unsafe fn create_stream_descriptor_surface_ggp(
-        self,
+        &self,
         p_create_info: *const StreamDescriptorSurfaceCreateInfoGGP,
         p_allocator: *const AllocationCallbacks,
         p_surface: *mut SurfaceKHR,
@@ -17577,7 +17594,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceExternalImageFormatPropertiesNV")]
     #[inline(always)]
     pub unsafe fn get_external_image_format_properties_nv(
-        self,
+        &self,
         format: Format,
         type_: ImageType,
         tiling: ImageTiling,
@@ -17639,7 +17656,7 @@ impl Device {
     #[doc(alias = "vkGetMemoryWin32HandleNV")]
     #[inline(always)]
     pub unsafe fn get_memory_win_32_handle_nv(
-        self,
+        &self,
         memory: DeviceMemory,
         handle_type: ExternalMemoryHandleTypeFlagsNV,
         p_handle: *mut HANDLE,
@@ -17685,7 +17702,7 @@ impl Instance {
     #[doc(alias = "vkCreateViSurfaceNN")]
     #[inline(always)]
     pub unsafe fn create_vi_surface_nn(
-        self,
+        &self,
         p_create_info: *const ViSurfaceCreateInfoNN,
         p_allocator: *const AllocationCallbacks,
         p_surface: *mut SurfaceKHR,
@@ -17727,7 +17744,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBeginConditionalRenderingEXT")]
     #[inline(always)]
     pub unsafe fn cmd_begin_conditional_rendering_ext(
-        self,
+        &self,
         p_conditional_rendering_begin: *const ConditionalRenderingBeginInfoEXT,
     ) {
         let command = vtable_get(
@@ -17766,7 +17783,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdEndConditionalRenderingEXT")]
     #[inline(always)]
-    pub unsafe fn cmd_end_conditional_rendering_ext(self) {
+    pub unsafe fn cmd_end_conditional_rendering_ext(&self) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdEndConditionalRenderingEXT as usize,
@@ -17803,7 +17820,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetViewportWScalingNV")]
     #[inline(always)]
     pub unsafe fn cmd_set_viewport_w_scaling_nv(
-        self,
+        &self,
         first_viewport: u32,
         viewport_count: u32,
         p_viewport_w_scalings: *const ViewportWScalingNV,
@@ -17845,7 +17862,7 @@ impl PhysicalDevice {
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkReleaseDisplayEXT")]
     #[inline(always)]
-    pub unsafe fn release_display_ext(self, display: DisplayKHR) -> ResultCode {
+    pub unsafe fn release_display_ext(&self, display: DisplayKHR) -> ResultCode {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkReleaseDisplayEXT as usize,
@@ -17879,7 +17896,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkAcquireXlibDisplayEXT")]
     #[inline(always)]
     pub unsafe fn acquire_xlib_display_ext(
-        self,
+        &self,
         dpy: *mut Display,
         display: DisplayKHR,
     ) -> ResultCode {
@@ -17919,7 +17936,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetRandROutputDisplayEXT")]
     #[inline(always)]
     pub unsafe fn get_rand_r_output_display_ext(
-        self,
+        &self,
         dpy: *mut Display,
         rr_output: RROutput,
         p_display: *mut DisplayKHR,
@@ -17961,7 +17978,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceSurfaceCapabilities2EXT")]
     #[inline(always)]
     pub unsafe fn get_surface_capabilities_2_ext(
-        self,
+        &self,
         surface: SurfaceKHR,
         p_surface_capabilities: *mut SurfaceCapabilities2EXT,
     ) -> ResultCode {
@@ -18000,7 +18017,7 @@ impl Device {
     #[doc(alias = "vkDisplayPowerControlEXT")]
     #[inline(always)]
     pub unsafe fn display_power_control_ext(
-        self,
+        &self,
         display: DisplayKHR,
         p_display_power_info: *const DisplayPowerInfoEXT,
     ) -> ResultCode {
@@ -18043,7 +18060,7 @@ impl Device {
     #[doc(alias = "vkRegisterDeviceEventEXT")]
     #[inline(always)]
     pub unsafe fn register_device_event_ext(
-        self,
+        &self,
         p_device_event_info: *const DeviceEventInfoEXT,
         p_allocator: *const AllocationCallbacks,
         p_fence: *mut Fence,
@@ -18088,7 +18105,7 @@ impl Device {
     #[doc(alias = "vkRegisterDisplayEventEXT")]
     #[inline(always)]
     pub unsafe fn register_display_event_ext(
-        self,
+        &self,
         display: DisplayKHR,
         p_display_event_info: *const DisplayEventInfoEXT,
         p_allocator: *const AllocationCallbacks,
@@ -18140,7 +18157,7 @@ impl Device {
     #[doc(alias = "vkGetSwapchainCounterEXT")]
     #[inline(always)]
     pub unsafe fn get_swapchain_counter_ext(
-        self,
+        &self,
         swapchain: SwapchainKHR,
         counter: SurfaceCounterFlagsEXT,
         p_counter_value: *mut u64,
@@ -18179,7 +18196,7 @@ impl Device {
     #[doc(alias = "vkGetRefreshCycleDurationGOOGLE")]
     #[inline(always)]
     pub unsafe fn get_refresh_cycle_duration_google(
-        self,
+        &self,
         swapchain: SwapchainKHR,
         p_display_timing_properties: *mut RefreshCycleDurationGOOGLE,
     ) -> ResultCode {
@@ -18227,7 +18244,7 @@ impl Device {
     #[doc(alias = "vkGetPastPresentationTimingGOOGLE")]
     #[inline(always)]
     pub unsafe fn get_past_presentation_timing_google(
-        self,
+        &self,
         swapchain: SwapchainKHR,
         p_presentation_timing_count: *mut u32,
         p_presentation_timings: *mut PastPresentationTimingGOOGLE,
@@ -18275,7 +18292,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetDiscardRectangleEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_discard_rectangle_ext(
-        self,
+        &self,
         first_discard_rectangle: u32,
         discard_rectangle_count: u32,
         p_discard_rectangles: *const Rect2D,
@@ -18322,7 +18339,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetDiscardRectangleEnableEXT")]
     #[inline(always)]
-    pub unsafe fn cmd_set_discard_rectangle_enable_ext(self, discard_rectangle_enable: Bool32) {
+    pub unsafe fn cmd_set_discard_rectangle_enable_ext(&self, discard_rectangle_enable: Bool32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetDiscardRectangleEnableEXT as usize,
@@ -18359,7 +18376,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetDiscardRectangleModeEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_discard_rectangle_mode_ext(
-        self,
+        &self,
         discard_rectangle_mode: DiscardRectangleModeEXT,
     ) {
         let command = vtable_get(
@@ -18388,7 +18405,7 @@ impl Device {
     #[doc(alias = "vkSetHdrMetadataEXT")]
     #[inline(always)]
     pub unsafe fn set_hdr_metadata_ext(
-        self,
+        &self,
         swapchain_count: u32,
         p_swapchains: *const SwapchainKHR,
         p_metadata: *const HdrMetadataEXT,
@@ -18435,7 +18452,7 @@ impl Instance {
     #[doc(alias = "vkCreateIOSSurfaceMVK")]
     #[inline(always)]
     pub unsafe fn create_ios_surface_mvk(
-        self,
+        &self,
         p_create_info: *const IOSSurfaceCreateInfoMVK,
         p_allocator: *const AllocationCallbacks,
         p_surface: *mut SurfaceKHR,
@@ -18482,7 +18499,7 @@ impl Instance {
     #[doc(alias = "vkCreateMacOSSurfaceMVK")]
     #[inline(always)]
     pub unsafe fn create_mac_os_surface_mvk(
-        self,
+        &self,
         p_create_info: *const MacOSSurfaceCreateInfoMVK,
         p_allocator: *const AllocationCallbacks,
         p_surface: *mut SurfaceKHR,
@@ -18520,7 +18537,7 @@ impl Device {
     #[doc(alias = "vkSetDebugUtilsObjectNameEXT")]
     #[inline(always)]
     pub unsafe fn set_debug_utils_object_name_ext(
-        self,
+        &self,
         p_name_info: *const DebugUtilsObjectNameInfoEXT,
     ) -> ResultCode {
         let command = vtable_get(
@@ -18557,7 +18574,7 @@ impl Device {
     #[doc(alias = "vkSetDebugUtilsObjectTagEXT")]
     #[inline(always)]
     pub unsafe fn set_debug_utils_object_tag_ext(
-        self,
+        &self,
         p_tag_info: *const DebugUtilsObjectTagInfoEXT,
     ) -> ResultCode {
         let command = vtable_get(
@@ -18585,7 +18602,7 @@ impl Queue {
     ///
     #[doc(alias = "vkQueueBeginDebugUtilsLabelEXT")]
     #[inline(always)]
-    pub unsafe fn begin_debug_utils_label_ext(self, p_label_info: *const DebugUtilsLabelEXT) {
+    pub unsafe fn begin_debug_utils_label_ext(&self, p_label_info: *const DebugUtilsLabelEXT) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkQueueBeginDebugUtilsLabelEXT as usize,
@@ -18610,7 +18627,7 @@ impl Queue {
     ///
     #[doc(alias = "vkQueueEndDebugUtilsLabelEXT")]
     #[inline(always)]
-    pub unsafe fn end_debug_utils_label_ext(self) {
+    pub unsafe fn end_debug_utils_label_ext(&self) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkQueueEndDebugUtilsLabelEXT as usize,
@@ -18636,7 +18653,7 @@ impl Queue {
     ///
     #[doc(alias = "vkQueueInsertDebugUtilsLabelEXT")]
     #[inline(always)]
-    pub unsafe fn insert_debug_utils_label_ext(self, p_label_info: *const DebugUtilsLabelEXT) {
+    pub unsafe fn insert_debug_utils_label_ext(&self, p_label_info: *const DebugUtilsLabelEXT) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkQueueInsertDebugUtilsLabelEXT as usize,
@@ -18677,7 +18694,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdBeginDebugUtilsLabelEXT")]
     #[inline(always)]
-    pub unsafe fn cmd_begin_debug_utils_label_ext(self, p_label_info: *const DebugUtilsLabelEXT) {
+    pub unsafe fn cmd_begin_debug_utils_label_ext(&self, p_label_info: *const DebugUtilsLabelEXT) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdBeginDebugUtilsLabelEXT as usize,
@@ -18717,7 +18734,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdEndDebugUtilsLabelEXT")]
     #[inline(always)]
-    pub unsafe fn cmd_end_debug_utils_label_ext(self) {
+    pub unsafe fn cmd_end_debug_utils_label_ext(&self) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdEndDebugUtilsLabelEXT as usize,
@@ -18757,7 +18774,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdInsertDebugUtilsLabelEXT")]
     #[inline(always)]
-    pub unsafe fn cmd_insert_debug_utils_label_ext(self, p_label_info: *const DebugUtilsLabelEXT) {
+    pub unsafe fn cmd_insert_debug_utils_label_ext(&self, p_label_info: *const DebugUtilsLabelEXT) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdInsertDebugUtilsLabelEXT as usize,
@@ -18798,7 +18815,7 @@ impl Instance {
     #[doc(alias = "vkCreateDebugUtilsMessengerEXT")]
     #[inline(always)]
     pub unsafe fn create_debug_utils_messenger_ext(
-        self,
+        &self,
         p_create_info: *const DebugUtilsMessengerCreateInfoEXT,
         p_allocator: *const AllocationCallbacks,
         p_messenger: *mut DebugUtilsMessengerEXT,
@@ -18833,7 +18850,7 @@ impl Instance {
     #[doc(alias = "vkDestroyDebugUtilsMessengerEXT")]
     #[inline(always)]
     pub unsafe fn destroy_debug_utils_messenger_ext(
-        self,
+        &self,
         messenger: DebugUtilsMessengerEXT,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -18867,7 +18884,7 @@ impl Instance {
     #[doc(alias = "vkSubmitDebugUtilsMessageEXT")]
     #[inline(always)]
     pub unsafe fn submit_debug_utils_message_ext(
-        self,
+        &self,
         message_severity: DebugUtilsMessageSeverityFlagsEXT,
         message_types: DebugUtilsMessageTypeFlagsEXT,
         p_callback_data: *const DebugUtilsMessengerCallbackDataEXT,
@@ -18916,7 +18933,7 @@ impl Device {
     #[doc(alias = "vkGetAndroidHardwareBufferPropertiesANDROID")]
     #[inline(always)]
     pub unsafe fn get_android_hardware_buffer_properties_android(
-        self,
+        &self,
         buffer: *const AHardwareBuffer,
         p_properties: *mut AndroidHardwareBufferPropertiesANDROID,
     ) -> ResultCode {
@@ -18959,7 +18976,7 @@ impl Device {
     #[doc(alias = "vkGetMemoryAndroidHardwareBufferANDROID")]
     #[inline(always)]
     pub unsafe fn get_memory_android_hardware_buffer_android(
-        self,
+        &self,
         p_info: *const MemoryGetAndroidHardwareBufferInfoANDROID,
         p_buffer: *mut *mut AHardwareBuffer,
     ) -> ResultCode {
@@ -19006,7 +19023,7 @@ impl Device {
     #[doc(alias = "vkCreateGpaSessionAMD")]
     #[inline(always)]
     pub unsafe fn create_gpa_session_amd(
-        self,
+        &self,
         p_create_info: *const GpaSessionCreateInfoAMD,
         p_allocator: *const AllocationCallbacks,
         p_gpa_session: *mut GpaSessionAMD,
@@ -19040,7 +19057,7 @@ impl Device {
     #[doc(alias = "vkDestroyGpaSessionAMD")]
     #[inline(always)]
     pub unsafe fn destroy_gpa_session_amd(
-        self,
+        &self,
         gpa_session: GpaSessionAMD,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -19077,7 +19094,7 @@ impl Device {
     #[doc(alias = "vkSetGpaDeviceClockModeAMD")]
     #[inline(always)]
     pub unsafe fn set_gpa_device_clock_mode_amd(
-        self,
+        &self,
         p_info: *mut GpaDeviceClockModeInfoAMD,
     ) -> ResultCode {
         let command = vtable_get(
@@ -19113,7 +19130,7 @@ impl Device {
     #[doc(alias = "vkGetGpaDeviceClockInfoAMD")]
     #[inline(always)]
     pub unsafe fn get_gpa_device_clock_info_amd(
-        self,
+        &self,
         p_info: *mut GpaDeviceGetClockInfoAMD,
     ) -> ResultCode {
         let command = vtable_get(
@@ -19160,7 +19177,7 @@ impl CommandBuffer {
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkCmdBeginGpaSessionAMD")]
     #[inline(always)]
-    pub unsafe fn cmd_begin_gpa_session_amd(self, gpa_session: GpaSessionAMD) -> ResultCode {
+    pub unsafe fn cmd_begin_gpa_session_amd(&self, gpa_session: GpaSessionAMD) -> ResultCode {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdBeginGpaSessionAMD as usize,
@@ -19205,7 +19222,7 @@ impl CommandBuffer {
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkCmdEndGpaSessionAMD")]
     #[inline(always)]
-    pub unsafe fn cmd_end_gpa_session_amd(self, gpa_session: GpaSessionAMD) -> ResultCode {
+    pub unsafe fn cmd_end_gpa_session_amd(&self, gpa_session: GpaSessionAMD) -> ResultCode {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdEndGpaSessionAMD as usize,
@@ -19255,7 +19272,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBeginGpaSampleAMD")]
     #[inline(always)]
     pub unsafe fn cmd_begin_gpa_sample_amd(
-        self,
+        &self,
         gpa_session: GpaSessionAMD,
         p_gpa_sample_begin_info: *const GpaSampleBeginInfoAMD,
         p_sample_id: *mut u32,
@@ -19303,7 +19320,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdEndGpaSampleAMD")]
     #[inline(always)]
-    pub unsafe fn cmd_end_gpa_sample_amd(self, gpa_session: GpaSessionAMD, sample_id: u32) {
+    pub unsafe fn cmd_end_gpa_sample_amd(&self, gpa_session: GpaSessionAMD, sample_id: u32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdEndGpaSampleAMD as usize,
@@ -19336,7 +19353,7 @@ impl Device {
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkGetGpaSessionStatusAMD")]
     #[inline(always)]
-    pub unsafe fn get_gpa_session_status_amd(self, gpa_session: GpaSessionAMD) -> ResultCode {
+    pub unsafe fn get_gpa_session_status_amd(&self, gpa_session: GpaSessionAMD) -> ResultCode {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkGetGpaSessionStatusAMD as usize,
@@ -19373,7 +19390,7 @@ impl Device {
     #[doc(alias = "vkGetGpaSessionResultsAMD")]
     #[inline(always)]
     pub unsafe fn get_gpa_session_results_amd(
-        self,
+        &self,
         gpa_session: GpaSessionAMD,
         sample_id: u32,
         p_size_in_bytes: *mut usize,
@@ -19411,7 +19428,7 @@ impl Device {
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkResetGpaSessionAMD")]
     #[inline(always)]
-    pub unsafe fn reset_gpa_session_amd(self, gpa_session: GpaSessionAMD) -> ResultCode {
+    pub unsafe fn reset_gpa_session_amd(&self, gpa_session: GpaSessionAMD) -> ResultCode {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkResetGpaSessionAMD as usize,
@@ -19449,7 +19466,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdCopyGpaSessionResultsAMD")]
     #[inline(always)]
-    pub unsafe fn cmd_copy_gpa_session_results_amd(self, gpa_session: GpaSessionAMD) {
+    pub unsafe fn cmd_copy_gpa_session_results_amd(&self, gpa_session: GpaSessionAMD) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdCopyGpaSessionResultsAMD as usize,
@@ -19495,7 +19512,7 @@ impl Device {
     #[doc(alias = "vkCreateExecutionGraphPipelinesAMDX")]
     #[inline(always)]
     pub unsafe fn create_execution_graph_pipelines_amdx(
-        self,
+        &self,
         pipeline_cache: PipelineCache,
         create_info_count: u32,
         p_create_infos: *const ExecutionGraphPipelineCreateInfoAMDX,
@@ -19547,7 +19564,7 @@ impl Device {
     #[doc(alias = "vkGetExecutionGraphPipelineScratchSizeAMDX")]
     #[inline(always)]
     pub unsafe fn get_execution_graph_pipeline_scratch_size_amdx(
-        self,
+        &self,
         execution_graph: Pipeline,
         p_size_info: *mut ExecutionGraphPipelineScratchSizeAMDX,
     ) -> ResultCode {
@@ -19590,7 +19607,7 @@ impl Device {
     #[doc(alias = "vkGetExecutionGraphPipelineNodeIndexAMDX")]
     #[inline(always)]
     pub unsafe fn get_execution_graph_pipeline_node_index_amdx(
-        self,
+        &self,
         execution_graph: Pipeline,
         p_node_info: *const PipelineShaderStageNodeCreateInfoAMDX,
         p_node_index: *mut u32,
@@ -19633,7 +19650,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdInitializeGraphScratchMemoryAMDX")]
     #[inline(always)]
     pub unsafe fn cmd_initialize_graph_scratch_memory_amdx(
-        self,
+        &self,
         execution_graph: Pipeline,
         scratch: DeviceAddress,
         scratch_size: DeviceSize,
@@ -19678,7 +19695,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDispatchGraphAMDX")]
     #[inline(always)]
     pub unsafe fn cmd_dispatch_graph_amdx(
-        self,
+        &self,
         scratch: DeviceAddress,
         scratch_size: DeviceSize,
         p_count_info: *const DispatchGraphCountInfoAMDX,
@@ -19722,7 +19739,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDispatchGraphIndirectAMDX")]
     #[inline(always)]
     pub unsafe fn cmd_dispatch_graph_indirect_amdx(
-        self,
+        &self,
         scratch: DeviceAddress,
         scratch_size: DeviceSize,
         p_count_info: *const DispatchGraphCountInfoAMDX,
@@ -19763,7 +19780,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDispatchGraphIndirectCountAMDX")]
     #[inline(always)]
     pub unsafe fn cmd_dispatch_graph_indirect_count_amdx(
-        self,
+        &self,
         scratch: DeviceAddress,
         scratch_size: DeviceSize,
         count_info: DeviceAddress,
@@ -19806,7 +19823,7 @@ impl Device {
     #[doc(alias = "vkWriteSamplerDescriptorsEXT")]
     #[inline(always)]
     pub unsafe fn write_sampler_descriptors_ext(
-        self,
+        &self,
         sampler_count: u32,
         p_samplers: *const SamplerCreateInfo,
         p_descriptors: *const HostAddressRangeEXT,
@@ -19849,7 +19866,7 @@ impl Device {
     #[doc(alias = "vkWriteResourceDescriptorsEXT")]
     #[inline(always)]
     pub unsafe fn write_resource_descriptors_ext(
-        self,
+        &self,
         resource_count: u32,
         p_resources: *const ResourceDescriptorInfoEXT,
         p_descriptors: *const HostAddressRangeEXT,
@@ -19890,7 +19907,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdBindSamplerHeapEXT")]
     #[inline(always)]
-    pub unsafe fn cmd_bind_sampler_heap_ext(self, p_bind_info: *const BindHeapInfoEXT) {
+    pub unsafe fn cmd_bind_sampler_heap_ext(&self, p_bind_info: *const BindHeapInfoEXT) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdBindSamplerHeapEXT as usize,
@@ -19926,7 +19943,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdBindResourceHeapEXT")]
     #[inline(always)]
-    pub unsafe fn cmd_bind_resource_heap_ext(self, p_bind_info: *const BindHeapInfoEXT) {
+    pub unsafe fn cmd_bind_resource_heap_ext(&self, p_bind_info: *const BindHeapInfoEXT) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdBindResourceHeapEXT as usize,
@@ -19962,7 +19979,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdPushDataEXT")]
     #[inline(always)]
-    pub unsafe fn cmd_push_data_ext(self, p_push_data_info: *const PushDataInfoEXT) {
+    pub unsafe fn cmd_push_data_ext(&self, p_push_data_info: *const PushDataInfoEXT) {
         let command = vtable_get(&*self.vtable(), InstanceCommands::vkCmdPushDataEXT as usize)
             .expect("command should not be null");
         let command = unsafe { std::mem::transmute::<vkVoidFunction, FUN_CmdPushDataEXT>(command) };
@@ -19992,7 +20009,7 @@ impl Device {
     #[doc(alias = "vkGetImageOpaqueCaptureDataEXT")]
     #[inline(always)]
     pub unsafe fn get_image_opaque_capture_data_ext(
-        self,
+        &self,
         image_count: u32,
         p_images: *const Image,
         p_datas: *mut HostAddressRangeEXT,
@@ -20022,7 +20039,7 @@ impl PhysicalDevice {
     ///
     #[doc(alias = "vkGetPhysicalDeviceDescriptorSizeEXT")]
     #[inline(always)]
-    pub unsafe fn get_descriptor_size_ext(self, descriptor_type: DescriptorType) -> DeviceSize {
+    pub unsafe fn get_descriptor_size_ext(&self, descriptor_type: DescriptorType) -> DeviceSize {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkGetPhysicalDeviceDescriptorSizeEXT as usize,
@@ -20063,7 +20080,7 @@ impl Device {
     #[doc(alias = "vkRegisterCustomBorderColorEXT")]
     #[inline(always)]
     pub unsafe fn register_custom_border_color_ext(
-        self,
+        &self,
         p_border_color: *const SamplerCustomBorderColorCreateInfoEXT,
         request_index: Bool32,
         p_index: *mut u32,
@@ -20092,7 +20109,7 @@ impl Device {
     ///
     #[doc(alias = "vkUnregisterCustomBorderColorEXT")]
     #[inline(always)]
-    pub unsafe fn unregister_custom_border_color_ext(self, index: u32) {
+    pub unsafe fn unregister_custom_border_color_ext(&self, index: u32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkUnregisterCustomBorderColorEXT as usize,
@@ -20131,7 +20148,7 @@ impl Device {
     #[doc(alias = "vkGetTensorOpaqueCaptureDataARM")]
     #[inline(always)]
     pub unsafe fn get_tensor_opaque_capture_data_arm(
-        self,
+        &self,
         tensor_count: u32,
         p_tensors: *const TensorARM,
         p_datas: *mut HostAddressRangeEXT,
@@ -20172,7 +20189,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetSampleLocationsEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_sample_locations_ext(
-        self,
+        &self,
         p_sample_locations_info: *const SampleLocationsInfoEXT,
     ) {
         let command = vtable_get(
@@ -20200,7 +20217,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceMultisamplePropertiesEXT")]
     #[inline(always)]
     pub unsafe fn get_multisample_properties_ext(
-        self,
+        &self,
         samples: SampleCountFlags,
         p_multisample_properties: *mut MultisamplePropertiesEXT,
     ) {
@@ -20242,7 +20259,7 @@ impl Device {
     #[doc(alias = "vkGetImageDrmFormatModifierPropertiesEXT")]
     #[inline(always)]
     pub unsafe fn get_image_drm_format_modifier_properties_ext(
-        self,
+        &self,
         image: Image,
         p_properties: *mut ImageDrmFormatModifierPropertiesEXT,
     ) -> ResultCode {
@@ -20288,7 +20305,7 @@ impl Device {
     #[doc(alias = "vkCreateValidationCacheEXT")]
     #[inline(always)]
     pub unsafe fn create_validation_cache_ext(
-        self,
+        &self,
         p_create_info: *const ValidationCacheCreateInfoEXT,
         p_allocator: *const AllocationCallbacks,
         p_validation_cache: *mut ValidationCacheEXT,
@@ -20322,7 +20339,7 @@ impl Device {
     #[doc(alias = "vkDestroyValidationCacheEXT")]
     #[inline(always)]
     pub unsafe fn destroy_validation_cache_ext(
-        self,
+        &self,
         validation_cache: ValidationCacheEXT,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -20364,7 +20381,7 @@ impl Device {
     #[doc(alias = "vkMergeValidationCachesEXT")]
     #[inline(always)]
     pub unsafe fn merge_validation_caches_ext(
-        self,
+        &self,
         dst_cache: ValidationCacheEXT,
         src_cache_count: u32,
         p_src_caches: *const ValidationCacheEXT,
@@ -20406,7 +20423,7 @@ impl Device {
     #[doc(alias = "vkGetValidationCacheDataEXT")]
     #[inline(always)]
     pub unsafe fn get_validation_cache_data_ext(
-        self,
+        &self,
         validation_cache: ValidationCacheEXT,
         p_data_size: *mut usize,
         p_data: *mut c_void,
@@ -20450,7 +20467,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBindShadingRateImageNV")]
     #[inline(always)]
     pub unsafe fn cmd_bind_shading_rate_image_nv(
-        self,
+        &self,
         image_view: ImageView,
         image_layout: ImageLayout,
     ) {
@@ -20490,7 +20507,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetViewportShadingRatePaletteNV")]
     #[inline(always)]
     pub unsafe fn cmd_set_viewport_shading_rate_palette_nv(
-        self,
+        &self,
         first_viewport: u32,
         viewport_count: u32,
         p_shading_rate_palettes: *const ShadingRatePaletteNV,
@@ -20545,7 +20562,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetCoarseSampleOrderNV")]
     #[inline(always)]
     pub unsafe fn cmd_set_coarse_sample_order_nv(
-        self,
+        &self,
         sample_order_type: CoarseSampleOrderTypeNV,
         custom_sample_order_count: u32,
         p_custom_sample_orders: *const CoarseSampleOrderCustomNV,
@@ -20598,7 +20615,7 @@ impl Device {
     #[doc(alias = "vkCreateAccelerationStructureNV")]
     #[inline(always)]
     pub unsafe fn create_acceleration_structure_nv(
-        self,
+        &self,
         p_create_info: *const AccelerationStructureCreateInfoNV,
         p_allocator: *const AllocationCallbacks,
         p_acceleration_structure: *mut AccelerationStructureNV,
@@ -20641,7 +20658,7 @@ impl Device {
     #[doc(alias = "vkDestroyAccelerationStructureNV")]
     #[inline(always)]
     pub unsafe fn destroy_acceleration_structure_nv(
-        self,
+        &self,
         acceleration_structure: AccelerationStructureNV,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -20675,7 +20692,7 @@ impl Device {
     #[doc(alias = "vkGetAccelerationStructureMemoryRequirementsNV")]
     #[inline(always)]
     pub unsafe fn get_acceleration_structure_memory_requirements_nv(
-        self,
+        &self,
         p_info: *const AccelerationStructureMemoryRequirementsInfoNV,
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
@@ -20719,7 +20736,7 @@ impl Device {
     #[doc(alias = "vkBindAccelerationStructureMemoryNV")]
     #[inline(always)]
     pub unsafe fn bind_acceleration_structure_memory_nv(
-        self,
+        &self,
         bind_info_count: u32,
         p_bind_infos: *const BindAccelerationStructureMemoryInfoNV,
     ) -> ResultCode {
@@ -20773,7 +20790,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBuildAccelerationStructureNV")]
     #[inline(always)]
     pub unsafe fn cmd_build_acceleration_structure_nv(
-        self,
+        &self,
         p_info: *const AccelerationStructureInfoNV,
         instance_data: Buffer,
         instance_offset: DeviceSize,
@@ -20836,7 +20853,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdCopyAccelerationStructureNV")]
     #[inline(always)]
     pub unsafe fn cmd_copy_acceleration_structure_nv(
-        self,
+        &self,
         dst: AccelerationStructureNV,
         src: AccelerationStructureNV,
         mode: CopyAccelerationStructureModeKHR,
@@ -20898,7 +20915,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdTraceRaysNV")]
     #[inline(always)]
     pub unsafe fn cmd_trace_rays_nv(
-        self,
+        &self,
         raygen_shader_binding_table_buffer: Buffer,
         raygen_shader_binding_offset: DeviceSize,
         miss_shader_binding_table_buffer: Buffer,
@@ -20974,7 +20991,7 @@ impl Device {
     #[doc(alias = "vkCreateRayTracingPipelinesNV")]
     #[inline(always)]
     pub unsafe fn create_ray_tracing_pipelines_nv(
-        self,
+        &self,
         pipeline_cache: PipelineCache,
         create_info_count: u32,
         p_create_infos: *const RayTracingPipelineCreateInfoNV,
@@ -21024,7 +21041,7 @@ impl Device {
     #[doc(alias = "vkGetRayTracingShaderGroupHandlesKHR")]
     #[inline(always)]
     pub unsafe fn get_ray_tracing_shader_group_handles_khr(
-        self,
+        &self,
         pipeline: Pipeline,
         first_group: u32,
         group_count: u32,
@@ -21075,7 +21092,7 @@ impl Device {
     #[doc(alias = "vkGetRayTracingShaderGroupHandlesNV")]
     #[inline(always)]
     pub unsafe fn get_ray_tracing_shader_group_handles_nv(
-        self,
+        &self,
         pipeline: Pipeline,
         first_group: u32,
         group_count: u32,
@@ -21126,7 +21143,7 @@ impl Device {
     #[doc(alias = "vkGetAccelerationStructureHandleNV")]
     #[inline(always)]
     pub unsafe fn get_acceleration_structure_handle_nv(
-        self,
+        &self,
         acceleration_structure: AccelerationStructureNV,
         data_size: usize,
         p_data: *mut c_void,
@@ -21174,7 +21191,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdWriteAccelerationStructuresPropertiesNV")]
     #[inline(always)]
     pub unsafe fn cmd_write_acceleration_structures_properties_nv(
-        self,
+        &self,
         acceleration_structure_count: u32,
         p_acceleration_structures: *const AccelerationStructureNV,
         query_type: QueryType,
@@ -21226,7 +21243,7 @@ impl Device {
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkCompileDeferredNV")]
     #[inline(always)]
-    pub unsafe fn compile_deferred_nv(self, pipeline: Pipeline, shader: u32) -> ResultCode {
+    pub unsafe fn compile_deferred_nv(&self, pipeline: Pipeline, shader: u32) -> ResultCode {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCompileDeferredNV as usize,
@@ -21264,7 +21281,7 @@ impl Device {
     #[doc(alias = "vkGetMemoryHostPointerPropertiesEXT")]
     #[inline(always)]
     pub unsafe fn get_memory_host_pointer_properties_ext(
-        self,
+        &self,
         handle_type: ExternalMemoryHandleTypeFlags,
         p_host_pointer: *const c_void,
         p_memory_host_pointer_properties: *mut MemoryHostPointerPropertiesEXT,
@@ -21317,7 +21334,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdWriteBufferMarkerAMD")]
     #[inline(always)]
     pub unsafe fn cmd_write_buffer_marker_amd(
-        self,
+        &self,
         pipeline_stage: PipelineStageFlags,
         dst_buffer: Buffer,
         dst_offset: DeviceSize,
@@ -21363,7 +21380,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdWriteBufferMarker2AMD")]
     #[inline(always)]
     pub unsafe fn cmd_write_buffer_marker_2_amd(
-        self,
+        &self,
         stage: PipelineStageFlags2,
         dst_buffer: Buffer,
         dst_offset: DeviceSize,
@@ -21407,7 +21424,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceCalibrateableTimeDomainsEXT")]
     #[inline(always)]
     pub unsafe fn get_calibrateable_time_domains_ext(
-        self,
+        &self,
         p_time_domain_count: *mut u32,
         p_time_domains: *mut TimeDomainKHR,
     ) -> ResultCode {
@@ -21453,7 +21470,7 @@ impl Device {
     #[doc(alias = "vkGetCalibratedTimestampsEXT")]
     #[inline(always)]
     pub unsafe fn get_calibrated_timestamps_ext(
-        self,
+        &self,
         timestamp_count: u32,
         p_timestamp_infos: *const CalibratedTimestampInfoKHR,
         p_timestamps: *mut u64,
@@ -21501,7 +21518,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdDrawMeshTasksNV")]
     #[inline(always)]
-    pub unsafe fn cmd_draw_mesh_tasks_nv(self, task_count: u32, first_task: u32) {
+    pub unsafe fn cmd_draw_mesh_tasks_nv(&self, task_count: u32, first_task: u32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdDrawMeshTasksNV as usize,
@@ -21537,7 +21554,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDrawMeshTasksIndirectNV")]
     #[inline(always)]
     pub unsafe fn cmd_draw_mesh_tasks_indirect_nv(
-        self,
+        &self,
         buffer: Buffer,
         offset: DeviceSize,
         draw_count: u32,
@@ -21579,7 +21596,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDrawMeshTasksIndirectCountNV")]
     #[inline(always)]
     pub unsafe fn cmd_draw_mesh_tasks_indirect_count_nv(
-        self,
+        &self,
         buffer: Buffer,
         offset: DeviceSize,
         count_buffer: Buffer,
@@ -21633,7 +21650,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetExclusiveScissorEnableNV")]
     #[inline(always)]
     pub unsafe fn cmd_set_exclusive_scissor_enable_nv(
-        self,
+        &self,
         first_exclusive_scissor: u32,
         exclusive_scissor_count: u32,
         p_exclusive_scissor_enables: *const Bool32,
@@ -21681,7 +21698,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetExclusiveScissorNV")]
     #[inline(always)]
     pub unsafe fn cmd_set_exclusive_scissor_nv(
-        self,
+        &self,
         first_exclusive_scissor: u32,
         exclusive_scissor_count: u32,
         p_exclusive_scissors: *const Rect2D,
@@ -21728,7 +21745,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetCheckpointNV")]
     #[inline(always)]
-    pub unsafe fn cmd_set_checkpoint_nv(self, p_checkpoint_marker: *const c_void) {
+    pub unsafe fn cmd_set_checkpoint_nv(&self, p_checkpoint_marker: *const c_void) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetCheckpointNV as usize,
@@ -21757,7 +21774,7 @@ impl Queue {
     #[doc(alias = "vkGetQueueCheckpointDataNV")]
     #[inline(always)]
     pub unsafe fn get_checkpoint_data_nv(
-        self,
+        &self,
         p_checkpoint_data_count: *mut u32,
         p_checkpoint_data: *mut CheckpointDataNV,
     ) {
@@ -21789,7 +21806,7 @@ impl Queue {
     #[doc(alias = "vkGetQueueCheckpointData2NV")]
     #[inline(always)]
     pub unsafe fn get_checkpoint_data_2_nv(
-        self,
+        &self,
         p_checkpoint_data_count: *mut u32,
         p_checkpoint_data: *mut CheckpointData2NV,
     ) {
@@ -21828,7 +21845,7 @@ impl Device {
     #[doc(alias = "vkSetSwapchainPresentTimingQueueSizeEXT")]
     #[inline(always)]
     pub unsafe fn set_swapchain_present_timing_queue_size_ext(
-        self,
+        &self,
         swapchain: SwapchainKHR,
         size: u32,
     ) -> ResultCode {
@@ -21877,7 +21894,7 @@ impl Device {
     #[doc(alias = "vkGetSwapchainTimingPropertiesEXT")]
     #[inline(always)]
     pub unsafe fn get_swapchain_timing_properties_ext(
-        self,
+        &self,
         swapchain: SwapchainKHR,
         p_swapchain_timing_properties: *mut SwapchainTimingPropertiesEXT,
         p_swapchain_timing_properties_counter: *mut u64,
@@ -21932,7 +21949,7 @@ impl Device {
     #[doc(alias = "vkGetSwapchainTimeDomainPropertiesEXT")]
     #[inline(always)]
     pub unsafe fn get_swapchain_time_domain_properties_ext(
-        self,
+        &self,
         swapchain: SwapchainKHR,
         p_swapchain_time_domain_properties: *mut SwapchainTimeDomainPropertiesEXT,
         p_time_domains_counter: *mut u64,
@@ -21983,7 +22000,7 @@ impl Device {
     #[doc(alias = "vkGetPastPresentationTimingEXT")]
     #[inline(always)]
     pub unsafe fn get_past_presentation_timing_ext(
-        self,
+        &self,
         p_past_presentation_timing_info: *const PastPresentationTimingInfoEXT,
         p_past_presentation_timing_properties: *mut PastPresentationTimingPropertiesEXT,
     ) -> ResultCode {
@@ -22027,7 +22044,7 @@ impl Device {
     #[doc(alias = "vkInitializePerformanceApiINTEL")]
     #[inline(always)]
     pub unsafe fn initialize_performance_api_intel(
-        self,
+        &self,
         p_initialize_info: *const InitializePerformanceApiInfoINTEL,
     ) -> ResultCode {
         let command = vtable_get(
@@ -22054,7 +22071,7 @@ impl Device {
     ///
     #[doc(alias = "vkUninitializePerformanceApiINTEL")]
     #[inline(always)]
-    pub unsafe fn uninitialize_performance_api_intel(self) {
+    pub unsafe fn uninitialize_performance_api_intel(&self) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkUninitializePerformanceApiINTEL as usize,
@@ -22102,7 +22119,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetPerformanceMarkerINTEL")]
     #[inline(always)]
     pub unsafe fn cmd_set_performance_marker_intel(
-        self,
+        &self,
         p_marker_info: *const PerformanceMarkerInfoINTEL,
     ) -> ResultCode {
         let command = vtable_get(
@@ -22154,7 +22171,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetPerformanceStreamMarkerINTEL")]
     #[inline(always)]
     pub unsafe fn cmd_set_performance_stream_marker_intel(
-        self,
+        &self,
         p_marker_info: *const PerformanceStreamMarkerInfoINTEL,
     ) -> ResultCode {
         let command = vtable_get(
@@ -22203,7 +22220,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetPerformanceOverrideINTEL")]
     #[inline(always)]
     pub unsafe fn cmd_set_performance_override_intel(
-        self,
+        &self,
         p_override_info: *const PerformanceOverrideInfoINTEL,
     ) -> ResultCode {
         let command = vtable_get(
@@ -22243,7 +22260,7 @@ impl Device {
     #[doc(alias = "vkAcquirePerformanceConfigurationINTEL")]
     #[inline(always)]
     pub unsafe fn acquire_performance_configuration_intel(
-        self,
+        &self,
         p_acquire_info: *const PerformanceConfigurationAcquireInfoINTEL,
         p_configuration: *mut PerformanceConfigurationINTEL,
     ) -> ResultCode {
@@ -22284,7 +22301,7 @@ impl Device {
     #[doc(alias = "vkReleasePerformanceConfigurationINTEL")]
     #[inline(always)]
     pub unsafe fn release_performance_configuration_intel(
-        self,
+        &self,
         configuration: PerformanceConfigurationINTEL,
     ) -> ResultCode {
         let command = vtable_get(
@@ -22321,7 +22338,7 @@ impl Queue {
     #[doc(alias = "vkQueueSetPerformanceConfigurationINTEL")]
     #[inline(always)]
     pub unsafe fn set_performance_configuration_intel(
-        self,
+        &self,
         configuration: PerformanceConfigurationINTEL,
     ) -> ResultCode {
         let command = vtable_get(
@@ -22363,7 +22380,7 @@ impl Device {
     #[doc(alias = "vkGetPerformanceParameterINTEL")]
     #[inline(always)]
     pub unsafe fn get_performance_parameter_intel(
-        self,
+        &self,
         parameter: PerformanceParameterTypeINTEL,
         p_value: *mut PerformanceValueINTEL,
     ) -> ResultCode {
@@ -22392,7 +22409,7 @@ impl Device {
     #[doc(alias = "vkSetLocalDimmingAMD")]
     #[inline(always)]
     pub unsafe fn set_local_dimming_amd(
-        self,
+        &self,
         swap_chain: SwapchainKHR,
         local_dimming_enable: Bool32,
     ) {
@@ -22436,7 +22453,7 @@ impl Instance {
     #[doc(alias = "vkCreateImagePipeSurfaceFUCHSIA")]
     #[inline(always)]
     pub unsafe fn create_image_pipe_surface_fuchsia(
-        self,
+        &self,
         p_create_info: *const ImagePipeSurfaceCreateInfoFUCHSIA,
         p_allocator: *const AllocationCallbacks,
         p_surface: *mut SurfaceKHR,
@@ -22483,7 +22500,7 @@ impl Instance {
     #[doc(alias = "vkCreateMetalSurfaceEXT")]
     #[inline(always)]
     pub unsafe fn create_metal_surface_ext(
-        self,
+        &self,
         p_create_info: *const MetalSurfaceCreateInfoEXT,
         p_allocator: *const AllocationCallbacks,
         p_surface: *mut SurfaceKHR,
@@ -22514,7 +22531,7 @@ impl Device {
     #[doc(alias = "vkGetBufferDeviceAddressEXT")]
     #[inline(always)]
     pub unsafe fn get_buffer_device_address_ext(
-        self,
+        &self,
         p_info: *const BufferDeviceAddressInfo,
     ) -> DeviceAddress {
         let command = vtable_get(
@@ -22558,7 +22575,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceToolPropertiesEXT")]
     #[inline(always)]
     pub unsafe fn get_tool_properties_ext(
-        self,
+        &self,
         p_tool_count: *mut u32,
         p_tool_properties: *mut PhysicalDeviceToolProperties,
     ) -> ResultCode {
@@ -22604,7 +22621,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceCooperativeMatrixPropertiesNV")]
     #[inline(always)]
     pub unsafe fn get_cooperative_matrix_properties_nv(
-        self,
+        &self,
         p_property_count: *mut u32,
         p_properties: *mut CooperativeMatrixPropertiesNV,
     ) -> ResultCode {
@@ -22652,7 +22669,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV")]
     #[inline(always)]
     pub unsafe fn get_supported_framebuffer_mixed_samples_combinations_nv(
-        self,
+        &self,
         p_combination_count: *mut u32,
         p_combinations: *mut FramebufferMixedSamplesCombinationNV,
     ) -> ResultCode {
@@ -22703,7 +22720,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceSurfacePresentModes2EXT")]
     #[inline(always)]
     pub unsafe fn get_surface_present_modes_2_ext(
-        self,
+        &self,
         p_surface_info: *const PhysicalDeviceSurfaceInfo2KHR,
         p_present_mode_count: *mut u32,
         p_present_modes: *mut PresentModeKHR,
@@ -22753,7 +22770,7 @@ impl Device {
     #[doc(alias = "vkAcquireFullScreenExclusiveModeEXT")]
     #[inline(always)]
     pub unsafe fn acquire_full_screen_exclusive_mode_ext(
-        self,
+        &self,
         swapchain: SwapchainKHR,
     ) -> ResultCode {
         let command = vtable_get(
@@ -22791,7 +22808,7 @@ impl Device {
     #[doc(alias = "vkReleaseFullScreenExclusiveModeEXT")]
     #[inline(always)]
     pub unsafe fn release_full_screen_exclusive_mode_ext(
-        self,
+        &self,
         swapchain: SwapchainKHR,
     ) -> ResultCode {
         let command = vtable_get(
@@ -22832,7 +22849,7 @@ impl Device {
     #[doc(alias = "vkGetDeviceGroupSurfacePresentModes2EXT")]
     #[inline(always)]
     pub unsafe fn get_device_group_surface_present_modes_2_ext(
-        self,
+        &self,
         p_surface_info: *const PhysicalDeviceSurfaceInfo2KHR,
         p_modes: *mut DeviceGroupPresentModeFlagsKHR,
     ) -> ResultCode {
@@ -22879,7 +22896,7 @@ impl Instance {
     #[doc(alias = "vkCreateHeadlessSurfaceEXT")]
     #[inline(always)]
     pub unsafe fn create_headless_surface_ext(
-        self,
+        &self,
         p_create_info: *const HeadlessSurfaceCreateInfoEXT,
         p_allocator: *const AllocationCallbacks,
         p_surface: *mut SurfaceKHR,
@@ -22919,7 +22936,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetLineStippleEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_line_stipple_ext(
-        self,
+        &self,
         line_stipple_factor: u32,
         line_stipple_pattern: u16,
     ) {
@@ -22948,7 +22965,7 @@ impl Device {
     #[doc(alias = "vkResetQueryPoolEXT")]
     #[inline(always)]
     pub unsafe fn reset_query_pool_ext(
-        self,
+        &self,
         query_pool: QueryPool,
         first_query: u32,
         query_count: u32,
@@ -22991,7 +23008,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetCullModeEXT")]
     #[inline(always)]
-    pub unsafe fn cmd_set_cull_mode_ext(self, cull_mode: CullModeFlags) {
+    pub unsafe fn cmd_set_cull_mode_ext(&self, cull_mode: CullModeFlags) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetCullModeEXT as usize,
@@ -23027,7 +23044,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetFrontFaceEXT")]
     #[inline(always)]
-    pub unsafe fn cmd_set_front_face_ext(self, front_face: FrontFace) {
+    pub unsafe fn cmd_set_front_face_ext(&self, front_face: FrontFace) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetFrontFaceEXT as usize,
@@ -23064,7 +23081,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetPrimitiveTopologyEXT")]
     #[inline(always)]
-    pub unsafe fn cmd_set_primitive_topology_ext(self, primitive_topology: PrimitiveTopology) {
+    pub unsafe fn cmd_set_primitive_topology_ext(&self, primitive_topology: PrimitiveTopology) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetPrimitiveTopologyEXT as usize,
@@ -23103,7 +23120,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetViewportWithCountEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_viewport_with_count_ext(
-        self,
+        &self,
         viewport_count: u32,
         p_viewports: *const Viewport,
     ) {
@@ -23145,7 +23162,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetScissorWithCountEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_scissor_with_count_ext(
-        self,
+        &self,
         scissor_count: u32,
         p_scissors: *const Rect2D,
     ) {
@@ -23198,7 +23215,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBindVertexBuffers2EXT")]
     #[inline(always)]
     pub unsafe fn cmd_bind_vertex_buffers_2_ext(
-        self,
+        &self,
         first_binding: u32,
         binding_count: u32,
         p_buffers: *const Buffer,
@@ -23251,7 +23268,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetDepthTestEnableEXT")]
     #[inline(always)]
-    pub unsafe fn cmd_set_depth_test_enable_ext(self, depth_test_enable: Bool32) {
+    pub unsafe fn cmd_set_depth_test_enable_ext(&self, depth_test_enable: Bool32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetDepthTestEnableEXT as usize,
@@ -23287,7 +23304,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetDepthWriteEnableEXT")]
     #[inline(always)]
-    pub unsafe fn cmd_set_depth_write_enable_ext(self, depth_write_enable: Bool32) {
+    pub unsafe fn cmd_set_depth_write_enable_ext(&self, depth_write_enable: Bool32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetDepthWriteEnableEXT as usize,
@@ -23324,7 +23341,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetDepthCompareOpEXT")]
     #[inline(always)]
-    pub unsafe fn cmd_set_depth_compare_op_ext(self, depth_compare_op: CompareOp) {
+    pub unsafe fn cmd_set_depth_compare_op_ext(&self, depth_compare_op: CompareOp) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetDepthCompareOpEXT as usize,
@@ -23361,7 +23378,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetDepthBoundsTestEnableEXT")]
     #[inline(always)]
-    pub unsafe fn cmd_set_depth_bounds_test_enable_ext(self, depth_bounds_test_enable: Bool32) {
+    pub unsafe fn cmd_set_depth_bounds_test_enable_ext(&self, depth_bounds_test_enable: Bool32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetDepthBoundsTestEnableEXT as usize,
@@ -23398,7 +23415,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetStencilTestEnableEXT")]
     #[inline(always)]
-    pub unsafe fn cmd_set_stencil_test_enable_ext(self, stencil_test_enable: Bool32) {
+    pub unsafe fn cmd_set_stencil_test_enable_ext(&self, stencil_test_enable: Bool32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetStencilTestEnableEXT as usize,
@@ -23443,7 +23460,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetStencilOpEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_stencil_op_ext(
-        self,
+        &self,
         face_mask: StencilFaceFlags,
         fail_op: StencilOp,
         pass_op: StencilOp,
@@ -23495,7 +23512,7 @@ impl Device {
     #[doc(alias = "vkCopyMemoryToImageEXT")]
     #[inline(always)]
     pub unsafe fn copy_memory_to_image_ext(
-        self,
+        &self,
         p_copy_memory_to_image_info: *const CopyMemoryToImageInfo,
     ) -> ResultCode {
         let command = vtable_get(
@@ -23534,7 +23551,7 @@ impl Device {
     #[doc(alias = "vkCopyImageToMemoryEXT")]
     #[inline(always)]
     pub unsafe fn copy_image_to_memory_ext(
-        self,
+        &self,
         p_copy_image_to_memory_info: *const CopyImageToMemoryInfo,
     ) -> ResultCode {
         let command = vtable_get(
@@ -23573,7 +23590,7 @@ impl Device {
     #[doc(alias = "vkCopyImageToImageEXT")]
     #[inline(always)]
     pub unsafe fn copy_image_to_image_ext(
-        self,
+        &self,
         p_copy_image_to_image_info: *const CopyImageToImageInfo,
     ) -> ResultCode {
         let command = vtable_get(
@@ -23612,7 +23629,7 @@ impl Device {
     #[doc(alias = "vkTransitionImageLayoutEXT")]
     #[inline(always)]
     pub unsafe fn transition_image_layout_ext(
-        self,
+        &self,
         transition_count: u32,
         p_transitions: *const HostImageLayoutTransitionInfo,
     ) -> ResultCode {
@@ -23643,7 +23660,7 @@ impl Device {
     #[doc(alias = "vkGetImageSubresourceLayout2EXT")]
     #[inline(always)]
     pub unsafe fn get_image_subresource_layout_2_ext(
-        self,
+        &self,
         image: Image,
         p_subresource: *const ImageSubresource2,
         p_layout: *mut SubresourceLayout2,
@@ -23682,7 +23699,7 @@ impl Device {
     #[doc(alias = "vkReleaseSwapchainImagesEXT")]
     #[inline(always)]
     pub unsafe fn release_swapchain_images_ext(
-        self,
+        &self,
         p_release_info: *const ReleaseSwapchainImagesInfoKHR,
     ) -> ResultCode {
         let command = vtable_get(
@@ -23714,7 +23731,7 @@ impl Device {
     #[doc(alias = "vkGetGeneratedCommandsMemoryRequirementsNV")]
     #[inline(always)]
     pub unsafe fn get_generated_commands_memory_requirements_nv(
-        self,
+        &self,
         p_info: *const GeneratedCommandsMemoryRequirementsInfoNV,
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
@@ -23757,7 +23774,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdPreprocessGeneratedCommandsNV")]
     #[inline(always)]
     pub unsafe fn cmd_preprocess_generated_commands_nv(
-        self,
+        &self,
         p_generated_commands_info: *const GeneratedCommandsInfoNV,
     ) {
         let command = vtable_get(
@@ -23798,7 +23815,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdExecuteGeneratedCommandsNV")]
     #[inline(always)]
     pub unsafe fn cmd_execute_generated_commands_nv(
-        self,
+        &self,
         is_preprocessed: Bool32,
         p_generated_commands_info: *const GeneratedCommandsInfoNV,
     ) {
@@ -23839,7 +23856,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBindPipelineShaderGroupNV")]
     #[inline(always)]
     pub unsafe fn cmd_bind_pipeline_shader_group_nv(
-        self,
+        &self,
         pipeline_bind_point: PipelineBindPoint,
         pipeline: Pipeline,
         group_index: u32,
@@ -23885,7 +23902,7 @@ impl Device {
     #[doc(alias = "vkCreateIndirectCommandsLayoutNV")]
     #[inline(always)]
     pub unsafe fn create_indirect_commands_layout_nv(
-        self,
+        &self,
         p_create_info: *const IndirectCommandsLayoutCreateInfoNV,
         p_allocator: *const AllocationCallbacks,
         p_indirect_commands_layout: *mut IndirectCommandsLayoutNV,
@@ -23927,7 +23944,7 @@ impl Device {
     #[doc(alias = "vkDestroyIndirectCommandsLayoutNV")]
     #[inline(always)]
     pub unsafe fn destroy_indirect_commands_layout_nv(
-        self,
+        &self,
         indirect_commands_layout: IndirectCommandsLayoutNV,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -23966,7 +23983,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetDepthBias2EXT")]
     #[inline(always)]
-    pub unsafe fn cmd_set_depth_bias_2_ext(self, p_depth_bias_info: *const DepthBiasInfoEXT) {
+    pub unsafe fn cmd_set_depth_bias_2_ext(&self, p_depth_bias_info: *const DepthBiasInfoEXT) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetDepthBias2EXT as usize,
@@ -23998,7 +24015,7 @@ impl PhysicalDevice {
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkAcquireDrmDisplayEXT")]
     #[inline(always)]
-    pub unsafe fn acquire_drm_display_ext(self, drm_fd: i32, display: DisplayKHR) -> ResultCode {
+    pub unsafe fn acquire_drm_display_ext(&self, drm_fd: i32, display: DisplayKHR) -> ResultCode {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkAcquireDrmDisplayEXT as usize,
@@ -24032,7 +24049,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetDrmDisplayEXT")]
     #[inline(always)]
     pub unsafe fn get_drm_display_ext(
-        self,
+        &self,
         drm_fd: i32,
         connector_id: u32,
         display: *mut DisplayKHR,
@@ -24077,7 +24094,7 @@ impl Device {
     #[doc(alias = "vkCreatePrivateDataSlotEXT")]
     #[inline(always)]
     pub unsafe fn create_private_data_slot_ext(
-        self,
+        &self,
         p_create_info: *const PrivateDataSlotCreateInfo,
         p_allocator: *const AllocationCallbacks,
         p_private_data_slot: *mut PrivateDataSlot,
@@ -24112,7 +24129,7 @@ impl Device {
     #[doc(alias = "vkDestroyPrivateDataSlotEXT")]
     #[inline(always)]
     pub unsafe fn destroy_private_data_slot_ext(
-        self,
+        &self,
         private_data_slot: PrivateDataSlot,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -24150,7 +24167,7 @@ impl Device {
     #[doc(alias = "vkSetPrivateDataEXT")]
     #[inline(always)]
     pub unsafe fn set_private_data_ext(
-        self,
+        &self,
         object_type: ObjectType,
         object_handle: u64,
         private_data_slot: PrivateDataSlot,
@@ -24190,7 +24207,7 @@ impl Device {
     #[doc(alias = "vkGetPrivateDataEXT")]
     #[inline(always)]
     pub unsafe fn get_private_data_ext(
-        self,
+        &self,
         object_type: ObjectType,
         object_handle: u64,
         private_data_slot: PrivateDataSlot,
@@ -24236,7 +24253,7 @@ impl Queue {
     #[doc(alias = "vkQueueSetPerfHintQCOM")]
     #[inline(always)]
     pub unsafe fn set_perf_hint_qcom(
-        self,
+        &self,
         p_perf_hint_info: *const PerfHintInfoQCOM,
     ) -> ResultCode {
         let command = vtable_get(
@@ -24279,7 +24296,7 @@ impl Device {
     #[doc(alias = "vkCreateCudaModuleNV")]
     #[inline(always)]
     pub unsafe fn create_cuda_module_nv(
-        self,
+        &self,
         p_create_info: *const CudaModuleCreateInfoNV,
         p_allocator: *const AllocationCallbacks,
         p_module: *mut CudaModuleNV,
@@ -24320,7 +24337,7 @@ impl Device {
     #[doc(alias = "vkGetCudaModuleCacheNV")]
     #[inline(always)]
     pub unsafe fn get_cuda_module_cache_nv(
-        self,
+        &self,
         module: CudaModuleNV,
         p_cache_size: *mut usize,
         p_cache_data: *mut c_void,
@@ -24365,7 +24382,7 @@ impl Device {
     #[doc(alias = "vkCreateCudaFunctionNV")]
     #[inline(always)]
     pub unsafe fn create_cuda_function_nv(
-        self,
+        &self,
         p_create_info: *const CudaFunctionCreateInfoNV,
         p_allocator: *const AllocationCallbacks,
         p_function: *mut CudaFunctionNV,
@@ -24398,7 +24415,7 @@ impl Device {
     #[doc(alias = "vkDestroyCudaModuleNV")]
     #[inline(always)]
     pub unsafe fn destroy_cuda_module_nv(
-        self,
+        &self,
         module: CudaModuleNV,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -24430,7 +24447,7 @@ impl Device {
     #[doc(alias = "vkDestroyCudaFunctionNV")]
     #[inline(always)]
     pub unsafe fn destroy_cuda_function_nv(
-        self,
+        &self,
         function: CudaFunctionNV,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -24469,7 +24486,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdCudaLaunchKernelNV")]
     #[inline(always)]
-    pub unsafe fn cmd_cuda_launch_kernel_nv(self, p_launch_info: *const CudaLaunchInfoNV) {
+    pub unsafe fn cmd_cuda_launch_kernel_nv(&self, p_launch_info: *const CudaLaunchInfoNV) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdCudaLaunchKernelNV as usize,
@@ -24504,7 +24521,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdDispatchTileQCOM")]
     #[inline(always)]
-    pub unsafe fn cmd_dispatch_tile_qcom(self, p_dispatch_tile_info: *const DispatchTileInfoQCOM) {
+    pub unsafe fn cmd_dispatch_tile_qcom(&self, p_dispatch_tile_info: *const DispatchTileInfoQCOM) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdDispatchTileQCOM as usize,
@@ -24541,7 +24558,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBeginPerTileExecutionQCOM")]
     #[inline(always)]
     pub unsafe fn cmd_begin_per_tile_execution_qcom(
-        self,
+        &self,
         p_per_tile_begin_info: *const PerTileBeginInfoQCOM,
     ) {
         let command = vtable_get(
@@ -24581,7 +24598,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdEndPerTileExecutionQCOM")]
     #[inline(always)]
     pub unsafe fn cmd_end_per_tile_execution_qcom(
-        self,
+        &self,
         p_per_tile_end_info: *const PerTileEndInfoQCOM,
     ) {
         let command = vtable_get(
@@ -24611,7 +24628,7 @@ impl Device {
     #[doc(alias = "vkSetLatencySleepModeLegacyNV")]
     #[inline(always)]
     pub unsafe fn set_latency_sleep_mode_legacy_nv(
-        self,
+        &self,
         low_latency_mode: Bool32,
         low_latency_boost: Bool32,
         minimum_interval_us: u32,
@@ -24648,7 +24665,7 @@ impl Device {
     ///
     #[doc(alias = "vkLatencySleepLegacyNV")]
     #[inline(always)]
-    pub unsafe fn latency_sleep_legacy_nv(self, signal_semaphore: Semaphore, value: u64) {
+    pub unsafe fn latency_sleep_legacy_nv(&self, signal_semaphore: Semaphore, value: u64) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkLatencySleepLegacyNV as usize,
@@ -24673,7 +24690,7 @@ impl Device {
     ///
     #[doc(alias = "vkSetLatencyMarkerLegacyNV")]
     #[inline(always)]
-    pub unsafe fn set_latency_marker_legacy_nv(self, frame_id: u64, marker: u32) {
+    pub unsafe fn set_latency_marker_legacy_nv(&self, frame_id: u64, marker: u32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkSetLatencyMarkerLegacyNV as usize,
@@ -24698,7 +24715,7 @@ impl Device {
     ///
     #[doc(alias = "vkGetLatencyTimingsLegacyNV")]
     #[inline(always)]
-    pub unsafe fn get_latency_timings_legacy_nv(self, p_timings: *mut c_void) {
+    pub unsafe fn get_latency_timings_legacy_nv(&self, p_timings: *mut c_void) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkGetLatencyTimingsLegacyNV as usize,
@@ -24724,7 +24741,7 @@ impl Queue {
     ///
     #[doc(alias = "vkQueueNotifyOutOfBandLegacyNV")]
     #[inline(always)]
-    pub unsafe fn notify_out_of_band_legacy_nv(self, queue_type: u32) {
+    pub unsafe fn notify_out_of_band_legacy_nv(&self, queue_type: u32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkQueueNotifyOutOfBandLegacyNV as usize,
@@ -24750,7 +24767,7 @@ impl Device {
     ///
     #[doc(alias = "vkGetSleepStatusLegacyNV")]
     #[inline(always)]
-    pub unsafe fn get_sleep_status_legacy_nv(self, p_low_latency_mode: *mut Bool32) {
+    pub unsafe fn get_sleep_status_legacy_nv(&self, p_low_latency_mode: *mut Bool32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkGetSleepStatusLegacyNV as usize,
@@ -24775,7 +24792,7 @@ impl Device {
     ///
     #[doc(alias = "vkShutdownLatencyDeviceLegacyNV")]
     #[inline(always)]
-    pub unsafe fn shutdown_latency_device_legacy_nv(self) {
+    pub unsafe fn shutdown_latency_device_legacy_nv(&self) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkShutdownLatencyDeviceLegacyNV as usize,
@@ -24802,7 +24819,7 @@ impl Device {
     #[doc(alias = "vkExportMetalObjectsEXT")]
     #[inline(always)]
     pub unsafe fn export_metal_objects_ext(
-        self,
+        &self,
         p_metal_objects_info: *mut ExportMetalObjectsInfoEXT,
     ) {
         let command = vtable_get(
@@ -24831,7 +24848,7 @@ impl Device {
     #[doc(alias = "vkGetDescriptorSetLayoutSizeEXT")]
     #[inline(always)]
     pub unsafe fn get_descriptor_set_layout_size_ext(
-        self,
+        &self,
         layout: DescriptorSetLayout,
         p_layout_size_in_bytes: *mut DeviceSize,
     ) {
@@ -24862,7 +24879,7 @@ impl Device {
     #[doc(alias = "vkGetDescriptorSetLayoutBindingOffsetEXT")]
     #[inline(always)]
     pub unsafe fn get_descriptor_set_layout_binding_offset_ext(
-        self,
+        &self,
         layout: DescriptorSetLayout,
         binding: u32,
         p_offset: *mut DeviceSize,
@@ -24896,7 +24913,7 @@ impl Device {
     #[doc(alias = "vkGetDescriptorEXT")]
     #[inline(always)]
     pub unsafe fn get_descriptor_ext(
-        self,
+        &self,
         p_descriptor_info: *const DescriptorGetInfoEXT,
         data_size: usize,
         p_descriptor: *mut c_void,
@@ -24939,7 +24956,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBindDescriptorBuffersEXT")]
     #[inline(always)]
     pub unsafe fn cmd_bind_descriptor_buffers_ext(
-        self,
+        &self,
         buffer_count: u32,
         p_binding_infos: *const DescriptorBufferBindingInfoEXT,
     ) {
@@ -24989,7 +25006,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetDescriptorBufferOffsetsEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_descriptor_buffer_offsets_ext(
-        self,
+        &self,
         pipeline_bind_point: PipelineBindPoint,
         layout: PipelineLayout,
         first_set: u32,
@@ -25045,7 +25062,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBindDescriptorBufferEmbeddedSamplersEXT")]
     #[inline(always)]
     pub unsafe fn cmd_bind_descriptor_buffer_embedded_samplers_ext(
-        self,
+        &self,
         pipeline_bind_point: PipelineBindPoint,
         layout: PipelineLayout,
         set: u32,
@@ -25090,7 +25107,7 @@ impl Device {
     #[doc(alias = "vkGetBufferOpaqueCaptureDescriptorDataEXT")]
     #[inline(always)]
     pub unsafe fn get_buffer_opaque_capture_descriptor_data_ext(
-        self,
+        &self,
         p_info: *const BufferCaptureDescriptorDataInfoEXT,
         p_data: *mut c_void,
     ) -> ResultCode {
@@ -25134,7 +25151,7 @@ impl Device {
     #[doc(alias = "vkGetImageOpaqueCaptureDescriptorDataEXT")]
     #[inline(always)]
     pub unsafe fn get_image_opaque_capture_descriptor_data_ext(
-        self,
+        &self,
         p_info: *const ImageCaptureDescriptorDataInfoEXT,
         p_data: *mut c_void,
     ) -> ResultCode {
@@ -25179,7 +25196,7 @@ impl Device {
     #[doc(alias = "vkGetImageViewOpaqueCaptureDescriptorDataEXT")]
     #[inline(always)]
     pub unsafe fn get_image_view_opaque_capture_descriptor_data_ext(
-        self,
+        &self,
         p_info: *const ImageViewCaptureDescriptorDataInfoEXT,
         p_data: *mut c_void,
     ) -> ResultCode {
@@ -25223,7 +25240,7 @@ impl Device {
     #[doc(alias = "vkGetSamplerOpaqueCaptureDescriptorDataEXT")]
     #[inline(always)]
     pub unsafe fn get_sampler_opaque_capture_descriptor_data_ext(
-        self,
+        &self,
         p_info: *const SamplerCaptureDescriptorDataInfoEXT,
         p_data: *mut c_void,
     ) -> ResultCode {
@@ -25268,7 +25285,7 @@ impl Device {
     #[doc(alias = "vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT")]
     #[inline(always)]
     pub unsafe fn get_acceleration_structure_opaque_capture_descriptor_data_ext(
-        self,
+        &self,
         p_info: *const AccelerationStructureCaptureDescriptorDataInfoEXT,
         p_data: *mut c_void,
     ) -> ResultCode {
@@ -25314,7 +25331,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetFragmentShadingRateEnumNV")]
     #[inline(always)]
     pub unsafe fn cmd_set_fragment_shading_rate_enum_nv(
-        self,
+        &self,
         shading_rate: FragmentShadingRateNV,
         combiner_ops: *const [FragmentShadingRateCombinerOpKHR; 2 as usize],
     ) {
@@ -25359,7 +25376,7 @@ impl Device {
     #[doc(alias = "vkGetDeviceFaultInfoEXT")]
     #[inline(always)]
     pub unsafe fn get_device_fault_info_ext(
-        self,
+        &self,
         p_fault_counts: *mut DeviceFaultCountsEXT,
         p_fault_info: *mut DeviceFaultInfoEXT,
     ) -> ResultCode {
@@ -25396,7 +25413,7 @@ impl PhysicalDevice {
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkAcquireWinrtDisplayNV")]
     #[inline(always)]
-    pub unsafe fn acquire_winrt_display_nv(self, display: DisplayKHR) -> ResultCode {
+    pub unsafe fn acquire_winrt_display_nv(&self, display: DisplayKHR) -> ResultCode {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkAcquireWinrtDisplayNV as usize,
@@ -25431,7 +25448,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetWinrtDisplayNV")]
     #[inline(always)]
     pub unsafe fn get_winrt_display_nv(
-        self,
+        &self,
         device_relative_id: u32,
         p_display: *mut DisplayKHR,
     ) -> ResultCode {
@@ -25475,7 +25492,7 @@ impl Instance {
     #[doc(alias = "vkCreateDirectFBSurfaceEXT")]
     #[inline(always)]
     pub unsafe fn create_direct_fb_surface_ext(
-        self,
+        &self,
         p_create_info: *const DirectFBSurfaceCreateInfoEXT,
         p_allocator: *const AllocationCallbacks,
         p_surface: *mut SurfaceKHR,
@@ -25505,7 +25522,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceDirectFBPresentationSupportEXT")]
     #[inline(always)]
     pub unsafe fn get_direct_fb_presentation_support_ext(
-        self,
+        &self,
         queue_family_index: u32,
         dfb: *mut IDirectFB,
     ) -> Bool32 {
@@ -25557,7 +25574,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetVertexInputEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_vertex_input_ext(
-        self,
+        &self,
         vertex_binding_description_count: u32,
         p_vertex_binding_descriptions: *const VertexInputBindingDescription2EXT,
         vertex_attribute_description_count: u32,
@@ -25607,7 +25624,7 @@ impl Device {
     #[doc(alias = "vkGetMemoryZirconHandleFUCHSIA")]
     #[inline(always)]
     pub unsafe fn get_memory_zircon_handle_fuchsia(
-        self,
+        &self,
         p_get_zircon_handle_info: *const MemoryGetZirconHandleInfoFUCHSIA,
         p_zircon_handle: *mut zx_handle_t,
     ) -> ResultCode {
@@ -25648,7 +25665,7 @@ impl Device {
     #[doc(alias = "vkGetMemoryZirconHandlePropertiesFUCHSIA")]
     #[inline(always)]
     pub unsafe fn get_memory_zircon_handle_properties_fuchsia(
-        self,
+        &self,
         handle_type: ExternalMemoryHandleTypeFlags,
         zircon_handle: zx_handle_t,
         p_memory_zircon_handle_properties: *mut MemoryZirconHandlePropertiesFUCHSIA,
@@ -25696,7 +25713,7 @@ impl Device {
     #[doc(alias = "vkImportSemaphoreZirconHandleFUCHSIA")]
     #[inline(always)]
     pub unsafe fn import_semaphore_zircon_handle_fuchsia(
-        self,
+        &self,
         p_import_semaphore_zircon_handle_info: *const ImportSemaphoreZirconHandleInfoFUCHSIA,
     ) -> ResultCode {
         let command = vtable_get(
@@ -25736,7 +25753,7 @@ impl Device {
     #[doc(alias = "vkGetSemaphoreZirconHandleFUCHSIA")]
     #[inline(always)]
     pub unsafe fn get_semaphore_zircon_handle_fuchsia(
-        self,
+        &self,
         p_get_zircon_handle_info: *const SemaphoreGetZirconHandleInfoFUCHSIA,
         p_zircon_handle: *mut zx_handle_t,
     ) -> ResultCode {
@@ -25782,7 +25799,7 @@ impl Device {
     #[doc(alias = "vkCreateBufferCollectionFUCHSIA")]
     #[inline(always)]
     pub unsafe fn create_buffer_collection_fuchsia(
-        self,
+        &self,
         p_create_info: *const BufferCollectionCreateInfoFUCHSIA,
         p_allocator: *const AllocationCallbacks,
         p_collection: *mut BufferCollectionFUCHSIA,
@@ -25826,7 +25843,7 @@ impl Device {
     #[doc(alias = "vkSetBufferCollectionImageConstraintsFUCHSIA")]
     #[inline(always)]
     pub unsafe fn set_buffer_collection_image_constraints_fuchsia(
-        self,
+        &self,
         collection: BufferCollectionFUCHSIA,
         p_image_constraints_info: *const ImageConstraintsInfoFUCHSIA,
     ) -> ResultCode {
@@ -25871,7 +25888,7 @@ impl Device {
     #[doc(alias = "vkSetBufferCollectionBufferConstraintsFUCHSIA")]
     #[inline(always)]
     pub unsafe fn set_buffer_collection_buffer_constraints_fuchsia(
-        self,
+        &self,
         collection: BufferCollectionFUCHSIA,
         p_buffer_constraints_info: *const BufferConstraintsInfoFUCHSIA,
     ) -> ResultCode {
@@ -25906,7 +25923,7 @@ impl Device {
     #[doc(alias = "vkDestroyBufferCollectionFUCHSIA")]
     #[inline(always)]
     pub unsafe fn destroy_buffer_collection_fuchsia(
-        self,
+        &self,
         collection: BufferCollectionFUCHSIA,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -25947,7 +25964,7 @@ impl Device {
     #[doc(alias = "vkGetBufferCollectionPropertiesFUCHSIA")]
     #[inline(always)]
     pub unsafe fn get_buffer_collection_properties_fuchsia(
-        self,
+        &self,
         collection: BufferCollectionFUCHSIA,
         p_properties: *mut BufferCollectionPropertiesFUCHSIA,
     ) -> ResultCode {
@@ -25986,7 +26003,7 @@ impl Device {
     #[doc(alias = "vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI")]
     #[inline(always)]
     pub unsafe fn get_device_subpass_shading_max_workgroup_size_huawei(
-        self,
+        &self,
         renderpass: RenderPass,
         p_max_workgroup_size: *mut Extent2D,
     ) -> ResultCode {
@@ -26026,7 +26043,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSubpassShadingHUAWEI")]
     #[inline(always)]
-    pub unsafe fn cmd_subpass_shading_huawei(self) {
+    pub unsafe fn cmd_subpass_shading_huawei(&self) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSubpassShadingHUAWEI as usize,
@@ -26065,7 +26082,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBindInvocationMaskHUAWEI")]
     #[inline(always)]
     pub unsafe fn cmd_bind_invocation_mask_huawei(
-        self,
+        &self,
         image_view: ImageView,
         image_layout: ImageLayout,
     ) {
@@ -26105,7 +26122,7 @@ impl Device {
     #[doc(alias = "vkGetMemoryRemoteAddressNV")]
     #[inline(always)]
     pub unsafe fn get_memory_remote_address_nv(
-        self,
+        &self,
         p_memory_get_remote_address_info: *const MemoryGetRemoteAddressInfoNV,
         p_address: *mut RemoteAddressNV,
     ) -> ResultCode {
@@ -26141,7 +26158,7 @@ impl Device {
     #[doc(alias = "vkGetPipelinePropertiesEXT")]
     #[inline(always)]
     pub unsafe fn get_pipeline_properties_ext(
-        self,
+        &self,
         p_pipeline_info: *const PipelineInfoKHR,
         p_pipeline_properties: *mut BaseOutStructure,
     ) -> ResultCode {
@@ -26180,7 +26197,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetPatchControlPointsEXT")]
     #[inline(always)]
-    pub unsafe fn cmd_set_patch_control_points_ext(self, patch_control_points: u32) {
+    pub unsafe fn cmd_set_patch_control_points_ext(&self, patch_control_points: u32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetPatchControlPointsEXT as usize,
@@ -26218,7 +26235,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetRasterizerDiscardEnableEXT")]
     #[inline(always)]
-    pub unsafe fn cmd_set_rasterizer_discard_enable_ext(self, rasterizer_discard_enable: Bool32) {
+    pub unsafe fn cmd_set_rasterizer_discard_enable_ext(&self, rasterizer_discard_enable: Bool32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetRasterizerDiscardEnableEXT as usize,
@@ -26255,7 +26272,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetDepthBiasEnableEXT")]
     #[inline(always)]
-    pub unsafe fn cmd_set_depth_bias_enable_ext(self, depth_bias_enable: Bool32) {
+    pub unsafe fn cmd_set_depth_bias_enable_ext(&self, depth_bias_enable: Bool32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetDepthBiasEnableEXT as usize,
@@ -26291,7 +26308,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetLogicOpEXT")]
     #[inline(always)]
-    pub unsafe fn cmd_set_logic_op_ext(self, logic_op: LogicOp) {
+    pub unsafe fn cmd_set_logic_op_ext(&self, logic_op: LogicOp) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetLogicOpEXT as usize,
@@ -26328,7 +26345,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetPrimitiveRestartEnableEXT")]
     #[inline(always)]
-    pub unsafe fn cmd_set_primitive_restart_enable_ext(self, primitive_restart_enable: Bool32) {
+    pub unsafe fn cmd_set_primitive_restart_enable_ext(&self, primitive_restart_enable: Bool32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetPrimitiveRestartEnableEXT as usize,
@@ -26370,7 +26387,7 @@ impl Instance {
     #[doc(alias = "vkCreateScreenSurfaceQNX")]
     #[inline(always)]
     pub unsafe fn create_screen_surface_qnx(
-        self,
+        &self,
         p_create_info: *const ScreenSurfaceCreateInfoQNX,
         p_allocator: *const AllocationCallbacks,
         p_surface: *mut SurfaceKHR,
@@ -26400,7 +26417,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceScreenPresentationSupportQNX")]
     #[inline(always)]
     pub unsafe fn get_screen_presentation_support_qnx(
-        self,
+        &self,
         queue_family_index: u32,
         window: *mut _screen_window,
     ) -> Bool32 {
@@ -26442,7 +26459,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetColorWriteEnableEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_color_write_enable_ext(
-        self,
+        &self,
         attachment_count: u32,
         p_color_write_enables: *const Bool32,
     ) {
@@ -26485,7 +26502,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDrawMultiEXT")]
     #[inline(always)]
     pub unsafe fn cmd_draw_multi_ext(
-        self,
+        &self,
         draw_count: u32,
         p_vertex_info: *const MultiDrawInfoEXT,
         instance_count: u32,
@@ -26547,7 +26564,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDrawMultiIndexedEXT")]
     #[inline(always)]
     pub unsafe fn cmd_draw_multi_indexed_ext(
-        self,
+        &self,
         draw_count: u32,
         p_index_info: *const MultiDrawIndexedInfoEXT,
         instance_count: u32,
@@ -26606,7 +26623,7 @@ impl Device {
     #[doc(alias = "vkCreateMicromapEXT")]
     #[inline(always)]
     pub unsafe fn create_micromap_ext(
-        self,
+        &self,
         p_create_info: *const MicromapCreateInfoEXT,
         p_allocator: *const AllocationCallbacks,
         p_micromap: *mut MicromapEXT,
@@ -26641,7 +26658,7 @@ impl Device {
     #[doc(alias = "vkDestroyMicromapEXT")]
     #[inline(always)]
     pub unsafe fn destroy_micromap_ext(
-        self,
+        &self,
         micromap: MicromapEXT,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -26681,7 +26698,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBuildMicromapsEXT")]
     #[inline(always)]
     pub unsafe fn cmd_build_micromaps_ext(
-        self,
+        &self,
         info_count: u32,
         p_infos: *const MicromapBuildInfoEXT,
     ) {
@@ -26728,7 +26745,7 @@ impl Device {
     #[doc(alias = "vkBuildMicromapsEXT")]
     #[inline(always)]
     pub unsafe fn build_micromaps_ext(
-        self,
+        &self,
         deferred_operation: DeferredOperationKHR,
         info_count: u32,
         p_infos: *const MicromapBuildInfoEXT,
@@ -26775,7 +26792,7 @@ impl Device {
     #[doc(alias = "vkCopyMicromapEXT")]
     #[inline(always)]
     pub unsafe fn copy_micromap_ext(
-        self,
+        &self,
         deferred_operation: DeferredOperationKHR,
         p_info: *const CopyMicromapInfoEXT,
     ) -> ResultCode {
@@ -26821,7 +26838,7 @@ impl Device {
     #[doc(alias = "vkCopyMicromapToMemoryEXT")]
     #[inline(always)]
     pub unsafe fn copy_micromap_to_memory_ext(
-        self,
+        &self,
         deferred_operation: DeferredOperationKHR,
         p_info: *const CopyMicromapToMemoryInfoEXT,
     ) -> ResultCode {
@@ -26867,7 +26884,7 @@ impl Device {
     #[doc(alias = "vkCopyMemoryToMicromapEXT")]
     #[inline(always)]
     pub unsafe fn copy_memory_to_micromap_ext(
-        self,
+        &self,
         deferred_operation: DeferredOperationKHR,
         p_info: *const CopyMemoryToMicromapInfoEXT,
     ) -> ResultCode {
@@ -26912,7 +26929,7 @@ impl Device {
     #[doc(alias = "vkWriteMicromapsPropertiesEXT")]
     #[inline(always)]
     pub unsafe fn write_micromaps_properties_ext(
-        self,
+        &self,
         micromap_count: u32,
         p_micromaps: *const MicromapEXT,
         query_type: QueryType,
@@ -26966,7 +26983,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdCopyMicromapEXT")]
     #[inline(always)]
-    pub unsafe fn cmd_copy_micromap_ext(self, p_info: *const CopyMicromapInfoEXT) {
+    pub unsafe fn cmd_copy_micromap_ext(&self, p_info: *const CopyMicromapInfoEXT) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdCopyMicromapEXT as usize,
@@ -27003,7 +27020,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdCopyMicromapToMemoryEXT")]
     #[inline(always)]
     pub unsafe fn cmd_copy_micromap_to_memory_ext(
-        self,
+        &self,
         p_info: *const CopyMicromapToMemoryInfoEXT,
     ) {
         let command = vtable_get(
@@ -27043,7 +27060,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdCopyMemoryToMicromapEXT")]
     #[inline(always)]
     pub unsafe fn cmd_copy_memory_to_micromap_ext(
-        self,
+        &self,
         p_info: *const CopyMemoryToMicromapInfoEXT,
     ) {
         let command = vtable_get(
@@ -27083,7 +27100,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdWriteMicromapsPropertiesEXT")]
     #[inline(always)]
     pub unsafe fn cmd_write_micromaps_properties_ext(
-        self,
+        &self,
         micromap_count: u32,
         p_micromaps: *const MicromapEXT,
         query_type: QueryType,
@@ -27129,7 +27146,7 @@ impl Device {
     #[doc(alias = "vkGetDeviceMicromapCompatibilityEXT")]
     #[inline(always)]
     pub unsafe fn get_device_micromap_compatibility_ext(
-        self,
+        &self,
         p_version_info: *const MicromapVersionInfoEXT,
         p_compatibility: *mut AccelerationStructureCompatibilityKHR,
     ) {
@@ -27164,7 +27181,7 @@ impl Device {
     #[doc(alias = "vkGetMicromapBuildSizesEXT")]
     #[inline(always)]
     pub unsafe fn get_micromap_build_sizes_ext(
-        self,
+        &self,
         build_type: AccelerationStructureBuildTypeKHR,
         p_build_info: *const MicromapBuildInfoEXT,
         p_size_info: *mut MicromapBuildSizesInfoEXT,
@@ -27203,7 +27220,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDrawClusterHUAWEI")]
     #[inline(always)]
     pub unsafe fn cmd_draw_cluster_huawei(
-        self,
+        &self,
         group_count_x: u32,
         group_count_y: u32,
         group_count_z: u32,
@@ -27242,7 +27259,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdDrawClusterIndirectHUAWEI")]
     #[inline(always)]
-    pub unsafe fn cmd_draw_cluster_indirect_huawei(self, buffer: Buffer, offset: DeviceSize) {
+    pub unsafe fn cmd_draw_cluster_indirect_huawei(&self, buffer: Buffer, offset: DeviceSize) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdDrawClusterIndirectHUAWEI as usize,
@@ -27268,7 +27285,7 @@ impl Device {
     ///
     #[doc(alias = "vkSetDeviceMemoryPriorityEXT")]
     #[inline(always)]
-    pub unsafe fn set_device_memory_priority_ext(self, memory: DeviceMemory, priority: f32) {
+    pub unsafe fn set_device_memory_priority_ext(&self, memory: DeviceMemory, priority: f32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkSetDeviceMemoryPriorityEXT as usize,
@@ -27305,7 +27322,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetDispatchParametersARM")]
     #[inline(always)]
     pub unsafe fn cmd_set_dispatch_parameters_arm(
-        self,
+        &self,
         p_dispatch_parameters: *const DispatchParametersARM,
     ) {
         let command = vtable_get(
@@ -27337,7 +27354,7 @@ impl Device {
     #[doc(alias = "vkGetDescriptorSetLayoutHostMappingInfoVALVE")]
     #[inline(always)]
     pub unsafe fn get_descriptor_set_layout_host_mapping_info_valve(
-        self,
+        &self,
         p_binding_reference: *const DescriptorSetBindingReferenceVALVE,
         p_host_mapping: *mut DescriptorSetLayoutHostMappingInfoVALVE,
     ) {
@@ -27369,7 +27386,7 @@ impl Device {
     #[doc(alias = "vkGetDescriptorSetHostMappingVALVE")]
     #[inline(always)]
     pub unsafe fn get_descriptor_set_host_mapping_valve(
-        self,
+        &self,
         descriptor_set: DescriptorSet,
         pp_data: *mut *mut c_void,
     ) {
@@ -27412,7 +27429,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdCopyMemoryIndirectNV")]
     #[inline(always)]
     pub unsafe fn cmd_copy_memory_indirect_nv(
-        self,
+        &self,
         copy_buffer_address: DeviceAddress,
         copy_count: u32,
         stride: u32,
@@ -27462,7 +27479,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdCopyMemoryToImageIndirectNV")]
     #[inline(always)]
     pub unsafe fn cmd_copy_memory_to_image_indirect_nv(
-        self,
+        &self,
         copy_buffer_address: DeviceAddress,
         copy_count: u32,
         stride: u32,
@@ -27518,7 +27535,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDecompressMemoryNV")]
     #[inline(always)]
     pub unsafe fn cmd_decompress_memory_nv(
-        self,
+        &self,
         decompress_region_count: u32,
         p_decompress_memory_regions: *const DecompressMemoryRegionNV,
     ) {
@@ -27565,7 +27582,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDecompressMemoryIndirectCountNV")]
     #[inline(always)]
     pub unsafe fn cmd_decompress_memory_indirect_count_nv(
-        self,
+        &self,
         indirect_commands_address: DeviceAddress,
         indirect_commands_count_address: DeviceAddress,
         stride: u32,
@@ -27603,7 +27620,7 @@ impl Device {
     #[doc(alias = "vkGetPipelineIndirectMemoryRequirementsNV")]
     #[inline(always)]
     pub unsafe fn get_pipeline_indirect_memory_requirements_nv(
-        self,
+        &self,
         p_create_info: *const ComputePipelineCreateInfo,
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
@@ -27647,7 +27664,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdUpdatePipelineIndirectBufferNV")]
     #[inline(always)]
     pub unsafe fn cmd_update_pipeline_indirect_buffer_nv(
-        self,
+        &self,
         pipeline_bind_point: PipelineBindPoint,
         pipeline: Pipeline,
     ) {
@@ -27677,7 +27694,7 @@ impl Device {
     #[doc(alias = "vkGetPipelineIndirectDeviceAddressNV")]
     #[inline(always)]
     pub unsafe fn get_pipeline_indirect_device_address_nv(
-        self,
+        &self,
         p_info: *const PipelineIndirectDeviceAddressInfoNV,
     ) -> DeviceAddress {
         let command = vtable_get(
@@ -27717,7 +27734,7 @@ impl Device {
     #[doc(alias = "vkGetNativeBufferPropertiesOHOS")]
     #[inline(always)]
     pub unsafe fn get_native_buffer_properties_ohos(
-        self,
+        &self,
         buffer: *const OH_NativeBuffer,
         p_properties: *mut NativeBufferPropertiesOHOS,
     ) -> ResultCode {
@@ -27757,7 +27774,7 @@ impl Device {
     #[doc(alias = "vkGetMemoryNativeBufferOHOS")]
     #[inline(always)]
     pub unsafe fn get_memory_native_buffer_ohos(
-        self,
+        &self,
         p_info: *const MemoryGetNativeBufferInfoOHOS,
         p_buffer: *mut *mut OH_NativeBuffer,
     ) -> ResultCode {
@@ -27796,7 +27813,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetDepthClampEnableEXT")]
     #[inline(always)]
-    pub unsafe fn cmd_set_depth_clamp_enable_ext(self, depth_clamp_enable: Bool32) {
+    pub unsafe fn cmd_set_depth_clamp_enable_ext(&self, depth_clamp_enable: Bool32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetDepthClampEnableEXT as usize,
@@ -27832,7 +27849,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetPolygonModeEXT")]
     #[inline(always)]
-    pub unsafe fn cmd_set_polygon_mode_ext(self, polygon_mode: PolygonMode) {
+    pub unsafe fn cmd_set_polygon_mode_ext(&self, polygon_mode: PolygonMode) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetPolygonModeEXT as usize,
@@ -27868,7 +27885,10 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetRasterizationSamplesEXT")]
     #[inline(always)]
-    pub unsafe fn cmd_set_rasterization_samples_ext(self, rasterization_samples: SampleCountFlags) {
+    pub unsafe fn cmd_set_rasterization_samples_ext(
+        &self,
+        rasterization_samples: SampleCountFlags,
+    ) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetRasterizationSamplesEXT as usize,
@@ -27909,7 +27929,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetSampleMaskEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_sample_mask_ext(
-        self,
+        &self,
         samples: SampleCountFlags,
         p_sample_mask: *const SampleMask,
     ) {
@@ -27948,7 +27968,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetAlphaToCoverageEnableEXT")]
     #[inline(always)]
-    pub unsafe fn cmd_set_alpha_to_coverage_enable_ext(self, alpha_to_coverage_enable: Bool32) {
+    pub unsafe fn cmd_set_alpha_to_coverage_enable_ext(&self, alpha_to_coverage_enable: Bool32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetAlphaToCoverageEnableEXT as usize,
@@ -27984,7 +28004,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetAlphaToOneEnableEXT")]
     #[inline(always)]
-    pub unsafe fn cmd_set_alpha_to_one_enable_ext(self, alpha_to_one_enable: Bool32) {
+    pub unsafe fn cmd_set_alpha_to_one_enable_ext(&self, alpha_to_one_enable: Bool32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetAlphaToOneEnableEXT as usize,
@@ -28020,7 +28040,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetLogicOpEnableEXT")]
     #[inline(always)]
-    pub unsafe fn cmd_set_logic_op_enable_ext(self, logic_op_enable: Bool32) {
+    pub unsafe fn cmd_set_logic_op_enable_ext(&self, logic_op_enable: Bool32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetLogicOpEnableEXT as usize,
@@ -28057,7 +28077,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetColorBlendEnableEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_color_blend_enable_ext(
-        self,
+        &self,
         first_attachment: u32,
         attachment_count: u32,
         p_color_blend_enables: *const Bool32,
@@ -28106,7 +28126,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetColorBlendEquationEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_color_blend_equation_ext(
-        self,
+        &self,
         first_attachment: u32,
         attachment_count: u32,
         p_color_blend_equations: *const ColorBlendEquationEXT,
@@ -28155,7 +28175,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetColorWriteMaskEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_color_write_mask_ext(
-        self,
+        &self,
         first_attachment: u32,
         attachment_count: u32,
         p_color_write_masks: *const ColorComponentFlags,
@@ -28203,7 +28223,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetTessellationDomainOriginEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_tessellation_domain_origin_ext(
-        self,
+        &self,
         domain_origin: TessellationDomainOrigin,
     ) {
         let command = vtable_get(
@@ -28241,7 +28261,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetRasterizationStreamEXT")]
     #[inline(always)]
-    pub unsafe fn cmd_set_rasterization_stream_ext(self, rasterization_stream: u32) {
+    pub unsafe fn cmd_set_rasterization_stream_ext(&self, rasterization_stream: u32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetRasterizationStreamEXT as usize,
@@ -28279,7 +28299,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetConservativeRasterizationModeEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_conservative_rasterization_mode_ext(
-        self,
+        &self,
         conservative_rasterization_mode: ConservativeRasterizationModeEXT,
     ) {
         let command = vtable_get(
@@ -28321,7 +28341,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetExtraPrimitiveOverestimationSizeEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_extra_primitive_overestimation_size_ext(
-        self,
+        &self,
         extra_primitive_overestimation_size: f32,
     ) {
         let command = vtable_get(
@@ -28361,7 +28381,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetDepthClipEnableEXT")]
     #[inline(always)]
-    pub unsafe fn cmd_set_depth_clip_enable_ext(self, depth_clip_enable: Bool32) {
+    pub unsafe fn cmd_set_depth_clip_enable_ext(&self, depth_clip_enable: Bool32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetDepthClipEnableEXT as usize,
@@ -28397,7 +28417,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetSampleLocationsEnableEXT")]
     #[inline(always)]
-    pub unsafe fn cmd_set_sample_locations_enable_ext(self, sample_locations_enable: Bool32) {
+    pub unsafe fn cmd_set_sample_locations_enable_ext(&self, sample_locations_enable: Bool32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetSampleLocationsEnableEXT as usize,
@@ -28435,7 +28455,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetColorBlendAdvancedEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_color_blend_advanced_ext(
-        self,
+        &self,
         first_attachment: u32,
         attachment_count: u32,
         p_color_blend_advanced: *const ColorBlendAdvancedEXT,
@@ -28484,7 +28504,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetProvokingVertexModeEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_provoking_vertex_mode_ext(
-        self,
+        &self,
         provoking_vertex_mode: ProvokingVertexModeEXT,
     ) {
         let command = vtable_get(
@@ -28524,7 +28544,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetLineRasterizationModeEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_line_rasterization_mode_ext(
-        self,
+        &self,
         line_rasterization_mode: LineRasterizationModeEXT,
     ) {
         let command = vtable_get(
@@ -28562,7 +28582,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetLineStippleEnableEXT")]
     #[inline(always)]
-    pub unsafe fn cmd_set_line_stipple_enable_ext(self, stippled_line_enable: Bool32) {
+    pub unsafe fn cmd_set_line_stipple_enable_ext(&self, stippled_line_enable: Bool32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetLineStippleEnableEXT as usize,
@@ -28599,7 +28619,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetDepthClipNegativeOneToOneEXT")]
     #[inline(always)]
-    pub unsafe fn cmd_set_depth_clip_negative_one_to_one_ext(self, negative_one_to_one: Bool32) {
+    pub unsafe fn cmd_set_depth_clip_negative_one_to_one_ext(&self, negative_one_to_one: Bool32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetDepthClipNegativeOneToOneEXT as usize,
@@ -28636,7 +28656,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetViewportWScalingEnableNV")]
     #[inline(always)]
-    pub unsafe fn cmd_set_viewport_w_scaling_enable_nv(self, viewport_w_scaling_enable: Bool32) {
+    pub unsafe fn cmd_set_viewport_w_scaling_enable_nv(&self, viewport_w_scaling_enable: Bool32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetViewportWScalingEnableNV as usize,
@@ -28674,7 +28694,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetViewportSwizzleNV")]
     #[inline(always)]
     pub unsafe fn cmd_set_viewport_swizzle_nv(
-        self,
+        &self,
         first_viewport: u32,
         viewport_count: u32,
         p_viewport_swizzles: *const ViewportSwizzleNV,
@@ -28721,7 +28741,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetCoverageToColorEnableNV")]
     #[inline(always)]
-    pub unsafe fn cmd_set_coverage_to_color_enable_nv(self, coverage_to_color_enable: Bool32) {
+    pub unsafe fn cmd_set_coverage_to_color_enable_nv(&self, coverage_to_color_enable: Bool32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetCoverageToColorEnableNV as usize,
@@ -28758,7 +28778,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetCoverageToColorLocationNV")]
     #[inline(always)]
-    pub unsafe fn cmd_set_coverage_to_color_location_nv(self, coverage_to_color_location: u32) {
+    pub unsafe fn cmd_set_coverage_to_color_location_nv(&self, coverage_to_color_location: u32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetCoverageToColorLocationNV as usize,
@@ -28796,7 +28816,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetCoverageModulationModeNV")]
     #[inline(always)]
     pub unsafe fn cmd_set_coverage_modulation_mode_nv(
-        self,
+        &self,
         coverage_modulation_mode: CoverageModulationModeNV,
     ) {
         let command = vtable_get(
@@ -28836,7 +28856,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetCoverageModulationTableEnableNV")]
     #[inline(always)]
     pub unsafe fn cmd_set_coverage_modulation_table_enable_nv(
-        self,
+        &self,
         coverage_modulation_table_enable: Bool32,
     ) {
         let command = vtable_get(
@@ -28878,7 +28898,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetCoverageModulationTableNV")]
     #[inline(always)]
     pub unsafe fn cmd_set_coverage_modulation_table_nv(
-        self,
+        &self,
         coverage_modulation_table_count: u32,
         p_coverage_modulation_table: *const f32,
     ) {
@@ -28924,7 +28944,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetShadingRateImageEnableNV")]
     #[inline(always)]
-    pub unsafe fn cmd_set_shading_rate_image_enable_nv(self, shading_rate_image_enable: Bool32) {
+    pub unsafe fn cmd_set_shading_rate_image_enable_nv(&self, shading_rate_image_enable: Bool32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetShadingRateImageEnableNV as usize,
@@ -28962,7 +28982,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetRepresentativeFragmentTestEnableNV")]
     #[inline(always)]
     pub unsafe fn cmd_set_representative_fragment_test_enable_nv(
-        self,
+        &self,
         representative_fragment_test_enable: Bool32,
     ) {
         let command = vtable_get(
@@ -29004,7 +29024,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetCoverageReductionModeNV")]
     #[inline(always)]
     pub unsafe fn cmd_set_coverage_reduction_mode_nv(
-        self,
+        &self,
         coverage_reduction_mode: CoverageReductionModeNV,
     ) {
         let command = vtable_get(
@@ -29048,7 +29068,7 @@ impl Device {
     #[doc(alias = "vkCreateTensorARM")]
     #[inline(always)]
     pub unsafe fn create_tensor_arm(
-        self,
+        &self,
         p_create_info: *const TensorCreateInfoARM,
         p_allocator: *const AllocationCallbacks,
         p_tensor: *mut TensorARM,
@@ -29082,7 +29102,7 @@ impl Device {
     #[doc(alias = "vkDestroyTensorARM")]
     #[inline(always)]
     pub unsafe fn destroy_tensor_arm(
-        self,
+        &self,
         tensor: TensorARM,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -29126,7 +29146,7 @@ impl Device {
     #[doc(alias = "vkCreateTensorViewARM")]
     #[inline(always)]
     pub unsafe fn create_tensor_view_arm(
-        self,
+        &self,
         p_create_info: *const TensorViewCreateInfoARM,
         p_allocator: *const AllocationCallbacks,
         p_view: *mut TensorViewARM,
@@ -29160,7 +29180,7 @@ impl Device {
     #[doc(alias = "vkDestroyTensorViewARM")]
     #[inline(always)]
     pub unsafe fn destroy_tensor_view_arm(
-        self,
+        &self,
         tensor_view: TensorViewARM,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -29192,7 +29212,7 @@ impl Device {
     #[doc(alias = "vkGetTensorMemoryRequirementsARM")]
     #[inline(always)]
     pub unsafe fn get_tensor_memory_requirements_arm(
-        self,
+        &self,
         p_info: *const TensorMemoryRequirementsInfoARM,
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
@@ -29230,7 +29250,7 @@ impl Device {
     #[doc(alias = "vkBindTensorMemoryARM")]
     #[inline(always)]
     pub unsafe fn bind_tensor_memory_arm(
-        self,
+        &self,
         bind_info_count: u32,
         p_bind_infos: *const BindTensorMemoryInfoARM,
     ) -> ResultCode {
@@ -29262,7 +29282,7 @@ impl Device {
     #[doc(alias = "vkGetDeviceTensorMemoryRequirementsARM")]
     #[inline(always)]
     pub unsafe fn get_device_tensor_memory_requirements_arm(
-        self,
+        &self,
         p_info: *const DeviceTensorMemoryRequirementsARM,
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
@@ -29303,7 +29323,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdCopyTensorARM")]
     #[inline(always)]
-    pub unsafe fn cmd_copy_tensor_arm(self, p_copy_tensor_info: *const CopyTensorInfoARM) {
+    pub unsafe fn cmd_copy_tensor_arm(&self, p_copy_tensor_info: *const CopyTensorInfoARM) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdCopyTensorARM as usize,
@@ -29332,7 +29352,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceExternalTensorPropertiesARM")]
     #[inline(always)]
     pub unsafe fn get_external_tensor_properties_arm(
-        self,
+        &self,
         p_external_tensor_info: *const PhysicalDeviceExternalTensorInfoARM,
         p_external_tensor_properties: *mut ExternalTensorPropertiesARM,
     ) {
@@ -29381,7 +29401,7 @@ impl Device {
     #[doc(alias = "vkGetTensorOpaqueCaptureDescriptorDataARM")]
     #[inline(always)]
     pub unsafe fn get_tensor_opaque_capture_descriptor_data_arm(
-        self,
+        &self,
         p_info: *const TensorCaptureDescriptorDataInfoARM,
         p_data: *mut c_void,
     ) -> ResultCode {
@@ -29425,7 +29445,7 @@ impl Device {
     #[doc(alias = "vkGetTensorViewOpaqueCaptureDescriptorDataARM")]
     #[inline(always)]
     pub unsafe fn get_tensor_view_opaque_capture_descriptor_data_arm(
-        self,
+        &self,
         p_info: *const TensorViewCaptureDescriptorDataInfoARM,
         p_data: *mut c_void,
     ) -> ResultCode {
@@ -29457,7 +29477,7 @@ impl Device {
     #[doc(alias = "vkGetShaderModuleIdentifierEXT")]
     #[inline(always)]
     pub unsafe fn get_shader_module_identifier_ext(
-        self,
+        &self,
         shader_module: ShaderModule,
         p_identifier: *mut ShaderModuleIdentifierEXT,
     ) {
@@ -29490,7 +29510,7 @@ impl Device {
     #[doc(alias = "vkGetShaderModuleCreateInfoIdentifierEXT")]
     #[inline(always)]
     pub unsafe fn get_shader_module_create_info_identifier_ext(
-        self,
+        &self,
         p_create_info: *const ShaderModuleCreateInfo,
         p_identifier: *mut ShaderModuleIdentifierEXT,
     ) {
@@ -29540,7 +29560,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceOpticalFlowImageFormatsNV")]
     #[inline(always)]
     pub unsafe fn get_optical_flow_image_formats_nv(
-        self,
+        &self,
         p_optical_flow_image_format_info: *const OpticalFlowImageFormatInfoNV,
         p_format_count: *mut u32,
         p_image_format_properties: *mut OpticalFlowImageFormatPropertiesNV,
@@ -29595,7 +29615,7 @@ impl Device {
     #[doc(alias = "vkCreateOpticalFlowSessionNV")]
     #[inline(always)]
     pub unsafe fn create_optical_flow_session_nv(
-        self,
+        &self,
         p_create_info: *const OpticalFlowSessionCreateInfoNV,
         p_allocator: *const AllocationCallbacks,
         p_session: *mut OpticalFlowSessionNV,
@@ -29629,7 +29649,7 @@ impl Device {
     #[doc(alias = "vkDestroyOpticalFlowSessionNV")]
     #[inline(always)]
     pub unsafe fn destroy_optical_flow_session_nv(
-        self,
+        &self,
         session: OpticalFlowSessionNV,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -29675,7 +29695,7 @@ impl Device {
     #[doc(alias = "vkBindOpticalFlowSessionImageNV")]
     #[inline(always)]
     pub unsafe fn bind_optical_flow_session_image_nv(
-        self,
+        &self,
         session: OpticalFlowSessionNV,
         binding_point: OpticalFlowSessionBindingPointNV,
         view: ImageView,
@@ -29720,7 +29740,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdOpticalFlowExecuteNV")]
     #[inline(always)]
     pub unsafe fn cmd_optical_flow_execute_nv(
-        self,
+        &self,
         session: OpticalFlowSessionNV,
         p_execute_info: *const OpticalFlowExecuteInfoNV,
     ) {
@@ -29747,7 +29767,7 @@ impl Device {
     ///
     #[doc(alias = "vkAntiLagUpdateAMD")]
     #[inline(always)]
-    pub unsafe fn anti_lag_update_amd(self, p_data: *const AntiLagDataAMD) {
+    pub unsafe fn anti_lag_update_amd(&self, p_data: *const AntiLagDataAMD) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkAntiLagUpdateAMD as usize,
@@ -29791,7 +29811,7 @@ impl Device {
     #[doc(alias = "vkCreateShadersEXT")]
     #[inline(always)]
     pub unsafe fn create_shaders_ext(
-        self,
+        &self,
         create_info_count: u32,
         p_create_infos: *const ShaderCreateInfoEXT,
         p_allocator: *const AllocationCallbacks,
@@ -29834,7 +29854,7 @@ impl Device {
     #[doc(alias = "vkDestroyShaderEXT")]
     #[inline(always)]
     pub unsafe fn destroy_shader_ext(
-        self,
+        &self,
         shader: ShaderEXT,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -29875,7 +29895,7 @@ impl Device {
     #[doc(alias = "vkGetShaderBinaryDataEXT")]
     #[inline(always)]
     pub unsafe fn get_shader_binary_data_ext(
-        self,
+        &self,
         shader: ShaderEXT,
         p_data_size: *mut usize,
         p_data: *mut c_void,
@@ -29919,7 +29939,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBindShadersEXT")]
     #[inline(always)]
     pub unsafe fn cmd_bind_shaders_ext(
-        self,
+        &self,
         stage_count: u32,
         p_stages: *const ShaderStageFlags,
         p_shaders: *const ShaderEXT,
@@ -29963,7 +29983,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetDepthClampRangeEXT")]
     #[inline(always)]
     pub unsafe fn cmd_set_depth_clamp_range_ext(
-        self,
+        &self,
         depth_clamp_mode: DepthClampModeEXT,
         p_depth_clamp_range: *const DepthClampRangeEXT,
     ) {
@@ -30006,7 +30026,7 @@ impl Device {
     #[doc(alias = "vkGetFramebufferTilePropertiesQCOM")]
     #[inline(always)]
     pub unsafe fn get_framebuffer_tile_properties_qcom(
-        self,
+        &self,
         framebuffer: Framebuffer,
         p_properties_count: *mut u32,
         p_properties: *mut TilePropertiesQCOM,
@@ -30043,7 +30063,7 @@ impl Device {
     #[doc(alias = "vkGetDynamicRenderingTilePropertiesQCOM")]
     #[inline(always)]
     pub unsafe fn get_dynamic_rendering_tile_properties_qcom(
-        self,
+        &self,
         p_rendering_info: *const RenderingInfo,
         p_properties: *mut TilePropertiesQCOM,
     ) -> ResultCode {
@@ -30091,7 +30111,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceCooperativeVectorPropertiesNV")]
     #[inline(always)]
     pub unsafe fn get_cooperative_vector_properties_nv(
-        self,
+        &self,
         p_property_count: *mut u32,
         p_properties: *mut CooperativeVectorPropertiesNV,
     ) -> ResultCode {
@@ -30131,7 +30151,7 @@ impl Device {
     #[doc(alias = "vkConvertCooperativeVectorMatrixNV")]
     #[inline(always)]
     pub unsafe fn convert_cooperative_vector_matrix_nv(
-        self,
+        &self,
         p_info: *const ConvertCooperativeVectorMatrixInfoNV,
     ) -> ResultCode {
         let command = vtable_get(
@@ -30171,7 +30191,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdConvertCooperativeVectorMatrixNV")]
     #[inline(always)]
     pub unsafe fn cmd_convert_cooperative_vector_matrix_nv(
-        self,
+        &self,
         info_count: u32,
         p_infos: *const ConvertCooperativeVectorMatrixInfoNV,
     ) {
@@ -30208,7 +30228,7 @@ impl Device {
     #[doc(alias = "vkSetLatencySleepModeNV")]
     #[inline(always)]
     pub unsafe fn set_latency_sleep_mode_nv(
-        self,
+        &self,
         swapchain: SwapchainKHR,
         p_sleep_mode_info: *const LatencySleepModeInfoNV,
     ) -> ResultCode {
@@ -30243,7 +30263,7 @@ impl Device {
     #[doc(alias = "vkLatencySleepNV")]
     #[inline(always)]
     pub unsafe fn latency_sleep_nv(
-        self,
+        &self,
         swapchain: SwapchainKHR,
         p_sleep_info: *const LatencySleepInfoNV,
     ) -> ResultCode {
@@ -30268,7 +30288,7 @@ impl Device {
     #[doc(alias = "vkSetLatencyMarkerNV")]
     #[inline(always)]
     pub unsafe fn set_latency_marker_nv(
-        self,
+        &self,
         swapchain: SwapchainKHR,
         p_latency_marker_info: *const SetLatencyMarkerInfoNV,
     ) {
@@ -30297,7 +30317,7 @@ impl Device {
     #[doc(alias = "vkGetLatencyTimingsNV")]
     #[inline(always)]
     pub unsafe fn get_latency_timings_nv(
-        self,
+        &self,
         swapchain: SwapchainKHR,
         p_latency_marker_info: *mut GetLatencyMarkerInfoNV,
     ) {
@@ -30325,7 +30345,7 @@ impl Queue {
     ///
     #[doc(alias = "vkQueueNotifyOutOfBandNV")]
     #[inline(always)]
-    pub unsafe fn notify_out_of_band_nv(self, p_queue_type_info: *const OutOfBandQueueTypeInfoNV) {
+    pub unsafe fn notify_out_of_band_nv(&self, p_queue_type_info: *const OutOfBandQueueTypeInfoNV) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkQueueNotifyOutOfBandNV as usize,
@@ -30372,7 +30392,7 @@ impl Device {
     #[doc(alias = "vkCreateDataGraphPipelinesARM")]
     #[inline(always)]
     pub unsafe fn create_data_graph_pipelines_arm(
-        self,
+        &self,
         deferred_operation: DeferredOperationKHR,
         pipeline_cache: PipelineCache,
         create_info_count: u32,
@@ -30431,7 +30451,7 @@ impl Device {
     #[doc(alias = "vkCreateDataGraphPipelineSessionARM")]
     #[inline(always)]
     pub unsafe fn create_data_graph_pipeline_session_arm(
-        self,
+        &self,
         p_create_info: *const DataGraphPipelineSessionCreateInfoARM,
         p_allocator: *const AllocationCallbacks,
         p_session: *mut DataGraphPipelineSessionARM,
@@ -30479,7 +30499,7 @@ impl Device {
     #[doc(alias = "vkGetDataGraphPipelineSessionBindPointRequirementsARM")]
     #[inline(always)]
     pub unsafe fn get_data_graph_pipeline_session_bind_point_requirements_arm(
-        self,
+        &self,
         p_info: *const DataGraphPipelineSessionBindPointRequirementsInfoARM,
         p_bind_point_requirement_count: *mut u32,
         p_bind_point_requirements: *mut DataGraphPipelineSessionBindPointRequirementARM,
@@ -30523,7 +30543,7 @@ impl Device {
     #[doc(alias = "vkGetDataGraphPipelineSessionMemoryRequirementsARM")]
     #[inline(always)]
     pub unsafe fn get_data_graph_pipeline_session_memory_requirements_arm(
-        self,
+        &self,
         p_info: *const DataGraphPipelineSessionMemoryRequirementsInfoARM,
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
@@ -30567,7 +30587,7 @@ impl Device {
     #[doc(alias = "vkBindDataGraphPipelineSessionMemoryARM")]
     #[inline(always)]
     pub unsafe fn bind_data_graph_pipeline_session_memory_arm(
-        self,
+        &self,
         bind_info_count: u32,
         p_bind_infos: *const BindDataGraphPipelineSessionMemoryInfoARM,
     ) -> ResultCode {
@@ -30602,7 +30622,7 @@ impl Device {
     #[doc(alias = "vkDestroyDataGraphPipelineSessionARM")]
     #[inline(always)]
     pub unsafe fn destroy_data_graph_pipeline_session_arm(
-        self,
+        &self,
         session: DataGraphPipelineSessionARM,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -30648,7 +30668,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDispatchDataGraphARM")]
     #[inline(always)]
     pub unsafe fn cmd_dispatch_data_graph_arm(
-        self,
+        &self,
         session: DataGraphPipelineSessionARM,
         p_info: *const DataGraphPipelineDispatchInfoARM,
     ) {
@@ -30694,7 +30714,7 @@ impl Device {
     #[doc(alias = "vkGetDataGraphPipelineAvailablePropertiesARM")]
     #[inline(always)]
     pub unsafe fn get_data_graph_pipeline_available_properties_arm(
-        self,
+        &self,
         p_pipeline_info: *const DataGraphPipelineInfoARM,
         p_properties_count: *mut u32,
         p_properties: *mut DataGraphPipelinePropertyARM,
@@ -30747,7 +30767,7 @@ impl Device {
     #[doc(alias = "vkGetDataGraphPipelinePropertiesARM")]
     #[inline(always)]
     pub unsafe fn get_data_graph_pipeline_properties_arm(
-        self,
+        &self,
         p_pipeline_info: *const DataGraphPipelineInfoARM,
         properties_count: u32,
         p_properties: *mut DataGraphPipelinePropertyQueryResultARM,
@@ -30795,7 +30815,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM")]
     #[inline(always)]
     pub unsafe fn get_queue_family_data_graph_properties_arm(
-        self,
+        &self,
         queue_family_index: u32,
         p_queue_family_data_graph_property_count: *mut u32,
         p_queue_family_data_graph_properties: *mut QueueFamilyDataGraphPropertiesARM,
@@ -30840,7 +30860,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM")]
     #[inline(always)]
     pub unsafe fn get_queue_family_data_graph_processing_engine_properties_arm(
-        self,
+        &self,
         p_queue_family_data_graph_processing_engine_info: *const PhysicalDeviceQueueFamilyDataGraphProcessingEngineInfoARM,
         p_queue_family_data_graph_processing_engine_properties: *mut QueueFamilyDataGraphProcessingEnginePropertiesARM,
     ) {
@@ -30894,7 +30914,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceQueueFamilyDataGraphEngineOperationPropertiesARM")]
     #[inline(always)]
     pub unsafe fn get_queue_family_data_graph_engine_operation_properties_arm(
-        self,
+        &self,
         queue_family_index: u32,
         p_queue_family_data_graph_properties: *const QueueFamilyDataGraphPropertiesARM,
         p_properties: *mut BaseOutStructure,
@@ -30948,7 +30968,10 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetAttachmentFeedbackLoopEnableEXT")]
     #[inline(always)]
-    pub unsafe fn cmd_set_attachment_feedback_loop_enable_ext(self, aspect_mask: ImageAspectFlags) {
+    pub unsafe fn cmd_set_attachment_feedback_loop_enable_ext(
+        &self,
+        aspect_mask: ImageAspectFlags,
+    ) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetAttachmentFeedbackLoopEnableEXT as usize,
@@ -30988,7 +31011,7 @@ impl Device {
     #[doc(alias = "vkGetScreenBufferPropertiesQNX")]
     #[inline(always)]
     pub unsafe fn get_screen_buffer_properties_qnx(
-        self,
+        &self,
         buffer: *const _screen_buffer,
         p_properties: *mut ScreenBufferPropertiesQNX,
     ) -> ResultCode {
@@ -31032,7 +31055,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBindTileMemoryQCOM")]
     #[inline(always)]
     pub unsafe fn cmd_bind_tile_memory_qcom(
-        self,
+        &self,
         p_tile_memory_bind_info: *const TileMemoryBindInfoQCOM,
     ) {
         let command = vtable_get(
@@ -31071,7 +31094,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDecompressMemoryEXT")]
     #[inline(always)]
     pub unsafe fn cmd_decompress_memory_ext(
-        self,
+        &self,
         p_decompress_memory_info_ext: *const DecompressMemoryInfoEXT,
     ) {
         let command = vtable_get(
@@ -31116,7 +31139,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDecompressMemoryIndirectCountEXT")]
     #[inline(always)]
     pub unsafe fn cmd_decompress_memory_indirect_count_ext(
-        self,
+        &self,
         decompression_method: MemoryDecompressionMethodFlagsEXT,
         indirect_commands_address: DeviceAddress,
         indirect_commands_count_address: DeviceAddress,
@@ -31173,7 +31196,7 @@ impl Device {
     #[doc(alias = "vkCreateExternalComputeQueueNV")]
     #[inline(always)]
     pub unsafe fn create_external_compute_queue_nv(
-        self,
+        &self,
         p_create_info: *const ExternalComputeQueueCreateInfoNV,
         p_allocator: *const AllocationCallbacks,
         p_external_queue: *mut ExternalComputeQueueNV,
@@ -31207,7 +31230,7 @@ impl Device {
     #[doc(alias = "vkDestroyExternalComputeQueueNV")]
     #[inline(always)]
     pub unsafe fn destroy_external_compute_queue_nv(
-        self,
+        &self,
         external_queue: ExternalComputeQueueNV,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -31275,7 +31298,7 @@ impl Device {
     #[doc(alias = "vkGetClusterAccelerationStructureBuildSizesNV")]
     #[inline(always)]
     pub unsafe fn get_cluster_acceleration_structure_build_sizes_nv(
-        self,
+        &self,
         p_info: *const ClusterAccelerationStructureInputInfoNV,
         p_size_info: *mut AccelerationStructureBuildSizesInfoKHR,
     ) {
@@ -31317,7 +31340,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBuildClusterAccelerationStructureIndirectNV")]
     #[inline(always)]
     pub unsafe fn cmd_build_cluster_acceleration_structure_indirect_nv(
-        self,
+        &self,
         p_command_infos: *const ClusterAccelerationStructureCommandsInfoNV,
     ) {
         let command = vtable_get(
@@ -31351,7 +31374,7 @@ impl Device {
     #[doc(alias = "vkGetPartitionedAccelerationStructuresBuildSizesNV")]
     #[inline(always)]
     pub unsafe fn get_partitioned_acceleration_structures_build_sizes_nv(
-        self,
+        &self,
         p_info: *const PartitionedAccelerationStructureInstancesInputNV,
         p_size_info: *mut AccelerationStructureBuildSizesInfoKHR,
     ) {
@@ -31394,7 +31417,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBuildPartitionedAccelerationStructuresNV")]
     #[inline(always)]
     pub unsafe fn cmd_build_partitioned_acceleration_structures_nv(
-        self,
+        &self,
         p_build_info: *const BuildPartitionedAccelerationStructureInfoNV,
     ) {
         let command = vtable_get(
@@ -31428,7 +31451,7 @@ impl Device {
     #[doc(alias = "vkGetGeneratedCommandsMemoryRequirementsEXT")]
     #[inline(always)]
     pub unsafe fn get_generated_commands_memory_requirements_ext(
-        self,
+        &self,
         p_info: *const GeneratedCommandsMemoryRequirementsInfoEXT,
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
@@ -31470,7 +31493,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdPreprocessGeneratedCommandsEXT")]
     #[inline(always)]
     pub unsafe fn cmd_preprocess_generated_commands_ext(
-        self,
+        &self,
         p_generated_commands_info: *const GeneratedCommandsInfoEXT,
         state_command_buffer: CommandBufferHandle,
     ) {
@@ -31511,7 +31534,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdExecuteGeneratedCommandsEXT")]
     #[inline(always)]
     pub unsafe fn cmd_execute_generated_commands_ext(
-        self,
+        &self,
         is_preprocessed: Bool32,
         p_generated_commands_info: *const GeneratedCommandsInfoEXT,
     ) {
@@ -31556,7 +31579,7 @@ impl Device {
     #[doc(alias = "vkCreateIndirectCommandsLayoutEXT")]
     #[inline(always)]
     pub unsafe fn create_indirect_commands_layout_ext(
-        self,
+        &self,
         p_create_info: *const IndirectCommandsLayoutCreateInfoEXT,
         p_allocator: *const AllocationCallbacks,
         p_indirect_commands_layout: *mut IndirectCommandsLayoutEXT,
@@ -31598,7 +31621,7 @@ impl Device {
     #[doc(alias = "vkDestroyIndirectCommandsLayoutEXT")]
     #[inline(always)]
     pub unsafe fn destroy_indirect_commands_layout_ext(
-        self,
+        &self,
         indirect_commands_layout: IndirectCommandsLayoutEXT,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -31643,7 +31666,7 @@ impl Device {
     #[doc(alias = "vkCreateIndirectExecutionSetEXT")]
     #[inline(always)]
     pub unsafe fn create_indirect_execution_set_ext(
-        self,
+        &self,
         p_create_info: *const IndirectExecutionSetCreateInfoEXT,
         p_allocator: *const AllocationCallbacks,
         p_indirect_execution_set: *mut IndirectExecutionSetEXT,
@@ -31685,7 +31708,7 @@ impl Device {
     #[doc(alias = "vkDestroyIndirectExecutionSetEXT")]
     #[inline(always)]
     pub unsafe fn destroy_indirect_execution_set_ext(
-        self,
+        &self,
         indirect_execution_set: IndirectExecutionSetEXT,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -31719,7 +31742,7 @@ impl Device {
     #[doc(alias = "vkUpdateIndirectExecutionSetPipelineEXT")]
     #[inline(always)]
     pub unsafe fn update_indirect_execution_set_pipeline_ext(
-        self,
+        &self,
         indirect_execution_set: IndirectExecutionSetEXT,
         execution_set_write_count: u32,
         p_execution_set_writes: *const WriteIndirectExecutionSetPipelineEXT,
@@ -31763,7 +31786,7 @@ impl Device {
     #[doc(alias = "vkUpdateIndirectExecutionSetShaderEXT")]
     #[inline(always)]
     pub unsafe fn update_indirect_execution_set_shader_ext(
-        self,
+        &self,
         indirect_execution_set: IndirectExecutionSetEXT,
         execution_set_write_count: u32,
         p_execution_set_writes: *const WriteIndirectExecutionSetShaderEXT,
@@ -31816,7 +31839,7 @@ impl Instance {
     #[doc(alias = "vkCreateSurfaceOHOS")]
     #[inline(always)]
     pub unsafe fn create_surface_ohos(
-        self,
+        &self,
         p_create_info: *const SurfaceCreateInfoOHOS,
         p_allocator: *const AllocationCallbacks,
         p_surface: *mut SurfaceKHR,
@@ -31862,7 +31885,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV")]
     #[inline(always)]
     pub unsafe fn get_cooperative_matrix_flexible_dimensions_properties_nv(
-        self,
+        &self,
         p_property_count: *mut u32,
         p_properties: *mut CooperativeMatrixFlexibleDimensionsPropertiesNV,
     ) -> ResultCode {
@@ -31907,7 +31930,7 @@ impl Device {
     #[doc(alias = "vkGetMemoryMetalHandleEXT")]
     #[inline(always)]
     pub unsafe fn get_memory_metal_handle_ext(
-        self,
+        &self,
         p_get_metal_handle_info: *const MemoryGetMetalHandleInfoEXT,
         p_handle: *mut *mut c_void,
     ) -> ResultCode {
@@ -31948,7 +31971,7 @@ impl Device {
     #[doc(alias = "vkGetMemoryMetalHandlePropertiesEXT")]
     #[inline(always)]
     pub unsafe fn get_memory_metal_handle_properties_ext(
-        self,
+        &self,
         handle_type: ExternalMemoryHandleTypeFlags,
         p_handle: *const c_void,
         p_memory_metal_handle_properties: *mut MemoryMetalHandlePropertiesEXT,
@@ -32006,7 +32029,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkEnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM")]
     #[inline(always)]
     pub unsafe fn enumerate_queue_family_performance_counters_by_region_arm(
-        self,
+        &self,
         queue_family_index: u32,
         p_counter_count: *mut u32,
         p_counters: *mut PerformanceCounterARM,
@@ -32067,7 +32090,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkEnumeratePhysicalDeviceShaderInstrumentationMetricsARM")]
     #[inline(always)]
     pub unsafe fn enumerate_shader_instrumentation_metrics_arm(
-        self,
+        &self,
         p_description_count: *mut u32,
         p_descriptions: *mut ShaderInstrumentationMetricDescriptionARM,
     ) -> ResultCode {
@@ -32115,7 +32138,7 @@ impl Device {
     #[doc(alias = "vkCreateShaderInstrumentationARM")]
     #[inline(always)]
     pub unsafe fn create_shader_instrumentation_arm(
-        self,
+        &self,
         p_create_info: *const ShaderInstrumentationCreateInfoARM,
         p_allocator: *const AllocationCallbacks,
         p_instrumentation: *mut ShaderInstrumentationARM,
@@ -32150,7 +32173,7 @@ impl Device {
     #[doc(alias = "vkDestroyShaderInstrumentationARM")]
     #[inline(always)]
     pub unsafe fn destroy_shader_instrumentation_arm(
-        self,
+        &self,
         instrumentation: ShaderInstrumentationARM,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -32193,7 +32216,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBeginShaderInstrumentationARM")]
     #[inline(always)]
     pub unsafe fn cmd_begin_shader_instrumentation_arm(
-        self,
+        &self,
         instrumentation: ShaderInstrumentationARM,
     ) {
         let command = vtable_get(
@@ -32233,7 +32256,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdEndShaderInstrumentationARM")]
     #[inline(always)]
-    pub unsafe fn cmd_end_shader_instrumentation_arm(self) {
+    pub unsafe fn cmd_end_shader_instrumentation_arm(&self) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdEndShaderInstrumentationARM as usize,
@@ -32278,7 +32301,7 @@ impl Device {
     #[doc(alias = "vkGetShaderInstrumentationValuesARM")]
     #[inline(always)]
     pub unsafe fn get_shader_instrumentation_values_arm(
-        self,
+        &self,
         instrumentation: ShaderInstrumentationARM,
         p_metric_block_count: *mut u32,
         p_metric_values: *mut c_void,
@@ -32318,7 +32341,7 @@ impl Device {
     #[doc(alias = "vkClearShaderInstrumentationMetricsARM")]
     #[inline(always)]
     pub unsafe fn clear_shader_instrumentation_metrics_arm(
-        self,
+        &self,
         instrumentation: ShaderInstrumentationARM,
     ) {
         let command = vtable_get(
@@ -32360,7 +32383,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdEndRendering2EXT")]
     #[inline(always)]
-    pub unsafe fn cmd_end_rendering_2_ext(self, p_rendering_end_info: *const RenderingEndInfoKHR) {
+    pub unsafe fn cmd_end_rendering_2_ext(&self, p_rendering_end_info: *const RenderingEndInfoKHR) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdEndRendering2EXT as usize,
@@ -32399,7 +32422,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBeginCustomResolveEXT")]
     #[inline(always)]
     pub unsafe fn cmd_begin_custom_resolve_ext(
-        self,
+        &self,
         p_begin_custom_resolve_info: *const BeginCustomResolveInfoEXT,
     ) {
         let command = vtable_get(
@@ -32447,7 +32470,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceQueueFamilyDataGraphOpticalFlowImageFormatsARM")]
     #[inline(always)]
     pub unsafe fn get_queue_family_data_graph_optical_flow_image_formats_arm(
-        self,
+        &self,
         queue_family_index: u32,
         p_queue_family_data_graph_properties: *const QueueFamilyDataGraphPropertiesARM,
         p_optical_flow_image_format_info: *const DataGraphOpticalFlowImageFormatInfoARM,
@@ -32503,7 +32526,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdSetComputeOccupancyPriorityNV")]
     #[inline(always)]
     pub unsafe fn cmd_set_compute_occupancy_priority_nv(
-        self,
+        &self,
         p_parameters: *const ComputeOccupancyPriorityParametersNV,
     ) {
         let command = vtable_get(
@@ -32549,7 +32572,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceCooperativeMatrixProperties2EXT")]
     #[inline(always)]
     pub unsafe fn get_cooperative_matrix_properties_2_ext(
-        self,
+        &self,
         p_cooperative_matrix_info: *const PhysicalDeviceCooperativeMatrixInfo2EXT,
         p_property_count: *mut u32,
         p_properties: *mut CooperativeMatrixProperties2EXT,
@@ -32605,7 +32628,7 @@ impl Instance {
     #[doc(alias = "vkCreateUbmSurfaceSEC")]
     #[inline(always)]
     pub unsafe fn create_ubm_surface_sec(
-        self,
+        &self,
         p_create_info: *const UbmSurfaceCreateInfoSEC,
         p_allocator: *const AllocationCallbacks,
         p_surface: *mut SurfaceKHR,
@@ -32635,7 +32658,7 @@ impl PhysicalDevice {
     #[doc(alias = "vkGetPhysicalDeviceUbmPresentationSupportSEC")]
     #[inline(always)]
     pub unsafe fn get_ubm_presentation_support_sec(
-        self,
+        &self,
         queue_family_index: u32,
         device: *mut ubm_device,
     ) -> Bool32 {
@@ -32678,7 +32701,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetPrimitiveRestartIndexEXT")]
     #[inline(always)]
-    pub unsafe fn cmd_set_primitive_restart_index_ext(self, primitive_restart_index: u32) {
+    pub unsafe fn cmd_set_primitive_restart_index_ext(&self, primitive_restart_index: u32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetPrimitiveRestartIndexEXT as usize,
@@ -32720,7 +32743,7 @@ impl Device {
     #[doc(alias = "vkCreateAccelerationStructureKHR")]
     #[inline(always)]
     pub unsafe fn create_acceleration_structure_khr(
-        self,
+        &self,
         p_create_info: *const AccelerationStructureCreateInfoKHR,
         p_allocator: *const AllocationCallbacks,
         p_acceleration_structure: *mut AccelerationStructureKHR,
@@ -32762,7 +32785,7 @@ impl Device {
     #[doc(alias = "vkDestroyAccelerationStructureKHR")]
     #[inline(always)]
     pub unsafe fn destroy_acceleration_structure_khr(
-        self,
+        &self,
         acceleration_structure: AccelerationStructureKHR,
         p_allocator: *const AllocationCallbacks,
     ) {
@@ -32806,7 +32829,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBuildAccelerationStructuresKHR")]
     #[inline(always)]
     pub unsafe fn cmd_build_acceleration_structures_khr(
-        self,
+        &self,
         info_count: u32,
         p_infos: *const AccelerationStructureBuildGeometryInfoKHR,
         pp_build_range_infos: *const *const AccelerationStructureBuildRangeInfoKHR,
@@ -32853,7 +32876,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdBuildAccelerationStructuresIndirectKHR")]
     #[inline(always)]
     pub unsafe fn cmd_build_acceleration_structures_indirect_khr(
-        self,
+        &self,
         info_count: u32,
         p_infos: *const AccelerationStructureBuildGeometryInfoKHR,
         p_indirect_device_addresses: *const DeviceAddress,
@@ -32915,7 +32938,7 @@ impl Device {
     #[doc(alias = "vkBuildAccelerationStructuresKHR")]
     #[inline(always)]
     pub unsafe fn build_acceleration_structures_khr(
-        self,
+        &self,
         deferred_operation: DeferredOperationKHR,
         info_count: u32,
         p_infos: *const AccelerationStructureBuildGeometryInfoKHR,
@@ -32971,7 +32994,7 @@ impl Device {
     #[doc(alias = "vkCopyAccelerationStructureKHR")]
     #[inline(always)]
     pub unsafe fn copy_acceleration_structure_khr(
-        self,
+        &self,
         deferred_operation: DeferredOperationKHR,
         p_info: *const CopyAccelerationStructureInfoKHR,
     ) -> ResultCode {
@@ -33017,7 +33040,7 @@ impl Device {
     #[doc(alias = "vkCopyAccelerationStructureToMemoryKHR")]
     #[inline(always)]
     pub unsafe fn copy_acceleration_structure_to_memory_khr(
-        self,
+        &self,
         deferred_operation: DeferredOperationKHR,
         p_info: *const CopyAccelerationStructureToMemoryInfoKHR,
     ) -> ResultCode {
@@ -33063,7 +33086,7 @@ impl Device {
     #[doc(alias = "vkCopyMemoryToAccelerationStructureKHR")]
     #[inline(always)]
     pub unsafe fn copy_memory_to_acceleration_structure_khr(
-        self,
+        &self,
         deferred_operation: DeferredOperationKHR,
         p_info: *const CopyMemoryToAccelerationStructureInfoKHR,
     ) -> ResultCode {
@@ -33108,7 +33131,7 @@ impl Device {
     #[doc(alias = "vkWriteAccelerationStructuresPropertiesKHR")]
     #[inline(always)]
     pub unsafe fn write_acceleration_structures_properties_khr(
-        self,
+        &self,
         acceleration_structure_count: u32,
         p_acceleration_structures: *const AccelerationStructureKHR,
         query_type: QueryType,
@@ -33164,7 +33187,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdCopyAccelerationStructureKHR")]
     #[inline(always)]
     pub unsafe fn cmd_copy_acceleration_structure_khr(
-        self,
+        &self,
         p_info: *const CopyAccelerationStructureInfoKHR,
     ) {
         let command = vtable_get(
@@ -33203,7 +33226,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdCopyAccelerationStructureToMemoryKHR")]
     #[inline(always)]
     pub unsafe fn cmd_copy_acceleration_structure_to_memory_khr(
-        self,
+        &self,
         p_info: *const CopyAccelerationStructureToMemoryInfoKHR,
     ) {
         let command = vtable_get(
@@ -33244,7 +33267,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdCopyMemoryToAccelerationStructureKHR")]
     #[inline(always)]
     pub unsafe fn cmd_copy_memory_to_acceleration_structure_khr(
-        self,
+        &self,
         p_info: *const CopyMemoryToAccelerationStructureInfoKHR,
     ) {
         let command = vtable_get(
@@ -33278,7 +33301,7 @@ impl Device {
     #[doc(alias = "vkGetAccelerationStructureDeviceAddressKHR")]
     #[inline(always)]
     pub unsafe fn get_acceleration_structure_device_address_khr(
-        self,
+        &self,
         p_info: *const AccelerationStructureDeviceAddressInfoKHR,
     ) -> DeviceAddress {
         let command = vtable_get(
@@ -33325,7 +33348,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdWriteAccelerationStructuresPropertiesKHR")]
     #[inline(always)]
     pub unsafe fn cmd_write_acceleration_structures_properties_khr(
-        self,
+        &self,
         acceleration_structure_count: u32,
         p_acceleration_structures: *const AccelerationStructureKHR,
         query_type: QueryType,
@@ -33372,7 +33395,7 @@ impl Device {
     #[doc(alias = "vkGetDeviceAccelerationStructureCompatibilityKHR")]
     #[inline(always)]
     pub unsafe fn get_device_acceleration_structure_compatibility_khr(
-        self,
+        &self,
         p_version_info: *const AccelerationStructureVersionInfoKHR,
         p_compatibility: *mut AccelerationStructureCompatibilityKHR,
     ) {
@@ -33412,7 +33435,7 @@ impl Device {
     #[doc(alias = "vkGetAccelerationStructureBuildSizesKHR")]
     #[inline(always)]
     pub unsafe fn get_acceleration_structure_build_sizes_khr(
-        self,
+        &self,
         build_type: AccelerationStructureBuildTypeKHR,
         p_build_info: *const AccelerationStructureBuildGeometryInfoKHR,
         p_max_primitive_counts: *const u32,
@@ -33472,7 +33495,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdTraceRaysKHR")]
     #[inline(always)]
     pub unsafe fn cmd_trace_rays_khr(
-        self,
+        &self,
         p_raygen_shader_binding_table: *const StridedDeviceAddressRegionKHR,
         p_miss_shader_binding_table: *const StridedDeviceAddressRegionKHR,
         p_hit_shader_binding_table: *const StridedDeviceAddressRegionKHR,
@@ -33541,7 +33564,7 @@ impl Device {
     #[doc(alias = "vkCreateRayTracingPipelinesKHR")]
     #[inline(always)]
     pub unsafe fn create_ray_tracing_pipelines_khr(
-        self,
+        &self,
         deferred_operation: DeferredOperationKHR,
         pipeline_cache: PipelineCache,
         create_info_count: u32,
@@ -33593,7 +33616,7 @@ impl Device {
     #[doc(alias = "vkGetRayTracingCaptureReplayShaderGroupHandlesKHR")]
     #[inline(always)]
     pub unsafe fn get_ray_tracing_capture_replay_shader_group_handles_khr(
-        self,
+        &self,
         pipeline: Pipeline,
         first_group: u32,
         group_count: u32,
@@ -33653,7 +33676,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdTraceRaysIndirectKHR")]
     #[inline(always)]
     pub unsafe fn cmd_trace_rays_indirect_khr(
-        self,
+        &self,
         p_raygen_shader_binding_table: *const StridedDeviceAddressRegionKHR,
         p_miss_shader_binding_table: *const StridedDeviceAddressRegionKHR,
         p_hit_shader_binding_table: *const StridedDeviceAddressRegionKHR,
@@ -33694,7 +33717,7 @@ impl Device {
     #[doc(alias = "vkGetRayTracingShaderGroupStackSizeKHR")]
     #[inline(always)]
     pub unsafe fn get_ray_tracing_shader_group_stack_size_khr(
-        self,
+        &self,
         pipeline: Pipeline,
         group: u32,
         group_shader: ShaderGroupShaderKHR,
@@ -33734,7 +33757,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetRayTracingPipelineStackSizeKHR")]
     #[inline(always)]
-    pub unsafe fn cmd_set_ray_tracing_pipeline_stack_size_khr(self, pipeline_stack_size: u32) {
+    pub unsafe fn cmd_set_ray_tracing_pipeline_stack_size_khr(&self, pipeline_stack_size: u32) {
         let command = vtable_get(
             &*self.vtable(),
             InstanceCommands::vkCmdSetRayTracingPipelineStackSizeKHR as usize,
@@ -33770,7 +33793,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDrawMeshTasksEXT")]
     #[inline(always)]
     pub unsafe fn cmd_draw_mesh_tasks_ext(
-        self,
+        &self,
         group_count_x: u32,
         group_count_y: u32,
         group_count_z: u32,
@@ -33810,7 +33833,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDrawMeshTasksIndirectEXT")]
     #[inline(always)]
     pub unsafe fn cmd_draw_mesh_tasks_indirect_ext(
-        self,
+        &self,
         buffer: Buffer,
         offset: DeviceSize,
         draw_count: u32,
@@ -33852,7 +33875,7 @@ impl CommandBuffer {
     #[doc(alias = "vkCmdDrawMeshTasksIndirectCountEXT")]
     #[inline(always)]
     pub unsafe fn cmd_draw_mesh_tasks_indirect_count_ext(
-        self,
+        &self,
         buffer: Buffer,
         offset: DeviceSize,
         count_buffer: Buffer,

@@ -28340,7 +28340,7 @@ pub enum ShaderGroupShaderKHR {
     SHADER_GROUP_SHADER_INTERSECTION_KHR = 3,
 }
 
-/// [`StdVideoH264ChromaFormatIdc`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264ChromaFormatIdc.html)
+/// [`StdVideoH264ChromaFormatIdc`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
@@ -28362,7 +28362,7 @@ pub enum H264ChromaFormatIdc {
     INVALID = 2147483647,
 }
 
-/// [`StdVideoH264ProfileIdc`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264ProfileIdc.html)
+/// [`StdVideoH264ProfileIdc`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
@@ -28388,7 +28388,7 @@ pub enum H264ProfileIdc {
     INVALID = 2147483647,
 }
 
-/// [`StdVideoH264LevelIdc`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264LevelIdc.html)
+/// [`StdVideoH264LevelIdc`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
@@ -28440,7 +28440,7 @@ pub enum H264LevelIdc {
     INVALID = 2147483647,
 }
 
-/// [`StdVideoH264PocType`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264PocType.html)
+/// [`StdVideoH264PocType`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
@@ -28460,7 +28460,7 @@ pub enum H264PocType {
     INVALID = 2147483647,
 }
 
-/// [`StdVideoH264AspectRatioIdc`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264AspectRatioIdc.html)
+/// [`StdVideoH264AspectRatioIdc`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
@@ -28510,7 +28510,7 @@ pub enum H264AspectRatioIdc {
     INVALID = 2147483647,
 }
 
-/// [`StdVideoH264WeightedBipredIdc`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264WeightedBipredIdc.html)
+/// [`StdVideoH264WeightedBipredIdc`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
@@ -28530,7 +28530,7 @@ pub enum H264WeightedBipredIdc {
     INVALID = 2147483647,
 }
 
-/// [`StdVideoH264ModificationOfPicNumsIdc`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264ModificationOfPicNumsIdc.html)
+/// [`StdVideoH264ModificationOfPicNumsIdc`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
@@ -28552,7 +28552,7 @@ pub enum H264ModificationOfPicNumsIdc {
     INVALID = 2147483647,
 }
 
-/// [`StdVideoH264MemMgmtControlOp`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264MemMgmtControlOp.html)
+/// [`StdVideoH264MemMgmtControlOp`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
@@ -28580,7 +28580,7 @@ pub enum H264MemMgmtControlOp {
     INVALID = 2147483647,
 }
 
-/// [`StdVideoH264CabacInitIdc`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264CabacInitIdc.html)
+/// [`StdVideoH264CabacInitIdc`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
@@ -28600,7 +28600,7 @@ pub enum H264CabacInitIdc {
     INVALID = 2147483647,
 }
 
-/// [`StdVideoH264DisableDeblockingFilterIdc`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264DisableDeblockingFilterIdc.html)
+/// [`StdVideoH264DisableDeblockingFilterIdc`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
@@ -28620,7 +28620,7 @@ pub enum H264DisableDeblockingFilterIdc {
     INVALID = 2147483647,
 }
 
-/// [`StdVideoH264SliceType`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264SliceType.html)
+/// [`StdVideoH264SliceType`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
@@ -28640,7 +28640,7 @@ pub enum H264SliceType {
     INVALID = 2147483647,
 }
 
-/// [`StdVideoH264PictureType`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264PictureType.html)
+/// [`StdVideoH264PictureType`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
@@ -28662,7 +28662,7 @@ pub enum H264PictureType {
     INVALID = 2147483647,
 }
 
-/// [`StdVideoH264NonVclNaluType`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264NonVclNaluType.html)
+/// [`StdVideoH264NonVclNaluType`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
@@ -28690,7 +28690,7 @@ pub enum H264NonVclNaluType {
     INVALID = 2147483647,
 }
 
-/// [`StdVideoDecodeH264FieldOrderCount`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeH264FieldOrderCount.html)
+/// [`StdVideoDecodeH264FieldOrderCount`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
@@ -28708,7 +28708,7 @@ pub enum DecodeH264FieldOrderCount {
     INVALID = 2147483647,
 }
 
-/// [`StdVideoH265ChromaFormatIdc`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265ChromaFormatIdc.html)
+/// [`StdVideoH265ChromaFormatIdc`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
@@ -28730,7 +28730,7 @@ pub enum H265ChromaFormatIdc {
     INVALID = 2147483647,
 }
 
-/// [`StdVideoH265ProfileIdc`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265ProfileIdc.html)
+/// [`StdVideoH265ProfileIdc`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
@@ -28754,7 +28754,7 @@ pub enum H265ProfileIdc {
     INVALID = 2147483647,
 }
 
-/// [`StdVideoH265LevelIdc`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265LevelIdc.html)
+/// [`StdVideoH265LevelIdc`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
@@ -28794,7 +28794,7 @@ pub enum H265LevelIdc {
     INVALID = 2147483647,
 }
 
-/// [`StdVideoH265SliceType`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265SliceType.html)
+/// [`StdVideoH265SliceType`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
@@ -28814,7 +28814,7 @@ pub enum H265SliceType {
     INVALID = 2147483647,
 }
 
-/// [`StdVideoH265PictureType`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265PictureType.html)
+/// [`StdVideoH265PictureType`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
@@ -28836,7 +28836,7 @@ pub enum H265PictureType {
     INVALID = 2147483647,
 }
 
-/// [`StdVideoH265AspectRatioIdc`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265AspectRatioIdc.html)
+/// [`StdVideoH265AspectRatioIdc`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
@@ -28886,7 +28886,7 @@ pub enum H265AspectRatioIdc {
     INVALID = 2147483647,
 }
 
-/// [`StdVideoAV1Profile`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1Profile.html)
+/// [`StdVideoAV1Profile`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
@@ -28906,7 +28906,7 @@ pub enum AV1Profile {
     INVALID = 2147483647,
 }
 
-/// [`StdVideoAV1Level`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1Level.html)
+/// [`StdVideoAV1Level`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
@@ -28968,7 +28968,7 @@ pub enum AV1Level {
     INVALID = 2147483647,
 }
 
-/// [`StdVideoAV1FrameType`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1FrameType.html)
+/// [`StdVideoAV1FrameType`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
@@ -28990,7 +28990,7 @@ pub enum AV1FrameType {
     INVALID = 2147483647,
 }
 
-/// [`StdVideoAV1ReferenceName`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1ReferenceName.html)
+/// [`StdVideoAV1ReferenceName`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
@@ -29020,7 +29020,7 @@ pub enum AV1ReferenceName {
     INVALID = 2147483647,
 }
 
-/// [`StdVideoAV1InterpolationFilter`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1InterpolationFilter.html)
+/// [`StdVideoAV1InterpolationFilter`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
@@ -29044,7 +29044,7 @@ pub enum AV1InterpolationFilter {
     INVALID = 2147483647,
 }
 
-/// [`StdVideoAV1TxMode`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1TxMode.html)
+/// [`StdVideoAV1TxMode`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
@@ -29064,7 +29064,7 @@ pub enum AV1TxMode {
     INVALID = 2147483647,
 }
 
-/// [`StdVideoAV1FrameRestorationType`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1FrameRestorationType.html)
+/// [`StdVideoAV1FrameRestorationType`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
@@ -29086,7 +29086,7 @@ pub enum AV1FrameRestorationType {
     INVALID = 2147483647,
 }
 
-/// [`StdVideoAV1ColorPrimaries`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1ColorPrimaries.html)
+/// [`StdVideoAV1ColorPrimaries`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
@@ -29124,7 +29124,7 @@ pub enum AV1ColorPrimaries {
     INVALID = 2147483647,
 }
 
-/// [`StdVideoAV1TransferCharacteristics`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1TransferCharacteristics.html)
+/// [`StdVideoAV1TransferCharacteristics`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
@@ -29176,7 +29176,7 @@ pub enum AV1TransferCharacteristics {
     INVALID = 2147483647,
 }
 
-/// [`StdVideoAV1MatrixCoefficients`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1MatrixCoefficients.html)
+/// [`StdVideoAV1MatrixCoefficients`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
@@ -29220,7 +29220,7 @@ pub enum AV1MatrixCoefficients {
     INVALID = 2147483647,
 }
 
-/// [`StdVideoAV1ChromaSamplePosition`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1ChromaSamplePosition.html)
+/// [`StdVideoAV1ChromaSamplePosition`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
@@ -29242,7 +29242,7 @@ pub enum AV1ChromaSamplePosition {
     INVALID = 2147483647,
 }
 
-/// [`StdVideoVP9Profile`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoVP9Profile.html)
+/// [`StdVideoVP9Profile`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
@@ -29264,7 +29264,7 @@ pub enum VP9Profile {
     INVALID = 2147483647,
 }
 
-/// [`StdVideoVP9Level`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoVP9Level.html)
+/// [`StdVideoVP9Level`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
@@ -29306,7 +29306,7 @@ pub enum VP9Level {
     INVALID = 2147483647,
 }
 
-/// [`StdVideoVP9FrameType`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoVP9FrameType.html)
+/// [`StdVideoVP9FrameType`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
@@ -29324,7 +29324,7 @@ pub enum VP9FrameType {
     INVALID = 2147483647,
 }
 
-/// [`StdVideoVP9ReferenceName`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoVP9ReferenceName.html)
+/// [`StdVideoVP9ReferenceName`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
@@ -29346,7 +29346,7 @@ pub enum VP9ReferenceName {
     INVALID = 2147483647,
 }
 
-/// [`StdVideoVP9InterpolationFilter`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoVP9InterpolationFilter.html)
+/// [`StdVideoVP9InterpolationFilter`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
@@ -29370,7 +29370,7 @@ pub enum VP9InterpolationFilter {
     INVALID = 2147483647,
 }
 
-/// [`StdVideoVP9ColorSpace`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoVP9ColorSpace.html)
+/// [`StdVideoVP9ColorSpace`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.

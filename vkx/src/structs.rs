@@ -75649,7 +75649,7 @@ impl Default for DrawMeshTasksIndirectCommandEXT {
     }
 }
 
-/// [`StdVideoH264SpsVuiFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264SpsVuiFlags.html)
+/// [`StdVideoH264SpsVuiFlags`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoH264SpsVuiFlags")]
 #[repr(C)]
@@ -75688,7 +75688,7 @@ impl Default for H264SpsVuiFlags {
     }
 }
 
-/// [`StdVideoH264HrdParameters`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264HrdParameters.html)
+/// [`StdVideoH264HrdParameters`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoH264HrdParameters")]
 #[repr(C)]
@@ -75725,7 +75725,7 @@ impl Default for H264HrdParameters {
     }
 }
 
-/// [`StdVideoH264SequenceParameterSetVui`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264SequenceParameterSetVui.html)
+/// [`StdVideoH264SequenceParameterSetVui`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoH264SequenceParameterSetVui")]
 #[repr(C)]
@@ -75773,7 +75773,7 @@ impl Default for H264SequenceParameterSetVui {
     }
 }
 
-/// [`StdVideoH264SpsFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264SpsFlags.html)
+/// [`StdVideoH264SpsFlags`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoH264SpsFlags")]
 #[repr(C)]
@@ -75820,7 +75820,7 @@ impl Default for H264SpsFlags {
     }
 }
 
-/// [`StdVideoH264ScalingLists`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264ScalingLists.html)
+/// [`StdVideoH264ScalingLists`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoH264ScalingLists")]
 #[repr(C)]
@@ -75845,7 +75845,7 @@ impl Default for H264ScalingLists {
     }
 }
 
-/// [`StdVideoH264SequenceParameterSet`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264SequenceParameterSet.html)
+/// [`StdVideoH264SequenceParameterSet`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoH264SequenceParameterSet")]
 #[repr(C)]
@@ -75912,7 +75912,7 @@ impl Default for H264SequenceParameterSet {
     }
 }
 
-/// [`StdVideoH264PpsFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264PpsFlags.html)
+/// [`StdVideoH264PpsFlags`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoH264PpsFlags")]
 #[repr(C)]
@@ -75943,7 +75943,7 @@ impl Default for H264PpsFlags {
     }
 }
 
-/// [`StdVideoH264PictureParameterSet`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH264PictureParameterSet.html)
+/// [`StdVideoH264PictureParameterSet`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoH264PictureParameterSet")]
 #[repr(C)]
@@ -75981,7 +75981,7 @@ impl Default for H264PictureParameterSet {
     }
 }
 
-/// [`StdVideoDecodeH264PictureInfoFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeH264PictureInfoFlags.html)
+/// [`StdVideoDecodeH264PictureInfoFlags`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoDecodeH264PictureInfoFlags")]
 #[repr(C)]
@@ -76008,7 +76008,7 @@ impl Default for DecodeH264PictureInfoFlags {
     }
 }
 
-/// [`StdVideoDecodeH264PictureInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeH264PictureInfo.html)
+/// [`StdVideoDecodeH264PictureInfo`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoDecodeH264PictureInfo")]
 #[repr(C)]
@@ -76039,7 +76039,7 @@ impl Default for DecodeH264PictureInfo {
     }
 }
 
-/// [`StdVideoDecodeH264ReferenceInfoFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeH264ReferenceInfoFlags.html)
+/// [`StdVideoDecodeH264ReferenceInfoFlags`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoDecodeH264ReferenceInfoFlags")]
 #[repr(C)]
@@ -76062,7 +76062,7 @@ impl Default for DecodeH264ReferenceInfoFlags {
     }
 }
 
-/// [`StdVideoDecodeH264ReferenceInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeH264ReferenceInfo.html)
+/// [`StdVideoDecodeH264ReferenceInfo`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoDecodeH264ReferenceInfo")]
 #[repr(C)]
@@ -76085,7 +76085,7 @@ impl Default for DecodeH264ReferenceInfo {
     }
 }
 
-/// [`StdVideoEncodeH264WeightTableFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH264WeightTableFlags.html)
+/// [`StdVideoEncodeH264WeightTableFlags`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoEncodeH264WeightTableFlags")]
 #[repr(C)]
@@ -76108,7 +76108,7 @@ impl Default for EncodeH264WeightTableFlags {
     }
 }
 
-/// [`StdVideoEncodeH264WeightTable`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH264WeightTable.html)
+/// [`StdVideoEncodeH264WeightTable`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoEncodeH264WeightTable")]
 #[repr(C)]
@@ -76149,7 +76149,7 @@ impl Default for EncodeH264WeightTable {
     }
 }
 
-/// [`StdVideoEncodeH264SliceHeaderFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH264SliceHeaderFlags.html)
+/// [`StdVideoEncodeH264SliceHeaderFlags`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoEncodeH264SliceHeaderFlags")]
 #[repr(C)]
@@ -76170,7 +76170,7 @@ impl Default for EncodeH264SliceHeaderFlags {
     }
 }
 
-/// [`StdVideoEncodeH264PictureInfoFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH264PictureInfoFlags.html)
+/// [`StdVideoEncodeH264PictureInfoFlags`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoEncodeH264PictureInfoFlags")]
 #[repr(C)]
@@ -76197,7 +76197,7 @@ impl Default for EncodeH264PictureInfoFlags {
     }
 }
 
-/// [`StdVideoEncodeH264ReferenceInfoFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH264ReferenceInfoFlags.html)
+/// [`StdVideoEncodeH264ReferenceInfoFlags`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoEncodeH264ReferenceInfoFlags")]
 #[repr(C)]
@@ -76216,7 +76216,7 @@ impl Default for EncodeH264ReferenceInfoFlags {
     }
 }
 
-/// [`StdVideoEncodeH264ReferenceListsInfoFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH264ReferenceListsInfoFlags.html)
+/// [`StdVideoEncodeH264ReferenceListsInfoFlags`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoEncodeH264ReferenceListsInfoFlags")]
 #[repr(C)]
@@ -76237,7 +76237,7 @@ impl Default for EncodeH264ReferenceListsInfoFlags {
     }
 }
 
-/// [`StdVideoEncodeH264RefListModEntry`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH264RefListModEntry.html)
+/// [`StdVideoEncodeH264RefListModEntry`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoEncodeH264RefListModEntry")]
 #[repr(C)]
@@ -76258,7 +76258,7 @@ impl Default for EncodeH264RefListModEntry {
     }
 }
 
-/// [`StdVideoEncodeH264RefPicMarkingEntry`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH264RefPicMarkingEntry.html)
+/// [`StdVideoEncodeH264RefPicMarkingEntry`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoEncodeH264RefPicMarkingEntry")]
 #[repr(C)]
@@ -76283,7 +76283,7 @@ impl Default for EncodeH264RefPicMarkingEntry {
     }
 }
 
-/// [`StdVideoEncodeH264ReferenceListsInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH264ReferenceListsInfo.html)
+/// [`StdVideoEncodeH264ReferenceListsInfo`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoEncodeH264ReferenceListsInfo")]
 #[repr(C)]
@@ -76322,7 +76322,7 @@ impl Default for EncodeH264ReferenceListsInfo {
     }
 }
 
-/// [`StdVideoEncodeH264PictureInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH264PictureInfo.html)
+/// [`StdVideoEncodeH264PictureInfo`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoEncodeH264PictureInfo")]
 #[repr(C)]
@@ -76358,7 +76358,7 @@ impl Default for EncodeH264PictureInfo {
     }
 }
 
-/// [`StdVideoEncodeH264ReferenceInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH264ReferenceInfo.html)
+/// [`StdVideoEncodeH264ReferenceInfo`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoEncodeH264ReferenceInfo")]
 #[repr(C)]
@@ -76387,7 +76387,7 @@ impl Default for EncodeH264ReferenceInfo {
     }
 }
 
-/// [`StdVideoEncodeH264SliceHeader`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH264SliceHeader.html)
+/// [`StdVideoEncodeH264SliceHeader`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoEncodeH264SliceHeader")]
 #[repr(C)]
@@ -76423,7 +76423,7 @@ impl Default for EncodeH264SliceHeader {
     }
 }
 
-/// [`StdVideoH265DecPicBufMgr`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265DecPicBufMgr.html)
+/// [`StdVideoH265DecPicBufMgr`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoH265DecPicBufMgr")]
 #[repr(C)]
@@ -76444,7 +76444,7 @@ impl Default for H265DecPicBufMgr {
     }
 }
 
-/// [`StdVideoH265SubLayerHrdParameters`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265SubLayerHrdParameters.html)
+/// [`StdVideoH265SubLayerHrdParameters`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoH265SubLayerHrdParameters")]
 #[repr(C)]
@@ -76469,7 +76469,7 @@ impl Default for H265SubLayerHrdParameters {
     }
 }
 
-/// [`StdVideoH265HrdFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265HrdFlags.html)
+/// [`StdVideoH265HrdFlags`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoH265HrdFlags")]
 #[repr(C)]
@@ -76498,7 +76498,7 @@ impl Default for H265HrdFlags {
     }
 }
 
-/// [`StdVideoH265HrdParameters`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265HrdParameters.html)
+/// [`StdVideoH265HrdParameters`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoH265HrdParameters")]
 #[repr(C)]
@@ -76545,7 +76545,7 @@ impl Default for H265HrdParameters {
     }
 }
 
-/// [`StdVideoH265VpsFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265VpsFlags.html)
+/// [`StdVideoH265VpsFlags`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoH265VpsFlags")]
 #[repr(C)]
@@ -76568,7 +76568,7 @@ impl Default for H265VpsFlags {
     }
 }
 
-/// [`StdVideoH265ProfileTierLevelFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265ProfileTierLevelFlags.html)
+/// [`StdVideoH265ProfileTierLevelFlags`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoH265ProfileTierLevelFlags")]
 #[repr(C)]
@@ -76593,7 +76593,7 @@ impl Default for H265ProfileTierLevelFlags {
     }
 }
 
-/// [`StdVideoH265ProfileTierLevel`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265ProfileTierLevel.html)
+/// [`StdVideoH265ProfileTierLevel`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoH265ProfileTierLevel")]
 #[repr(C)]
@@ -76614,7 +76614,7 @@ impl Default for H265ProfileTierLevel {
     }
 }
 
-/// [`StdVideoH265VideoParameterSet`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265VideoParameterSet.html)
+/// [`StdVideoH265VideoParameterSet`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoH265VideoParameterSet")]
 #[repr(C)]
@@ -76656,7 +76656,7 @@ impl Default for H265VideoParameterSet {
     }
 }
 
-/// [`StdVideoH265ScalingLists`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265ScalingLists.html)
+/// [`StdVideoH265ScalingLists`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoH265ScalingLists")]
 #[repr(C)]
@@ -76687,7 +76687,7 @@ impl Default for H265ScalingLists {
     }
 }
 
-/// [`StdVideoH265SpsVuiFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265SpsVuiFlags.html)
+/// [`StdVideoH265SpsVuiFlags`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoH265SpsVuiFlags")]
 #[repr(C)]
@@ -76738,7 +76738,7 @@ impl Default for H265SpsVuiFlags {
     }
 }
 
-/// [`StdVideoH265SequenceParameterSetVui`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265SequenceParameterSetVui.html)
+/// [`StdVideoH265SequenceParameterSetVui`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoH265SequenceParameterSetVui")]
 #[repr(C)]
@@ -76806,7 +76806,7 @@ impl Default for H265SequenceParameterSetVui {
     }
 }
 
-/// [`StdVideoH265PredictorPaletteEntries`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265PredictorPaletteEntries.html)
+/// [`StdVideoH265PredictorPaletteEntries`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoH265PredictorPaletteEntries")]
 #[repr(C)]
@@ -76825,7 +76825,7 @@ impl Default for H265PredictorPaletteEntries {
     }
 }
 
-/// [`StdVideoH265SpsFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265SpsFlags.html)
+/// [`StdVideoH265SpsFlags`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoH265SpsFlags")]
 #[repr(C)]
@@ -76900,7 +76900,7 @@ impl Default for H265SpsFlags {
     }
 }
 
-/// [`StdVideoH265ShortTermRefPicSetFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265ShortTermRefPicSetFlags.html)
+/// [`StdVideoH265ShortTermRefPicSetFlags`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoH265ShortTermRefPicSetFlags")]
 #[repr(C)]
@@ -76919,7 +76919,7 @@ impl Default for H265ShortTermRefPicSetFlags {
     }
 }
 
-/// [`StdVideoH265ShortTermRefPicSet`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265ShortTermRefPicSet.html)
+/// [`StdVideoH265ShortTermRefPicSet`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoH265ShortTermRefPicSet")]
 #[repr(C)]
@@ -76962,7 +76962,7 @@ impl Default for H265ShortTermRefPicSet {
     }
 }
 
-/// [`StdVideoH265LongTermRefPicsSps`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265LongTermRefPicsSps.html)
+/// [`StdVideoH265LongTermRefPicsSps`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoH265LongTermRefPicsSps")]
 #[repr(C)]
@@ -76981,7 +76981,7 @@ impl Default for H265LongTermRefPicsSps {
     }
 }
 
-/// [`StdVideoH265SequenceParameterSet`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265SequenceParameterSet.html)
+/// [`StdVideoH265SequenceParameterSet`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoH265SequenceParameterSet")]
 #[repr(C)]
@@ -77080,7 +77080,7 @@ impl Default for H265SequenceParameterSet {
     }
 }
 
-/// [`StdVideoH265PpsFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265PpsFlags.html)
+/// [`StdVideoH265PpsFlags`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoH265PpsFlags")]
 #[repr(C)]
@@ -77157,7 +77157,7 @@ impl Default for H265PpsFlags {
     }
 }
 
-/// [`StdVideoH265PictureParameterSet`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoH265PictureParameterSet.html)
+/// [`StdVideoH265PictureParameterSet`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoH265PictureParameterSet")]
 #[repr(C)]
@@ -77246,7 +77246,7 @@ impl Default for H265PictureParameterSet {
     }
 }
 
-/// [`StdVideoDecodeH265PictureInfoFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeH265PictureInfoFlags.html)
+/// [`StdVideoDecodeH265PictureInfoFlags`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoDecodeH265PictureInfoFlags")]
 #[repr(C)]
@@ -77269,7 +77269,7 @@ impl Default for DecodeH265PictureInfoFlags {
     }
 }
 
-/// [`StdVideoDecodeH265PictureInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeH265PictureInfo.html)
+/// [`StdVideoDecodeH265PictureInfo`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoDecodeH265PictureInfo")]
 #[repr(C)]
@@ -77306,7 +77306,7 @@ impl Default for DecodeH265PictureInfo {
     }
 }
 
-/// [`StdVideoDecodeH265ReferenceInfoFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeH265ReferenceInfoFlags.html)
+/// [`StdVideoDecodeH265ReferenceInfoFlags`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoDecodeH265ReferenceInfoFlags")]
 #[repr(C)]
@@ -77325,7 +77325,7 @@ impl Default for DecodeH265ReferenceInfoFlags {
     }
 }
 
-/// [`StdVideoDecodeH265ReferenceInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeH265ReferenceInfo.html)
+/// [`StdVideoDecodeH265ReferenceInfo`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoDecodeH265ReferenceInfo")]
 #[repr(C)]
@@ -77344,7 +77344,7 @@ impl Default for DecodeH265ReferenceInfo {
     }
 }
 
-/// [`StdVideoEncodeH265WeightTableFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH265WeightTableFlags.html)
+/// [`StdVideoEncodeH265WeightTableFlags`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoEncodeH265WeightTableFlags")]
 #[repr(C)]
@@ -77367,7 +77367,7 @@ impl Default for EncodeH265WeightTableFlags {
     }
 }
 
-/// [`StdVideoEncodeH265WeightTable`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH265WeightTable.html)
+/// [`StdVideoEncodeH265WeightTable`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoEncodeH265WeightTable")]
 #[repr(C)]
@@ -77408,7 +77408,7 @@ impl Default for EncodeH265WeightTable {
     }
 }
 
-/// [`StdVideoEncodeH265SliceSegmentHeaderFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH265SliceSegmentHeaderFlags.html)
+/// [`StdVideoEncodeH265SliceSegmentHeaderFlags`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoEncodeH265SliceSegmentHeaderFlags")]
 #[repr(C)]
@@ -77449,7 +77449,7 @@ impl Default for EncodeH265SliceSegmentHeaderFlags {
     }
 }
 
-/// [`StdVideoEncodeH265SliceSegmentHeader`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH265SliceSegmentHeader.html)
+/// [`StdVideoEncodeH265SliceSegmentHeader`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoEncodeH265SliceSegmentHeader")]
 #[repr(C)]
@@ -77495,7 +77495,7 @@ impl Default for EncodeH265SliceSegmentHeader {
     }
 }
 
-/// [`StdVideoEncodeH265ReferenceListsInfoFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH265ReferenceListsInfoFlags.html)
+/// [`StdVideoEncodeH265ReferenceListsInfoFlags`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoEncodeH265ReferenceListsInfoFlags")]
 #[repr(C)]
@@ -77516,7 +77516,7 @@ impl Default for EncodeH265ReferenceListsInfoFlags {
     }
 }
 
-/// [`StdVideoEncodeH265ReferenceListsInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH265ReferenceListsInfo.html)
+/// [`StdVideoEncodeH265ReferenceListsInfo`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoEncodeH265ReferenceListsInfo")]
 #[repr(C)]
@@ -77545,7 +77545,7 @@ impl Default for EncodeH265ReferenceListsInfo {
     }
 }
 
-/// [`StdVideoEncodeH265PictureInfoFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH265PictureInfoFlags.html)
+/// [`StdVideoEncodeH265PictureInfoFlags`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoEncodeH265PictureInfoFlags")]
 #[repr(C)]
@@ -77580,7 +77580,7 @@ impl Default for EncodeH265PictureInfoFlags {
     }
 }
 
-/// [`StdVideoEncodeH265LongTermRefPics`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH265LongTermRefPics.html)
+/// [`StdVideoEncodeH265LongTermRefPics`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoEncodeH265LongTermRefPics")]
 #[repr(C)]
@@ -77609,7 +77609,7 @@ impl Default for EncodeH265LongTermRefPics {
     }
 }
 
-/// [`StdVideoEncodeH265PictureInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH265PictureInfo.html)
+/// [`StdVideoEncodeH265PictureInfo`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoEncodeH265PictureInfo")]
 #[repr(C)]
@@ -77651,7 +77651,7 @@ impl Default for EncodeH265PictureInfo {
     }
 }
 
-/// [`StdVideoEncodeH265ReferenceInfoFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH265ReferenceInfoFlags.html)
+/// [`StdVideoEncodeH265ReferenceInfoFlags`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoEncodeH265ReferenceInfoFlags")]
 #[repr(C)]
@@ -77672,7 +77672,7 @@ impl Default for EncodeH265ReferenceInfoFlags {
     }
 }
 
-/// [`StdVideoEncodeH265ReferenceInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeH265ReferenceInfo.html)
+/// [`StdVideoEncodeH265ReferenceInfo`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoEncodeH265ReferenceInfo")]
 #[repr(C)]
@@ -77695,7 +77695,7 @@ impl Default for EncodeH265ReferenceInfo {
     }
 }
 
-/// [`StdVideoAV1ColorConfigFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1ColorConfigFlags.html)
+/// [`StdVideoAV1ColorConfigFlags`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoAV1ColorConfigFlags")]
 #[repr(C)]
@@ -77720,7 +77720,7 @@ impl Default for AV1ColorConfigFlags {
     }
 }
 
-/// [`StdVideoAV1ColorConfig`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1ColorConfig.html)
+/// [`StdVideoAV1ColorConfig`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoAV1ColorConfig")]
 #[repr(C)]
@@ -77753,7 +77753,7 @@ impl Default for AV1ColorConfig {
     }
 }
 
-/// [`StdVideoAV1TimingInfoFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1TimingInfoFlags.html)
+/// [`StdVideoAV1TimingInfoFlags`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoAV1TimingInfoFlags")]
 #[repr(C)]
@@ -77772,7 +77772,7 @@ impl Default for AV1TimingInfoFlags {
     }
 }
 
-/// [`StdVideoAV1TimingInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1TimingInfo.html)
+/// [`StdVideoAV1TimingInfo`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoAV1TimingInfo")]
 #[repr(C)]
@@ -77795,7 +77795,7 @@ impl Default for AV1TimingInfo {
     }
 }
 
-/// [`StdVideoAV1LoopFilterFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1LoopFilterFlags.html)
+/// [`StdVideoAV1LoopFilterFlags`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoAV1LoopFilterFlags")]
 #[repr(C)]
@@ -77816,7 +77816,7 @@ impl Default for AV1LoopFilterFlags {
     }
 }
 
-/// [`StdVideoAV1LoopFilter`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1LoopFilter.html)
+/// [`StdVideoAV1LoopFilter`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoAV1LoopFilter")]
 #[repr(C)]
@@ -77845,7 +77845,7 @@ impl Default for AV1LoopFilter {
     }
 }
 
-/// [`StdVideoAV1QuantizationFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1QuantizationFlags.html)
+/// [`StdVideoAV1QuantizationFlags`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoAV1QuantizationFlags")]
 #[repr(C)]
@@ -77866,7 +77866,7 @@ impl Default for AV1QuantizationFlags {
     }
 }
 
-/// [`StdVideoAV1Quantization`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1Quantization.html)
+/// [`StdVideoAV1Quantization`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoAV1Quantization")]
 #[repr(C)]
@@ -77901,7 +77901,7 @@ impl Default for AV1Quantization {
     }
 }
 
-/// [`StdVideoAV1Segmentation`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1Segmentation.html)
+/// [`StdVideoAV1Segmentation`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoAV1Segmentation")]
 #[repr(C)]
@@ -77921,7 +77921,7 @@ impl Default for AV1Segmentation {
     }
 }
 
-/// [`StdVideoAV1TileInfoFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1TileInfoFlags.html)
+/// [`StdVideoAV1TileInfoFlags`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoAV1TileInfoFlags")]
 #[repr(C)]
@@ -77940,7 +77940,7 @@ impl Default for AV1TileInfoFlags {
     }
 }
 
-/// [`StdVideoAV1TileInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1TileInfo.html)
+/// [`StdVideoAV1TileInfo`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoAV1TileInfo")]
 #[repr(C)]
@@ -77975,7 +77975,7 @@ impl Default for AV1TileInfo {
     }
 }
 
-/// [`StdVideoAV1CDEF`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1CDEF.html)
+/// [`StdVideoAV1CDEF`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoAV1CDEF")]
 #[repr(C)]
@@ -78002,7 +78002,7 @@ impl Default for AV1CDEF {
     }
 }
 
-/// [`StdVideoAV1LoopRestoration`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1LoopRestoration.html)
+/// [`StdVideoAV1LoopRestoration`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoAV1LoopRestoration")]
 #[repr(C)]
@@ -78021,7 +78021,7 @@ impl Default for AV1LoopRestoration {
     }
 }
 
-/// [`StdVideoAV1GlobalMotion`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1GlobalMotion.html)
+/// [`StdVideoAV1GlobalMotion`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoAV1GlobalMotion")]
 #[repr(C)]
@@ -78041,7 +78041,7 @@ impl Default for AV1GlobalMotion {
     }
 }
 
-/// [`StdVideoAV1FilmGrainFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1FilmGrainFlags.html)
+/// [`StdVideoAV1FilmGrainFlags`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoAV1FilmGrainFlags")]
 #[repr(C)]
@@ -78066,7 +78066,7 @@ impl Default for AV1FilmGrainFlags {
     }
 }
 
-/// [`StdVideoAV1FilmGrain`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1FilmGrain.html)
+/// [`StdVideoAV1FilmGrain`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoAV1FilmGrain")]
 #[repr(C)]
@@ -78131,7 +78131,7 @@ impl Default for AV1FilmGrain {
     }
 }
 
-/// [`StdVideoAV1SequenceHeaderFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1SequenceHeaderFlags.html)
+/// [`StdVideoAV1SequenceHeaderFlags`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoAV1SequenceHeaderFlags")]
 #[repr(C)]
@@ -78186,7 +78186,7 @@ impl Default for AV1SequenceHeaderFlags {
     }
 }
 
-/// [`StdVideoAV1SequenceHeader`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoAV1SequenceHeader.html)
+/// [`StdVideoAV1SequenceHeader`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoAV1SequenceHeader")]
 #[repr(C)]
@@ -78230,7 +78230,7 @@ impl Default for AV1SequenceHeader {
     }
 }
 
-/// [`StdVideoDecodeAV1PictureInfoFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeAV1PictureInfoFlags.html)
+/// [`StdVideoDecodeAV1PictureInfoFlags`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoDecodeAV1PictureInfoFlags")]
 #[repr(C)]
@@ -78305,7 +78305,7 @@ impl Default for DecodeAV1PictureInfoFlags {
     }
 }
 
-/// [`StdVideoDecodeAV1PictureInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeAV1PictureInfo.html)
+/// [`StdVideoDecodeAV1PictureInfo`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoDecodeAV1PictureInfo")]
 #[repr(C)]
@@ -78372,7 +78372,7 @@ impl Default for DecodeAV1PictureInfo {
     }
 }
 
-/// [`StdVideoDecodeAV1ReferenceInfoFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeAV1ReferenceInfoFlags.html)
+/// [`StdVideoDecodeAV1ReferenceInfoFlags`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoDecodeAV1ReferenceInfoFlags")]
 #[repr(C)]
@@ -78393,7 +78393,7 @@ impl Default for DecodeAV1ReferenceInfoFlags {
     }
 }
 
-/// [`StdVideoDecodeAV1ReferenceInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeAV1ReferenceInfo.html)
+/// [`StdVideoDecodeAV1ReferenceInfo`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoDecodeAV1ReferenceInfo")]
 #[repr(C)]
@@ -78418,7 +78418,7 @@ impl Default for DecodeAV1ReferenceInfo {
     }
 }
 
-/// [`StdVideoEncodeAV1DecoderModelInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeAV1DecoderModelInfo.html)
+/// [`StdVideoEncodeAV1DecoderModelInfo`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoEncodeAV1DecoderModelInfo")]
 #[repr(C)]
@@ -78443,7 +78443,7 @@ impl Default for EncodeAV1DecoderModelInfo {
     }
 }
 
-/// [`StdVideoEncodeAV1ExtensionHeader`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeAV1ExtensionHeader.html)
+/// [`StdVideoEncodeAV1ExtensionHeader`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoEncodeAV1ExtensionHeader")]
 #[repr(C)]
@@ -78462,7 +78462,7 @@ impl Default for EncodeAV1ExtensionHeader {
     }
 }
 
-/// [`StdVideoEncodeAV1OperatingPointInfoFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeAV1OperatingPointInfoFlags.html)
+/// [`StdVideoEncodeAV1OperatingPointInfoFlags`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoEncodeAV1OperatingPointInfoFlags")]
 #[repr(C)]
@@ -78485,7 +78485,7 @@ impl Default for EncodeAV1OperatingPointInfoFlags {
     }
 }
 
-/// [`StdVideoEncodeAV1OperatingPointInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeAV1OperatingPointInfo.html)
+/// [`StdVideoEncodeAV1OperatingPointInfo`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoEncodeAV1OperatingPointInfo")]
 #[repr(C)]
@@ -78514,7 +78514,7 @@ impl Default for EncodeAV1OperatingPointInfo {
     }
 }
 
-/// [`StdVideoEncodeAV1PictureInfoFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeAV1PictureInfoFlags.html)
+/// [`StdVideoEncodeAV1PictureInfoFlags`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoEncodeAV1PictureInfoFlags")]
 #[repr(C)]
@@ -78589,7 +78589,7 @@ impl Default for EncodeAV1PictureInfoFlags {
     }
 }
 
-/// [`StdVideoEncodeAV1PictureInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeAV1PictureInfo.html)
+/// [`StdVideoEncodeAV1PictureInfo`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoEncodeAV1PictureInfo")]
 #[repr(C)]
@@ -78664,7 +78664,7 @@ impl Default for EncodeAV1PictureInfo {
     }
 }
 
-/// [`StdVideoEncodeAV1ReferenceInfoFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeAV1ReferenceInfoFlags.html)
+/// [`StdVideoEncodeAV1ReferenceInfoFlags`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoEncodeAV1ReferenceInfoFlags")]
 #[repr(C)]
@@ -78685,7 +78685,7 @@ impl Default for EncodeAV1ReferenceInfoFlags {
     }
 }
 
-/// [`StdVideoEncodeAV1ReferenceInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoEncodeAV1ReferenceInfo.html)
+/// [`StdVideoEncodeAV1ReferenceInfo`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoEncodeAV1ReferenceInfo")]
 #[repr(C)]
@@ -78713,7 +78713,7 @@ impl Default for EncodeAV1ReferenceInfo {
     }
 }
 
-/// [`StdVideoVP9ColorConfigFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoVP9ColorConfigFlags.html)
+/// [`StdVideoVP9ColorConfigFlags`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoVP9ColorConfigFlags")]
 #[repr(C)]
@@ -78732,7 +78732,7 @@ impl Default for VP9ColorConfigFlags {
     }
 }
 
-/// [`StdVideoVP9ColorConfig`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoVP9ColorConfig.html)
+/// [`StdVideoVP9ColorConfig`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoVP9ColorConfig")]
 #[repr(C)]
@@ -78759,7 +78759,7 @@ impl Default for VP9ColorConfig {
     }
 }
 
-/// [`StdVideoVP9LoopFilterFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoVP9LoopFilterFlags.html)
+/// [`StdVideoVP9LoopFilterFlags`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoVP9LoopFilterFlags")]
 #[repr(C)]
@@ -78780,7 +78780,7 @@ impl Default for VP9LoopFilterFlags {
     }
 }
 
-/// [`StdVideoVP9LoopFilter`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoVP9LoopFilter.html)
+/// [`StdVideoVP9LoopFilter`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoVP9LoopFilter")]
 #[repr(C)]
@@ -78809,7 +78809,7 @@ impl Default for VP9LoopFilter {
     }
 }
 
-/// [`StdVideoVP9SegmentationFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoVP9SegmentationFlags.html)
+/// [`StdVideoVP9SegmentationFlags`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoVP9SegmentationFlags")]
 #[repr(C)]
@@ -78834,7 +78834,7 @@ impl Default for VP9SegmentationFlags {
     }
 }
 
-/// [`StdVideoVP9Segmentation`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoVP9Segmentation.html)
+/// [`StdVideoVP9Segmentation`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoVP9Segmentation")]
 #[repr(C)]
@@ -78860,7 +78860,7 @@ impl Default for VP9Segmentation {
     }
 }
 
-/// [`StdVideoDecodeVP9PictureInfoFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeVP9PictureInfoFlags.html)
+/// [`StdVideoDecodeVP9PictureInfoFlags`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoDecodeVP9PictureInfoFlags")]
 #[repr(C)]
@@ -78893,7 +78893,7 @@ impl Default for DecodeVP9PictureInfoFlags {
     }
 }
 
-/// [`StdVideoDecodeVP9PictureInfo`](https://docs.vulkan.org/refpages/latest/refpages/source/StdVideoDecodeVP9PictureInfo.html)
+/// [`StdVideoDecodeVP9PictureInfo`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)
 ///
 #[doc(alias = "StdVideoDecodeVP9PictureInfo")]
 #[repr(C)]

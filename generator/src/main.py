@@ -151,10 +151,16 @@ class Context:
         else:
             return name
 
-    def vulkan_doc_header(self, out: CodeWriter, name: str):
-        out.writeln(
-            f"/// [`{name}`](https://docs.vulkan.org/refpages/latest/refpages/source/{name}.html)"
-        )
+    def vulkan_doc_header(self, out: CodeWriter, name: str, video: bool = False):
+        if video:
+            out.writeln(
+                f"/// [`{name}`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)"
+            )
+        else:
+            out.writeln(
+                f"/// [`{name}`](https://docs.vulkan.org/refpages/latest/refpages/source/{name}.html)"
+            )
+
         out.writeln("///")
 
     def requirements_doc_header(
@@ -295,7 +301,7 @@ class Context:
         type_name = names.struct(x.name)
 
         # docs
-        self.vulkan_doc_header(out, x.name)
+        self.vulkan_doc_header(out, x.name, x.videoStdHeader is not None)
         self.requirements_doc_header(out, x.version, x.extensions)
         self.returned_only_doc_header(out, x.returnedOnly)
 
@@ -502,7 +508,7 @@ class Context:
             enum_name = "ResultCode"
 
         # docs
-        self.vulkan_doc_header(out, x.name)
+        self.vulkan_doc_header(out, x.name, x.videoStdHeader is not None)
         self.requirements_doc_header(out, None, x.extensions)
         self.returned_only_doc_header(out, x.returnedOnly)
 
@@ -685,7 +691,7 @@ class Context:
         const_ty = self.ty_parser.parse(x.type)
 
         # docs
-        self.vulkan_doc_header(out, x.name)
+        self.vulkan_doc_header(out, x.name, x.videoStdHeader is not None)
 
         # definition
         out.writeln(f'#[doc(alias = "{x.name}")]')
@@ -731,6 +737,14 @@ class Context:
         )
 
         if handle is not None:
+            # these commands are prefixed with raw to not clash with their smart handle implementation
+            raw_prefixed_commands = {
+                "enumerate_physical_devices",
+            }
+
+            if command_name in raw_prefixed_commands:
+                command_name = f"raw_{command_name}"
+
             # method on a handle
             self.instance_commands.append(x.name)
             out.writeln(
@@ -744,7 +758,7 @@ class Context:
                 if command_name == old_method_name:
                     command_name = command_name.replace(f"_{handle_snake}", "", count=1)
 
-            signature = f"pub unsafe fn {command_name}(self, {', '.join(f'{x[0]}: {x[1]}' for x in params)}) {return_ty}"
+            signature = f"pub unsafe fn {command_name}(&self, {', '.join(f'{x[0]}: {x[1]}' for x in params)}) {return_ty}"
 
             out.writeln(f"impl {handle} {{")
             out.indent()
@@ -983,9 +997,7 @@ class Context:
         instance_commands_enum = self.generate_commands_enum(
             "InstanceCommands", self.instance_commands
         )
-        return "\n".join(
-            [extensions_enum, global_commands_enum, instance_commands_enum]
-        )
+        return f"{extensions_enum}\n{global_commands_enum}\n{instance_commands_enum}"
 
     def write_module(self, path: str, content: str):
         path = f"{self.root}/src/{path}"
