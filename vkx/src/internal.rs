@@ -70,8 +70,36 @@ pub type DeviceSize = u64;
 pub type SampleMask = u32;
 
 /// A version number.
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[derive(Clone, Copy, PartialEq, Eq, Default)]
 pub struct Version(u32);
+
+impl core::fmt::Debug for Version {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("Version")
+            .field("variant", &self.variant())
+            .field("major", &self.major())
+            .field("minor", &self.minor())
+            .field("patch", &self.patch())
+            .finish()
+    }
+}
+
+impl core::fmt::Display for Version {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        if self.variant() == 0 {
+            write!(f, "{}.{}.{}", self.major(), self.minor(), self.patch())
+        } else {
+            write!(
+                f,
+                "{}.{}.{}.{}",
+                self.variant(),
+                self.major(),
+                self.minor(),
+                self.patch()
+            )
+        }
+    }
+}
 
 impl Version {
     pub const V1_0: Self = Self::new(0, 1, 0, 0);
@@ -129,5 +157,19 @@ impl Version {
 impl From<Version> for u32 {
     fn from(value: Version) -> Self {
         value.get()
+    }
+}
+
+impl crate::ResultCode {
+    /// Like [`Self::split`], except it panics if the success code is anything other than
+    /// [`SuccessCode::SUCCESS`](crate::SuccessCode::SUCCESS).
+    #[track_caller]
+    #[inline(always)]
+    pub fn success(self) -> Result<(), crate::ErrorCode> {
+        match self.split() {
+            Ok(crate::SuccessCode::SUCCESS) => Ok(()),
+            Ok(_) => panic!("called `ResultCode::success` on an OK but non SUCCESS result code"),
+            Err(e) => Err(e),
+        }
     }
 }

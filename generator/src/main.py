@@ -128,6 +128,7 @@ class Context:
     vk: vkobj.VulkanObject = get_vulkan_object(video=True)
     reg: Registry = Registry()
     ty_parser: CTypeParser = CTypeParser()
+    result_variants: list[vkobj.EnumField]
     dispatchable_handles: dict[str, str]
     global_commands: list[str]
     instance_commands: list[str]
@@ -135,6 +136,7 @@ class Context:
     def __init__(self, root: Path):
         self.ty_parser.add_mapping("VkResult", "ResultCode")
         self.root = root
+        self.result_variants = {}
         self.dispatchable_handles = {}
         self.global_commands = []
         self.instance_commands = []
@@ -506,6 +508,7 @@ class Context:
         # special case result
         if enum_name == "Result":
             enum_name = "ResultCode"
+            self.result_variants = x.fields
 
         # docs
         self.vulkan_doc_header(out, x.name, x.videoStdHeader is not None)
@@ -826,6 +829,67 @@ class Context:
 
         return Generated(command_name, out.content, x)
 
+    def generate_success_and_error_enums(self) -> tuple[str, str, str]:
+        success = CodeWriter()
+        error = CodeWriter()
+        split = CodeWriter()
+
+        # definition
+        success.writeln("#[derive(Debug, Clone, Copy, PartialEq, Eq)]")
+        success.writeln("#[non_exhaustive]")
+        success.writeln("/// Enum with just the success codes of [`ResultCode`].")
+        success.writeln("pub enum SuccessCode {")
+        success.indent()
+
+        error.writeln("#[derive(Debug, Clone, Copy, PartialEq, Eq)]")
+        error.writeln("#[non_exhaustive]")
+        error.writeln("/// Enum with just the error codes of [`ResultCode`].")
+        error.writeln("pub enum ErrorCode {")
+        error.indent()
+
+        split.writeln("impl ResultCode {")
+        split.indent()
+        split.writeln(
+            "/// Splits this result code into a [`Result`] containing either a [`SuccessCode`] or an [`ErrorCode`]."
+        )
+        split.writeln("pub fn split(self) -> Result<SuccessCode, ErrorCode> {")
+        split.indent()
+        split.writeln("match self {")
+        split.indent()
+
+        variant_prefix = names.enum_variant_prefix("VkResult")
+        for variant in self.result_variants:
+            name = names.enum_variant(variant_prefix, variant.name)
+
+            result_code_name = name
+            if name.startswith("ERROR_"):
+                name = name.removeprefix("ERROR_")
+                value = f"Err(ErrorCode::{name})"
+                out = error
+            else:
+                value = f"Ok(SuccessCode::{name})"
+                out = success
+
+            self.requirements_doc_header(out, None, variant.extensions)
+            out.writeln(f'#[doc(alias = "{variant.name}")]')
+            out.writeln(f"{name} = {variant.value},")
+            split.writeln(f"Self::{result_code_name} => {value},")
+
+        success.deindent()
+        success.writeln("}")
+
+        error.deindent()
+        error.writeln("}")
+
+        split.deindent()
+        split.writeln("}")
+        split.deindent()
+        split.writeln("}")
+        split.deindent()
+        split.writeln("}")
+
+        return (success.content, error.content, split.content)
+
     def generate_extensions(self) -> str:
         out = CodeWriter()
 
@@ -993,6 +1057,7 @@ class Context:
             self.reg.commands.append(command)
 
     def generate_custom_enums(self) -> str:
+        success_enum, error_enum, split_impl = self.generate_success_and_error_enums()
         extensions_enum = self.generate_extensions()
         global_commands_enum = self.generate_commands_enum(
             "GlobalCommands", self.global_commands
@@ -1000,7 +1065,7 @@ class Context:
         instance_commands_enum = self.generate_commands_enum(
             "InstanceCommands", self.instance_commands
         )
-        return f"{extensions_enum}\n{global_commands_enum}\n{instance_commands_enum}"
+        return f"{success_enum}\n{error_enum}\n{split_impl}\n{extensions_enum}\n{global_commands_enum}\n{instance_commands_enum}"
 
     def write_module(self, path: str, content: str):
         path = f"{self.root}/src/{path}"

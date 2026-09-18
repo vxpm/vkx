@@ -6,6 +6,393 @@
 use crate::loader::*;
 use crate::platform::*;
 use std::ffi::{c_char, c_int, c_uint, c_void};
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[non_exhaustive]
+/// Enum with just the success codes of [`ResultCode`].
+pub enum SuccessCode {
+    #[doc(alias = "VK_SUCCESS")]
+    SUCCESS = 0,
+    #[doc(alias = "VK_NOT_READY")]
+    NOT_READY = 1,
+    #[doc(alias = "VK_TIMEOUT")]
+    TIMEOUT = 2,
+    #[doc(alias = "VK_EVENT_SET")]
+    EVENT_SET = 3,
+    #[doc(alias = "VK_EVENT_RESET")]
+    EVENT_RESET = 4,
+    #[doc(alias = "VK_INCOMPLETE")]
+    INCOMPLETE = 5,
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.3 with appropriate features
+    /// - Extension [`EXT_PipelineCreationCacheControl`](Extensions::EXT_PipelineCreationCacheControl)
+    ///
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    #[doc(alias = "VK_PIPELINE_COMPILE_REQUIRED")]
+    PIPELINE_COMPILE_REQUIRED = 1000297000,
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
+    ///
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    #[doc(alias = "VK_SUBOPTIMAL_KHR")]
+    SUBOPTIMAL_KHR = 1000001003,
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DeferredHostOperations`](Extensions::KHR_DeferredHostOperations)
+    ///
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    #[doc(alias = "VK_THREAD_IDLE_KHR")]
+    THREAD_IDLE_KHR = 1000268000,
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DeferredHostOperations`](Extensions::KHR_DeferredHostOperations)
+    ///
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    #[doc(alias = "VK_THREAD_DONE_KHR")]
+    THREAD_DONE_KHR = 1000268001,
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DeferredHostOperations`](Extensions::KHR_DeferredHostOperations)
+    ///
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    #[doc(alias = "VK_OPERATION_DEFERRED_KHR")]
+    OPERATION_DEFERRED_KHR = 1000268002,
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DeferredHostOperations`](Extensions::KHR_DeferredHostOperations)
+    ///
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    #[doc(alias = "VK_OPERATION_NOT_DEFERRED_KHR")]
+    OPERATION_NOT_DEFERRED_KHR = 1000268003,
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    ///
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    #[doc(alias = "VK_INCOMPATIBLE_SHADER_BINARY_EXT")]
+    INCOMPATIBLE_SHADER_BINARY_EXT = 1000482000,
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_PipelineBinary`](Extensions::KHR_PipelineBinary)
+    ///
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    #[doc(alias = "VK_PIPELINE_BINARY_MISSING_KHR")]
+    PIPELINE_BINARY_MISSING_KHR = 1000483000,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[non_exhaustive]
+/// Enum with just the error codes of [`ResultCode`].
+pub enum ErrorCode {
+    #[doc(alias = "VK_ERROR_OUT_OF_HOST_MEMORY")]
+    OUT_OF_HOST_MEMORY = -1,
+    #[doc(alias = "VK_ERROR_OUT_OF_DEVICE_MEMORY")]
+    OUT_OF_DEVICE_MEMORY = -2,
+    #[doc(alias = "VK_ERROR_INITIALIZATION_FAILED")]
+    INITIALIZATION_FAILED = -3,
+    #[doc(alias = "VK_ERROR_DEVICE_LOST")]
+    DEVICE_LOST = -4,
+    #[doc(alias = "VK_ERROR_MEMORY_MAP_FAILED")]
+    MEMORY_MAP_FAILED = -5,
+    #[doc(alias = "VK_ERROR_LAYER_NOT_PRESENT")]
+    LAYER_NOT_PRESENT = -6,
+    #[doc(alias = "VK_ERROR_EXTENSION_NOT_PRESENT")]
+    EXTENSION_NOT_PRESENT = -7,
+    #[doc(alias = "VK_ERROR_FEATURE_NOT_PRESENT")]
+    FEATURE_NOT_PRESENT = -8,
+    #[doc(alias = "VK_ERROR_INCOMPATIBLE_DRIVER")]
+    INCOMPATIBLE_DRIVER = -9,
+    #[doc(alias = "VK_ERROR_TOO_MANY_OBJECTS")]
+    TOO_MANY_OBJECTS = -10,
+    #[doc(alias = "VK_ERROR_FORMAT_NOT_SUPPORTED")]
+    FORMAT_NOT_SUPPORTED = -11,
+    #[doc(alias = "VK_ERROR_FRAGMENTED_POOL")]
+    FRAGMENTED_POOL = -12,
+    #[doc(alias = "VK_ERROR_UNKNOWN")]
+    UNKNOWN = -13,
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DebugReport`](Extensions::EXT_DebugReport)
+    /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+    ///
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    #[doc(alias = "VK_ERROR_VALIDATION_FAILED")]
+    VALIDATION_FAILED = -1000011001,
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
+    /// - Extension [`KHR_Maintenance1`](Extensions::KHR_Maintenance1)
+    ///
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    #[doc(alias = "VK_ERROR_OUT_OF_POOL_MEMORY")]
+    OUT_OF_POOL_MEMORY = -1000069000,
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.1 with appropriate features
+    /// - Extension [`KHR_ExternalMemory`](Extensions::KHR_ExternalMemory)
+    ///
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    #[doc(alias = "VK_ERROR_INVALID_EXTERNAL_HANDLE")]
+    INVALID_EXTERNAL_HANDLE = -1000072003,
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.2 with appropriate features
+    /// - Extension [`KHR_BufferDeviceAddress`](Extensions::KHR_BufferDeviceAddress)
+    /// - Extension [`EXT_BufferDeviceAddress`](Extensions::EXT_BufferDeviceAddress)
+    ///
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    #[doc(alias = "VK_ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS")]
+    INVALID_OPAQUE_CAPTURE_ADDRESS = -1000257000,
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.2 with appropriate features
+    /// - Extension [`EXT_DescriptorIndexing`](Extensions::EXT_DescriptorIndexing)
+    ///
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    #[doc(alias = "VK_ERROR_FRAGMENTATION")]
+    FRAGMENTATION = -1000161000,
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Version 1.4 with appropriate features
+    /// - Extension [`KHR_GlobalPriority`](Extensions::KHR_GlobalPriority)
+    /// - Extension [`EXT_GlobalPriority`](Extensions::EXT_GlobalPriority)
+    ///
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    #[doc(alias = "VK_ERROR_NOT_PERMITTED")]
+    NOT_PERMITTED = -1000174001,
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Surface`](Extensions::KHR_Surface)
+    ///
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    #[doc(alias = "VK_ERROR_SURFACE_LOST_KHR")]
+    SURFACE_LOST_KHR = -1000000000,
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Surface`](Extensions::KHR_Surface)
+    ///
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    #[doc(alias = "VK_ERROR_NATIVE_WINDOW_IN_USE_KHR")]
+    NATIVE_WINDOW_IN_USE_KHR = -1000000001,
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
+    ///
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    #[doc(alias = "VK_ERROR_OUT_OF_DATE_KHR")]
+    OUT_OF_DATE_KHR = -1000001004,
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_DisplaySwapchain`](Extensions::KHR_DisplaySwapchain)
+    ///
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    #[doc(alias = "VK_ERROR_INCOMPATIBLE_DISPLAY_KHR")]
+    INCOMPATIBLE_DISPLAY_KHR = -1000003001,
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`NV_GlslShader`](Extensions::NV_GlslShader)
+    ///
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    #[doc(alias = "VK_ERROR_INVALID_SHADER_NV")]
+    INVALID_SHADER_NV = -1000012000,
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+    ///
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    #[doc(alias = "VK_ERROR_IMAGE_USAGE_NOT_SUPPORTED_KHR")]
+    IMAGE_USAGE_NOT_SUPPORTED_KHR = -1000023000,
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+    ///
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    #[doc(alias = "VK_ERROR_VIDEO_PICTURE_LAYOUT_NOT_SUPPORTED_KHR")]
+    VIDEO_PICTURE_LAYOUT_NOT_SUPPORTED_KHR = -1000023001,
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+    ///
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    #[doc(alias = "VK_ERROR_VIDEO_PROFILE_OPERATION_NOT_SUPPORTED_KHR")]
+    VIDEO_PROFILE_OPERATION_NOT_SUPPORTED_KHR = -1000023002,
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+    ///
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    #[doc(alias = "VK_ERROR_VIDEO_PROFILE_FORMAT_NOT_SUPPORTED_KHR")]
+    VIDEO_PROFILE_FORMAT_NOT_SUPPORTED_KHR = -1000023003,
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+    ///
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    #[doc(alias = "VK_ERROR_VIDEO_PROFILE_CODEC_NOT_SUPPORTED_KHR")]
+    VIDEO_PROFILE_CODEC_NOT_SUPPORTED_KHR = -1000023004,
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+    ///
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    #[doc(alias = "VK_ERROR_VIDEO_STD_VERSION_NOT_SUPPORTED_KHR")]
+    VIDEO_STD_VERSION_NOT_SUPPORTED_KHR = -1000023005,
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ImageDrmFormatModifier`](Extensions::EXT_ImageDrmFormatModifier)
+    ///
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    #[doc(alias = "VK_ERROR_INVALID_DRM_FORMAT_MODIFIER_PLANE_LAYOUT_EXT")]
+    INVALID_DRM_FORMAT_MODIFIER_PLANE_LAYOUT_EXT = -1000158000,
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_PresentTiming`](Extensions::EXT_PresentTiming)
+    ///
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    #[doc(alias = "VK_ERROR_PRESENT_TIMING_QUEUE_FULL_EXT")]
+    PRESENT_TIMING_QUEUE_FULL_EXT = -1000208000,
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_FullScreenExclusive`](Extensions::EXT_FullScreenExclusive)
+    ///
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    #[doc(alias = "VK_ERROR_FULL_SCREEN_EXCLUSIVE_MODE_LOST_EXT")]
+    FULL_SCREEN_EXCLUSIVE_MODE_LOST_EXT = -1000255000,
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+    ///
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    #[doc(alias = "VK_ERROR_INVALID_VIDEO_STD_PARAMETERS_KHR")]
+    INVALID_VIDEO_STD_PARAMETERS_KHR = -1000299000,
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_ImageCompressionControl`](Extensions::EXT_ImageCompressionControl)
+    ///
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    #[doc(alias = "VK_ERROR_COMPRESSION_EXHAUSTED_EXT")]
+    COMPRESSION_EXHAUSTED_EXT = -1000338000,
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`KHR_PipelineBinary`](Extensions::KHR_PipelineBinary)
+    ///
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    #[doc(alias = "VK_ERROR_NOT_ENOUGH_SPACE_KHR")]
+    NOT_ENOUGH_SPACE_KHR = -1000483000,
+}
+
+impl ResultCode {
+    /// Splits this result code into a [`Result`] containing either a [`SuccessCode`] or an [`ErrorCode`].
+    pub fn split(self) -> Result<SuccessCode, ErrorCode> {
+        match self {
+            Self::SUCCESS => Ok(SuccessCode::SUCCESS),
+            Self::NOT_READY => Ok(SuccessCode::NOT_READY),
+            Self::TIMEOUT => Ok(SuccessCode::TIMEOUT),
+            Self::EVENT_SET => Ok(SuccessCode::EVENT_SET),
+            Self::EVENT_RESET => Ok(SuccessCode::EVENT_RESET),
+            Self::INCOMPLETE => Ok(SuccessCode::INCOMPLETE),
+            Self::ERROR_OUT_OF_HOST_MEMORY => Err(ErrorCode::OUT_OF_HOST_MEMORY),
+            Self::ERROR_OUT_OF_DEVICE_MEMORY => Err(ErrorCode::OUT_OF_DEVICE_MEMORY),
+            Self::ERROR_INITIALIZATION_FAILED => Err(ErrorCode::INITIALIZATION_FAILED),
+            Self::ERROR_DEVICE_LOST => Err(ErrorCode::DEVICE_LOST),
+            Self::ERROR_MEMORY_MAP_FAILED => Err(ErrorCode::MEMORY_MAP_FAILED),
+            Self::ERROR_LAYER_NOT_PRESENT => Err(ErrorCode::LAYER_NOT_PRESENT),
+            Self::ERROR_EXTENSION_NOT_PRESENT => Err(ErrorCode::EXTENSION_NOT_PRESENT),
+            Self::ERROR_FEATURE_NOT_PRESENT => Err(ErrorCode::FEATURE_NOT_PRESENT),
+            Self::ERROR_INCOMPATIBLE_DRIVER => Err(ErrorCode::INCOMPATIBLE_DRIVER),
+            Self::ERROR_TOO_MANY_OBJECTS => Err(ErrorCode::TOO_MANY_OBJECTS),
+            Self::ERROR_FORMAT_NOT_SUPPORTED => Err(ErrorCode::FORMAT_NOT_SUPPORTED),
+            Self::ERROR_FRAGMENTED_POOL => Err(ErrorCode::FRAGMENTED_POOL),
+            Self::ERROR_UNKNOWN => Err(ErrorCode::UNKNOWN),
+            Self::ERROR_VALIDATION_FAILED => Err(ErrorCode::VALIDATION_FAILED),
+            Self::ERROR_OUT_OF_POOL_MEMORY => Err(ErrorCode::OUT_OF_POOL_MEMORY),
+            Self::ERROR_INVALID_EXTERNAL_HANDLE => Err(ErrorCode::INVALID_EXTERNAL_HANDLE),
+            Self::ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS => {
+                Err(ErrorCode::INVALID_OPAQUE_CAPTURE_ADDRESS)
+            }
+            Self::ERROR_FRAGMENTATION => Err(ErrorCode::FRAGMENTATION),
+            Self::PIPELINE_COMPILE_REQUIRED => Ok(SuccessCode::PIPELINE_COMPILE_REQUIRED),
+            Self::ERROR_NOT_PERMITTED => Err(ErrorCode::NOT_PERMITTED),
+            Self::ERROR_SURFACE_LOST_KHR => Err(ErrorCode::SURFACE_LOST_KHR),
+            Self::ERROR_NATIVE_WINDOW_IN_USE_KHR => Err(ErrorCode::NATIVE_WINDOW_IN_USE_KHR),
+            Self::SUBOPTIMAL_KHR => Ok(SuccessCode::SUBOPTIMAL_KHR),
+            Self::ERROR_OUT_OF_DATE_KHR => Err(ErrorCode::OUT_OF_DATE_KHR),
+            Self::ERROR_INCOMPATIBLE_DISPLAY_KHR => Err(ErrorCode::INCOMPATIBLE_DISPLAY_KHR),
+            Self::ERROR_INVALID_SHADER_NV => Err(ErrorCode::INVALID_SHADER_NV),
+            Self::ERROR_IMAGE_USAGE_NOT_SUPPORTED_KHR => {
+                Err(ErrorCode::IMAGE_USAGE_NOT_SUPPORTED_KHR)
+            }
+            Self::ERROR_VIDEO_PICTURE_LAYOUT_NOT_SUPPORTED_KHR => {
+                Err(ErrorCode::VIDEO_PICTURE_LAYOUT_NOT_SUPPORTED_KHR)
+            }
+            Self::ERROR_VIDEO_PROFILE_OPERATION_NOT_SUPPORTED_KHR => {
+                Err(ErrorCode::VIDEO_PROFILE_OPERATION_NOT_SUPPORTED_KHR)
+            }
+            Self::ERROR_VIDEO_PROFILE_FORMAT_NOT_SUPPORTED_KHR => {
+                Err(ErrorCode::VIDEO_PROFILE_FORMAT_NOT_SUPPORTED_KHR)
+            }
+            Self::ERROR_VIDEO_PROFILE_CODEC_NOT_SUPPORTED_KHR => {
+                Err(ErrorCode::VIDEO_PROFILE_CODEC_NOT_SUPPORTED_KHR)
+            }
+            Self::ERROR_VIDEO_STD_VERSION_NOT_SUPPORTED_KHR => {
+                Err(ErrorCode::VIDEO_STD_VERSION_NOT_SUPPORTED_KHR)
+            }
+            Self::ERROR_INVALID_DRM_FORMAT_MODIFIER_PLANE_LAYOUT_EXT => {
+                Err(ErrorCode::INVALID_DRM_FORMAT_MODIFIER_PLANE_LAYOUT_EXT)
+            }
+            Self::ERROR_PRESENT_TIMING_QUEUE_FULL_EXT => {
+                Err(ErrorCode::PRESENT_TIMING_QUEUE_FULL_EXT)
+            }
+            Self::ERROR_FULL_SCREEN_EXCLUSIVE_MODE_LOST_EXT => {
+                Err(ErrorCode::FULL_SCREEN_EXCLUSIVE_MODE_LOST_EXT)
+            }
+            Self::THREAD_IDLE_KHR => Ok(SuccessCode::THREAD_IDLE_KHR),
+            Self::THREAD_DONE_KHR => Ok(SuccessCode::THREAD_DONE_KHR),
+            Self::OPERATION_DEFERRED_KHR => Ok(SuccessCode::OPERATION_DEFERRED_KHR),
+            Self::OPERATION_NOT_DEFERRED_KHR => Ok(SuccessCode::OPERATION_NOT_DEFERRED_KHR),
+            Self::ERROR_INVALID_VIDEO_STD_PARAMETERS_KHR => {
+                Err(ErrorCode::INVALID_VIDEO_STD_PARAMETERS_KHR)
+            }
+            Self::ERROR_COMPRESSION_EXHAUSTED_EXT => Err(ErrorCode::COMPRESSION_EXHAUSTED_EXT),
+            Self::INCOMPATIBLE_SHADER_BINARY_EXT => Ok(SuccessCode::INCOMPATIBLE_SHADER_BINARY_EXT),
+            Self::PIPELINE_BINARY_MISSING_KHR => Ok(SuccessCode::PIPELINE_BINARY_MISSING_KHR),
+            Self::ERROR_NOT_ENOUGH_SPACE_KHR => Err(ErrorCode::NOT_ENOUGH_SPACE_KHR),
+        }
+    }
+}
+
 /// Enum containing all extensions.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[non_exhaustive]

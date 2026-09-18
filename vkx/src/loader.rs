@@ -87,10 +87,9 @@ impl Instance {
     pub fn create(
         create_info: *const crate::InstanceCreateInfo,
         allocator: *const crate::AllocationCallbacks,
-    ) -> Self {
+    ) -> Result<Self, crate::ErrorCode> {
         let mut instance = crate::InstanceHandle::default();
-        let result = unsafe { crate::create_instance(create_info, allocator, &mut instance) };
-        assert_eq!(result, crate::ResultCode::SUCCESS);
+        unsafe { crate::create_instance(create_info, allocator, &mut instance).success()? };
 
         let get_instance_proc_addr = GLOBAL
             .get()
@@ -106,30 +105,35 @@ impl Instance {
         let boxed_array: Box<[_; _]> = instance_commands.into_boxed_slice().try_into().unwrap();
         let instance_commands = Box::leak(boxed_array);
 
-        Self {
+        Ok(Self {
             handle: instance,
             vtable: instance_commands,
-        }
+        })
     }
 
-    pub fn enumerate_physical_devices(&self) -> Vec<PhysicalDevice> {
+    /// Enumerates physical devices.
+    pub unsafe fn enumerate_physical_devices(
+        &self,
+    ) -> Result<Vec<PhysicalDevice>, crate::ErrorCode> {
         let mut count = 0;
-        let result =
-            unsafe { self.raw_enumerate_physical_devices(&mut count, std::ptr::null_mut()) };
-        assert_eq!(result, crate::ResultCode::SUCCESS);
+        unsafe {
+            self.raw_enumerate_physical_devices(&mut count, std::ptr::null_mut())
+                .success()?;
+        }
 
         let mut devices = vec![crate::PhysicalDeviceHandle::default(); count as usize];
-        let result =
-            unsafe { self.raw_enumerate_physical_devices(&mut count, devices.as_mut_ptr()) };
-        assert_eq!(result, crate::ResultCode::SUCCESS);
+        unsafe {
+            self.raw_enumerate_physical_devices(&mut count, devices.as_mut_ptr())
+                .success()?;
+        }
 
-        devices
+        Ok(devices
             .into_iter()
             .map(|handle| PhysicalDevice {
                 handle,
                 vtable: self.vtable,
             })
-            .collect()
+            .collect())
     }
 }
 
