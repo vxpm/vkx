@@ -7,7 +7,6 @@ use crate::loader::*;
 use crate::platform::*;
 use std::ffi::{c_char, c_int, c_uint, c_void};
 
-use crate::bitmasks::*;
 use crate::consts_inner::*;
 use crate::enums::*;
 use crate::flags::*;
@@ -1060,7 +1059,7 @@ impl Queue {
     /// - fence
     ///
     /// # Allowed queues
-    /// - [`SPARSE_BINDING`](QueueFlags::SPARSE_BINDING)
+    /// - [`SPARSE_BINDING`](QueueFlag::SPARSE_BINDING)
     ///
     /// # Result codes
     /// ## Success
@@ -1885,9 +1884,9 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdCopyBuffer")]
     #[inline(always)]
@@ -1928,9 +1927,9 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdCopyImage")]
     #[inline(always)]
@@ -1982,9 +1981,9 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdCopyBufferToImage")]
     #[inline(always)]
@@ -2034,9 +2033,9 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdCopyImageToBuffer")]
     #[inline(always)]
@@ -2080,9 +2079,9 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdUpdateBuffer")]
     #[inline(always)]
@@ -2116,9 +2115,9 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdFillBuffer")]
     #[inline(always)]
@@ -2170,11 +2169,11 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
-    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlag::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlag::VIDEO_ENCODE_KHR)
     ///
     #[doc(alias = "vkCmdPipelineBarrier")]
     #[inline(always)]
@@ -2230,10 +2229,10 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
-    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlag::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlag::VIDEO_ENCODE_KHR)
     ///
     #[doc(alias = "vkCmdBeginQuery")]
     #[inline(always)]
@@ -2266,10 +2265,10 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
-    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlag::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlag::VIDEO_ENCODE_KHR)
     ///
     #[doc(alias = "vkCmdEndQuery")]
     #[inline(always)]
@@ -2297,11 +2296,11 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
-    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
-    /// - [`OPTICAL_FLOW_NV`](QueueFlags::OPTICAL_FLOW_NV)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlag::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlag::VIDEO_ENCODE_KHR)
+    /// - [`OPTICAL_FLOW_NV`](QueueFlag::OPTICAL_FLOW_NV)
     ///
     #[doc(alias = "vkCmdResetQueryPool")]
     #[inline(always)]
@@ -2334,12 +2333,12 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
-    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
-    /// - [`OPTICAL_FLOW_NV`](QueueFlags::OPTICAL_FLOW_NV)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlag::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlag::VIDEO_ENCODE_KHR)
+    /// - [`OPTICAL_FLOW_NV`](QueueFlag::OPTICAL_FLOW_NV)
     ///
     #[doc(alias = "vkCmdWriteTimestamp")]
     #[inline(always)]
@@ -2383,8 +2382,8 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdCopyQueryPoolResults")]
     #[inline(always)]
@@ -2432,9 +2431,9 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdExecuteCommands")]
     #[inline(always)]
@@ -3342,9 +3341,9 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`DATA_GRAPH_ARM`](QueueFlags::DATA_GRAPH_ARM)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    /// - [`DATA_GRAPH_ARM`](QueueFlag::DATA_GRAPH_ARM)
     ///
     #[doc(alias = "vkCmdBindPipeline")]
     #[inline(always)]
@@ -3387,9 +3386,9 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`DATA_GRAPH_ARM`](QueueFlags::DATA_GRAPH_ARM)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    /// - [`DATA_GRAPH_ARM`](QueueFlag::DATA_GRAPH_ARM)
     ///
     #[doc(alias = "vkCmdBindDescriptorSets")]
     #[inline(always)]
@@ -3443,8 +3442,8 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdClearColorImage")]
     #[inline(always)]
@@ -3487,7 +3486,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdDispatch")]
     #[inline(always)]
@@ -3515,7 +3514,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdDispatchIndirect")]
     #[inline(always)]
@@ -3546,10 +3545,10 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
-    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlag::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlag::VIDEO_ENCODE_KHR)
     ///
     #[doc(alias = "vkCmdSetEvent")]
     #[inline(always)]
@@ -3580,10 +3579,10 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
-    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlag::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlag::VIDEO_ENCODE_KHR)
     ///
     #[doc(alias = "vkCmdResetEvent")]
     #[inline(always)]
@@ -3629,10 +3628,10 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
-    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlag::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlag::VIDEO_ENCODE_KHR)
     ///
     #[doc(alias = "vkCmdWaitEvents")]
     #[inline(always)]
@@ -3692,8 +3691,8 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdPushConstants")]
     #[inline(always)]
@@ -3932,7 +3931,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetViewport")]
     #[inline(always)]
@@ -3965,7 +3964,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetScissor")]
     #[inline(always)]
@@ -3997,7 +3996,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetLineWidth")]
     #[inline(always)]
@@ -4024,7 +4023,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetDepthBias")]
     #[inline(always)]
@@ -4064,7 +4063,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetBlendConstants")]
     #[inline(always)]
@@ -4091,7 +4090,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetDepthBounds")]
     #[inline(always)]
@@ -4119,7 +4118,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetStencilCompareMask")]
     #[inline(always)]
@@ -4151,7 +4150,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetStencilWriteMask")]
     #[inline(always)]
@@ -4179,7 +4178,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetStencilReference")]
     #[inline(always)]
@@ -4210,7 +4209,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdBindIndexBuffer")]
     #[inline(always)]
@@ -4243,7 +4242,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdBindVertexBuffers")]
     #[inline(always)]
@@ -4284,7 +4283,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDraw")]
     #[inline(always)]
@@ -4326,7 +4325,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawIndexed")]
     #[inline(always)]
@@ -4370,7 +4369,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawIndirect")]
     #[inline(always)]
@@ -4404,7 +4403,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawIndexedIndirect")]
     #[inline(always)]
@@ -4446,7 +4445,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdBlitImage")]
     #[inline(always)]
@@ -4500,7 +4499,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdClearDepthStencilImage")]
     #[inline(always)]
@@ -4544,7 +4543,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdClearAttachments")]
     #[inline(always)]
@@ -4593,7 +4592,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdResolveImage")]
     #[inline(always)]
@@ -4640,7 +4639,7 @@ impl CommandBuffer {
     /// - Primary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdBeginRenderPass")]
     #[inline(always)]
@@ -4672,7 +4671,7 @@ impl CommandBuffer {
     /// - Primary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdNextSubpass")]
     #[inline(always)]
@@ -4700,7 +4699,7 @@ impl CommandBuffer {
     /// - Primary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdEndRenderPass")]
     #[inline(always)]
@@ -4876,9 +4875,9 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
     ///
     #[doc(alias = "vkCmdSetDeviceMask")]
     #[inline(always)]
@@ -5472,7 +5471,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdDispatchBase")]
     #[inline(always)]
@@ -5968,7 +5967,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawIndirectCount")]
     #[inline(always)]
@@ -6020,7 +6019,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawIndexedIndirectCount")]
     #[inline(always)]
@@ -6117,7 +6116,7 @@ impl CommandBuffer {
     /// - Primary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdBeginRenderPass2")]
     #[inline(always)]
@@ -6156,7 +6155,7 @@ impl CommandBuffer {
     /// - Primary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdNextSubpass2")]
     #[inline(always)]
@@ -6195,7 +6194,7 @@ impl CommandBuffer {
     /// - Primary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdEndRenderPass2")]
     #[inline(always)]
@@ -6429,11 +6428,11 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
-    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlag::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlag::VIDEO_ENCODE_KHR)
     ///
     #[doc(alias = "vkCmdPipelineBarrier2")]
     #[inline(always)]
@@ -6470,11 +6469,11 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
-    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlag::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlag::VIDEO_ENCODE_KHR)
     ///
     #[doc(alias = "vkCmdWriteTimestamp2")]
     #[inline(always)]
@@ -6555,9 +6554,9 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdCopyBuffer2")]
     #[inline(always)]
@@ -6591,9 +6590,9 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdCopyImage2")]
     #[inline(always)]
@@ -6627,9 +6626,9 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdCopyBufferToImage2")]
     #[inline(always)]
@@ -6666,9 +6665,9 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdCopyImageToBuffer2")]
     #[inline(always)]
@@ -6814,10 +6813,10 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
-    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlag::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlag::VIDEO_ENCODE_KHR)
     ///
     #[doc(alias = "vkCmdSetEvent2")]
     #[inline(always)]
@@ -6854,10 +6853,10 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
-    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlag::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlag::VIDEO_ENCODE_KHR)
     ///
     #[doc(alias = "vkCmdResetEvent2")]
     #[inline(always)]
@@ -6891,10 +6890,10 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
-    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlag::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlag::VIDEO_ENCODE_KHR)
     ///
     #[doc(alias = "vkCmdWaitEvents2")]
     #[inline(always)]
@@ -6933,7 +6932,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdBlitImage2")]
     #[inline(always)]
@@ -6967,7 +6966,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdResolveImage2")]
     #[inline(always)]
@@ -7002,7 +7001,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdBeginRendering")]
     #[inline(always)]
@@ -7036,7 +7035,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdEndRendering")]
     #[inline(always)]
@@ -7072,7 +7071,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetCullMode")]
     #[inline(always)]
@@ -7105,7 +7104,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetFrontFace")]
     #[inline(always)]
@@ -7139,7 +7138,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetPrimitiveTopology")]
     #[inline(always)]
@@ -7173,7 +7172,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetViewportWithCount")]
     #[inline(always)]
@@ -7211,7 +7210,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetScissorWithCount")]
     #[inline(always)]
@@ -7256,7 +7255,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdBindVertexBuffers2")]
     #[inline(always)]
@@ -7307,7 +7306,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetDepthTestEnable")]
     #[inline(always)]
@@ -7340,7 +7339,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetDepthWriteEnable")]
     #[inline(always)]
@@ -7373,7 +7372,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetDepthCompareOp")]
     #[inline(always)]
@@ -7406,7 +7405,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetDepthBoundsTestEnable")]
     #[inline(always)]
@@ -7439,7 +7438,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetStencilTestEnable")]
     #[inline(always)]
@@ -7479,7 +7478,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetStencilOp")]
     #[inline(always)]
@@ -7529,7 +7528,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetRasterizerDiscardEnable")]
     #[inline(always)]
@@ -7562,7 +7561,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetDepthBiasEnable")]
     #[inline(always)]
@@ -7596,7 +7595,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetPrimitiveRestartEnable")]
     #[inline(always)]
@@ -7910,8 +7909,8 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdPushDescriptorSet")]
     #[inline(always)]
@@ -7966,8 +7965,8 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdPushDescriptorSetWithTemplate")]
     #[inline(always)]
@@ -8007,8 +8006,8 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdBindDescriptorSets2")]
     #[inline(always)]
@@ -8045,8 +8044,8 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdPushConstants2")]
     #[inline(always)]
@@ -8080,8 +8079,8 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdPushDescriptorSet2")]
     #[inline(always)]
@@ -8118,8 +8117,8 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdPushDescriptorSetWithTemplate2")]
     #[inline(always)]
@@ -8157,7 +8156,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetLineStipple")]
     #[inline(always)]
@@ -8194,7 +8193,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdBindIndexBuffer2")]
     #[inline(always)]
@@ -8262,7 +8261,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetRenderingAttachmentLocations")]
     #[inline(always)]
@@ -8301,7 +8300,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetRenderingInputAttachmentIndices")]
     #[inline(always)]
@@ -10074,8 +10073,8 @@ impl CommandBuffer {
     /// - Primary
     ///
     /// # Allowed queues
-    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
-    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlag::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlag::VIDEO_ENCODE_KHR)
     ///
     #[doc(alias = "vkCmdBeginVideoCodingKHR")]
     #[inline(always)]
@@ -10109,8 +10108,8 @@ impl CommandBuffer {
     /// - Primary
     ///
     /// # Allowed queues
-    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
-    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlag::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlag::VIDEO_ENCODE_KHR)
     ///
     #[doc(alias = "vkCmdEndVideoCodingKHR")]
     #[inline(always)]
@@ -10143,8 +10142,8 @@ impl CommandBuffer {
     /// - Primary
     ///
     /// # Allowed queues
-    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
-    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlag::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlag::VIDEO_ENCODE_KHR)
     ///
     #[doc(alias = "vkCmdControlVideoCodingKHR")]
     #[inline(always)]
@@ -10180,7 +10179,7 @@ impl CommandBuffer {
     /// - Primary
     ///
     /// # Allowed queues
-    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlag::VIDEO_DECODE_KHR)
     ///
     #[doc(alias = "vkCmdDecodeVideoKHR")]
     #[inline(always)]
@@ -10216,7 +10215,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdBeginRenderingKHR")]
     #[inline(always)]
@@ -10251,7 +10250,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdEndRenderingKHR")]
     #[inline(always)]
@@ -10566,9 +10565,9 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
     ///
     #[doc(alias = "vkCmdSetDeviceMaskKHR")]
     #[inline(always)]
@@ -10603,7 +10602,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdDispatchBaseKHR")]
     #[inline(always)]
@@ -11136,8 +11135,8 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdPushDescriptorSetKHR")]
     #[inline(always)]
@@ -11194,8 +11193,8 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdPushDescriptorSetWithTemplateKHR")]
     #[inline(always)]
@@ -11412,7 +11411,7 @@ impl CommandBuffer {
     /// - Primary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdBeginRenderPass2KHR")]
     #[inline(always)]
@@ -11452,7 +11451,7 @@ impl CommandBuffer {
     /// - Primary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdNextSubpass2KHR")]
     #[inline(always)]
@@ -11492,7 +11491,7 @@ impl CommandBuffer {
     /// - Primary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdEndRenderPass2KHR")]
     #[inline(always)]
@@ -12464,7 +12463,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawIndirectCountKHR")]
     #[inline(always)]
@@ -12517,7 +12516,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawIndexedIndirectCountKHR")]
     #[inline(always)]
@@ -12735,7 +12734,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetFragmentShadingRateKHR")]
     #[inline(always)]
@@ -12774,7 +12773,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetRenderingAttachmentLocationsKHR")]
     #[inline(always)]
@@ -12814,7 +12813,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetRenderingInputAttachmentIndicesKHR")]
     #[inline(always)]
@@ -13501,7 +13500,7 @@ impl CommandBuffer {
     /// - Primary
     ///
     /// # Allowed queues
-    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlag::VIDEO_ENCODE_KHR)
     ///
     #[doc(alias = "vkCmdEncodeVideoKHR")]
     #[inline(always)]
@@ -13536,10 +13535,10 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
-    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlag::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlag::VIDEO_ENCODE_KHR)
     ///
     #[doc(alias = "vkCmdSetEvent2KHR")]
     #[inline(always)]
@@ -13581,10 +13580,10 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
-    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlag::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlag::VIDEO_ENCODE_KHR)
     ///
     #[doc(alias = "vkCmdResetEvent2KHR")]
     #[inline(always)]
@@ -13619,10 +13618,10 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
-    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlag::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlag::VIDEO_ENCODE_KHR)
     ///
     #[doc(alias = "vkCmdWaitEvents2KHR")]
     #[inline(always)]
@@ -13662,11 +13661,11 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
-    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlag::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlag::VIDEO_ENCODE_KHR)
     ///
     #[doc(alias = "vkCmdPipelineBarrier2KHR")]
     #[inline(always)]
@@ -13704,11 +13703,11 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
-    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlag::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlag::VIDEO_ENCODE_KHR)
     ///
     #[doc(alias = "vkCmdWriteTimestamp2KHR")]
     #[inline(always)]
@@ -13790,7 +13789,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdBindIndexBuffer3KHR")]
     #[inline(always)]
@@ -13824,7 +13823,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdBindVertexBuffers3KHR")]
     #[inline(always)]
@@ -13863,7 +13862,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawIndirect2KHR")]
     #[inline(always)]
@@ -13897,7 +13896,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawIndexedIndirect2KHR")]
     #[inline(always)]
@@ -13931,7 +13930,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdDispatchIndirect2KHR")]
     #[inline(always)]
@@ -13968,7 +13967,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
     ///
     #[doc(alias = "vkCmdCopyMemoryKHR")]
     #[inline(always)]
@@ -14005,7 +14004,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
     ///
     #[doc(alias = "vkCmdCopyMemoryToImageKHR")]
     #[inline(always)]
@@ -14045,7 +14044,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
     ///
     #[doc(alias = "vkCmdCopyImageToMemoryKHR")]
     #[inline(always)]
@@ -14090,7 +14089,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
     ///
     #[doc(alias = "vkCmdUpdateMemoryKHR")]
     #[inline(always)]
@@ -14137,7 +14136,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
     ///
     #[doc(alias = "vkCmdFillMemoryKHR")]
     #[inline(always)]
@@ -14187,7 +14186,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
     ///
     #[doc(alias = "vkCmdCopyQueryPoolResultsToMemoryKHR")]
     #[inline(always)]
@@ -14241,7 +14240,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawIndirectCount2KHR")]
     #[inline(always)]
@@ -14275,7 +14274,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawIndexedIndirectCount2KHR")]
     #[inline(always)]
@@ -14313,8 +14312,8 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdBeginConditionalRendering2EXT")]
     #[inline(always)]
@@ -14354,7 +14353,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdBindTransformFeedbackBuffers2EXT")]
     #[inline(always)]
@@ -14399,7 +14398,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdBeginTransformFeedback2EXT")]
     #[inline(always)]
@@ -14449,7 +14448,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdEndTransformFeedback2EXT")]
     #[inline(always)]
@@ -14501,7 +14500,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawIndirectByteCount2EXT")]
     #[inline(always)]
@@ -14551,7 +14550,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawMeshTasksIndirect2EXT")]
     #[inline(always)]
@@ -14585,7 +14584,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawMeshTasksIndirectCount2EXT")]
     #[inline(always)]
@@ -14624,9 +14623,9 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
     ///
     #[doc(alias = "vkCmdWriteMarkerToMemoryAMD")]
     #[inline(always)]
@@ -14712,9 +14711,9 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdCopyBuffer2KHR")]
     #[inline(always)]
@@ -14749,9 +14748,9 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdCopyImage2KHR")]
     #[inline(always)]
@@ -14786,9 +14785,9 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdCopyBufferToImage2KHR")]
     #[inline(always)]
@@ -14826,9 +14825,9 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdCopyImageToBuffer2KHR")]
     #[inline(always)]
@@ -14866,7 +14865,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdBlitImage2KHR")]
     #[inline(always)]
@@ -14901,7 +14900,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdResolveImage2KHR")]
     #[inline(always)]
@@ -14935,7 +14934,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdTraceRaysIndirect2KHR")]
     #[inline(always)]
@@ -15087,7 +15086,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdBindIndexBuffer2KHR")]
     #[inline(always)]
@@ -15555,7 +15554,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetLineStippleKHR")]
     #[inline(always)]
@@ -15687,8 +15686,8 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdBindDescriptorSets2KHR")]
     #[inline(always)]
@@ -15726,8 +15725,8 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdPushConstants2KHR")]
     #[inline(always)]
@@ -15762,8 +15761,8 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdPushDescriptorSet2KHR")]
     #[inline(always)]
@@ -15801,8 +15800,8 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdPushDescriptorSetWithTemplate2KHR")]
     #[inline(always)]
@@ -15842,9 +15841,9 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`DATA_GRAPH_ARM`](QueueFlags::DATA_GRAPH_ARM)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    /// - [`DATA_GRAPH_ARM`](QueueFlag::DATA_GRAPH_ARM)
     ///
     #[doc(alias = "vkCmdSetDescriptorBufferOffsets2EXT")]
     #[inline(always)]
@@ -15884,8 +15883,8 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdBindDescriptorBufferEmbeddedSamplers2EXT")]
     #[inline(always)]
@@ -15924,9 +15923,9 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdCopyMemoryIndirectKHR")]
     #[inline(always)]
@@ -15963,9 +15962,9 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdCopyMemoryToImageIndirectKHR")]
     #[inline(always)]
@@ -16083,7 +16082,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdEndRendering2KHR")]
     #[inline(always)]
@@ -16320,12 +16319,12 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
-    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
-    /// - [`OPTICAL_FLOW_NV`](QueueFlags::OPTICAL_FLOW_NV)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlag::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlag::VIDEO_ENCODE_KHR)
+    /// - [`OPTICAL_FLOW_NV`](QueueFlag::OPTICAL_FLOW_NV)
     ///
     #[doc(alias = "vkCmdDebugMarkerBeginEXT")]
     #[inline(always)]
@@ -16362,12 +16361,12 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
-    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
-    /// - [`OPTICAL_FLOW_NV`](QueueFlags::OPTICAL_FLOW_NV)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlag::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlag::VIDEO_ENCODE_KHR)
+    /// - [`OPTICAL_FLOW_NV`](QueueFlag::OPTICAL_FLOW_NV)
     ///
     #[doc(alias = "vkCmdDebugMarkerEndEXT")]
     #[inline(always)]
@@ -16402,12 +16401,12 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
-    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
-    /// - [`OPTICAL_FLOW_NV`](QueueFlags::OPTICAL_FLOW_NV)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlag::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlag::VIDEO_ENCODE_KHR)
+    /// - [`OPTICAL_FLOW_NV`](QueueFlag::OPTICAL_FLOW_NV)
     ///
     #[doc(alias = "vkCmdDebugMarkerInsertEXT")]
     #[inline(always)]
@@ -16453,7 +16452,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdBindTransformFeedbackBuffersEXT")]
     #[inline(always)]
@@ -16509,7 +16508,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdBeginTransformFeedbackEXT")]
     #[inline(always)]
@@ -16561,7 +16560,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdEndTransformFeedbackEXT")]
     #[inline(always)]
@@ -16613,10 +16612,10 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
-    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlag::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlag::VIDEO_ENCODE_KHR)
     ///
     #[doc(alias = "vkCmdBeginQueryIndexedEXT")]
     #[inline(always)]
@@ -16657,10 +16656,10 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
-    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlag::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlag::VIDEO_ENCODE_KHR)
     ///
     #[doc(alias = "vkCmdEndQueryIndexedEXT")]
     #[inline(always)]
@@ -16694,7 +16693,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawIndirectByteCountEXT")]
     #[inline(always)]
@@ -16896,8 +16895,8 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdCuLaunchKernelNVX")]
     #[inline(always)]
@@ -17048,7 +17047,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawIndirectCountAMD")]
     #[inline(always)]
@@ -17101,7 +17100,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawIndexedIndirectCountAMD")]
     #[inline(always)]
@@ -17414,8 +17413,8 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdBeginConditionalRenderingEXT")]
     #[inline(always)]
@@ -17452,8 +17451,8 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdEndConditionalRenderingEXT")]
     #[inline(always)]
@@ -17487,7 +17486,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetViewportWScalingNV")]
     #[inline(always)]
@@ -17945,7 +17944,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetDiscardRectangleEXT")]
     #[inline(always)]
@@ -17991,7 +17990,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetDiscardRectangleEnableEXT")]
     #[inline(always)]
@@ -18025,7 +18024,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetDiscardRectangleModeEXT")]
     #[inline(always)]
@@ -18324,12 +18323,12 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
-    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
-    /// - [`OPTICAL_FLOW_NV`](QueueFlags::OPTICAL_FLOW_NV)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlag::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlag::VIDEO_ENCODE_KHR)
+    /// - [`OPTICAL_FLOW_NV`](QueueFlag::OPTICAL_FLOW_NV)
     ///
     #[doc(alias = "vkCmdBeginDebugUtilsLabelEXT")]
     #[inline(always)]
@@ -18362,12 +18361,12 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
-    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
-    /// - [`OPTICAL_FLOW_NV`](QueueFlags::OPTICAL_FLOW_NV)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlag::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlag::VIDEO_ENCODE_KHR)
+    /// - [`OPTICAL_FLOW_NV`](QueueFlag::OPTICAL_FLOW_NV)
     ///
     #[doc(alias = "vkCmdEndDebugUtilsLabelEXT")]
     #[inline(always)]
@@ -18401,12 +18400,12 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`VIDEO_DECODE_KHR`](QueueFlags::VIDEO_DECODE_KHR)
-    /// - [`VIDEO_ENCODE_KHR`](QueueFlags::VIDEO_ENCODE_KHR)
-    /// - [`OPTICAL_FLOW_NV`](QueueFlags::OPTICAL_FLOW_NV)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    /// - [`VIDEO_DECODE_KHR`](QueueFlag::VIDEO_DECODE_KHR)
+    /// - [`VIDEO_ENCODE_KHR`](QueueFlag::VIDEO_ENCODE_KHR)
+    /// - [`OPTICAL_FLOW_NV`](QueueFlag::OPTICAL_FLOW_NV)
     ///
     #[doc(alias = "vkCmdInsertDebugUtilsLabelEXT")]
     #[inline(always)]
@@ -18784,8 +18783,8 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     /// # Result codes
     /// ## Success
@@ -18828,8 +18827,8 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     /// # Result codes
     /// ## Success
@@ -18876,8 +18875,8 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     /// # Result codes
     /// ## Success
@@ -18932,8 +18931,8 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdEndGpaSampleAMD")]
     #[inline(always)]
@@ -19073,9 +19072,9 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
     ///
     #[doc(alias = "vkCmdCopyGpaSessionResultsAMD")]
     #[inline(always)]
@@ -19251,8 +19250,8 @@ impl CommandBuffer {
     /// - Primary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdInitializeGraphScratchMemoryAMDX")]
     #[inline(always)]
@@ -19296,8 +19295,8 @@ impl CommandBuffer {
     /// - Primary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdDispatchGraphAMDX")]
     #[inline(always)]
@@ -19339,8 +19338,8 @@ impl CommandBuffer {
     /// - Primary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdDispatchGraphIndirectAMDX")]
     #[inline(always)]
@@ -19378,8 +19377,8 @@ impl CommandBuffer {
     /// - Primary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdDispatchGraphIndirectCountAMDX")]
     #[inline(always)]
@@ -19502,8 +19501,8 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdBindSamplerHeapEXT")]
     #[inline(always)]
@@ -19537,8 +19536,8 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdBindResourceHeapEXT")]
     #[inline(always)]
@@ -19572,8 +19571,8 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdPushDataEXT")]
     #[inline(always)]
@@ -19777,7 +19776,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetSampleLocationsEXT")]
     #[inline(always)]
@@ -20044,7 +20043,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdBindShadingRateImageNV")]
     #[inline(always)]
@@ -20082,7 +20081,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetViewportShadingRatePaletteNV")]
     #[inline(always)]
@@ -20137,7 +20136,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetCoarseSampleOrderNV")]
     #[inline(always)]
@@ -20357,7 +20356,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdBuildAccelerationStructureNV")]
     #[inline(always)]
@@ -20418,7 +20417,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdCopyAccelerationStructureNV")]
     #[inline(always)]
@@ -20478,7 +20477,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdTraceRaysNV")]
     #[inline(always)]
@@ -20753,7 +20752,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdWriteAccelerationStructuresPropertiesNV")]
     #[inline(always)]
@@ -20891,9 +20890,9 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdWriteBufferMarkerAMD")]
     #[inline(always)]
@@ -20936,9 +20935,9 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdWriteBufferMarker2AMD")]
     #[inline(always)]
@@ -21072,7 +21071,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawMeshTasksNV")]
     #[inline(always)]
@@ -21106,7 +21105,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawMeshTasksIndirectNV")]
     #[inline(always)]
@@ -21146,7 +21145,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawMeshTasksIndirectCountNV")]
     #[inline(always)]
@@ -21198,7 +21197,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetExclusiveScissorEnableNV")]
     #[inline(always)]
@@ -21244,7 +21243,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetExclusiveScissorNV")]
     #[inline(always)]
@@ -21289,9 +21288,9 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
     ///
     #[doc(alias = "vkCmdSetCheckpointNV")]
     #[inline(always)]
@@ -21640,9 +21639,9 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
     ///
     /// # Result codes
     /// ## Success
@@ -21690,9 +21689,9 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
     ///
     /// # Result codes
     /// ## Success
@@ -21739,9 +21738,9 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
     ///
     /// # Result codes
     /// ## Success
@@ -22444,7 +22443,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetLineStippleEXT")]
     #[inline(always)]
@@ -22515,7 +22514,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetCullModeEXT")]
     #[inline(always)]
@@ -22550,7 +22549,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetFrontFaceEXT")]
     #[inline(always)]
@@ -22586,7 +22585,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetPrimitiveTopologyEXT")]
     #[inline(always)]
@@ -22622,7 +22621,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetViewportWithCountEXT")]
     #[inline(always)]
@@ -22662,7 +22661,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetScissorWithCountEXT")]
     #[inline(always)]
@@ -22713,7 +22712,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdBindVertexBuffers2EXT")]
     #[inline(always)]
@@ -22766,7 +22765,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetDepthTestEnableEXT")]
     #[inline(always)]
@@ -22801,7 +22800,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetDepthWriteEnableEXT")]
     #[inline(always)]
@@ -22836,7 +22835,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetDepthCompareOpEXT")]
     #[inline(always)]
@@ -22872,7 +22871,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetDepthBoundsTestEnableEXT")]
     #[inline(always)]
@@ -22907,7 +22906,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetStencilTestEnableEXT")]
     #[inline(always)]
@@ -22949,7 +22948,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetStencilOpEXT")]
     #[inline(always)]
@@ -23251,8 +23250,8 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdPreprocessGeneratedCommandsNV")]
     #[inline(always)]
@@ -23290,8 +23289,8 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdExecuteGeneratedCommandsNV")]
     #[inline(always)]
@@ -23329,8 +23328,8 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdBindPipelineShaderGroupNV")]
     #[inline(always)]
@@ -23452,7 +23451,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetDepthBias2EXT")]
     #[inline(always)]
@@ -23940,8 +23939,8 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdCudaLaunchKernelNV")]
     #[inline(always)]
@@ -23975,7 +23974,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdDispatchTileQCOM")]
     #[inline(always)]
@@ -24009,8 +24008,8 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdBeginPerTileExecutionQCOM")]
     #[inline(always)]
@@ -24047,8 +24046,8 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdEndPerTileExecutionQCOM")]
     #[inline(always)]
@@ -24385,9 +24384,9 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`DATA_GRAPH_ARM`](QueueFlags::DATA_GRAPH_ARM)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    /// - [`DATA_GRAPH_ARM`](QueueFlag::DATA_GRAPH_ARM)
     ///
     #[doc(alias = "vkCmdBindDescriptorBuffersEXT")]
     #[inline(always)]
@@ -24433,9 +24432,9 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`DATA_GRAPH_ARM`](QueueFlags::DATA_GRAPH_ARM)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    /// - [`DATA_GRAPH_ARM`](QueueFlag::DATA_GRAPH_ARM)
     ///
     #[doc(alias = "vkCmdSetDescriptorBufferOffsetsEXT")]
     #[inline(always)]
@@ -24488,8 +24487,8 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdBindDescriptorBufferEmbeddedSamplersEXT")]
     #[inline(always)]
@@ -24746,7 +24745,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetFragmentShadingRateEnumNV")]
     #[inline(always)]
@@ -24981,7 +24980,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetVertexInputEXT")]
     #[inline(always)]
@@ -25434,7 +25433,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSubpassShadingHUAWEI")]
     #[inline(always)]
@@ -25471,7 +25470,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdBindInvocationMaskHUAWEI")]
     #[inline(always)]
@@ -25583,7 +25582,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetPatchControlPointsEXT")]
     #[inline(always)]
@@ -25619,7 +25618,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetRasterizerDiscardEnableEXT")]
     #[inline(always)]
@@ -25654,7 +25653,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetDepthBiasEnableEXT")]
     #[inline(always)]
@@ -25689,7 +25688,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetLogicOpEXT")]
     #[inline(always)]
@@ -25725,7 +25724,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetPrimitiveRestartEnableEXT")]
     #[inline(always)]
@@ -25833,7 +25832,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetColorWriteEnableEXT")]
     #[inline(always)]
@@ -25874,7 +25873,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawMultiEXT")]
     #[inline(always)]
@@ -25935,7 +25934,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawMultiIndexedEXT")]
     #[inline(always)]
@@ -26066,7 +26065,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdBuildMicromapsEXT")]
     #[inline(always)]
@@ -26345,7 +26344,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdCopyMicromapEXT")]
     #[inline(always)]
@@ -26380,7 +26379,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdCopyMicromapToMemoryEXT")]
     #[inline(always)]
@@ -26418,7 +26417,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdCopyMemoryToMicromapEXT")]
     #[inline(always)]
@@ -26456,7 +26455,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdWriteMicromapsPropertiesEXT")]
     #[inline(always)]
@@ -26573,7 +26572,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawClusterHUAWEI")]
     #[inline(always)]
@@ -26612,7 +26611,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawClusterIndirectHUAWEI")]
     #[inline(always)]
@@ -26670,7 +26669,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdSetDispatchParametersARM")]
     #[inline(always)]
@@ -26769,9 +26768,9 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdCopyMemoryIndirectNV")]
     #[inline(always)]
@@ -26818,9 +26817,9 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdCopyMemoryToImageIndirectNV")]
     #[inline(always)]
@@ -26873,8 +26872,8 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdDecompressMemoryNV")]
     #[inline(always)]
@@ -26919,8 +26918,8 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdDecompressMemoryIndirectCountNV")]
     #[inline(always)]
@@ -26998,9 +26997,9 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdUpdatePipelineIndirectBufferNV")]
     #[inline(always)]
@@ -27146,7 +27145,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetDepthClampEnableEXT")]
     #[inline(always)]
@@ -27180,7 +27179,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetPolygonModeEXT")]
     #[inline(always)]
@@ -27215,7 +27214,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetRasterizationSamplesEXT")]
     #[inline(always)]
@@ -27256,7 +27255,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetSampleMaskEXT")]
     #[inline(always)]
@@ -27295,7 +27294,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetAlphaToCoverageEnableEXT")]
     #[inline(always)]
@@ -27329,7 +27328,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetAlphaToOneEnableEXT")]
     #[inline(always)]
@@ -27363,7 +27362,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetLogicOpEnableEXT")]
     #[inline(always)]
@@ -27398,7 +27397,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetColorBlendEnableEXT")]
     #[inline(always)]
@@ -27445,7 +27444,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetColorBlendEquationEXT")]
     #[inline(always)]
@@ -27492,7 +27491,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetColorWriteMaskEXT")]
     #[inline(always)]
@@ -27539,7 +27538,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetTessellationDomainOriginEXT")]
     #[inline(always)]
@@ -27578,7 +27577,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetRasterizationStreamEXT")]
     #[inline(always)]
@@ -27613,7 +27612,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetConservativeRasterizationModeEXT")]
     #[inline(always)]
@@ -27653,7 +27652,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetExtraPrimitiveOverestimationSizeEXT")]
     #[inline(always)]
@@ -27692,7 +27691,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetDepthClipEnableEXT")]
     #[inline(always)]
@@ -27727,7 +27726,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetSampleLocationsEnableEXT")]
     #[inline(always)]
@@ -27762,7 +27761,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetColorBlendAdvancedEXT")]
     #[inline(always)]
@@ -27809,7 +27808,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetProvokingVertexModeEXT")]
     #[inline(always)]
@@ -27847,7 +27846,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetLineRasterizationModeEXT")]
     #[inline(always)]
@@ -27884,7 +27883,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetLineStippleEnableEXT")]
     #[inline(always)]
@@ -27919,7 +27918,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetDepthClipNegativeOneToOneEXT")]
     #[inline(always)]
@@ -27956,7 +27955,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetViewportWScalingEnableNV")]
     #[inline(always)]
@@ -27991,7 +27990,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetViewportSwizzleNV")]
     #[inline(always)]
@@ -28038,7 +28037,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetCoverageToColorEnableNV")]
     #[inline(always)]
@@ -28073,7 +28072,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetCoverageToColorLocationNV")]
     #[inline(always)]
@@ -28108,7 +28107,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetCoverageModulationModeNV")]
     #[inline(always)]
@@ -28146,7 +28145,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetCoverageModulationTableEnableNV")]
     #[inline(always)]
@@ -28186,7 +28185,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetCoverageModulationTableNV")]
     #[inline(always)]
@@ -28231,7 +28230,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetShadingRateImageEnableNV")]
     #[inline(always)]
@@ -28266,7 +28265,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetRepresentativeFragmentTestEnableNV")]
     #[inline(always)]
@@ -28306,7 +28305,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetCoverageReductionModeNV")]
     #[inline(always)]
@@ -28595,9 +28594,9 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`TRANSFER`](QueueFlags::TRANSFER)
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`TRANSFER`](QueueFlag::TRANSFER)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdCopyTensorARM")]
     #[inline(always)]
@@ -28994,7 +28993,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`OPTICAL_FLOW_NV`](QueueFlags::OPTICAL_FLOW_NV)
+    /// - [`OPTICAL_FLOW_NV`](QueueFlag::OPTICAL_FLOW_NV)
     ///
     #[doc(alias = "vkCmdOpticalFlowExecuteNV")]
     #[inline(always)]
@@ -29187,8 +29186,8 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdBindShadersEXT")]
     #[inline(always)]
@@ -29231,7 +29230,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetDepthClampRangeEXT")]
     #[inline(always)]
@@ -29429,8 +29428,8 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdConvertCooperativeVectorMatrixNV")]
     #[inline(always)]
@@ -29898,7 +29897,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`DATA_GRAPH_ARM`](QueueFlags::DATA_GRAPH_ARM)
+    /// - [`DATA_GRAPH_ARM`](QueueFlag::DATA_GRAPH_ARM)
     ///
     #[doc(alias = "vkCmdDispatchDataGraphARM")]
     #[inline(always)]
@@ -30176,7 +30175,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetAttachmentFeedbackLoopEnableEXT")]
     #[inline(always)]
@@ -30257,8 +30256,8 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdBindTileMemoryQCOM")]
     #[inline(always)]
@@ -30295,8 +30294,8 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdDecompressMemoryEXT")]
     #[inline(always)]
@@ -30339,8 +30338,8 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdDecompressMemoryIndirectCountEXT")]
     #[inline(always)]
@@ -30533,7 +30532,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdBuildClusterAccelerationStructureIndirectNV")]
     #[inline(always)]
@@ -30606,7 +30605,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdBuildPartitionedAccelerationStructuresNV")]
     #[inline(always)]
@@ -30677,8 +30676,8 @@ impl CommandBuffer {
     /// - Primary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdPreprocessGeneratedCommandsEXT")]
     #[inline(always)]
@@ -30718,8 +30717,8 @@ impl CommandBuffer {
     /// - Primary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdExecuteGeneratedCommandsEXT")]
     #[inline(always)]
@@ -31375,9 +31374,9 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`DATA_GRAPH_ARM`](QueueFlags::DATA_GRAPH_ARM)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    /// - [`DATA_GRAPH_ARM`](QueueFlag::DATA_GRAPH_ARM)
     ///
     #[doc(alias = "vkCmdBeginShaderInstrumentationARM")]
     #[inline(always)]
@@ -31414,9 +31413,9 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
-    /// - [`DATA_GRAPH_ARM`](QueueFlags::DATA_GRAPH_ARM)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    /// - [`DATA_GRAPH_ARM`](QueueFlag::DATA_GRAPH_ARM)
     ///
     #[doc(alias = "vkCmdEndShaderInstrumentationARM")]
     #[inline(always)]
@@ -31541,7 +31540,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdEndRendering2EXT")]
     #[inline(always)]
@@ -31578,7 +31577,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdBeginCustomResolveEXT")]
     #[inline(always)]
@@ -31679,7 +31678,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdSetComputeOccupancyPriorityNV")]
     #[inline(always)]
@@ -31848,7 +31847,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdSetPrimitiveRestartIndexEXT")]
     #[inline(always)]
@@ -31969,7 +31968,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdBuildAccelerationStructuresKHR")]
     #[inline(always)]
@@ -32016,7 +32015,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdBuildAccelerationStructuresIndirectKHR")]
     #[inline(always)]
@@ -32319,7 +32318,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdCopyAccelerationStructureKHR")]
     #[inline(always)]
@@ -32356,7 +32355,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdCopyAccelerationStructureToMemoryKHR")]
     #[inline(always)]
@@ -32395,7 +32394,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdCopyMemoryToAccelerationStructureKHR")]
     #[inline(always)]
@@ -32472,7 +32471,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdWriteAccelerationStructuresPropertiesKHR")]
     #[inline(always)]
@@ -32613,7 +32612,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdTraceRaysKHR")]
     #[inline(always)]
@@ -32789,7 +32788,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdTraceRaysIndirectKHR")]
     #[inline(always)]
@@ -32870,7 +32869,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`COMPUTE`](QueueFlags::COMPUTE)
+    /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
     #[doc(alias = "vkCmdSetRayTracingPipelineStackSizeKHR")]
     #[inline(always)]
@@ -32905,7 +32904,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawMeshTasksEXT")]
     #[inline(always)]
@@ -32944,7 +32943,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawMeshTasksIndirectEXT")]
     #[inline(always)]
@@ -32984,7 +32983,7 @@ impl CommandBuffer {
     /// - Secondary
     ///
     /// # Allowed queues
-    /// - [`GRAPHICS`](QueueFlags::GRAPHICS)
+    /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     ///
     #[doc(alias = "vkCmdDrawMeshTasksIndirectCountEXT")]
     #[inline(always)]

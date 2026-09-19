@@ -2,7 +2,6 @@ import os
 import sys
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import TypeVar
 
 import textcase
 from vulkan_object import get_vulkan_object
@@ -22,7 +21,6 @@ use crate::platform::*;
 """
 
 FN_PTRS_MODULE_PREFIX: str = """
-use crate::bitmasks::*;
 use crate::consts_inner::*;
 use crate::enums::*;
 use crate::flags::*;
@@ -32,7 +30,6 @@ use crate::structs::*;
 """
 
 STRUCTS_MODULE_PREFIX: str = """
-use crate::bitmasks::*;
 use crate::consts_inner::*;
 use crate::enums::*;
 use crate::flags::*;
@@ -46,7 +43,6 @@ use crate::consts_inner::*;
 """
 
 COMMANDS_MODULE_PREFIX: str = """
-use crate::bitmasks::*;
 use crate::consts_inner::*;
 use crate::enums::*;
 use crate::internal::*;
@@ -54,10 +50,6 @@ use crate::flags::*;
 use crate::fn_ptrs::*;
 use crate::handles::*;
 use crate::structs::*;
-"""
-
-BITMASKS_MODULE_PREFIX: str = """
-use crate::enums::*;
 """
 
 FLAGS_MODULE_PREFIX: str = """
@@ -96,27 +88,16 @@ class CodeWriter:
         self.newline = True
 
 
-T = TypeVar("T")
-
-
-@dataclass
-class Generated[T]:
-    name: str
-    definition: str
-    original: T
-
-
 @dataclass
 class Registry:
-    bitmasks: list[Generated[vkobj.Bitmask]] = field(default_factory=list)
-    constants: list[Generated[vkobj.Constant]] = field(default_factory=list)
-    constants_inner: list[Generated[vkobj.Constant]] = field(default_factory=list)
-    enums: list[Generated[vkobj.Enum]] = field(default_factory=list)
-    flags: list[Generated[vkobj.Flags]] = field(default_factory=list)
-    fnptrs: list[Generated[vkobj.FuncPointer]] = field(default_factory=list)
-    handles: list[Generated[vkobj.Handle]] = field(default_factory=list)
-    structs: list[Generated[vkobj.Struct]] = field(default_factory=list)
-    commands: list[Generated[vkobj.Command]] = field(default_factory=list)
+    constants: list[str] = field(default_factory=list)
+    constants_inner: list[str] = field(default_factory=list)
+    enums: list[str] = field(default_factory=list)
+    flags: list[str] = field(default_factory=list)
+    fnptrs: list[str] = field(default_factory=list)
+    handles: list[str] = field(default_factory=list)
+    structs: list[str] = field(default_factory=list)
+    commands: list[str] = field(default_factory=list)
 
 
 def version_number(ver: str) -> str:
@@ -136,7 +117,7 @@ class Context:
     def __init__(self, root: Path):
         self.ty_parser.add_mapping("VkResult", "ResultCode")
         self.root = root
-        self.result_variants = {}
+        self.result_variants = []
         self.dispatchable_handles = {}
         self.global_commands = []
         self.instance_commands = []
@@ -262,8 +243,8 @@ class Context:
         if len(command.queues) > 0:
             out.writeln("/// # Allowed queues")
             for queue in command.queues:
-                name = names.bitmask_flag(queue, "QUEUE")
-                out.writeln(f"/// - [`{name}`](QueueFlags::{name})")
+                name = names.flag_variant(queue, "QUEUE")
+                out.writeln(f"/// - [`{name}`](QueueFlag::{name})")
 
             out.writeln("///")
 
@@ -296,7 +277,7 @@ class Context:
             )
 
     # Generates a struct (or union) definition from a vulkan struct.
-    def generate_struct(self, x: vkobj.Struct) -> Generated[vkobj.Struct]:
+    def generate_struct(self, x: vkobj.Struct) -> str:
         assert self.vk.videoStd is not None
         out = CodeWriter()
 
@@ -455,9 +436,9 @@ class Context:
             out.writeln(f'#[doc(alias = "{alias}")]')
             out.writeln(f"pub type {alias_name} = {type_name};")
 
-        return Generated(type_name, out.content, x)
+        return out.content
 
-    def generate_handle(self, x: vkobj.Handle) -> Generated[vkobj.Handle]:
+    def generate_handle(self, x: vkobj.Handle) -> str:
         out = CodeWriter()
 
         handle_name = names.handle(x.name)
@@ -496,9 +477,9 @@ class Context:
             out.writeln(f'#[doc(alias = "{alias}")]')
             out.writeln(f"pub type {alias_name} = {raw_handle_name};")
 
-        return Generated(raw_handle_name, out.content, x)
+        return out.content
 
-    def generate_enum(self, x: vkobj.Enum) -> Generated[vkobj.Enum]:
+    def generate_enum(self, x: vkobj.Enum) -> str:
         out = CodeWriter()
 
         enum_name = names.enum(x.name)
@@ -562,18 +543,19 @@ class Context:
             out.deindent()
             out.writeln("}")
 
-        return Generated(enum_name, out.content, x)
+        return out.content
 
-    def generate_bitmask(self, x: vkobj.Bitmask) -> Generated[vkobj.Bitmask]:
+    def generate_flags(self, x: vkobj.Bitmask) -> str:
         out = CodeWriter()
 
-        bitmask_name = names.bitmask(x.name)
+        flag_set_name = names.flag_set(x.flagName)
+        flag_enum_name = names.flag_enum(x.name)
         flag_prefix = self.remove_vendor_tag(
             textcase.snake(x.name.removeprefix("Vk").replace("FlagBits", "")).upper()
         )
         repr_type = "u32" if x.bitWidth == 32 else "u64"
 
-        out.writeln("bitflags::bitflags! {")
+        out.writeln("flagset::flags! {")
         out.indent()
 
         # docs
@@ -583,20 +565,19 @@ class Context:
 
         # definition
         out.writeln(f'#[doc(alias = "{x.name}")]')
-        out.writeln("#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]")
-        out.writeln("#[repr(transparent)]")
-        out.writeln(f"pub struct {bitmask_name}: {repr_type} {{")
+        out.writeln("#[non_exhaustive]")
+        out.writeln(f"pub enum {flag_enum_name}: {repr_type} {{")
         out.indent()
 
         flag_aliases: list[tuple[str, str]] = []
         for flag in x.flags:
-            name = names.bitmask_flag(flag.name, flag_prefix)
+            name = names.flag_variant(flag.name, flag_prefix)
             for alias in flag.aliases:
                 flag_aliases.append((name, alias))
 
             self.requirements_doc_header(out, None, flag.extensions)
             out.writeln(f'#[doc(alias = "{flag.name}")]')
-            out.writeln(f"const {name} = {flag.value};")
+            out.writeln(f"{name} = {flag.value},")
 
         out.deindent()
         out.writeln("}")
@@ -605,18 +586,18 @@ class Context:
 
         # aliases
         for alias in x.aliases:
-            alias_name = names.bitmask(alias)
+            alias_name = names.flag_enum(alias)
             self.vulkan_doc_header(out, alias)
             out.writeln(f'#[doc(alias = "{alias}")]')
-            out.writeln(f"pub type {alias_name} = {bitmask_name};")
+            out.writeln(f"pub type {alias_name} = {flag_enum_name};")
 
         if len(flag_aliases) > 0:
-            out.writeln(f"impl {bitmask_name} {{")
+            out.writeln(f"impl {flag_enum_name} {{")
             out.indent()
 
             generated_aliases: list[str] = []
             for flag, alias in flag_aliases:
-                alias_name = names.bitmask_flag(alias, flag_prefix)
+                alias_name = names.flag_variant(alias, flag_prefix)
                 if alias_name == flag or alias_name in generated_aliases:
                     continue
 
@@ -627,12 +608,27 @@ class Context:
             out.deindent()
             out.writeln("}")
 
-        return Generated(bitmask_name, out.content, x)
+        # flag set
+        flag_set = self.vk.flags[x.flagName]
+        self.vulkan_doc_header(out, flag_set.name)
+        self.requirements_doc_header(out, None, flag_set.extensions)
+        self.returned_only_doc_header(out, flag_set.returnedOnly)
+        out.writeln(f'#[doc(alias = "{x.flagName}")]')
+        out.writeln(f"pub type {flag_set_name} = flagset::FlagSet<{flag_enum_name}>;")
 
-    def generate_flags(self, x: vkobj.Flags) -> Generated[vkobj.Flags]:
+        # flag set aliases
+        for alias in flag_set.aliases:
+            alias_name = names.flag_set(alias)
+            self.vulkan_doc_header(out, alias)
+            out.writeln(f'#[doc(alias = "{alias}")]')
+            out.writeln(f"pub type {alias_name} = {flag_set_name};")
+
+        return out.content
+
+    def generate_anon_flag_set(self, x: vkobj.Flags) -> str:
         out = CodeWriter()
 
-        flags_name = names.flags(x.name)
+        flag_set_name = names.flag_set(x.name)
         repr_type = "u32" if x.bitWidth == 32 else "u64"
 
         # docs
@@ -642,18 +638,18 @@ class Context:
 
         # definition
         out.writeln(f'#[doc(alias = "{x.name}")]')
-        out.writeln(f"pub type {flags_name} = {repr_type};")
+        out.writeln(f"pub type {flag_set_name} = {repr_type};")
 
         # aliases
         for alias in x.aliases:
-            alias_name = names.flags(alias)
+            alias_name = names.flag_set(alias)
             self.vulkan_doc_header(out, alias)
             out.writeln(f'#[doc(alias = "{alias}")]')
-            out.writeln(f"pub type {alias_name} = {flags_name};")
+            out.writeln(f"pub type {alias_name} = {flag_set_name};")
 
-        return Generated(flags_name, out.content, x)
+        return out.content
 
-    def generate_fnptr(self, x: vkobj.FuncPointer) -> Generated[vkobj.FuncPointer]:
+    def generate_fnptr(self, x: vkobj.FuncPointer) -> str:
         out = CodeWriter()
 
         type_name = x.name.removeprefix("PFN_")
@@ -673,9 +669,9 @@ class Context:
         signature = f'unsafe extern "C" fn({", ".join(map(str, params))}) {return_ty}'
         out.writeln(f"pub type {type_name} = {signature};")
 
-        return Generated(type_name, out.content, x)
+        return out.content
 
-    def generate_const_inner(self, x: vkobj.Constant) -> Generated[vkobj.Constant]:
+    def generate_const_inner(self, x: vkobj.Constant) -> str:
         out = CodeWriter()
 
         const_name = x.name
@@ -688,9 +684,9 @@ class Context:
         # definition
         out.writeln(f"pub const {const_name}: {const_ty} = {const_value};")
 
-        return Generated(const_name, out.content, x)
+        return out.content
 
-    def generate_const(self, x: vkobj.Constant) -> Generated[vkobj.Constant]:
+    def generate_const(self, x: vkobj.Constant) -> str:
         out = CodeWriter()
 
         const_name = names.const(x.name)
@@ -703,9 +699,9 @@ class Context:
         out.writeln(f'#[doc(alias = "{x.name}")]')
         out.writeln(f"pub const {const_name}: {const_ty} = {x.name};")
 
-        return Generated(const_name, out.content, x)
+        return out.content
 
-    def generate_command(self, x: vkobj.Command) -> Generated[vkobj.Command]:
+    def generate_command(self, x: vkobj.Command) -> str:
         out = CodeWriter()
 
         command_name = names.command(x.name)
@@ -822,7 +818,7 @@ class Context:
             out.deindent()
             out.writeln("}")
 
-        return Generated(command_name, out.content, x)
+        return out.content
 
     def generate_success_and_error_enums(self) -> tuple[str, str, str]:
         success = CodeWriter()
@@ -1015,17 +1011,17 @@ class Context:
             enum = self.generate_enum(enum)
             self.reg.enums.append(enum)
 
-        # bitmasks
-        for bitmask in self.vk.bitmasks.values():
-            bitmask = self.generate_bitmask(bitmask)
-            self.reg.bitmasks.append(bitmask)
-
         # flags
+        for flags in self.vk.bitmasks.values():
+            flags = self.generate_flags(flags)
+            self.reg.flags.append(flags)
+
+        # anon flags
         for flags in self.vk.flags.values():
             if flags.bitmaskName is not None:
                 continue
 
-            flags = self.generate_flags(flags)
+            flags = self.generate_anon_flag_set(flags)
             self.reg.flags.append(flags)
 
         # function pointers
@@ -1070,12 +1066,10 @@ class Context:
             _ = f.write(MODULE_PREFIX)
             _ = f.write(content)
 
-    def write_generated_to_module(
-        self, path: str, base: str, generated: list[Generated[T]]
-    ):
+    def write_generated_to_module(self, path: str, base: str, generated: list[str]):
         content = f"{base}\n"
         for elem in generated:
-            content += f"{elem.definition}\n"
+            content += f"{elem}\n"
 
         self.write_module(path, content)
 
@@ -1086,7 +1080,6 @@ class Context:
         custom_enums = self.generate_custom_enums()
 
         print("Done!")
-        print(f"- Bitmasks: {len(self.reg.bitmasks)}")
         print(f"- Commands: {len(self.reg.commands)}")
         print(f"- Constants: {len(self.reg.constants_inner)}")
         print(f"- Enums: {len(self.reg.enums)}")
@@ -1096,9 +1089,6 @@ class Context:
         print(f"- Structs: {len(self.reg.structs)}")
 
         print("Generating source files...")
-        self.write_generated_to_module(
-            "bitmasks.rs", BITMASKS_MODULE_PREFIX, self.reg.bitmasks
-        )
         self.write_generated_to_module(
             "commands.rs", COMMANDS_MODULE_PREFIX, self.reg.commands
         )

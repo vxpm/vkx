@@ -46,11 +46,11 @@ def enum_variant(
     return result
 
 
-def bitmask(name: str) -> str:
-    return name.removeprefix("Vk").replace("FlagBits", "Flags")
+def flag_enum(name: str) -> str:
+    return name.removeprefix("Vk").replace("FlagBits", "Flag")
 
 
-def bitmask_flag(name: str, prefix: str) -> str:
+def flag_variant(name: str, prefix: str) -> str:
     result = name.removeprefix("VK_").removeprefix(f"{prefix}_")
     if result[0].isdigit():
         result = f"_{result}"
@@ -63,7 +63,7 @@ def bitmask_flag(name: str, prefix: str) -> str:
     return result
 
 
-def flags(name: str) -> str:
+def flag_set(name: str) -> str:
     return name.removeprefix("Vk")
 
 

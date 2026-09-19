@@ -3,7 +3,6 @@ mod loader;
 mod platform;
 
 // auto generated modules
-mod bitmasks;
 mod commands;
 mod consts;
 mod consts_inner;
@@ -13,7 +12,6 @@ mod fn_ptrs;
 mod handles;
 mod structs;
 
-pub use bitmasks::*;
 pub use commands::*;
 pub use consts::*;
 pub use enums::*;
