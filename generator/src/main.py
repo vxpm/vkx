@@ -215,6 +215,38 @@ class Context:
     def command_doc_header(self, out: CodeWriter, command: vkobj.Command):
         optional_params = [param for param in command.params if param.optional]
 
+        if command.legacy is not None and (
+            command.legacy.version is not None or len(command.legacy.extensions) > 0
+        ):
+            # TODO: improve, consider extensions in both cases
+            if command.legacy.version is not None:
+                out.writeln(f"/// # Deprecated API ({command.legacy.link})")
+
+                version_num = version_number(command.legacy.version.name)
+                out.writeln(f"/// This command is legacy since version {version_num}.")
+            else:
+                out.writeln(
+                    f"/// # Conditionally deprecated API ({command.legacy.link})"
+                )
+                out.writeln(
+                    "/// This command is legacy when any of the following extensions are enabled:"
+                )
+
+                for ext in command.legacy.extensions:
+                    ext_name = names.extension(ext)
+                    out.writeln(
+                        f"/// - Extension [`{ext_name}`](Extension::{ext_name})"
+                    )
+
+                out.writeln("///")
+
+            if command.legacy.supersededBy is not None:
+                out.writeln(
+                    f"/// It has been superseded by `{command.legacy.supersededBy}`."
+                )
+
+            out.writeln("///")
+
         if len(optional_params) > 0:
             out.writeln("/// # Optional parameters")
             for param in optional_params:

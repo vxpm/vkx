@@ -119,6 +119,10 @@ pub(crate) type FUN_GetPhysicalDeviceFeatures =
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceFeatures`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceFeatures.html)
     ///
+    /// # Deprecated API (legacy-gpdp2)
+    /// This command is legacy since version 1.1.
+    /// It has been superseded by `vkGetPhysicalDeviceFeatures2`.
+    ///
     #[doc(alias = "vkGetPhysicalDeviceFeatures")]
     #[inline(always)]
     pub unsafe fn get_features(&self, p_features: *mut PhysicalDeviceFeatures) {
@@ -136,6 +140,10 @@ pub(crate) type FUN_GetPhysicalDeviceFormatProperties =
     unsafe extern "C" fn(PhysicalDeviceHandle, Format, *mut FormatProperties);
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceFormatProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceFormatProperties.html)
+    ///
+    /// # Deprecated API (legacy-gpdp2)
+    /// This command is legacy since version 1.1.
+    /// It has been superseded by `vkGetPhysicalDeviceFormatProperties2`.
     ///
     #[doc(alias = "vkGetPhysicalDeviceFormatProperties")]
     #[inline(always)]
@@ -167,6 +175,10 @@ pub(crate) type FUN_GetPhysicalDeviceImageFormatProperties = unsafe extern "C" f
 ) -> ResultCode;
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceImageFormatProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceImageFormatProperties.html)
+    ///
+    /// # Deprecated API (legacy-gpdp2)
+    /// This command is legacy since version 1.1.
+    /// It has been superseded by `vkGetPhysicalDeviceImageFormatProperties2`.
     ///
     /// # Optional parameters
     /// - flags
@@ -218,6 +230,10 @@ pub(crate) type FUN_GetPhysicalDeviceProperties =
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceProperties.html)
     ///
+    /// # Deprecated API (legacy-gpdp2)
+    /// This command is legacy since version 1.1.
+    /// It has been superseded by `vkGetPhysicalDeviceProperties2`.
+    ///
     #[doc(alias = "vkGetPhysicalDeviceProperties")]
     #[inline(always)]
     pub unsafe fn get_properties(&self, p_properties: *mut PhysicalDeviceProperties) {
@@ -235,6 +251,10 @@ pub(crate) type FUN_GetPhysicalDeviceQueueFamilyProperties =
     unsafe extern "C" fn(PhysicalDeviceHandle, *mut u32, *mut QueueFamilyProperties);
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceQueueFamilyProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceQueueFamilyProperties.html)
+    ///
+    /// # Deprecated API (legacy-gpdp2)
+    /// This command is legacy since version 1.1.
+    /// It has been superseded by `vkGetPhysicalDeviceQueueFamilyProperties2`.
     ///
     /// # Optional parameters
     /// - p_queue_family_properties
@@ -268,6 +288,10 @@ pub(crate) type FUN_GetPhysicalDeviceMemoryProperties =
     unsafe extern "C" fn(PhysicalDeviceHandle, *mut PhysicalDeviceMemoryProperties);
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceMemoryProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceMemoryProperties.html)
+    ///
+    /// # Deprecated API (legacy-gpdp2)
+    /// This command is legacy since version 1.1.
+    /// It has been superseded by `vkGetPhysicalDeviceMemoryProperties2`.
     ///
     #[doc(alias = "vkGetPhysicalDeviceMemoryProperties")]
     #[inline(always)]
@@ -566,6 +590,10 @@ pub(crate) type FUN_QueueSubmit =
     unsafe extern "C" fn(QueueHandle, u32, *const SubmitInfo, Fence) -> ResultCode;
 impl Queue {
     /// [`vkQueueSubmit`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueSubmit.html)
+    ///
+    /// # Deprecated API (deprecation-sync2)
+    /// This command is legacy since version 1.3.
+    /// It has been superseded by `vkQueueSubmit2`.
     ///
     /// # Optional parameters
     /// - submit_count
@@ -1010,6 +1038,10 @@ pub(crate) type FUN_GetPhysicalDeviceSparseImageFormatProperties = unsafe extern
 );
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceSparseImageFormatProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSparseImageFormatProperties.html)
+    ///
+    /// # Deprecated API (legacy-gpdp2)
+    /// This command is legacy since version 1.1.
+    /// It has been superseded by `vkGetPhysicalDeviceSparseImageFormatProperties2`.
     ///
     /// # Optional parameters
     /// - p_properties
@@ -2071,6 +2103,12 @@ pub(crate) type FUN_CmdUpdateBuffer =
 impl CommandBuffer {
     /// [`vkCmdUpdateBuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdUpdateBuffer.html)
     ///
+    /// # Conditionally deprecated API (legacy-buffer-commands)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+    ///
+    /// It has been superseded by `vkCmdUpdateMemoryKHR`.
+    ///
     /// # Performed tasks
     /// - `action`
     ///
@@ -2106,6 +2144,12 @@ pub(crate) type FUN_CmdFillBuffer =
     unsafe extern "C" fn(CommandBufferHandle, Buffer, DeviceSize, DeviceSize, u32);
 impl CommandBuffer {
     /// [`vkCmdFillBuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdFillBuffer.html)
+    ///
+    /// # Conditionally deprecated API (legacy-buffer-commands)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+    ///
+    /// It has been superseded by `vkCmdFillMemoryKHR`.
     ///
     /// # Performed tasks
     /// - `action`
@@ -2152,6 +2196,10 @@ pub(crate) type FUN_CmdPipelineBarrier = unsafe extern "C" fn(
 );
 impl CommandBuffer {
     /// [`vkCmdPipelineBarrier`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPipelineBarrier.html)
+    ///
+    /// # Deprecated API (deprecation-sync2)
+    /// This command is legacy since version 1.3.
+    /// It has been superseded by `vkCmdPipelineBarrier2`.
     ///
     /// # Optional parameters
     /// - src_stage_mask
@@ -2325,6 +2373,10 @@ pub(crate) type FUN_CmdWriteTimestamp =
 impl CommandBuffer {
     /// [`vkCmdWriteTimestamp`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteTimestamp.html)
     ///
+    /// # Deprecated API (deprecation-sync2)
+    /// This command is legacy since version 1.3.
+    /// It has been superseded by `vkCmdWriteTimestamp2`.
+    ///
     /// # Performed tasks
     /// - `action`
     ///
@@ -2370,6 +2422,12 @@ pub(crate) type FUN_CmdCopyQueryPoolResults = unsafe extern "C" fn(
 );
 impl CommandBuffer {
     /// [`vkCmdCopyQueryPoolResults`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyQueryPoolResults.html)
+    ///
+    /// # Conditionally deprecated API (legacy-buffer-commands)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+    ///
+    /// It has been superseded by `vkCmdCopyQueryPoolResultsToMemoryKHR`.
     ///
     /// # Optional parameters
     /// - flags
@@ -2597,6 +2655,11 @@ pub(crate) type FUN_CreateBufferView = unsafe extern "C" fn(
 impl Device {
     /// [`vkCreateBufferView`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateBufferView.html)
     ///
+    /// # Conditionally deprecated API (legacy-resource-objects)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
+    ///
     /// # Optional parameters
     /// - p_allocator
     ///
@@ -2630,6 +2693,11 @@ pub(crate) type FUN_DestroyBufferView =
     unsafe extern "C" fn(DeviceHandle, BufferView, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyBufferView`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyBufferView.html)
+    ///
+    /// # Conditionally deprecated API (legacy-resource-objects)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
     ///
     /// # Optional parameters
     /// - buffer_view
@@ -2936,6 +3004,11 @@ pub(crate) type FUN_CreatePipelineLayout = unsafe extern "C" fn(
 impl Device {
     /// [`vkCreatePipelineLayout`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreatePipelineLayout.html)
     ///
+    /// # Conditionally deprecated API (legacy-descriptor-sets)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
+    ///
     /// # Optional parameters
     /// - p_allocator
     ///
@@ -2970,6 +3043,11 @@ pub(crate) type FUN_DestroyPipelineLayout =
 impl Device {
     /// [`vkDestroyPipelineLayout`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyPipelineLayout.html)
     ///
+    /// # Conditionally deprecated API (legacy-descriptor-sets)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
+    ///
     /// # Optional parameters
     /// - pipeline_layout
     /// - p_allocator
@@ -2999,6 +3077,11 @@ pub(crate) type FUN_CreateSampler = unsafe extern "C" fn(
 ) -> ResultCode;
 impl Device {
     /// [`vkCreateSampler`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateSampler.html)
+    ///
+    /// # Conditionally deprecated API (legacy-resource-objects)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
     ///
     /// # Optional parameters
     /// - p_allocator
@@ -3035,6 +3118,11 @@ pub(crate) type FUN_DestroySampler =
 impl Device {
     /// [`vkDestroySampler`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroySampler.html)
     ///
+    /// # Conditionally deprecated API (legacy-resource-objects)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
+    ///
     /// # Optional parameters
     /// - sampler
     /// - p_allocator
@@ -3064,6 +3152,11 @@ pub(crate) type FUN_CreateDescriptorSetLayout = unsafe extern "C" fn(
 ) -> ResultCode;
 impl Device {
     /// [`vkCreateDescriptorSetLayout`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDescriptorSetLayout.html)
+    ///
+    /// # Conditionally deprecated API (legacy-descriptor-sets)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
     ///
     /// # Optional parameters
     /// - p_allocator
@@ -3099,6 +3192,11 @@ pub(crate) type FUN_DestroyDescriptorSetLayout =
 impl Device {
     /// [`vkDestroyDescriptorSetLayout`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDescriptorSetLayout.html)
     ///
+    /// # Conditionally deprecated API (legacy-descriptor-sets)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
+    ///
     /// # Optional parameters
     /// - descriptor_set_layout
     /// - p_allocator
@@ -3128,6 +3226,11 @@ pub(crate) type FUN_CreateDescriptorPool = unsafe extern "C" fn(
 ) -> ResultCode;
 impl Device {
     /// [`vkCreateDescriptorPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDescriptorPool.html)
+    ///
+    /// # Conditionally deprecated API (legacy-descriptor-sets)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
     ///
     /// # Optional parameters
     /// - p_allocator
@@ -3164,6 +3267,11 @@ pub(crate) type FUN_DestroyDescriptorPool =
 impl Device {
     /// [`vkDestroyDescriptorPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDescriptorPool.html)
     ///
+    /// # Conditionally deprecated API (legacy-descriptor-sets)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
+    ///
     /// # Optional parameters
     /// - descriptor_pool
     /// - p_allocator
@@ -3189,6 +3297,11 @@ pub(crate) type FUN_ResetDescriptorPool =
     unsafe extern "C" fn(DeviceHandle, DescriptorPool, DescriptorPoolResetFlags) -> ResultCode;
 impl Device {
     /// [`vkResetDescriptorPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkResetDescriptorPool.html)
+    ///
+    /// # Conditionally deprecated API (legacy-descriptor-sets)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
     ///
     /// # Optional parameters
     /// - flags
@@ -3224,6 +3337,11 @@ pub(crate) type FUN_AllocateDescriptorSets = unsafe extern "C" fn(
 impl Device {
     /// [`vkAllocateDescriptorSets`](https://docs.vulkan.org/refpages/latest/refpages/source/vkAllocateDescriptorSets.html)
     ///
+    /// # Conditionally deprecated API (legacy-descriptor-sets)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
+    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -3255,6 +3373,11 @@ pub(crate) type FUN_FreeDescriptorSets =
     unsafe extern "C" fn(DeviceHandle, DescriptorPool, u32, *const DescriptorSet) -> ResultCode;
 impl Device {
     /// [`vkFreeDescriptorSets`](https://docs.vulkan.org/refpages/latest/refpages/source/vkFreeDescriptorSets.html)
+    ///
+    /// # Conditionally deprecated API (legacy-descriptor-sets)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
     ///
     /// # Result codes
     /// ## Success
@@ -3296,6 +3419,11 @@ pub(crate) type FUN_UpdateDescriptorSets = unsafe extern "C" fn(
 );
 impl Device {
     /// [`vkUpdateDescriptorSets`](https://docs.vulkan.org/refpages/latest/refpages/source/vkUpdateDescriptorSets.html)
+    ///
+    /// # Conditionally deprecated API (legacy-descriptor-sets)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
     ///
     /// # Optional parameters
     /// - descriptor_write_count
@@ -3374,6 +3502,11 @@ pub(crate) type FUN_CmdBindDescriptorSets = unsafe extern "C" fn(
 );
 impl CommandBuffer {
     /// [`vkCmdBindDescriptorSets`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindDescriptorSets.html)
+    ///
+    /// # Conditionally deprecated API (legacy-descriptor-sets)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
     ///
     /// # Optional parameters
     /// - dynamic_offset_count
@@ -3506,6 +3639,12 @@ pub(crate) type FUN_CmdDispatchIndirect =
 impl CommandBuffer {
     /// [`vkCmdDispatchIndirect`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchIndirect.html)
     ///
+    /// # Conditionally deprecated API (legacy-buffer-commands)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+    ///
+    /// It has been superseded by `vkCmdDispatchIndirect2KHR`.
+    ///
     /// # Performed tasks
     /// - `action`
     ///
@@ -3533,6 +3672,10 @@ pub(crate) type FUN_CmdSetEvent =
     unsafe extern "C" fn(CommandBufferHandle, Event, PipelineStageFlags);
 impl CommandBuffer {
     /// [`vkCmdSetEvent`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetEvent.html)
+    ///
+    /// # Deprecated API (deprecation-sync2)
+    /// This command is legacy since version 1.3.
+    /// It has been superseded by `vkCmdSetEvent2`.
     ///
     /// # Optional parameters
     /// - stage_mask
@@ -3567,6 +3710,10 @@ pub(crate) type FUN_CmdResetEvent =
     unsafe extern "C" fn(CommandBufferHandle, Event, PipelineStageFlags);
 impl CommandBuffer {
     /// [`vkCmdResetEvent`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdResetEvent.html)
+    ///
+    /// # Deprecated API (deprecation-sync2)
+    /// This command is legacy since version 1.3.
+    /// It has been superseded by `vkCmdResetEvent2`.
     ///
     /// # Optional parameters
     /// - stage_mask
@@ -3612,6 +3759,10 @@ pub(crate) type FUN_CmdWaitEvents = unsafe extern "C" fn(
 );
 impl CommandBuffer {
     /// [`vkCmdWaitEvents`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWaitEvents.html)
+    ///
+    /// # Deprecated API (deprecation-sync2)
+    /// This command is legacy since version 1.3.
+    /// It has been superseded by `vkCmdWaitEvents2`.
     ///
     /// # Optional parameters
     /// - src_stage_mask
@@ -3682,6 +3833,11 @@ pub(crate) type FUN_CmdPushConstants = unsafe extern "C" fn(
 );
 impl CommandBuffer {
     /// [`vkCmdPushConstants`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushConstants.html)
+    ///
+    /// # Conditionally deprecated API (legacy-descriptor-sets)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
     ///
     /// # Performed tasks
     /// - `state`
@@ -3777,6 +3933,9 @@ pub(crate) type FUN_CreateFramebuffer = unsafe extern "C" fn(
 impl Device {
     /// [`vkCreateFramebuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateFramebuffer.html)
     ///
+    /// # Deprecated API (legacy-dynamicrendering)
+    /// This command is legacy since version 1.4.
+    ///
     /// # Optional parameters
     /// - p_allocator
     ///
@@ -3811,6 +3970,9 @@ pub(crate) type FUN_DestroyFramebuffer =
 impl Device {
     /// [`vkDestroyFramebuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyFramebuffer.html)
     ///
+    /// # Deprecated API (legacy-dynamicrendering)
+    /// This command is legacy since version 1.4.
+    ///
     /// # Optional parameters
     /// - framebuffer
     /// - p_allocator
@@ -3840,6 +4002,10 @@ pub(crate) type FUN_CreateRenderPass = unsafe extern "C" fn(
 ) -> ResultCode;
 impl Device {
     /// [`vkCreateRenderPass`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateRenderPass.html)
+    ///
+    /// # Deprecated API (legacy-renderpass2)
+    /// This command is legacy since version 1.2.
+    /// It has been superseded by `vkCreateRenderPass2`.
     ///
     /// # Optional parameters
     /// - p_allocator
@@ -3875,6 +4041,9 @@ pub(crate) type FUN_DestroyRenderPass =
 impl Device {
     /// [`vkDestroyRenderPass`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyRenderPass.html)
     ///
+    /// # Deprecated API (legacy-dynamicrendering)
+    /// This command is legacy since version 1.4.
+    ///
     /// # Optional parameters
     /// - render_pass
     /// - p_allocator
@@ -3900,6 +4069,9 @@ pub(crate) type FUN_GetRenderAreaGranularity =
     unsafe extern "C" fn(DeviceHandle, RenderPass, *mut Extent2D);
 impl Device {
     /// [`vkGetRenderAreaGranularity`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRenderAreaGranularity.html)
+    ///
+    /// # Deprecated API (legacy-dynamicrendering)
+    /// This command is legacy since version 1.4.
     ///
     #[doc(alias = "vkGetRenderAreaGranularity")]
     #[inline(always)]
@@ -4361,6 +4533,12 @@ pub(crate) type FUN_CmdDrawIndirect =
 impl CommandBuffer {
     /// [`vkCmdDrawIndirect`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndirect.html)
     ///
+    /// # Conditionally deprecated API (legacy-buffer-commands)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+    ///
+    /// It has been superseded by `vkCmdDrawIndirect2KHR`.
+    ///
     /// # Performed tasks
     /// - `action`
     ///
@@ -4394,6 +4572,12 @@ pub(crate) type FUN_CmdDrawIndexedIndirect =
     unsafe extern "C" fn(CommandBufferHandle, Buffer, DeviceSize, u32, u32);
 impl CommandBuffer {
     /// [`vkCmdDrawIndexedIndirect`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndexedIndirect.html)
+    ///
+    /// # Conditionally deprecated API (legacy-buffer-commands)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+    ///
+    /// It has been superseded by `vkCmdDrawIndexedIndirect2KHR`.
     ///
     /// # Performed tasks
     /// - `action`
@@ -4630,6 +4814,10 @@ pub(crate) type FUN_CmdBeginRenderPass =
 impl CommandBuffer {
     /// [`vkCmdBeginRenderPass`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginRenderPass.html)
     ///
+    /// # Deprecated API (legacy-renderpass2)
+    /// This command is legacy since version 1.2.
+    /// It has been superseded by `vkCmdBeginRenderPass2`.
+    ///
     /// # Performed tasks
     /// - `action`
     /// - `state`
@@ -4662,6 +4850,10 @@ pub(crate) type FUN_CmdNextSubpass = unsafe extern "C" fn(CommandBufferHandle, S
 impl CommandBuffer {
     /// [`vkCmdNextSubpass`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdNextSubpass.html)
     ///
+    /// # Deprecated API (legacy-renderpass2)
+    /// This command is legacy since version 1.2.
+    /// It has been superseded by `vkCmdNextSubpass2`.
+    ///
     /// # Performed tasks
     /// - `action`
     /// - `state`
@@ -4689,6 +4881,10 @@ impl CommandBuffer {
 pub(crate) type FUN_CmdEndRenderPass = unsafe extern "C" fn(CommandBufferHandle);
 impl CommandBuffer {
     /// [`vkCmdEndRenderPass`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndRenderPass.html)
+    ///
+    /// # Deprecated API (legacy-renderpass2)
+    /// This command is legacy since version 1.2.
+    /// It has been superseded by `vkCmdEndRenderPass2`.
     ///
     /// # Performed tasks
     /// - `action`
@@ -5959,6 +6155,12 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
+    /// # Conditionally deprecated API (legacy-buffer-commands)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+    ///
+    /// It has been superseded by `vkCmdDrawIndirectCount2KHR`.
+    ///
     /// # Performed tasks
     /// - `action`
     ///
@@ -6010,6 +6212,12 @@ impl CommandBuffer {
     /// - Version 1.2 with appropriate features
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    /// # Conditionally deprecated API (legacy-buffer-commands)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+    ///
+    /// It has been superseded by `vkCmdDrawIndexedIndirectCount2KHR`.
     ///
     /// # Performed tasks
     /// - `action`
@@ -6067,6 +6275,9 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
+    /// # Deprecated API (legacy-dynamicrendering)
+    /// This command is legacy since version 1.4.
+    ///
     /// # Optional parameters
     /// - p_allocator
     ///
@@ -6107,6 +6318,9 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
+    /// # Deprecated API (legacy-dynamicrendering)
+    /// This command is legacy since version 1.4.
+    ///
     /// # Performed tasks
     /// - `action`
     /// - `state`
@@ -6146,6 +6360,9 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
+    /// # Deprecated API (legacy-dynamicrendering)
+    /// This command is legacy since version 1.4.
+    ///
     /// # Performed tasks
     /// - `action`
     /// - `state`
@@ -6184,6 +6401,9 @@ impl CommandBuffer {
     /// - Version 1.2 with appropriate features
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    /// # Deprecated API (legacy-dynamicrendering)
+    /// This command is legacy since version 1.4.
     ///
     /// # Performed tasks
     /// - `action`
@@ -6546,6 +6766,12 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
+    /// # Conditionally deprecated API (legacy-buffer-commands)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+    ///
+    /// It has been superseded by `vkCmdCopyMemoryKHR`.
+    ///
     /// # Performed tasks
     /// - `action`
     ///
@@ -6618,6 +6844,12 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
+    /// # Conditionally deprecated API (legacy-buffer-commands)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+    ///
+    /// It has been superseded by `vkCmdCopyMemoryToImageKHR`.
+    ///
     /// # Performed tasks
     /// - `action`
     ///
@@ -6656,6 +6888,12 @@ impl CommandBuffer {
     /// - Version 1.3 with appropriate features
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    /// # Conditionally deprecated API (legacy-buffer-commands)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+    ///
+    /// It has been superseded by `vkCmdCopyImageToMemoryKHR`.
     ///
     /// # Performed tasks
     /// - `action`
@@ -7998,6 +8236,11 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
+    /// # Conditionally deprecated API (legacy-descriptor-sets)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
+    ///
     /// # Performed tasks
     /// - `state`
     ///
@@ -8035,6 +8278,11 @@ impl CommandBuffer {
     /// - Version 1.4 with appropriate features
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    /// # Conditionally deprecated API (legacy-descriptor-sets)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
     ///
     /// # Performed tasks
     /// - `state`
@@ -8181,6 +8429,12 @@ impl CommandBuffer {
     /// - Version 1.4 with appropriate features
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    /// # Conditionally deprecated API (legacy-buffer-commands)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+    ///
+    /// It has been superseded by `vkCmdBindIndexBuffer3KHR`.
     ///
     /// # Optional parameters
     /// - buffer
@@ -8406,6 +8660,12 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
+    /// # Conditionally deprecated API (legacy-gpdsc2)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_GetSurfaceCapabilities2`](Extension::KHR_GetSurfaceCapabilities2)
+    ///
+    /// It has been superseded by `vkGetPhysicalDeviceSurfaceCapabilities2KHR`.
+    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -8448,6 +8708,12 @@ impl PhysicalDevice {
     /// - Extension [`KHR_Surface`](Extension::KHR_Surface)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    /// # Conditionally deprecated API (legacy-gpdsc2)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_GetSurfaceCapabilities2`](Extension::KHR_GetSurfaceCapabilities2)
+    ///
+    /// It has been superseded by `vkGetPhysicalDeviceSurfaceFormats2KHR`.
     ///
     /// # Optional parameters
     /// - surface
@@ -15833,6 +16099,11 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
+    /// # Conditionally deprecated API (legacy-descriptor-sets)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
+    ///
     /// # Performed tasks
     /// - `state`
     ///
@@ -15874,6 +16145,11 @@ impl CommandBuffer {
     /// - Extension [`KHR_Maintenance6`](Extension::KHR_Maintenance6)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    /// # Conditionally deprecated API (legacy-descriptor-sets)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
     ///
     /// # Performed tasks
     /// - `state`
@@ -16441,6 +16717,12 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
+    /// # Conditionally deprecated API (legacy-buffer-commands)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+    ///
+    /// It has been superseded by `vkCmdBindTransformFeedbackBuffers2EXT`.
+    ///
     /// # Optional parameters
     /// - p_sizes
     ///
@@ -16496,6 +16778,12 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
+    /// # Conditionally deprecated API (legacy-buffer-commands)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+    ///
+    /// It has been superseded by `vkCmdBeginTransformFeedback2EXT`.
+    ///
     /// # Optional parameters
     /// - counter_buffer_count
     /// - p_counter_buffer_offsets
@@ -16547,6 +16835,12 @@ impl CommandBuffer {
     /// - Extension [`EXT_TransformFeedback`](Extension::EXT_TransformFeedback)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    /// # Conditionally deprecated API (legacy-buffer-commands)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+    ///
+    /// It has been superseded by `vkCmdEndTransformFeedback2EXT`.
     ///
     /// # Optional parameters
     /// - counter_buffer_count
@@ -16684,6 +16978,12 @@ impl CommandBuffer {
     /// - Extension [`EXT_TransformFeedback`](Extension::EXT_TransformFeedback)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    /// # Conditionally deprecated API (legacy-buffer-commands)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+    ///
+    /// It has been superseded by `vkCmdDrawIndirectByteCount2EXT`.
     ///
     /// # Performed tasks
     /// - `action`
@@ -17403,6 +17703,12 @@ impl CommandBuffer {
     /// - Extension [`EXT_ConditionalRendering`](Extension::EXT_ConditionalRendering)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    /// # Conditionally deprecated API (legacy-buffer-commands)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+    ///
+    /// It has been superseded by `vkCmdBeginConditionalRendering2EXT`.
     ///
     /// # Performed tasks
     /// - `action`
@@ -20924,6 +21230,12 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
+    /// # Conditionally deprecated API (legacy-buffer-commands)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+    ///
+    /// It has been superseded by `vkCmdWriteMarkerToMemoryAMD`.
+    ///
     /// # Optional parameters
     /// - stage
     ///
@@ -22700,6 +23012,12 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
+    /// # Conditionally deprecated API (legacy-buffer-commands)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+    ///
+    /// It has been superseded by `vkCmdBindVertexBuffers3KHR`.
+    ///
     /// # Optional parameters
     /// - p_sizes
     /// - p_strides
@@ -24285,6 +24603,11 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
+    /// # Conditionally deprecated API (legacy-descriptor-sets)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
+    ///
     #[doc(alias = "vkGetDescriptorSetLayoutSizeEXT")]
     #[inline(always)]
     pub unsafe fn get_descriptor_set_layout_size_ext(
@@ -24313,6 +24636,11 @@ impl Device {
     /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    /// # Conditionally deprecated API (legacy-descriptor-sets)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
     ///
     #[doc(alias = "vkGetDescriptorSetLayoutBindingOffsetEXT")]
     #[inline(always)]
@@ -24346,6 +24674,11 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
+    /// # Conditionally deprecated API (legacy-descriptor-sets)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
+    ///
     #[doc(alias = "vkGetDescriptorEXT")]
     #[inline(always)]
     pub unsafe fn get_descriptor_ext(
@@ -24375,6 +24708,11 @@ impl CommandBuffer {
     /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    /// # Conditionally deprecated API (legacy-descriptor-sets)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
     ///
     /// # Performed tasks
     /// - `state`
@@ -24423,6 +24761,11 @@ impl CommandBuffer {
     /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    /// # Conditionally deprecated API (legacy-descriptor-sets)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
     ///
     /// # Performed tasks
     /// - `state`
@@ -24479,6 +24822,11 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
+    /// # Conditionally deprecated API (legacy-descriptor-sets)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
+    ///
     /// # Performed tasks
     /// - `state`
     ///
@@ -24525,6 +24873,11 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
+    /// # Conditionally deprecated API (legacy-descriptor-sets)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
+    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -24566,6 +24919,11 @@ impl Device {
     /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    /// # Conditionally deprecated API (legacy-descriptor-sets)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
     ///
     /// # Result codes
     /// ## Success
@@ -24610,6 +24968,11 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
+    /// # Conditionally deprecated API (legacy-descriptor-sets)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
+    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -24651,6 +25014,11 @@ impl Device {
     /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    /// # Conditionally deprecated API (legacy-descriptor-sets)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
     ///
     /// # Result codes
     /// ## Success
@@ -24694,6 +25062,11 @@ impl Device {
     /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    /// # Conditionally deprecated API (legacy-descriptor-sets)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
     ///
     /// # Result codes
     /// ## Success
@@ -26100,6 +26473,12 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
+    /// # Conditionally deprecated API (legacy-host-builds)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+    ///
+    /// It has been superseded by `vkCmdBuildMicromapsEXT`.
+    ///
     /// # Optional parameters
     /// - deferred_operation
     ///
@@ -26146,6 +26525,12 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
+    /// # Conditionally deprecated API (legacy-host-builds)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+    ///
+    /// It has been superseded by `vkCmdCopyMicromapEXT`.
+    ///
     /// # Optional parameters
     /// - deferred_operation
     ///
@@ -26191,6 +26576,12 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
+    /// # Conditionally deprecated API (legacy-host-builds)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+    ///
+    /// It has been superseded by `vkCmdCopyMicromapToMemoryEXT`.
+    ///
     /// # Optional parameters
     /// - deferred_operation
     ///
@@ -26235,6 +26626,12 @@ impl Device {
     /// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    /// # Conditionally deprecated API (legacy-host-builds)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+    ///
+    /// It has been superseded by `vkCmdCopyMemoryToMicromapEXT`.
     ///
     /// # Optional parameters
     /// - deferred_operation
@@ -26284,6 +26681,12 @@ impl Device {
     /// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    /// # Conditionally deprecated API (legacy-host-builds)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+    ///
+    /// It has been superseded by `vkCmdWriteMicromapsPropertiesEXT`.
     ///
     /// # Result codes
     /// ## Success
@@ -31884,6 +32287,12 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
+    /// # Conditionally deprecated API (legacy-buffer-commands)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+    ///
+    /// It has been superseded by `vkCreateAccelerationStructure2KHR`.
+    ///
     /// # Optional parameters
     /// - p_allocator
     ///
@@ -32071,6 +32480,12 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
+    /// # Conditionally deprecated API (legacy-host-builds)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
+    ///
+    /// It has been superseded by `vkCmdBuildAccelerationStructuresKHR`.
+    ///
     /// # Optional parameters
     /// - deferred_operation
     ///
@@ -32125,6 +32540,12 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
+    /// # Conditionally deprecated API (legacy-host-builds)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
+    ///
+    /// It has been superseded by `vkCmdCopyAccelerationStructureKHR`.
+    ///
     /// # Optional parameters
     /// - deferred_operation
     ///
@@ -32168,6 +32589,12 @@ impl Device {
     /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    /// # Conditionally deprecated API (legacy-host-builds)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
+    ///
+    /// It has been superseded by `vkCmdCopyAccelerationStructureToMemoryKHR`.
     ///
     /// # Optional parameters
     /// - deferred_operation
@@ -32214,6 +32641,12 @@ impl Device {
     /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    /// # Conditionally deprecated API (legacy-host-builds)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
+    ///
+    /// It has been superseded by `vkCmdCopyMemoryToAccelerationStructureKHR`.
     ///
     /// # Optional parameters
     /// - deferred_operation
@@ -32264,6 +32697,12 @@ impl Device {
     /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    /// # Conditionally deprecated API (legacy-host-builds)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
+    ///
+    /// It has been superseded by `vkCmdWriteAccelerationStructuresPropertiesKHR`.
     ///
     /// # Result codes
     /// ## Success
@@ -32942,6 +33381,12 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
+    /// # Conditionally deprecated API (legacy-buffer-commands)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+    ///
+    /// It has been superseded by `vkCmdDrawMeshTasksIndirect2EXT`.
+    ///
     /// # Performed tasks
     /// - `action`
     ///
@@ -32981,6 +33426,12 @@ impl CommandBuffer {
     /// - Extension [`EXT_MeshShader`](Extension::EXT_MeshShader)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    /// # Conditionally deprecated API (legacy-buffer-commands)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+    ///
+    /// It has been superseded by `vkCmdDrawMeshTasksIndirectCount2EXT`.
     ///
     /// # Performed tasks
     /// - `action`
