@@ -407,48 +407,74 @@ pub enum Extension {
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_Surface`](Extension::KHR_Surface).
     #[doc(alias = "VK_KHR_swapchain")]
     KHR_Swapchain,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_display.html>
     ///
     /// # About
     /// Instance level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_Surface`](Extension::KHR_Surface).
     #[doc(alias = "VK_KHR_display")]
     KHR_Display,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_display_swapchain.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
+    /// - Extension [`KHR_Display`](Extension::KHR_Display)
     #[doc(alias = "VK_KHR_display_swapchain")]
     KHR_DisplaySwapchain,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_xlib_surface.html>
     ///
     /// # About
     /// Instance level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_Surface`](Extension::KHR_Surface).
     #[doc(alias = "VK_KHR_xlib_surface")]
     KHR_XlibSurface,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_xcb_surface.html>
     ///
     /// # About
     /// Instance level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_Surface`](Extension::KHR_Surface).
     #[doc(alias = "VK_KHR_xcb_surface")]
     KHR_XcbSurface,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_wayland_surface.html>
     ///
     /// # About
     /// Instance level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_Surface`](Extension::KHR_Surface).
     #[doc(alias = "VK_KHR_wayland_surface")]
     KHR_WaylandSurface,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_android_surface.html>
     ///
     /// # About
     /// Instance level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_Surface`](Extension::KHR_Surface).
     #[doc(alias = "VK_KHR_android_surface")]
     KHR_AndroidSurface,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_win32_surface.html>
     ///
     /// # About
     /// Instance level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_Surface`](Extension::KHR_Surface).
     #[doc(alias = "VK_KHR_win32_surface")]
     KHR_Win32Surface,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_sampler_mirror_clamp_to_edge.html>
@@ -462,30 +488,49 @@ pub enum Extension {
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Version 1.1 with appropriate features AND Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
+    /// - Version 1.3 with appropriate features
     #[doc(alias = "VK_KHR_video_queue")]
     KHR_VideoQueue,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_video_decode_queue.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
+    /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2) OR Version 1.3 with appropriate features
     #[doc(alias = "VK_KHR_video_decode_queue")]
     KHR_VideoDecodeQueue,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_video_encode_h264.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue).
     #[doc(alias = "VK_KHR_video_encode_h264")]
     KHR_VideoEncodeH264,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_video_encode_h265.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue).
     #[doc(alias = "VK_KHR_video_encode_h265")]
     KHR_VideoEncodeH265,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_video_decode_h264.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_VideoDecodeQueue`](Extension::KHR_VideoDecodeQueue).
     #[doc(alias = "VK_KHR_video_decode_h264")]
     KHR_VideoDecodeH264,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_dynamic_rendering.html>
@@ -493,6 +538,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.3.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - (Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2) OR Version 1.1 with appropriate features) AND Extension [`KHR_DepthStencilResolve`](Extension::KHR_DepthStencilResolve)
+    /// - Version 1.2 with appropriate features
     #[doc(alias = "VK_KHR_dynamic_rendering")]
     KHR_DynamicRendering,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_multiview.html>
@@ -500,6 +550,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.1.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_multiview")]
     KHR_Multiview,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_get_physical_device_properties2.html>
@@ -514,6 +569,9 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.1.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_DeviceGroupCreation`](Extension::KHR_DeviceGroupCreation).
     #[doc(alias = "VK_KHR_device_group")]
     KHR_DeviceGroup,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_shader_draw_parameters.html>
@@ -542,6 +600,11 @@ pub enum Extension {
     /// # About
     /// Instance level.
     /// Promoted to core in version 1.1.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_external_memory_capabilities")]
     KHR_ExternalMemoryCapabilities,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_external_memory.html>
@@ -549,24 +612,42 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.1.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_ExternalMemoryCapabilities`](Extension::KHR_ExternalMemoryCapabilities)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_external_memory")]
     KHR_ExternalMemory,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_external_memory_win32.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_ExternalMemory`](Extension::KHR_ExternalMemory)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_external_memory_win32")]
     KHR_ExternalMemoryWin32,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_external_memory_fd.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_ExternalMemory`](Extension::KHR_ExternalMemory)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_external_memory_fd")]
     KHR_ExternalMemoryFd,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_win32_keyed_mutex.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_ExternalMemoryWin32`](Extension::KHR_ExternalMemoryWin32).
     #[doc(alias = "VK_KHR_win32_keyed_mutex")]
     KHR_Win32KeyedMutex,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_external_semaphore_capabilities.html>
@@ -574,6 +655,11 @@ pub enum Extension {
     /// # About
     /// Instance level.
     /// Promoted to core in version 1.1.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_external_semaphore_capabilities")]
     KHR_ExternalSemaphoreCapabilities,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_external_semaphore.html>
@@ -581,18 +667,29 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.1.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_ExternalSemaphoreCapabilities`](Extension::KHR_ExternalSemaphoreCapabilities).
     #[doc(alias = "VK_KHR_external_semaphore")]
     KHR_ExternalSemaphore,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_external_semaphore_win32.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_ExternalSemaphore`](Extension::KHR_ExternalSemaphore).
     #[doc(alias = "VK_KHR_external_semaphore_win32")]
     KHR_ExternalSemaphoreWin32,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_external_semaphore_fd.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_ExternalSemaphore`](Extension::KHR_ExternalSemaphore)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_external_semaphore_fd")]
     KHR_ExternalSemaphoreFd,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_push_descriptor.html>
@@ -600,6 +697,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.4.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_push_descriptor")]
     KHR_PushDescriptor,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_shader_float16_int8.html>
@@ -607,6 +709,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.2.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_shader_float16_int8")]
     KHR_ShaderFloat16Int8,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_16bit_storage.html>
@@ -614,12 +721,20 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.1.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2) AND Extension [`KHR_StorageBufferStorageClass`](Extension::KHR_StorageBufferStorageClass)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_16bit_storage")]
     KHR_16BitStorage,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_incremental_present.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_Swapchain`](Extension::KHR_Swapchain).
     #[doc(alias = "VK_KHR_incremental_present")]
     KHR_IncrementalPresent,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_descriptor_update_template.html>
@@ -634,6 +749,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.2.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - ((Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2) AND Extension [`KHR_Maintenance2`](Extension::KHR_Maintenance2)) OR Version 1.1 with appropriate features) AND Extension [`KHR_ImageFormatList`](Extension::KHR_ImageFormatList)
+    /// - Version 1.2 with appropriate features
     #[doc(alias = "VK_KHR_imageless_framebuffer")]
     KHR_ImagelessFramebuffer,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_create_renderpass2.html>
@@ -641,12 +761,23 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.2.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_Multiview`](Extension::KHR_Multiview) AND Extension [`KHR_Maintenance2`](Extension::KHR_Maintenance2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_create_renderpass2")]
     KHR_CreateRenderpass2,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_shared_presentable_image.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
+    /// - Extension [`KHR_GetSurfaceCapabilities2`](Extension::KHR_GetSurfaceCapabilities2)
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2) OR Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_shared_presentable_image")]
     KHR_SharedPresentableImage,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_external_fence_capabilities.html>
@@ -654,6 +785,11 @@ pub enum Extension {
     /// # About
     /// Instance level.
     /// Promoted to core in version 1.1.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_external_fence_capabilities")]
     KHR_ExternalFenceCapabilities,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_external_fence.html>
@@ -661,18 +797,29 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.1.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_ExternalFenceCapabilities`](Extension::KHR_ExternalFenceCapabilities).
     #[doc(alias = "VK_KHR_external_fence")]
     KHR_ExternalFence,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_external_fence_win32.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_ExternalFence`](Extension::KHR_ExternalFence).
     #[doc(alias = "VK_KHR_external_fence_win32")]
     KHR_ExternalFenceWin32,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_external_fence_fd.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_ExternalFence`](Extension::KHR_ExternalFence)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_external_fence_fd")]
     KHR_ExternalFenceFd,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_performance_query.html>
@@ -680,6 +827,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Intended for development tooling.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_performance_query")]
     KHR_PerformanceQuery,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_maintenance2.html>
@@ -693,6 +845,9 @@ pub enum Extension {
     ///
     /// # About
     /// Instance level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_Surface`](Extension::KHR_Surface).
     #[doc(alias = "VK_KHR_get_surface_capabilities2")]
     KHR_GetSurfaceCapabilities2,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_variable_pointers.html>
@@ -700,12 +855,20 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.1.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2) AND Extension [`KHR_StorageBufferStorageClass`](Extension::KHR_StorageBufferStorageClass)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_variable_pointers")]
     KHR_VariablePointers,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_get_display_properties2.html>
     ///
     /// # About
     /// Instance level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_Display`](Extension::KHR_Display).
     #[doc(alias = "VK_KHR_get_display_properties2")]
     KHR_GetDisplayProperties2,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_dedicated_allocation.html>
@@ -713,6 +876,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.1.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetMemoryRequirements2`](Extension::KHR_GetMemoryRequirements2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_dedicated_allocation")]
     KHR_DedicatedAllocation,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_storage_buffer_storage_class.html>
@@ -726,6 +894,11 @@ pub enum Extension {
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_shader_bfloat16")]
     KHR_ShaderBfloat16,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_relaxed_block_layout.html>
@@ -754,6 +927,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.1.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - (Extension [`KHR_Maintenance1`](Extension::KHR_Maintenance1) AND Extension [`KHR_BindMemory2`](Extension::KHR_BindMemory2) AND Extension [`KHR_GetMemoryRequirements2`](Extension::KHR_GetMemoryRequirements2) AND Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2))
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_sampler_ycbcr_conversion")]
     KHR_SamplerYcbcrConversion,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_bind_memory2.html>
@@ -767,6 +945,11 @@ pub enum Extension {
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_portability_subset")]
     KHR_PortabilitySubset,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_maintenance3.html>
@@ -774,6 +957,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.1.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_maintenance3")]
     KHR_Maintenance3,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_draw_indirect_count.html>
@@ -788,6 +976,9 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.2.
+    ///
+    /// # Requirements
+    /// This extension requires at least version 1.1.
     #[doc(alias = "VK_KHR_shader_subgroup_extended_types")]
     KHR_ShaderSubgroupExtendedTypes,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_8bit_storage.html>
@@ -795,6 +986,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.2.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2) AND Extension [`KHR_StorageBufferStorageClass`](Extension::KHR_StorageBufferStorageClass)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_8bit_storage")]
     KHR_8BitStorage,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_shader_atomic_int64.html>
@@ -802,18 +998,31 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.2.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_shader_atomic_int64")]
     KHR_ShaderAtomicInt64,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_shader_clock.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_shader_clock")]
     KHR_ShaderClock,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_video_decode_h265.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_VideoDecodeQueue`](Extension::KHR_VideoDecodeQueue).
     #[doc(alias = "VK_KHR_video_decode_h265")]
     KHR_VideoDecodeH265,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_global_priority.html>
@@ -821,6 +1030,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.4.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_global_priority")]
     KHR_GlobalPriority,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_driver_properties.html>
@@ -828,6 +1042,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.2.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_driver_properties")]
     KHR_DriverProperties,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_shader_float_controls.html>
@@ -835,6 +1054,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.2.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_shader_float_controls")]
     KHR_ShaderFloatControls,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_depth_stencil_resolve.html>
@@ -842,12 +1066,23 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.2.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_CreateRenderpass2`](Extension::KHR_CreateRenderpass2)
+    /// - Version 1.2 with appropriate features
     #[doc(alias = "VK_KHR_depth_stencil_resolve")]
     KHR_DepthStencilResolve,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_swapchain_mutable_format.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
+    /// - Extension [`KHR_Maintenance2`](Extension::KHR_Maintenance2) OR Version 1.1 with appropriate features
+    /// - Extension [`KHR_ImageFormatList`](Extension::KHR_ImageFormatList) OR Version 1.2 with appropriate features
     #[doc(alias = "VK_KHR_swapchain_mutable_format")]
     KHR_SwapchainMutableFormat,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_timeline_semaphore.html>
@@ -855,6 +1090,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.2.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_timeline_semaphore")]
     KHR_TimelineSemaphore,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_vulkan_memory_model.html>
@@ -862,6 +1102,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.2.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_vulkan_memory_model")]
     KHR_VulkanMemoryModel,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_shader_terminate_invocation.html>
@@ -869,18 +1114,33 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.3.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_shader_terminate_invocation")]
     KHR_ShaderTerminateInvocation,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_fragment_shading_rate.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - (Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2) OR Version 1.1 with appropriate features) AND Extension [`KHR_CreateRenderpass2`](Extension::KHR_CreateRenderpass2)
+    /// - Version 1.2 with appropriate features
     #[doc(alias = "VK_KHR_fragment_shading_rate")]
     KHR_FragmentShadingRate,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_shader_constant_data.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_shader_constant_data")]
     KHR_ShaderConstantData,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_dynamic_rendering_local_read.html>
@@ -888,18 +1148,33 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.4.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_DynamicRendering`](Extension::KHR_DynamicRendering)
+    /// - Version 1.3 with appropriate features
     #[doc(alias = "VK_KHR_dynamic_rendering_local_read")]
     KHR_DynamicRenderingLocalRead,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_shader_abort.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`KHR_DeviceFault`](Extension::KHR_DeviceFault)
+    /// - Extension [`KHR_ShaderConstantData`](Extension::KHR_ShaderConstantData)
     #[doc(alias = "VK_KHR_shader_abort")]
     KHR_ShaderAbort,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_shader_quad_control.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - (Version 1.1 with appropriate features AND Extension [`KHR_VulkanMemoryModel`](Extension::KHR_VulkanMemoryModel)) OR Version 1.2 with appropriate features
+    /// - Extension [`KHR_ShaderMaximalReconvergence`](Extension::KHR_ShaderMaximalReconvergence)
     #[doc(alias = "VK_KHR_shader_quad_control")]
     KHR_ShaderQuadControl,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_spirv_1_4.html>
@@ -907,12 +1182,22 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.2.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Version 1.1 with appropriate features
+    /// - Extension [`KHR_ShaderFloatControls`](Extension::KHR_ShaderFloatControls)
     #[doc(alias = "VK_KHR_spirv_1_4")]
     KHR_Spirv14,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_surface_protected_capabilities.html>
     ///
     /// # About
     /// Instance level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Version 1.1 with appropriate features
+    /// - Extension [`KHR_GetSurfaceCapabilities2`](Extension::KHR_GetSurfaceCapabilities2)
     #[doc(alias = "VK_KHR_surface_protected_capabilities")]
     KHR_SurfaceProtectedCapabilities,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_separate_depth_stencil_layouts.html>
@@ -920,12 +1205,22 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.2.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - (Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2) OR Version 1.1 with appropriate features) AND Extension [`KHR_CreateRenderpass2`](Extension::KHR_CreateRenderpass2)
+    /// - Version 1.2 with appropriate features
     #[doc(alias = "VK_KHR_separate_depth_stencil_layouts")]
     KHR_SeparateDepthStencilLayouts,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_present_wait.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
+    /// - Extension [`KHR_PresentId`](Extension::KHR_PresentId)
     #[doc(alias = "VK_KHR_present_wait")]
     KHR_PresentWait,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_uniform_buffer_standard_layout.html>
@@ -933,6 +1228,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.2.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_uniform_buffer_standard_layout")]
     KHR_UniformBufferStandardLayout,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_buffer_device_address.html>
@@ -940,6 +1240,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.2.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2) AND Extension [`KHR_DeviceGroup`](Extension::KHR_DeviceGroup)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_buffer_device_address")]
     KHR_BufferDeviceAddress,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_deferred_host_operations.html>
@@ -953,6 +1258,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Intended for development tooling.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_pipeline_executable_properties")]
     KHR_PipelineExecutableProperties,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_map_memory2.html>
@@ -967,6 +1277,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.3.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_shader_integer_dot_product")]
     KHR_ShaderIntegerDotProduct,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_pipeline_library.html>
@@ -986,12 +1301,22 @@ pub enum Extension {
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2) OR Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_present_id")]
     KHR_PresentId,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_video_encode_queue.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
+    /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2) OR Version 1.3 with appropriate features
     #[doc(alias = "VK_KHR_video_encode_queue")]
     KHR_VideoEncodeQueue,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_synchronization2.html>
@@ -999,24 +1324,42 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.3.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_synchronization2")]
     KHR_Synchronization2,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_device_address_commands.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - ((((Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2) OR Version 1.1 with appropriate features) AND Extension [`KHR_BufferDeviceAddress`](Extension::KHR_BufferDeviceAddress)) OR Version 1.2 with appropriate features) AND Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2) AND Extension [`EXT_ExtendedDynamicState`](Extension::EXT_ExtendedDynamicState))
+    /// - Version 1.3 with appropriate features
     #[doc(alias = "VK_KHR_device_address_commands")]
     KHR_DeviceAddressCommands,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_fragment_shader_barycentric.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_fragment_shader_barycentric")]
     KHR_FragmentShaderBarycentric,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_shader_subgroup_uniform_control_flow.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires at least version 1.1.
     #[doc(alias = "VK_KHR_shader_subgroup_uniform_control_flow")]
     KHR_ShaderSubgroupUniformControlFlow,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_zero_initialize_workgroup_memory.html>
@@ -1024,12 +1367,22 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.3.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_zero_initialize_workgroup_memory")]
     KHR_ZeroInitializeWorkgroupMemory,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_workgroup_memory_explicit_layout.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_workgroup_memory_explicit_layout")]
     KHR_WorkgroupMemoryExplicitLayout,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_copy_commands2.html>
@@ -1037,6 +1390,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.3.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_copy_commands2")]
     KHR_CopyCommands2,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_format_feature_flags2.html>
@@ -1044,18 +1402,29 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.3.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_format_feature_flags2")]
     KHR_FormatFeatureFlags2,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_ray_tracing_maintenance1.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure).
     #[doc(alias = "VK_KHR_ray_tracing_maintenance1")]
     KHR_RayTracingMaintenance1,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_shader_untyped_pointers.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2).
     #[doc(alias = "VK_KHR_shader_untyped_pointers")]
     KHR_ShaderUntypedPointers,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_portability_enumeration.html>
@@ -1069,6 +1438,9 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.3.
+    ///
+    /// # Requirements
+    /// This extension requires at least version 1.1.
     #[doc(alias = "VK_KHR_maintenance4")]
     KHR_Maintenance4,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_shader_subgroup_rotate.html>
@@ -1076,12 +1448,20 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.4.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_shader_subgroup_rotate")]
     KHR_ShaderSubgroupRotate,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_shader_maximal_reconvergence.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires at least version 1.1.
     #[doc(alias = "VK_KHR_shader_maximal_reconvergence")]
     KHR_ShaderMaximalReconvergence,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_maintenance5.html>
@@ -1089,84 +1469,147 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.4.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Version 1.1 with appropriate features AND Extension [`KHR_DynamicRendering`](Extension::KHR_DynamicRendering)
+    /// - Version 1.3 with appropriate features
     #[doc(alias = "VK_KHR_maintenance5")]
     KHR_Maintenance5,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_present_id2.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`KHR_GetSurfaceCapabilities2`](Extension::KHR_GetSurfaceCapabilities2)
+    /// - Extension [`KHR_Surface`](Extension::KHR_Surface)
+    /// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
     #[doc(alias = "VK_KHR_present_id2")]
     KHR_PresentId2,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_present_wait2.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`KHR_GetSurfaceCapabilities2`](Extension::KHR_GetSurfaceCapabilities2)
+    /// - Extension [`KHR_Surface`](Extension::KHR_Surface)
+    /// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
+    /// - Extension [`KHR_PresentId2`](Extension::KHR_PresentId2)
     #[doc(alias = "VK_KHR_present_wait2")]
     KHR_PresentWait2,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_ray_tracing_position_fetch.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure).
     #[doc(alias = "VK_KHR_ray_tracing_position_fetch")]
     KHR_RayTracingPositionFetch,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_pipeline_binary.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Version 1.4 with appropriate features
+    /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
+    /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
     #[doc(alias = "VK_KHR_pipeline_binary")]
     KHR_PipelineBinary,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_surface_maintenance1.html>
     ///
     /// # About
     /// Instance level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`KHR_Surface`](Extension::KHR_Surface)
+    /// - Extension [`KHR_GetSurfaceCapabilities2`](Extension::KHR_GetSurfaceCapabilities2)
     #[doc(alias = "VK_KHR_surface_maintenance1")]
     KHR_SurfaceMaintenance1,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_swapchain_maintenance1.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
+    /// - Extension [`KHR_SurfaceMaintenance1`](Extension::KHR_SurfaceMaintenance1)
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2) OR Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_swapchain_maintenance1")]
     KHR_SwapchainMaintenance1,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_internally_synchronized_queues.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires at least version 1.1.
     #[doc(alias = "VK_KHR_internally_synchronized_queues")]
     KHR_InternallySynchronizedQueues,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_cooperative_matrix.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_cooperative_matrix")]
     KHR_CooperativeMatrix,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_compute_shader_derivatives.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_compute_shader_derivatives")]
     KHR_ComputeShaderDerivatives,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_video_decode_av1.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_VideoDecodeQueue`](Extension::KHR_VideoDecodeQueue).
     #[doc(alias = "VK_KHR_video_decode_av1")]
     KHR_VideoDecodeAv1,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_video_encode_av1.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue).
     #[doc(alias = "VK_KHR_video_encode_av1")]
     KHR_VideoEncodeAv1,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_video_decode_vp9.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_VideoDecodeQueue`](Extension::KHR_VideoDecodeQueue).
     #[doc(alias = "VK_KHR_video_decode_vp9")]
     KHR_VideoDecodeVp9,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_video_maintenance1.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue).
     #[doc(alias = "VK_KHR_video_maintenance1")]
     KHR_VideoMaintenance1,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_vertex_attribute_divisor.html>
@@ -1174,6 +1617,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.4.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_vertex_attribute_divisor")]
     KHR_VertexAttributeDivisor,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_load_store_op_none.html>
@@ -1187,6 +1635,11 @@ pub enum Extension {
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_unified_image_layouts")]
     KHR_UnifiedImageLayouts,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_shader_float_controls2.html>
@@ -1194,6 +1647,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.4.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Version 1.1 with appropriate features
+    /// - Extension [`KHR_ShaderFloatControls`](Extension::KHR_ShaderFloatControls)
     #[doc(alias = "VK_KHR_shader_float_controls2")]
     KHR_ShaderFloatControls2,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_index_type_uint8.html>
@@ -1201,6 +1659,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.4.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_index_type_uint8")]
     KHR_IndexTypeUint8,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_line_rasterization.html>
@@ -1208,12 +1671,22 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.4.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_line_rasterization")]
     KHR_LineRasterization,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_calibrated_timestamps.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_calibrated_timestamps")]
     KHR_CalibratedTimestamps,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_shader_expect_assume.html>
@@ -1221,6 +1694,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.4.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_shader_expect_assume")]
     KHR_ShaderExpectAssume,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_maintenance6.html>
@@ -1228,120 +1706,206 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.4.
+    ///
+    /// # Requirements
+    /// This extension requires at least version 1.1.
     #[doc(alias = "VK_KHR_maintenance6")]
     KHR_Maintenance6,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_copy_memory_indirect.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2) AND Extension [`KHR_BufferDeviceAddress`](Extension::KHR_BufferDeviceAddress)
+    /// - Version 1.2 with appropriate features
     #[doc(alias = "VK_KHR_copy_memory_indirect")]
     KHR_CopyMemoryIndirect,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_video_encode_intra_refresh.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue).
     #[doc(alias = "VK_KHR_video_encode_intra_refresh")]
     KHR_VideoEncodeIntraRefresh,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_video_encode_quantization_map.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
+    /// - Extension [`KHR_FormatFeatureFlags2`](Extension::KHR_FormatFeatureFlags2) OR Version 1.3 with appropriate features
     #[doc(alias = "VK_KHR_video_encode_quantization_map")]
     KHR_VideoEncodeQuantizationMap,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_shader_relaxed_extended_instruction.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_shader_relaxed_extended_instruction")]
     KHR_ShaderRelaxedExtendedInstruction,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_maintenance7.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires at least version 1.1.
     #[doc(alias = "VK_KHR_maintenance7")]
     KHR_Maintenance7,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_device_fault.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_device_fault")]
     KHR_DeviceFault,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_maintenance8.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires at least version 1.1.
     #[doc(alias = "VK_KHR_maintenance8")]
     KHR_Maintenance8,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_shader_fma.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_shader_fma")]
     KHR_ShaderFma,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_maintenance9.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_maintenance9")]
     KHR_Maintenance9,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_video_maintenance2.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue).
     #[doc(alias = "VK_KHR_video_maintenance2")]
     KHR_VideoMaintenance2,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_video_encode_feedback2.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue).
     #[doc(alias = "VK_KHR_video_encode_feedback2")]
     KHR_VideoEncodeFeedback2,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_depth_clamp_zero_one.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_depth_clamp_zero_one")]
     KHR_DepthClampZeroOne,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_robustness2.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_robustness2")]
     KHR_Robustness2,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_present_mode_fifo_latest_ready.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_Swapchain`](Extension::KHR_Swapchain).
     #[doc(alias = "VK_KHR_present_mode_fifo_latest_ready")]
     KHR_PresentModeFifoLatestReady,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_opacity_micromap.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
     #[doc(alias = "VK_KHR_opacity_micromap")]
     KHR_OpacityMicromap,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_maintenance10.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_maintenance10")]
     KHR_Maintenance10,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_pipeline_library_group_handles.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
+    /// - Extension [`KHR_PipelineLibrary`](Extension::KHR_PipelineLibrary)
     #[doc(alias = "VK_KHR_pipeline_library_group_handles")]
     KHR_PipelineLibraryGroupHandles,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_maintenance11.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_maintenance11")]
     KHR_Maintenance11,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_extended_flags.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_KHR_extended_flags")]
     KHR_ExtendedFlags,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_debug_report.html>
@@ -1394,6 +1958,9 @@ pub enum Extension {
     /// Device level.
     /// Promoted to [`Self::EXT_DebugUtils`].
     /// Intended for debugging.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`EXT_DebugReport`](Extension::EXT_DebugReport).
     #[doc(alias = "VK_EXT_debug_marker")]
     EXT_DebugMarker,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_AMD_gcn_shader.html>
@@ -1414,6 +1981,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Intended for OpenGL emulation, Direct3D emulation, development tooling.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_transform_feedback")]
     EXT_TransformFeedback,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NVX_binary_import.html>
@@ -1458,6 +2030,11 @@ pub enum Extension {
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_AMD_texture_gather_bias_lod")]
     AMD_TextureGatherBiasLod,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_AMD_shader_info.html>
@@ -1477,12 +2054,20 @@ pub enum Extension {
     ///
     /// # About
     /// Instance level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_Surface`](Extension::KHR_Surface).
     #[doc(alias = "VK_GGP_stream_descriptor_surface")]
     GGP_StreamDescriptorSurface,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_corner_sampled_image.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_NV_corner_sampled_image")]
     NV_CornerSampledImage,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_IMG_format_pvrtc.html>
@@ -1503,6 +2088,9 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Deprecated by [`Self::KHR_ExternalMemory`].
+    ///
+    /// # Requirements
+    /// This extension requires extension [`NV_ExternalMemoryCapabilities`](Extension::NV_ExternalMemoryCapabilities).
     #[doc(alias = "VK_NV_external_memory")]
     NV_ExternalMemory,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_external_memory_win32.html>
@@ -1510,6 +2098,9 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Deprecated by [`Self::KHR_ExternalMemoryWin32`].
+    ///
+    /// # Requirements
+    /// This extension requires extension [`NV_ExternalMemory`](Extension::NV_ExternalMemory).
     #[doc(alias = "VK_NV_external_memory_win32")]
     NV_ExternalMemoryWin32,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_win32_keyed_mutex.html>
@@ -1517,6 +2108,9 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to [`Self::KHR_Win32KeyedMutex`].
+    ///
+    /// # Requirements
+    /// This extension requires extension [`NV_ExternalMemoryWin32`](Extension::NV_ExternalMemoryWin32).
     #[doc(alias = "VK_NV_win32_keyed_mutex")]
     NV_Win32KeyedMutex,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_validation_flags.html>
@@ -1531,6 +2125,9 @@ pub enum Extension {
     ///
     /// # About
     /// Instance level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_Surface`](Extension::KHR_Surface).
     #[doc(alias = "VK_NN_vi_surface")]
     NN_ViSurface,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_shader_subgroup_ballot.html>
@@ -1552,12 +2149,22 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.3.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_texture_compression_astc_hdr")]
     EXT_TextureCompressionAstcHdr,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_astc_decode_mode.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_astc_decode_mode")]
     EXT_AstcDecodeMode,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_pipeline_robustness.html>
@@ -1565,12 +2172,22 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.4.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_pipeline_robustness")]
     EXT_PipelineRobustness,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_conditional_rendering.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_conditional_rendering")]
     EXT_ConditionalRendering,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_clip_space_w_scaling.html>
@@ -1583,30 +2200,47 @@ pub enum Extension {
     ///
     /// # About
     /// Instance level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_Display`](Extension::KHR_Display).
     #[doc(alias = "VK_EXT_direct_mode_display")]
     EXT_DirectModeDisplay,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_acquire_xlib_display.html>
     ///
     /// # About
     /// Instance level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`EXT_DirectModeDisplay`](Extension::EXT_DirectModeDisplay).
     #[doc(alias = "VK_EXT_acquire_xlib_display")]
     EXT_AcquireXlibDisplay,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_display_surface_counter.html>
     ///
     /// # About
     /// Instance level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_Display`](Extension::KHR_Display).
     #[doc(alias = "VK_EXT_display_surface_counter")]
     EXT_DisplaySurfaceCounter,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_display_control.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`EXT_DisplaySurfaceCounter`](Extension::EXT_DisplaySurfaceCounter)
+    /// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
     #[doc(alias = "VK_EXT_display_control")]
     EXT_DisplayControl,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_GOOGLE_display_timing.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_Swapchain`](Extension::KHR_Swapchain).
     #[doc(alias = "VK_GOOGLE_display_timing")]
     GOOGLE_DisplayTiming,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_sample_mask_override_coverage.html>
@@ -1631,6 +2265,11 @@ pub enum Extension {
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_Multiview`](Extension::KHR_Multiview)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_NVX_multiview_per_view_attributes")]
     NVX_MultiviewPerViewAttributes,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_viewport_swizzle.html>
@@ -1643,12 +2282,22 @@ pub enum Extension {
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_discard_rectangles")]
     EXT_DiscardRectangles,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_conservative_rasterization.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_conservative_rasterization")]
     EXT_ConservativeRasterization,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_depth_clip_enable.html>
@@ -1656,18 +2305,29 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Intended for Direct3D emulation.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_depth_clip_enable")]
     EXT_DepthClipEnable,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_swapchain_colorspace.html>
     ///
     /// # About
     /// Instance level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_Surface`](Extension::KHR_Surface).
     #[doc(alias = "VK_EXT_swapchain_colorspace")]
     EXT_SwapchainColorspace,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_hdr_metadata.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_Swapchain`](Extension::KHR_Swapchain).
     #[doc(alias = "VK_EXT_hdr_metadata")]
     EXT_HdrMetadata,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_IMG_relaxed_line_rasterization.html>
@@ -1675,6 +2335,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Intended for OpenGL emulation.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_IMG_relaxed_line_rasterization")]
     IMG_RelaxedLineRasterization,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_MVK_ios_surface.html>
@@ -1682,6 +2347,9 @@ pub enum Extension {
     /// # About
     /// Instance level.
     /// Deprecated by [`Self::EXT_MetalSurface`].
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_Surface`](Extension::KHR_Surface).
     #[doc(alias = "VK_MVK_ios_surface")]
     MVK_IosSurface,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_MVK_macos_surface.html>
@@ -1689,18 +2357,29 @@ pub enum Extension {
     /// # About
     /// Instance level.
     /// Deprecated by [`Self::EXT_MetalSurface`].
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_Surface`](Extension::KHR_Surface).
     #[doc(alias = "VK_MVK_macos_surface")]
     MVK_MacosSurface,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_external_memory_dma_buf.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_ExternalMemoryFd`](Extension::KHR_ExternalMemoryFd).
     #[doc(alias = "VK_EXT_external_memory_dma_buf")]
     EXT_ExternalMemoryDmaBuf,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_queue_family_foreign.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_ExternalMemory`](Extension::KHR_ExternalMemory)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_queue_family_foreign")]
     EXT_QueueFamilyForeign,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_debug_utils.html>
@@ -1714,6 +2393,11 @@ pub enum Extension {
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - (Extension [`KHR_SamplerYcbcrConversion`](Extension::KHR_SamplerYcbcrConversion) AND Extension [`KHR_ExternalMemory`](Extension::KHR_ExternalMemory) AND Extension [`KHR_DedicatedAllocation`](Extension::KHR_DedicatedAllocation)) OR Version 1.1 with appropriate features
+    /// - Extension [`EXT_QueueFamilyForeign`](Extension::EXT_QueueFamilyForeign)
     #[doc(alias = "VK_ANDROID_external_memory_android_hardware_buffer")]
     ANDROID_ExternalMemoryAndroidHardwareBuffer,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_sampler_filter_minmax.html>
@@ -1721,6 +2405,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.2.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_sampler_filter_minmax")]
     EXT_SamplerFilterMinmax,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_AMD_gpu_shader_int16.html>
@@ -1734,18 +2423,34 @@ pub enum Extension {
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_AMD_gpa_interface")]
     AMD_GpaInterface,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_AMDX_shader_enqueue.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - (Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2) AND Extension [`KHR_Spirv14`](Extension::KHR_Spirv14) AND Extension [`EXT_ExtendedDynamicState`](Extension::EXT_ExtendedDynamicState)) OR Version 1.3 with appropriate features
+    /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+    /// - Extension [`KHR_PipelineLibrary`](Extension::KHR_PipelineLibrary)
     #[doc(alias = "VK_AMDX_shader_enqueue")]
     AMDX_ShaderEnqueue,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_descriptor_heap.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - (Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags) OR Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)) AND (Extension [`KHR_BufferDeviceAddress`](Extension::KHR_BufferDeviceAddress) OR Version 1.2 with appropriate features)
+    /// - Version 1.4 with appropriate features
     #[doc(alias = "VK_EXT_descriptor_heap")]
     EXT_DescriptorHeap,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_AMD_mixed_attachment_samples.html>
@@ -1765,6 +2470,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.3.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2) AND Extension [`KHR_Maintenance1`](Extension::KHR_Maintenance1)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_inline_uniform_block")]
     EXT_InlineUniformBlock,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_shader_stencil_export.html>
@@ -1777,12 +2487,22 @@ pub enum Extension {
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_sample_locations")]
     EXT_SampleLocations,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_blend_operation_advanced.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_blend_operation_advanced")]
     EXT_BlendOperationAdvanced,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_fragment_coverage_to_color.html>
@@ -1807,6 +2527,9 @@ pub enum Extension {
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires at least version 1.1.
     #[doc(alias = "VK_NV_shader_sm_builtins")]
     NV_ShaderSmBuiltins,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_post_depth_coverage.html>
@@ -1819,6 +2542,11 @@ pub enum Extension {
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - ((Extension [`KHR_BindMemory2`](Extension::KHR_BindMemory2) AND Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2) AND Extension [`KHR_SamplerYcbcrConversion`](Extension::KHR_SamplerYcbcrConversion)) OR Version 1.1 with appropriate features) AND Extension [`KHR_ImageFormatList`](Extension::KHR_ImageFormatList)
+    /// - Version 1.2 with appropriate features
     #[doc(alias = "VK_EXT_image_drm_format_modifier")]
     EXT_ImageDrmFormatModifier,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_validation_cache.html>
@@ -1832,6 +2560,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.2.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2) AND Extension [`KHR_Maintenance3`](Extension::KHR_Maintenance3)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_descriptor_indexing")]
     EXT_DescriptorIndexing,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_shader_viewport_index_layer.html>
@@ -1845,6 +2578,11 @@ pub enum Extension {
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_NV_shading_rate_image")]
     NV_ShadingRateImage,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_ray_tracing.html>
@@ -1852,12 +2590,22 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Deprecated by [`Self::KHR_RayTracingPipeline`].
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2) AND Extension [`KHR_GetMemoryRequirements2`](Extension::KHR_GetMemoryRequirements2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_NV_ray_tracing")]
     NV_RayTracing,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_representative_fragment_test.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_NV_representative_fragment_test")]
     NV_RepresentativeFragmentTest,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_filter_cubic.html>
@@ -1877,12 +2625,20 @@ pub enum Extension {
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_CooperativeMatrix`](Extension::KHR_CooperativeMatrix).
     #[doc(alias = "VK_QCOM_cooperative_matrix_conversion")]
     QCOM_CooperativeMatrixConversion,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_QCOM_elapsed_timer_query.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_QCOM_elapsed_timer_query")]
     QCOM_ElapsedTimerQuery,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_global_priority.html>
@@ -1896,6 +2652,11 @@ pub enum Extension {
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_ExternalMemory`](Extension::KHR_ExternalMemory)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_external_memory_host")]
     EXT_ExternalMemoryHost,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_AMD_buffer_marker.html>
@@ -1916,12 +2677,22 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to [`Self::KHR_CalibratedTimestamps`].
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_calibrated_timestamps")]
     EXT_CalibratedTimestamps,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_AMD_shader_core_properties.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_AMD_shader_core_properties")]
     AMD_ShaderCoreProperties,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_AMD_memory_overallocation_behavior.html>
@@ -1935,12 +2706,22 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to [`Self::KHR_VertexAttributeDivisor`].
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_vertex_attribute_divisor")]
     EXT_VertexAttributeDivisor,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_GGP_frame_token.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
+    /// - Extension [`GGP_StreamDescriptorSurface`](Extension::GGP_StreamDescriptorSurface)
     #[doc(alias = "VK_GGP_frame_token")]
     GGP_FrameToken,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_pipeline_creation_feedback.html>
@@ -1956,6 +2737,9 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to [`Self::EXT_ShaderSubgroupPartitioned`].
+    ///
+    /// # Requirements
+    /// This extension requires at least version 1.1.
     #[doc(alias = "VK_NV_shader_subgroup_partitioned")]
     NV_ShaderSubgroupPartitioned,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_compute_shader_derivatives.html>
@@ -1963,12 +2747,22 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to [`Self::KHR_ComputeShaderDerivatives`].
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_NV_compute_shader_derivatives")]
     NV_ComputeShaderDerivatives,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_mesh_shader.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_NV_mesh_shader")]
     NV_MeshShader,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_fragment_shader_barycentric.html>
@@ -1976,36 +2770,68 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to [`Self::KHR_FragmentShaderBarycentric`].
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_NV_fragment_shader_barycentric")]
     NV_FragmentShaderBarycentric,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_shader_image_footprint.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_NV_shader_image_footprint")]
     NV_ShaderImageFootprint,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_scissor_exclusive.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_NV_scissor_exclusive")]
     NV_ScissorExclusive,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_device_diagnostic_checkpoints.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_NV_device_diagnostic_checkpoints")]
     NV_DeviceDiagnosticCheckpoints,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_present_timing.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
+    /// - Extension [`KHR_PresentId2`](Extension::KHR_PresentId2)
+    /// - Extension [`KHR_GetSurfaceCapabilities2`](Extension::KHR_GetSurfaceCapabilities2)
+    /// - Extension [`KHR_CalibratedTimestamps`](Extension::KHR_CalibratedTimestamps)
     #[doc(alias = "VK_EXT_present_timing")]
     EXT_PresentTiming,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_INTEL_shader_integer_functions2.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_INTEL_shader_integer_functions2")]
     INTEL_ShaderIntegerFunctions2,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_INTEL_performance_query.html>
@@ -2019,30 +2845,52 @@ pub enum Extension {
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_pci_bus_info")]
     EXT_PciBusInfo,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_AMD_display_native_hdr.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2) OR Version 1.1 with appropriate features
+    /// - Extension [`KHR_GetSurfaceCapabilities2`](Extension::KHR_GetSurfaceCapabilities2)
+    /// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
     #[doc(alias = "VK_AMD_display_native_hdr")]
     AMD_DisplayNativeHdr,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_FUCHSIA_imagepipe_surface.html>
     ///
     /// # About
     /// Instance level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_Surface`](Extension::KHR_Surface).
     #[doc(alias = "VK_FUCHSIA_imagepipe_surface")]
     FUCHSIA_ImagepipeSurface,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_metal_surface.html>
     ///
     /// # About
     /// Instance level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_Surface`](Extension::KHR_Surface).
     #[doc(alias = "VK_EXT_metal_surface")]
     EXT_MetalSurface,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_fragment_density_map.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_fragment_density_map")]
     EXT_FragmentDensityMap,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_scalar_block_layout.html>
@@ -2050,6 +2898,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.2.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_scalar_block_layout")]
     EXT_ScalarBlockLayout,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_GOOGLE_hlsl_functionality1.html>
@@ -2069,42 +2922,73 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.3.
+    ///
+    /// # Requirements
+    /// This extension requires at least version 1.1.
     #[doc(alias = "VK_EXT_subgroup_size_control")]
     EXT_SubgroupSizeControl,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_AMD_shader_core_properties2.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`AMD_ShaderCoreProperties`](Extension::AMD_ShaderCoreProperties).
     #[doc(alias = "VK_AMD_shader_core_properties2")]
     AMD_ShaderCoreProperties2,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_AMD_device_coherent_memory.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_AMD_device_coherent_memory")]
     AMD_DeviceCoherentMemory,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_shader_image_atomic_int64.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_shader_image_atomic_int64")]
     EXT_ShaderImageAtomicInt64,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_memory_budget.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_memory_budget")]
     EXT_MemoryBudget,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_memory_priority.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_memory_priority")]
     EXT_MemoryPriority,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_dedicated_allocation_image_aliasing.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_DedicatedAllocation`](Extension::KHR_DedicatedAllocation) AND Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_NV_dedicated_allocation_image_aliasing")]
     NV_DedicatedAllocationImageAliasing,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_buffer_device_address.html>
@@ -2112,6 +2996,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Deprecated by [`Self::KHR_BufferDeviceAddress`].
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_buffer_device_address")]
     EXT_BufferDeviceAddress,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_tooling_info.html>
@@ -2140,24 +3029,44 @@ pub enum Extension {
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_NV_cooperative_matrix")]
     NV_CooperativeMatrix,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_coverage_reduction_mode.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`NV_FramebufferMixedSamples`](Extension::NV_FramebufferMixedSamples)
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2) OR Version 1.1 with appropriate features
     #[doc(alias = "VK_NV_coverage_reduction_mode")]
     NV_CoverageReductionMode,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_fragment_shader_interlock.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_fragment_shader_interlock")]
     EXT_FragmentShaderInterlock,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_ycbcr_image_arrays.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_SamplerYcbcrConversion`](Extension::KHR_SamplerYcbcrConversion)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_ycbcr_image_arrays")]
     EXT_YcbcrImageArrays,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_provoking_vertex.html>
@@ -2165,18 +3074,33 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Intended for OpenGL emulation.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_provoking_vertex")]
     EXT_ProvokingVertex,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_full_screen_exclusive.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2) OR Version 1.1 with appropriate features
+    /// - Extension [`KHR_Surface`](Extension::KHR_Surface)
+    /// - Extension [`KHR_GetSurfaceCapabilities2`](Extension::KHR_GetSurfaceCapabilities2)
+    /// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
     #[doc(alias = "VK_EXT_full_screen_exclusive")]
     EXT_FullScreenExclusive,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_headless_surface.html>
     ///
     /// # About
     /// Instance level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_Surface`](Extension::KHR_Surface).
     #[doc(alias = "VK_EXT_headless_surface")]
     EXT_HeadlessSurface,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_line_rasterization.html>
@@ -2185,12 +3109,22 @@ pub enum Extension {
     /// Device level.
     /// Promoted to [`Self::KHR_LineRasterization`].
     /// Intended for CAD tooling.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_line_rasterization")]
     EXT_LineRasterization,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_shader_atomic_float.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_shader_atomic_float")]
     EXT_ShaderAtomicFloat,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_host_query_reset.html>
@@ -2198,6 +3132,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.2.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_host_query_reset")]
     EXT_HostQueryReset,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_index_type_uint8.html>
@@ -2205,6 +3144,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to [`Self::KHR_IndexTypeUint8`].
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_index_type_uint8")]
     EXT_IndexTypeUint8,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_extended_dynamic_state.html>
@@ -2212,6 +3156,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.3.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_extended_dynamic_state")]
     EXT_ExtendedDynamicState,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_host_image_copy.html>
@@ -2219,18 +3168,31 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.4.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - ((Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2) OR Version 1.1 with appropriate features) AND Extension [`KHR_CopyCommands2`](Extension::KHR_CopyCommands2) AND Extension [`KHR_FormatFeatureFlags2`](Extension::KHR_FormatFeatureFlags2))
+    /// - Version 1.3 with appropriate features
     #[doc(alias = "VK_EXT_host_image_copy")]
     EXT_HostImageCopy,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_map_memory_placed.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_MapMemory2`](Extension::KHR_MapMemory2)
+    /// - Version 1.4 with appropriate features
     #[doc(alias = "VK_EXT_map_memory_placed")]
     EXT_MapMemoryPlaced,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_shader_atomic_float2.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`EXT_ShaderAtomicFloat`](Extension::EXT_ShaderAtomicFloat).
     #[doc(alias = "VK_EXT_shader_atomic_float2")]
     EXT_ShaderAtomicFloat2,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_surface_maintenance1.html>
@@ -2238,6 +3200,11 @@ pub enum Extension {
     /// # About
     /// Instance level.
     /// Promoted to [`Self::KHR_SurfaceMaintenance1`].
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`KHR_Surface`](Extension::KHR_Surface)
+    /// - Extension [`KHR_GetSurfaceCapabilities2`](Extension::KHR_GetSurfaceCapabilities2)
     #[doc(alias = "VK_EXT_surface_maintenance1")]
     EXT_SurfaceMaintenance1,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_swapchain_maintenance1.html>
@@ -2245,6 +3212,12 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to [`Self::KHR_SwapchainMaintenance1`].
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
+    /// - Extension [`EXT_SurfaceMaintenance1`](Extension::EXT_SurfaceMaintenance1)
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2) OR Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_swapchain_maintenance1")]
     EXT_SwapchainMaintenance1,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_shader_demote_to_helper_invocation.html>
@@ -2252,18 +3225,33 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.3.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_shader_demote_to_helper_invocation")]
     EXT_ShaderDemoteToHelperInvocation,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_device_generated_commands.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Version 1.1 with appropriate features AND Extension [`KHR_BufferDeviceAddress`](Extension::KHR_BufferDeviceAddress)
+    /// - Version 1.2 with appropriate features
     #[doc(alias = "VK_NV_device_generated_commands")]
     NV_DeviceGeneratedCommands,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_inherited_viewport_scissor.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_NV_inherited_viewport_scissor")]
     NV_InheritedViewportScissor,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_texel_buffer_alignment.html>
@@ -2271,6 +3259,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.3.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_texel_buffer_alignment")]
     EXT_TexelBufferAlignment,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_QCOM_render_pass_transform.html>
@@ -2284,6 +3277,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Intended for Direct3D emulation.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_depth_bias_control")]
     EXT_DepthBiasControl,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_device_memory_report.html>
@@ -2291,12 +3289,20 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Intended for development tooling.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_device_memory_report")]
     EXT_DeviceMemoryReport,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_acquire_drm_display.html>
     ///
     /// # About
     /// Instance level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`EXT_DirectModeDisplay`](Extension::EXT_DirectModeDisplay).
     #[doc(alias = "VK_EXT_acquire_drm_display")]
     EXT_AcquireDrmDisplay,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_robustness2.html>
@@ -2304,6 +3310,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to [`Self::KHR_Robustness2`].
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_robustness2")]
     EXT_Robustness2,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_custom_border_color.html>
@@ -2311,12 +3322,22 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Intended for OpenGL emulation, Direct3D emulation.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_custom_border_color")]
     EXT_CustomBorderColor,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_texture_compression_astc_3d.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_texture_compression_astc_3d")]
     EXT_TextureCompressionAstc3D,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_GOOGLE_user_type.html>
@@ -2329,6 +3350,13 @@ pub enum Extension {
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2) OR Version 1.1 with appropriate features
+    /// - Extension [`KHR_Surface`](Extension::KHR_Surface)
+    /// - Extension [`KHR_GetSurfaceCapabilities2`](Extension::KHR_GetSurfaceCapabilities2)
+    /// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
     #[doc(alias = "VK_NV_present_barrier")]
     NV_PresentBarrier,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_private_data.html>
@@ -2336,6 +3364,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.3.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_private_data")]
     EXT_PrivateData,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_pipeline_creation_cache_control.html>
@@ -2343,12 +3376,22 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.3.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_pipeline_creation_cache_control")]
     EXT_PipelineCreationCacheControl,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_device_diagnostics_config.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_NV_device_diagnostics_config")]
     NV_DeviceDiagnosticsConfig,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_QCOM_render_pass_store_ops.html>
@@ -2361,36 +3404,64 @@ pub enum Extension {
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_QCOM_queue_perf_hint")]
     QCOM_QueuePerfHint,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_QCOM_image_processing3.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_QCOM_image_processing3")]
     QCOM_ImageProcessing3,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_QCOM_shader_multiple_wait_queues.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_QCOM_shader_multiple_wait_queues")]
     QCOM_ShaderMultipleWaitQueues,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_shader_split_barrier.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_shader_split_barrier")]
     EXT_ShaderSplitBarrier,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_cuda_kernel_launch.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_NV_cuda_kernel_launch")]
     NV_CudaKernelLaunch,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_QCOM_tile_shading.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`QCOM_TileProperties`](Extension::QCOM_TileProperties).
     #[doc(alias = "VK_QCOM_tile_shading")]
     QCOM_TileShading,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_low_latency.html>
@@ -2411,30 +3482,51 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Deprecated by [`Self::EXT_DescriptorHeap`].
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - (((Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2) OR Version 1.1 with appropriate features) AND Extension [`KHR_BufferDeviceAddress`](Extension::KHR_BufferDeviceAddress) AND Extension [`EXT_DescriptorIndexing`](Extension::EXT_DescriptorIndexing)) OR Version 1.2 with appropriate features) AND Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
+    /// - Version 1.3 with appropriate features
     #[doc(alias = "VK_EXT_descriptor_buffer")]
     EXT_DescriptorBuffer,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_graphics_pipeline_library.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2) OR Version 1.1 with appropriate features
+    /// - Extension [`KHR_PipelineLibrary`](Extension::KHR_PipelineLibrary)
     #[doc(alias = "VK_EXT_graphics_pipeline_library")]
     EXT_GraphicsPipelineLibrary,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_AMD_shader_early_and_late_fragment_tests.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_AMD_shader_early_and_late_fragment_tests")]
     AMD_ShaderEarlyAndLateFragmentTests,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_fragment_shading_rate_enums.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_FragmentShadingRate`](Extension::KHR_FragmentShadingRate).
     #[doc(alias = "VK_NV_fragment_shading_rate_enums")]
     NV_FragmentShadingRateEnums,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_ray_tracing_motion_blur.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline).
     #[doc(alias = "VK_NV_ray_tracing_motion_blur")]
     NV_RayTracingMotionBlur,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_ycbcr_2plane_444_formats.html>
@@ -2442,18 +3534,31 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.3.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_SamplerYcbcrConversion`](Extension::KHR_SamplerYcbcrConversion)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_ycbcr_2plane_444_formats")]
     EXT_Ycbcr2Plane444Formats,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_fragment_density_map2.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`EXT_FragmentDensityMap`](Extension::EXT_FragmentDensityMap).
     #[doc(alias = "VK_EXT_fragment_density_map2")]
     EXT_FragmentDensityMap2,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_QCOM_rotated_copy_commands.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_CopyCommands2`](Extension::KHR_CopyCommands2)
+    /// - Version 1.3 with appropriate features
     #[doc(alias = "VK_QCOM_rotated_copy_commands")]
     QCOM_RotatedCopyCommands,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_image_robustness.html>
@@ -2461,12 +3566,22 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.3.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_image_robustness")]
     EXT_ImageRobustness,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_image_compression_control.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_image_compression_control")]
     EXT_ImageCompressionControl,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_attachment_feedback_loop_layout.html>
@@ -2474,6 +3589,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Intended for OpenGL emulation, Direct3D emulation.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_attachment_feedback_loop_layout")]
     EXT_AttachmentFeedbackLoopLayout,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_4444_formats.html>
@@ -2481,6 +3601,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.3.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_4444_formats")]
     EXT_4444Formats,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_device_fault.html>
@@ -2488,6 +3613,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to [`Self::KHR_DeviceFault`].
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_device_fault")]
     EXT_DeviceFault,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_ARM_rasterization_order_attachment_access.html>
@@ -2495,24 +3625,40 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to [`Self::EXT_RasterizationOrderAttachmentAccess`].
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_ARM_rasterization_order_attachment_access")]
     ARM_RasterizationOrderAttachmentAccess,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_rgba10x6_formats.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_SamplerYcbcrConversion`](Extension::KHR_SamplerYcbcrConversion)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_rgba10x6_formats")]
     EXT_Rgba10X6Formats,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_acquire_winrt_display.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`EXT_DirectModeDisplay`](Extension::EXT_DirectModeDisplay).
     #[doc(alias = "VK_NV_acquire_winrt_display")]
     NV_AcquireWinrtDisplay,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_directfb_surface.html>
     ///
     /// # About
     /// Instance level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_Surface`](Extension::KHR_Surface).
     #[doc(alias = "VK_EXT_directfb_surface")]
     EXT_DirectfbSurface,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_VALVE_mutable_descriptor_type.html>
@@ -2521,18 +3667,31 @@ pub enum Extension {
     /// Device level.
     /// Promoted to [`Self::EXT_MutableDescriptorType`].
     /// Intended for Direct3D emulation.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_Maintenance3`](Extension::KHR_Maintenance3).
     #[doc(alias = "VK_VALVE_mutable_descriptor_type")]
     VALVE_MutableDescriptorType,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_vertex_input_dynamic_state.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_vertex_input_dynamic_state")]
     EXT_VertexInputDynamicState,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_physical_device_drm.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_physical_device_drm")]
     EXT_PhysicalDeviceDrm,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_device_address_binding_report.html>
@@ -2540,6 +3699,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Intended for debugging, development tooling.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2) OR Version 1.1 with appropriate features
+    /// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
     #[doc(alias = "VK_EXT_device_address_binding_report")]
     EXT_DeviceAddressBindingReport,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_depth_clip_control.html>
@@ -2547,6 +3711,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Intended for OpenGL emulation.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_depth_clip_control")]
     EXT_DepthClipControl,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_primitive_topology_list_restart.html>
@@ -2554,6 +3723,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Intended for OpenGL emulation.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_primitive_topology_list_restart")]
     EXT_PrimitiveTopologyListRestart,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_present_mode_fifo_latest_ready.html>
@@ -2561,60 +3735,108 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to [`Self::KHR_PresentModeFifoLatestReady`].
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_Swapchain`](Extension::KHR_Swapchain).
     #[doc(alias = "VK_EXT_present_mode_fifo_latest_ready")]
     EXT_PresentModeFifoLatestReady,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_FUCHSIA_external_memory.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_ExternalMemoryCapabilities`](Extension::KHR_ExternalMemoryCapabilities) AND Extension [`KHR_ExternalMemory`](Extension::KHR_ExternalMemory)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_FUCHSIA_external_memory")]
     FUCHSIA_ExternalMemory,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_FUCHSIA_external_semaphore.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`KHR_ExternalSemaphoreCapabilities`](Extension::KHR_ExternalSemaphoreCapabilities)
+    /// - Extension [`KHR_ExternalSemaphore`](Extension::KHR_ExternalSemaphore)
     #[doc(alias = "VK_FUCHSIA_external_semaphore")]
     FUCHSIA_ExternalSemaphore,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_FUCHSIA_buffer_collection.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`FUCHSIA_ExternalMemory`](Extension::FUCHSIA_ExternalMemory)
+    /// - Extension [`KHR_SamplerYcbcrConversion`](Extension::KHR_SamplerYcbcrConversion) OR Version 1.1 with appropriate features
     #[doc(alias = "VK_FUCHSIA_buffer_collection")]
     FUCHSIA_BufferCollection,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_HUAWEI_subpass_shading.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - (Extension [`KHR_CreateRenderpass2`](Extension::KHR_CreateRenderpass2) OR Version 1.2 with appropriate features) AND Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
+    /// - Version 1.3 with appropriate features
     #[doc(alias = "VK_HUAWEI_subpass_shading")]
     HUAWEI_SubpassShading,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_HUAWEI_invocation_mask.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
+    /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2) OR Version 1.3 with appropriate features
     #[doc(alias = "VK_HUAWEI_invocation_mask")]
     HUAWEI_InvocationMask,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_external_memory_rdma.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_ExternalMemory`](Extension::KHR_ExternalMemory)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_NV_external_memory_rdma")]
     NV_ExternalMemoryRdma,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_pipeline_properties.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_pipeline_properties")]
     EXT_PipelineProperties,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_frame_boundary.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_frame_boundary")]
     EXT_FrameBoundary,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_multisampled_render_to_single_sampled.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_CreateRenderpass2`](Extension::KHR_CreateRenderpass2) AND Extension [`KHR_DepthStencilResolve`](Extension::KHR_DepthStencilResolve)
+    /// - Version 1.2 with appropriate features
     #[doc(alias = "VK_EXT_multisampled_render_to_single_sampled")]
     EXT_MultisampledRenderToSingleSampled,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_extended_dynamic_state2.html>
@@ -2622,18 +3844,31 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.3.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_extended_dynamic_state2")]
     EXT_ExtendedDynamicState2,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_QNX_screen_surface.html>
     ///
     /// # About
     /// Instance level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_Surface`](Extension::KHR_Surface).
     #[doc(alias = "VK_QNX_screen_surface")]
     QNX_ScreenSurface,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_color_write_enable.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_color_write_enable")]
     EXT_ColorWriteEnable,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_primitives_generated_query.html>
@@ -2641,6 +3876,9 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Intended for OpenGL emulation.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`EXT_TransformFeedback`](Extension::EXT_TransformFeedback).
     #[doc(alias = "VK_EXT_primitives_generated_query")]
     EXT_PrimitivesGeneratedQuery,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_global_priority_query.html>
@@ -2648,24 +3886,44 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to [`Self::KHR_GlobalPriority`].
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`EXT_GlobalPriority`](Extension::EXT_GlobalPriority)
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2) OR Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_global_priority_query")]
     EXT_GlobalPriorityQuery,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_VALVE_video_encode_rgb_conversion.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
+    /// - Extension [`KHR_SamplerYcbcrConversion`](Extension::KHR_SamplerYcbcrConversion) OR Version 1.1 with appropriate features
     #[doc(alias = "VK_VALVE_video_encode_rgb_conversion")]
     VALVE_VideoEncodeRgbConversion,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_image_view_min_lod.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_image_view_min_lod")]
     EXT_ImageViewMinLod,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_multi_draw.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_multi_draw")]
     EXT_MultiDraw,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_image_2d_view_of_3d.html>
@@ -2673,12 +3931,20 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Intended for OpenGL emulation.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_Maintenance1`](Extension::KHR_Maintenance1) AND Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_image_2d_view_of_3d")]
     EXT_Image2DViewOf3D,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_shader_tile_image.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires at least version 1.3.
     #[doc(alias = "VK_EXT_shader_tile_image")]
     EXT_ShaderTileImage,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_opacity_micromap.html>
@@ -2686,6 +3952,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to [`Self::KHR_OpacityMicromap`].
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
+    /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2) OR Version 1.3 with appropriate features
     #[doc(alias = "VK_EXT_opacity_micromap")]
     EXT_OpacityMicromap,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_displacement_micromap.html>
@@ -2693,6 +3964,9 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Deprecated by [`Self::NV_ClusterAccelerationStructure`].
+    ///
+    /// # Requirements
+    /// This extension requires extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap).
     #[doc(alias = "VK_NV_displacement_micromap")]
     NV_DisplacementMicromap,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_load_store_op_none.html>
@@ -2706,6 +3980,11 @@ pub enum Extension {
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_HUAWEI_cluster_culling_shader")]
     HUAWEI_ClusterCullingShader,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_border_color_swizzle.html>
@@ -2713,24 +3992,36 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Intended for OpenGL emulation, Direct3D emulation.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`EXT_CustomBorderColor`](Extension::EXT_CustomBorderColor).
     #[doc(alias = "VK_EXT_border_color_swizzle")]
     EXT_BorderColorSwizzle,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_pageable_device_local_memory.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`EXT_MemoryPriority`](Extension::EXT_MemoryPriority).
     #[doc(alias = "VK_EXT_pageable_device_local_memory")]
     EXT_PageableDeviceLocalMemory,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_ARM_shader_core_properties.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires at least version 1.1.
     #[doc(alias = "VK_ARM_shader_core_properties")]
     ARM_ShaderCoreProperties,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_ARM_scheduling_controls.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`ARM_ShaderCoreBuiltins`](Extension::ARM_ShaderCoreBuiltins).
     #[doc(alias = "VK_ARM_scheduling_controls")]
     ARM_SchedulingControls,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_image_sliced_view_of_3d.html>
@@ -2738,6 +4029,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Intended for Direct3D emulation.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_Maintenance1`](Extension::KHR_Maintenance1) AND Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_image_sliced_view_of_3d")]
     EXT_ImageSlicedViewOf3D,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_VALVE_descriptor_set_host_mapping.html>
@@ -2745,6 +4041,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Intended for Direct3D emulation.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_VALVE_descriptor_set_host_mapping")]
     VALVE_DescriptorSetHostMapping,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_depth_clamp_zero_one.html>
@@ -2752,6 +4053,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to [`Self::KHR_DepthClampZeroOne`].
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_depth_clamp_zero_one")]
     EXT_DepthClampZeroOne,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_non_seamless_cube_map.html>
@@ -2759,12 +4065,22 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Intended for Direct3D emulation, OpenGL emulation.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_non_seamless_cube_map")]
     EXT_NonSeamlessCubeMap,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_ARM_render_pass_striped.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - (Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2) OR Version 1.1 with appropriate features) AND Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
+    /// - Version 1.3 with appropriate features
     #[doc(alias = "VK_ARM_render_pass_striped")]
     ARM_RenderPassStriped,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_QCOM_fragment_density_map_offset.html>
@@ -2772,6 +4088,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to [`Self::EXT_FragmentDensityMapOffset`].
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2) OR Version 1.1 with appropriate features
+    /// - Extension [`EXT_FragmentDensityMap`](Extension::EXT_FragmentDensityMap)
     #[doc(alias = "VK_QCOM_fragment_density_map_offset")]
     QCOM_FragmentDensityMapOffset,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_copy_memory_indirect.html>
@@ -2779,6 +4100,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to [`Self::KHR_CopyMemoryIndirect`].
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - (Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2) OR Version 1.1 with appropriate features) AND Extension [`KHR_BufferDeviceAddress`](Extension::KHR_BufferDeviceAddress)
+    /// - Version 1.2 with appropriate features
     #[doc(alias = "VK_NV_copy_memory_indirect")]
     NV_CopyMemoryIndirect,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_memory_decompression.html>
@@ -2786,24 +4112,40 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to [`Self::EXT_MemoryDecompression`].
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - (Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2) OR Version 1.1 with appropriate features) AND Extension [`KHR_BufferDeviceAddress`](Extension::KHR_BufferDeviceAddress)
+    /// - Version 1.2 with appropriate features
     #[doc(alias = "VK_NV_memory_decompression")]
     NV_MemoryDecompression,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_device_generated_commands_compute.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`NV_DeviceGeneratedCommands`](Extension::NV_DeviceGeneratedCommands).
     #[doc(alias = "VK_NV_device_generated_commands_compute")]
     NV_DeviceGeneratedCommandsCompute,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_ray_tracing_linear_swept_spheres.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline).
     #[doc(alias = "VK_NV_ray_tracing_linear_swept_spheres")]
     NV_RayTracingLinearSweptSpheres,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_linear_color_attachment.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_NV_linear_color_attachment")]
     NV_LinearColorAttachment,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_GOOGLE_surfaceless_query.html>
@@ -2811,48 +4153,86 @@ pub enum Extension {
     /// # About
     /// Instance level.
     /// Intended for OpenGL emulation.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_Surface`](Extension::KHR_Surface).
     #[doc(alias = "VK_GOOGLE_surfaceless_query")]
     GOOGLE_SurfacelessQuery,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_image_compression_control_swapchain.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`EXT_ImageCompressionControl`](Extension::EXT_ImageCompressionControl)
+    /// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
     #[doc(alias = "VK_EXT_image_compression_control_swapchain")]
     EXT_ImageCompressionControlSwapchain,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_QCOM_image_processing.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_FormatFeatureFlags2`](Extension::KHR_FormatFeatureFlags2)
+    /// - Version 1.3 with appropriate features
     #[doc(alias = "VK_QCOM_image_processing")]
     QCOM_ImageProcessing,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_nested_command_buffer.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_nested_command_buffer")]
     EXT_NestedCommandBuffer,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_OHOS_external_memory.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - (Extension [`KHR_SamplerYcbcrConversion`](Extension::KHR_SamplerYcbcrConversion) AND Extension [`KHR_ExternalMemory`](Extension::KHR_ExternalMemory) AND Extension [`KHR_DedicatedAllocation`](Extension::KHR_DedicatedAllocation)) OR Version 1.1 with appropriate features
+    /// - Extension [`EXT_QueueFamilyForeign`](Extension::EXT_QueueFamilyForeign)
     #[doc(alias = "VK_OHOS_external_memory")]
     OHOS_ExternalMemory,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_external_memory_acquire_unmodified.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_ExternalMemory`](Extension::KHR_ExternalMemory)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_external_memory_acquire_unmodified")]
     EXT_ExternalMemoryAcquireUnmodified,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_extended_dynamic_state3.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_extended_dynamic_state3")]
     EXT_ExtendedDynamicState3,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_subpass_merge_feedback.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_subpass_merge_feedback")]
     EXT_SubpassMergeFeedback,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_LUNARG_direct_driver_loading.html>
@@ -2865,24 +4245,42 @@ pub enum Extension {
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires at least version 1.3.
     #[doc(alias = "VK_ARM_tensors")]
     ARM_Tensors,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_shader_module_identifier.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - (Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2) OR Version 1.1 with appropriate features) AND Extension [`EXT_PipelineCreationCacheControl`](Extension::EXT_PipelineCreationCacheControl)
+    /// - Version 1.3 with appropriate features
     #[doc(alias = "VK_EXT_shader_module_identifier")]
     EXT_ShaderModuleIdentifier,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_rasterization_order_attachment_access.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_rasterization_order_attachment_access")]
     EXT_RasterizationOrderAttachmentAccess,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_optical_flow.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - ((Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2) OR Version 1.1 with appropriate features) AND Extension [`KHR_FormatFeatureFlags2`](Extension::KHR_FormatFeatureFlags2) AND Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2))
+    /// - Version 1.3 with appropriate features
     #[doc(alias = "VK_NV_optical_flow")]
     NV_OpticalFlow,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_legacy_dithering.html>
@@ -2890,6 +4288,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Intended for OpenGL emulation.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_legacy_dithering")]
     EXT_LegacyDithering,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_pipeline_protected_access.html>
@@ -2897,6 +4300,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to core in version 1.4.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_pipeline_protected_access")]
     EXT_PipelineProtectedAccess,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_ANDROID_external_format_resolve.html>
@@ -2904,42 +4312,75 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Intended for OpenGL emulation.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`ANDROID_ExternalMemoryAndroidHardwareBuffer`](Extension::ANDROID_ExternalMemoryAndroidHardwareBuffer).
     #[doc(alias = "VK_ANDROID_external_format_resolve")]
     ANDROID_ExternalFormatResolve,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_AMD_anti_lag.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_AMD_anti_lag")]
     AMD_AntiLag,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_AMDX_dense_geometry_format.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
+    /// - (Version 1.4 with appropriate features OR Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags) OR Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5))
     #[doc(alias = "VK_AMDX_dense_geometry_format")]
     AMDX_DenseGeometryFormat,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_shader_object.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - (Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2) OR Version 1.1 with appropriate features) AND Extension [`KHR_DynamicRendering`](Extension::KHR_DynamicRendering)
+    /// - Version 1.3 with appropriate features
     #[doc(alias = "VK_EXT_shader_object")]
     EXT_ShaderObject,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_QCOM_tile_properties.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_QCOM_tile_properties")]
     QCOM_TileProperties,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_SEC_amigo_profiling.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_SEC_amigo_profiling")]
     SEC_AmigoProfiling,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_QCOM_multiview_per_view_viewports.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_QCOM_multiview_per_view_viewports")]
     QCOM_MultiviewPerViewViewports,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_ray_tracing_invocation_reorder.html>
@@ -2947,18 +4388,31 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to [`Self::EXT_RayTracingInvocationReorder`].
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline).
     #[doc(alias = "VK_NV_ray_tracing_invocation_reorder")]
     NV_RayTracingInvocationReorder,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_cooperative_vector.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_NV_cooperative_vector")]
     NV_CooperativeVector,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_extended_sparse_address_space.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_NV_extended_sparse_address_space")]
     NV_ExtendedSparseAddressSpace,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_mutable_descriptor_type.html>
@@ -2966,6 +4420,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Intended for Direct3D emulation.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_Maintenance3`](Extension::KHR_Maintenance3)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_mutable_descriptor_type")]
     EXT_MutableDescriptorType,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_legacy_vertex_attributes.html>
@@ -2973,6 +4432,9 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Intended for OpenGL emulation.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`EXT_VertexInputDynamicState`](Extension::EXT_VertexInputDynamicState).
     #[doc(alias = "VK_EXT_legacy_vertex_attributes")]
     EXT_LegacyVertexAttributes,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_layer_settings.html>
@@ -2985,6 +4447,11 @@ pub enum Extension {
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_ARM_shader_core_builtins")]
     ARM_ShaderCoreBuiltins,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_pipeline_library_group_handles.html>
@@ -2992,36 +4459,65 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to [`Self::KHR_PipelineLibraryGroupHandles`].
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
+    /// - Extension [`KHR_PipelineLibrary`](Extension::KHR_PipelineLibrary)
     #[doc(alias = "VK_EXT_pipeline_library_group_handles")]
     EXT_PipelineLibraryGroupHandles,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_dynamic_rendering_unused_attachments.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - (Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2) OR Version 1.1 with appropriate features) AND Extension [`KHR_DynamicRendering`](Extension::KHR_DynamicRendering)
+    /// - Version 1.3 with appropriate features
     #[doc(alias = "VK_EXT_dynamic_rendering_unused_attachments")]
     EXT_DynamicRenderingUnusedAttachments,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_low_latency2.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Version 1.2 with appropriate features OR Extension [`KHR_TimelineSemaphore`](Extension::KHR_TimelineSemaphore)
+    /// - Extension [`KHR_PresentId`](Extension::KHR_PresentId) OR Extension [`KHR_PresentId2`](Extension::KHR_PresentId2)
     #[doc(alias = "VK_NV_low_latency2")]
     NV_LowLatency2,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_ARM_data_graph.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Version 1.3 with appropriate features
+    /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags) OR Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+    /// - Extension [`KHR_DeferredHostOperations`](Extension::KHR_DeferredHostOperations)
     #[doc(alias = "VK_ARM_data_graph")]
     ARM_DataGraph,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_ARM_data_graph_instruction_set_tosa.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`ARM_DataGraph`](Extension::ARM_DataGraph).
     #[doc(alias = "VK_ARM_data_graph_instruction_set_tosa")]
     ARM_DataGraphInstructionSetTosa,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_QCOM_multiview_per_view_render_areas.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_QCOM_multiview_per_view_render_areas")]
     QCOM_MultiviewPerViewRenderAreas,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_per_stage_descriptor_set.html>
@@ -3029,30 +4525,51 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Deprecated by [`Self::EXT_DescriptorHeap`].
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_Maintenance6`](Extension::KHR_Maintenance6)
+    /// - Version 1.4 with appropriate features
     #[doc(alias = "VK_NV_per_stage_descriptor_set")]
     NV_PerStageDescriptorSet,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_QCOM_image_processing2.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`QCOM_ImageProcessing`](Extension::QCOM_ImageProcessing).
     #[doc(alias = "VK_QCOM_image_processing2")]
     QCOM_ImageProcessing2,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_QCOM_filter_cubic_weights.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`EXT_FilterCubic`](Extension::EXT_FilterCubic).
     #[doc(alias = "VK_QCOM_filter_cubic_weights")]
     QCOM_FilterCubicWeights,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_QCOM_ycbcr_degamma.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_QCOM_ycbcr_degamma")]
     QCOM_YcbcrDegamma,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_QCOM_filter_cubic_clamp.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`EXT_FilterCubic`](Extension::EXT_FilterCubic)
+    /// - Version 1.2 with appropriate features OR Extension [`EXT_SamplerFilterMinmax`](Extension::EXT_SamplerFilterMinmax)
     #[doc(alias = "VK_QCOM_filter_cubic_clamp")]
     QCOM_FilterCubicClamp,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_attachment_feedback_loop_dynamic_state.html>
@@ -3060,48 +4577,86 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Intended for OpenGL emulation, Direct3D emulation.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2) OR Version 1.1 with appropriate features
+    /// - Extension [`EXT_AttachmentFeedbackLoopLayout`](Extension::EXT_AttachmentFeedbackLoopLayout)
     #[doc(alias = "VK_EXT_attachment_feedback_loop_dynamic_state")]
     EXT_AttachmentFeedbackLoopDynamicState,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_QNX_external_memory_screen_buffer.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - (Extension [`KHR_SamplerYcbcrConversion`](Extension::KHR_SamplerYcbcrConversion) AND Extension [`KHR_ExternalMemory`](Extension::KHR_ExternalMemory) AND Extension [`KHR_DedicatedAllocation`](Extension::KHR_DedicatedAllocation)) OR Version 1.1 with appropriate features
+    /// - Extension [`EXT_QueueFamilyForeign`](Extension::EXT_QueueFamilyForeign)
     #[doc(alias = "VK_QNX_external_memory_screen_buffer")]
     QNX_ExternalMemoryScreenBuffer,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_MSFT_layered_driver.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_MSFT_layered_driver")]
     MSFT_LayeredDriver,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_descriptor_pool_overallocation.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires at least version 1.1.
     #[doc(alias = "VK_NV_descriptor_pool_overallocation")]
     NV_DescriptorPoolOverallocation,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_QCOM_tile_memory_heap.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetMemoryRequirements2`](Extension::KHR_GetMemoryRequirements2) AND Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_QCOM_tile_memory_heap")]
     QCOM_TileMemoryHeap,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_memory_decompression.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Extension [`KHR_BufferDeviceAddress`](Extension::KHR_BufferDeviceAddress)
     #[doc(alias = "VK_EXT_memory_decompression")]
     EXT_MemoryDecompression,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_display_stereo.html>
     ///
     /// # About
     /// Instance level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`KHR_Display`](Extension::KHR_Display)
+    /// - Extension [`KHR_GetDisplayProperties2`](Extension::KHR_GetDisplayProperties2)
     #[doc(alias = "VK_NV_display_stereo")]
     NV_DisplayStereo,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_raw_access_chains.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_NV_raw_access_chains")]
     NV_RawAccessChains,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_external_compute_queue.html>
@@ -3114,54 +4669,93 @@ pub enum Extension {
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_NV_command_buffer_inheritance")]
     NV_CommandBufferInheritance,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_shader_atomic_float16_vector.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_NV_shader_atomic_float16_vector")]
     NV_ShaderAtomicFloat16Vector,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_shader_replicated_composites.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_shader_replicated_composites")]
     EXT_ShaderReplicatedComposites,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_ARM_tensor_controls.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`ARM_Tensors`](Extension::ARM_Tensors).
     #[doc(alias = "VK_ARM_tensor_controls")]
     ARM_TensorControls,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_shader_float8.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_shader_float8")]
     EXT_ShaderFloat8,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_ray_tracing_validation.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_NV_ray_tracing_validation")]
     NV_RayTracingValidation,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_cluster_acceleration_structure.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure).
     #[doc(alias = "VK_NV_cluster_acceleration_structure")]
     NV_ClusterAccelerationStructure,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_partitioned_acceleration_structure.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure).
     #[doc(alias = "VK_NV_partitioned_acceleration_structure")]
     NV_PartitionedAccelerationStructure,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_device_generated_commands.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - (Extension [`KHR_BufferDeviceAddress`](Extension::KHR_BufferDeviceAddress) OR Version 1.2 with appropriate features) AND (Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags) OR Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5))
+    /// - Version 1.3 with appropriate features
     #[doc(alias = "VK_EXT_device_generated_commands")]
     EXT_DeviceGeneratedCommands,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_MESA_image_alignment_control.html>
@@ -3169,6 +4763,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Intended for Direct3D emulation.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_MESA_image_alignment_control")]
     MESA_ImageAlignmentControl,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_push_constant_bank.html>
@@ -3181,48 +4780,81 @@ pub enum Extension {
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline).
     #[doc(alias = "VK_EXT_ray_tracing_invocation_reorder")]
     EXT_RayTracingInvocationReorder,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_depth_clamp_control.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_depth_clamp_control")]
     EXT_DepthClampControl,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_OHOS_surface.html>
     ///
     /// # About
     /// Instance level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_Surface`](Extension::KHR_Surface).
     #[doc(alias = "VK_OHOS_surface")]
     OHOS_Surface,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_HUAWEI_hdr_vivid.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2) OR Version 1.1 with appropriate features
+    /// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
+    /// - Extension [`EXT_HdrMetadata`](Extension::EXT_HdrMetadata)
     #[doc(alias = "VK_HUAWEI_hdr_vivid")]
     HUAWEI_HdrVivid,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_cooperative_matrix2.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_CooperativeMatrix`](Extension::KHR_CooperativeMatrix).
     #[doc(alias = "VK_NV_cooperative_matrix2")]
     NV_CooperativeMatrix2,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_ARM_pipeline_opacity_micromap.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap).
     #[doc(alias = "VK_ARM_pipeline_opacity_micromap")]
     ARM_PipelineOpacityMicromap,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_IMG_filter_linear_2d.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_FormatFeatureFlags2`](Extension::KHR_FormatFeatureFlags2)
+    /// - Version 1.3 with appropriate features
     #[doc(alias = "VK_IMG_filter_linear_2d")]
     IMG_FilterLinear2D,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_external_memory_metal.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_ExternalMemory`](Extension::KHR_ExternalMemory)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_external_memory_metal")]
     EXT_ExternalMemoryMetal,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_ARM_performance_counters_by_region.html>
@@ -3230,6 +4862,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Intended for development tooling.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_ARM_performance_counters_by_region")]
     ARM_PerformanceCountersByRegion,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_ARM_shader_instrumentation.html>
@@ -3237,6 +4874,11 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Intended for development tooling.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_ARM_shader_instrumentation")]
     ARM_ShaderInstrumentation,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_vertex_attribute_robustness.html>
@@ -3244,120 +4886,212 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Promoted to [`Self::KHR_Maintenance9`].
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_vertex_attribute_robustness")]
     EXT_VertexAttributeRobustness,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_ARM_format_pack.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_ARM_format_pack")]
     ARM_FormatPack,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_VALVE_fragment_density_map_layered.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - (Version 1.4 with appropriate features OR Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags) OR Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5))
+    /// - Extension [`EXT_FragmentDensityMap`](Extension::EXT_FragmentDensityMap)
     #[doc(alias = "VK_VALVE_fragment_density_map_layered")]
     VALVE_FragmentDensityMapLayered,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_present_metering.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_NV_present_metering")]
     NV_PresentMetering,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_multisampled_render_to_swapchain.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
+    /// - Extension [`EXT_MultisampledRenderToSingleSampled`](Extension::EXT_MultisampledRenderToSingleSampled)
     #[doc(alias = "VK_EXT_multisampled_render_to_swapchain")]
     EXT_MultisampledRenderToSwapchain,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_fragment_density_map_offset.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2) OR Version 1.1 with appropriate features
+    /// - Extension [`EXT_FragmentDensityMap`](Extension::EXT_FragmentDensityMap)
+    /// - Extension [`KHR_CreateRenderpass2`](Extension::KHR_CreateRenderpass2) OR Version 1.2 with appropriate features
+    /// - Version 1.3 with appropriate features OR Extension [`KHR_DynamicRendering`](Extension::KHR_DynamicRendering)
     #[doc(alias = "VK_EXT_fragment_density_map_offset")]
     EXT_FragmentDensityMapOffset,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_zero_initialize_device_memory.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_zero_initialize_device_memory")]
     EXT_ZeroInitializeDeviceMemory,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_shader_64bit_indexing.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_shader_64bit_indexing")]
     EXT_Shader64BitIndexing,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_custom_resolve.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_custom_resolve")]
     EXT_CustomResolve,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_QCOM_data_graph_model.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`ARM_DataGraph`](Extension::ARM_DataGraph).
     #[doc(alias = "VK_QCOM_data_graph_model")]
     QCOM_DataGraphModel,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_ARM_data_graph_optical_flow.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`ARM_DataGraph`](Extension::ARM_DataGraph).
     #[doc(alias = "VK_ARM_data_graph_optical_flow")]
     ARM_DataGraphOpticalFlow,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_shader_long_vector.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires at least version 1.2.
     #[doc(alias = "VK_EXT_shader_long_vector")]
     EXT_ShaderLongVector,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_SEC_pipeline_cache_incremental_mode.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_SEC_pipeline_cache_incremental_mode")]
     SEC_PipelineCacheIncrementalMode,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_shader_uniform_buffer_unsized_array.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_shader_uniform_buffer_unsized_array")]
     EXT_ShaderUniformBufferUnsizedArray,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_compute_occupancy_priority.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_NV_compute_occupancy_priority")]
     NV_ComputeOccupancyPriority,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_cooperative_matrix_maintenance1.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_CooperativeMatrix`](Extension::KHR_CooperativeMatrix).
     #[doc(alias = "VK_EXT_cooperative_matrix_maintenance1")]
     EXT_CooperativeMatrixMaintenance1,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_shader_subgroup_partitioned.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_shader_subgroup_partitioned")]
     EXT_ShaderSubgroupPartitioned,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_SEC_ubm_surface.html>
     ///
     /// # About
     /// Instance level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`KHR_Surface`](Extension::KHR_Surface).
     #[doc(alias = "VK_SEC_ubm_surface")]
     SEC_UbmSurface,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_shader_ocp_microscaling_types.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_shader_ocp_microscaling_types")]
     EXT_ShaderOcpMicroscalingTypes,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_VALVE_shader_mixed_float_dot_product.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2) OR Version 1.1 with appropriate features
+    /// - Extension [`KHR_ShaderFloat16Int8`](Extension::KHR_ShaderFloat16Int8) OR Version 1.2 with appropriate features
     #[doc(alias = "VK_VALVE_shader_mixed_float_dot_product")]
     VALVE_ShaderMixedFloatDotProduct,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_SEC_throttle_hint.html>
@@ -3370,6 +5104,11 @@ pub enum Extension {
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_ARM_data_graph_neural_accelerator_statistics")]
     ARM_DataGraphNeuralAcceleratorStatistics,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_primitive_restart_index.html>
@@ -3377,24 +5116,42 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Intended for OpenGL emulation.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_primitive_restart_index")]
     EXT_PrimitiveRestartIndex,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_image_tiling_control.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    /// - Version 1.1 with appropriate features
     #[doc(alias = "VK_EXT_image_tiling_control")]
     EXT_ImageTilingControl,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_cooperative_matrix_decode_vector.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extension requires extension [`NV_CooperativeMatrix2`](Extension::NV_CooperativeMatrix2).
     #[doc(alias = "VK_NV_cooperative_matrix_decode_vector")]
     NV_CooperativeMatrixDecodeVector,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_NV_private_data_base_handle.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Version 1.3 with appropriate features
+    /// - Extension [`EXT_PrivateData`](Extension::EXT_PrivateData)
     #[doc(alias = "VK_NV_private_data_base_handle")]
     NV_PrivateDataBaseHandle,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_VALVE_buffer_device_address_allocation_alignment.html>
@@ -3402,30 +5159,55 @@ pub enum Extension {
     /// # About
     /// Device level.
     /// Intended for Direct3D emulation.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_BufferDeviceAddress`](Extension::KHR_BufferDeviceAddress)
+    /// - Version 1.2 with appropriate features
     #[doc(alias = "VK_VALVE_buffer_device_address_allocation_alignment")]
     VALVE_BufferDeviceAddressAllocationAlignment,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_acceleration_structure.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - (Version 1.1 with appropriate features AND Extension [`EXT_DescriptorIndexing`](Extension::EXT_DescriptorIndexing) AND Extension [`KHR_BufferDeviceAddress`](Extension::KHR_BufferDeviceAddress)) OR Version 1.2 with appropriate features
+    /// - Extension [`KHR_DeferredHostOperations`](Extension::KHR_DeferredHostOperations)
     #[doc(alias = "VK_KHR_acceleration_structure")]
     KHR_AccelerationStructure,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_ray_tracing_pipeline.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`KHR_Spirv14`](Extension::KHR_Spirv14) OR Version 1.2 with appropriate features
+    /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
     #[doc(alias = "VK_KHR_ray_tracing_pipeline")]
     KHR_RayTracingPipeline,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_ray_query.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires all of the following:
+    /// - Extension [`KHR_Spirv14`](Extension::KHR_Spirv14) OR Version 1.2 with appropriate features
+    /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
     #[doc(alias = "VK_KHR_ray_query")]
     KHR_RayQuery,
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_EXT_mesh_shader.html>
     ///
     /// # About
     /// Device level.
+    ///
+    /// # Requirements
+    /// This extensions requires at least one of the following:
+    /// - Extension [`KHR_Spirv14`](Extension::KHR_Spirv14)
+    /// - Version 1.2 with appropriate features
     #[doc(alias = "VK_EXT_mesh_shader")]
     EXT_MeshShader,
 }

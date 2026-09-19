@@ -1,7 +1,11 @@
+from __future__ import annotations
+
+import ast
 import os
 import sys
 from dataclasses import dataclass, field
 from pathlib import Path
+from typing import Any, override
 
 import textcase
 from vulkan_object import get_vulkan_object
@@ -60,6 +64,88 @@ HANDLES_MODULE_PREFIX: str = """
 use crate::internal::*;
 use crate::enums::*;
 """
+
+
+@dataclass
+class RequirementVersion:
+    version_number: str
+
+    @override
+    def __str__(self):
+        return f"Version {self.version_number} with appropriate features"
+
+
+@dataclass
+class RequirementExtension:
+    ext: str
+
+    @override
+    def __str__(self):
+        return f"Extension [`{self.ext}`](Extension::{self.ext})"
+
+
+@dataclass
+class RequirementOp:
+    op: str
+    values: list[RequirementVersion | RequirementExtension | RequirementOp]
+
+    @staticmethod
+    def parse(expr: str) -> RequirementVersion | RequirementExtension | RequirementOp:
+        # hack: use python AST to parse it
+        def inner(
+            node: Any,
+        ) -> RequirementVersion | RequirementExtension | RequirementOp:
+            if isinstance(node, ast.Name):
+                if node.id.startswith("VK_VERSION_"):
+                    return RequirementVersion(version_number(node.id))
+                else:
+                    return RequirementExtension(names.extension(node.id))
+
+            if isinstance(node, ast.BoolOp):
+                if isinstance(node.op, ast.And):
+                    op = "and"
+                else:
+                    assert isinstance(node.op, ast.Or)
+                    op = "or"
+
+                values = list(map(inner, node.values))
+                requirement = RequirementOp(op, values)
+                requirement.flatten()
+                return requirement
+
+            print("Failed to parse vulkan requirements")
+            sys.exit(-1)
+
+        expr = expr.replace(",", " or ").replace("+", " and ")
+        node = ast.parse(expr, mode="eval").body
+        return inner(node)
+
+    def flatten_inner(self):
+        new_children: list[
+            RequirementVersion | RequirementExtension | RequirementOp
+        ] = []
+
+        for child in self.values:
+            if isinstance(child, RequirementOp) and child.op == self.op:
+                new_children.extend(child.values)
+            else:
+                new_children.append(child)
+
+        self.values = new_children
+
+    def flatten(self):
+        current = self.values
+        while True:
+            self.flatten_inner()
+            if self.values == current:
+                return
+
+            current = self.values
+
+    @override
+    def __str__(self):
+        inner = f" {self.op.upper()} ".join(map(str, self.values))
+        return f"({inner})"
 
 
 class CodeWriter:
@@ -134,15 +220,21 @@ class Context:
         else:
             return name
 
+    def vulkan_doc_link(self, name: str, video: bool = False) -> str:
+        if video:
+            return "https://docs.vulkan.org/spec/latest/chapters/videocoding.html"
+        else:
+            return (
+                f"https://docs.vulkan.org/refpages/latest/refpages/source/{name}.html"
+            )
+
     def vulkan_doc_header(self, out: CodeWriter, name: str, video: bool = False):
         if video:
             out.writeln(
-                f"/// [`{name}`](https://docs.vulkan.org/spec/latest/chapters/videocoding.html) (Vulkan Video)"
+                f"/// [`{name}`]({self.vulkan_doc_link(name, True)}) (Vulkan Video)"
             )
         else:
-            out.writeln(
-                f"/// [`{name}`](https://docs.vulkan.org/refpages/latest/refpages/source/{name}.html)"
-            )
+            out.writeln(f"/// [`{name}`]({self.vulkan_doc_link(name, False)})")
 
         out.writeln("///")
 
@@ -215,21 +307,24 @@ class Context:
     def command_doc_header(self, out: CodeWriter, command: vkobj.Command):
         optional_params = [param for param in command.params if param.optional]
 
-        if command.legacy is not None and (
-            command.legacy.version is not None or len(command.legacy.extensions) > 0
-        ):
-            # TODO: improve, consider extensions in both cases
-            if command.legacy.version is not None:
-                out.writeln(f"/// # Deprecated API ({command.legacy.link})")
+        legacy_high_prio = (
+            command.legacy is not None and command.legacy.version is not None
+        )
+        legacy_low_prio = (
+            command.legacy is not None and len(command.legacy.extensions) > 0
+        )
 
-                version_num = version_number(command.legacy.version.name)
-                out.writeln(f"/// This command is legacy since version {version_num}.")
-            else:
+        if legacy_high_prio:
+            assert command.legacy is not None
+            assert command.legacy.version is not None
+            out.writeln(f"/// # Legacy API (`{command.legacy.link}`)")
+
+            version_num = version_number(command.legacy.version.name)
+            out.writeln(f"/// This command is legacy since version {version_num}.")
+
+            if len(command.legacy.extensions) > 0:
                 out.writeln(
-                    f"/// # Conditionally deprecated API ({command.legacy.link})"
-                )
-                out.writeln(
-                    "/// This command is legacy when any of the following extensions are enabled:"
+                    "/// This command is also legacy when any of the following extensions are enabled:"
                 )
 
                 for ext in command.legacy.extensions:
@@ -242,7 +337,7 @@ class Context:
 
             if command.legacy.supersededBy is not None:
                 out.writeln(
-                    f"/// It has been superseded by `{command.legacy.supersededBy}`."
+                    f"/// It has been superseded by [`{command.legacy.supersededBy}`]({self.vulkan_doc_link(command.legacy.supersededBy)})."
                 )
 
             out.writeln("///")
@@ -300,6 +395,27 @@ class Context:
                     variant = error
 
                 out.writeln(f"/// - [`{error}`](ResultCode::{variant})")
+
+            out.writeln("///")
+
+        if not legacy_high_prio and legacy_low_prio:
+            assert command.legacy is not None
+            out.writeln(f"/// # Legacy API (`{command.legacy.link}`)")
+            out.writeln(
+                "/// This command is legacy when any of the following extensions are enabled:"
+            )
+
+            for ext in command.legacy.extensions:
+                ext_name = names.extension(ext)
+                out.writeln(f"/// - Extension [`{ext_name}`](Extension::{ext_name})")
+
+            if command.legacy.supersededBy is not None:
+                out.writeln("///")
+                out.writeln(
+                    f"/// It has been superseded by [`{command.legacy.supersededBy}`]({self.vulkan_doc_link(command.legacy.supersededBy)})."
+                )
+
+            out.writeln("///")
 
     def returned_only_doc_header(self, out: CodeWriter, returned_only: bool):
         if returned_only:
@@ -980,6 +1096,38 @@ class Context:
                 }
                 usecases = [known_use_cases.get(i, i) for i in ext.specialUse]
                 out.writeln(f"/// Intended for {', '.join(usecases)}.")
+
+            if ext.depends is not None and ext.depends != "":
+                out.writeln("///")
+                out.writeln("/// # Requirements")
+                requirements = RequirementOp.parse(ext.depends)
+
+                if isinstance(requirements, RequirementVersion):
+                    out.writeln(
+                        f"/// This extension requires at least version {requirements.version_number}."
+                    )
+                elif isinstance(requirements, RequirementExtension):
+                    out.writeln(
+                        f"/// This extension requires extension [`{requirements.ext}`](Extension::{requirements.ext})."
+                    )
+                else:
+                    if requirements.op == "or":
+                        out.writeln(
+                            "/// This extensions requires at least one of the following: "
+                        )
+                    else:
+                        out.writeln(
+                            "/// This extensions requires all of the following: "
+                        )
+
+                    for req in requirements.values:
+                        req_str = str(req)
+
+                        # HACK: omit parentheses if top-level and simple binary requirement
+                        if isinstance(req, RequirementOp) and len(req.values) == 2:
+                            req_str = req_str[1:][:-1]
+
+                        out.writeln(f"/// - {req_str}")
 
             out.writeln(f'#[doc(alias = "{ext.name}")]')
             out.writeln(f"{name},")

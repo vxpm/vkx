@@ -37,6 +37,7 @@ pub(crate) type FUN_CreateInstance = unsafe extern "C" fn(
 /// - [`INCOMPATIBLE_DRIVER`](ResultCode::ERROR_INCOMPATIBLE_DRIVER)
 /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
 /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+///
 #[doc(alias = "vkCreateInstance")]
 #[inline(always)]
 pub unsafe fn create_instance(
@@ -97,6 +98,7 @@ impl Instance {
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkEnumeratePhysicalDevices")]
     #[inline(always)]
     pub unsafe fn raw_enumerate_physical_devices(
@@ -119,9 +121,12 @@ pub(crate) type FUN_GetPhysicalDeviceFeatures =
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceFeatures`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceFeatures.html)
     ///
-    /// # Deprecated API (legacy-gpdp2)
+    /// # Legacy API (`legacy-gpdp2`)
     /// This command is legacy since version 1.1.
-    /// It has been superseded by `vkGetPhysicalDeviceFeatures2`.
+    /// This command is also legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    ///
+    /// It has been superseded by [`vkGetPhysicalDeviceFeatures2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceFeatures2.html).
     ///
     #[doc(alias = "vkGetPhysicalDeviceFeatures")]
     #[inline(always)]
@@ -141,9 +146,12 @@ pub(crate) type FUN_GetPhysicalDeviceFormatProperties =
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceFormatProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceFormatProperties.html)
     ///
-    /// # Deprecated API (legacy-gpdp2)
+    /// # Legacy API (`legacy-gpdp2`)
     /// This command is legacy since version 1.1.
-    /// It has been superseded by `vkGetPhysicalDeviceFormatProperties2`.
+    /// This command is also legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    ///
+    /// It has been superseded by [`vkGetPhysicalDeviceFormatProperties2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceFormatProperties2.html).
     ///
     #[doc(alias = "vkGetPhysicalDeviceFormatProperties")]
     #[inline(always)]
@@ -176,9 +184,12 @@ pub(crate) type FUN_GetPhysicalDeviceImageFormatProperties = unsafe extern "C" f
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceImageFormatProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceImageFormatProperties.html)
     ///
-    /// # Deprecated API (legacy-gpdp2)
+    /// # Legacy API (`legacy-gpdp2`)
     /// This command is legacy since version 1.1.
-    /// It has been superseded by `vkGetPhysicalDeviceImageFormatProperties2`.
+    /// This command is also legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    ///
+    /// It has been superseded by [`vkGetPhysicalDeviceImageFormatProperties2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceImageFormatProperties2.html).
     ///
     /// # Optional parameters
     /// - flags
@@ -192,6 +203,7 @@ impl PhysicalDevice {
     /// - [`FORMAT_NOT_SUPPORTED`](ResultCode::ERROR_FORMAT_NOT_SUPPORTED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetPhysicalDeviceImageFormatProperties")]
     #[inline(always)]
     pub unsafe fn get_image_format_properties(
@@ -230,9 +242,12 @@ pub(crate) type FUN_GetPhysicalDeviceProperties =
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceProperties.html)
     ///
-    /// # Deprecated API (legacy-gpdp2)
+    /// # Legacy API (`legacy-gpdp2`)
     /// This command is legacy since version 1.1.
-    /// It has been superseded by `vkGetPhysicalDeviceProperties2`.
+    /// This command is also legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    ///
+    /// It has been superseded by [`vkGetPhysicalDeviceProperties2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceProperties2.html).
     ///
     #[doc(alias = "vkGetPhysicalDeviceProperties")]
     #[inline(always)]
@@ -252,9 +267,12 @@ pub(crate) type FUN_GetPhysicalDeviceQueueFamilyProperties =
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceQueueFamilyProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceQueueFamilyProperties.html)
     ///
-    /// # Deprecated API (legacy-gpdp2)
+    /// # Legacy API (`legacy-gpdp2`)
     /// This command is legacy since version 1.1.
-    /// It has been superseded by `vkGetPhysicalDeviceQueueFamilyProperties2`.
+    /// This command is also legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    ///
+    /// It has been superseded by [`vkGetPhysicalDeviceQueueFamilyProperties2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceQueueFamilyProperties2.html).
     ///
     /// # Optional parameters
     /// - p_queue_family_properties
@@ -289,9 +307,12 @@ pub(crate) type FUN_GetPhysicalDeviceMemoryProperties =
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceMemoryProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceMemoryProperties.html)
     ///
-    /// # Deprecated API (legacy-gpdp2)
+    /// # Legacy API (`legacy-gpdp2`)
     /// This command is legacy since version 1.1.
-    /// It has been superseded by `vkGetPhysicalDeviceMemoryProperties2`.
+    /// This command is also legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    ///
+    /// It has been superseded by [`vkGetPhysicalDeviceMemoryProperties2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceMemoryProperties2.html).
     ///
     #[doc(alias = "vkGetPhysicalDeviceMemoryProperties")]
     #[inline(always)]
@@ -375,6 +396,7 @@ impl PhysicalDevice {
     /// - [`DEVICE_LOST`](ResultCode::ERROR_DEVICE_LOST)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateDevice")]
     #[inline(always)]
     pub unsafe fn raw_create_device(
@@ -432,6 +454,7 @@ pub(crate) type FUN_EnumerateInstanceExtensionProperties =
 /// - [`LAYER_NOT_PRESENT`](ResultCode::ERROR_LAYER_NOT_PRESENT)
 /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
 /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+///
 #[doc(alias = "vkEnumerateInstanceExtensionProperties")]
 #[inline(always)]
 pub unsafe fn enumerate_instance_extension_properties(
@@ -475,6 +498,7 @@ impl PhysicalDevice {
     /// - [`LAYER_NOT_PRESENT`](ResultCode::ERROR_LAYER_NOT_PRESENT)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkEnumerateDeviceExtensionProperties")]
     #[inline(always)]
     pub unsafe fn enumerate_device_extension_properties(
@@ -511,6 +535,7 @@ pub(crate) type FUN_EnumerateInstanceLayerProperties =
 /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
 /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
 /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+///
 #[doc(alias = "vkEnumerateInstanceLayerProperties")]
 #[inline(always)]
 pub unsafe fn enumerate_instance_layer_properties(
@@ -547,6 +572,7 @@ impl PhysicalDevice {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkEnumerateDeviceLayerProperties")]
     #[inline(always)]
     pub unsafe fn enumerate_device_layer_properties(
@@ -591,9 +617,12 @@ pub(crate) type FUN_QueueSubmit =
 impl Queue {
     /// [`vkQueueSubmit`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueSubmit.html)
     ///
-    /// # Deprecated API (deprecation-sync2)
+    /// # Legacy API (`deprecation-sync2`)
     /// This command is legacy since version 1.3.
-    /// It has been superseded by `vkQueueSubmit2`.
+    /// This command is also legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
+    ///
+    /// It has been superseded by [`vkQueueSubmit2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueSubmit2.html).
     ///
     /// # Optional parameters
     /// - submit_count
@@ -608,6 +637,7 @@ impl Queue {
     /// - [`DEVICE_LOST`](ResultCode::ERROR_DEVICE_LOST)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkQueueSubmit")]
     #[inline(always)]
     pub unsafe fn submit(
@@ -639,6 +669,7 @@ impl Queue {
     /// - [`DEVICE_LOST`](ResultCode::ERROR_DEVICE_LOST)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkQueueWaitIdle")]
     #[inline(always)]
     pub unsafe fn wait_idle(&self) -> ResultCode {
@@ -665,6 +696,7 @@ impl Device {
     /// - [`DEVICE_LOST`](ResultCode::ERROR_DEVICE_LOST)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkDeviceWaitIdle")]
     #[inline(always)]
     pub unsafe fn device_wait_idle(&self) -> ResultCode {
@@ -700,6 +732,7 @@ impl Device {
     /// - [`INVALID_OPAQUE_CAPTURE_ADDRESS_KHR`](ResultCode::ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkAllocateMemory")]
     #[inline(always)]
     pub unsafe fn allocate_memory(
@@ -767,6 +800,7 @@ impl Device {
     /// - [`MEMORY_MAP_FAILED`](ResultCode::ERROR_MEMORY_MAP_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkMapMemory")]
     #[inline(always)]
     pub unsafe fn map_memory(
@@ -817,6 +851,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkFlushMappedMemoryRanges")]
     #[inline(always)]
     pub unsafe fn flush_mapped_memory_ranges(
@@ -847,6 +882,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkInvalidateMappedMemoryRanges")]
     #[inline(always)]
     pub unsafe fn invalidate_mapped_memory_ranges(
@@ -900,6 +936,7 @@ impl Device {
     /// - [`INVALID_OPAQUE_CAPTURE_ADDRESS_KHR`](ResultCode::ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkBindBufferMemory")]
     #[inline(always)]
     pub unsafe fn bind_buffer_memory(
@@ -931,6 +968,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkBindImageMemory")]
     #[inline(always)]
     pub unsafe fn bind_image_memory(
@@ -1039,9 +1077,12 @@ pub(crate) type FUN_GetPhysicalDeviceSparseImageFormatProperties = unsafe extern
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceSparseImageFormatProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSparseImageFormatProperties.html)
     ///
-    /// # Deprecated API (legacy-gpdp2)
+    /// # Legacy API (`legacy-gpdp2`)
     /// This command is legacy since version 1.1.
-    /// It has been superseded by `vkGetPhysicalDeviceSparseImageFormatProperties2`.
+    /// This command is also legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
+    ///
+    /// It has been superseded by [`vkGetPhysicalDeviceSparseImageFormatProperties2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSparseImageFormatProperties2.html).
     ///
     /// # Optional parameters
     /// - p_properties
@@ -1102,6 +1143,7 @@ impl Queue {
     /// - [`DEVICE_LOST`](ResultCode::ERROR_DEVICE_LOST)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkQueueBindSparse")]
     #[inline(always)]
     pub unsafe fn bind_sparse(
@@ -1140,6 +1182,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateFence")]
     #[inline(always)]
     pub unsafe fn create_fence(
@@ -1192,6 +1235,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkResetFences")]
     #[inline(always)]
     pub unsafe fn reset_fences(&self, fence_count: u32, p_fences: *const Fence) -> ResultCode {
@@ -1219,6 +1263,7 @@ impl Device {
     /// - [`DEVICE_LOST`](ResultCode::ERROR_DEVICE_LOST)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetFenceStatus")]
     #[inline(always)]
     pub unsafe fn get_fence_status(&self, fence: Fence) -> ResultCode {
@@ -1247,6 +1292,7 @@ impl Device {
     /// - [`DEVICE_LOST`](ResultCode::ERROR_DEVICE_LOST)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkWaitForFences")]
     #[inline(always)]
     pub unsafe fn wait_for_fences(
@@ -1286,6 +1332,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateSemaphore")]
     #[inline(always)]
     pub unsafe fn create_semaphore(
@@ -1350,6 +1397,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateQueryPool")]
     #[inline(always)]
     pub unsafe fn create_query_pool(
@@ -1420,6 +1468,7 @@ impl Device {
     /// - [`DEVICE_LOST`](ResultCode::ERROR_DEVICE_LOST)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetQueryPoolResults")]
     #[inline(always)]
     pub unsafe fn get_query_pool_results(
@@ -1474,6 +1523,7 @@ impl Device {
     /// - [`INVALID_OPAQUE_CAPTURE_ADDRESS_KHR`](ResultCode::ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateBuffer")]
     #[inline(always)]
     pub unsafe fn create_buffer(
@@ -1536,6 +1586,7 @@ impl Device {
     /// - [`INVALID_OPAQUE_CAPTURE_ADDRESS_KHR`](ResultCode::ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateImage")]
     #[inline(always)]
     pub unsafe fn create_image(
@@ -1620,6 +1671,7 @@ impl Device {
     /// - [`INVALID_OPAQUE_CAPTURE_ADDRESS_KHR`](ResultCode::ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateImageView")]
     #[inline(always)]
     pub unsafe fn create_image_view(
@@ -1684,6 +1736,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateCommandPool")]
     #[inline(always)]
     pub unsafe fn create_command_pool(
@@ -1743,6 +1796,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkResetCommandPool")]
     #[inline(always)]
     pub unsafe fn reset_command_pool(
@@ -1776,6 +1830,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkAllocateCommandBuffers")]
     #[inline(always)]
     pub unsafe fn raw_allocate_command_buffers(
@@ -1836,6 +1891,7 @@ impl CommandBuffer {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkBeginCommandBuffer")]
     #[inline(always)]
     pub unsafe fn begin(&self, p_begin_info: *const CommandBufferBeginInfo) -> ResultCode {
@@ -1862,6 +1918,7 @@ impl CommandBuffer {
     /// - [`INVALID_VIDEO_STD_PARAMETERS_KHR`](ResultCode::ERROR_INVALID_VIDEO_STD_PARAMETERS_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkEndCommandBuffer")]
     #[inline(always)]
     pub unsafe fn end(&self) -> ResultCode {
@@ -1890,6 +1947,7 @@ impl CommandBuffer {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkResetCommandBuffer")]
     #[inline(always)]
     pub unsafe fn reset(&self, flags: CommandBufferResetFlags) -> ResultCode {
@@ -2103,12 +2161,6 @@ pub(crate) type FUN_CmdUpdateBuffer =
 impl CommandBuffer {
     /// [`vkCmdUpdateBuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdUpdateBuffer.html)
     ///
-    /// # Conditionally deprecated API (legacy-buffer-commands)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
-    ///
-    /// It has been superseded by `vkCmdUpdateMemoryKHR`.
-    ///
     /// # Performed tasks
     /// - `action`
     ///
@@ -2120,6 +2172,12 @@ impl CommandBuffer {
     /// - [`TRANSFER`](QueueFlag::TRANSFER)
     /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    ///
+    /// # Legacy API (`legacy-buffer-commands`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+    ///
+    /// It has been superseded by [`vkCmdUpdateMemoryKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdUpdateMemoryKHR.html).
     ///
     #[doc(alias = "vkCmdUpdateBuffer")]
     #[inline(always)]
@@ -2145,12 +2203,6 @@ pub(crate) type FUN_CmdFillBuffer =
 impl CommandBuffer {
     /// [`vkCmdFillBuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdFillBuffer.html)
     ///
-    /// # Conditionally deprecated API (legacy-buffer-commands)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
-    ///
-    /// It has been superseded by `vkCmdFillMemoryKHR`.
-    ///
     /// # Performed tasks
     /// - `action`
     ///
@@ -2162,6 +2214,12 @@ impl CommandBuffer {
     /// - [`TRANSFER`](QueueFlag::TRANSFER)
     /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    ///
+    /// # Legacy API (`legacy-buffer-commands`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+    ///
+    /// It has been superseded by [`vkCmdFillMemoryKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdFillMemoryKHR.html).
     ///
     #[doc(alias = "vkCmdFillBuffer")]
     #[inline(always)]
@@ -2197,9 +2255,12 @@ pub(crate) type FUN_CmdPipelineBarrier = unsafe extern "C" fn(
 impl CommandBuffer {
     /// [`vkCmdPipelineBarrier`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPipelineBarrier.html)
     ///
-    /// # Deprecated API (deprecation-sync2)
+    /// # Legacy API (`deprecation-sync2`)
     /// This command is legacy since version 1.3.
-    /// It has been superseded by `vkCmdPipelineBarrier2`.
+    /// This command is also legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
+    ///
+    /// It has been superseded by [`vkCmdPipelineBarrier2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPipelineBarrier2.html).
     ///
     /// # Optional parameters
     /// - src_stage_mask
@@ -2373,9 +2434,12 @@ pub(crate) type FUN_CmdWriteTimestamp =
 impl CommandBuffer {
     /// [`vkCmdWriteTimestamp`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteTimestamp.html)
     ///
-    /// # Deprecated API (deprecation-sync2)
+    /// # Legacy API (`deprecation-sync2`)
     /// This command is legacy since version 1.3.
-    /// It has been superseded by `vkCmdWriteTimestamp2`.
+    /// This command is also legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
+    ///
+    /// It has been superseded by [`vkCmdWriteTimestamp2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteTimestamp2.html).
     ///
     /// # Performed tasks
     /// - `action`
@@ -2423,12 +2487,6 @@ pub(crate) type FUN_CmdCopyQueryPoolResults = unsafe extern "C" fn(
 impl CommandBuffer {
     /// [`vkCmdCopyQueryPoolResults`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyQueryPoolResults.html)
     ///
-    /// # Conditionally deprecated API (legacy-buffer-commands)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
-    ///
-    /// It has been superseded by `vkCmdCopyQueryPoolResultsToMemoryKHR`.
-    ///
     /// # Optional parameters
     /// - flags
     ///
@@ -2442,6 +2500,12 @@ impl CommandBuffer {
     /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    ///
+    /// # Legacy API (`legacy-buffer-commands`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+    ///
+    /// It has been superseded by [`vkCmdCopyQueryPoolResultsToMemoryKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyQueryPoolResultsToMemoryKHR.html).
     ///
     #[doc(alias = "vkCmdCopyQueryPoolResults")]
     #[inline(always)]
@@ -2530,6 +2594,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateEvent")]
     #[inline(always)]
     pub unsafe fn create_event(
@@ -2584,6 +2649,7 @@ impl Device {
     /// - [`DEVICE_LOST`](ResultCode::ERROR_DEVICE_LOST)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetEventStatus")]
     #[inline(always)]
     pub unsafe fn get_event_status(&self, event: Event) -> ResultCode {
@@ -2609,6 +2675,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkSetEvent")]
     #[inline(always)]
     pub unsafe fn set_event(&self, event: Event) -> ResultCode {
@@ -2633,6 +2700,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkResetEvent")]
     #[inline(always)]
     pub unsafe fn reset_event(&self, event: Event) -> ResultCode {
@@ -2655,11 +2723,6 @@ pub(crate) type FUN_CreateBufferView = unsafe extern "C" fn(
 impl Device {
     /// [`vkCreateBufferView`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateBufferView.html)
     ///
-    /// # Conditionally deprecated API (legacy-resource-objects)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
-    ///
-    ///
     /// # Optional parameters
     /// - p_allocator
     ///
@@ -2671,6 +2734,11 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
+    /// # Legacy API (`legacy-resource-objects`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
     #[doc(alias = "vkCreateBufferView")]
     #[inline(always)]
     pub unsafe fn create_buffer_view(
@@ -2694,14 +2762,13 @@ pub(crate) type FUN_DestroyBufferView =
 impl Device {
     /// [`vkDestroyBufferView`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyBufferView.html)
     ///
-    /// # Conditionally deprecated API (legacy-resource-objects)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
-    ///
-    ///
     /// # Optional parameters
     /// - buffer_view
     /// - p_allocator
+    ///
+    /// # Legacy API (`legacy-resource-objects`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
     ///
     #[doc(alias = "vkDestroyBufferView")]
     #[inline(always)]
@@ -2741,6 +2808,7 @@ impl Device {
     /// - [`INVALID_SHADER_NV`](ResultCode::ERROR_INVALID_SHADER_NV)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateShaderModule")]
     #[inline(always)]
     pub unsafe fn create_shader_module(
@@ -2805,6 +2873,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreatePipelineCache")]
     #[inline(always)]
     pub unsafe fn create_pipeline_cache(
@@ -2866,6 +2935,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetPipelineCacheData")]
     #[inline(always)]
     pub unsafe fn get_pipeline_cache_data(
@@ -2897,6 +2967,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkMergePipelineCaches")]
     #[inline(always)]
     pub unsafe fn merge_pipeline_caches(
@@ -2940,6 +3011,7 @@ impl Device {
     /// - [`INVALID_SHADER_NV`](ResultCode::ERROR_INVALID_SHADER_NV)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateComputePipelines")]
     #[inline(always)]
     pub unsafe fn create_compute_pipelines(
@@ -3004,11 +3076,6 @@ pub(crate) type FUN_CreatePipelineLayout = unsafe extern "C" fn(
 impl Device {
     /// [`vkCreatePipelineLayout`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreatePipelineLayout.html)
     ///
-    /// # Conditionally deprecated API (legacy-descriptor-sets)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
-    ///
-    ///
     /// # Optional parameters
     /// - p_allocator
     ///
@@ -3020,6 +3087,11 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
+    /// # Legacy API (`legacy-descriptor-sets`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
     #[doc(alias = "vkCreatePipelineLayout")]
     #[inline(always)]
     pub unsafe fn create_pipeline_layout(
@@ -3043,14 +3115,13 @@ pub(crate) type FUN_DestroyPipelineLayout =
 impl Device {
     /// [`vkDestroyPipelineLayout`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyPipelineLayout.html)
     ///
-    /// # Conditionally deprecated API (legacy-descriptor-sets)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
-    ///
-    ///
     /// # Optional parameters
     /// - pipeline_layout
     /// - p_allocator
+    ///
+    /// # Legacy API (`legacy-descriptor-sets`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
     ///
     #[doc(alias = "vkDestroyPipelineLayout")]
     #[inline(always)]
@@ -3078,11 +3149,6 @@ pub(crate) type FUN_CreateSampler = unsafe extern "C" fn(
 impl Device {
     /// [`vkCreateSampler`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateSampler.html)
     ///
-    /// # Conditionally deprecated API (legacy-resource-objects)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
-    ///
-    ///
     /// # Optional parameters
     /// - p_allocator
     ///
@@ -3095,6 +3161,11 @@ impl Device {
     /// - [`INVALID_OPAQUE_CAPTURE_ADDRESS_KHR`](ResultCode::ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
+    /// # Legacy API (`legacy-resource-objects`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
     #[doc(alias = "vkCreateSampler")]
     #[inline(always)]
     pub unsafe fn create_sampler(
@@ -3118,14 +3189,13 @@ pub(crate) type FUN_DestroySampler =
 impl Device {
     /// [`vkDestroySampler`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroySampler.html)
     ///
-    /// # Conditionally deprecated API (legacy-resource-objects)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
-    ///
-    ///
     /// # Optional parameters
     /// - sampler
     /// - p_allocator
+    ///
+    /// # Legacy API (`legacy-resource-objects`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
     ///
     #[doc(alias = "vkDestroySampler")]
     #[inline(always)]
@@ -3153,11 +3223,6 @@ pub(crate) type FUN_CreateDescriptorSetLayout = unsafe extern "C" fn(
 impl Device {
     /// [`vkCreateDescriptorSetLayout`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDescriptorSetLayout.html)
     ///
-    /// # Conditionally deprecated API (legacy-descriptor-sets)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
-    ///
-    ///
     /// # Optional parameters
     /// - p_allocator
     ///
@@ -3169,6 +3234,11 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
+    /// # Legacy API (`legacy-descriptor-sets`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
     #[doc(alias = "vkCreateDescriptorSetLayout")]
     #[inline(always)]
     pub unsafe fn create_descriptor_set_layout(
@@ -3192,14 +3262,13 @@ pub(crate) type FUN_DestroyDescriptorSetLayout =
 impl Device {
     /// [`vkDestroyDescriptorSetLayout`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDescriptorSetLayout.html)
     ///
-    /// # Conditionally deprecated API (legacy-descriptor-sets)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
-    ///
-    ///
     /// # Optional parameters
     /// - descriptor_set_layout
     /// - p_allocator
+    ///
+    /// # Legacy API (`legacy-descriptor-sets`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
     ///
     #[doc(alias = "vkDestroyDescriptorSetLayout")]
     #[inline(always)]
@@ -3227,11 +3296,6 @@ pub(crate) type FUN_CreateDescriptorPool = unsafe extern "C" fn(
 impl Device {
     /// [`vkCreateDescriptorPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDescriptorPool.html)
     ///
-    /// # Conditionally deprecated API (legacy-descriptor-sets)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
-    ///
-    ///
     /// # Optional parameters
     /// - p_allocator
     ///
@@ -3244,6 +3308,11 @@ impl Device {
     /// - [`FRAGMENTATION_EXT`](ResultCode::ERROR_FRAGMENTATION_EXT)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
+    /// # Legacy API (`legacy-descriptor-sets`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
     #[doc(alias = "vkCreateDescriptorPool")]
     #[inline(always)]
     pub unsafe fn create_descriptor_pool(
@@ -3267,14 +3336,13 @@ pub(crate) type FUN_DestroyDescriptorPool =
 impl Device {
     /// [`vkDestroyDescriptorPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDescriptorPool.html)
     ///
-    /// # Conditionally deprecated API (legacy-descriptor-sets)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
-    ///
-    ///
     /// # Optional parameters
     /// - descriptor_pool
     /// - p_allocator
+    ///
+    /// # Legacy API (`legacy-descriptor-sets`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
     ///
     #[doc(alias = "vkDestroyDescriptorPool")]
     #[inline(always)]
@@ -3298,11 +3366,6 @@ pub(crate) type FUN_ResetDescriptorPool =
 impl Device {
     /// [`vkResetDescriptorPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkResetDescriptorPool.html)
     ///
-    /// # Conditionally deprecated API (legacy-descriptor-sets)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
-    ///
-    ///
     /// # Optional parameters
     /// - flags
     ///
@@ -3312,6 +3375,11 @@ impl Device {
     /// ## Error
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
+    /// # Legacy API (`legacy-descriptor-sets`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
     #[doc(alias = "vkResetDescriptorPool")]
     #[inline(always)]
     pub unsafe fn reset_descriptor_pool(
@@ -3337,11 +3405,6 @@ pub(crate) type FUN_AllocateDescriptorSets = unsafe extern "C" fn(
 impl Device {
     /// [`vkAllocateDescriptorSets`](https://docs.vulkan.org/refpages/latest/refpages/source/vkAllocateDescriptorSets.html)
     ///
-    /// # Conditionally deprecated API (legacy-descriptor-sets)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
-    ///
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -3352,6 +3415,11 @@ impl Device {
     /// - [`OUT_OF_POOL_MEMORY`](ResultCode::ERROR_OUT_OF_POOL_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
+    /// # Legacy API (`legacy-descriptor-sets`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
     #[doc(alias = "vkAllocateDescriptorSets")]
     #[inline(always)]
     pub unsafe fn allocate_descriptor_sets(
@@ -3374,17 +3442,17 @@ pub(crate) type FUN_FreeDescriptorSets =
 impl Device {
     /// [`vkFreeDescriptorSets`](https://docs.vulkan.org/refpages/latest/refpages/source/vkFreeDescriptorSets.html)
     ///
-    /// # Conditionally deprecated API (legacy-descriptor-sets)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
-    ///
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
     /// ## Error
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
+    /// # Legacy API (`legacy-descriptor-sets`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
     #[doc(alias = "vkFreeDescriptorSets")]
     #[inline(always)]
     pub unsafe fn free_descriptor_sets(
@@ -3420,14 +3488,13 @@ pub(crate) type FUN_UpdateDescriptorSets = unsafe extern "C" fn(
 impl Device {
     /// [`vkUpdateDescriptorSets`](https://docs.vulkan.org/refpages/latest/refpages/source/vkUpdateDescriptorSets.html)
     ///
-    /// # Conditionally deprecated API (legacy-descriptor-sets)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
-    ///
-    ///
     /// # Optional parameters
     /// - descriptor_write_count
     /// - descriptor_copy_count
+    ///
+    /// # Legacy API (`legacy-descriptor-sets`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
     ///
     #[doc(alias = "vkUpdateDescriptorSets")]
     #[inline(always)]
@@ -3503,11 +3570,6 @@ pub(crate) type FUN_CmdBindDescriptorSets = unsafe extern "C" fn(
 impl CommandBuffer {
     /// [`vkCmdBindDescriptorSets`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindDescriptorSets.html)
     ///
-    /// # Conditionally deprecated API (legacy-descriptor-sets)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
-    ///
-    ///
     /// # Optional parameters
     /// - dynamic_offset_count
     ///
@@ -3522,6 +3584,10 @@ impl CommandBuffer {
     /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     /// - [`COMPUTE`](QueueFlag::COMPUTE)
     /// - [`DATA_GRAPH_ARM`](QueueFlag::DATA_GRAPH_ARM)
+    ///
+    /// # Legacy API (`legacy-descriptor-sets`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
     ///
     #[doc(alias = "vkCmdBindDescriptorSets")]
     #[inline(always)]
@@ -3639,12 +3705,6 @@ pub(crate) type FUN_CmdDispatchIndirect =
 impl CommandBuffer {
     /// [`vkCmdDispatchIndirect`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchIndirect.html)
     ///
-    /// # Conditionally deprecated API (legacy-buffer-commands)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
-    ///
-    /// It has been superseded by `vkCmdDispatchIndirect2KHR`.
-    ///
     /// # Performed tasks
     /// - `action`
     ///
@@ -3654,6 +3714,12 @@ impl CommandBuffer {
     ///
     /// # Allowed queues
     /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    ///
+    /// # Legacy API (`legacy-buffer-commands`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+    ///
+    /// It has been superseded by [`vkCmdDispatchIndirect2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchIndirect2KHR.html).
     ///
     #[doc(alias = "vkCmdDispatchIndirect")]
     #[inline(always)]
@@ -3673,9 +3739,12 @@ pub(crate) type FUN_CmdSetEvent =
 impl CommandBuffer {
     /// [`vkCmdSetEvent`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetEvent.html)
     ///
-    /// # Deprecated API (deprecation-sync2)
+    /// # Legacy API (`deprecation-sync2`)
     /// This command is legacy since version 1.3.
-    /// It has been superseded by `vkCmdSetEvent2`.
+    /// This command is also legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
+    ///
+    /// It has been superseded by [`vkCmdSetEvent2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetEvent2.html).
     ///
     /// # Optional parameters
     /// - stage_mask
@@ -3711,9 +3780,12 @@ pub(crate) type FUN_CmdResetEvent =
 impl CommandBuffer {
     /// [`vkCmdResetEvent`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdResetEvent.html)
     ///
-    /// # Deprecated API (deprecation-sync2)
+    /// # Legacy API (`deprecation-sync2`)
     /// This command is legacy since version 1.3.
-    /// It has been superseded by `vkCmdResetEvent2`.
+    /// This command is also legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
+    ///
+    /// It has been superseded by [`vkCmdResetEvent2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdResetEvent2.html).
     ///
     /// # Optional parameters
     /// - stage_mask
@@ -3760,9 +3832,12 @@ pub(crate) type FUN_CmdWaitEvents = unsafe extern "C" fn(
 impl CommandBuffer {
     /// [`vkCmdWaitEvents`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWaitEvents.html)
     ///
-    /// # Deprecated API (deprecation-sync2)
+    /// # Legacy API (`deprecation-sync2`)
     /// This command is legacy since version 1.3.
-    /// It has been superseded by `vkCmdWaitEvents2`.
+    /// This command is also legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
+    ///
+    /// It has been superseded by [`vkCmdWaitEvents2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWaitEvents2.html).
     ///
     /// # Optional parameters
     /// - src_stage_mask
@@ -3834,11 +3909,6 @@ pub(crate) type FUN_CmdPushConstants = unsafe extern "C" fn(
 impl CommandBuffer {
     /// [`vkCmdPushConstants`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushConstants.html)
     ///
-    /// # Conditionally deprecated API (legacy-descriptor-sets)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
-    ///
-    ///
     /// # Performed tasks
     /// - `state`
     ///
@@ -3849,6 +3919,10 @@ impl CommandBuffer {
     /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    ///
+    /// # Legacy API (`legacy-descriptor-sets`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
     ///
     #[doc(alias = "vkCmdPushConstants")]
     #[inline(always)]
@@ -3895,6 +3969,7 @@ impl Device {
     /// - [`INVALID_SHADER_NV`](ResultCode::ERROR_INVALID_SHADER_NV)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateGraphicsPipelines")]
     #[inline(always)]
     pub unsafe fn create_graphics_pipelines(
@@ -3933,8 +4008,11 @@ pub(crate) type FUN_CreateFramebuffer = unsafe extern "C" fn(
 impl Device {
     /// [`vkCreateFramebuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateFramebuffer.html)
     ///
-    /// # Deprecated API (legacy-dynamicrendering)
+    /// # Legacy API (`legacy-dynamicrendering`)
     /// This command is legacy since version 1.4.
+    /// This command is also legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DynamicRenderingLocalRead`](Extension::KHR_DynamicRenderingLocalRead)
+    ///
     ///
     /// # Optional parameters
     /// - p_allocator
@@ -3947,6 +4025,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateFramebuffer")]
     #[inline(always)]
     pub unsafe fn create_framebuffer(
@@ -3970,8 +4049,11 @@ pub(crate) type FUN_DestroyFramebuffer =
 impl Device {
     /// [`vkDestroyFramebuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyFramebuffer.html)
     ///
-    /// # Deprecated API (legacy-dynamicrendering)
+    /// # Legacy API (`legacy-dynamicrendering`)
     /// This command is legacy since version 1.4.
+    /// This command is also legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DynamicRenderingLocalRead`](Extension::KHR_DynamicRenderingLocalRead)
+    ///
     ///
     /// # Optional parameters
     /// - framebuffer
@@ -4003,9 +4085,12 @@ pub(crate) type FUN_CreateRenderPass = unsafe extern "C" fn(
 impl Device {
     /// [`vkCreateRenderPass`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateRenderPass.html)
     ///
-    /// # Deprecated API (legacy-renderpass2)
+    /// # Legacy API (`legacy-renderpass2`)
     /// This command is legacy since version 1.2.
-    /// It has been superseded by `vkCreateRenderPass2`.
+    /// This command is also legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_CreateRenderpass2`](Extension::KHR_CreateRenderpass2)
+    ///
+    /// It has been superseded by [`vkCreateRenderPass2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateRenderPass2.html).
     ///
     /// # Optional parameters
     /// - p_allocator
@@ -4018,6 +4103,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateRenderPass")]
     #[inline(always)]
     pub unsafe fn create_render_pass(
@@ -4041,8 +4127,11 @@ pub(crate) type FUN_DestroyRenderPass =
 impl Device {
     /// [`vkDestroyRenderPass`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyRenderPass.html)
     ///
-    /// # Deprecated API (legacy-dynamicrendering)
+    /// # Legacy API (`legacy-dynamicrendering`)
     /// This command is legacy since version 1.4.
+    /// This command is also legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DynamicRenderingLocalRead`](Extension::KHR_DynamicRenderingLocalRead)
+    ///
     ///
     /// # Optional parameters
     /// - render_pass
@@ -4070,8 +4159,11 @@ pub(crate) type FUN_GetRenderAreaGranularity =
 impl Device {
     /// [`vkGetRenderAreaGranularity`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRenderAreaGranularity.html)
     ///
-    /// # Deprecated API (legacy-dynamicrendering)
+    /// # Legacy API (`legacy-dynamicrendering`)
     /// This command is legacy since version 1.4.
+    /// This command is also legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DynamicRenderingLocalRead`](Extension::KHR_DynamicRenderingLocalRead)
+    ///
     ///
     #[doc(alias = "vkGetRenderAreaGranularity")]
     #[inline(always)]
@@ -4533,12 +4625,6 @@ pub(crate) type FUN_CmdDrawIndirect =
 impl CommandBuffer {
     /// [`vkCmdDrawIndirect`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndirect.html)
     ///
-    /// # Conditionally deprecated API (legacy-buffer-commands)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
-    ///
-    /// It has been superseded by `vkCmdDrawIndirect2KHR`.
-    ///
     /// # Performed tasks
     /// - `action`
     ///
@@ -4548,6 +4634,12 @@ impl CommandBuffer {
     ///
     /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    ///
+    /// # Legacy API (`legacy-buffer-commands`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+    ///
+    /// It has been superseded by [`vkCmdDrawIndirect2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndirect2KHR.html).
     ///
     #[doc(alias = "vkCmdDrawIndirect")]
     #[inline(always)]
@@ -4573,12 +4665,6 @@ pub(crate) type FUN_CmdDrawIndexedIndirect =
 impl CommandBuffer {
     /// [`vkCmdDrawIndexedIndirect`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndexedIndirect.html)
     ///
-    /// # Conditionally deprecated API (legacy-buffer-commands)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
-    ///
-    /// It has been superseded by `vkCmdDrawIndexedIndirect2KHR`.
-    ///
     /// # Performed tasks
     /// - `action`
     ///
@@ -4588,6 +4674,12 @@ impl CommandBuffer {
     ///
     /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    ///
+    /// # Legacy API (`legacy-buffer-commands`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+    ///
+    /// It has been superseded by [`vkCmdDrawIndexedIndirect2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndexedIndirect2KHR.html).
     ///
     #[doc(alias = "vkCmdDrawIndexedIndirect")]
     #[inline(always)]
@@ -4814,9 +4906,12 @@ pub(crate) type FUN_CmdBeginRenderPass =
 impl CommandBuffer {
     /// [`vkCmdBeginRenderPass`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginRenderPass.html)
     ///
-    /// # Deprecated API (legacy-renderpass2)
+    /// # Legacy API (`legacy-renderpass2`)
     /// This command is legacy since version 1.2.
-    /// It has been superseded by `vkCmdBeginRenderPass2`.
+    /// This command is also legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_CreateRenderpass2`](Extension::KHR_CreateRenderpass2)
+    ///
+    /// It has been superseded by [`vkCmdBeginRenderPass2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginRenderPass2.html).
     ///
     /// # Performed tasks
     /// - `action`
@@ -4850,9 +4945,12 @@ pub(crate) type FUN_CmdNextSubpass = unsafe extern "C" fn(CommandBufferHandle, S
 impl CommandBuffer {
     /// [`vkCmdNextSubpass`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdNextSubpass.html)
     ///
-    /// # Deprecated API (legacy-renderpass2)
+    /// # Legacy API (`legacy-renderpass2`)
     /// This command is legacy since version 1.2.
-    /// It has been superseded by `vkCmdNextSubpass2`.
+    /// This command is also legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_CreateRenderpass2`](Extension::KHR_CreateRenderpass2)
+    ///
+    /// It has been superseded by [`vkCmdNextSubpass2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdNextSubpass2.html).
     ///
     /// # Performed tasks
     /// - `action`
@@ -4882,9 +4980,12 @@ pub(crate) type FUN_CmdEndRenderPass = unsafe extern "C" fn(CommandBufferHandle)
 impl CommandBuffer {
     /// [`vkCmdEndRenderPass`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndRenderPass.html)
     ///
-    /// # Deprecated API (legacy-renderpass2)
+    /// # Legacy API (`legacy-renderpass2`)
     /// This command is legacy since version 1.2.
-    /// It has been superseded by `vkCmdEndRenderPass2`.
+    /// This command is also legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_CreateRenderpass2`](Extension::KHR_CreateRenderpass2)
+    ///
+    /// It has been superseded by [`vkCmdEndRenderPass2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndRenderPass2.html).
     ///
     /// # Performed tasks
     /// - `action`
@@ -4926,6 +5027,7 @@ pub(crate) type FUN_EnumerateInstanceVersion = unsafe extern "C" fn(*mut u32) ->
 /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
 /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
 /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+///
 #[doc(alias = "vkEnumerateInstanceVersion")]
 #[inline(always)]
 pub unsafe fn enumerate_instance_version(p_api_version: *mut u32) -> ResultCode {
@@ -4962,6 +5064,7 @@ impl Device {
     /// - [`INVALID_OPAQUE_CAPTURE_ADDRESS_KHR`](ResultCode::ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkBindBufferMemory2")]
     #[inline(always)]
     pub unsafe fn bind_buffer_memory_2(
@@ -4998,6 +5101,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkBindImageMemory2")]
     #[inline(always)]
     pub unsafe fn bind_image_memory_2(
@@ -5115,6 +5219,7 @@ impl Instance {
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkEnumeratePhysicalDeviceGroups")]
     #[inline(always)]
     pub unsafe fn enumerate_physical_device_groups(
@@ -5351,6 +5456,7 @@ impl PhysicalDevice {
     /// - [`VIDEO_PROFILE_CODEC_NOT_SUPPORTED_KHR`](ResultCode::ERROR_VIDEO_PROFILE_CODEC_NOT_SUPPORTED_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetPhysicalDeviceImageFormatProperties2")]
     #[inline(always)]
     pub unsafe fn get_image_format_properties_2(
@@ -5726,6 +5832,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateDescriptorUpdateTemplate")]
     #[inline(always)]
     pub unsafe fn create_descriptor_update_template(
@@ -5876,6 +5983,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateSamplerYcbcrConversion")]
     #[inline(always)]
     pub unsafe fn create_sampler_ycbcr_conversion(
@@ -5974,6 +6082,7 @@ impl Device {
     /// - [`DEVICE_LOST`](ResultCode::ERROR_DEVICE_LOST)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetSemaphoreCounterValue")]
     #[inline(always)]
     pub unsafe fn get_semaphore_counter_value(
@@ -6012,6 +6121,7 @@ impl Device {
     /// - [`DEVICE_LOST`](ResultCode::ERROR_DEVICE_LOST)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkWaitSemaphores")]
     #[inline(always)]
     pub unsafe fn wait_semaphores(
@@ -6048,6 +6158,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkSignalSemaphore")]
     #[inline(always)]
     pub unsafe fn signal_semaphore(&self, p_signal_info: *const SemaphoreSignalInfo) -> ResultCode {
@@ -6155,12 +6266,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Conditionally deprecated API (legacy-buffer-commands)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
-    ///
-    /// It has been superseded by `vkCmdDrawIndirectCount2KHR`.
-    ///
     /// # Performed tasks
     /// - `action`
     ///
@@ -6170,6 +6275,12 @@ impl CommandBuffer {
     ///
     /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    ///
+    /// # Legacy API (`legacy-buffer-commands`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+    ///
+    /// It has been superseded by [`vkCmdDrawIndirectCount2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndirectCount2KHR.html).
     ///
     #[doc(alias = "vkCmdDrawIndirectCount")]
     #[inline(always)]
@@ -6213,12 +6324,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Conditionally deprecated API (legacy-buffer-commands)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
-    ///
-    /// It has been superseded by `vkCmdDrawIndexedIndirectCount2KHR`.
-    ///
     /// # Performed tasks
     /// - `action`
     ///
@@ -6228,6 +6333,12 @@ impl CommandBuffer {
     ///
     /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    ///
+    /// # Legacy API (`legacy-buffer-commands`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+    ///
+    /// It has been superseded by [`vkCmdDrawIndexedIndirectCount2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndexedIndirectCount2KHR.html).
     ///
     #[doc(alias = "vkCmdDrawIndexedIndirectCount")]
     #[inline(always)]
@@ -6275,8 +6386,11 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Deprecated API (legacy-dynamicrendering)
+    /// # Legacy API (`legacy-dynamicrendering`)
     /// This command is legacy since version 1.4.
+    /// This command is also legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DynamicRenderingLocalRead`](Extension::KHR_DynamicRenderingLocalRead)
+    ///
     ///
     /// # Optional parameters
     /// - p_allocator
@@ -6289,6 +6403,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateRenderPass2")]
     #[inline(always)]
     pub unsafe fn create_render_pass_2(
@@ -6318,8 +6433,11 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Deprecated API (legacy-dynamicrendering)
+    /// # Legacy API (`legacy-dynamicrendering`)
     /// This command is legacy since version 1.4.
+    /// This command is also legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DynamicRenderingLocalRead`](Extension::KHR_DynamicRenderingLocalRead)
+    ///
     ///
     /// # Performed tasks
     /// - `action`
@@ -6360,8 +6478,11 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Deprecated API (legacy-dynamicrendering)
+    /// # Legacy API (`legacy-dynamicrendering`)
     /// This command is legacy since version 1.4.
+    /// This command is also legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DynamicRenderingLocalRead`](Extension::KHR_DynamicRenderingLocalRead)
+    ///
     ///
     /// # Performed tasks
     /// - `action`
@@ -6402,8 +6523,11 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Deprecated API (legacy-dynamicrendering)
+    /// # Legacy API (`legacy-dynamicrendering`)
     /// This command is legacy since version 1.4.
+    /// This command is also legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DynamicRenderingLocalRead`](Extension::KHR_DynamicRenderingLocalRead)
+    ///
     ///
     /// # Performed tasks
     /// - `action`
@@ -6454,6 +6578,7 @@ impl PhysicalDevice {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetPhysicalDeviceToolProperties")]
     #[inline(always)]
     pub unsafe fn get_tool_properties(
@@ -6496,6 +6621,7 @@ impl Device {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreatePrivateDataSlot")]
     #[inline(always)]
     pub unsafe fn create_private_data_slot(
@@ -6564,6 +6690,7 @@ impl Device {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkSetPrivateData")]
     #[inline(always)]
     pub unsafe fn set_private_data(
@@ -6737,6 +6864,7 @@ impl Queue {
     /// - [`DEVICE_LOST`](ResultCode::ERROR_DEVICE_LOST)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkQueueSubmit2")]
     #[inline(always)]
     pub unsafe fn submit_2(
@@ -6766,12 +6894,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Conditionally deprecated API (legacy-buffer-commands)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
-    ///
-    /// It has been superseded by `vkCmdCopyMemoryKHR`.
-    ///
     /// # Performed tasks
     /// - `action`
     ///
@@ -6783,6 +6905,12 @@ impl CommandBuffer {
     /// - [`TRANSFER`](QueueFlag::TRANSFER)
     /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    ///
+    /// # Legacy API (`legacy-buffer-commands`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+    ///
+    /// It has been superseded by [`vkCmdCopyMemoryKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMemoryKHR.html).
     ///
     #[doc(alias = "vkCmdCopyBuffer2")]
     #[inline(always)]
@@ -6844,12 +6972,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Conditionally deprecated API (legacy-buffer-commands)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
-    ///
-    /// It has been superseded by `vkCmdCopyMemoryToImageKHR`.
-    ///
     /// # Performed tasks
     /// - `action`
     ///
@@ -6861,6 +6983,12 @@ impl CommandBuffer {
     /// - [`TRANSFER`](QueueFlag::TRANSFER)
     /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    ///
+    /// # Legacy API (`legacy-buffer-commands`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+    ///
+    /// It has been superseded by [`vkCmdCopyMemoryToImageKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMemoryToImageKHR.html).
     ///
     #[doc(alias = "vkCmdCopyBufferToImage2")]
     #[inline(always)]
@@ -6889,12 +7017,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Conditionally deprecated API (legacy-buffer-commands)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
-    ///
-    /// It has been superseded by `vkCmdCopyImageToMemoryKHR`.
-    ///
     /// # Performed tasks
     /// - `action`
     ///
@@ -6906,6 +7028,12 @@ impl CommandBuffer {
     /// - [`TRANSFER`](QueueFlag::TRANSFER)
     /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    ///
+    /// # Legacy API (`legacy-buffer-commands`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+    ///
+    /// It has been superseded by [`vkCmdCopyImageToMemoryKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyImageToMemoryKHR.html).
     ///
     #[doc(alias = "vkCmdCopyImageToBuffer2")]
     #[inline(always)]
@@ -7868,6 +7996,7 @@ impl Device {
     /// - [`MEMORY_MAP_FAILED`](ResultCode::ERROR_MEMORY_MAP_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkMapMemory2")]
     #[inline(always)]
     pub unsafe fn map_memory_2(
@@ -7903,6 +8032,7 @@ impl Device {
     /// - [`MEMORY_MAP_FAILED`](ResultCode::ERROR_MEMORY_MAP_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkUnmapMemory2")]
     #[inline(always)]
     pub unsafe fn unmap_memory_2(&self, p_memory_unmap_info: *const MemoryUnmapInfo) -> ResultCode {
@@ -7994,6 +8124,7 @@ impl Device {
     /// - [`MEMORY_MAP_FAILED`](ResultCode::ERROR_MEMORY_MAP_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCopyMemoryToImage")]
     #[inline(always)]
     pub unsafe fn copy_memory_to_image(
@@ -8031,6 +8162,7 @@ impl Device {
     /// - [`MEMORY_MAP_FAILED`](ResultCode::ERROR_MEMORY_MAP_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCopyImageToMemory")]
     #[inline(always)]
     pub unsafe fn copy_image_to_memory(
@@ -8068,6 +8200,7 @@ impl Device {
     /// - [`MEMORY_MAP_FAILED`](ResultCode::ERROR_MEMORY_MAP_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCopyImageToImage")]
     #[inline(always)]
     pub unsafe fn copy_image_to_image(
@@ -8105,6 +8238,7 @@ impl Device {
     /// - [`MEMORY_MAP_FAILED`](ResultCode::ERROR_MEMORY_MAP_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkTransitionImageLayout")]
     #[inline(always)]
     pub unsafe fn transition_image_layout(
@@ -8236,11 +8370,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Conditionally deprecated API (legacy-descriptor-sets)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
-    ///
-    ///
     /// # Performed tasks
     /// - `state`
     ///
@@ -8251,6 +8380,10 @@ impl CommandBuffer {
     /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    ///
+    /// # Legacy API (`legacy-descriptor-sets`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
     ///
     #[doc(alias = "vkCmdBindDescriptorSets2")]
     #[inline(always)]
@@ -8279,11 +8412,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Conditionally deprecated API (legacy-descriptor-sets)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
-    ///
-    ///
     /// # Performed tasks
     /// - `state`
     ///
@@ -8294,6 +8422,10 @@ impl CommandBuffer {
     /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    ///
+    /// # Legacy API (`legacy-descriptor-sets`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
     ///
     #[doc(alias = "vkCmdPushConstants2")]
     #[inline(always)]
@@ -8430,12 +8562,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Conditionally deprecated API (legacy-buffer-commands)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
-    ///
-    /// It has been superseded by `vkCmdBindIndexBuffer3KHR`.
-    ///
     /// # Optional parameters
     /// - buffer
     ///
@@ -8448,6 +8574,12 @@ impl CommandBuffer {
     ///
     /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    ///
+    /// # Legacy API (`legacy-buffer-commands`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+    ///
+    /// It has been superseded by [`vkCmdBindIndexBuffer3KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindIndexBuffer3KHR.html).
     ///
     #[doc(alias = "vkCmdBindIndexBuffer2")]
     #[inline(always)]
@@ -8626,6 +8758,7 @@ impl PhysicalDevice {
     /// - [`SURFACE_LOST_KHR`](ResultCode::ERROR_SURFACE_LOST_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetPhysicalDeviceSurfaceSupportKHR")]
     #[inline(always)]
     pub unsafe fn get_surface_support_khr(
@@ -8660,12 +8793,6 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Conditionally deprecated API (legacy-gpdsc2)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`KHR_GetSurfaceCapabilities2`](Extension::KHR_GetSurfaceCapabilities2)
-    ///
-    /// It has been superseded by `vkGetPhysicalDeviceSurfaceCapabilities2KHR`.
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -8675,6 +8802,13 @@ impl PhysicalDevice {
     /// - [`SURFACE_LOST_KHR`](ResultCode::ERROR_SURFACE_LOST_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
+    /// # Legacy API (`legacy-gpdsc2`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_GetSurfaceCapabilities2`](Extension::KHR_GetSurfaceCapabilities2)
+    ///
+    /// It has been superseded by [`vkGetPhysicalDeviceSurfaceCapabilities2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSurfaceCapabilities2KHR.html).
+    ///
     #[doc(alias = "vkGetPhysicalDeviceSurfaceCapabilitiesKHR")]
     #[inline(always)]
     pub unsafe fn get_surface_capabilities_khr(
@@ -8709,12 +8843,6 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Conditionally deprecated API (legacy-gpdsc2)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`KHR_GetSurfaceCapabilities2`](Extension::KHR_GetSurfaceCapabilities2)
-    ///
-    /// It has been superseded by `vkGetPhysicalDeviceSurfaceFormats2KHR`.
-    ///
     /// # Optional parameters
     /// - surface
     /// - p_surface_formats
@@ -8729,6 +8857,13 @@ impl PhysicalDevice {
     /// - [`SURFACE_LOST_KHR`](ResultCode::ERROR_SURFACE_LOST_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
+    /// # Legacy API (`legacy-gpdsc2`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_GetSurfaceCapabilities2`](Extension::KHR_GetSurfaceCapabilities2)
+    ///
+    /// It has been superseded by [`vkGetPhysicalDeviceSurfaceFormats2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSurfaceFormats2KHR.html).
+    ///
     #[doc(alias = "vkGetPhysicalDeviceSurfaceFormatsKHR")]
     #[inline(always)]
     pub unsafe fn get_surface_formats_khr(
@@ -8785,6 +8920,7 @@ impl PhysicalDevice {
     /// - [`SURFACE_LOST_KHR`](ResultCode::ERROR_SURFACE_LOST_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetPhysicalDeviceSurfacePresentModesKHR")]
     #[inline(always)]
     pub unsafe fn get_surface_present_modes_khr(
@@ -8836,6 +8972,7 @@ impl Device {
     /// - [`COMPRESSION_EXHAUSTED_EXT`](ResultCode::ERROR_COMPRESSION_EXHAUSTED_EXT)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateSwapchainKHR")]
     #[inline(always)]
     pub unsafe fn create_swapchain_khr(
@@ -8909,6 +9046,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetSwapchainImagesKHR")]
     #[inline(always)]
     pub unsafe fn get_swapchain_images_khr(
@@ -8964,6 +9102,7 @@ impl Device {
     /// - [`FULL_SCREEN_EXCLUSIVE_MODE_LOST_EXT`](ResultCode::ERROR_FULL_SCREEN_EXCLUSIVE_MODE_LOST_EXT)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkAcquireNextImageKHR")]
     #[inline(always)]
     pub unsafe fn acquire_next_image_khr(
@@ -9018,6 +9157,7 @@ impl Queue {
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     /// - [`PRESENT_TIMING_QUEUE_FULL_EXT`](ResultCode::ERROR_PRESENT_TIMING_QUEUE_FULL_EXT)
+    ///
     #[doc(alias = "vkQueuePresentKHR")]
     #[inline(always)]
     pub unsafe fn present_khr(&self, p_present_info: *const PresentInfoKHR) -> ResultCode {
@@ -9052,6 +9192,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetDeviceGroupPresentCapabilitiesKHR")]
     #[inline(always)]
     pub unsafe fn get_device_group_present_capabilities_khr(
@@ -9095,6 +9236,7 @@ impl Device {
     /// - [`SURFACE_LOST_KHR`](ResultCode::ERROR_SURFACE_LOST_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetDeviceGroupSurfacePresentModesKHR")]
     #[inline(always)]
     pub unsafe fn get_device_group_surface_present_modes_khr(
@@ -9139,6 +9281,7 @@ impl PhysicalDevice {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetPhysicalDevicePresentRectanglesKHR")]
     #[inline(always)]
     pub unsafe fn get_present_rectangles_khr(
@@ -9187,6 +9330,7 @@ impl Device {
     /// - [`FULL_SCREEN_EXCLUSIVE_MODE_LOST_EXT`](ResultCode::ERROR_FULL_SCREEN_EXCLUSIVE_MODE_LOST_EXT)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkAcquireNextImage2KHR")]
     #[inline(always)]
     pub unsafe fn acquire_next_image_2_khr(
@@ -9227,6 +9371,7 @@ impl PhysicalDevice {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetPhysicalDeviceDisplayPropertiesKHR")]
     #[inline(always)]
     pub unsafe fn get_display_properties_khr(
@@ -9273,6 +9418,7 @@ impl PhysicalDevice {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetPhysicalDeviceDisplayPlanePropertiesKHR")]
     #[inline(always)]
     pub unsafe fn get_display_plane_properties_khr(
@@ -9315,6 +9461,7 @@ impl PhysicalDevice {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetDisplayPlaneSupportedDisplaysKHR")]
     #[inline(always)]
     pub unsafe fn get_display_plane_supported_displays_khr(
@@ -9362,6 +9509,7 @@ impl PhysicalDevice {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetDisplayModePropertiesKHR")]
     #[inline(always)]
     pub unsafe fn get_display_mode_properties_khr(
@@ -9408,6 +9556,7 @@ impl PhysicalDevice {
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateDisplayModeKHR")]
     #[inline(always)]
     pub unsafe fn create_display_mode_khr(
@@ -9450,6 +9599,7 @@ impl PhysicalDevice {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetDisplayPlaneCapabilitiesKHR")]
     #[inline(always)]
     pub unsafe fn get_display_plane_capabilities_khr(
@@ -9494,6 +9644,7 @@ impl Instance {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateDisplayPlaneSurfaceKHR")]
     #[inline(always)]
     pub unsafe fn create_display_plane_surface_khr(
@@ -9542,6 +9693,7 @@ impl Device {
     /// - [`SURFACE_LOST_KHR`](ResultCode::ERROR_SURFACE_LOST_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateSharedSwapchainsKHR")]
     #[inline(always)]
     pub unsafe fn create_shared_swapchains_khr(
@@ -9595,6 +9747,7 @@ impl Instance {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateXlibSurfaceKHR")]
     #[inline(always)]
     pub unsafe fn create_xlib_surface_khr(
@@ -9670,6 +9823,7 @@ impl Instance {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateXcbSurfaceKHR")]
     #[inline(always)]
     pub unsafe fn create_xcb_surface_khr(
@@ -9749,6 +9903,7 @@ impl Instance {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateWaylandSurfaceKHR")]
     #[inline(always)]
     pub unsafe fn create_wayland_surface_khr(
@@ -9824,6 +9979,7 @@ impl Instance {
     /// - [`NATIVE_WINDOW_IN_USE_KHR`](ResultCode::ERROR_NATIVE_WINDOW_IN_USE_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateAndroidSurfaceKHR")]
     #[inline(always)]
     pub unsafe fn create_android_surface_khr(
@@ -9868,6 +10024,7 @@ impl Instance {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateWin32SurfaceKHR")]
     #[inline(always)]
     pub unsafe fn create_win_32_surface_khr(
@@ -9938,6 +10095,7 @@ impl PhysicalDevice {
     /// - [`VIDEO_PROFILE_CODEC_NOT_SUPPORTED_KHR`](ResultCode::ERROR_VIDEO_PROFILE_CODEC_NOT_SUPPORTED_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetPhysicalDeviceVideoCapabilitiesKHR")]
     #[inline(always)]
     pub unsafe fn get_video_capabilities_khr(
@@ -9989,6 +10147,7 @@ impl PhysicalDevice {
     /// - [`VIDEO_PROFILE_CODEC_NOT_SUPPORTED_KHR`](ResultCode::ERROR_VIDEO_PROFILE_CODEC_NOT_SUPPORTED_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetPhysicalDeviceVideoFormatPropertiesKHR")]
     #[inline(always)]
     pub unsafe fn get_video_format_properties_khr(
@@ -10045,6 +10204,7 @@ impl Device {
     /// - [`INVALID_VIDEO_STD_PARAMETERS_KHR`](ResultCode::ERROR_INVALID_VIDEO_STD_PARAMETERS_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateVideoSessionKHR")]
     #[inline(always)]
     pub unsafe fn create_video_session_khr(
@@ -10120,6 +10280,7 @@ impl Device {
     /// ## Error
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetVideoSessionMemoryRequirementsKHR")]
     #[inline(always)]
     pub unsafe fn get_video_session_memory_requirements_khr(
@@ -10170,6 +10331,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkBindVideoSessionMemoryKHR")]
     #[inline(always)]
     pub unsafe fn bind_video_session_memory_khr(
@@ -10223,6 +10385,7 @@ impl Device {
     /// - [`INVALID_VIDEO_STD_PARAMETERS_KHR`](ResultCode::ERROR_INVALID_VIDEO_STD_PARAMETERS_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateVideoSessionParametersKHR")]
     #[inline(always)]
     pub unsafe fn create_video_session_parameters_khr(
@@ -10271,6 +10434,7 @@ impl Device {
     /// - [`INVALID_VIDEO_STD_PARAMETERS_KHR`](ResultCode::ERROR_INVALID_VIDEO_STD_PARAMETERS_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkUpdateVideoSessionParametersKHR")]
     #[inline(always)]
     pub unsafe fn update_video_session_parameters_khr(
@@ -10642,6 +10806,7 @@ impl PhysicalDevice {
     /// - [`VIDEO_PROFILE_CODEC_NOT_SUPPORTED_KHR`](ResultCode::ERROR_VIDEO_PROFILE_CODEC_NOT_SUPPORTED_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetPhysicalDeviceImageFormatProperties2KHR")]
     #[inline(always)]
     pub unsafe fn get_image_format_properties_2_khr(
@@ -10961,6 +11126,7 @@ impl Instance {
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkEnumeratePhysicalDeviceGroupsKHR")]
     #[inline(always)]
     pub unsafe fn enumerate_physical_device_groups_khr(
@@ -11046,6 +11212,7 @@ impl Device {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetMemoryWin32HandleKHR")]
     #[inline(always)]
     pub unsafe fn get_memory_win_32_handle_khr(
@@ -11086,6 +11253,7 @@ impl Device {
     /// - [`INVALID_EXTERNAL_HANDLE`](ResultCode::ERROR_INVALID_EXTERNAL_HANDLE)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetMemoryWin32HandlePropertiesKHR")]
     #[inline(always)]
     pub unsafe fn get_memory_win_32_handle_properties_khr(
@@ -11132,6 +11300,7 @@ impl Device {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetMemoryFdKHR")]
     #[inline(always)]
     pub unsafe fn get_memory_fd_khr(
@@ -11172,6 +11341,7 @@ impl Device {
     /// - [`INVALID_EXTERNAL_HANDLE`](ResultCode::ERROR_INVALID_EXTERNAL_HANDLE)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetMemoryFdPropertiesKHR")]
     #[inline(always)]
     pub unsafe fn get_memory_fd_properties_khr(
@@ -11249,6 +11419,7 @@ impl Device {
     /// - [`INVALID_EXTERNAL_HANDLE`](ResultCode::ERROR_INVALID_EXTERNAL_HANDLE)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkImportSemaphoreWin32HandleKHR")]
     #[inline(always)]
     pub unsafe fn import_semaphore_win_32_handle_khr(
@@ -11287,6 +11458,7 @@ impl Device {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetSemaphoreWin32HandleKHR")]
     #[inline(always)]
     pub unsafe fn get_semaphore_win_32_handle_khr(
@@ -11323,6 +11495,7 @@ impl Device {
     /// - [`INVALID_EXTERNAL_HANDLE`](ResultCode::ERROR_INVALID_EXTERNAL_HANDLE)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkImportSemaphoreFdKHR")]
     #[inline(always)]
     pub unsafe fn import_semaphore_fd_khr(
@@ -11358,6 +11531,7 @@ impl Device {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetSemaphoreFdKHR")]
     #[inline(always)]
     pub unsafe fn get_semaphore_fd_khr(
@@ -11510,6 +11684,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateDescriptorUpdateTemplateKHR")]
     #[inline(always)]
     pub unsafe fn create_descriptor_update_template_khr(
@@ -11638,6 +11813,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateRenderPass2KHR")]
     #[inline(always)]
     pub unsafe fn create_render_pass_2_khr(
@@ -11796,6 +11972,7 @@ impl Device {
     /// - [`FULL_SCREEN_EXCLUSIVE_MODE_LOST_EXT`](ResultCode::ERROR_FULL_SCREEN_EXCLUSIVE_MODE_LOST_EXT)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetSwapchainStatusKHR")]
     #[inline(always)]
     pub unsafe fn get_swapchain_status_khr(&self, swapchain: SwapchainKHR) -> ResultCode {
@@ -11868,6 +12045,7 @@ impl Device {
     /// - [`INVALID_EXTERNAL_HANDLE`](ResultCode::ERROR_INVALID_EXTERNAL_HANDLE)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkImportFenceWin32HandleKHR")]
     #[inline(always)]
     pub unsafe fn import_fence_win_32_handle_khr(
@@ -11906,6 +12084,7 @@ impl Device {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetFenceWin32HandleKHR")]
     #[inline(always)]
     pub unsafe fn get_fence_win_32_handle_khr(
@@ -11942,6 +12121,7 @@ impl Device {
     /// - [`INVALID_EXTERNAL_HANDLE`](ResultCode::ERROR_INVALID_EXTERNAL_HANDLE)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkImportFenceFdKHR")]
     #[inline(always)]
     pub unsafe fn import_fence_fd_khr(
@@ -11977,6 +12157,7 @@ impl Device {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetFenceFdKHR")]
     #[inline(always)]
     pub unsafe fn get_fence_fd_khr(
@@ -12025,6 +12206,7 @@ impl PhysicalDevice {
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR")]
     #[inline(always)]
     pub unsafe fn enumerate_queue_family_performance_query_counters_khr(
@@ -12106,6 +12288,7 @@ impl Device {
     /// - [`TIMEOUT`](ResultCode::TIMEOUT)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkAcquireProfilingLockKHR")]
     #[inline(always)]
     pub unsafe fn acquire_profiling_lock_khr(
@@ -12168,6 +12351,7 @@ impl PhysicalDevice {
     /// - [`SURFACE_LOST_KHR`](ResultCode::ERROR_SURFACE_LOST_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetPhysicalDeviceSurfaceCapabilities2KHR")]
     #[inline(always)]
     pub unsafe fn get_surface_capabilities_2_khr(
@@ -12215,6 +12399,7 @@ impl PhysicalDevice {
     /// - [`SURFACE_LOST_KHR`](ResultCode::ERROR_SURFACE_LOST_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetPhysicalDeviceSurfaceFormats2KHR")]
     #[inline(always)]
     pub unsafe fn get_surface_formats_2_khr(
@@ -12265,6 +12450,7 @@ impl PhysicalDevice {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetPhysicalDeviceDisplayProperties2KHR")]
     #[inline(always)]
     pub unsafe fn get_display_properties_2_khr(
@@ -12311,6 +12497,7 @@ impl PhysicalDevice {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetPhysicalDeviceDisplayPlaneProperties2KHR")]
     #[inline(always)]
     pub unsafe fn get_display_plane_properties_2_khr(
@@ -12357,6 +12544,7 @@ impl PhysicalDevice {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetDisplayModeProperties2KHR")]
     #[inline(always)]
     pub unsafe fn get_display_mode_properties_2_khr(
@@ -12397,6 +12585,7 @@ impl PhysicalDevice {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetDisplayPlaneCapabilities2KHR")]
     #[inline(always)]
     pub unsafe fn get_display_plane_capabilities_2_khr(
@@ -12551,6 +12740,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateSamplerYcbcrConversionKHR")]
     #[inline(always)]
     pub unsafe fn create_sampler_ycbcr_conversion_khr(
@@ -12623,6 +12813,7 @@ impl Device {
     /// - [`INVALID_OPAQUE_CAPTURE_ADDRESS_KHR`](ResultCode::ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkBindBufferMemory2KHR")]
     #[inline(always)]
     pub unsafe fn bind_buffer_memory_2_khr(
@@ -12660,6 +12851,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkBindImageMemory2KHR")]
     #[inline(always)]
     pub unsafe fn bind_image_memory_2_khr(
@@ -12836,6 +13028,7 @@ impl Device {
     /// - [`DEVICE_LOST`](ResultCode::ERROR_DEVICE_LOST)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetSemaphoreCounterValueKHR")]
     #[inline(always)]
     pub unsafe fn get_semaphore_counter_value_khr(
@@ -12875,6 +13068,7 @@ impl Device {
     /// - [`DEVICE_LOST`](ResultCode::ERROR_DEVICE_LOST)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkWaitSemaphoresKHR")]
     #[inline(always)]
     pub unsafe fn wait_semaphores_khr(
@@ -12912,6 +13106,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkSignalSemaphoreKHR")]
     #[inline(always)]
     pub unsafe fn signal_semaphore_khr(
@@ -12953,6 +13148,7 @@ impl PhysicalDevice {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetPhysicalDeviceFragmentShadingRatesKHR")]
     #[inline(always)]
     pub unsafe fn get_fragment_shading_rates_khr(
@@ -13124,6 +13320,7 @@ impl Device {
     /// - [`FULL_SCREEN_EXCLUSIVE_MODE_LOST_EXT`](ResultCode::ERROR_FULL_SCREEN_EXCLUSIVE_MODE_LOST_EXT)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkWaitForPresentKHR")]
     #[inline(always)]
     pub unsafe fn wait_for_present_khr(
@@ -13252,6 +13449,7 @@ impl Device {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateDeferredOperationKHR")]
     #[inline(always)]
     pub unsafe fn create_deferred_operation_khr(
@@ -13348,6 +13546,7 @@ impl Device {
     /// ## Error
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetDeferredOperationResultKHR")]
     #[inline(always)]
     pub unsafe fn get_deferred_operation_result_khr(
@@ -13385,6 +13584,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkDeferredOperationJoinKHR")]
     #[inline(always)]
     pub unsafe fn deferred_operation_join_khr(
@@ -13428,6 +13628,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetPipelineExecutablePropertiesKHR")]
     #[inline(always)]
     pub unsafe fn get_pipeline_executable_properties_khr(
@@ -13482,6 +13683,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetPipelineExecutableStatisticsKHR")]
     #[inline(always)]
     pub unsafe fn get_pipeline_executable_statistics_khr(
@@ -13537,6 +13739,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetPipelineExecutableInternalRepresentationsKHR")]
     #[inline(always)]
     pub unsafe fn get_pipeline_executable_internal_representations_khr(
@@ -13585,6 +13788,7 @@ impl Device {
     /// - [`MEMORY_MAP_FAILED`](ResultCode::ERROR_MEMORY_MAP_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkMapMemory2KHR")]
     #[inline(always)]
     pub unsafe fn map_memory_2_khr(
@@ -13621,6 +13825,7 @@ impl Device {
     /// - [`MEMORY_MAP_FAILED`](ResultCode::ERROR_MEMORY_MAP_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkUnmapMemory2KHR")]
     #[inline(always)]
     pub unsafe fn unmap_memory_2_khr(
@@ -13664,6 +13869,7 @@ impl PhysicalDevice {
     /// - [`VIDEO_PROFILE_CODEC_NOT_SUPPORTED_KHR`](ResultCode::ERROR_VIDEO_PROFILE_CODEC_NOT_SUPPORTED_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR")]
     #[inline(always)]
     pub unsafe fn get_video_encode_quality_level_properties_khr(
@@ -13719,6 +13925,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetEncodedVideoSessionParametersKHR")]
     #[inline(always)]
     pub unsafe fn get_encoded_video_session_parameters_khr(
@@ -14018,6 +14225,7 @@ impl Queue {
     /// - [`DEVICE_LOST`](ResultCode::ERROR_DEVICE_LOST)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkQueueSubmit2KHR")]
     #[inline(always)]
     pub unsafe fn submit_2_khr(
@@ -14932,6 +15140,7 @@ impl Device {
     /// - [`INVALID_OPAQUE_CAPTURE_ADDRESS_KHR`](ResultCode::ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS_KHR)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
+    ///
     #[doc(alias = "vkCreateAccelerationStructure2KHR")]
     #[inline(always)]
     pub unsafe fn create_acceleration_structure_2_khr(
@@ -15488,6 +15697,7 @@ impl Device {
     /// - [`FULL_SCREEN_EXCLUSIVE_MODE_LOST_EXT`](ResultCode::ERROR_FULL_SCREEN_EXCLUSIVE_MODE_LOST_EXT)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkWaitForPresent2KHR")]
     #[inline(always)]
     pub unsafe fn wait_for_present_2_khr(
@@ -15534,6 +15744,7 @@ impl Device {
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreatePipelineBinariesKHR")]
     #[inline(always)]
     pub unsafe fn create_pipeline_binaries_khr(
@@ -15609,6 +15820,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetPipelineKeyKHR")]
     #[inline(always)]
     pub unsafe fn get_pipeline_key_khr(
@@ -15654,6 +15866,7 @@ impl Device {
     /// - [`NOT_ENOUGH_SPACE_KHR`](ResultCode::ERROR_NOT_ENOUGH_SPACE_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetPipelineBinaryDataKHR")]
     #[inline(always)]
     pub unsafe fn get_pipeline_binary_data_khr(
@@ -15704,6 +15917,7 @@ impl Device {
     /// ## Error
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkReleaseCapturedPipelineDataKHR")]
     #[inline(always)]
     pub unsafe fn release_captured_pipeline_data_khr(
@@ -15739,6 +15953,7 @@ impl Device {
     /// - [`SURFACE_LOST_KHR`](ResultCode::ERROR_SURFACE_LOST_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkReleaseSwapchainImagesKHR")]
     #[inline(always)]
     pub unsafe fn release_swapchain_images_khr(
@@ -15782,6 +15997,7 @@ impl PhysicalDevice {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR")]
     #[inline(always)]
     pub unsafe fn get_cooperative_matrix_properties_khr(
@@ -15862,6 +16078,7 @@ impl PhysicalDevice {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetPhysicalDeviceCalibrateableTimeDomainsKHR")]
     #[inline(always)]
     pub unsafe fn get_calibrateable_time_domains_khr(
@@ -15905,6 +16122,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetCalibratedTimestampsKHR")]
     #[inline(always)]
     pub unsafe fn get_calibrated_timestamps_khr(
@@ -16099,11 +16317,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Conditionally deprecated API (legacy-descriptor-sets)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
-    ///
-    ///
     /// # Performed tasks
     /// - `state`
     ///
@@ -16115,6 +16328,10 @@ impl CommandBuffer {
     /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     /// - [`COMPUTE`](QueueFlag::COMPUTE)
     /// - [`DATA_GRAPH_ARM`](QueueFlag::DATA_GRAPH_ARM)
+    ///
+    /// # Legacy API (`legacy-descriptor-sets`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
     ///
     #[doc(alias = "vkCmdSetDescriptorBufferOffsets2EXT")]
     #[inline(always)]
@@ -16146,11 +16363,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Conditionally deprecated API (legacy-descriptor-sets)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
-    ///
-    ///
     /// # Performed tasks
     /// - `state`
     ///
@@ -16161,6 +16373,10 @@ impl CommandBuffer {
     /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    ///
+    /// # Legacy API (`legacy-descriptor-sets`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
     ///
     #[doc(alias = "vkCmdBindDescriptorBufferEmbeddedSamplers2EXT")]
     #[inline(always)]
@@ -16281,6 +16497,7 @@ impl Device {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetDeviceFaultReportsKHR")]
     #[inline(always)]
     pub unsafe fn get_device_fault_reports_khr(
@@ -16319,6 +16536,7 @@ impl Device {
     /// - [`NOT_ENOUGH_SPACE_KHR`](ResultCode::ERROR_NOT_ENOUGH_SPACE_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetDeviceFaultDebugInfoKHR")]
     #[inline(always)]
     pub unsafe fn get_device_fault_debug_info_khr(
@@ -16399,6 +16617,7 @@ impl Instance {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateDebugReportCallbackEXT")]
     #[inline(always)]
     pub unsafe fn create_debug_report_callback_ext(
@@ -16523,6 +16742,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkDebugMarkerSetObjectTagEXT")]
     #[inline(always)]
     pub unsafe fn debug_marker_set_object_tag_ext(
@@ -16559,6 +16779,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkDebugMarkerSetObjectNameEXT")]
     #[inline(always)]
     pub unsafe fn debug_marker_set_object_name_ext(
@@ -16717,12 +16938,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Conditionally deprecated API (legacy-buffer-commands)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
-    ///
-    /// It has been superseded by `vkCmdBindTransformFeedbackBuffers2EXT`.
-    ///
     /// # Optional parameters
     /// - p_sizes
     ///
@@ -16735,6 +16950,12 @@ impl CommandBuffer {
     ///
     /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    ///
+    /// # Legacy API (`legacy-buffer-commands`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+    ///
+    /// It has been superseded by [`vkCmdBindTransformFeedbackBuffers2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindTransformFeedbackBuffers2EXT.html).
     ///
     #[doc(alias = "vkCmdBindTransformFeedbackBuffersEXT")]
     #[inline(always)]
@@ -16778,12 +16999,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Conditionally deprecated API (legacy-buffer-commands)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
-    ///
-    /// It has been superseded by `vkCmdBeginTransformFeedback2EXT`.
-    ///
     /// # Optional parameters
     /// - counter_buffer_count
     /// - p_counter_buffer_offsets
@@ -16797,6 +17012,12 @@ impl CommandBuffer {
     ///
     /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    ///
+    /// # Legacy API (`legacy-buffer-commands`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+    ///
+    /// It has been superseded by [`vkCmdBeginTransformFeedback2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginTransformFeedback2EXT.html).
     ///
     #[doc(alias = "vkCmdBeginTransformFeedbackEXT")]
     #[inline(always)]
@@ -16836,12 +17057,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Conditionally deprecated API (legacy-buffer-commands)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
-    ///
-    /// It has been superseded by `vkCmdEndTransformFeedback2EXT`.
-    ///
     /// # Optional parameters
     /// - counter_buffer_count
     /// - p_counter_buffer_offsets
@@ -16855,6 +17070,12 @@ impl CommandBuffer {
     ///
     /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    ///
+    /// # Legacy API (`legacy-buffer-commands`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+    ///
+    /// It has been superseded by [`vkCmdEndTransformFeedback2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndTransformFeedback2EXT.html).
     ///
     #[doc(alias = "vkCmdEndTransformFeedbackEXT")]
     #[inline(always)]
@@ -16979,12 +17200,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Conditionally deprecated API (legacy-buffer-commands)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
-    ///
-    /// It has been superseded by `vkCmdDrawIndirectByteCount2EXT`.
-    ///
     /// # Performed tasks
     /// - `action`
     ///
@@ -16994,6 +17209,12 @@ impl CommandBuffer {
     ///
     /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    ///
+    /// # Legacy API (`legacy-buffer-commands`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+    ///
+    /// It has been superseded by [`vkCmdDrawIndirectByteCount2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndirectByteCount2EXT.html).
     ///
     #[doc(alias = "vkCmdDrawIndirectByteCountEXT")]
     #[inline(always)]
@@ -17052,6 +17273,7 @@ impl Device {
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateCuModuleNVX")]
     #[inline(always)]
     pub unsafe fn create_cu_module_nvx(
@@ -17096,6 +17318,7 @@ impl Device {
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateCuFunctionNVX")]
     #[inline(always)]
     pub unsafe fn create_cu_function_nvx(
@@ -17280,6 +17503,7 @@ impl Device {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetImageViewAddressNVX")]
     #[inline(always)]
     pub unsafe fn get_image_view_address_nvx(
@@ -17462,6 +17686,7 @@ impl Device {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetShaderInfoAMD")]
     #[inline(always)]
     pub unsafe fn get_shader_info_amd(
@@ -17518,6 +17743,7 @@ impl Instance {
     /// - [`NATIVE_WINDOW_IN_USE_KHR`](ResultCode::ERROR_NATIVE_WINDOW_IN_USE_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateStreamDescriptorSurfaceGGP")]
     #[inline(always)]
     pub unsafe fn create_stream_descriptor_surface_ggp(
@@ -17570,6 +17796,7 @@ impl PhysicalDevice {
     /// - [`FORMAT_NOT_SUPPORTED`](ResultCode::ERROR_FORMAT_NOT_SUPPORTED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetPhysicalDeviceExternalImageFormatPropertiesNV")]
     #[inline(always)]
     pub unsafe fn get_external_image_format_properties_nv(
@@ -17630,6 +17857,7 @@ impl Device {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetMemoryWin32HandleNV")]
     #[inline(always)]
     pub unsafe fn get_memory_win_32_handle_nv(
@@ -17675,6 +17903,7 @@ impl Instance {
     /// - [`NATIVE_WINDOW_IN_USE_KHR`](ResultCode::ERROR_NATIVE_WINDOW_IN_USE_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateViSurfaceNN")]
     #[inline(always)]
     pub unsafe fn create_vi_surface_nn(
@@ -17704,12 +17933,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Conditionally deprecated API (legacy-buffer-commands)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
-    ///
-    /// It has been superseded by `vkCmdBeginConditionalRendering2EXT`.
-    ///
     /// # Performed tasks
     /// - `action`
     /// - `state`
@@ -17721,6 +17944,12 @@ impl CommandBuffer {
     /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    ///
+    /// # Legacy API (`legacy-buffer-commands`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+    ///
+    /// It has been superseded by [`vkCmdBeginConditionalRendering2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginConditionalRendering2EXT.html).
     ///
     #[doc(alias = "vkCmdBeginConditionalRenderingEXT")]
     #[inline(always)]
@@ -17836,6 +18065,7 @@ impl PhysicalDevice {
     /// ## Error
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkReleaseDisplayEXT")]
     #[inline(always)]
     pub unsafe fn release_display_ext(&self, display: DisplayKHR) -> ResultCode {
@@ -17868,6 +18098,7 @@ impl PhysicalDevice {
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkAcquireXlibDisplayEXT")]
     #[inline(always)]
     pub unsafe fn acquire_xlib_display_ext(
@@ -17907,6 +18138,7 @@ impl PhysicalDevice {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetRandROutputDisplayEXT")]
     #[inline(always)]
     pub unsafe fn get_rand_r_output_display_ext(
@@ -17948,6 +18180,7 @@ impl PhysicalDevice {
     /// - [`SURFACE_LOST_KHR`](ResultCode::ERROR_SURFACE_LOST_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetPhysicalDeviceSurfaceCapabilities2EXT")]
     #[inline(always)]
     pub unsafe fn get_surface_capabilities_2_ext(
@@ -17985,6 +18218,7 @@ impl Device {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkDisplayPowerControlEXT")]
     #[inline(always)]
     pub unsafe fn display_power_control_ext(
@@ -18027,6 +18261,7 @@ impl Device {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkRegisterDeviceEventEXT")]
     #[inline(always)]
     pub unsafe fn register_device_event_ext(
@@ -18071,6 +18306,7 @@ impl Device {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkRegisterDisplayEventEXT")]
     #[inline(always)]
     pub unsafe fn register_display_event_ext(
@@ -18122,6 +18358,7 @@ impl Device {
     /// - [`OUT_OF_DATE_KHR`](ResultCode::ERROR_OUT_OF_DATE_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetSwapchainCounterEXT")]
     #[inline(always)]
     pub unsafe fn get_swapchain_counter_ext(
@@ -18160,6 +18397,7 @@ impl Device {
     /// - [`SURFACE_LOST_KHR`](ResultCode::ERROR_SURFACE_LOST_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetRefreshCycleDurationGOOGLE")]
     #[inline(always)]
     pub unsafe fn get_refresh_cycle_duration_google(
@@ -18206,6 +18444,7 @@ impl Device {
     /// - [`SURFACE_LOST_KHR`](ResultCode::ERROR_SURFACE_LOST_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetPastPresentationTimingGOOGLE")]
     #[inline(always)]
     pub unsafe fn get_past_presentation_timing_google(
@@ -18405,6 +18644,7 @@ impl Instance {
     /// - [`NATIVE_WINDOW_IN_USE_KHR`](ResultCode::ERROR_NATIVE_WINDOW_IN_USE_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateIOSSurfaceMVK")]
     #[inline(always)]
     pub unsafe fn create_ios_surface_mvk(
@@ -18451,6 +18691,7 @@ impl Instance {
     /// - [`NATIVE_WINDOW_IN_USE_KHR`](ResultCode::ERROR_NATIVE_WINDOW_IN_USE_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateMacOSSurfaceMVK")]
     #[inline(always)]
     pub unsafe fn create_mac_os_surface_mvk(
@@ -18488,6 +18729,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkSetDebugUtilsObjectNameEXT")]
     #[inline(always)]
     pub unsafe fn set_debug_utils_object_name_ext(
@@ -18523,6 +18765,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkSetDebugUtilsObjectTagEXT")]
     #[inline(always)]
     pub unsafe fn set_debug_utils_object_tag_ext(
@@ -18751,6 +18994,7 @@ impl Instance {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateDebugUtilsMessengerEXT")]
     #[inline(always)]
     pub unsafe fn create_debug_utils_messenger_ext(
@@ -18863,6 +19107,7 @@ impl Device {
     /// - [`INVALID_EXTERNAL_HANDLE_KHR`](ResultCode::ERROR_INVALID_EXTERNAL_HANDLE_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetAndroidHardwareBufferPropertiesANDROID")]
     #[inline(always)]
     pub unsafe fn get_android_hardware_buffer_properties_android(
@@ -18904,6 +19149,7 @@ impl Device {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetMemoryAndroidHardwareBufferANDROID")]
     #[inline(always)]
     pub unsafe fn get_memory_android_hardware_buffer_android(
@@ -18949,6 +19195,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateGpaSessionAMD")]
     #[inline(always)]
     pub unsafe fn create_gpa_session_amd(
@@ -19018,6 +19265,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkSetGpaDeviceClockModeAMD")]
     #[inline(always)]
     pub unsafe fn set_gpa_device_clock_mode_amd(
@@ -19053,6 +19301,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetGpaDeviceClockInfoAMD")]
     #[inline(always)]
     pub unsafe fn get_gpa_device_clock_info_amd(
@@ -19100,6 +19349,7 @@ impl CommandBuffer {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCmdBeginGpaSessionAMD")]
     #[inline(always)]
     pub unsafe fn cmd_begin_gpa_session_amd(&self, gpa_session: GpaSessionAMD) -> ResultCode {
@@ -19144,6 +19394,7 @@ impl CommandBuffer {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCmdEndGpaSessionAMD")]
     #[inline(always)]
     pub unsafe fn cmd_end_gpa_session_amd(&self, gpa_session: GpaSessionAMD) -> ResultCode {
@@ -19192,6 +19443,7 @@ impl CommandBuffer {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCmdBeginGpaSampleAMD")]
     #[inline(always)]
     pub unsafe fn cmd_begin_gpa_sample_amd(
@@ -19272,6 +19524,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetGpaSessionStatusAMD")]
     #[inline(always)]
     pub unsafe fn get_gpa_session_status_amd(&self, gpa_session: GpaSessionAMD) -> ResultCode {
@@ -19307,6 +19560,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetGpaSessionResultsAMD")]
     #[inline(always)]
     pub unsafe fn get_gpa_session_results_amd(
@@ -19345,6 +19599,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkResetGpaSessionAMD")]
     #[inline(always)]
     pub unsafe fn reset_gpa_session_amd(&self, gpa_session: GpaSessionAMD) -> ResultCode {
@@ -19425,6 +19680,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateExecutionGraphPipelinesAMDX")]
     #[inline(always)]
     pub unsafe fn create_execution_graph_pipelines_amdx(
@@ -19477,6 +19733,7 @@ impl Device {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetExecutionGraphPipelineScratchSizeAMDX")]
     #[inline(always)]
     pub unsafe fn get_execution_graph_pipeline_scratch_size_amdx(
@@ -19518,6 +19775,7 @@ impl Device {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetExecutionGraphPipelineNodeIndexAMDX")]
     #[inline(always)]
     pub unsafe fn get_execution_graph_pipeline_node_index_amdx(
@@ -19729,6 +19987,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkWriteSamplerDescriptorsEXT")]
     #[inline(always)]
     pub unsafe fn write_sampler_descriptors_ext(
@@ -19770,6 +20029,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkWriteResourceDescriptorsEXT")]
     #[inline(always)]
     pub unsafe fn write_resource_descriptors_ext(
@@ -19912,6 +20172,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetImageOpaqueCaptureDataEXT")]
     #[inline(always)]
     pub unsafe fn get_image_opaque_capture_data_ext(
@@ -19981,6 +20242,7 @@ impl Device {
     /// - [`INVALID_OPAQUE_CAPTURE_ADDRESS`](ResultCode::ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkRegisterCustomBorderColorEXT")]
     #[inline(always)]
     pub unsafe fn register_custom_border_color_ext(
@@ -20045,6 +20307,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetTensorOpaqueCaptureDataARM")]
     #[inline(always)]
     pub unsafe fn get_tensor_opaque_capture_data_arm(
@@ -20151,6 +20414,7 @@ impl Device {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetImageDrmFormatModifierPropertiesEXT")]
     #[inline(always)]
     pub unsafe fn get_image_drm_format_modifier_properties_ext(
@@ -20195,6 +20459,7 @@ impl Device {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateValidationCacheEXT")]
     #[inline(always)]
     pub unsafe fn create_validation_cache_ext(
@@ -20268,6 +20533,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkMergeValidationCachesEXT")]
     #[inline(always)]
     pub unsafe fn merge_validation_caches_ext(
@@ -20309,6 +20575,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetValidationCacheDataEXT")]
     #[inline(always)]
     pub unsafe fn get_validation_cache_data_ext(
@@ -20495,6 +20762,7 @@ impl Device {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateAccelerationStructureNV")]
     #[inline(always)]
     pub unsafe fn create_acceleration_structure_nv(
@@ -20610,6 +20878,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkBindAccelerationStructureMemoryNV")]
     #[inline(always)]
     pub unsafe fn bind_acceleration_structure_memory_nv(
@@ -20864,6 +21133,7 @@ impl Device {
     /// - [`INVALID_SHADER_NV`](ResultCode::ERROR_INVALID_SHADER_NV)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateRayTracingPipelinesNV")]
     #[inline(always)]
     pub unsafe fn create_ray_tracing_pipelines_nv(
@@ -20912,6 +21182,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetRayTracingShaderGroupHandlesKHR")]
     #[inline(always)]
     pub unsafe fn get_ray_tracing_shader_group_handles_khr(
@@ -20963,6 +21234,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetRayTracingShaderGroupHandlesNV")]
     #[inline(always)]
     pub unsafe fn get_ray_tracing_shader_group_handles_nv(
@@ -21014,6 +21286,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetAccelerationStructureHandleNV")]
     #[inline(always)]
     pub unsafe fn get_acceleration_structure_handle_nv(
@@ -21111,6 +21384,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCompileDeferredNV")]
     #[inline(always)]
     pub unsafe fn compile_deferred_nv(&self, pipeline: Pipeline, shader: u32) -> ResultCode {
@@ -21147,6 +21421,7 @@ impl Device {
     /// - [`INVALID_EXTERNAL_HANDLE`](ResultCode::ERROR_INVALID_EXTERNAL_HANDLE)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetMemoryHostPointerPropertiesEXT")]
     #[inline(always)]
     pub unsafe fn get_memory_host_pointer_properties_ext(
@@ -21230,12 +21505,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Conditionally deprecated API (legacy-buffer-commands)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
-    ///
-    /// It has been superseded by `vkCmdWriteMarkerToMemoryAMD`.
-    ///
     /// # Optional parameters
     /// - stage
     ///
@@ -21250,6 +21519,12 @@ impl CommandBuffer {
     /// - [`TRANSFER`](QueueFlag::TRANSFER)
     /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    ///
+    /// # Legacy API (`legacy-buffer-commands`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+    ///
+    /// It has been superseded by [`vkCmdWriteMarkerToMemoryAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteMarkerToMemoryAMD.html).
     ///
     #[doc(alias = "vkCmdWriteBufferMarker2AMD")]
     #[inline(always)]
@@ -21294,6 +21569,7 @@ impl PhysicalDevice {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetPhysicalDeviceCalibrateableTimeDomainsEXT")]
     #[inline(always)]
     pub unsafe fn get_calibrateable_time_domains_ext(
@@ -21338,6 +21614,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetCalibratedTimestampsEXT")]
     #[inline(always)]
     pub unsafe fn get_calibrated_timestamps_ext(
@@ -21699,6 +21976,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkSetSwapchainPresentTimingQueueSizeEXT")]
     #[inline(always)]
     pub unsafe fn set_swapchain_present_timing_queue_size_ext(
@@ -21746,6 +22024,7 @@ impl Device {
     /// - [`SURFACE_LOST_KHR`](ResultCode::ERROR_SURFACE_LOST_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetSwapchainTimingPropertiesEXT")]
     #[inline(always)]
     pub unsafe fn get_swapchain_timing_properties_ext(
@@ -21799,6 +22078,7 @@ impl Device {
     /// - [`SURFACE_LOST_KHR`](ResultCode::ERROR_SURFACE_LOST_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetSwapchainTimeDomainPropertiesEXT")]
     #[inline(always)]
     pub unsafe fn get_swapchain_time_domain_properties_ext(
@@ -21850,6 +22130,7 @@ impl Device {
     /// - [`SURFACE_LOST_KHR`](ResultCode::ERROR_SURFACE_LOST_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetPastPresentationTimingEXT")]
     #[inline(always)]
     pub unsafe fn get_past_presentation_timing_ext(
@@ -21892,6 +22173,7 @@ impl Device {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkInitializePerformanceApiINTEL")]
     #[inline(always)]
     pub unsafe fn initialize_performance_api_intel(
@@ -21963,6 +22245,7 @@ impl CommandBuffer {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCmdSetPerformanceMarkerINTEL")]
     #[inline(always)]
     pub unsafe fn cmd_set_performance_marker_intel(
@@ -22013,6 +22296,7 @@ impl CommandBuffer {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCmdSetPerformanceStreamMarkerINTEL")]
     #[inline(always)]
     pub unsafe fn cmd_set_performance_stream_marker_intel(
@@ -22062,6 +22346,7 @@ impl CommandBuffer {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCmdSetPerformanceOverrideINTEL")]
     #[inline(always)]
     pub unsafe fn cmd_set_performance_override_intel(
@@ -22100,6 +22385,7 @@ impl Device {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkAcquirePerformanceConfigurationINTEL")]
     #[inline(always)]
     pub unsafe fn acquire_performance_configuration_intel(
@@ -22141,6 +22427,7 @@ impl Device {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkReleasePerformanceConfigurationINTEL")]
     #[inline(always)]
     pub unsafe fn release_performance_configuration_intel(
@@ -22178,6 +22465,7 @@ impl Queue {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkQueueSetPerformanceConfigurationINTEL")]
     #[inline(always)]
     pub unsafe fn set_performance_configuration_intel(
@@ -22218,6 +22506,7 @@ impl Device {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetPerformanceParameterINTEL")]
     #[inline(always)]
     pub unsafe fn get_performance_parameter_intel(
@@ -22288,6 +22577,7 @@ impl Instance {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateImagePipeSurfaceFUCHSIA")]
     #[inline(always)]
     pub unsafe fn create_image_pipe_surface_fuchsia(
@@ -22333,6 +22623,7 @@ impl Instance {
     /// - [`NATIVE_WINDOW_IN_USE_KHR`](ResultCode::ERROR_NATIVE_WINDOW_IN_USE_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateMetalSurfaceEXT")]
     #[inline(always)]
     pub unsafe fn create_metal_surface_ext(
@@ -22405,6 +22696,7 @@ impl PhysicalDevice {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetPhysicalDeviceToolPropertiesEXT")]
     #[inline(always)]
     pub unsafe fn get_tool_properties_ext(
@@ -22451,6 +22743,7 @@ impl PhysicalDevice {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetPhysicalDeviceCooperativeMatrixPropertiesNV")]
     #[inline(always)]
     pub unsafe fn get_cooperative_matrix_properties_nv(
@@ -22497,6 +22790,7 @@ impl PhysicalDevice {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV")]
     #[inline(always)]
     pub unsafe fn get_supported_framebuffer_mixed_samples_combinations_nv(
@@ -22546,6 +22840,7 @@ impl PhysicalDevice {
     /// - [`SURFACE_LOST_KHR`](ResultCode::ERROR_SURFACE_LOST_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetPhysicalDeviceSurfacePresentModes2EXT")]
     #[inline(always)]
     pub unsafe fn get_surface_present_modes_2_ext(
@@ -22594,6 +22889,7 @@ impl Device {
     /// - [`SURFACE_LOST_KHR`](ResultCode::ERROR_SURFACE_LOST_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkAcquireFullScreenExclusiveModeEXT")]
     #[inline(always)]
     pub unsafe fn acquire_full_screen_exclusive_mode_ext(
@@ -22632,6 +22928,7 @@ impl Device {
     /// - [`SURFACE_LOST_KHR`](ResultCode::ERROR_SURFACE_LOST_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkReleaseFullScreenExclusiveModeEXT")]
     #[inline(always)]
     pub unsafe fn release_full_screen_exclusive_mode_ext(
@@ -22673,6 +22970,7 @@ impl Device {
     /// - [`SURFACE_LOST_KHR`](ResultCode::ERROR_SURFACE_LOST_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetDeviceGroupSurfacePresentModes2EXT")]
     #[inline(always)]
     pub unsafe fn get_device_group_surface_present_modes_2_ext(
@@ -22718,6 +23016,7 @@ impl Instance {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateHeadlessSurfaceEXT")]
     #[inline(always)]
     pub unsafe fn create_headless_surface_ext(
@@ -23012,12 +23311,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Conditionally deprecated API (legacy-buffer-commands)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
-    ///
-    /// It has been superseded by `vkCmdBindVertexBuffers3KHR`.
-    ///
     /// # Optional parameters
     /// - p_sizes
     /// - p_strides
@@ -23031,6 +23324,12 @@ impl CommandBuffer {
     ///
     /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    ///
+    /// # Legacy API (`legacy-buffer-commands`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+    ///
+    /// It has been superseded by [`vkCmdBindVertexBuffers3KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindVertexBuffers3KHR.html).
     ///
     #[doc(alias = "vkCmdBindVertexBuffers2EXT")]
     #[inline(always)]
@@ -23319,6 +23618,7 @@ impl Device {
     /// - [`MEMORY_MAP_FAILED`](ResultCode::ERROR_MEMORY_MAP_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCopyMemoryToImageEXT")]
     #[inline(always)]
     pub unsafe fn copy_memory_to_image_ext(
@@ -23357,6 +23657,7 @@ impl Device {
     /// - [`MEMORY_MAP_FAILED`](ResultCode::ERROR_MEMORY_MAP_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCopyImageToMemoryEXT")]
     #[inline(always)]
     pub unsafe fn copy_image_to_memory_ext(
@@ -23395,6 +23696,7 @@ impl Device {
     /// - [`MEMORY_MAP_FAILED`](ResultCode::ERROR_MEMORY_MAP_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCopyImageToImageEXT")]
     #[inline(always)]
     pub unsafe fn copy_image_to_image_ext(
@@ -23433,6 +23735,7 @@ impl Device {
     /// - [`MEMORY_MAP_FAILED`](ResultCode::ERROR_MEMORY_MAP_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkTransitionImageLayoutEXT")]
     #[inline(always)]
     pub unsafe fn transition_image_layout_ext(
@@ -23500,6 +23803,7 @@ impl Device {
     /// - [`SURFACE_LOST_KHR`](ResultCode::ERROR_SURFACE_LOST_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkReleaseSwapchainImagesEXT")]
     #[inline(always)]
     pub unsafe fn release_swapchain_images_ext(
@@ -23693,6 +23997,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateIndirectCommandsLayoutNV")]
     #[inline(always)]
     pub unsafe fn create_indirect_commands_layout_nv(
@@ -23802,6 +24107,7 @@ impl PhysicalDevice {
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkAcquireDrmDisplayEXT")]
     #[inline(always)]
     pub unsafe fn acquire_drm_display_ext(&self, drm_fd: i32, display: DisplayKHR) -> ResultCode {
@@ -23834,6 +24140,7 @@ impl PhysicalDevice {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetDrmDisplayEXT")]
     #[inline(always)]
     pub unsafe fn get_drm_display_ext(
@@ -23878,6 +24185,7 @@ impl Device {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreatePrivateDataSlotEXT")]
     #[inline(always)]
     pub unsafe fn create_private_data_slot_ext(
@@ -23948,6 +24256,7 @@ impl Device {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkSetPrivateDataEXT")]
     #[inline(always)]
     pub unsafe fn set_private_data_ext(
@@ -24032,6 +24341,7 @@ impl Queue {
     /// - [`DEVICE_LOST`](ResultCode::ERROR_DEVICE_LOST)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkQueueSetPerfHintQCOM")]
     #[inline(always)]
     pub unsafe fn set_perf_hint_qcom(
@@ -24074,6 +24384,7 @@ impl Device {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateCudaModuleNV")]
     #[inline(always)]
     pub unsafe fn create_cuda_module_nv(
@@ -24114,6 +24425,7 @@ impl Device {
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetCudaModuleCacheNV")]
     #[inline(always)]
     pub unsafe fn get_cuda_module_cache_nv(
@@ -24158,6 +24470,7 @@ impl Device {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateCudaFunctionNV")]
     #[inline(always)]
     pub unsafe fn create_cuda_function_nv(
@@ -24603,10 +24916,9 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Conditionally deprecated API (legacy-descriptor-sets)
+    /// # Legacy API (`legacy-descriptor-sets`)
     /// This command is legacy when any of the following extensions are enabled:
     /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
-    ///
     ///
     #[doc(alias = "vkGetDescriptorSetLayoutSizeEXT")]
     #[inline(always)]
@@ -24637,10 +24949,9 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Conditionally deprecated API (legacy-descriptor-sets)
+    /// # Legacy API (`legacy-descriptor-sets`)
     /// This command is legacy when any of the following extensions are enabled:
     /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
-    ///
     ///
     #[doc(alias = "vkGetDescriptorSetLayoutBindingOffsetEXT")]
     #[inline(always)]
@@ -24674,10 +24985,9 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Conditionally deprecated API (legacy-descriptor-sets)
+    /// # Legacy API (`legacy-descriptor-sets`)
     /// This command is legacy when any of the following extensions are enabled:
     /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
-    ///
     ///
     #[doc(alias = "vkGetDescriptorEXT")]
     #[inline(always)]
@@ -24709,11 +25019,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Conditionally deprecated API (legacy-descriptor-sets)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
-    ///
-    ///
     /// # Performed tasks
     /// - `state`
     ///
@@ -24725,6 +25030,10 @@ impl CommandBuffer {
     /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     /// - [`COMPUTE`](QueueFlag::COMPUTE)
     /// - [`DATA_GRAPH_ARM`](QueueFlag::DATA_GRAPH_ARM)
+    ///
+    /// # Legacy API (`legacy-descriptor-sets`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
     ///
     #[doc(alias = "vkCmdBindDescriptorBuffersEXT")]
     #[inline(always)]
@@ -24762,11 +25071,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Conditionally deprecated API (legacy-descriptor-sets)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
-    ///
-    ///
     /// # Performed tasks
     /// - `state`
     ///
@@ -24778,6 +25082,10 @@ impl CommandBuffer {
     /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     /// - [`COMPUTE`](QueueFlag::COMPUTE)
     /// - [`DATA_GRAPH_ARM`](QueueFlag::DATA_GRAPH_ARM)
+    ///
+    /// # Legacy API (`legacy-descriptor-sets`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
     ///
     #[doc(alias = "vkCmdSetDescriptorBufferOffsetsEXT")]
     #[inline(always)]
@@ -24822,11 +25130,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Conditionally deprecated API (legacy-descriptor-sets)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
-    ///
-    ///
     /// # Performed tasks
     /// - `state`
     ///
@@ -24837,6 +25140,10 @@ impl CommandBuffer {
     /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     /// - [`COMPUTE`](QueueFlag::COMPUTE)
+    ///
+    /// # Legacy API (`legacy-descriptor-sets`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
     ///
     #[doc(alias = "vkCmdBindDescriptorBufferEmbeddedSamplersEXT")]
     #[inline(always)]
@@ -24873,11 +25180,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Conditionally deprecated API (legacy-descriptor-sets)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
-    ///
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -24886,6 +25188,11 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
+    /// # Legacy API (`legacy-descriptor-sets`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
     #[doc(alias = "vkGetBufferOpaqueCaptureDescriptorDataEXT")]
     #[inline(always)]
     pub unsafe fn get_buffer_opaque_capture_descriptor_data_ext(
@@ -24920,11 +25227,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Conditionally deprecated API (legacy-descriptor-sets)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
-    ///
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -24933,6 +25235,11 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
+    /// # Legacy API (`legacy-descriptor-sets`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
     #[doc(alias = "vkGetImageOpaqueCaptureDescriptorDataEXT")]
     #[inline(always)]
     pub unsafe fn get_image_opaque_capture_descriptor_data_ext(
@@ -24968,11 +25275,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Conditionally deprecated API (legacy-descriptor-sets)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
-    ///
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -24981,6 +25283,11 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
+    /// # Legacy API (`legacy-descriptor-sets`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
     #[doc(alias = "vkGetImageViewOpaqueCaptureDescriptorDataEXT")]
     #[inline(always)]
     pub unsafe fn get_image_view_opaque_capture_descriptor_data_ext(
@@ -25015,11 +25322,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Conditionally deprecated API (legacy-descriptor-sets)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
-    ///
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -25028,6 +25330,11 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
+    /// # Legacy API (`legacy-descriptor-sets`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
     #[doc(alias = "vkGetSamplerOpaqueCaptureDescriptorDataEXT")]
     #[inline(always)]
     pub unsafe fn get_sampler_opaque_capture_descriptor_data_ext(
@@ -25063,11 +25370,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Conditionally deprecated API (legacy-descriptor-sets)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
-    ///
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -25076,6 +25378,11 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
+    /// # Legacy API (`legacy-descriptor-sets`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
     #[doc(alias = "vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT")]
     #[inline(always)]
     pub unsafe fn get_acceleration_structure_opaque_capture_descriptor_data_ext(
@@ -25163,6 +25470,7 @@ impl Device {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetDeviceFaultInfoEXT")]
     #[inline(always)]
     pub unsafe fn get_device_fault_info_ext(
@@ -25200,6 +25508,7 @@ impl PhysicalDevice {
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkAcquireWinrtDisplayNV")]
     #[inline(always)]
     pub unsafe fn acquire_winrt_display_nv(&self, display: DisplayKHR) -> ResultCode {
@@ -25233,6 +25542,7 @@ impl PhysicalDevice {
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetWinrtDisplayNV")]
     #[inline(always)]
     pub unsafe fn get_winrt_display_nv(
@@ -25276,6 +25586,7 @@ impl Instance {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateDirectFBSurfaceEXT")]
     #[inline(always)]
     pub unsafe fn create_direct_fb_surface_ext(
@@ -25404,6 +25715,7 @@ impl Device {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetMemoryZirconHandleFUCHSIA")]
     #[inline(always)]
     pub unsafe fn get_memory_zircon_handle_fuchsia(
@@ -25443,6 +25755,7 @@ impl Device {
     /// - [`INVALID_EXTERNAL_HANDLE`](ResultCode::ERROR_INVALID_EXTERNAL_HANDLE)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetMemoryZirconHandlePropertiesFUCHSIA")]
     #[inline(always)]
     pub unsafe fn get_memory_zircon_handle_properties_fuchsia(
@@ -25489,6 +25802,7 @@ impl Device {
     /// - [`INVALID_EXTERNAL_HANDLE`](ResultCode::ERROR_INVALID_EXTERNAL_HANDLE)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkImportSemaphoreZirconHandleFUCHSIA")]
     #[inline(always)]
     pub unsafe fn import_semaphore_zircon_handle_fuchsia(
@@ -25529,6 +25843,7 @@ impl Device {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetSemaphoreZirconHandleFUCHSIA")]
     #[inline(always)]
     pub unsafe fn get_semaphore_zircon_handle_fuchsia(
@@ -25573,6 +25888,7 @@ impl Device {
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateBufferCollectionFUCHSIA")]
     #[inline(always)]
     pub unsafe fn create_buffer_collection_fuchsia(
@@ -25615,6 +25931,7 @@ impl Device {
     /// - [`FORMAT_NOT_SUPPORTED`](ResultCode::ERROR_FORMAT_NOT_SUPPORTED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkSetBufferCollectionImageConstraintsFUCHSIA")]
     #[inline(always)]
     pub unsafe fn set_buffer_collection_image_constraints_fuchsia(
@@ -25658,6 +25975,7 @@ impl Device {
     /// - [`FORMAT_NOT_SUPPORTED`](ResultCode::ERROR_FORMAT_NOT_SUPPORTED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkSetBufferCollectionBufferConstraintsFUCHSIA")]
     #[inline(always)]
     pub unsafe fn set_buffer_collection_buffer_constraints_fuchsia(
@@ -25730,6 +26048,7 @@ impl Device {
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetBufferCollectionPropertiesFUCHSIA")]
     #[inline(always)]
     pub unsafe fn get_buffer_collection_properties_fuchsia(
@@ -25769,6 +26088,7 @@ impl Device {
     /// - [`SURFACE_LOST_KHR`](ResultCode::ERROR_SURFACE_LOST_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI")]
     #[inline(always)]
     pub unsafe fn get_device_subpass_shading_max_workgroup_size_huawei(
@@ -25883,6 +26203,7 @@ impl Device {
     /// - [`INVALID_EXTERNAL_HANDLE`](ResultCode::ERROR_INVALID_EXTERNAL_HANDLE)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetMemoryRemoteAddressNV")]
     #[inline(always)]
     pub unsafe fn get_memory_remote_address_nv(
@@ -25918,6 +26239,7 @@ impl Device {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetPipelinePropertiesEXT")]
     #[inline(always)]
     pub unsafe fn get_pipeline_properties_ext(
@@ -26138,6 +26460,7 @@ impl Instance {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateScreenSurfaceQNX")]
     #[inline(always)]
     pub unsafe fn create_screen_surface_qnx(
@@ -26367,6 +26690,7 @@ impl Device {
     /// - [`INVALID_OPAQUE_CAPTURE_ADDRESS_KHR`](ResultCode::ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateMicromapEXT")]
     #[inline(always)]
     pub unsafe fn create_micromap_ext(
@@ -26473,12 +26797,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Conditionally deprecated API (legacy-host-builds)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
-    ///
-    /// It has been superseded by `vkCmdBuildMicromapsEXT`.
-    ///
     /// # Optional parameters
     /// - deferred_operation
     ///
@@ -26492,6 +26810,13 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
+    /// # Legacy API (`legacy-host-builds`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+    ///
+    /// It has been superseded by [`vkCmdBuildMicromapsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBuildMicromapsEXT.html).
+    ///
     #[doc(alias = "vkBuildMicromapsEXT")]
     #[inline(always)]
     pub unsafe fn build_micromaps_ext(
@@ -26525,12 +26850,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Conditionally deprecated API (legacy-host-builds)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
-    ///
-    /// It has been superseded by `vkCmdCopyMicromapEXT`.
-    ///
     /// # Optional parameters
     /// - deferred_operation
     ///
@@ -26544,6 +26863,13 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
+    /// # Legacy API (`legacy-host-builds`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+    ///
+    /// It has been superseded by [`vkCmdCopyMicromapEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMicromapEXT.html).
+    ///
     #[doc(alias = "vkCopyMicromapEXT")]
     #[inline(always)]
     pub unsafe fn copy_micromap_ext(
@@ -26576,12 +26902,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Conditionally deprecated API (legacy-host-builds)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
-    ///
-    /// It has been superseded by `vkCmdCopyMicromapToMemoryEXT`.
-    ///
     /// # Optional parameters
     /// - deferred_operation
     ///
@@ -26595,6 +26915,13 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
+    /// # Legacy API (`legacy-host-builds`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+    ///
+    /// It has been superseded by [`vkCmdCopyMicromapToMemoryEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMicromapToMemoryEXT.html).
+    ///
     #[doc(alias = "vkCopyMicromapToMemoryEXT")]
     #[inline(always)]
     pub unsafe fn copy_micromap_to_memory_ext(
@@ -26627,12 +26954,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Conditionally deprecated API (legacy-host-builds)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
-    ///
-    /// It has been superseded by `vkCmdCopyMemoryToMicromapEXT`.
-    ///
     /// # Optional parameters
     /// - deferred_operation
     ///
@@ -26646,6 +26967,13 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
+    /// # Legacy API (`legacy-host-builds`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+    ///
+    /// It has been superseded by [`vkCmdCopyMemoryToMicromapEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMemoryToMicromapEXT.html).
+    ///
     #[doc(alias = "vkCopyMemoryToMicromapEXT")]
     #[inline(always)]
     pub unsafe fn copy_memory_to_micromap_ext(
@@ -26682,12 +27010,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Conditionally deprecated API (legacy-host-builds)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
-    ///
-    /// It has been superseded by `vkCmdWriteMicromapsPropertiesEXT`.
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -26696,6 +27018,13 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
+    /// # Legacy API (`legacy-host-builds`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+    ///
+    /// It has been superseded by [`vkCmdWriteMicromapsPropertiesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteMicromapsPropertiesEXT.html).
+    ///
     #[doc(alias = "vkWriteMicromapsPropertiesEXT")]
     #[inline(always)]
     pub unsafe fn write_micromaps_properties_ext(
@@ -27474,6 +27803,7 @@ impl Device {
     /// - [`INVALID_EXTERNAL_HANDLE_KHR`](ResultCode::ERROR_INVALID_EXTERNAL_HANDLE_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetNativeBufferPropertiesOHOS")]
     #[inline(always)]
     pub unsafe fn get_native_buffer_properties_ohos(
@@ -27512,6 +27842,7 @@ impl Device {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetMemoryNativeBufferOHOS")]
     #[inline(always)]
     pub unsafe fn get_memory_native_buffer_ohos(
@@ -28752,6 +29083,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateTensorARM")]
     #[inline(always)]
     pub unsafe fn create_tensor_arm(
@@ -28828,6 +29160,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateTensorViewARM")]
     #[inline(always)]
     pub unsafe fn create_tensor_view_arm(
@@ -28928,6 +29261,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkBindTensorMemoryARM")]
     #[inline(always)]
     pub unsafe fn bind_tensor_memory_arm(
@@ -29075,6 +29409,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetTensorOpaqueCaptureDescriptorDataARM")]
     #[inline(always)]
     pub unsafe fn get_tensor_opaque_capture_descriptor_data_arm(
@@ -29117,6 +29452,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetTensorViewOpaqueCaptureDescriptorDataARM")]
     #[inline(always)]
     pub unsafe fn get_tensor_view_opaque_capture_descriptor_data_arm(
@@ -29226,6 +29562,7 @@ impl PhysicalDevice {
     /// - [`FORMAT_NOT_SUPPORTED`](ResultCode::ERROR_FORMAT_NOT_SUPPORTED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetPhysicalDeviceOpticalFlowImageFormatsNV")]
     #[inline(always)]
     pub unsafe fn get_optical_flow_image_formats_nv(
@@ -29279,6 +29616,7 @@ impl Device {
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateOpticalFlowSessionNV")]
     #[inline(always)]
     pub unsafe fn create_optical_flow_session_nv(
@@ -29355,6 +29693,7 @@ impl Device {
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkBindOpticalFlowSessionImageNV")]
     #[inline(always)]
     pub unsafe fn bind_optical_flow_session_image_nv(
@@ -29467,6 +29806,7 @@ impl Device {
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateShadersEXT")]
     #[inline(always)]
     pub unsafe fn create_shaders_ext(
@@ -29549,6 +29889,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetShaderBinaryDataEXT")]
     #[inline(always)]
     pub unsafe fn get_shader_binary_data_ext(
@@ -29677,6 +30018,7 @@ impl Device {
     /// ## Error
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetFramebufferTilePropertiesQCOM")]
     #[inline(always)]
     pub unsafe fn get_framebuffer_tile_properties_qcom(
@@ -29712,6 +30054,7 @@ impl Device {
     /// ## Error
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetDynamicRenderingTilePropertiesQCOM")]
     #[inline(always)]
     pub unsafe fn get_dynamic_rendering_tile_properties_qcom(
@@ -29758,6 +30101,7 @@ impl PhysicalDevice {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetPhysicalDeviceCooperativeVectorPropertiesNV")]
     #[inline(always)]
     pub unsafe fn get_cooperative_vector_properties_nv(
@@ -29796,6 +30140,7 @@ impl Device {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkConvertCooperativeVectorMatrixNV")]
     #[inline(always)]
     pub unsafe fn convert_cooperative_vector_matrix_nv(
@@ -29871,6 +30216,7 @@ impl Device {
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkSetLatencySleepModeNV")]
     #[inline(always)]
     pub unsafe fn set_latency_sleep_mode_nv(
@@ -29905,6 +30251,7 @@ impl Device {
     /// ## Error
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkLatencySleepNV")]
     #[inline(always)]
     pub unsafe fn latency_sleep_nv(
@@ -30034,6 +30381,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateDataGraphPipelinesARM")]
     #[inline(always)]
     pub unsafe fn create_data_graph_pipelines_arm(
@@ -30091,6 +30439,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateDataGraphPipelineSessionARM")]
     #[inline(always)]
     pub unsafe fn create_data_graph_pipeline_session_arm(
@@ -30139,6 +30488,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetDataGraphPipelineSessionBindPointRequirementsARM")]
     #[inline(always)]
     pub unsafe fn get_data_graph_pipeline_session_bind_point_requirements_arm(
@@ -30223,6 +30573,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkBindDataGraphPipelineSessionMemoryARM")]
     #[inline(always)]
     pub unsafe fn bind_data_graph_pipeline_session_memory_arm(
@@ -30347,6 +30698,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetDataGraphPipelineAvailablePropertiesARM")]
     #[inline(always)]
     pub unsafe fn get_data_graph_pipeline_available_properties_arm(
@@ -30398,6 +30750,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetDataGraphPipelinePropertiesARM")]
     #[inline(always)]
     pub unsafe fn get_data_graph_pipeline_properties_arm(
@@ -30446,6 +30799,7 @@ impl PhysicalDevice {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM")]
     #[inline(always)]
     pub unsafe fn get_queue_family_data_graph_properties_arm(
@@ -30534,6 +30888,7 @@ impl PhysicalDevice {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetPhysicalDeviceQueueFamilyDataGraphEngineOperationPropertiesARM")]
     #[inline(always)]
     pub unsafe fn get_queue_family_data_graph_engine_operation_properties_arm(
@@ -30627,6 +30982,7 @@ impl Device {
     /// - [`INVALID_EXTERNAL_HANDLE_KHR`](ResultCode::ERROR_INVALID_EXTERNAL_HANDLE_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetScreenBufferPropertiesQNX")]
     #[inline(always)]
     pub unsafe fn get_screen_buffer_properties_qnx(
@@ -30808,6 +31164,7 @@ impl Device {
     /// - [`TOO_MANY_OBJECTS`](ResultCode::ERROR_TOO_MANY_OBJECTS)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateExternalComputeQueueNV")]
     #[inline(always)]
     pub unsafe fn create_external_compute_queue_nv(
@@ -31173,6 +31530,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateIndirectCommandsLayoutEXT")]
     #[inline(always)]
     pub unsafe fn create_indirect_commands_layout_ext(
@@ -31256,6 +31614,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateIndirectExecutionSetEXT")]
     #[inline(always)]
     pub unsafe fn create_indirect_execution_set_ext(
@@ -31423,6 +31782,7 @@ impl Instance {
     /// - [`SURFACE_LOST_KHR`](ResultCode::ERROR_SURFACE_LOST_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateSurfaceOHOS")]
     #[inline(always)]
     pub unsafe fn create_surface_ohos(
@@ -31468,6 +31828,7 @@ impl PhysicalDevice {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV")]
     #[inline(always)]
     pub unsafe fn get_cooperative_matrix_flexible_dimensions_properties_nv(
@@ -31511,6 +31872,7 @@ impl Device {
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetMemoryMetalHandleEXT")]
     #[inline(always)]
     pub unsafe fn get_memory_metal_handle_ext(
@@ -31551,6 +31913,7 @@ impl Device {
     /// - [`INVALID_EXTERNAL_HANDLE`](ResultCode::ERROR_INVALID_EXTERNAL_HANDLE)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetMemoryMetalHandlePropertiesEXT")]
     #[inline(always)]
     pub unsafe fn get_memory_metal_handle_properties_ext(
@@ -31609,6 +31972,7 @@ impl PhysicalDevice {
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkEnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM")]
     #[inline(always)]
     pub unsafe fn enumerate_queue_family_performance_counters_by_region_arm(
@@ -31668,6 +32032,7 @@ impl PhysicalDevice {
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkEnumeratePhysicalDeviceShaderInstrumentationMetricsARM")]
     #[inline(always)]
     pub unsafe fn enumerate_shader_instrumentation_metrics_arm(
@@ -31714,6 +32079,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateShaderInstrumentationARM")]
     #[inline(always)]
     pub unsafe fn create_shader_instrumentation_arm(
@@ -31869,6 +32235,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetShaderInstrumentationValuesARM")]
     #[inline(always)]
     pub unsafe fn get_shader_instrumentation_values_arm(
@@ -32036,6 +32403,7 @@ impl PhysicalDevice {
     /// - [`FORMAT_NOT_SUPPORTED`](ResultCode::ERROR_FORMAT_NOT_SUPPORTED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetPhysicalDeviceQueueFamilyDataGraphOpticalFlowImageFormatsARM")]
     #[inline(always)]
     pub unsafe fn get_queue_family_data_graph_optical_flow_image_formats_arm(
@@ -32134,6 +32502,7 @@ impl PhysicalDevice {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetPhysicalDeviceCooperativeMatrixProperties2EXT")]
     #[inline(always)]
     pub unsafe fn get_cooperative_matrix_properties_2_ext(
@@ -32188,6 +32557,7 @@ impl Instance {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateUbmSurfaceSEC")]
     #[inline(always)]
     pub unsafe fn create_ubm_surface_sec(
@@ -32287,12 +32657,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Conditionally deprecated API (legacy-buffer-commands)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
-    ///
-    /// It has been superseded by `vkCreateAccelerationStructure2KHR`.
-    ///
     /// # Optional parameters
     /// - p_allocator
     ///
@@ -32304,6 +32668,13 @@ impl Device {
     /// - [`INVALID_OPAQUE_CAPTURE_ADDRESS_KHR`](ResultCode::ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
+    /// # Legacy API (`legacy-buffer-commands`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+    ///
+    /// It has been superseded by [`vkCreateAccelerationStructure2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateAccelerationStructure2KHR.html).
+    ///
     #[doc(alias = "vkCreateAccelerationStructureKHR")]
     #[inline(always)]
     pub unsafe fn create_acceleration_structure_khr(
@@ -32480,12 +32851,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Conditionally deprecated API (legacy-host-builds)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
-    ///
-    /// It has been superseded by `vkCmdBuildAccelerationStructuresKHR`.
-    ///
     /// # Optional parameters
     /// - deferred_operation
     ///
@@ -32499,6 +32864,13 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
+    /// # Legacy API (`legacy-host-builds`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
+    ///
+    /// It has been superseded by [`vkCmdBuildAccelerationStructuresKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBuildAccelerationStructuresKHR.html).
+    ///
     #[doc(alias = "vkBuildAccelerationStructuresKHR")]
     #[inline(always)]
     pub unsafe fn build_acceleration_structures_khr(
@@ -32540,12 +32912,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Conditionally deprecated API (legacy-host-builds)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
-    ///
-    /// It has been superseded by `vkCmdCopyAccelerationStructureKHR`.
-    ///
     /// # Optional parameters
     /// - deferred_operation
     ///
@@ -32559,6 +32925,13 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
+    /// # Legacy API (`legacy-host-builds`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
+    ///
+    /// It has been superseded by [`vkCmdCopyAccelerationStructureKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyAccelerationStructureKHR.html).
+    ///
     #[doc(alias = "vkCopyAccelerationStructureKHR")]
     #[inline(always)]
     pub unsafe fn copy_acceleration_structure_khr(
@@ -32590,12 +32963,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Conditionally deprecated API (legacy-host-builds)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
-    ///
-    /// It has been superseded by `vkCmdCopyAccelerationStructureToMemoryKHR`.
-    ///
     /// # Optional parameters
     /// - deferred_operation
     ///
@@ -32609,6 +32976,13 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
+    /// # Legacy API (`legacy-host-builds`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
+    ///
+    /// It has been superseded by [`vkCmdCopyAccelerationStructureToMemoryKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyAccelerationStructureToMemoryKHR.html).
+    ///
     #[doc(alias = "vkCopyAccelerationStructureToMemoryKHR")]
     #[inline(always)]
     pub unsafe fn copy_acceleration_structure_to_memory_khr(
@@ -32642,12 +33016,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Conditionally deprecated API (legacy-host-builds)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
-    ///
-    /// It has been superseded by `vkCmdCopyMemoryToAccelerationStructureKHR`.
-    ///
     /// # Optional parameters
     /// - deferred_operation
     ///
@@ -32661,6 +33029,13 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
+    /// # Legacy API (`legacy-host-builds`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
+    ///
+    /// It has been superseded by [`vkCmdCopyMemoryToAccelerationStructureKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMemoryToAccelerationStructureKHR.html).
+    ///
     #[doc(alias = "vkCopyMemoryToAccelerationStructureKHR")]
     #[inline(always)]
     pub unsafe fn copy_memory_to_acceleration_structure_khr(
@@ -32698,12 +33073,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Conditionally deprecated API (legacy-host-builds)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
-    ///
-    /// It has been superseded by `vkCmdWriteAccelerationStructuresPropertiesKHR`.
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -32712,6 +33081,13 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
+    /// # Legacy API (`legacy-host-builds`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
+    ///
+    /// It has been superseded by [`vkCmdWriteAccelerationStructuresPropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteAccelerationStructuresPropertiesKHR.html).
+    ///
     #[doc(alias = "vkWriteAccelerationStructuresPropertiesKHR")]
     #[inline(always)]
     pub unsafe fn write_acceleration_structures_properties_khr(
@@ -33128,6 +33504,7 @@ impl Device {
     /// - [`INVALID_OPAQUE_CAPTURE_ADDRESS`](ResultCode::ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkCreateRayTracingPipelinesKHR")]
     #[inline(always)]
     pub unsafe fn create_ray_tracing_pipelines_khr(
@@ -33178,6 +33555,7 @@ impl Device {
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
+    ///
     #[doc(alias = "vkGetRayTracingCaptureReplayShaderGroupHandlesKHR")]
     #[inline(always)]
     pub unsafe fn get_ray_tracing_capture_replay_shader_group_handles_khr(
@@ -33381,12 +33759,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Conditionally deprecated API (legacy-buffer-commands)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
-    ///
-    /// It has been superseded by `vkCmdDrawMeshTasksIndirect2EXT`.
-    ///
     /// # Performed tasks
     /// - `action`
     ///
@@ -33396,6 +33768,12 @@ impl CommandBuffer {
     ///
     /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    ///
+    /// # Legacy API (`legacy-buffer-commands`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+    ///
+    /// It has been superseded by [`vkCmdDrawMeshTasksIndirect2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMeshTasksIndirect2EXT.html).
     ///
     #[doc(alias = "vkCmdDrawMeshTasksIndirectEXT")]
     #[inline(always)]
@@ -33427,12 +33805,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Conditionally deprecated API (legacy-buffer-commands)
-    /// This command is legacy when any of the following extensions are enabled:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
-    ///
-    /// It has been superseded by `vkCmdDrawMeshTasksIndirectCount2EXT`.
-    ///
     /// # Performed tasks
     /// - `action`
     ///
@@ -33442,6 +33814,12 @@ impl CommandBuffer {
     ///
     /// # Allowed queues
     /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
+    ///
+    /// # Legacy API (`legacy-buffer-commands`)
+    /// This command is legacy when any of the following extensions are enabled:
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+    ///
+    /// It has been superseded by [`vkCmdDrawMeshTasksIndirectCount2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMeshTasksIndirectCount2EXT.html).
     ///
     #[doc(alias = "vkCmdDrawMeshTasksIndirectCountEXT")]
     #[inline(always)]
