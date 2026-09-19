@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Any, override
 
 import textcase
+import tomlkit
 from vulkan_object import get_vulkan_object
 from vulkan_object import vulkan_object as vkobj
 
@@ -914,8 +915,9 @@ class Context:
 
             # method on a handle
             self.instance_commands.append(x.name)
+            self.vulkan_doc_header(out, x.name)
             out.writeln(
-                f'pub(crate) type FUN_{command_fn_alias_name} = unsafe extern "C" fn({handle}Handle, {", ".join(str(x[1]) for x in params)}) {return_ty};'
+                f'pub type FN_{command_fn_alias_name} = unsafe extern "C" fn({handle}Handle, {", ".join(str(x[1]) for x in params)}) {return_ty};'
             )
 
             if str(handle) != "Device":
@@ -942,7 +944,7 @@ class Context:
             out.indent()
 
             out.writeln(
-                f"let command = unsafe {{ std::mem::transmute::<vkVoidFunction, FUN_{command_fn_alias_name}>(vtable_get(self.vtable(), InstanceCommand::{x.name} as usize)) }};"
+                f"let command = unsafe {{ std::mem::transmute::<vkVoidFunction, FN_{command_fn_alias_name}>(vtable_get(self.vtable(), InstanceCommand::{x.name} as usize)) }};"
             )
             out.writeln(
                 f"unsafe {{ (command)(self.handle, {', '.join(x[0] for x in params)}) }}"
@@ -956,8 +958,9 @@ class Context:
         else:
             # free function
             self.global_commands.append(x.name)
+            self.vulkan_doc_header(out, x.name)
             out.writeln(
-                f'pub(crate) type FUN_{command_fn_alias_name} = unsafe extern "C" fn({", ".join(str(x[1]) for x in params)}) {return_ty};'
+                f'pub type FN_{command_fn_alias_name} = unsafe extern "C" fn({", ".join(str(x[1]) for x in params)}) {return_ty};'
             )
 
             signature = f"pub unsafe fn {command_name}({', '.join(f'{x[0]}: {x[1]}' for x in params)}) {return_ty}"
@@ -976,7 +979,7 @@ class Context:
                 'let commands = GLOBAL.get().expect("vkx setup should have been run").commands;'
             )
             out.writeln(
-                f"let command = unsafe {{ std::mem::transmute::<vkVoidFunction, FUN_{command_fn_alias_name}>(vtable_get(&commands, GlobalCommand::{x.name} as usize)) }};"
+                f"let command = unsafe {{ std::mem::transmute::<vkVoidFunction, FN_{command_fn_alias_name}>(vtable_get(&commands, GlobalCommand::{x.name} as usize)) }};"
             )
             out.writeln(f"unsafe {{ (command)({', '.join(x[0] for x in params)}) }}")
             out.deindent()
@@ -1265,13 +1268,16 @@ class Context:
         )
         return f"{success_enum}\n{error_enum}\n{split_impl}\n{extensions_enum}\n{global_commands_enum}\n{instance_commands_enum}"
 
-    def write_module(self, path: str, content: str):
-        path = f"{self.root}/src/{path}"
+    def write_file(self, path: str, content: str):
+        path = f"{self.root}/{path}"
         os.makedirs(os.path.dirname(path), exist_ok=True)
         with open(path, "w+") as f:
             _ = f.truncate(0)
-            _ = f.write(MODULE_PREFIX)
             _ = f.write(content)
+
+    def write_module(self, path: str, content: str):
+        path = f"src/{path}"
+        self.write_file(path, f"{MODULE_PREFIX}\n{content}")
 
     def write_generated_to_module(self, path: str, base: str, generated: list[str]):
         content = f"{base}\n"
@@ -1295,6 +1301,32 @@ class Context:
         print(f"- Handles: {len(self.reg.handles)}")
         print(f"- Structs: {len(self.reg.structs)}")
 
+        print("Generating version information and updating Cargo.toml...")
+        with open(f"{self.root}/Cargo.toml", "r", encoding="utf-8") as f:
+            manifest = tomlkit.parse(f.read())
+
+        version = manifest["package"]["version"]
+        assert isinstance(version, str)
+
+        crate_version, vk_version = version.split("+")
+        if vk_version.split(".") > self.vk.headerVersionComplete.split("."):
+            print("ERROR: crate's vulkan version is > this header's version!")
+            sys.exit(-1)
+
+        # increment crate version if not the same vulkan version
+        if vk_version.split(".") != self.vk.headerVersionComplete.split("."):
+            crate_version = list(map(int, crate_version.split(".")))
+            crate_version[-1] += 1
+            crate_version = ".".join(map(str, crate_version))
+            manifest["package"]["version"] = (
+                f"{crate_version}+{self.vk.headerVersionComplete}"
+            )
+
+        with open(f"{self.root}/Cargo.toml", "w", encoding="utf-8") as f:
+            _ = f.write(tomlkit.dumps(manifest))
+
+        self.write_file("version.md", self.vk.headerVersionComplete)
+
         print("Generating source files...")
         self.write_generated_to_module(
             "commands.rs", COMMANDS_MODULE_PREFIX, self.reg.commands
@@ -1314,7 +1346,6 @@ class Context:
         self.write_generated_to_module(
             "structs.rs", STRUCTS_MODULE_PREFIX, self.reg.structs
         )
-
         print("Done!")
 
 

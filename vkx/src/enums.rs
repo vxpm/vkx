@@ -6,6 +6,7 @@
 use crate::loader::*;
 use crate::platform::*;
 use std::ffi::{c_char, c_int, c_uint, c_void};
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[non_exhaustive]
 /// Enum with just the success codes of [`ResultCode`].

@@ -20,7 +20,7 @@ pub(crate) fn vtable_get<const N: usize>(table: &VTable<N>, index: usize) -> cra
 
 pub(crate) struct Global {
     pub _lib: Library,
-    pub get_instance_proc_addr: crate::FUN_GetInstanceProcAddr,
+    pub get_instance_proc_addr: crate::FN_GetInstanceProcAddr,
     pub commands: GlobalVTable,
 }
 
@@ -38,7 +38,7 @@ pub unsafe fn setup() -> Result<(), libloading::Error> {
 
     let lib = unsafe { Library::new(PATH) }?;
     let get_instance_proc_addr =
-        *unsafe { lib.get::<crate::FUN_GetInstanceProcAddr>("vkGetInstanceProcAddr") }?;
+        *unsafe { lib.get::<crate::FN_GetInstanceProcAddr>("vkGetInstanceProcAddr") }?;
 
     let mut global_commands = Vec::with_capacity(crate::GlobalCommand::VARIANTS.len());
     for command in crate::GlobalCommand::VARIANTS {

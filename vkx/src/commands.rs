@@ -15,7 +15,9 @@ use crate::handles::*;
 use crate::internal::*;
 use crate::structs::*;
 
-pub(crate) type FUN_CreateInstance = unsafe extern "C" fn(
+/// [`vkCreateInstance`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateInstance.html)
+///
+pub type FN_CreateInstance = unsafe extern "C" fn(
     *const InstanceCreateInfo,
     *const AllocationCallbacks,
     *mut InstanceHandle,
@@ -50,7 +52,7 @@ pub unsafe fn create_instance(
         .expect("vkx setup should have been run")
         .commands;
     let command = unsafe {
-        std::mem::transmute::<vkVoidFunction, FUN_CreateInstance>(vtable_get(
+        std::mem::transmute::<vkVoidFunction, FN_CreateInstance>(vtable_get(
             &commands,
             GlobalCommand::vkCreateInstance as usize,
         ))
@@ -58,8 +60,9 @@ pub unsafe fn create_instance(
     unsafe { (command)(p_create_info, p_allocator, p_instance) }
 }
 
-pub(crate) type FUN_DestroyInstance =
-    unsafe extern "C" fn(InstanceHandle, *const AllocationCallbacks);
+/// [`vkDestroyInstance`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyInstance.html)
+///
+pub type FN_DestroyInstance = unsafe extern "C" fn(InstanceHandle, *const AllocationCallbacks);
 impl Instance {
     /// [`vkDestroyInstance`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyInstance.html)
     ///
@@ -71,7 +74,7 @@ impl Instance {
     #[inline(always)]
     pub unsafe fn destroy(&self, p_allocator: *const AllocationCallbacks) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyInstance>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyInstance>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyInstance as usize,
             ))
@@ -80,7 +83,9 @@ impl Instance {
     }
 }
 
-pub(crate) type FUN_EnumeratePhysicalDevices =
+/// [`vkEnumeratePhysicalDevices`](https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumeratePhysicalDevices.html)
+///
+pub type FN_EnumeratePhysicalDevices =
     unsafe extern "C" fn(InstanceHandle, *mut u32, *mut PhysicalDeviceHandle) -> ResultCode;
 impl Instance {
     /// [`vkEnumeratePhysicalDevices`](https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumeratePhysicalDevices.html)
@@ -107,7 +112,7 @@ impl Instance {
         p_physical_devices: *mut PhysicalDeviceHandle,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_EnumeratePhysicalDevices>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_EnumeratePhysicalDevices>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkEnumeratePhysicalDevices as usize,
             ))
@@ -116,7 +121,9 @@ impl Instance {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceFeatures =
+/// [`vkGetPhysicalDeviceFeatures`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceFeatures.html)
+///
+pub type FN_GetPhysicalDeviceFeatures =
     unsafe extern "C" fn(PhysicalDeviceHandle, *mut PhysicalDeviceFeatures);
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceFeatures`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceFeatures.html)
@@ -132,7 +139,7 @@ impl PhysicalDevice {
     #[inline(always)]
     pub unsafe fn get_features(&self, p_features: *mut PhysicalDeviceFeatures) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceFeatures>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceFeatures>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetPhysicalDeviceFeatures as usize,
             ))
@@ -141,7 +148,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceFormatProperties =
+/// [`vkGetPhysicalDeviceFormatProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceFormatProperties.html)
+///
+pub type FN_GetPhysicalDeviceFormatProperties =
     unsafe extern "C" fn(PhysicalDeviceHandle, Format, *mut FormatProperties);
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceFormatProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceFormatProperties.html)
@@ -161,18 +170,18 @@ impl PhysicalDevice {
         p_format_properties: *mut FormatProperties,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceFormatProperties>(
-                vtable_get(
-                    self.vtable(),
-                    InstanceCommand::vkGetPhysicalDeviceFormatProperties as usize,
-                ),
-            )
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceFormatProperties>(vtable_get(
+                self.vtable(),
+                InstanceCommand::vkGetPhysicalDeviceFormatProperties as usize,
+            ))
         };
         unsafe { (command)(self.handle, format, p_format_properties) }
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceImageFormatProperties = unsafe extern "C" fn(
+/// [`vkGetPhysicalDeviceImageFormatProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceImageFormatProperties.html)
+///
+pub type FN_GetPhysicalDeviceImageFormatProperties = unsafe extern "C" fn(
     PhysicalDeviceHandle,
     Format,
     ImageType,
@@ -216,7 +225,7 @@ impl PhysicalDevice {
         p_image_format_properties: *mut ImageFormatProperties,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceImageFormatProperties>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceImageFormatProperties>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceImageFormatProperties as usize,
@@ -237,7 +246,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceProperties =
+/// [`vkGetPhysicalDeviceProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceProperties.html)
+///
+pub type FN_GetPhysicalDeviceProperties =
     unsafe extern "C" fn(PhysicalDeviceHandle, *mut PhysicalDeviceProperties);
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceProperties.html)
@@ -253,7 +264,7 @@ impl PhysicalDevice {
     #[inline(always)]
     pub unsafe fn get_properties(&self, p_properties: *mut PhysicalDeviceProperties) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceProperties>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceProperties>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetPhysicalDeviceProperties as usize,
             ))
@@ -262,7 +273,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceQueueFamilyProperties =
+/// [`vkGetPhysicalDeviceQueueFamilyProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceQueueFamilyProperties.html)
+///
+pub type FN_GetPhysicalDeviceQueueFamilyProperties =
     unsafe extern "C" fn(PhysicalDeviceHandle, *mut u32, *mut QueueFamilyProperties);
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceQueueFamilyProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceQueueFamilyProperties.html)
@@ -285,7 +298,7 @@ impl PhysicalDevice {
         p_queue_family_properties: *mut QueueFamilyProperties,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceQueueFamilyProperties>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceQueueFamilyProperties>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceQueueFamilyProperties as usize,
@@ -302,7 +315,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceMemoryProperties =
+/// [`vkGetPhysicalDeviceMemoryProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceMemoryProperties.html)
+///
+pub type FN_GetPhysicalDeviceMemoryProperties =
     unsafe extern "C" fn(PhysicalDeviceHandle, *mut PhysicalDeviceMemoryProperties);
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceMemoryProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceMemoryProperties.html)
@@ -321,18 +336,18 @@ impl PhysicalDevice {
         p_memory_properties: *mut PhysicalDeviceMemoryProperties,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceMemoryProperties>(
-                vtable_get(
-                    self.vtable(),
-                    InstanceCommand::vkGetPhysicalDeviceMemoryProperties as usize,
-                ),
-            )
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceMemoryProperties>(vtable_get(
+                self.vtable(),
+                InstanceCommand::vkGetPhysicalDeviceMemoryProperties as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_memory_properties) }
     }
 }
 
-pub(crate) type FUN_GetInstanceProcAddr =
+/// [`vkGetInstanceProcAddr`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetInstanceProcAddr.html)
+///
+pub type FN_GetInstanceProcAddr =
     unsafe extern "C" fn(InstanceHandle, *const c_char) -> vkVoidFunction;
 impl Instance {
     /// [`vkGetInstanceProcAddr`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetInstanceProcAddr.html)
@@ -344,7 +359,7 @@ impl Instance {
     #[inline(always)]
     pub unsafe fn get_proc_addr(&self, p_name: *const c_char) -> vkVoidFunction {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetInstanceProcAddr>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetInstanceProcAddr>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetInstanceProcAddr as usize,
             ))
@@ -353,8 +368,9 @@ impl Instance {
     }
 }
 
-pub(crate) type FUN_GetDeviceProcAddr =
-    unsafe extern "C" fn(DeviceHandle, *const c_char) -> vkVoidFunction;
+/// [`vkGetDeviceProcAddr`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceProcAddr.html)
+///
+pub type FN_GetDeviceProcAddr = unsafe extern "C" fn(DeviceHandle, *const c_char) -> vkVoidFunction;
 impl Device {
     /// [`vkGetDeviceProcAddr`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceProcAddr.html)
     ///
@@ -362,7 +378,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn get_device_proc_addr(&self, p_name: *const c_char) -> vkVoidFunction {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceProcAddr>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetDeviceProcAddr>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetDeviceProcAddr as usize,
             ))
@@ -371,7 +387,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CreateDevice = unsafe extern "C" fn(
+/// [`vkCreateDevice`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDevice.html)
+///
+pub type FN_CreateDevice = unsafe extern "C" fn(
     PhysicalDeviceHandle,
     *const DeviceCreateInfo,
     *const AllocationCallbacks,
@@ -406,7 +424,7 @@ impl PhysicalDevice {
         p_device: *mut DeviceHandle,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateDevice>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateDevice>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateDevice as usize,
             ))
@@ -415,7 +433,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_DestroyDevice = unsafe extern "C" fn(DeviceHandle, *const AllocationCallbacks);
+/// [`vkDestroyDevice`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDevice.html)
+///
+pub type FN_DestroyDevice = unsafe extern "C" fn(DeviceHandle, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyDevice`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDevice.html)
     ///
@@ -427,7 +447,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn destroy_device(&self, p_allocator: *const AllocationCallbacks) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyDevice>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyDevice>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyDevice as usize,
             ))
@@ -436,7 +456,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_EnumerateInstanceExtensionProperties =
+/// [`vkEnumerateInstanceExtensionProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumerateInstanceExtensionProperties.html)
+///
+pub type FN_EnumerateInstanceExtensionProperties =
     unsafe extern "C" fn(*const c_char, *mut u32, *mut ExtensionProperties) -> ResultCode;
 /// [`vkEnumerateInstanceExtensionProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumerateInstanceExtensionProperties.html)
 ///
@@ -467,7 +489,7 @@ pub unsafe fn enumerate_instance_extension_properties(
         .expect("vkx setup should have been run")
         .commands;
     let command = unsafe {
-        std::mem::transmute::<vkVoidFunction, FUN_EnumerateInstanceExtensionProperties>(vtable_get(
+        std::mem::transmute::<vkVoidFunction, FN_EnumerateInstanceExtensionProperties>(vtable_get(
             &commands,
             GlobalCommand::vkEnumerateInstanceExtensionProperties as usize,
         ))
@@ -475,7 +497,9 @@ pub unsafe fn enumerate_instance_extension_properties(
     unsafe { (command)(p_layer_name, p_property_count, p_properties) }
 }
 
-pub(crate) type FUN_EnumerateDeviceExtensionProperties = unsafe extern "C" fn(
+/// [`vkEnumerateDeviceExtensionProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumerateDeviceExtensionProperties.html)
+///
+pub type FN_EnumerateDeviceExtensionProperties = unsafe extern "C" fn(
     PhysicalDeviceHandle,
     *const c_char,
     *mut u32,
@@ -508,7 +532,7 @@ impl PhysicalDevice {
         p_properties: *mut ExtensionProperties,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_EnumerateDeviceExtensionProperties>(
+            std::mem::transmute::<vkVoidFunction, FN_EnumerateDeviceExtensionProperties>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkEnumerateDeviceExtensionProperties as usize,
@@ -519,7 +543,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_EnumerateInstanceLayerProperties =
+/// [`vkEnumerateInstanceLayerProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumerateInstanceLayerProperties.html)
+///
+pub type FN_EnumerateInstanceLayerProperties =
     unsafe extern "C" fn(*mut u32, *mut LayerProperties) -> ResultCode;
 /// [`vkEnumerateInstanceLayerProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumerateInstanceLayerProperties.html)
 ///
@@ -547,7 +573,7 @@ pub unsafe fn enumerate_instance_layer_properties(
         .expect("vkx setup should have been run")
         .commands;
     let command = unsafe {
-        std::mem::transmute::<vkVoidFunction, FUN_EnumerateInstanceLayerProperties>(vtable_get(
+        std::mem::transmute::<vkVoidFunction, FN_EnumerateInstanceLayerProperties>(vtable_get(
             &commands,
             GlobalCommand::vkEnumerateInstanceLayerProperties as usize,
         ))
@@ -555,7 +581,9 @@ pub unsafe fn enumerate_instance_layer_properties(
     unsafe { (command)(p_property_count, p_properties) }
 }
 
-pub(crate) type FUN_EnumerateDeviceLayerProperties =
+/// [`vkEnumerateDeviceLayerProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumerateDeviceLayerProperties.html)
+///
+pub type FN_EnumerateDeviceLayerProperties =
     unsafe extern "C" fn(PhysicalDeviceHandle, *mut u32, *mut LayerProperties) -> ResultCode;
 impl PhysicalDevice {
     /// [`vkEnumerateDeviceLayerProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumerateDeviceLayerProperties.html)
@@ -581,7 +609,7 @@ impl PhysicalDevice {
         p_properties: *mut LayerProperties,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_EnumerateDeviceLayerProperties>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_EnumerateDeviceLayerProperties>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkEnumerateDeviceLayerProperties as usize,
             ))
@@ -590,7 +618,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetDeviceQueue = unsafe extern "C" fn(DeviceHandle, u32, u32, *mut QueueHandle);
+/// [`vkGetDeviceQueue`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceQueue.html)
+///
+pub type FN_GetDeviceQueue = unsafe extern "C" fn(DeviceHandle, u32, u32, *mut QueueHandle);
 impl Device {
     /// [`vkGetDeviceQueue`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceQueue.html)
     ///
@@ -603,7 +633,7 @@ impl Device {
         p_queue: *mut QueueHandle,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceQueue>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetDeviceQueue>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetDeviceQueue as usize,
             ))
@@ -612,7 +642,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_QueueSubmit =
+/// [`vkQueueSubmit`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueSubmit.html)
+///
+pub type FN_QueueSubmit =
     unsafe extern "C" fn(QueueHandle, u32, *const SubmitInfo, Fence) -> ResultCode;
 impl Queue {
     /// [`vkQueueSubmit`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueSubmit.html)
@@ -647,7 +679,7 @@ impl Queue {
         fence: Fence,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_QueueSubmit>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_QueueSubmit>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkQueueSubmit as usize,
             ))
@@ -656,7 +688,9 @@ impl Queue {
     }
 }
 
-pub(crate) type FUN_QueueWaitIdle = unsafe extern "C" fn(QueueHandle) -> ResultCode;
+/// [`vkQueueWaitIdle`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueWaitIdle.html)
+///
+pub type FN_QueueWaitIdle = unsafe extern "C" fn(QueueHandle) -> ResultCode;
 impl Queue {
     /// [`vkQueueWaitIdle`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueWaitIdle.html)
     ///
@@ -674,7 +708,7 @@ impl Queue {
     #[inline(always)]
     pub unsafe fn wait_idle(&self) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_QueueWaitIdle>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_QueueWaitIdle>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkQueueWaitIdle as usize,
             ))
@@ -683,7 +717,9 @@ impl Queue {
     }
 }
 
-pub(crate) type FUN_DeviceWaitIdle = unsafe extern "C" fn(DeviceHandle) -> ResultCode;
+/// [`vkDeviceWaitIdle`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDeviceWaitIdle.html)
+///
+pub type FN_DeviceWaitIdle = unsafe extern "C" fn(DeviceHandle) -> ResultCode;
 impl Device {
     /// [`vkDeviceWaitIdle`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDeviceWaitIdle.html)
     ///
@@ -701,7 +737,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn device_wait_idle(&self) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DeviceWaitIdle>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DeviceWaitIdle>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDeviceWaitIdle as usize,
             ))
@@ -710,7 +746,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_AllocateMemory = unsafe extern "C" fn(
+/// [`vkAllocateMemory`](https://docs.vulkan.org/refpages/latest/refpages/source/vkAllocateMemory.html)
+///
+pub type FN_AllocateMemory = unsafe extern "C" fn(
     DeviceHandle,
     *const MemoryAllocateInfo,
     *const AllocationCallbacks,
@@ -742,7 +780,7 @@ impl Device {
         p_memory: *mut DeviceMemory,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_AllocateMemory>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_AllocateMemory>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkAllocateMemory as usize,
             ))
@@ -751,7 +789,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_FreeMemory =
+/// [`vkFreeMemory`](https://docs.vulkan.org/refpages/latest/refpages/source/vkFreeMemory.html)
+///
+pub type FN_FreeMemory =
     unsafe extern "C" fn(DeviceHandle, DeviceMemory, *const AllocationCallbacks);
 impl Device {
     /// [`vkFreeMemory`](https://docs.vulkan.org/refpages/latest/refpages/source/vkFreeMemory.html)
@@ -768,7 +808,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_FreeMemory>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_FreeMemory>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkFreeMemory as usize,
             ))
@@ -777,7 +817,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_MapMemory = unsafe extern "C" fn(
+/// [`vkMapMemory`](https://docs.vulkan.org/refpages/latest/refpages/source/vkMapMemory.html)
+///
+pub type FN_MapMemory = unsafe extern "C" fn(
     DeviceHandle,
     DeviceMemory,
     DeviceSize,
@@ -812,7 +854,7 @@ impl Device {
         pp_data: *mut *mut c_void,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_MapMemory>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_MapMemory>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkMapMemory as usize,
             ))
@@ -821,7 +863,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_UnmapMemory = unsafe extern "C" fn(DeviceHandle, DeviceMemory);
+/// [`vkUnmapMemory`](https://docs.vulkan.org/refpages/latest/refpages/source/vkUnmapMemory.html)
+///
+pub type FN_UnmapMemory = unsafe extern "C" fn(DeviceHandle, DeviceMemory);
 impl Device {
     /// [`vkUnmapMemory`](https://docs.vulkan.org/refpages/latest/refpages/source/vkUnmapMemory.html)
     ///
@@ -829,7 +873,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn unmap_memory(&self, memory: DeviceMemory) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_UnmapMemory>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_UnmapMemory>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkUnmapMemory as usize,
             ))
@@ -838,7 +882,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_FlushMappedMemoryRanges =
+/// [`vkFlushMappedMemoryRanges`](https://docs.vulkan.org/refpages/latest/refpages/source/vkFlushMappedMemoryRanges.html)
+///
+pub type FN_FlushMappedMemoryRanges =
     unsafe extern "C" fn(DeviceHandle, u32, *const MappedMemoryRange) -> ResultCode;
 impl Device {
     /// [`vkFlushMappedMemoryRanges`](https://docs.vulkan.org/refpages/latest/refpages/source/vkFlushMappedMemoryRanges.html)
@@ -860,7 +906,7 @@ impl Device {
         p_memory_ranges: *const MappedMemoryRange,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_FlushMappedMemoryRanges>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_FlushMappedMemoryRanges>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkFlushMappedMemoryRanges as usize,
             ))
@@ -869,7 +915,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_InvalidateMappedMemoryRanges =
+/// [`vkInvalidateMappedMemoryRanges`](https://docs.vulkan.org/refpages/latest/refpages/source/vkInvalidateMappedMemoryRanges.html)
+///
+pub type FN_InvalidateMappedMemoryRanges =
     unsafe extern "C" fn(DeviceHandle, u32, *const MappedMemoryRange) -> ResultCode;
 impl Device {
     /// [`vkInvalidateMappedMemoryRanges`](https://docs.vulkan.org/refpages/latest/refpages/source/vkInvalidateMappedMemoryRanges.html)
@@ -891,7 +939,7 @@ impl Device {
         p_memory_ranges: *const MappedMemoryRange,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_InvalidateMappedMemoryRanges>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_InvalidateMappedMemoryRanges>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkInvalidateMappedMemoryRanges as usize,
             ))
@@ -900,7 +948,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetDeviceMemoryCommitment =
+/// [`vkGetDeviceMemoryCommitment`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceMemoryCommitment.html)
+///
+pub type FN_GetDeviceMemoryCommitment =
     unsafe extern "C" fn(DeviceHandle, DeviceMemory, *mut DeviceSize);
 impl Device {
     /// [`vkGetDeviceMemoryCommitment`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceMemoryCommitment.html)
@@ -913,7 +963,7 @@ impl Device {
         p_committed_memory_in_bytes: *mut DeviceSize,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceMemoryCommitment>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetDeviceMemoryCommitment>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetDeviceMemoryCommitment as usize,
             ))
@@ -922,7 +972,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_BindBufferMemory =
+/// [`vkBindBufferMemory`](https://docs.vulkan.org/refpages/latest/refpages/source/vkBindBufferMemory.html)
+///
+pub type FN_BindBufferMemory =
     unsafe extern "C" fn(DeviceHandle, Buffer, DeviceMemory, DeviceSize) -> ResultCode;
 impl Device {
     /// [`vkBindBufferMemory`](https://docs.vulkan.org/refpages/latest/refpages/source/vkBindBufferMemory.html)
@@ -946,7 +998,7 @@ impl Device {
         memory_offset: DeviceSize,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_BindBufferMemory>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_BindBufferMemory>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkBindBufferMemory as usize,
             ))
@@ -955,7 +1007,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_BindImageMemory =
+/// [`vkBindImageMemory`](https://docs.vulkan.org/refpages/latest/refpages/source/vkBindImageMemory.html)
+///
+pub type FN_BindImageMemory =
     unsafe extern "C" fn(DeviceHandle, Image, DeviceMemory, DeviceSize) -> ResultCode;
 impl Device {
     /// [`vkBindImageMemory`](https://docs.vulkan.org/refpages/latest/refpages/source/vkBindImageMemory.html)
@@ -978,7 +1032,7 @@ impl Device {
         memory_offset: DeviceSize,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_BindImageMemory>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_BindImageMemory>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkBindImageMemory as usize,
             ))
@@ -987,7 +1041,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetBufferMemoryRequirements =
+/// [`vkGetBufferMemoryRequirements`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferMemoryRequirements.html)
+///
+pub type FN_GetBufferMemoryRequirements =
     unsafe extern "C" fn(DeviceHandle, Buffer, *mut MemoryRequirements);
 impl Device {
     /// [`vkGetBufferMemoryRequirements`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferMemoryRequirements.html)
@@ -1000,7 +1056,7 @@ impl Device {
         p_memory_requirements: *mut MemoryRequirements,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetBufferMemoryRequirements>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetBufferMemoryRequirements>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetBufferMemoryRequirements as usize,
             ))
@@ -1009,7 +1065,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetImageMemoryRequirements =
+/// [`vkGetImageMemoryRequirements`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageMemoryRequirements.html)
+///
+pub type FN_GetImageMemoryRequirements =
     unsafe extern "C" fn(DeviceHandle, Image, *mut MemoryRequirements);
 impl Device {
     /// [`vkGetImageMemoryRequirements`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageMemoryRequirements.html)
@@ -1022,7 +1080,7 @@ impl Device {
         p_memory_requirements: *mut MemoryRequirements,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetImageMemoryRequirements>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetImageMemoryRequirements>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetImageMemoryRequirements as usize,
             ))
@@ -1031,7 +1089,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetImageSparseMemoryRequirements =
+/// [`vkGetImageSparseMemoryRequirements`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageSparseMemoryRequirements.html)
+///
+pub type FN_GetImageSparseMemoryRequirements =
     unsafe extern "C" fn(DeviceHandle, Image, *mut u32, *mut SparseImageMemoryRequirements);
 impl Device {
     /// [`vkGetImageSparseMemoryRequirements`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageSparseMemoryRequirements.html)
@@ -1048,7 +1108,7 @@ impl Device {
         p_sparse_memory_requirements: *mut SparseImageMemoryRequirements,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetImageSparseMemoryRequirements>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetImageSparseMemoryRequirements>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetImageSparseMemoryRequirements as usize,
             ))
@@ -1064,7 +1124,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceSparseImageFormatProperties = unsafe extern "C" fn(
+/// [`vkGetPhysicalDeviceSparseImageFormatProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSparseImageFormatProperties.html)
+///
+pub type FN_GetPhysicalDeviceSparseImageFormatProperties = unsafe extern "C" fn(
     PhysicalDeviceHandle,
     Format,
     ImageType,
@@ -1100,7 +1162,7 @@ impl PhysicalDevice {
         p_properties: *mut SparseImageFormatProperties,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceSparseImageFormatProperties>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceSparseImageFormatProperties>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceSparseImageFormatProperties as usize,
@@ -1122,7 +1184,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_QueueBindSparse =
+/// [`vkQueueBindSparse`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueBindSparse.html)
+///
+pub type FN_QueueBindSparse =
     unsafe extern "C" fn(QueueHandle, u32, *const BindSparseInfo, Fence) -> ResultCode;
 impl Queue {
     /// [`vkQueueBindSparse`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueBindSparse.html)
@@ -1153,7 +1217,7 @@ impl Queue {
         fence: Fence,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_QueueBindSparse>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_QueueBindSparse>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkQueueBindSparse as usize,
             ))
@@ -1162,7 +1226,9 @@ impl Queue {
     }
 }
 
-pub(crate) type FUN_CreateFence = unsafe extern "C" fn(
+/// [`vkCreateFence`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateFence.html)
+///
+pub type FN_CreateFence = unsafe extern "C" fn(
     DeviceHandle,
     *const FenceCreateInfo,
     *const AllocationCallbacks,
@@ -1192,7 +1258,7 @@ impl Device {
         p_fence: *mut Fence,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateFence>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateFence>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateFence as usize,
             ))
@@ -1201,8 +1267,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroyFence =
-    unsafe extern "C" fn(DeviceHandle, Fence, *const AllocationCallbacks);
+/// [`vkDestroyFence`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyFence.html)
+///
+pub type FN_DestroyFence = unsafe extern "C" fn(DeviceHandle, Fence, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyFence`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyFence.html)
     ///
@@ -1214,7 +1281,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn destroy_fence(&self, fence: Fence, p_allocator: *const AllocationCallbacks) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyFence>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyFence>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyFence as usize,
             ))
@@ -1223,8 +1290,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_ResetFences =
-    unsafe extern "C" fn(DeviceHandle, u32, *const Fence) -> ResultCode;
+/// [`vkResetFences`](https://docs.vulkan.org/refpages/latest/refpages/source/vkResetFences.html)
+///
+pub type FN_ResetFences = unsafe extern "C" fn(DeviceHandle, u32, *const Fence) -> ResultCode;
 impl Device {
     /// [`vkResetFences`](https://docs.vulkan.org/refpages/latest/refpages/source/vkResetFences.html)
     ///
@@ -1240,7 +1308,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn reset_fences(&self, fence_count: u32, p_fences: *const Fence) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_ResetFences>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_ResetFences>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkResetFences as usize,
             ))
@@ -1249,7 +1317,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetFenceStatus = unsafe extern "C" fn(DeviceHandle, Fence) -> ResultCode;
+/// [`vkGetFenceStatus`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetFenceStatus.html)
+///
+pub type FN_GetFenceStatus = unsafe extern "C" fn(DeviceHandle, Fence) -> ResultCode;
 impl Device {
     /// [`vkGetFenceStatus`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetFenceStatus.html)
     ///
@@ -1268,7 +1338,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn get_fence_status(&self, fence: Fence) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetFenceStatus>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetFenceStatus>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetFenceStatus as usize,
             ))
@@ -1277,7 +1347,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_WaitForFences =
+/// [`vkWaitForFences`](https://docs.vulkan.org/refpages/latest/refpages/source/vkWaitForFences.html)
+///
+pub type FN_WaitForFences =
     unsafe extern "C" fn(DeviceHandle, u32, *const Fence, Bool32, u64) -> ResultCode;
 impl Device {
     /// [`vkWaitForFences`](https://docs.vulkan.org/refpages/latest/refpages/source/vkWaitForFences.html)
@@ -1303,7 +1375,7 @@ impl Device {
         timeout: u64,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_WaitForFences>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_WaitForFences>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkWaitForFences as usize,
             ))
@@ -1312,7 +1384,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CreateSemaphore = unsafe extern "C" fn(
+/// [`vkCreateSemaphore`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateSemaphore.html)
+///
+pub type FN_CreateSemaphore = unsafe extern "C" fn(
     DeviceHandle,
     *const SemaphoreCreateInfo,
     *const AllocationCallbacks,
@@ -1342,7 +1416,7 @@ impl Device {
         p_semaphore: *mut Semaphore,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateSemaphore>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateSemaphore>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateSemaphore as usize,
             ))
@@ -1351,7 +1425,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroySemaphore =
+/// [`vkDestroySemaphore`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroySemaphore.html)
+///
+pub type FN_DestroySemaphore =
     unsafe extern "C" fn(DeviceHandle, Semaphore, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroySemaphore`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroySemaphore.html)
@@ -1368,7 +1444,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroySemaphore>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroySemaphore>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroySemaphore as usize,
             ))
@@ -1377,7 +1453,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CreateQueryPool = unsafe extern "C" fn(
+/// [`vkCreateQueryPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateQueryPool.html)
+///
+pub type FN_CreateQueryPool = unsafe extern "C" fn(
     DeviceHandle,
     *const QueryPoolCreateInfo,
     *const AllocationCallbacks,
@@ -1407,7 +1485,7 @@ impl Device {
         p_query_pool: *mut QueryPool,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateQueryPool>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateQueryPool>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateQueryPool as usize,
             ))
@@ -1416,7 +1494,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroyQueryPool =
+/// [`vkDestroyQueryPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyQueryPool.html)
+///
+pub type FN_DestroyQueryPool =
     unsafe extern "C" fn(DeviceHandle, QueryPool, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyQueryPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyQueryPool.html)
@@ -1433,7 +1513,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyQueryPool>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyQueryPool>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyQueryPool as usize,
             ))
@@ -1442,7 +1522,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetQueryPoolResults = unsafe extern "C" fn(
+/// [`vkGetQueryPoolResults`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetQueryPoolResults.html)
+///
+pub type FN_GetQueryPoolResults = unsafe extern "C" fn(
     DeviceHandle,
     QueryPool,
     u32,
@@ -1482,7 +1564,7 @@ impl Device {
         flags: QueryResultFlags,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetQueryPoolResults>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetQueryPoolResults>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetQueryPoolResults as usize,
             ))
@@ -1502,7 +1584,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CreateBuffer = unsafe extern "C" fn(
+/// [`vkCreateBuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateBuffer.html)
+///
+pub type FN_CreateBuffer = unsafe extern "C" fn(
     DeviceHandle,
     *const BufferCreateInfo,
     *const AllocationCallbacks,
@@ -1533,7 +1617,7 @@ impl Device {
         p_buffer: *mut Buffer,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateBuffer>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateBuffer>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateBuffer as usize,
             ))
@@ -1542,8 +1626,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroyBuffer =
-    unsafe extern "C" fn(DeviceHandle, Buffer, *const AllocationCallbacks);
+/// [`vkDestroyBuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyBuffer.html)
+///
+pub type FN_DestroyBuffer = unsafe extern "C" fn(DeviceHandle, Buffer, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyBuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyBuffer.html)
     ///
@@ -1555,7 +1640,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn destroy_buffer(&self, buffer: Buffer, p_allocator: *const AllocationCallbacks) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyBuffer>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyBuffer>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyBuffer as usize,
             ))
@@ -1564,7 +1649,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CreateImage = unsafe extern "C" fn(
+/// [`vkCreateImage`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateImage.html)
+///
+pub type FN_CreateImage = unsafe extern "C" fn(
     DeviceHandle,
     *const ImageCreateInfo,
     *const AllocationCallbacks,
@@ -1596,7 +1683,7 @@ impl Device {
         p_image: *mut Image,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateImage>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateImage>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateImage as usize,
             ))
@@ -1605,8 +1692,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroyImage =
-    unsafe extern "C" fn(DeviceHandle, Image, *const AllocationCallbacks);
+/// [`vkDestroyImage`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyImage.html)
+///
+pub type FN_DestroyImage = unsafe extern "C" fn(DeviceHandle, Image, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyImage`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyImage.html)
     ///
@@ -1618,7 +1706,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn destroy_image(&self, image: Image, p_allocator: *const AllocationCallbacks) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyImage>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyImage>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyImage as usize,
             ))
@@ -1627,7 +1715,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetImageSubresourceLayout =
+/// [`vkGetImageSubresourceLayout`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageSubresourceLayout.html)
+///
+pub type FN_GetImageSubresourceLayout =
     unsafe extern "C" fn(DeviceHandle, Image, *const ImageSubresource, *mut SubresourceLayout);
 impl Device {
     /// [`vkGetImageSubresourceLayout`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageSubresourceLayout.html)
@@ -1641,7 +1731,7 @@ impl Device {
         p_layout: *mut SubresourceLayout,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetImageSubresourceLayout>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetImageSubresourceLayout>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetImageSubresourceLayout as usize,
             ))
@@ -1650,7 +1740,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CreateImageView = unsafe extern "C" fn(
+/// [`vkCreateImageView`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateImageView.html)
+///
+pub type FN_CreateImageView = unsafe extern "C" fn(
     DeviceHandle,
     *const ImageViewCreateInfo,
     *const AllocationCallbacks,
@@ -1681,7 +1773,7 @@ impl Device {
         p_view: *mut ImageView,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateImageView>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateImageView>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateImageView as usize,
             ))
@@ -1690,7 +1782,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroyImageView =
+/// [`vkDestroyImageView`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyImageView.html)
+///
+pub type FN_DestroyImageView =
     unsafe extern "C" fn(DeviceHandle, ImageView, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyImageView`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyImageView.html)
@@ -1707,7 +1801,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyImageView>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyImageView>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyImageView as usize,
             ))
@@ -1716,7 +1810,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CreateCommandPool = unsafe extern "C" fn(
+/// [`vkCreateCommandPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateCommandPool.html)
+///
+pub type FN_CreateCommandPool = unsafe extern "C" fn(
     DeviceHandle,
     *const CommandPoolCreateInfo,
     *const AllocationCallbacks,
@@ -1746,7 +1842,7 @@ impl Device {
         p_command_pool: *mut CommandPool,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateCommandPool>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateCommandPool>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateCommandPool as usize,
             ))
@@ -1755,7 +1851,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroyCommandPool =
+/// [`vkDestroyCommandPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyCommandPool.html)
+///
+pub type FN_DestroyCommandPool =
     unsafe extern "C" fn(DeviceHandle, CommandPool, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyCommandPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyCommandPool.html)
@@ -1772,7 +1870,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyCommandPool>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyCommandPool>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyCommandPool as usize,
             ))
@@ -1781,7 +1879,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_ResetCommandPool =
+/// [`vkResetCommandPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkResetCommandPool.html)
+///
+pub type FN_ResetCommandPool =
     unsafe extern "C" fn(DeviceHandle, CommandPool, CommandPoolResetFlags) -> ResultCode;
 impl Device {
     /// [`vkResetCommandPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkResetCommandPool.html)
@@ -1805,7 +1905,7 @@ impl Device {
         flags: CommandPoolResetFlags,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_ResetCommandPool>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_ResetCommandPool>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkResetCommandPool as usize,
             ))
@@ -1814,7 +1914,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_AllocateCommandBuffers = unsafe extern "C" fn(
+/// [`vkAllocateCommandBuffers`](https://docs.vulkan.org/refpages/latest/refpages/source/vkAllocateCommandBuffers.html)
+///
+pub type FN_AllocateCommandBuffers = unsafe extern "C" fn(
     DeviceHandle,
     *const CommandBufferAllocateInfo,
     *mut CommandBufferHandle,
@@ -1839,7 +1941,7 @@ impl Device {
         p_command_buffers: *mut CommandBufferHandle,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_AllocateCommandBuffers>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_AllocateCommandBuffers>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkAllocateCommandBuffers as usize,
             ))
@@ -1848,7 +1950,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_FreeCommandBuffers =
+/// [`vkFreeCommandBuffers`](https://docs.vulkan.org/refpages/latest/refpages/source/vkFreeCommandBuffers.html)
+///
+pub type FN_FreeCommandBuffers =
     unsafe extern "C" fn(DeviceHandle, CommandPool, u32, *const CommandBufferHandle);
 impl Device {
     /// [`vkFreeCommandBuffers`](https://docs.vulkan.org/refpages/latest/refpages/source/vkFreeCommandBuffers.html)
@@ -1862,7 +1966,7 @@ impl Device {
         p_command_buffers: *const CommandBufferHandle,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_FreeCommandBuffers>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_FreeCommandBuffers>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkFreeCommandBuffers as usize,
             ))
@@ -1878,7 +1982,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_BeginCommandBuffer =
+/// [`vkBeginCommandBuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkBeginCommandBuffer.html)
+///
+pub type FN_BeginCommandBuffer =
     unsafe extern "C" fn(CommandBufferHandle, *const CommandBufferBeginInfo) -> ResultCode;
 impl CommandBuffer {
     /// [`vkBeginCommandBuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkBeginCommandBuffer.html)
@@ -1896,7 +2002,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn begin(&self, p_begin_info: *const CommandBufferBeginInfo) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_BeginCommandBuffer>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_BeginCommandBuffer>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkBeginCommandBuffer as usize,
             ))
@@ -1905,7 +2011,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_EndCommandBuffer = unsafe extern "C" fn(CommandBufferHandle) -> ResultCode;
+/// [`vkEndCommandBuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkEndCommandBuffer.html)
+///
+pub type FN_EndCommandBuffer = unsafe extern "C" fn(CommandBufferHandle) -> ResultCode;
 impl CommandBuffer {
     /// [`vkEndCommandBuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkEndCommandBuffer.html)
     ///
@@ -1923,7 +2031,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn end(&self) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_EndCommandBuffer>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_EndCommandBuffer>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkEndCommandBuffer as usize,
             ))
@@ -1932,7 +2040,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_ResetCommandBuffer =
+/// [`vkResetCommandBuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkResetCommandBuffer.html)
+///
+pub type FN_ResetCommandBuffer =
     unsafe extern "C" fn(CommandBufferHandle, CommandBufferResetFlags) -> ResultCode;
 impl CommandBuffer {
     /// [`vkResetCommandBuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkResetCommandBuffer.html)
@@ -1952,7 +2062,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn reset(&self, flags: CommandBufferResetFlags) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_ResetCommandBuffer>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_ResetCommandBuffer>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkResetCommandBuffer as usize,
             ))
@@ -1961,7 +2071,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdCopyBuffer =
+/// [`vkCmdCopyBuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyBuffer.html)
+///
+pub type FN_CmdCopyBuffer =
     unsafe extern "C" fn(CommandBufferHandle, Buffer, Buffer, u32, *const BufferCopy);
 impl CommandBuffer {
     /// [`vkCmdCopyBuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyBuffer.html)
@@ -1988,7 +2100,7 @@ impl CommandBuffer {
         p_regions: *const BufferCopy,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyBuffer>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdCopyBuffer>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdCopyBuffer as usize,
             ))
@@ -1997,7 +2109,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdCopyImage = unsafe extern "C" fn(
+/// [`vkCmdCopyImage`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyImage.html)
+///
+pub type FN_CmdCopyImage = unsafe extern "C" fn(
     CommandBufferHandle,
     Image,
     ImageLayout,
@@ -2033,7 +2147,7 @@ impl CommandBuffer {
         p_regions: *const ImageCopy,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyImage>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdCopyImage>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdCopyImage as usize,
             ))
@@ -2052,7 +2166,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdCopyBufferToImage = unsafe extern "C" fn(
+/// [`vkCmdCopyBufferToImage`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyBufferToImage.html)
+///
+pub type FN_CmdCopyBufferToImage = unsafe extern "C" fn(
     CommandBufferHandle,
     Buffer,
     Image,
@@ -2086,7 +2202,7 @@ impl CommandBuffer {
         p_regions: *const BufferImageCopy,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyBufferToImage>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdCopyBufferToImage>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdCopyBufferToImage as usize,
             ))
@@ -2104,7 +2220,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdCopyImageToBuffer = unsafe extern "C" fn(
+/// [`vkCmdCopyImageToBuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyImageToBuffer.html)
+///
+pub type FN_CmdCopyImageToBuffer = unsafe extern "C" fn(
     CommandBufferHandle,
     Image,
     ImageLayout,
@@ -2138,7 +2256,7 @@ impl CommandBuffer {
         p_regions: *const BufferImageCopy,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyImageToBuffer>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdCopyImageToBuffer>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdCopyImageToBuffer as usize,
             ))
@@ -2156,7 +2274,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdUpdateBuffer =
+/// [`vkCmdUpdateBuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdUpdateBuffer.html)
+///
+pub type FN_CmdUpdateBuffer =
     unsafe extern "C" fn(CommandBufferHandle, Buffer, DeviceSize, DeviceSize, *const c_void);
 impl CommandBuffer {
     /// [`vkCmdUpdateBuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdUpdateBuffer.html)
@@ -2189,7 +2309,7 @@ impl CommandBuffer {
         p_data: *const c_void,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdUpdateBuffer>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdUpdateBuffer>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdUpdateBuffer as usize,
             ))
@@ -2198,7 +2318,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdFillBuffer =
+/// [`vkCmdFillBuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdFillBuffer.html)
+///
+pub type FN_CmdFillBuffer =
     unsafe extern "C" fn(CommandBufferHandle, Buffer, DeviceSize, DeviceSize, u32);
 impl CommandBuffer {
     /// [`vkCmdFillBuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdFillBuffer.html)
@@ -2231,7 +2353,7 @@ impl CommandBuffer {
         data: u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdFillBuffer>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdFillBuffer>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdFillBuffer as usize,
             ))
@@ -2240,7 +2362,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdPipelineBarrier = unsafe extern "C" fn(
+/// [`vkCmdPipelineBarrier`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPipelineBarrier.html)
+///
+pub type FN_CmdPipelineBarrier = unsafe extern "C" fn(
     CommandBufferHandle,
     PipelineStageFlags,
     PipelineStageFlags,
@@ -2299,7 +2423,7 @@ impl CommandBuffer {
         p_image_memory_barriers: *const ImageMemoryBarrier,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdPipelineBarrier>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdPipelineBarrier>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdPipelineBarrier as usize,
             ))
@@ -2321,7 +2445,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdBeginQuery =
+/// [`vkCmdBeginQuery`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginQuery.html)
+///
+pub type FN_CmdBeginQuery =
     unsafe extern "C" fn(CommandBufferHandle, QueryPool, u32, QueryControlFlags);
 impl CommandBuffer {
     /// [`vkCmdBeginQuery`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginQuery.html)
@@ -2352,7 +2478,7 @@ impl CommandBuffer {
         flags: QueryControlFlags,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBeginQuery>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBeginQuery>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdBeginQuery as usize,
             ))
@@ -2361,7 +2487,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdEndQuery = unsafe extern "C" fn(CommandBufferHandle, QueryPool, u32);
+/// [`vkCmdEndQuery`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndQuery.html)
+///
+pub type FN_CmdEndQuery = unsafe extern "C" fn(CommandBufferHandle, QueryPool, u32);
 impl CommandBuffer {
     /// [`vkCmdEndQuery`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndQuery.html)
     ///
@@ -2383,7 +2511,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_end_query(&self, query_pool: QueryPool, query: u32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdEndQuery>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdEndQuery>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdEndQuery as usize,
             ))
@@ -2392,8 +2520,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdResetQueryPool =
-    unsafe extern "C" fn(CommandBufferHandle, QueryPool, u32, u32);
+/// [`vkCmdResetQueryPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdResetQueryPool.html)
+///
+pub type FN_CmdResetQueryPool = unsafe extern "C" fn(CommandBufferHandle, QueryPool, u32, u32);
 impl CommandBuffer {
     /// [`vkCmdResetQueryPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdResetQueryPool.html)
     ///
@@ -2420,7 +2549,7 @@ impl CommandBuffer {
         query_count: u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdResetQueryPool>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdResetQueryPool>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdResetQueryPool as usize,
             ))
@@ -2429,7 +2558,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdWriteTimestamp =
+/// [`vkCmdWriteTimestamp`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteTimestamp.html)
+///
+pub type FN_CmdWriteTimestamp =
     unsafe extern "C" fn(CommandBufferHandle, PipelineStageFlags, QueryPool, u32);
 impl CommandBuffer {
     /// [`vkCmdWriteTimestamp`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteTimestamp.html)
@@ -2465,7 +2596,7 @@ impl CommandBuffer {
         query: u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdWriteTimestamp>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdWriteTimestamp>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdWriteTimestamp as usize,
             ))
@@ -2474,7 +2605,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdCopyQueryPoolResults = unsafe extern "C" fn(
+/// [`vkCmdCopyQueryPoolResults`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyQueryPoolResults.html)
+///
+pub type FN_CmdCopyQueryPoolResults = unsafe extern "C" fn(
     CommandBufferHandle,
     QueryPool,
     u32,
@@ -2520,7 +2653,7 @@ impl CommandBuffer {
         flags: QueryResultFlags,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyQueryPoolResults>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdCopyQueryPoolResults>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdCopyQueryPoolResults as usize,
             ))
@@ -2540,7 +2673,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdExecuteCommands =
+/// [`vkCmdExecuteCommands`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdExecuteCommands.html)
+///
+pub type FN_CmdExecuteCommands =
     unsafe extern "C" fn(CommandBufferHandle, u32, *const CommandBufferHandle);
 impl CommandBuffer {
     /// [`vkCmdExecuteCommands`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdExecuteCommands.html)
@@ -2565,7 +2700,7 @@ impl CommandBuffer {
         p_command_buffers: *const CommandBufferHandle,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdExecuteCommands>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdExecuteCommands>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdExecuteCommands as usize,
             ))
@@ -2574,7 +2709,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CreateEvent = unsafe extern "C" fn(
+/// [`vkCreateEvent`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateEvent.html)
+///
+pub type FN_CreateEvent = unsafe extern "C" fn(
     DeviceHandle,
     *const EventCreateInfo,
     *const AllocationCallbacks,
@@ -2604,7 +2741,7 @@ impl Device {
         p_event: *mut Event,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateEvent>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateEvent>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateEvent as usize,
             ))
@@ -2613,8 +2750,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroyEvent =
-    unsafe extern "C" fn(DeviceHandle, Event, *const AllocationCallbacks);
+/// [`vkDestroyEvent`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyEvent.html)
+///
+pub type FN_DestroyEvent = unsafe extern "C" fn(DeviceHandle, Event, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyEvent`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyEvent.html)
     ///
@@ -2626,7 +2764,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn destroy_event(&self, event: Event, p_allocator: *const AllocationCallbacks) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyEvent>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyEvent>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyEvent as usize,
             ))
@@ -2635,7 +2773,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetEventStatus = unsafe extern "C" fn(DeviceHandle, Event) -> ResultCode;
+/// [`vkGetEventStatus`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetEventStatus.html)
+///
+pub type FN_GetEventStatus = unsafe extern "C" fn(DeviceHandle, Event) -> ResultCode;
 impl Device {
     /// [`vkGetEventStatus`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetEventStatus.html)
     ///
@@ -2654,7 +2794,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn get_event_status(&self, event: Event) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetEventStatus>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetEventStatus>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetEventStatus as usize,
             ))
@@ -2663,7 +2803,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_SetEvent = unsafe extern "C" fn(DeviceHandle, Event) -> ResultCode;
+/// [`vkSetEvent`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetEvent.html)
+///
+pub type FN_SetEvent = unsafe extern "C" fn(DeviceHandle, Event) -> ResultCode;
 impl Device {
     /// [`vkSetEvent`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetEvent.html)
     ///
@@ -2680,7 +2822,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn set_event(&self, event: Event) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_SetEvent>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_SetEvent>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkSetEvent as usize,
             ))
@@ -2689,7 +2831,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_ResetEvent = unsafe extern "C" fn(DeviceHandle, Event) -> ResultCode;
+/// [`vkResetEvent`](https://docs.vulkan.org/refpages/latest/refpages/source/vkResetEvent.html)
+///
+pub type FN_ResetEvent = unsafe extern "C" fn(DeviceHandle, Event) -> ResultCode;
 impl Device {
     /// [`vkResetEvent`](https://docs.vulkan.org/refpages/latest/refpages/source/vkResetEvent.html)
     ///
@@ -2705,7 +2849,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn reset_event(&self, event: Event) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_ResetEvent>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_ResetEvent>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkResetEvent as usize,
             ))
@@ -2714,7 +2858,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CreateBufferView = unsafe extern "C" fn(
+/// [`vkCreateBufferView`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateBufferView.html)
+///
+pub type FN_CreateBufferView = unsafe extern "C" fn(
     DeviceHandle,
     *const BufferViewCreateInfo,
     *const AllocationCallbacks,
@@ -2748,7 +2894,7 @@ impl Device {
         p_view: *mut BufferView,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateBufferView>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateBufferView>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateBufferView as usize,
             ))
@@ -2757,7 +2903,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroyBufferView =
+/// [`vkDestroyBufferView`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyBufferView.html)
+///
+pub type FN_DestroyBufferView =
     unsafe extern "C" fn(DeviceHandle, BufferView, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyBufferView`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyBufferView.html)
@@ -2778,7 +2926,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyBufferView>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyBufferView>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyBufferView as usize,
             ))
@@ -2787,7 +2935,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CreateShaderModule = unsafe extern "C" fn(
+/// [`vkCreateShaderModule`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateShaderModule.html)
+///
+pub type FN_CreateShaderModule = unsafe extern "C" fn(
     DeviceHandle,
     *const ShaderModuleCreateInfo,
     *const AllocationCallbacks,
@@ -2818,7 +2968,7 @@ impl Device {
         p_shader_module: *mut ShaderModule,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateShaderModule>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateShaderModule>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateShaderModule as usize,
             ))
@@ -2827,7 +2977,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroyShaderModule =
+/// [`vkDestroyShaderModule`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyShaderModule.html)
+///
+pub type FN_DestroyShaderModule =
     unsafe extern "C" fn(DeviceHandle, ShaderModule, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyShaderModule`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyShaderModule.html)
@@ -2844,7 +2996,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyShaderModule>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyShaderModule>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyShaderModule as usize,
             ))
@@ -2853,7 +3005,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CreatePipelineCache = unsafe extern "C" fn(
+/// [`vkCreatePipelineCache`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreatePipelineCache.html)
+///
+pub type FN_CreatePipelineCache = unsafe extern "C" fn(
     DeviceHandle,
     *const PipelineCacheCreateInfo,
     *const AllocationCallbacks,
@@ -2883,7 +3037,7 @@ impl Device {
         p_pipeline_cache: *mut PipelineCache,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreatePipelineCache>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreatePipelineCache>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreatePipelineCache as usize,
             ))
@@ -2892,7 +3046,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroyPipelineCache =
+/// [`vkDestroyPipelineCache`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyPipelineCache.html)
+///
+pub type FN_DestroyPipelineCache =
     unsafe extern "C" fn(DeviceHandle, PipelineCache, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyPipelineCache`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyPipelineCache.html)
@@ -2909,7 +3065,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyPipelineCache>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyPipelineCache>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyPipelineCache as usize,
             ))
@@ -2918,7 +3074,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetPipelineCacheData =
+/// [`vkGetPipelineCacheData`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPipelineCacheData.html)
+///
+pub type FN_GetPipelineCacheData =
     unsafe extern "C" fn(DeviceHandle, PipelineCache, *mut usize, *mut c_void) -> ResultCode;
 impl Device {
     /// [`vkGetPipelineCacheData`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPipelineCacheData.html)
@@ -2945,7 +3103,7 @@ impl Device {
         p_data: *mut c_void,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPipelineCacheData>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetPipelineCacheData>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetPipelineCacheData as usize,
             ))
@@ -2954,7 +3112,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_MergePipelineCaches =
+/// [`vkMergePipelineCaches`](https://docs.vulkan.org/refpages/latest/refpages/source/vkMergePipelineCaches.html)
+///
+pub type FN_MergePipelineCaches =
     unsafe extern "C" fn(DeviceHandle, PipelineCache, u32, *const PipelineCache) -> ResultCode;
 impl Device {
     /// [`vkMergePipelineCaches`](https://docs.vulkan.org/refpages/latest/refpages/source/vkMergePipelineCaches.html)
@@ -2977,7 +3137,7 @@ impl Device {
         p_src_caches: *const PipelineCache,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_MergePipelineCaches>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_MergePipelineCaches>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkMergePipelineCaches as usize,
             ))
@@ -2986,7 +3146,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CreateComputePipelines = unsafe extern "C" fn(
+/// [`vkCreateComputePipelines`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateComputePipelines.html)
+///
+pub type FN_CreateComputePipelines = unsafe extern "C" fn(
     DeviceHandle,
     PipelineCache,
     u32,
@@ -3023,7 +3185,7 @@ impl Device {
         p_pipelines: *mut Pipeline,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateComputePipelines>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateComputePipelines>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateComputePipelines as usize,
             ))
@@ -3041,7 +3203,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroyPipeline =
+/// [`vkDestroyPipeline`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyPipeline.html)
+///
+pub type FN_DestroyPipeline =
     unsafe extern "C" fn(DeviceHandle, Pipeline, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyPipeline`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyPipeline.html)
@@ -3058,7 +3222,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyPipeline>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyPipeline>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyPipeline as usize,
             ))
@@ -3067,7 +3231,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CreatePipelineLayout = unsafe extern "C" fn(
+/// [`vkCreatePipelineLayout`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreatePipelineLayout.html)
+///
+pub type FN_CreatePipelineLayout = unsafe extern "C" fn(
     DeviceHandle,
     *const PipelineLayoutCreateInfo,
     *const AllocationCallbacks,
@@ -3101,7 +3267,7 @@ impl Device {
         p_pipeline_layout: *mut PipelineLayout,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreatePipelineLayout>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreatePipelineLayout>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreatePipelineLayout as usize,
             ))
@@ -3110,7 +3276,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroyPipelineLayout =
+/// [`vkDestroyPipelineLayout`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyPipelineLayout.html)
+///
+pub type FN_DestroyPipelineLayout =
     unsafe extern "C" fn(DeviceHandle, PipelineLayout, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyPipelineLayout`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyPipelineLayout.html)
@@ -3131,7 +3299,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyPipelineLayout>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyPipelineLayout>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyPipelineLayout as usize,
             ))
@@ -3140,7 +3308,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CreateSampler = unsafe extern "C" fn(
+/// [`vkCreateSampler`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateSampler.html)
+///
+pub type FN_CreateSampler = unsafe extern "C" fn(
     DeviceHandle,
     *const SamplerCreateInfo,
     *const AllocationCallbacks,
@@ -3175,7 +3345,7 @@ impl Device {
         p_sampler: *mut Sampler,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateSampler>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateSampler>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateSampler as usize,
             ))
@@ -3184,7 +3354,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroySampler =
+/// [`vkDestroySampler`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroySampler.html)
+///
+pub type FN_DestroySampler =
     unsafe extern "C" fn(DeviceHandle, Sampler, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroySampler`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroySampler.html)
@@ -3205,7 +3377,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroySampler>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroySampler>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroySampler as usize,
             ))
@@ -3214,7 +3386,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CreateDescriptorSetLayout = unsafe extern "C" fn(
+/// [`vkCreateDescriptorSetLayout`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDescriptorSetLayout.html)
+///
+pub type FN_CreateDescriptorSetLayout = unsafe extern "C" fn(
     DeviceHandle,
     *const DescriptorSetLayoutCreateInfo,
     *const AllocationCallbacks,
@@ -3248,7 +3422,7 @@ impl Device {
         p_set_layout: *mut DescriptorSetLayout,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateDescriptorSetLayout>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateDescriptorSetLayout>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateDescriptorSetLayout as usize,
             ))
@@ -3257,7 +3431,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroyDescriptorSetLayout =
+/// [`vkDestroyDescriptorSetLayout`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDescriptorSetLayout.html)
+///
+pub type FN_DestroyDescriptorSetLayout =
     unsafe extern "C" fn(DeviceHandle, DescriptorSetLayout, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyDescriptorSetLayout`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDescriptorSetLayout.html)
@@ -3278,7 +3454,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyDescriptorSetLayout>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyDescriptorSetLayout>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyDescriptorSetLayout as usize,
             ))
@@ -3287,7 +3463,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CreateDescriptorPool = unsafe extern "C" fn(
+/// [`vkCreateDescriptorPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDescriptorPool.html)
+///
+pub type FN_CreateDescriptorPool = unsafe extern "C" fn(
     DeviceHandle,
     *const DescriptorPoolCreateInfo,
     *const AllocationCallbacks,
@@ -3322,7 +3500,7 @@ impl Device {
         p_descriptor_pool: *mut DescriptorPool,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateDescriptorPool>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateDescriptorPool>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateDescriptorPool as usize,
             ))
@@ -3331,7 +3509,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroyDescriptorPool =
+/// [`vkDestroyDescriptorPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDescriptorPool.html)
+///
+pub type FN_DestroyDescriptorPool =
     unsafe extern "C" fn(DeviceHandle, DescriptorPool, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyDescriptorPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDescriptorPool.html)
@@ -3352,7 +3532,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyDescriptorPool>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyDescriptorPool>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyDescriptorPool as usize,
             ))
@@ -3361,7 +3541,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_ResetDescriptorPool =
+/// [`vkResetDescriptorPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkResetDescriptorPool.html)
+///
+pub type FN_ResetDescriptorPool =
     unsafe extern "C" fn(DeviceHandle, DescriptorPool, DescriptorPoolResetFlags) -> ResultCode;
 impl Device {
     /// [`vkResetDescriptorPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkResetDescriptorPool.html)
@@ -3388,7 +3570,7 @@ impl Device {
         flags: DescriptorPoolResetFlags,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_ResetDescriptorPool>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_ResetDescriptorPool>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkResetDescriptorPool as usize,
             ))
@@ -3397,7 +3579,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_AllocateDescriptorSets = unsafe extern "C" fn(
+/// [`vkAllocateDescriptorSets`](https://docs.vulkan.org/refpages/latest/refpages/source/vkAllocateDescriptorSets.html)
+///
+pub type FN_AllocateDescriptorSets = unsafe extern "C" fn(
     DeviceHandle,
     *const DescriptorSetAllocateInfo,
     *mut DescriptorSet,
@@ -3428,7 +3612,7 @@ impl Device {
         p_descriptor_sets: *mut DescriptorSet,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_AllocateDescriptorSets>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_AllocateDescriptorSets>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkAllocateDescriptorSets as usize,
             ))
@@ -3437,7 +3621,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_FreeDescriptorSets =
+/// [`vkFreeDescriptorSets`](https://docs.vulkan.org/refpages/latest/refpages/source/vkFreeDescriptorSets.html)
+///
+pub type FN_FreeDescriptorSets =
     unsafe extern "C" fn(DeviceHandle, DescriptorPool, u32, *const DescriptorSet) -> ResultCode;
 impl Device {
     /// [`vkFreeDescriptorSets`](https://docs.vulkan.org/refpages/latest/refpages/source/vkFreeDescriptorSets.html)
@@ -3462,7 +3648,7 @@ impl Device {
         p_descriptor_sets: *const DescriptorSet,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_FreeDescriptorSets>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_FreeDescriptorSets>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkFreeDescriptorSets as usize,
             ))
@@ -3478,7 +3664,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_UpdateDescriptorSets = unsafe extern "C" fn(
+/// [`vkUpdateDescriptorSets`](https://docs.vulkan.org/refpages/latest/refpages/source/vkUpdateDescriptorSets.html)
+///
+pub type FN_UpdateDescriptorSets = unsafe extern "C" fn(
     DeviceHandle,
     u32,
     *const WriteDescriptorSet,
@@ -3506,7 +3694,7 @@ impl Device {
         p_descriptor_copies: *const CopyDescriptorSet,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_UpdateDescriptorSets>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_UpdateDescriptorSets>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkUpdateDescriptorSets as usize,
             ))
@@ -3523,7 +3711,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdBindPipeline =
+/// [`vkCmdBindPipeline`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindPipeline.html)
+///
+pub type FN_CmdBindPipeline =
     unsafe extern "C" fn(CommandBufferHandle, PipelineBindPoint, Pipeline);
 impl CommandBuffer {
     /// [`vkCmdBindPipeline`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindPipeline.html)
@@ -3548,7 +3738,7 @@ impl CommandBuffer {
         pipeline: Pipeline,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBindPipeline>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBindPipeline>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdBindPipeline as usize,
             ))
@@ -3557,7 +3747,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdBindDescriptorSets = unsafe extern "C" fn(
+/// [`vkCmdBindDescriptorSets`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindDescriptorSets.html)
+///
+pub type FN_CmdBindDescriptorSets = unsafe extern "C" fn(
     CommandBufferHandle,
     PipelineBindPoint,
     PipelineLayout,
@@ -3602,7 +3794,7 @@ impl CommandBuffer {
         p_dynamic_offsets: *const u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBindDescriptorSets>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBindDescriptorSets>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdBindDescriptorSets as usize,
             ))
@@ -3622,7 +3814,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdClearColorImage = unsafe extern "C" fn(
+/// [`vkCmdClearColorImage`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdClearColorImage.html)
+///
+pub type FN_CmdClearColorImage = unsafe extern "C" fn(
     CommandBufferHandle,
     Image,
     ImageLayout,
@@ -3655,7 +3849,7 @@ impl CommandBuffer {
         p_ranges: *const ImageSubresourceRange,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdClearColorImage>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdClearColorImage>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdClearColorImage as usize,
             ))
@@ -3673,7 +3867,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdDispatch = unsafe extern "C" fn(CommandBufferHandle, u32, u32, u32);
+/// [`vkCmdDispatch`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatch.html)
+///
+pub type FN_CmdDispatch = unsafe extern "C" fn(CommandBufferHandle, u32, u32, u32);
 impl CommandBuffer {
     /// [`vkCmdDispatch`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatch.html)
     ///
@@ -3691,7 +3887,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_dispatch(&self, group_count_x: u32, group_count_y: u32, group_count_z: u32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDispatch>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdDispatch>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdDispatch as usize,
             ))
@@ -3700,8 +3896,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdDispatchIndirect =
-    unsafe extern "C" fn(CommandBufferHandle, Buffer, DeviceSize);
+/// [`vkCmdDispatchIndirect`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchIndirect.html)
+///
+pub type FN_CmdDispatchIndirect = unsafe extern "C" fn(CommandBufferHandle, Buffer, DeviceSize);
 impl CommandBuffer {
     /// [`vkCmdDispatchIndirect`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchIndirect.html)
     ///
@@ -3725,7 +3922,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_dispatch_indirect(&self, buffer: Buffer, offset: DeviceSize) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDispatchIndirect>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdDispatchIndirect>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdDispatchIndirect as usize,
             ))
@@ -3734,8 +3931,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetEvent =
-    unsafe extern "C" fn(CommandBufferHandle, Event, PipelineStageFlags);
+/// [`vkCmdSetEvent`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetEvent.html)
+///
+pub type FN_CmdSetEvent = unsafe extern "C" fn(CommandBufferHandle, Event, PipelineStageFlags);
 impl CommandBuffer {
     /// [`vkCmdSetEvent`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetEvent.html)
     ///
@@ -3766,7 +3964,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_event(&self, event: Event, stage_mask: PipelineStageFlags) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetEvent>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetEvent>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetEvent as usize,
             ))
@@ -3775,8 +3973,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdResetEvent =
-    unsafe extern "C" fn(CommandBufferHandle, Event, PipelineStageFlags);
+/// [`vkCmdResetEvent`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdResetEvent.html)
+///
+pub type FN_CmdResetEvent = unsafe extern "C" fn(CommandBufferHandle, Event, PipelineStageFlags);
 impl CommandBuffer {
     /// [`vkCmdResetEvent`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdResetEvent.html)
     ///
@@ -3807,7 +4006,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_reset_event(&self, event: Event, stage_mask: PipelineStageFlags) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdResetEvent>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdResetEvent>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdResetEvent as usize,
             ))
@@ -3816,7 +4015,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdWaitEvents = unsafe extern "C" fn(
+/// [`vkCmdWaitEvents`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWaitEvents.html)
+///
+pub type FN_CmdWaitEvents = unsafe extern "C" fn(
     CommandBufferHandle,
     u32,
     *const Event,
@@ -3875,7 +4076,7 @@ impl CommandBuffer {
         p_image_memory_barriers: *const ImageMemoryBarrier,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdWaitEvents>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdWaitEvents>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdWaitEvents as usize,
             ))
@@ -3898,7 +4099,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdPushConstants = unsafe extern "C" fn(
+/// [`vkCmdPushConstants`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushConstants.html)
+///
+pub type FN_CmdPushConstants = unsafe extern "C" fn(
     CommandBufferHandle,
     PipelineLayout,
     ShaderStageFlags,
@@ -3935,7 +4138,7 @@ impl CommandBuffer {
         p_values: *const c_void,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdPushConstants>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdPushConstants>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdPushConstants as usize,
             ))
@@ -3944,7 +4147,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CreateGraphicsPipelines = unsafe extern "C" fn(
+/// [`vkCreateGraphicsPipelines`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateGraphicsPipelines.html)
+///
+pub type FN_CreateGraphicsPipelines = unsafe extern "C" fn(
     DeviceHandle,
     PipelineCache,
     u32,
@@ -3981,7 +4186,7 @@ impl Device {
         p_pipelines: *mut Pipeline,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateGraphicsPipelines>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateGraphicsPipelines>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateGraphicsPipelines as usize,
             ))
@@ -3999,7 +4204,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CreateFramebuffer = unsafe extern "C" fn(
+/// [`vkCreateFramebuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateFramebuffer.html)
+///
+pub type FN_CreateFramebuffer = unsafe extern "C" fn(
     DeviceHandle,
     *const FramebufferCreateInfo,
     *const AllocationCallbacks,
@@ -4035,7 +4242,7 @@ impl Device {
         p_framebuffer: *mut Framebuffer,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateFramebuffer>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateFramebuffer>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateFramebuffer as usize,
             ))
@@ -4044,7 +4251,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroyFramebuffer =
+/// [`vkDestroyFramebuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyFramebuffer.html)
+///
+pub type FN_DestroyFramebuffer =
     unsafe extern "C" fn(DeviceHandle, Framebuffer, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyFramebuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyFramebuffer.html)
@@ -4067,7 +4276,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyFramebuffer>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyFramebuffer>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyFramebuffer as usize,
             ))
@@ -4076,7 +4285,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CreateRenderPass = unsafe extern "C" fn(
+/// [`vkCreateRenderPass`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateRenderPass.html)
+///
+pub type FN_CreateRenderPass = unsafe extern "C" fn(
     DeviceHandle,
     *const RenderPassCreateInfo,
     *const AllocationCallbacks,
@@ -4113,7 +4324,7 @@ impl Device {
         p_render_pass: *mut RenderPass,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateRenderPass>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateRenderPass>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateRenderPass as usize,
             ))
@@ -4122,7 +4333,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroyRenderPass =
+/// [`vkDestroyRenderPass`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyRenderPass.html)
+///
+pub type FN_DestroyRenderPass =
     unsafe extern "C" fn(DeviceHandle, RenderPass, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyRenderPass`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyRenderPass.html)
@@ -4145,7 +4358,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyRenderPass>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyRenderPass>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyRenderPass as usize,
             ))
@@ -4154,7 +4367,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetRenderAreaGranularity =
+/// [`vkGetRenderAreaGranularity`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRenderAreaGranularity.html)
+///
+pub type FN_GetRenderAreaGranularity =
     unsafe extern "C" fn(DeviceHandle, RenderPass, *mut Extent2D);
 impl Device {
     /// [`vkGetRenderAreaGranularity`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRenderAreaGranularity.html)
@@ -4173,7 +4388,7 @@ impl Device {
         p_granularity: *mut Extent2D,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetRenderAreaGranularity>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetRenderAreaGranularity>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetRenderAreaGranularity as usize,
             ))
@@ -4182,8 +4397,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdSetViewport =
-    unsafe extern "C" fn(CommandBufferHandle, u32, u32, *const Viewport);
+/// [`vkCmdSetViewport`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetViewport.html)
+///
+pub type FN_CmdSetViewport = unsafe extern "C" fn(CommandBufferHandle, u32, u32, *const Viewport);
 impl CommandBuffer {
     /// [`vkCmdSetViewport`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetViewport.html)
     ///
@@ -4206,7 +4422,7 @@ impl CommandBuffer {
         p_viewports: *const Viewport,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetViewport>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetViewport>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetViewport as usize,
             ))
@@ -4215,8 +4431,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetScissor =
-    unsafe extern "C" fn(CommandBufferHandle, u32, u32, *const Rect2D);
+/// [`vkCmdSetScissor`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetScissor.html)
+///
+pub type FN_CmdSetScissor = unsafe extern "C" fn(CommandBufferHandle, u32, u32, *const Rect2D);
 impl CommandBuffer {
     /// [`vkCmdSetScissor`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetScissor.html)
     ///
@@ -4239,7 +4456,7 @@ impl CommandBuffer {
         p_scissors: *const Rect2D,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetScissor>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetScissor>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetScissor as usize,
             ))
@@ -4248,7 +4465,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetLineWidth = unsafe extern "C" fn(CommandBufferHandle, f32);
+/// [`vkCmdSetLineWidth`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetLineWidth.html)
+///
+pub type FN_CmdSetLineWidth = unsafe extern "C" fn(CommandBufferHandle, f32);
 impl CommandBuffer {
     /// [`vkCmdSetLineWidth`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetLineWidth.html)
     ///
@@ -4266,7 +4485,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_line_width(&self, line_width: f32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetLineWidth>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetLineWidth>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetLineWidth as usize,
             ))
@@ -4275,7 +4494,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetDepthBias = unsafe extern "C" fn(CommandBufferHandle, f32, f32, f32);
+/// [`vkCmdSetDepthBias`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthBias.html)
+///
+pub type FN_CmdSetDepthBias = unsafe extern "C" fn(CommandBufferHandle, f32, f32, f32);
 impl CommandBuffer {
     /// [`vkCmdSetDepthBias`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthBias.html)
     ///
@@ -4298,7 +4519,7 @@ impl CommandBuffer {
         depth_bias_slope_factor: f32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthBias>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetDepthBias>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetDepthBias as usize,
             ))
@@ -4314,7 +4535,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetBlendConstants =
+/// [`vkCmdSetBlendConstants`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetBlendConstants.html)
+///
+pub type FN_CmdSetBlendConstants =
     unsafe extern "C" fn(CommandBufferHandle, *const [f32; 4 as usize]);
 impl CommandBuffer {
     /// [`vkCmdSetBlendConstants`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetBlendConstants.html)
@@ -4333,7 +4556,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_blend_constants(&self, blend_constants: *const [f32; 4 as usize]) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetBlendConstants>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetBlendConstants>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetBlendConstants as usize,
             ))
@@ -4342,7 +4565,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetDepthBounds = unsafe extern "C" fn(CommandBufferHandle, f32, f32);
+/// [`vkCmdSetDepthBounds`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthBounds.html)
+///
+pub type FN_CmdSetDepthBounds = unsafe extern "C" fn(CommandBufferHandle, f32, f32);
 impl CommandBuffer {
     /// [`vkCmdSetDepthBounds`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthBounds.html)
     ///
@@ -4360,7 +4585,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_depth_bounds(&self, min_depth_bounds: f32, max_depth_bounds: f32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthBounds>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetDepthBounds>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetDepthBounds as usize,
             ))
@@ -4369,7 +4594,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetStencilCompareMask =
+/// [`vkCmdSetStencilCompareMask`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetStencilCompareMask.html)
+///
+pub type FN_CmdSetStencilCompareMask =
     unsafe extern "C" fn(CommandBufferHandle, StencilFaceFlags, u32);
 impl CommandBuffer {
     /// [`vkCmdSetStencilCompareMask`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetStencilCompareMask.html)
@@ -4392,7 +4619,7 @@ impl CommandBuffer {
         compare_mask: u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetStencilCompareMask>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetStencilCompareMask>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetStencilCompareMask as usize,
             ))
@@ -4401,7 +4628,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetStencilWriteMask =
+/// [`vkCmdSetStencilWriteMask`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetStencilWriteMask.html)
+///
+pub type FN_CmdSetStencilWriteMask =
     unsafe extern "C" fn(CommandBufferHandle, StencilFaceFlags, u32);
 impl CommandBuffer {
     /// [`vkCmdSetStencilWriteMask`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetStencilWriteMask.html)
@@ -4420,7 +4649,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_stencil_write_mask(&self, face_mask: StencilFaceFlags, write_mask: u32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetStencilWriteMask>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetStencilWriteMask>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetStencilWriteMask as usize,
             ))
@@ -4429,7 +4658,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetStencilReference =
+/// [`vkCmdSetStencilReference`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetStencilReference.html)
+///
+pub type FN_CmdSetStencilReference =
     unsafe extern "C" fn(CommandBufferHandle, StencilFaceFlags, u32);
 impl CommandBuffer {
     /// [`vkCmdSetStencilReference`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetStencilReference.html)
@@ -4448,7 +4679,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_stencil_reference(&self, face_mask: StencilFaceFlags, reference: u32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetStencilReference>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetStencilReference>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetStencilReference as usize,
             ))
@@ -4457,7 +4688,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdBindIndexBuffer =
+/// [`vkCmdBindIndexBuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindIndexBuffer.html)
+///
+pub type FN_CmdBindIndexBuffer =
     unsafe extern "C" fn(CommandBufferHandle, Buffer, DeviceSize, IndexType);
 impl CommandBuffer {
     /// [`vkCmdBindIndexBuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindIndexBuffer.html)
@@ -4484,7 +4717,7 @@ impl CommandBuffer {
         index_type: IndexType,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBindIndexBuffer>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBindIndexBuffer>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdBindIndexBuffer as usize,
             ))
@@ -4493,7 +4726,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdBindVertexBuffers =
+/// [`vkCmdBindVertexBuffers`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindVertexBuffers.html)
+///
+pub type FN_CmdBindVertexBuffers =
     unsafe extern "C" fn(CommandBufferHandle, u32, u32, *const Buffer, *const DeviceSize);
 impl CommandBuffer {
     /// [`vkCmdBindVertexBuffers`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindVertexBuffers.html)
@@ -4518,7 +4753,7 @@ impl CommandBuffer {
         p_offsets: *const DeviceSize,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBindVertexBuffers>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBindVertexBuffers>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdBindVertexBuffers as usize,
             ))
@@ -4535,7 +4770,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdDraw = unsafe extern "C" fn(CommandBufferHandle, u32, u32, u32, u32);
+/// [`vkCmdDraw`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDraw.html)
+///
+pub type FN_CmdDraw = unsafe extern "C" fn(CommandBufferHandle, u32, u32, u32, u32);
 impl CommandBuffer {
     /// [`vkCmdDraw`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDraw.html)
     ///
@@ -4559,7 +4796,7 @@ impl CommandBuffer {
         first_instance: u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDraw>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdDraw>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdDraw as usize,
             ))
@@ -4576,8 +4813,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdDrawIndexed =
-    unsafe extern "C" fn(CommandBufferHandle, u32, u32, u32, i32, u32);
+/// [`vkCmdDrawIndexed`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndexed.html)
+///
+pub type FN_CmdDrawIndexed = unsafe extern "C" fn(CommandBufferHandle, u32, u32, u32, i32, u32);
 impl CommandBuffer {
     /// [`vkCmdDrawIndexed`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndexed.html)
     ///
@@ -4602,7 +4840,7 @@ impl CommandBuffer {
         first_instance: u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndexed>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdDrawIndexed>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdDrawIndexed as usize,
             ))
@@ -4620,7 +4858,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdDrawIndirect =
+/// [`vkCmdDrawIndirect`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndirect.html)
+///
+pub type FN_CmdDrawIndirect =
     unsafe extern "C" fn(CommandBufferHandle, Buffer, DeviceSize, u32, u32);
 impl CommandBuffer {
     /// [`vkCmdDrawIndirect`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndirect.html)
@@ -4651,7 +4891,7 @@ impl CommandBuffer {
         stride: u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndirect>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdDrawIndirect>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdDrawIndirect as usize,
             ))
@@ -4660,7 +4900,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdDrawIndexedIndirect =
+/// [`vkCmdDrawIndexedIndirect`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndexedIndirect.html)
+///
+pub type FN_CmdDrawIndexedIndirect =
     unsafe extern "C" fn(CommandBufferHandle, Buffer, DeviceSize, u32, u32);
 impl CommandBuffer {
     /// [`vkCmdDrawIndexedIndirect`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndexedIndirect.html)
@@ -4691,7 +4933,7 @@ impl CommandBuffer {
         stride: u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndexedIndirect>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdDrawIndexedIndirect>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdDrawIndexedIndirect as usize,
             ))
@@ -4700,7 +4942,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdBlitImage = unsafe extern "C" fn(
+/// [`vkCmdBlitImage`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBlitImage.html)
+///
+pub type FN_CmdBlitImage = unsafe extern "C" fn(
     CommandBufferHandle,
     Image,
     ImageLayout,
@@ -4736,7 +4980,7 @@ impl CommandBuffer {
         filter: Filter,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBlitImage>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBlitImage>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdBlitImage as usize,
             ))
@@ -4756,7 +5000,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdClearDepthStencilImage = unsafe extern "C" fn(
+/// [`vkCmdClearDepthStencilImage`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdClearDepthStencilImage.html)
+///
+pub type FN_CmdClearDepthStencilImage = unsafe extern "C" fn(
     CommandBufferHandle,
     Image,
     ImageLayout,
@@ -4788,7 +5034,7 @@ impl CommandBuffer {
         p_ranges: *const ImageSubresourceRange,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdClearDepthStencilImage>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdClearDepthStencilImage>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdClearDepthStencilImage as usize,
             ))
@@ -4806,7 +5052,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdClearAttachments =
+/// [`vkCmdClearAttachments`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdClearAttachments.html)
+///
+pub type FN_CmdClearAttachments =
     unsafe extern "C" fn(CommandBufferHandle, u32, *const ClearAttachment, u32, *const ClearRect);
 impl CommandBuffer {
     /// [`vkCmdClearAttachments`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdClearAttachments.html)
@@ -4831,7 +5079,7 @@ impl CommandBuffer {
         p_rects: *const ClearRect,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdClearAttachments>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdClearAttachments>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdClearAttachments as usize,
             ))
@@ -4848,7 +5096,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdResolveImage = unsafe extern "C" fn(
+/// [`vkCmdResolveImage`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdResolveImage.html)
+///
+pub type FN_CmdResolveImage = unsafe extern "C" fn(
     CommandBufferHandle,
     Image,
     ImageLayout,
@@ -4882,7 +5132,7 @@ impl CommandBuffer {
         p_regions: *const ImageResolve,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdResolveImage>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdResolveImage>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdResolveImage as usize,
             ))
@@ -4901,7 +5151,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdBeginRenderPass =
+/// [`vkCmdBeginRenderPass`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginRenderPass.html)
+///
+pub type FN_CmdBeginRenderPass =
     unsafe extern "C" fn(CommandBufferHandle, *const RenderPassBeginInfo, SubpassContents);
 impl CommandBuffer {
     /// [`vkCmdBeginRenderPass`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginRenderPass.html)
@@ -4932,7 +5184,7 @@ impl CommandBuffer {
         contents: SubpassContents,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBeginRenderPass>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBeginRenderPass>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdBeginRenderPass as usize,
             ))
@@ -4941,7 +5193,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdNextSubpass = unsafe extern "C" fn(CommandBufferHandle, SubpassContents);
+/// [`vkCmdNextSubpass`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdNextSubpass.html)
+///
+pub type FN_CmdNextSubpass = unsafe extern "C" fn(CommandBufferHandle, SubpassContents);
 impl CommandBuffer {
     /// [`vkCmdNextSubpass`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdNextSubpass.html)
     ///
@@ -4967,7 +5221,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_next_subpass(&self, contents: SubpassContents) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdNextSubpass>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdNextSubpass>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdNextSubpass as usize,
             ))
@@ -4976,7 +5230,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdEndRenderPass = unsafe extern "C" fn(CommandBufferHandle);
+/// [`vkCmdEndRenderPass`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndRenderPass.html)
+///
+pub type FN_CmdEndRenderPass = unsafe extern "C" fn(CommandBufferHandle);
 impl CommandBuffer {
     /// [`vkCmdEndRenderPass`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndRenderPass.html)
     ///
@@ -5002,7 +5258,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_end_render_pass(&self) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdEndRenderPass>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdEndRenderPass>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdEndRenderPass as usize,
             ))
@@ -5011,7 +5267,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_EnumerateInstanceVersion = unsafe extern "C" fn(*mut u32) -> ResultCode;
+/// [`vkEnumerateInstanceVersion`](https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumerateInstanceVersion.html)
+///
+pub type FN_EnumerateInstanceVersion = unsafe extern "C" fn(*mut u32) -> ResultCode;
 /// [`vkEnumerateInstanceVersion`](https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumerateInstanceVersion.html)
 ///
 /// # Requirements
@@ -5036,7 +5294,7 @@ pub unsafe fn enumerate_instance_version(p_api_version: *mut u32) -> ResultCode 
         .expect("vkx setup should have been run")
         .commands;
     let command = unsafe {
-        std::mem::transmute::<vkVoidFunction, FUN_EnumerateInstanceVersion>(vtable_get(
+        std::mem::transmute::<vkVoidFunction, FN_EnumerateInstanceVersion>(vtable_get(
             &commands,
             GlobalCommand::vkEnumerateInstanceVersion as usize,
         ))
@@ -5044,7 +5302,9 @@ pub unsafe fn enumerate_instance_version(p_api_version: *mut u32) -> ResultCode 
     unsafe { (command)(p_api_version) }
 }
 
-pub(crate) type FUN_BindBufferMemory2 =
+/// [`vkBindBufferMemory2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkBindBufferMemory2.html)
+///
+pub type FN_BindBufferMemory2 =
     unsafe extern "C" fn(DeviceHandle, u32, *const BindBufferMemoryInfo) -> ResultCode;
 impl Device {
     /// [`vkBindBufferMemory2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkBindBufferMemory2.html)
@@ -5073,7 +5333,7 @@ impl Device {
         p_bind_infos: *const BindBufferMemoryInfo,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_BindBufferMemory2>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_BindBufferMemory2>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkBindBufferMemory2 as usize,
             ))
@@ -5082,7 +5342,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_BindImageMemory2 =
+/// [`vkBindImageMemory2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkBindImageMemory2.html)
+///
+pub type FN_BindImageMemory2 =
     unsafe extern "C" fn(DeviceHandle, u32, *const BindImageMemoryInfo) -> ResultCode;
 impl Device {
     /// [`vkBindImageMemory2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkBindImageMemory2.html)
@@ -5110,7 +5372,7 @@ impl Device {
         p_bind_infos: *const BindImageMemoryInfo,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_BindImageMemory2>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_BindImageMemory2>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkBindImageMemory2 as usize,
             ))
@@ -5119,7 +5381,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetDeviceGroupPeerMemoryFeatures =
+/// [`vkGetDeviceGroupPeerMemoryFeatures`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceGroupPeerMemoryFeatures.html)
+///
+pub type FN_GetDeviceGroupPeerMemoryFeatures =
     unsafe extern "C" fn(DeviceHandle, u32, u32, u32, *mut PeerMemoryFeatureFlags);
 impl Device {
     /// [`vkGetDeviceGroupPeerMemoryFeatures`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceGroupPeerMemoryFeatures.html)
@@ -5140,7 +5404,7 @@ impl Device {
         p_peer_memory_features: *mut PeerMemoryFeatureFlags,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceGroupPeerMemoryFeatures>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetDeviceGroupPeerMemoryFeatures>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetDeviceGroupPeerMemoryFeatures as usize,
             ))
@@ -5157,7 +5421,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdSetDeviceMask = unsafe extern "C" fn(CommandBufferHandle, u32);
+/// [`vkCmdSetDeviceMask`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDeviceMask.html)
+///
+pub type FN_CmdSetDeviceMask = unsafe extern "C" fn(CommandBufferHandle, u32);
 impl CommandBuffer {
     /// [`vkCmdSetDeviceMask`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDeviceMask.html)
     ///
@@ -5183,7 +5449,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_device_mask(&self, device_mask: u32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDeviceMask>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetDeviceMask>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetDeviceMask as usize,
             ))
@@ -5192,7 +5458,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_EnumeratePhysicalDeviceGroups = unsafe extern "C" fn(
+/// [`vkEnumeratePhysicalDeviceGroups`](https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumeratePhysicalDeviceGroups.html)
+///
+pub type FN_EnumeratePhysicalDeviceGroups = unsafe extern "C" fn(
     InstanceHandle,
     *mut u32,
     *mut PhysicalDeviceGroupProperties,
@@ -5228,7 +5496,7 @@ impl Instance {
         p_physical_device_group_properties: *mut PhysicalDeviceGroupProperties,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_EnumeratePhysicalDeviceGroups>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_EnumeratePhysicalDeviceGroups>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkEnumeratePhysicalDeviceGroups as usize,
             ))
@@ -5243,7 +5511,9 @@ impl Instance {
     }
 }
 
-pub(crate) type FUN_GetImageMemoryRequirements2 = unsafe extern "C" fn(
+/// [`vkGetImageMemoryRequirements2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageMemoryRequirements2.html)
+///
+pub type FN_GetImageMemoryRequirements2 = unsafe extern "C" fn(
     DeviceHandle,
     *const ImageMemoryRequirementsInfo2,
     *mut MemoryRequirements2,
@@ -5265,7 +5535,7 @@ impl Device {
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetImageMemoryRequirements2>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetImageMemoryRequirements2>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetImageMemoryRequirements2 as usize,
             ))
@@ -5274,7 +5544,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetBufferMemoryRequirements2 = unsafe extern "C" fn(
+/// [`vkGetBufferMemoryRequirements2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferMemoryRequirements2.html)
+///
+pub type FN_GetBufferMemoryRequirements2 = unsafe extern "C" fn(
     DeviceHandle,
     *const BufferMemoryRequirementsInfo2,
     *mut MemoryRequirements2,
@@ -5296,7 +5568,7 @@ impl Device {
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetBufferMemoryRequirements2>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetBufferMemoryRequirements2>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetBufferMemoryRequirements2 as usize,
             ))
@@ -5305,7 +5577,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetImageSparseMemoryRequirements2 = unsafe extern "C" fn(
+/// [`vkGetImageSparseMemoryRequirements2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageSparseMemoryRequirements2.html)
+///
+pub type FN_GetImageSparseMemoryRequirements2 = unsafe extern "C" fn(
     DeviceHandle,
     *const ImageSparseMemoryRequirementsInfo2,
     *mut u32,
@@ -5332,12 +5606,10 @@ impl Device {
         p_sparse_memory_requirements: *mut SparseImageMemoryRequirements2,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetImageSparseMemoryRequirements2>(
-                vtable_get(
-                    self.vtable(),
-                    InstanceCommand::vkGetImageSparseMemoryRequirements2 as usize,
-                ),
-            )
+            std::mem::transmute::<vkVoidFunction, FN_GetImageSparseMemoryRequirements2>(vtable_get(
+                self.vtable(),
+                InstanceCommand::vkGetImageSparseMemoryRequirements2 as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -5350,7 +5622,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceFeatures2 =
+/// [`vkGetPhysicalDeviceFeatures2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceFeatures2.html)
+///
+pub type FN_GetPhysicalDeviceFeatures2 =
     unsafe extern "C" fn(PhysicalDeviceHandle, *mut PhysicalDeviceFeatures2);
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceFeatures2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceFeatures2.html)
@@ -5365,7 +5639,7 @@ impl PhysicalDevice {
     #[inline(always)]
     pub unsafe fn get_features_2(&self, p_features: *mut PhysicalDeviceFeatures2) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceFeatures2>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceFeatures2>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetPhysicalDeviceFeatures2 as usize,
             ))
@@ -5374,7 +5648,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceProperties2 =
+/// [`vkGetPhysicalDeviceProperties2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceProperties2.html)
+///
+pub type FN_GetPhysicalDeviceProperties2 =
     unsafe extern "C" fn(PhysicalDeviceHandle, *mut PhysicalDeviceProperties2);
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceProperties2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceProperties2.html)
@@ -5389,7 +5665,7 @@ impl PhysicalDevice {
     #[inline(always)]
     pub unsafe fn get_properties_2(&self, p_properties: *mut PhysicalDeviceProperties2) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceProperties2>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceProperties2>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetPhysicalDeviceProperties2 as usize,
             ))
@@ -5398,7 +5674,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceFormatProperties2 =
+/// [`vkGetPhysicalDeviceFormatProperties2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceFormatProperties2.html)
+///
+pub type FN_GetPhysicalDeviceFormatProperties2 =
     unsafe extern "C" fn(PhysicalDeviceHandle, Format, *mut FormatProperties2);
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceFormatProperties2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceFormatProperties2.html)
@@ -5417,7 +5695,7 @@ impl PhysicalDevice {
         p_format_properties: *mut FormatProperties2,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceFormatProperties2>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceFormatProperties2>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceFormatProperties2 as usize,
@@ -5428,7 +5706,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceImageFormatProperties2 = unsafe extern "C" fn(
+/// [`vkGetPhysicalDeviceImageFormatProperties2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceImageFormatProperties2.html)
+///
+pub type FN_GetPhysicalDeviceImageFormatProperties2 = unsafe extern "C" fn(
     PhysicalDeviceHandle,
     *const PhysicalDeviceImageFormatInfo2,
     *mut ImageFormatProperties2,
@@ -5465,7 +5745,7 @@ impl PhysicalDevice {
         p_image_format_properties: *mut ImageFormatProperties2,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceImageFormatProperties2>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceImageFormatProperties2>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceImageFormatProperties2 as usize,
@@ -5476,7 +5756,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceQueueFamilyProperties2 =
+/// [`vkGetPhysicalDeviceQueueFamilyProperties2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceQueueFamilyProperties2.html)
+///
+pub type FN_GetPhysicalDeviceQueueFamilyProperties2 =
     unsafe extern "C" fn(PhysicalDeviceHandle, *mut u32, *mut QueueFamilyProperties2);
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceQueueFamilyProperties2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceQueueFamilyProperties2.html)
@@ -5498,7 +5780,7 @@ impl PhysicalDevice {
         p_queue_family_properties: *mut QueueFamilyProperties2,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceQueueFamilyProperties2>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceQueueFamilyProperties2>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceQueueFamilyProperties2 as usize,
@@ -5515,7 +5797,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceMemoryProperties2 =
+/// [`vkGetPhysicalDeviceMemoryProperties2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceMemoryProperties2.html)
+///
+pub type FN_GetPhysicalDeviceMemoryProperties2 =
     unsafe extern "C" fn(PhysicalDeviceHandle, *mut PhysicalDeviceMemoryProperties2);
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceMemoryProperties2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceMemoryProperties2.html)
@@ -5533,7 +5817,7 @@ impl PhysicalDevice {
         p_memory_properties: *mut PhysicalDeviceMemoryProperties2,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceMemoryProperties2>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceMemoryProperties2>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceMemoryProperties2 as usize,
@@ -5544,7 +5828,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceSparseImageFormatProperties2 = unsafe extern "C" fn(
+/// [`vkGetPhysicalDeviceSparseImageFormatProperties2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSparseImageFormatProperties2.html)
+///
+pub type FN_GetPhysicalDeviceSparseImageFormatProperties2 = unsafe extern "C" fn(
     PhysicalDeviceHandle,
     *const PhysicalDeviceSparseImageFormatInfo2,
     *mut u32,
@@ -5571,7 +5857,7 @@ impl PhysicalDevice {
         p_properties: *mut SparseImageFormatProperties2,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceSparseImageFormatProperties2>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceSparseImageFormatProperties2>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceSparseImageFormatProperties2 as usize,
@@ -5582,8 +5868,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_TrimCommandPool =
-    unsafe extern "C" fn(DeviceHandle, CommandPool, CommandPoolTrimFlags);
+/// [`vkTrimCommandPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkTrimCommandPool.html)
+///
+pub type FN_TrimCommandPool = unsafe extern "C" fn(DeviceHandle, CommandPool, CommandPoolTrimFlags);
 impl Device {
     /// [`vkTrimCommandPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkTrimCommandPool.html)
     ///
@@ -5600,7 +5887,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn trim_command_pool(&self, command_pool: CommandPool, flags: CommandPoolTrimFlags) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_TrimCommandPool>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_TrimCommandPool>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkTrimCommandPool as usize,
             ))
@@ -5609,7 +5896,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetDeviceQueue2 =
+/// [`vkGetDeviceQueue2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceQueue2.html)
+///
+pub type FN_GetDeviceQueue2 =
     unsafe extern "C" fn(DeviceHandle, *const DeviceQueueInfo2, *mut QueueHandle);
 impl Device {
     /// [`vkGetDeviceQueue2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceQueue2.html)
@@ -5628,7 +5917,7 @@ impl Device {
         p_queue: *mut QueueHandle,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceQueue2>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetDeviceQueue2>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetDeviceQueue2 as usize,
             ))
@@ -5637,7 +5926,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceExternalBufferProperties = unsafe extern "C" fn(
+/// [`vkGetPhysicalDeviceExternalBufferProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceExternalBufferProperties.html)
+///
+pub type FN_GetPhysicalDeviceExternalBufferProperties = unsafe extern "C" fn(
     PhysicalDeviceHandle,
     *const PhysicalDeviceExternalBufferInfo,
     *mut ExternalBufferProperties,
@@ -5659,7 +5950,7 @@ impl PhysicalDevice {
         p_external_buffer_properties: *mut ExternalBufferProperties,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceExternalBufferProperties>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceExternalBufferProperties>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceExternalBufferProperties as usize,
@@ -5676,7 +5967,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceExternalFenceProperties = unsafe extern "C" fn(
+/// [`vkGetPhysicalDeviceExternalFenceProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceExternalFenceProperties.html)
+///
+pub type FN_GetPhysicalDeviceExternalFenceProperties = unsafe extern "C" fn(
     PhysicalDeviceHandle,
     *const PhysicalDeviceExternalFenceInfo,
     *mut ExternalFenceProperties,
@@ -5698,7 +5991,7 @@ impl PhysicalDevice {
         p_external_fence_properties: *mut ExternalFenceProperties,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceExternalFenceProperties>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceExternalFenceProperties>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceExternalFenceProperties as usize,
@@ -5715,7 +6008,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceExternalSemaphoreProperties = unsafe extern "C" fn(
+/// [`vkGetPhysicalDeviceExternalSemaphoreProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceExternalSemaphoreProperties.html)
+///
+pub type FN_GetPhysicalDeviceExternalSemaphoreProperties = unsafe extern "C" fn(
     PhysicalDeviceHandle,
     *const PhysicalDeviceExternalSemaphoreInfo,
     *mut ExternalSemaphoreProperties,
@@ -5737,7 +6032,7 @@ impl PhysicalDevice {
         p_external_semaphore_properties: *mut ExternalSemaphoreProperties,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceExternalSemaphoreProperties>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceExternalSemaphoreProperties>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceExternalSemaphoreProperties as usize,
@@ -5754,7 +6049,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_CmdDispatchBase =
+/// [`vkCmdDispatchBase`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchBase.html)
+///
+pub type FN_CmdDispatchBase =
     unsafe extern "C" fn(CommandBufferHandle, u32, u32, u32, u32, u32, u32);
 impl CommandBuffer {
     /// [`vkCmdDispatchBase`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchBase.html)
@@ -5787,7 +6084,7 @@ impl CommandBuffer {
         group_count_z: u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDispatchBase>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdDispatchBase>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdDispatchBase as usize,
             ))
@@ -5806,7 +6103,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CreateDescriptorUpdateTemplate = unsafe extern "C" fn(
+/// [`vkCreateDescriptorUpdateTemplate`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDescriptorUpdateTemplate.html)
+///
+pub type FN_CreateDescriptorUpdateTemplate = unsafe extern "C" fn(
     DeviceHandle,
     *const DescriptorUpdateTemplateCreateInfo,
     *const AllocationCallbacks,
@@ -5842,7 +6141,7 @@ impl Device {
         p_descriptor_update_template: *mut DescriptorUpdateTemplate,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateDescriptorUpdateTemplate>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateDescriptorUpdateTemplate>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateDescriptorUpdateTemplate as usize,
             ))
@@ -5858,7 +6157,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroyDescriptorUpdateTemplate =
+/// [`vkDestroyDescriptorUpdateTemplate`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDescriptorUpdateTemplate.html)
+///
+pub type FN_DestroyDescriptorUpdateTemplate =
     unsafe extern "C" fn(DeviceHandle, DescriptorUpdateTemplate, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyDescriptorUpdateTemplate`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDescriptorUpdateTemplate.html)
@@ -5881,7 +6182,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyDescriptorUpdateTemplate>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyDescriptorUpdateTemplate>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyDescriptorUpdateTemplate as usize,
             ))
@@ -5890,7 +6191,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_UpdateDescriptorSetWithTemplate =
+/// [`vkUpdateDescriptorSetWithTemplate`](https://docs.vulkan.org/refpages/latest/refpages/source/vkUpdateDescriptorSetWithTemplate.html)
+///
+pub type FN_UpdateDescriptorSetWithTemplate =
     unsafe extern "C" fn(DeviceHandle, DescriptorSet, DescriptorUpdateTemplate, *const c_void);
 impl Device {
     /// [`vkUpdateDescriptorSetWithTemplate`](https://docs.vulkan.org/refpages/latest/refpages/source/vkUpdateDescriptorSetWithTemplate.html)
@@ -5910,7 +6213,7 @@ impl Device {
         p_data: *const c_void,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_UpdateDescriptorSetWithTemplate>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_UpdateDescriptorSetWithTemplate>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkUpdateDescriptorSetWithTemplate as usize,
             ))
@@ -5926,7 +6229,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetDescriptorSetLayoutSupport = unsafe extern "C" fn(
+/// [`vkGetDescriptorSetLayoutSupport`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDescriptorSetLayoutSupport.html)
+///
+pub type FN_GetDescriptorSetLayoutSupport = unsafe extern "C" fn(
     DeviceHandle,
     *const DescriptorSetLayoutCreateInfo,
     *mut DescriptorSetLayoutSupport,
@@ -5948,7 +6253,7 @@ impl Device {
         p_support: *mut DescriptorSetLayoutSupport,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDescriptorSetLayoutSupport>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetDescriptorSetLayoutSupport>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetDescriptorSetLayoutSupport as usize,
             ))
@@ -5957,7 +6262,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CreateSamplerYcbcrConversion = unsafe extern "C" fn(
+/// [`vkCreateSamplerYcbcrConversion`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateSamplerYcbcrConversion.html)
+///
+pub type FN_CreateSamplerYcbcrConversion = unsafe extern "C" fn(
     DeviceHandle,
     *const SamplerYcbcrConversionCreateInfo,
     *const AllocationCallbacks,
@@ -5993,7 +6300,7 @@ impl Device {
         p_ycbcr_conversion: *mut SamplerYcbcrConversion,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateSamplerYcbcrConversion>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateSamplerYcbcrConversion>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateSamplerYcbcrConversion as usize,
             ))
@@ -6002,7 +6309,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroySamplerYcbcrConversion =
+/// [`vkDestroySamplerYcbcrConversion`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroySamplerYcbcrConversion.html)
+///
+pub type FN_DestroySamplerYcbcrConversion =
     unsafe extern "C" fn(DeviceHandle, SamplerYcbcrConversion, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroySamplerYcbcrConversion`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroySamplerYcbcrConversion.html)
@@ -6025,7 +6334,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroySamplerYcbcrConversion>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroySamplerYcbcrConversion>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroySamplerYcbcrConversion as usize,
             ))
@@ -6034,7 +6343,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_ResetQueryPool = unsafe extern "C" fn(DeviceHandle, QueryPool, u32, u32);
+/// [`vkResetQueryPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkResetQueryPool.html)
+///
+pub type FN_ResetQueryPool = unsafe extern "C" fn(DeviceHandle, QueryPool, u32, u32);
 impl Device {
     /// [`vkResetQueryPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkResetQueryPool.html)
     ///
@@ -6053,7 +6364,7 @@ impl Device {
         query_count: u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_ResetQueryPool>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_ResetQueryPool>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkResetQueryPool as usize,
             ))
@@ -6062,7 +6373,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetSemaphoreCounterValue =
+/// [`vkGetSemaphoreCounterValue`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSemaphoreCounterValue.html)
+///
+pub type FN_GetSemaphoreCounterValue =
     unsafe extern "C" fn(DeviceHandle, Semaphore, *mut u64) -> ResultCode;
 impl Device {
     /// [`vkGetSemaphoreCounterValue`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSemaphoreCounterValue.html)
@@ -6091,7 +6404,7 @@ impl Device {
         p_value: *mut u64,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetSemaphoreCounterValue>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetSemaphoreCounterValue>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetSemaphoreCounterValue as usize,
             ))
@@ -6100,7 +6413,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_WaitSemaphores =
+/// [`vkWaitSemaphores`](https://docs.vulkan.org/refpages/latest/refpages/source/vkWaitSemaphores.html)
+///
+pub type FN_WaitSemaphores =
     unsafe extern "C" fn(DeviceHandle, *const SemaphoreWaitInfo, u64) -> ResultCode;
 impl Device {
     /// [`vkWaitSemaphores`](https://docs.vulkan.org/refpages/latest/refpages/source/vkWaitSemaphores.html)
@@ -6130,7 +6445,7 @@ impl Device {
         timeout: u64,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_WaitSemaphores>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_WaitSemaphores>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkWaitSemaphores as usize,
             ))
@@ -6139,7 +6454,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_SignalSemaphore =
+/// [`vkSignalSemaphore`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSignalSemaphore.html)
+///
+pub type FN_SignalSemaphore =
     unsafe extern "C" fn(DeviceHandle, *const SemaphoreSignalInfo) -> ResultCode;
 impl Device {
     /// [`vkSignalSemaphore`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSignalSemaphore.html)
@@ -6163,7 +6480,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn signal_semaphore(&self, p_signal_info: *const SemaphoreSignalInfo) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_SignalSemaphore>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_SignalSemaphore>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkSignalSemaphore as usize,
             ))
@@ -6172,7 +6489,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetBufferDeviceAddress =
+/// [`vkGetBufferDeviceAddress`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferDeviceAddress.html)
+///
+pub type FN_GetBufferDeviceAddress =
     unsafe extern "C" fn(DeviceHandle, *const BufferDeviceAddressInfo) -> DeviceAddress;
 impl Device {
     /// [`vkGetBufferDeviceAddress`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferDeviceAddress.html)
@@ -6190,7 +6509,7 @@ impl Device {
         p_info: *const BufferDeviceAddressInfo,
     ) -> DeviceAddress {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetBufferDeviceAddress>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetBufferDeviceAddress>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetBufferDeviceAddress as usize,
             ))
@@ -6199,7 +6518,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetBufferOpaqueCaptureAddress =
+/// [`vkGetBufferOpaqueCaptureAddress`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferOpaqueCaptureAddress.html)
+///
+pub type FN_GetBufferOpaqueCaptureAddress =
     unsafe extern "C" fn(DeviceHandle, *const BufferDeviceAddressInfo) -> u64;
 impl Device {
     /// [`vkGetBufferOpaqueCaptureAddress`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferOpaqueCaptureAddress.html)
@@ -6217,7 +6538,7 @@ impl Device {
         p_info: *const BufferDeviceAddressInfo,
     ) -> u64 {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetBufferOpaqueCaptureAddress>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetBufferOpaqueCaptureAddress>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetBufferOpaqueCaptureAddress as usize,
             ))
@@ -6226,7 +6547,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetDeviceMemoryOpaqueCaptureAddress =
+/// [`vkGetDeviceMemoryOpaqueCaptureAddress`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceMemoryOpaqueCaptureAddress.html)
+///
+pub type FN_GetDeviceMemoryOpaqueCaptureAddress =
     unsafe extern "C" fn(DeviceHandle, *const DeviceMemoryOpaqueCaptureAddressInfo) -> u64;
 impl Device {
     /// [`vkGetDeviceMemoryOpaqueCaptureAddress`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceMemoryOpaqueCaptureAddress.html)
@@ -6244,7 +6567,7 @@ impl Device {
         p_info: *const DeviceMemoryOpaqueCaptureAddressInfo,
     ) -> u64 {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceMemoryOpaqueCaptureAddress>(
+            std::mem::transmute::<vkVoidFunction, FN_GetDeviceMemoryOpaqueCaptureAddress>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetDeviceMemoryOpaqueCaptureAddress as usize,
@@ -6255,7 +6578,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdDrawIndirectCount =
+/// [`vkCmdDrawIndirectCount`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndirectCount.html)
+///
+pub type FN_CmdDrawIndirectCount =
     unsafe extern "C" fn(CommandBufferHandle, Buffer, DeviceSize, Buffer, DeviceSize, u32, u32);
 impl CommandBuffer {
     /// [`vkCmdDrawIndirectCount`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndirectCount.html)
@@ -6294,7 +6619,7 @@ impl CommandBuffer {
         stride: u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndirectCount>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdDrawIndirectCount>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdDrawIndirectCount as usize,
             ))
@@ -6313,7 +6638,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdDrawIndexedIndirectCount =
+/// [`vkCmdDrawIndexedIndirectCount`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndexedIndirectCount.html)
+///
+pub type FN_CmdDrawIndexedIndirectCount =
     unsafe extern "C" fn(CommandBufferHandle, Buffer, DeviceSize, Buffer, DeviceSize, u32, u32);
 impl CommandBuffer {
     /// [`vkCmdDrawIndexedIndirectCount`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndexedIndirectCount.html)
@@ -6352,7 +6679,7 @@ impl CommandBuffer {
         stride: u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndexedIndirectCount>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdDrawIndexedIndirectCount>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdDrawIndexedIndirectCount as usize,
             ))
@@ -6371,7 +6698,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CreateRenderPass2 = unsafe extern "C" fn(
+/// [`vkCreateRenderPass2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateRenderPass2.html)
+///
+pub type FN_CreateRenderPass2 = unsafe extern "C" fn(
     DeviceHandle,
     *const RenderPassCreateInfo2,
     *const AllocationCallbacks,
@@ -6413,7 +6742,7 @@ impl Device {
         p_render_pass: *mut RenderPass,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateRenderPass2>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateRenderPass2>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateRenderPass2 as usize,
             ))
@@ -6422,7 +6751,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdBeginRenderPass2 =
+/// [`vkCmdBeginRenderPass2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginRenderPass2.html)
+///
+pub type FN_CmdBeginRenderPass2 =
     unsafe extern "C" fn(CommandBufferHandle, *const RenderPassBeginInfo, *const SubpassBeginInfo);
 impl CommandBuffer {
     /// [`vkCmdBeginRenderPass2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginRenderPass2.html)
@@ -6458,7 +6789,7 @@ impl CommandBuffer {
         p_subpass_begin_info: *const SubpassBeginInfo,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBeginRenderPass2>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBeginRenderPass2>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdBeginRenderPass2 as usize,
             ))
@@ -6467,7 +6798,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdNextSubpass2 =
+/// [`vkCmdNextSubpass2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdNextSubpass2.html)
+///
+pub type FN_CmdNextSubpass2 =
     unsafe extern "C" fn(CommandBufferHandle, *const SubpassBeginInfo, *const SubpassEndInfo);
 impl CommandBuffer {
     /// [`vkCmdNextSubpass2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdNextSubpass2.html)
@@ -6503,7 +6836,7 @@ impl CommandBuffer {
         p_subpass_end_info: *const SubpassEndInfo,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdNextSubpass2>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdNextSubpass2>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdNextSubpass2 as usize,
             ))
@@ -6512,8 +6845,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdEndRenderPass2 =
-    unsafe extern "C" fn(CommandBufferHandle, *const SubpassEndInfo);
+/// [`vkCmdEndRenderPass2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndRenderPass2.html)
+///
+pub type FN_CmdEndRenderPass2 = unsafe extern "C" fn(CommandBufferHandle, *const SubpassEndInfo);
 impl CommandBuffer {
     /// [`vkCmdEndRenderPass2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndRenderPass2.html)
     ///
@@ -6544,7 +6878,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_end_render_pass_2(&self, p_subpass_end_info: *const SubpassEndInfo) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdEndRenderPass2>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdEndRenderPass2>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdEndRenderPass2 as usize,
             ))
@@ -6553,7 +6887,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceToolProperties = unsafe extern "C" fn(
+/// [`vkGetPhysicalDeviceToolProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceToolProperties.html)
+///
+pub type FN_GetPhysicalDeviceToolProperties = unsafe extern "C" fn(
     PhysicalDeviceHandle,
     *mut u32,
     *mut PhysicalDeviceToolProperties,
@@ -6587,7 +6923,7 @@ impl PhysicalDevice {
         p_tool_properties: *mut PhysicalDeviceToolProperties,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceToolProperties>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceToolProperties>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetPhysicalDeviceToolProperties as usize,
             ))
@@ -6596,7 +6932,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_CreatePrivateDataSlot = unsafe extern "C" fn(
+/// [`vkCreatePrivateDataSlot`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreatePrivateDataSlot.html)
+///
+pub type FN_CreatePrivateDataSlot = unsafe extern "C" fn(
     DeviceHandle,
     *const PrivateDataSlotCreateInfo,
     *const AllocationCallbacks,
@@ -6631,7 +6969,7 @@ impl Device {
         p_private_data_slot: *mut PrivateDataSlot,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreatePrivateDataSlot>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreatePrivateDataSlot>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreatePrivateDataSlot as usize,
             ))
@@ -6640,7 +6978,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroyPrivateDataSlot =
+/// [`vkDestroyPrivateDataSlot`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyPrivateDataSlot.html)
+///
+pub type FN_DestroyPrivateDataSlot =
     unsafe extern "C" fn(DeviceHandle, PrivateDataSlot, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyPrivateDataSlot`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyPrivateDataSlot.html)
@@ -6663,7 +7003,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyPrivateDataSlot>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyPrivateDataSlot>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyPrivateDataSlot as usize,
             ))
@@ -6672,7 +7012,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_SetPrivateData =
+/// [`vkSetPrivateData`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetPrivateData.html)
+///
+pub type FN_SetPrivateData =
     unsafe extern "C" fn(DeviceHandle, ObjectType, u64, PrivateDataSlot, u64) -> ResultCode;
 impl Device {
     /// [`vkSetPrivateData`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetPrivateData.html)
@@ -6701,7 +7043,7 @@ impl Device {
         data: u64,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_SetPrivateData>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_SetPrivateData>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkSetPrivateData as usize,
             ))
@@ -6718,7 +7060,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetPrivateData =
+/// [`vkGetPrivateData`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPrivateData.html)
+///
+pub type FN_GetPrivateData =
     unsafe extern "C" fn(DeviceHandle, ObjectType, u64, PrivateDataSlot, *mut u64);
 impl Device {
     /// [`vkGetPrivateData`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPrivateData.html)
@@ -6739,7 +7083,7 @@ impl Device {
         p_data: *mut u64,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPrivateData>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetPrivateData>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetPrivateData as usize,
             ))
@@ -6756,8 +7100,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdPipelineBarrier2 =
-    unsafe extern "C" fn(CommandBufferHandle, *const DependencyInfo);
+/// [`vkCmdPipelineBarrier2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPipelineBarrier2.html)
+///
+pub type FN_CmdPipelineBarrier2 = unsafe extern "C" fn(CommandBufferHandle, *const DependencyInfo);
 impl CommandBuffer {
     /// [`vkCmdPipelineBarrier2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPipelineBarrier2.html)
     ///
@@ -6785,7 +7130,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_pipeline_barrier_2(&self, p_dependency_info: *const DependencyInfo) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdPipelineBarrier2>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdPipelineBarrier2>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdPipelineBarrier2 as usize,
             ))
@@ -6794,7 +7139,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdWriteTimestamp2 =
+/// [`vkCmdWriteTimestamp2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteTimestamp2.html)
+///
+pub type FN_CmdWriteTimestamp2 =
     unsafe extern "C" fn(CommandBufferHandle, PipelineStageFlags2, QueryPool, u32);
 impl CommandBuffer {
     /// [`vkCmdWriteTimestamp2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteTimestamp2.html)
@@ -6831,7 +7178,7 @@ impl CommandBuffer {
         query: u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdWriteTimestamp2>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdWriteTimestamp2>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdWriteTimestamp2 as usize,
             ))
@@ -6840,7 +7187,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_QueueSubmit2 =
+/// [`vkQueueSubmit2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueSubmit2.html)
+///
+pub type FN_QueueSubmit2 =
     unsafe extern "C" fn(QueueHandle, u32, *const SubmitInfo2, Fence) -> ResultCode;
 impl Queue {
     /// [`vkQueueSubmit2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueSubmit2.html)
@@ -6874,7 +7223,7 @@ impl Queue {
         fence: Fence,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_QueueSubmit2>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_QueueSubmit2>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkQueueSubmit2 as usize,
             ))
@@ -6883,8 +7232,9 @@ impl Queue {
     }
 }
 
-pub(crate) type FUN_CmdCopyBuffer2 =
-    unsafe extern "C" fn(CommandBufferHandle, *const CopyBufferInfo2);
+/// [`vkCmdCopyBuffer2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyBuffer2.html)
+///
+pub type FN_CmdCopyBuffer2 = unsafe extern "C" fn(CommandBufferHandle, *const CopyBufferInfo2);
 impl CommandBuffer {
     /// [`vkCmdCopyBuffer2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyBuffer2.html)
     ///
@@ -6916,7 +7266,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_copy_buffer_2(&self, p_copy_buffer_info: *const CopyBufferInfo2) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyBuffer2>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdCopyBuffer2>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdCopyBuffer2 as usize,
             ))
@@ -6925,8 +7275,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdCopyImage2 =
-    unsafe extern "C" fn(CommandBufferHandle, *const CopyImageInfo2);
+/// [`vkCmdCopyImage2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyImage2.html)
+///
+pub type FN_CmdCopyImage2 = unsafe extern "C" fn(CommandBufferHandle, *const CopyImageInfo2);
 impl CommandBuffer {
     /// [`vkCmdCopyImage2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyImage2.html)
     ///
@@ -6952,7 +7303,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_copy_image_2(&self, p_copy_image_info: *const CopyImageInfo2) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyImage2>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdCopyImage2>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdCopyImage2 as usize,
             ))
@@ -6961,7 +7312,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdCopyBufferToImage2 =
+/// [`vkCmdCopyBufferToImage2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyBufferToImage2.html)
+///
+pub type FN_CmdCopyBufferToImage2 =
     unsafe extern "C" fn(CommandBufferHandle, *const CopyBufferToImageInfo2);
 impl CommandBuffer {
     /// [`vkCmdCopyBufferToImage2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyBufferToImage2.html)
@@ -6997,7 +7350,7 @@ impl CommandBuffer {
         p_copy_buffer_to_image_info: *const CopyBufferToImageInfo2,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyBufferToImage2>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdCopyBufferToImage2>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdCopyBufferToImage2 as usize,
             ))
@@ -7006,7 +7359,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdCopyImageToBuffer2 =
+/// [`vkCmdCopyImageToBuffer2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyImageToBuffer2.html)
+///
+pub type FN_CmdCopyImageToBuffer2 =
     unsafe extern "C" fn(CommandBufferHandle, *const CopyImageToBufferInfo2);
 impl CommandBuffer {
     /// [`vkCmdCopyImageToBuffer2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyImageToBuffer2.html)
@@ -7042,7 +7397,7 @@ impl CommandBuffer {
         p_copy_image_to_buffer_info: *const CopyImageToBufferInfo2,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyImageToBuffer2>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdCopyImageToBuffer2>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdCopyImageToBuffer2 as usize,
             ))
@@ -7051,7 +7406,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_GetDeviceBufferMemoryRequirements = unsafe extern "C" fn(
+/// [`vkGetDeviceBufferMemoryRequirements`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceBufferMemoryRequirements.html)
+///
+pub type FN_GetDeviceBufferMemoryRequirements = unsafe extern "C" fn(
     DeviceHandle,
     *const DeviceBufferMemoryRequirements,
     *mut MemoryRequirements2,
@@ -7073,18 +7430,18 @@ impl Device {
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceBufferMemoryRequirements>(
-                vtable_get(
-                    self.vtable(),
-                    InstanceCommand::vkGetDeviceBufferMemoryRequirements as usize,
-                ),
-            )
+            std::mem::transmute::<vkVoidFunction, FN_GetDeviceBufferMemoryRequirements>(vtable_get(
+                self.vtable(),
+                InstanceCommand::vkGetDeviceBufferMemoryRequirements as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_info, p_memory_requirements) }
     }
 }
 
-pub(crate) type FUN_GetDeviceImageMemoryRequirements = unsafe extern "C" fn(
+/// [`vkGetDeviceImageMemoryRequirements`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceImageMemoryRequirements.html)
+///
+pub type FN_GetDeviceImageMemoryRequirements = unsafe extern "C" fn(
     DeviceHandle,
     *const DeviceImageMemoryRequirements,
     *mut MemoryRequirements2,
@@ -7106,7 +7463,7 @@ impl Device {
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceImageMemoryRequirements>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetDeviceImageMemoryRequirements>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetDeviceImageMemoryRequirements as usize,
             ))
@@ -7115,7 +7472,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetDeviceImageSparseMemoryRequirements = unsafe extern "C" fn(
+/// [`vkGetDeviceImageSparseMemoryRequirements`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceImageSparseMemoryRequirements.html)
+///
+pub type FN_GetDeviceImageSparseMemoryRequirements = unsafe extern "C" fn(
     DeviceHandle,
     *const DeviceImageMemoryRequirements,
     *mut u32,
@@ -7142,7 +7501,7 @@ impl Device {
         p_sparse_memory_requirements: *mut SparseImageMemoryRequirements2,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceImageSparseMemoryRequirements>(
+            std::mem::transmute::<vkVoidFunction, FN_GetDeviceImageSparseMemoryRequirements>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetDeviceImageSparseMemoryRequirements as usize,
@@ -7160,8 +7519,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdSetEvent2 =
-    unsafe extern "C" fn(CommandBufferHandle, Event, *const DependencyInfo);
+/// [`vkCmdSetEvent2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetEvent2.html)
+///
+pub type FN_CmdSetEvent2 = unsafe extern "C" fn(CommandBufferHandle, Event, *const DependencyInfo);
 impl CommandBuffer {
     /// [`vkCmdSetEvent2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetEvent2.html)
     ///
@@ -7188,7 +7548,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_event_2(&self, event: Event, p_dependency_info: *const DependencyInfo) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetEvent2>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetEvent2>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetEvent2 as usize,
             ))
@@ -7197,8 +7557,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdResetEvent2 =
-    unsafe extern "C" fn(CommandBufferHandle, Event, PipelineStageFlags2);
+/// [`vkCmdResetEvent2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdResetEvent2.html)
+///
+pub type FN_CmdResetEvent2 = unsafe extern "C" fn(CommandBufferHandle, Event, PipelineStageFlags2);
 impl CommandBuffer {
     /// [`vkCmdResetEvent2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdResetEvent2.html)
     ///
@@ -7228,7 +7589,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_reset_event_2(&self, event: Event, stage_mask: PipelineStageFlags2) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdResetEvent2>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdResetEvent2>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdResetEvent2 as usize,
             ))
@@ -7237,7 +7598,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdWaitEvents2 =
+/// [`vkCmdWaitEvents2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWaitEvents2.html)
+///
+pub type FN_CmdWaitEvents2 =
     unsafe extern "C" fn(CommandBufferHandle, u32, *const Event, *const DependencyInfo);
 impl CommandBuffer {
     /// [`vkCmdWaitEvents2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWaitEvents2.html)
@@ -7270,7 +7633,7 @@ impl CommandBuffer {
         p_dependency_infos: *const DependencyInfo,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdWaitEvents2>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdWaitEvents2>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdWaitEvents2 as usize,
             ))
@@ -7279,8 +7642,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdBlitImage2 =
-    unsafe extern "C" fn(CommandBufferHandle, *const BlitImageInfo2);
+/// [`vkCmdBlitImage2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBlitImage2.html)
+///
+pub type FN_CmdBlitImage2 = unsafe extern "C" fn(CommandBufferHandle, *const BlitImageInfo2);
 impl CommandBuffer {
     /// [`vkCmdBlitImage2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBlitImage2.html)
     ///
@@ -7304,7 +7668,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_blit_image_2(&self, p_blit_image_info: *const BlitImageInfo2) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBlitImage2>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBlitImage2>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdBlitImage2 as usize,
             ))
@@ -7313,8 +7677,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdResolveImage2 =
-    unsafe extern "C" fn(CommandBufferHandle, *const ResolveImageInfo2);
+/// [`vkCmdResolveImage2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdResolveImage2.html)
+///
+pub type FN_CmdResolveImage2 = unsafe extern "C" fn(CommandBufferHandle, *const ResolveImageInfo2);
 impl CommandBuffer {
     /// [`vkCmdResolveImage2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdResolveImage2.html)
     ///
@@ -7338,7 +7703,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_resolve_image_2(&self, p_resolve_image_info: *const ResolveImageInfo2) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdResolveImage2>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdResolveImage2>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdResolveImage2 as usize,
             ))
@@ -7347,8 +7712,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdBeginRendering =
-    unsafe extern "C" fn(CommandBufferHandle, *const RenderingInfo);
+/// [`vkCmdBeginRendering`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginRendering.html)
+///
+pub type FN_CmdBeginRendering = unsafe extern "C" fn(CommandBufferHandle, *const RenderingInfo);
 impl CommandBuffer {
     /// [`vkCmdBeginRendering`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginRendering.html)
     ///
@@ -7373,7 +7739,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_begin_rendering(&self, p_rendering_info: *const RenderingInfo) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBeginRendering>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBeginRendering>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdBeginRendering as usize,
             ))
@@ -7382,7 +7748,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdEndRendering = unsafe extern "C" fn(CommandBufferHandle);
+/// [`vkCmdEndRendering`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndRendering.html)
+///
+pub type FN_CmdEndRendering = unsafe extern "C" fn(CommandBufferHandle);
 impl CommandBuffer {
     /// [`vkCmdEndRendering`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndRendering.html)
     ///
@@ -7407,7 +7775,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_end_rendering(&self) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdEndRendering>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdEndRendering>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdEndRendering as usize,
             ))
@@ -7416,7 +7784,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetCullMode = unsafe extern "C" fn(CommandBufferHandle, CullModeFlags);
+/// [`vkCmdSetCullMode`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCullMode.html)
+///
+pub type FN_CmdSetCullMode = unsafe extern "C" fn(CommandBufferHandle, CullModeFlags);
 impl CommandBuffer {
     /// [`vkCmdSetCullMode`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCullMode.html)
     ///
@@ -7443,7 +7813,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_cull_mode(&self, cull_mode: CullModeFlags) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetCullMode>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetCullMode>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetCullMode as usize,
             ))
@@ -7452,7 +7822,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetFrontFace = unsafe extern "C" fn(CommandBufferHandle, FrontFace);
+/// [`vkCmdSetFrontFace`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetFrontFace.html)
+///
+pub type FN_CmdSetFrontFace = unsafe extern "C" fn(CommandBufferHandle, FrontFace);
 impl CommandBuffer {
     /// [`vkCmdSetFrontFace`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetFrontFace.html)
     ///
@@ -7476,7 +7848,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_front_face(&self, front_face: FrontFace) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetFrontFace>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetFrontFace>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetFrontFace as usize,
             ))
@@ -7485,8 +7857,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetPrimitiveTopology =
-    unsafe extern "C" fn(CommandBufferHandle, PrimitiveTopology);
+/// [`vkCmdSetPrimitiveTopology`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPrimitiveTopology.html)
+///
+pub type FN_CmdSetPrimitiveTopology = unsafe extern "C" fn(CommandBufferHandle, PrimitiveTopology);
 impl CommandBuffer {
     /// [`vkCmdSetPrimitiveTopology`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPrimitiveTopology.html)
     ///
@@ -7510,7 +7883,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_primitive_topology(&self, primitive_topology: PrimitiveTopology) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetPrimitiveTopology>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetPrimitiveTopology>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetPrimitiveTopology as usize,
             ))
@@ -7519,7 +7892,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetViewportWithCount =
+/// [`vkCmdSetViewportWithCount`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetViewportWithCount.html)
+///
+pub type FN_CmdSetViewportWithCount =
     unsafe extern "C" fn(CommandBufferHandle, u32, *const Viewport);
 impl CommandBuffer {
     /// [`vkCmdSetViewportWithCount`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetViewportWithCount.html)
@@ -7548,7 +7923,7 @@ impl CommandBuffer {
         p_viewports: *const Viewport,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetViewportWithCount>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetViewportWithCount>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetViewportWithCount as usize,
             ))
@@ -7557,8 +7932,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetScissorWithCount =
-    unsafe extern "C" fn(CommandBufferHandle, u32, *const Rect2D);
+/// [`vkCmdSetScissorWithCount`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetScissorWithCount.html)
+///
+pub type FN_CmdSetScissorWithCount = unsafe extern "C" fn(CommandBufferHandle, u32, *const Rect2D);
 impl CommandBuffer {
     /// [`vkCmdSetScissorWithCount`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetScissorWithCount.html)
     ///
@@ -7582,7 +7958,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_scissor_with_count(&self, scissor_count: u32, p_scissors: *const Rect2D) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetScissorWithCount>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetScissorWithCount>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetScissorWithCount as usize,
             ))
@@ -7591,7 +7967,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdBindVertexBuffers2 = unsafe extern "C" fn(
+/// [`vkCmdBindVertexBuffers2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindVertexBuffers2.html)
+///
+pub type FN_CmdBindVertexBuffers2 = unsafe extern "C" fn(
     CommandBufferHandle,
     u32,
     u32,
@@ -7635,7 +8013,7 @@ impl CommandBuffer {
         p_strides: *const DeviceSize,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBindVertexBuffers2>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBindVertexBuffers2>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdBindVertexBuffers2 as usize,
             ))
@@ -7654,7 +8032,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetDepthTestEnable = unsafe extern "C" fn(CommandBufferHandle, Bool32);
+/// [`vkCmdSetDepthTestEnable`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthTestEnable.html)
+///
+pub type FN_CmdSetDepthTestEnable = unsafe extern "C" fn(CommandBufferHandle, Bool32);
 impl CommandBuffer {
     /// [`vkCmdSetDepthTestEnable`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthTestEnable.html)
     ///
@@ -7678,7 +8058,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_depth_test_enable(&self, depth_test_enable: Bool32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthTestEnable>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetDepthTestEnable>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetDepthTestEnable as usize,
             ))
@@ -7687,7 +8067,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetDepthWriteEnable = unsafe extern "C" fn(CommandBufferHandle, Bool32);
+/// [`vkCmdSetDepthWriteEnable`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthWriteEnable.html)
+///
+pub type FN_CmdSetDepthWriteEnable = unsafe extern "C" fn(CommandBufferHandle, Bool32);
 impl CommandBuffer {
     /// [`vkCmdSetDepthWriteEnable`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthWriteEnable.html)
     ///
@@ -7711,7 +8093,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_depth_write_enable(&self, depth_write_enable: Bool32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthWriteEnable>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetDepthWriteEnable>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetDepthWriteEnable as usize,
             ))
@@ -7720,7 +8102,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetDepthCompareOp = unsafe extern "C" fn(CommandBufferHandle, CompareOp);
+/// [`vkCmdSetDepthCompareOp`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthCompareOp.html)
+///
+pub type FN_CmdSetDepthCompareOp = unsafe extern "C" fn(CommandBufferHandle, CompareOp);
 impl CommandBuffer {
     /// [`vkCmdSetDepthCompareOp`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthCompareOp.html)
     ///
@@ -7744,7 +8128,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_depth_compare_op(&self, depth_compare_op: CompareOp) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthCompareOp>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetDepthCompareOp>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetDepthCompareOp as usize,
             ))
@@ -7753,7 +8137,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetDepthBoundsTestEnable = unsafe extern "C" fn(CommandBufferHandle, Bool32);
+/// [`vkCmdSetDepthBoundsTestEnable`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthBoundsTestEnable.html)
+///
+pub type FN_CmdSetDepthBoundsTestEnable = unsafe extern "C" fn(CommandBufferHandle, Bool32);
 impl CommandBuffer {
     /// [`vkCmdSetDepthBoundsTestEnable`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthBoundsTestEnable.html)
     ///
@@ -7777,7 +8163,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_depth_bounds_test_enable(&self, depth_bounds_test_enable: Bool32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthBoundsTestEnable>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetDepthBoundsTestEnable>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetDepthBoundsTestEnable as usize,
             ))
@@ -7786,7 +8172,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetStencilTestEnable = unsafe extern "C" fn(CommandBufferHandle, Bool32);
+/// [`vkCmdSetStencilTestEnable`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetStencilTestEnable.html)
+///
+pub type FN_CmdSetStencilTestEnable = unsafe extern "C" fn(CommandBufferHandle, Bool32);
 impl CommandBuffer {
     /// [`vkCmdSetStencilTestEnable`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetStencilTestEnable.html)
     ///
@@ -7810,7 +8198,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_stencil_test_enable(&self, stencil_test_enable: Bool32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetStencilTestEnable>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetStencilTestEnable>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetStencilTestEnable as usize,
             ))
@@ -7819,7 +8207,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetStencilOp = unsafe extern "C" fn(
+/// [`vkCmdSetStencilOp`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetStencilOp.html)
+///
+pub type FN_CmdSetStencilOp = unsafe extern "C" fn(
     CommandBufferHandle,
     StencilFaceFlags,
     StencilOp,
@@ -7857,7 +8247,7 @@ impl CommandBuffer {
         compare_op: CompareOp,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetStencilOp>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetStencilOp>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetStencilOp as usize,
             ))
@@ -7875,8 +8265,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetRasterizerDiscardEnable =
-    unsafe extern "C" fn(CommandBufferHandle, Bool32);
+/// [`vkCmdSetRasterizerDiscardEnable`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRasterizerDiscardEnable.html)
+///
+pub type FN_CmdSetRasterizerDiscardEnable = unsafe extern "C" fn(CommandBufferHandle, Bool32);
 impl CommandBuffer {
     /// [`vkCmdSetRasterizerDiscardEnable`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRasterizerDiscardEnable.html)
     ///
@@ -7900,7 +8291,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_rasterizer_discard_enable(&self, rasterizer_discard_enable: Bool32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetRasterizerDiscardEnable>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetRasterizerDiscardEnable>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetRasterizerDiscardEnable as usize,
             ))
@@ -7909,7 +8300,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetDepthBiasEnable = unsafe extern "C" fn(CommandBufferHandle, Bool32);
+/// [`vkCmdSetDepthBiasEnable`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthBiasEnable.html)
+///
+pub type FN_CmdSetDepthBiasEnable = unsafe extern "C" fn(CommandBufferHandle, Bool32);
 impl CommandBuffer {
     /// [`vkCmdSetDepthBiasEnable`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthBiasEnable.html)
     ///
@@ -7933,7 +8326,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_depth_bias_enable(&self, depth_bias_enable: Bool32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthBiasEnable>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetDepthBiasEnable>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetDepthBiasEnable as usize,
             ))
@@ -7942,8 +8335,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetPrimitiveRestartEnable =
-    unsafe extern "C" fn(CommandBufferHandle, Bool32);
+/// [`vkCmdSetPrimitiveRestartEnable`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPrimitiveRestartEnable.html)
+///
+pub type FN_CmdSetPrimitiveRestartEnable = unsafe extern "C" fn(CommandBufferHandle, Bool32);
 impl CommandBuffer {
     /// [`vkCmdSetPrimitiveRestartEnable`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPrimitiveRestartEnable.html)
     ///
@@ -7967,7 +8361,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_primitive_restart_enable(&self, primitive_restart_enable: Bool32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetPrimitiveRestartEnable>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetPrimitiveRestartEnable>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetPrimitiveRestartEnable as usize,
             ))
@@ -7976,7 +8370,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_MapMemory2 =
+/// [`vkMapMemory2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkMapMemory2.html)
+///
+pub type FN_MapMemory2 =
     unsafe extern "C" fn(DeviceHandle, *const MemoryMapInfo, *mut *mut c_void) -> ResultCode;
 impl Device {
     /// [`vkMapMemory2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkMapMemory2.html)
@@ -8005,7 +8401,7 @@ impl Device {
         pp_data: *mut *mut c_void,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_MapMemory2>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_MapMemory2>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkMapMemory2 as usize,
             ))
@@ -8014,8 +8410,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_UnmapMemory2 =
-    unsafe extern "C" fn(DeviceHandle, *const MemoryUnmapInfo) -> ResultCode;
+/// [`vkUnmapMemory2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkUnmapMemory2.html)
+///
+pub type FN_UnmapMemory2 = unsafe extern "C" fn(DeviceHandle, *const MemoryUnmapInfo) -> ResultCode;
 impl Device {
     /// [`vkUnmapMemory2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkUnmapMemory2.html)
     ///
@@ -8037,7 +8434,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn unmap_memory_2(&self, p_memory_unmap_info: *const MemoryUnmapInfo) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_UnmapMemory2>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_UnmapMemory2>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkUnmapMemory2 as usize,
             ))
@@ -8046,7 +8443,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetDeviceImageSubresourceLayout =
+/// [`vkGetDeviceImageSubresourceLayout`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceImageSubresourceLayout.html)
+///
+pub type FN_GetDeviceImageSubresourceLayout =
     unsafe extern "C" fn(DeviceHandle, *const DeviceImageSubresourceInfo, *mut SubresourceLayout2);
 impl Device {
     /// [`vkGetDeviceImageSubresourceLayout`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceImageSubresourceLayout.html)
@@ -8065,7 +8464,7 @@ impl Device {
         p_layout: *mut SubresourceLayout2,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceImageSubresourceLayout>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetDeviceImageSubresourceLayout>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetDeviceImageSubresourceLayout as usize,
             ))
@@ -8074,7 +8473,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetImageSubresourceLayout2 =
+/// [`vkGetImageSubresourceLayout2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageSubresourceLayout2.html)
+///
+pub type FN_GetImageSubresourceLayout2 =
     unsafe extern "C" fn(DeviceHandle, Image, *const ImageSubresource2, *mut SubresourceLayout2);
 impl Device {
     /// [`vkGetImageSubresourceLayout2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageSubresourceLayout2.html)
@@ -8094,7 +8495,7 @@ impl Device {
         p_layout: *mut SubresourceLayout2,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetImageSubresourceLayout2>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetImageSubresourceLayout2>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetImageSubresourceLayout2 as usize,
             ))
@@ -8103,7 +8504,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CopyMemoryToImage =
+/// [`vkCopyMemoryToImage`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyMemoryToImage.html)
+///
+pub type FN_CopyMemoryToImage =
     unsafe extern "C" fn(DeviceHandle, *const CopyMemoryToImageInfo) -> ResultCode;
 impl Device {
     /// [`vkCopyMemoryToImage`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyMemoryToImage.html)
@@ -8132,7 +8535,7 @@ impl Device {
         p_copy_memory_to_image_info: *const CopyMemoryToImageInfo,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CopyMemoryToImage>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CopyMemoryToImage>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCopyMemoryToImage as usize,
             ))
@@ -8141,7 +8544,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CopyImageToMemory =
+/// [`vkCopyImageToMemory`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyImageToMemory.html)
+///
+pub type FN_CopyImageToMemory =
     unsafe extern "C" fn(DeviceHandle, *const CopyImageToMemoryInfo) -> ResultCode;
 impl Device {
     /// [`vkCopyImageToMemory`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyImageToMemory.html)
@@ -8170,7 +8575,7 @@ impl Device {
         p_copy_image_to_memory_info: *const CopyImageToMemoryInfo,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CopyImageToMemory>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CopyImageToMemory>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCopyImageToMemory as usize,
             ))
@@ -8179,7 +8584,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CopyImageToImage =
+/// [`vkCopyImageToImage`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyImageToImage.html)
+///
+pub type FN_CopyImageToImage =
     unsafe extern "C" fn(DeviceHandle, *const CopyImageToImageInfo) -> ResultCode;
 impl Device {
     /// [`vkCopyImageToImage`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyImageToImage.html)
@@ -8208,7 +8615,7 @@ impl Device {
         p_copy_image_to_image_info: *const CopyImageToImageInfo,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CopyImageToImage>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CopyImageToImage>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCopyImageToImage as usize,
             ))
@@ -8217,7 +8624,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_TransitionImageLayout =
+/// [`vkTransitionImageLayout`](https://docs.vulkan.org/refpages/latest/refpages/source/vkTransitionImageLayout.html)
+///
+pub type FN_TransitionImageLayout =
     unsafe extern "C" fn(DeviceHandle, u32, *const HostImageLayoutTransitionInfo) -> ResultCode;
 impl Device {
     /// [`vkTransitionImageLayout`](https://docs.vulkan.org/refpages/latest/refpages/source/vkTransitionImageLayout.html)
@@ -8247,7 +8656,7 @@ impl Device {
         p_transitions: *const HostImageLayoutTransitionInfo,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_TransitionImageLayout>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_TransitionImageLayout>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkTransitionImageLayout as usize,
             ))
@@ -8256,7 +8665,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdPushDescriptorSet = unsafe extern "C" fn(
+/// [`vkCmdPushDescriptorSet`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushDescriptorSet.html)
+///
+pub type FN_CmdPushDescriptorSet = unsafe extern "C" fn(
     CommandBufferHandle,
     PipelineBindPoint,
     PipelineLayout,
@@ -8295,7 +8706,7 @@ impl CommandBuffer {
         p_descriptor_writes: *const WriteDescriptorSet,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdPushDescriptorSet>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdPushDescriptorSet>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdPushDescriptorSet as usize,
             ))
@@ -8313,7 +8724,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdPushDescriptorSetWithTemplate = unsafe extern "C" fn(
+/// [`vkCmdPushDescriptorSetWithTemplate`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushDescriptorSetWithTemplate.html)
+///
+pub type FN_CmdPushDescriptorSetWithTemplate = unsafe extern "C" fn(
     CommandBufferHandle,
     DescriptorUpdateTemplate,
     PipelineLayout,
@@ -8350,7 +8763,7 @@ impl CommandBuffer {
         p_data: *const c_void,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdPushDescriptorSetWithTemplate>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdPushDescriptorSetWithTemplate>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdPushDescriptorSetWithTemplate as usize,
             ))
@@ -8359,7 +8772,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdBindDescriptorSets2 =
+/// [`vkCmdBindDescriptorSets2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindDescriptorSets2.html)
+///
+pub type FN_CmdBindDescriptorSets2 =
     unsafe extern "C" fn(CommandBufferHandle, *const BindDescriptorSetsInfo);
 impl CommandBuffer {
     /// [`vkCmdBindDescriptorSets2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindDescriptorSets2.html)
@@ -8392,7 +8807,7 @@ impl CommandBuffer {
         p_bind_descriptor_sets_info: *const BindDescriptorSetsInfo,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBindDescriptorSets2>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBindDescriptorSets2>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdBindDescriptorSets2 as usize,
             ))
@@ -8401,8 +8816,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdPushConstants2 =
-    unsafe extern "C" fn(CommandBufferHandle, *const PushConstantsInfo);
+/// [`vkCmdPushConstants2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushConstants2.html)
+///
+pub type FN_CmdPushConstants2 = unsafe extern "C" fn(CommandBufferHandle, *const PushConstantsInfo);
 impl CommandBuffer {
     /// [`vkCmdPushConstants2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushConstants2.html)
     ///
@@ -8431,7 +8847,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_push_constants_2(&self, p_push_constants_info: *const PushConstantsInfo) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdPushConstants2>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdPushConstants2>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdPushConstants2 as usize,
             ))
@@ -8440,7 +8856,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdPushDescriptorSet2 =
+/// [`vkCmdPushDescriptorSet2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushDescriptorSet2.html)
+///
+pub type FN_CmdPushDescriptorSet2 =
     unsafe extern "C" fn(CommandBufferHandle, *const PushDescriptorSetInfo);
 impl CommandBuffer {
     /// [`vkCmdPushDescriptorSet2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushDescriptorSet2.html)
@@ -8469,7 +8887,7 @@ impl CommandBuffer {
         p_push_descriptor_set_info: *const PushDescriptorSetInfo,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdPushDescriptorSet2>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdPushDescriptorSet2>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdPushDescriptorSet2 as usize,
             ))
@@ -8478,7 +8896,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdPushDescriptorSetWithTemplate2 =
+/// [`vkCmdPushDescriptorSetWithTemplate2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushDescriptorSetWithTemplate2.html)
+///
+pub type FN_CmdPushDescriptorSetWithTemplate2 =
     unsafe extern "C" fn(CommandBufferHandle, *const PushDescriptorSetWithTemplateInfo);
 impl CommandBuffer {
     /// [`vkCmdPushDescriptorSetWithTemplate2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushDescriptorSetWithTemplate2.html)
@@ -8507,18 +8927,18 @@ impl CommandBuffer {
         p_push_descriptor_set_with_template_info: *const PushDescriptorSetWithTemplateInfo,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdPushDescriptorSetWithTemplate2>(
-                vtable_get(
-                    self.vtable(),
-                    InstanceCommand::vkCmdPushDescriptorSetWithTemplate2 as usize,
-                ),
-            )
+            std::mem::transmute::<vkVoidFunction, FN_CmdPushDescriptorSetWithTemplate2>(vtable_get(
+                self.vtable(),
+                InstanceCommand::vkCmdPushDescriptorSetWithTemplate2 as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_push_descriptor_set_with_template_info) }
     }
 }
 
-pub(crate) type FUN_CmdSetLineStipple = unsafe extern "C" fn(CommandBufferHandle, u32, u16);
+/// [`vkCmdSetLineStipple`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetLineStipple.html)
+///
+pub type FN_CmdSetLineStipple = unsafe extern "C" fn(CommandBufferHandle, u32, u16);
 impl CommandBuffer {
     /// [`vkCmdSetLineStipple`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetLineStipple.html)
     ///
@@ -8542,7 +8962,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_line_stipple(&self, line_stipple_factor: u32, line_stipple_pattern: u16) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetLineStipple>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetLineStipple>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetLineStipple as usize,
             ))
@@ -8551,7 +8971,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdBindIndexBuffer2 =
+/// [`vkCmdBindIndexBuffer2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindIndexBuffer2.html)
+///
+pub type FN_CmdBindIndexBuffer2 =
     unsafe extern "C" fn(CommandBufferHandle, Buffer, DeviceSize, DeviceSize, IndexType);
 impl CommandBuffer {
     /// [`vkCmdBindIndexBuffer2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindIndexBuffer2.html)
@@ -8591,7 +9013,7 @@ impl CommandBuffer {
         index_type: IndexType,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBindIndexBuffer2>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBindIndexBuffer2>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdBindIndexBuffer2 as usize,
             ))
@@ -8600,7 +9022,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_GetRenderingAreaGranularity =
+/// [`vkGetRenderingAreaGranularity`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRenderingAreaGranularity.html)
+///
+pub type FN_GetRenderingAreaGranularity =
     unsafe extern "C" fn(DeviceHandle, *const RenderingAreaInfo, *mut Extent2D);
 impl Device {
     /// [`vkGetRenderingAreaGranularity`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRenderingAreaGranularity.html)
@@ -8619,7 +9043,7 @@ impl Device {
         p_granularity: *mut Extent2D,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetRenderingAreaGranularity>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetRenderingAreaGranularity>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetRenderingAreaGranularity as usize,
             ))
@@ -8628,7 +9052,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdSetRenderingAttachmentLocations =
+/// [`vkCmdSetRenderingAttachmentLocations`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRenderingAttachmentLocations.html)
+///
+pub type FN_CmdSetRenderingAttachmentLocations =
     unsafe extern "C" fn(CommandBufferHandle, *const RenderingAttachmentLocationInfo);
 impl CommandBuffer {
     /// [`vkCmdSetRenderingAttachmentLocations`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRenderingAttachmentLocations.html)
@@ -8656,7 +9082,7 @@ impl CommandBuffer {
         p_location_info: *const RenderingAttachmentLocationInfo,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetRenderingAttachmentLocations>(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetRenderingAttachmentLocations>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkCmdSetRenderingAttachmentLocations as usize,
@@ -8667,7 +9093,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetRenderingInputAttachmentIndices =
+/// [`vkCmdSetRenderingInputAttachmentIndices`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRenderingInputAttachmentIndices.html)
+///
+pub type FN_CmdSetRenderingInputAttachmentIndices =
     unsafe extern "C" fn(CommandBufferHandle, *const RenderingInputAttachmentIndexInfo);
 impl CommandBuffer {
     /// [`vkCmdSetRenderingInputAttachmentIndices`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRenderingInputAttachmentIndices.html)
@@ -8695,7 +9123,7 @@ impl CommandBuffer {
         p_input_attachment_index_info: *const RenderingInputAttachmentIndexInfo,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetRenderingInputAttachmentIndices>(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetRenderingInputAttachmentIndices>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkCmdSetRenderingInputAttachmentIndices as usize,
@@ -8706,7 +9134,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_DestroySurfaceKHR =
+/// [`vkDestroySurfaceKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroySurfaceKHR.html)
+///
+pub type FN_DestroySurfaceKHR =
     unsafe extern "C" fn(InstanceHandle, SurfaceKHR, *const AllocationCallbacks);
 impl Instance {
     /// [`vkDestroySurfaceKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroySurfaceKHR.html)
@@ -8729,7 +9159,7 @@ impl Instance {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroySurfaceKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroySurfaceKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroySurfaceKHR as usize,
             ))
@@ -8738,7 +9168,9 @@ impl Instance {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceSurfaceSupportKHR =
+/// [`vkGetPhysicalDeviceSurfaceSupportKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSurfaceSupportKHR.html)
+///
+pub type FN_GetPhysicalDeviceSurfaceSupportKHR =
     unsafe extern "C" fn(PhysicalDeviceHandle, u32, SurfaceKHR, *mut Bool32) -> ResultCode;
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceSurfaceSupportKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSurfaceSupportKHR.html)
@@ -8768,7 +9200,7 @@ impl PhysicalDevice {
         p_supported: *mut Bool32,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceSurfaceSupportKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceSurfaceSupportKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceSurfaceSupportKHR as usize,
@@ -8779,7 +9211,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceSurfaceCapabilitiesKHR = unsafe extern "C" fn(
+/// [`vkGetPhysicalDeviceSurfaceCapabilitiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSurfaceCapabilitiesKHR.html)
+///
+pub type FN_GetPhysicalDeviceSurfaceCapabilitiesKHR = unsafe extern "C" fn(
     PhysicalDeviceHandle,
     SurfaceKHR,
     *mut SurfaceCapabilitiesKHR,
@@ -8817,7 +9251,7 @@ impl PhysicalDevice {
         p_surface_capabilities: *mut SurfaceCapabilitiesKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceSurfaceCapabilitiesKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceSurfaceCapabilitiesKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceSurfaceCapabilitiesKHR as usize,
@@ -8828,7 +9262,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceSurfaceFormatsKHR = unsafe extern "C" fn(
+/// [`vkGetPhysicalDeviceSurfaceFormatsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSurfaceFormatsKHR.html)
+///
+pub type FN_GetPhysicalDeviceSurfaceFormatsKHR = unsafe extern "C" fn(
     PhysicalDeviceHandle,
     SurfaceKHR,
     *mut u32,
@@ -8873,7 +9309,7 @@ impl PhysicalDevice {
         p_surface_formats: *mut SurfaceFormatKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceSurfaceFormatsKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceSurfaceFormatsKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceSurfaceFormatsKHR as usize,
@@ -8891,7 +9327,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceSurfacePresentModesKHR = unsafe extern "C" fn(
+/// [`vkGetPhysicalDeviceSurfacePresentModesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSurfacePresentModesKHR.html)
+///
+pub type FN_GetPhysicalDeviceSurfacePresentModesKHR = unsafe extern "C" fn(
     PhysicalDeviceHandle,
     SurfaceKHR,
     *mut u32,
@@ -8930,7 +9368,7 @@ impl PhysicalDevice {
         p_present_modes: *mut PresentModeKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceSurfacePresentModesKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceSurfacePresentModesKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceSurfacePresentModesKHR as usize,
@@ -8941,7 +9379,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_CreateSwapchainKHR = unsafe extern "C" fn(
+/// [`vkCreateSwapchainKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateSwapchainKHR.html)
+///
+pub type FN_CreateSwapchainKHR = unsafe extern "C" fn(
     DeviceHandle,
     *const SwapchainCreateInfoKHR,
     *const AllocationCallbacks,
@@ -8982,7 +9422,7 @@ impl Device {
         p_swapchain: *mut SwapchainKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateSwapchainKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateSwapchainKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateSwapchainKHR as usize,
             ))
@@ -8991,7 +9431,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroySwapchainKHR =
+/// [`vkDestroySwapchainKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroySwapchainKHR.html)
+///
+pub type FN_DestroySwapchainKHR =
     unsafe extern "C" fn(DeviceHandle, SwapchainKHR, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroySwapchainKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroySwapchainKHR.html)
@@ -9014,7 +9456,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroySwapchainKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroySwapchainKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroySwapchainKHR as usize,
             ))
@@ -9023,7 +9465,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetSwapchainImagesKHR =
+/// [`vkGetSwapchainImagesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSwapchainImagesKHR.html)
+///
+pub type FN_GetSwapchainImagesKHR =
     unsafe extern "C" fn(DeviceHandle, SwapchainKHR, *mut u32, *mut Image) -> ResultCode;
 impl Device {
     /// [`vkGetSwapchainImagesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSwapchainImagesKHR.html)
@@ -9056,7 +9500,7 @@ impl Device {
         p_swapchain_images: *mut Image,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetSwapchainImagesKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetSwapchainImagesKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetSwapchainImagesKHR as usize,
             ))
@@ -9072,7 +9516,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_AcquireNextImageKHR =
+/// [`vkAcquireNextImageKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkAcquireNextImageKHR.html)
+///
+pub type FN_AcquireNextImageKHR =
     unsafe extern "C" fn(DeviceHandle, SwapchainKHR, u64, Semaphore, Fence, *mut u32) -> ResultCode;
 impl Device {
     /// [`vkAcquireNextImageKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkAcquireNextImageKHR.html)
@@ -9114,7 +9560,7 @@ impl Device {
         p_image_index: *mut u32,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_AcquireNextImageKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_AcquireNextImageKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkAcquireNextImageKHR as usize,
             ))
@@ -9132,7 +9578,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_QueuePresentKHR =
+/// [`vkQueuePresentKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueuePresentKHR.html)
+///
+pub type FN_QueuePresentKHR =
     unsafe extern "C" fn(QueueHandle, *const PresentInfoKHR) -> ResultCode;
 impl Queue {
     /// [`vkQueuePresentKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueuePresentKHR.html)
@@ -9162,7 +9610,7 @@ impl Queue {
     #[inline(always)]
     pub unsafe fn present_khr(&self, p_present_info: *const PresentInfoKHR) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_QueuePresentKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_QueuePresentKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkQueuePresentKHR as usize,
             ))
@@ -9171,7 +9619,9 @@ impl Queue {
     }
 }
 
-pub(crate) type FUN_GetDeviceGroupPresentCapabilitiesKHR =
+/// [`vkGetDeviceGroupPresentCapabilitiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceGroupPresentCapabilitiesKHR.html)
+///
+pub type FN_GetDeviceGroupPresentCapabilitiesKHR =
     unsafe extern "C" fn(DeviceHandle, *mut DeviceGroupPresentCapabilitiesKHR) -> ResultCode;
 impl Device {
     /// [`vkGetDeviceGroupPresentCapabilitiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceGroupPresentCapabilitiesKHR.html)
@@ -9200,7 +9650,7 @@ impl Device {
         p_device_group_present_capabilities: *mut DeviceGroupPresentCapabilitiesKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceGroupPresentCapabilitiesKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetDeviceGroupPresentCapabilitiesKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetDeviceGroupPresentCapabilitiesKHR as usize,
@@ -9211,7 +9661,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetDeviceGroupSurfacePresentModesKHR = unsafe extern "C" fn(
+/// [`vkGetDeviceGroupSurfacePresentModesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceGroupSurfacePresentModesKHR.html)
+///
+pub type FN_GetDeviceGroupSurfacePresentModesKHR = unsafe extern "C" fn(
     DeviceHandle,
     SurfaceKHR,
     *mut DeviceGroupPresentModeFlagsKHR,
@@ -9245,7 +9697,7 @@ impl Device {
         p_modes: *mut DeviceGroupPresentModeFlagsKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceGroupSurfacePresentModesKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetDeviceGroupSurfacePresentModesKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetDeviceGroupSurfacePresentModesKHR as usize,
@@ -9256,7 +9708,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDevicePresentRectanglesKHR =
+/// [`vkGetPhysicalDevicePresentRectanglesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDevicePresentRectanglesKHR.html)
+///
+pub type FN_GetPhysicalDevicePresentRectanglesKHR =
     unsafe extern "C" fn(PhysicalDeviceHandle, SurfaceKHR, *mut u32, *mut Rect2D) -> ResultCode;
 impl PhysicalDevice {
     /// [`vkGetPhysicalDevicePresentRectanglesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDevicePresentRectanglesKHR.html)
@@ -9291,7 +9745,7 @@ impl PhysicalDevice {
         p_rects: *mut Rect2D,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDevicePresentRectanglesKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDevicePresentRectanglesKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDevicePresentRectanglesKHR as usize,
@@ -9302,7 +9756,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_AcquireNextImage2KHR =
+/// [`vkAcquireNextImage2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkAcquireNextImage2KHR.html)
+///
+pub type FN_AcquireNextImage2KHR =
     unsafe extern "C" fn(DeviceHandle, *const AcquireNextImageInfoKHR, *mut u32) -> ResultCode;
 impl Device {
     /// [`vkAcquireNextImage2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkAcquireNextImage2KHR.html)
@@ -9339,7 +9795,7 @@ impl Device {
         p_image_index: *mut u32,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_AcquireNextImage2KHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_AcquireNextImage2KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkAcquireNextImage2KHR as usize,
             ))
@@ -9348,7 +9804,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceDisplayPropertiesKHR =
+/// [`vkGetPhysicalDeviceDisplayPropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceDisplayPropertiesKHR.html)
+///
+pub type FN_GetPhysicalDeviceDisplayPropertiesKHR =
     unsafe extern "C" fn(PhysicalDeviceHandle, *mut u32, *mut DisplayPropertiesKHR) -> ResultCode;
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceDisplayPropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceDisplayPropertiesKHR.html)
@@ -9380,7 +9838,7 @@ impl PhysicalDevice {
         p_properties: *mut DisplayPropertiesKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceDisplayPropertiesKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceDisplayPropertiesKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceDisplayPropertiesKHR as usize,
@@ -9391,12 +9849,13 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceDisplayPlanePropertiesKHR = unsafe extern "C" fn(
+/// [`vkGetPhysicalDeviceDisplayPlanePropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceDisplayPlanePropertiesKHR.html)
+///
+pub type FN_GetPhysicalDeviceDisplayPlanePropertiesKHR = unsafe extern "C" fn(
     PhysicalDeviceHandle,
     *mut u32,
     *mut DisplayPlanePropertiesKHR,
-)
-    -> ResultCode;
+) -> ResultCode;
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceDisplayPlanePropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceDisplayPlanePropertiesKHR.html)
     ///
@@ -9427,7 +9886,7 @@ impl PhysicalDevice {
         p_properties: *mut DisplayPlanePropertiesKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceDisplayPlanePropertiesKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceDisplayPlanePropertiesKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceDisplayPlanePropertiesKHR as usize,
@@ -9438,7 +9897,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetDisplayPlaneSupportedDisplaysKHR =
+/// [`vkGetDisplayPlaneSupportedDisplaysKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDisplayPlaneSupportedDisplaysKHR.html)
+///
+pub type FN_GetDisplayPlaneSupportedDisplaysKHR =
     unsafe extern "C" fn(PhysicalDeviceHandle, u32, *mut u32, *mut DisplayKHR) -> ResultCode;
 impl PhysicalDevice {
     /// [`vkGetDisplayPlaneSupportedDisplaysKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDisplayPlaneSupportedDisplaysKHR.html)
@@ -9471,7 +9932,7 @@ impl PhysicalDevice {
         p_displays: *mut DisplayKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDisplayPlaneSupportedDisplaysKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetDisplayPlaneSupportedDisplaysKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetDisplayPlaneSupportedDisplaysKHR as usize,
@@ -9482,7 +9943,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetDisplayModePropertiesKHR = unsafe extern "C" fn(
+/// [`vkGetDisplayModePropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDisplayModePropertiesKHR.html)
+///
+pub type FN_GetDisplayModePropertiesKHR = unsafe extern "C" fn(
     PhysicalDeviceHandle,
     DisplayKHR,
     *mut u32,
@@ -9519,7 +9982,7 @@ impl PhysicalDevice {
         p_properties: *mut DisplayModePropertiesKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDisplayModePropertiesKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetDisplayModePropertiesKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetDisplayModePropertiesKHR as usize,
             ))
@@ -9528,7 +9991,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_CreateDisplayModeKHR = unsafe extern "C" fn(
+/// [`vkCreateDisplayModeKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDisplayModeKHR.html)
+///
+pub type FN_CreateDisplayModeKHR = unsafe extern "C" fn(
     PhysicalDeviceHandle,
     DisplayKHR,
     *const DisplayModeCreateInfoKHR,
@@ -9567,7 +10032,7 @@ impl PhysicalDevice {
         p_mode: *mut DisplayModeKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateDisplayModeKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateDisplayModeKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateDisplayModeKHR as usize,
             ))
@@ -9576,7 +10041,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetDisplayPlaneCapabilitiesKHR = unsafe extern "C" fn(
+/// [`vkGetDisplayPlaneCapabilitiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDisplayPlaneCapabilitiesKHR.html)
+///
+pub type FN_GetDisplayPlaneCapabilitiesKHR = unsafe extern "C" fn(
     PhysicalDeviceHandle,
     DisplayModeKHR,
     u32,
@@ -9609,7 +10076,7 @@ impl PhysicalDevice {
         p_capabilities: *mut DisplayPlaneCapabilitiesKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDisplayPlaneCapabilitiesKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetDisplayPlaneCapabilitiesKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetDisplayPlaneCapabilitiesKHR as usize,
             ))
@@ -9618,7 +10085,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_CreateDisplayPlaneSurfaceKHR = unsafe extern "C" fn(
+/// [`vkCreateDisplayPlaneSurfaceKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDisplayPlaneSurfaceKHR.html)
+///
+pub type FN_CreateDisplayPlaneSurfaceKHR = unsafe extern "C" fn(
     InstanceHandle,
     *const DisplaySurfaceCreateInfoKHR,
     *const AllocationCallbacks,
@@ -9654,7 +10123,7 @@ impl Instance {
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateDisplayPlaneSurfaceKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateDisplayPlaneSurfaceKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateDisplayPlaneSurfaceKHR as usize,
             ))
@@ -9663,7 +10132,9 @@ impl Instance {
     }
 }
 
-pub(crate) type FUN_CreateSharedSwapchainsKHR = unsafe extern "C" fn(
+/// [`vkCreateSharedSwapchainsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateSharedSwapchainsKHR.html)
+///
+pub type FN_CreateSharedSwapchainsKHR = unsafe extern "C" fn(
     DeviceHandle,
     u32,
     *const SwapchainCreateInfoKHR,
@@ -9704,7 +10175,7 @@ impl Device {
         p_swapchains: *mut SwapchainKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateSharedSwapchainsKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateSharedSwapchainsKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateSharedSwapchainsKHR as usize,
             ))
@@ -9721,7 +10192,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CreateXlibSurfaceKHR = unsafe extern "C" fn(
+/// [`vkCreateXlibSurfaceKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateXlibSurfaceKHR.html)
+///
+pub type FN_CreateXlibSurfaceKHR = unsafe extern "C" fn(
     InstanceHandle,
     *const XlibSurfaceCreateInfoKHR,
     *const AllocationCallbacks,
@@ -9757,7 +10230,7 @@ impl Instance {
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateXlibSurfaceKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateXlibSurfaceKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateXlibSurfaceKHR as usize,
             ))
@@ -9766,7 +10239,9 @@ impl Instance {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceXlibPresentationSupportKHR =
+/// [`vkGetPhysicalDeviceXlibPresentationSupportKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceXlibPresentationSupportKHR.html)
+///
+pub type FN_GetPhysicalDeviceXlibPresentationSupportKHR =
     unsafe extern "C" fn(PhysicalDeviceHandle, u32, *mut Display, VisualID) -> Bool32;
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceXlibPresentationSupportKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceXlibPresentationSupportKHR.html)
@@ -9786,7 +10261,7 @@ impl PhysicalDevice {
         visual_id: VisualID,
     ) -> Bool32 {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceXlibPresentationSupportKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceXlibPresentationSupportKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceXlibPresentationSupportKHR as usize,
@@ -9797,7 +10272,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_CreateXcbSurfaceKHR = unsafe extern "C" fn(
+/// [`vkCreateXcbSurfaceKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateXcbSurfaceKHR.html)
+///
+pub type FN_CreateXcbSurfaceKHR = unsafe extern "C" fn(
     InstanceHandle,
     *const XcbSurfaceCreateInfoKHR,
     *const AllocationCallbacks,
@@ -9833,7 +10310,7 @@ impl Instance {
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateXcbSurfaceKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateXcbSurfaceKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateXcbSurfaceKHR as usize,
             ))
@@ -9842,7 +10319,9 @@ impl Instance {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceXcbPresentationSupportKHR = unsafe extern "C" fn(
+/// [`vkGetPhysicalDeviceXcbPresentationSupportKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceXcbPresentationSupportKHR.html)
+///
+pub type FN_GetPhysicalDeviceXcbPresentationSupportKHR = unsafe extern "C" fn(
     PhysicalDeviceHandle,
     u32,
     *mut xcb_connection_t,
@@ -9866,7 +10345,7 @@ impl PhysicalDevice {
         visual_id: xcb_visualid_t,
     ) -> Bool32 {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceXcbPresentationSupportKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceXcbPresentationSupportKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceXcbPresentationSupportKHR as usize,
@@ -9877,7 +10356,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_CreateWaylandSurfaceKHR = unsafe extern "C" fn(
+/// [`vkCreateWaylandSurfaceKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateWaylandSurfaceKHR.html)
+///
+pub type FN_CreateWaylandSurfaceKHR = unsafe extern "C" fn(
     InstanceHandle,
     *const WaylandSurfaceCreateInfoKHR,
     *const AllocationCallbacks,
@@ -9913,7 +10394,7 @@ impl Instance {
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateWaylandSurfaceKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateWaylandSurfaceKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateWaylandSurfaceKHR as usize,
             ))
@@ -9922,7 +10403,9 @@ impl Instance {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceWaylandPresentationSupportKHR =
+/// [`vkGetPhysicalDeviceWaylandPresentationSupportKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceWaylandPresentationSupportKHR.html)
+///
+pub type FN_GetPhysicalDeviceWaylandPresentationSupportKHR =
     unsafe extern "C" fn(PhysicalDeviceHandle, u32, *mut wl_display) -> Bool32;
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceWaylandPresentationSupportKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceWaylandPresentationSupportKHR.html)
@@ -9941,7 +10424,7 @@ impl PhysicalDevice {
         display: *mut wl_display,
     ) -> Bool32 {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceWaylandPresentationSupportKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceWaylandPresentationSupportKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceWaylandPresentationSupportKHR as usize,
@@ -9952,7 +10435,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_CreateAndroidSurfaceKHR = unsafe extern "C" fn(
+/// [`vkCreateAndroidSurfaceKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateAndroidSurfaceKHR.html)
+///
+pub type FN_CreateAndroidSurfaceKHR = unsafe extern "C" fn(
     InstanceHandle,
     *const AndroidSurfaceCreateInfoKHR,
     *const AllocationCallbacks,
@@ -9989,7 +10474,7 @@ impl Instance {
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateAndroidSurfaceKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateAndroidSurfaceKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateAndroidSurfaceKHR as usize,
             ))
@@ -9998,7 +10483,9 @@ impl Instance {
     }
 }
 
-pub(crate) type FUN_CreateWin32SurfaceKHR = unsafe extern "C" fn(
+/// [`vkCreateWin32SurfaceKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateWin32SurfaceKHR.html)
+///
+pub type FN_CreateWin32SurfaceKHR = unsafe extern "C" fn(
     InstanceHandle,
     *const Win32SurfaceCreateInfoKHR,
     *const AllocationCallbacks,
@@ -10034,7 +10521,7 @@ impl Instance {
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateWin32SurfaceKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateWin32SurfaceKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateWin32SurfaceKHR as usize,
             ))
@@ -10043,7 +10530,9 @@ impl Instance {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceWin32PresentationSupportKHR =
+/// [`vkGetPhysicalDeviceWin32PresentationSupportKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceWin32PresentationSupportKHR.html)
+///
+pub type FN_GetPhysicalDeviceWin32PresentationSupportKHR =
     unsafe extern "C" fn(PhysicalDeviceHandle, u32) -> Bool32;
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceWin32PresentationSupportKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceWin32PresentationSupportKHR.html)
@@ -10058,7 +10547,7 @@ impl PhysicalDevice {
     #[inline(always)]
     pub unsafe fn get_win_32_presentation_support_khr(&self, queue_family_index: u32) -> Bool32 {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceWin32PresentationSupportKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceWin32PresentationSupportKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceWin32PresentationSupportKHR as usize,
@@ -10069,7 +10558,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceVideoCapabilitiesKHR = unsafe extern "C" fn(
+/// [`vkGetPhysicalDeviceVideoCapabilitiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceVideoCapabilitiesKHR.html)
+///
+pub type FN_GetPhysicalDeviceVideoCapabilitiesKHR = unsafe extern "C" fn(
     PhysicalDeviceHandle,
     *const VideoProfileInfoKHR,
     *mut VideoCapabilitiesKHR,
@@ -10104,7 +10595,7 @@ impl PhysicalDevice {
         p_capabilities: *mut VideoCapabilitiesKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceVideoCapabilitiesKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceVideoCapabilitiesKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceVideoCapabilitiesKHR as usize,
@@ -10115,7 +10606,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceVideoFormatPropertiesKHR = unsafe extern "C" fn(
+/// [`vkGetPhysicalDeviceVideoFormatPropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceVideoFormatPropertiesKHR.html)
+///
+pub type FN_GetPhysicalDeviceVideoFormatPropertiesKHR = unsafe extern "C" fn(
     PhysicalDeviceHandle,
     *const PhysicalDeviceVideoFormatInfoKHR,
     *mut u32,
@@ -10157,7 +10650,7 @@ impl PhysicalDevice {
         p_video_format_properties: *mut VideoFormatPropertiesKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceVideoFormatPropertiesKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceVideoFormatPropertiesKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceVideoFormatPropertiesKHR as usize,
@@ -10175,7 +10668,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_CreateVideoSessionKHR = unsafe extern "C" fn(
+/// [`vkCreateVideoSessionKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateVideoSessionKHR.html)
+///
+pub type FN_CreateVideoSessionKHR = unsafe extern "C" fn(
     DeviceHandle,
     *const VideoSessionCreateInfoKHR,
     *const AllocationCallbacks,
@@ -10214,7 +10709,7 @@ impl Device {
         p_video_session: *mut VideoSessionKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateVideoSessionKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateVideoSessionKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateVideoSessionKHR as usize,
             ))
@@ -10223,7 +10718,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroyVideoSessionKHR =
+/// [`vkDestroyVideoSessionKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyVideoSessionKHR.html)
+///
+pub type FN_DestroyVideoSessionKHR =
     unsafe extern "C" fn(DeviceHandle, VideoSessionKHR, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyVideoSessionKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyVideoSessionKHR.html)
@@ -10246,7 +10743,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyVideoSessionKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyVideoSessionKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyVideoSessionKHR as usize,
             ))
@@ -10255,7 +10752,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetVideoSessionMemoryRequirementsKHR = unsafe extern "C" fn(
+/// [`vkGetVideoSessionMemoryRequirementsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetVideoSessionMemoryRequirementsKHR.html)
+///
+pub type FN_GetVideoSessionMemoryRequirementsKHR = unsafe extern "C" fn(
     DeviceHandle,
     VideoSessionKHR,
     *mut u32,
@@ -10290,7 +10789,7 @@ impl Device {
         p_memory_requirements: *mut VideoSessionMemoryRequirementsKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetVideoSessionMemoryRequirementsKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetVideoSessionMemoryRequirementsKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetVideoSessionMemoryRequirementsKHR as usize,
@@ -10308,7 +10807,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_BindVideoSessionMemoryKHR = unsafe extern "C" fn(
+/// [`vkBindVideoSessionMemoryKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkBindVideoSessionMemoryKHR.html)
+///
+pub type FN_BindVideoSessionMemoryKHR = unsafe extern "C" fn(
     DeviceHandle,
     VideoSessionKHR,
     u32,
@@ -10341,7 +10842,7 @@ impl Device {
         p_bind_session_memory_infos: *const BindVideoSessionMemoryInfoKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_BindVideoSessionMemoryKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_BindVideoSessionMemoryKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkBindVideoSessionMemoryKHR as usize,
             ))
@@ -10357,7 +10858,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CreateVideoSessionParametersKHR = unsafe extern "C" fn(
+/// [`vkCreateVideoSessionParametersKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateVideoSessionParametersKHR.html)
+///
+pub type FN_CreateVideoSessionParametersKHR = unsafe extern "C" fn(
     DeviceHandle,
     *const VideoSessionParametersCreateInfoKHR,
     *const AllocationCallbacks,
@@ -10395,7 +10898,7 @@ impl Device {
         p_video_session_parameters: *mut VideoSessionParametersKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateVideoSessionParametersKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateVideoSessionParametersKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateVideoSessionParametersKHR as usize,
             ))
@@ -10411,7 +10914,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_UpdateVideoSessionParametersKHR = unsafe extern "C" fn(
+/// [`vkUpdateVideoSessionParametersKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkUpdateVideoSessionParametersKHR.html)
+///
+pub type FN_UpdateVideoSessionParametersKHR = unsafe extern "C" fn(
     DeviceHandle,
     VideoSessionParametersKHR,
     *const VideoSessionParametersUpdateInfoKHR,
@@ -10443,7 +10948,7 @@ impl Device {
         p_update_info: *const VideoSessionParametersUpdateInfoKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_UpdateVideoSessionParametersKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_UpdateVideoSessionParametersKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkUpdateVideoSessionParametersKHR as usize,
             ))
@@ -10452,7 +10957,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroyVideoSessionParametersKHR =
+/// [`vkDestroyVideoSessionParametersKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyVideoSessionParametersKHR.html)
+///
+pub type FN_DestroyVideoSessionParametersKHR =
     unsafe extern "C" fn(DeviceHandle, VideoSessionParametersKHR, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyVideoSessionParametersKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyVideoSessionParametersKHR.html)
@@ -10475,7 +10982,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyVideoSessionParametersKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyVideoSessionParametersKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyVideoSessionParametersKHR as usize,
             ))
@@ -10484,7 +10991,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdBeginVideoCodingKHR =
+/// [`vkCmdBeginVideoCodingKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginVideoCodingKHR.html)
+///
+pub type FN_CmdBeginVideoCodingKHR =
     unsafe extern "C" fn(CommandBufferHandle, *const VideoBeginCodingInfoKHR);
 impl CommandBuffer {
     /// [`vkCmdBeginVideoCodingKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginVideoCodingKHR.html)
@@ -10510,7 +11019,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_begin_video_coding_khr(&self, p_begin_info: *const VideoBeginCodingInfoKHR) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBeginVideoCodingKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBeginVideoCodingKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdBeginVideoCodingKHR as usize,
             ))
@@ -10519,7 +11028,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdEndVideoCodingKHR =
+/// [`vkCmdEndVideoCodingKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndVideoCodingKHR.html)
+///
+pub type FN_CmdEndVideoCodingKHR =
     unsafe extern "C" fn(CommandBufferHandle, *const VideoEndCodingInfoKHR);
 impl CommandBuffer {
     /// [`vkCmdEndVideoCodingKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndVideoCodingKHR.html)
@@ -10545,7 +11056,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_end_video_coding_khr(&self, p_end_coding_info: *const VideoEndCodingInfoKHR) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdEndVideoCodingKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdEndVideoCodingKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdEndVideoCodingKHR as usize,
             ))
@@ -10554,7 +11065,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdControlVideoCodingKHR =
+/// [`vkCmdControlVideoCodingKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdControlVideoCodingKHR.html)
+///
+pub type FN_CmdControlVideoCodingKHR =
     unsafe extern "C" fn(CommandBufferHandle, *const VideoCodingControlInfoKHR);
 impl CommandBuffer {
     /// [`vkCmdControlVideoCodingKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdControlVideoCodingKHR.html)
@@ -10582,7 +11095,7 @@ impl CommandBuffer {
         p_coding_control_info: *const VideoCodingControlInfoKHR,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdControlVideoCodingKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdControlVideoCodingKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdControlVideoCodingKHR as usize,
             ))
@@ -10591,7 +11104,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdDecodeVideoKHR =
+/// [`vkCmdDecodeVideoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDecodeVideoKHR.html)
+///
+pub type FN_CmdDecodeVideoKHR =
     unsafe extern "C" fn(CommandBufferHandle, *const VideoDecodeInfoKHR);
 impl CommandBuffer {
     /// [`vkCmdDecodeVideoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDecodeVideoKHR.html)
@@ -10615,7 +11130,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_decode_video_khr(&self, p_decode_info: *const VideoDecodeInfoKHR) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDecodeVideoKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdDecodeVideoKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdDecodeVideoKHR as usize,
             ))
@@ -10624,8 +11139,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdBeginRenderingKHR =
-    unsafe extern "C" fn(CommandBufferHandle, *const RenderingInfo);
+/// [`vkCmdBeginRenderingKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginRenderingKHR.html)
+///
+pub type FN_CmdBeginRenderingKHR = unsafe extern "C" fn(CommandBufferHandle, *const RenderingInfo);
 impl CommandBuffer {
     /// [`vkCmdBeginRenderingKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginRenderingKHR.html)
     ///
@@ -10651,7 +11167,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_begin_rendering_khr(&self, p_rendering_info: *const RenderingInfo) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBeginRenderingKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBeginRenderingKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdBeginRenderingKHR as usize,
             ))
@@ -10660,7 +11176,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdEndRenderingKHR = unsafe extern "C" fn(CommandBufferHandle);
+/// [`vkCmdEndRenderingKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndRenderingKHR.html)
+///
+pub type FN_CmdEndRenderingKHR = unsafe extern "C" fn(CommandBufferHandle);
 impl CommandBuffer {
     /// [`vkCmdEndRenderingKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndRenderingKHR.html)
     ///
@@ -10686,7 +11204,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_end_rendering_khr(&self) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdEndRenderingKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdEndRenderingKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdEndRenderingKHR as usize,
             ))
@@ -10695,7 +11213,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceFeatures2KHR =
+/// [`vkGetPhysicalDeviceFeatures2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceFeatures2KHR.html)
+///
+pub type FN_GetPhysicalDeviceFeatures2KHR =
     unsafe extern "C" fn(PhysicalDeviceHandle, *mut PhysicalDeviceFeatures2);
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceFeatures2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceFeatures2KHR.html)
@@ -10711,7 +11231,7 @@ impl PhysicalDevice {
     #[inline(always)]
     pub unsafe fn get_features_2_khr(&self, p_features: *mut PhysicalDeviceFeatures2) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceFeatures2KHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceFeatures2KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetPhysicalDeviceFeatures2KHR as usize,
             ))
@@ -10720,7 +11240,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceProperties2KHR =
+/// [`vkGetPhysicalDeviceProperties2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceProperties2KHR.html)
+///
+pub type FN_GetPhysicalDeviceProperties2KHR =
     unsafe extern "C" fn(PhysicalDeviceHandle, *mut PhysicalDeviceProperties2);
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceProperties2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceProperties2KHR.html)
@@ -10736,7 +11258,7 @@ impl PhysicalDevice {
     #[inline(always)]
     pub unsafe fn get_properties_2_khr(&self, p_properties: *mut PhysicalDeviceProperties2) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceProperties2KHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceProperties2KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetPhysicalDeviceProperties2KHR as usize,
             ))
@@ -10745,7 +11267,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceFormatProperties2KHR =
+/// [`vkGetPhysicalDeviceFormatProperties2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceFormatProperties2KHR.html)
+///
+pub type FN_GetPhysicalDeviceFormatProperties2KHR =
     unsafe extern "C" fn(PhysicalDeviceHandle, Format, *mut FormatProperties2);
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceFormatProperties2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceFormatProperties2KHR.html)
@@ -10765,7 +11289,7 @@ impl PhysicalDevice {
         p_format_properties: *mut FormatProperties2,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceFormatProperties2KHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceFormatProperties2KHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceFormatProperties2KHR as usize,
@@ -10776,12 +11300,13 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceImageFormatProperties2KHR = unsafe extern "C" fn(
+/// [`vkGetPhysicalDeviceImageFormatProperties2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceImageFormatProperties2KHR.html)
+///
+pub type FN_GetPhysicalDeviceImageFormatProperties2KHR = unsafe extern "C" fn(
     PhysicalDeviceHandle,
     *const PhysicalDeviceImageFormatInfo2,
     *mut ImageFormatProperties2,
-)
-    -> ResultCode;
+) -> ResultCode;
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceImageFormatProperties2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceImageFormatProperties2KHR.html)
     ///
@@ -10815,7 +11340,7 @@ impl PhysicalDevice {
         p_image_format_properties: *mut ImageFormatProperties2,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceImageFormatProperties2KHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceImageFormatProperties2KHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceImageFormatProperties2KHR as usize,
@@ -10826,7 +11351,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceQueueFamilyProperties2KHR =
+/// [`vkGetPhysicalDeviceQueueFamilyProperties2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceQueueFamilyProperties2KHR.html)
+///
+pub type FN_GetPhysicalDeviceQueueFamilyProperties2KHR =
     unsafe extern "C" fn(PhysicalDeviceHandle, *mut u32, *mut QueueFamilyProperties2);
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceQueueFamilyProperties2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceQueueFamilyProperties2KHR.html)
@@ -10849,7 +11376,7 @@ impl PhysicalDevice {
         p_queue_family_properties: *mut QueueFamilyProperties2,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceQueueFamilyProperties2KHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceQueueFamilyProperties2KHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceQueueFamilyProperties2KHR as usize,
@@ -10866,7 +11393,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceMemoryProperties2KHR =
+/// [`vkGetPhysicalDeviceMemoryProperties2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceMemoryProperties2KHR.html)
+///
+pub type FN_GetPhysicalDeviceMemoryProperties2KHR =
     unsafe extern "C" fn(PhysicalDeviceHandle, *mut PhysicalDeviceMemoryProperties2);
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceMemoryProperties2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceMemoryProperties2KHR.html)
@@ -10885,7 +11414,7 @@ impl PhysicalDevice {
         p_memory_properties: *mut PhysicalDeviceMemoryProperties2,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceMemoryProperties2KHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceMemoryProperties2KHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceMemoryProperties2KHR as usize,
@@ -10896,7 +11425,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceSparseImageFormatProperties2KHR = unsafe extern "C" fn(
+/// [`vkGetPhysicalDeviceSparseImageFormatProperties2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSparseImageFormatProperties2KHR.html)
+///
+pub type FN_GetPhysicalDeviceSparseImageFormatProperties2KHR = unsafe extern "C" fn(
     PhysicalDeviceHandle,
     *const PhysicalDeviceSparseImageFormatInfo2,
     *mut u32,
@@ -10924,19 +11455,20 @@ impl PhysicalDevice {
         p_properties: *mut SparseImageFormatProperties2,
     ) {
         let command = unsafe {
-            std::mem::transmute::<
-                vkVoidFunction,
-                FUN_GetPhysicalDeviceSparseImageFormatProperties2KHR,
-            >(vtable_get(
-                self.vtable(),
-                InstanceCommand::vkGetPhysicalDeviceSparseImageFormatProperties2KHR as usize,
-            ))
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceSparseImageFormatProperties2KHR>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommand::vkGetPhysicalDeviceSparseImageFormatProperties2KHR as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, p_format_info, p_property_count, p_properties) }
     }
 }
 
-pub(crate) type FUN_GetDeviceGroupPeerMemoryFeaturesKHR =
+/// [`vkGetDeviceGroupPeerMemoryFeaturesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceGroupPeerMemoryFeaturesKHR.html)
+///
+pub type FN_GetDeviceGroupPeerMemoryFeaturesKHR =
     unsafe extern "C" fn(DeviceHandle, u32, u32, u32, *mut PeerMemoryFeatureFlags);
 impl Device {
     /// [`vkGetDeviceGroupPeerMemoryFeaturesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceGroupPeerMemoryFeaturesKHR.html)
@@ -10958,7 +11490,7 @@ impl Device {
         p_peer_memory_features: *mut PeerMemoryFeatureFlags,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceGroupPeerMemoryFeaturesKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetDeviceGroupPeerMemoryFeaturesKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetDeviceGroupPeerMemoryFeaturesKHR as usize,
@@ -10977,7 +11509,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdSetDeviceMaskKHR = unsafe extern "C" fn(CommandBufferHandle, u32);
+/// [`vkCmdSetDeviceMaskKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDeviceMaskKHR.html)
+///
+pub type FN_CmdSetDeviceMaskKHR = unsafe extern "C" fn(CommandBufferHandle, u32);
 impl CommandBuffer {
     /// [`vkCmdSetDeviceMaskKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDeviceMaskKHR.html)
     ///
@@ -11004,7 +11538,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_device_mask_khr(&self, device_mask: u32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDeviceMaskKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetDeviceMaskKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetDeviceMaskKHR as usize,
             ))
@@ -11013,7 +11547,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdDispatchBaseKHR =
+/// [`vkCmdDispatchBaseKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchBaseKHR.html)
+///
+pub type FN_CmdDispatchBaseKHR =
     unsafe extern "C" fn(CommandBufferHandle, u32, u32, u32, u32, u32, u32);
 impl CommandBuffer {
     /// [`vkCmdDispatchBaseKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchBaseKHR.html)
@@ -11047,7 +11583,7 @@ impl CommandBuffer {
         group_count_z: u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDispatchBaseKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdDispatchBaseKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdDispatchBaseKHR as usize,
             ))
@@ -11066,7 +11602,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_TrimCommandPoolKHR =
+/// [`vkTrimCommandPoolKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkTrimCommandPoolKHR.html)
+///
+pub type FN_TrimCommandPoolKHR =
     unsafe extern "C" fn(DeviceHandle, CommandPool, CommandPoolTrimFlags);
 impl Device {
     /// [`vkTrimCommandPoolKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkTrimCommandPoolKHR.html)
@@ -11089,7 +11627,7 @@ impl Device {
         flags: CommandPoolTrimFlags,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_TrimCommandPoolKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_TrimCommandPoolKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkTrimCommandPoolKHR as usize,
             ))
@@ -11098,7 +11636,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_EnumeratePhysicalDeviceGroupsKHR = unsafe extern "C" fn(
+/// [`vkEnumeratePhysicalDeviceGroupsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumeratePhysicalDeviceGroupsKHR.html)
+///
+pub type FN_EnumeratePhysicalDeviceGroupsKHR = unsafe extern "C" fn(
     InstanceHandle,
     *mut u32,
     *mut PhysicalDeviceGroupProperties,
@@ -11135,7 +11675,7 @@ impl Instance {
         p_physical_device_group_properties: *mut PhysicalDeviceGroupProperties,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_EnumeratePhysicalDeviceGroupsKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_EnumeratePhysicalDeviceGroupsKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkEnumeratePhysicalDeviceGroupsKHR as usize,
             ))
@@ -11150,7 +11690,9 @@ impl Instance {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceExternalBufferPropertiesKHR = unsafe extern "C" fn(
+/// [`vkGetPhysicalDeviceExternalBufferPropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceExternalBufferPropertiesKHR.html)
+///
+pub type FN_GetPhysicalDeviceExternalBufferPropertiesKHR = unsafe extern "C" fn(
     PhysicalDeviceHandle,
     *const PhysicalDeviceExternalBufferInfo,
     *mut ExternalBufferProperties,
@@ -11173,7 +11715,7 @@ impl PhysicalDevice {
         p_external_buffer_properties: *mut ExternalBufferProperties,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceExternalBufferPropertiesKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceExternalBufferPropertiesKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceExternalBufferPropertiesKHR as usize,
@@ -11190,7 +11732,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetMemoryWin32HandleKHR = unsafe extern "C" fn(
+/// [`vkGetMemoryWin32HandleKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryWin32HandleKHR.html)
+///
+pub type FN_GetMemoryWin32HandleKHR = unsafe extern "C" fn(
     DeviceHandle,
     *const MemoryGetWin32HandleInfoKHR,
     *mut HANDLE,
@@ -11221,7 +11765,7 @@ impl Device {
         p_handle: *mut HANDLE,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetMemoryWin32HandleKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetMemoryWin32HandleKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetMemoryWin32HandleKHR as usize,
             ))
@@ -11230,7 +11774,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetMemoryWin32HandlePropertiesKHR = unsafe extern "C" fn(
+/// [`vkGetMemoryWin32HandlePropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryWin32HandlePropertiesKHR.html)
+///
+pub type FN_GetMemoryWin32HandlePropertiesKHR = unsafe extern "C" fn(
     DeviceHandle,
     ExternalMemoryHandleTypeFlags,
     HANDLE,
@@ -11263,12 +11809,10 @@ impl Device {
         p_memory_win_32_handle_properties: *mut MemoryWin32HandlePropertiesKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetMemoryWin32HandlePropertiesKHR>(
-                vtable_get(
-                    self.vtable(),
-                    InstanceCommand::vkGetMemoryWin32HandlePropertiesKHR as usize,
-                ),
-            )
+            std::mem::transmute::<vkVoidFunction, FN_GetMemoryWin32HandlePropertiesKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommand::vkGetMemoryWin32HandlePropertiesKHR as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -11281,7 +11825,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetMemoryFdKHR =
+/// [`vkGetMemoryFdKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryFdKHR.html)
+///
+pub type FN_GetMemoryFdKHR =
     unsafe extern "C" fn(DeviceHandle, *const MemoryGetFdInfoKHR, *mut c_int) -> ResultCode;
 impl Device {
     /// [`vkGetMemoryFdKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryFdKHR.html)
@@ -11309,7 +11855,7 @@ impl Device {
         p_fd: *mut c_int,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetMemoryFdKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetMemoryFdKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetMemoryFdKHR as usize,
             ))
@@ -11318,7 +11864,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetMemoryFdPropertiesKHR = unsafe extern "C" fn(
+/// [`vkGetMemoryFdPropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryFdPropertiesKHR.html)
+///
+pub type FN_GetMemoryFdPropertiesKHR = unsafe extern "C" fn(
     DeviceHandle,
     ExternalMemoryHandleTypeFlags,
     c_int,
@@ -11351,7 +11899,7 @@ impl Device {
         p_memory_fd_properties: *mut MemoryFdPropertiesKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetMemoryFdPropertiesKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetMemoryFdPropertiesKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetMemoryFdPropertiesKHR as usize,
             ))
@@ -11360,7 +11908,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceExternalSemaphorePropertiesKHR = unsafe extern "C" fn(
+/// [`vkGetPhysicalDeviceExternalSemaphorePropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceExternalSemaphorePropertiesKHR.html)
+///
+pub type FN_GetPhysicalDeviceExternalSemaphorePropertiesKHR = unsafe extern "C" fn(
     PhysicalDeviceHandle,
     *const PhysicalDeviceExternalSemaphoreInfo,
     *mut ExternalSemaphoreProperties,
@@ -11383,7 +11933,7 @@ impl PhysicalDevice {
         p_external_semaphore_properties: *mut ExternalSemaphoreProperties,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceExternalSemaphorePropertiesKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceExternalSemaphorePropertiesKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceExternalSemaphorePropertiesKHR as usize,
@@ -11400,7 +11950,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_ImportSemaphoreWin32HandleKHR =
+/// [`vkImportSemaphoreWin32HandleKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkImportSemaphoreWin32HandleKHR.html)
+///
+pub type FN_ImportSemaphoreWin32HandleKHR =
     unsafe extern "C" fn(DeviceHandle, *const ImportSemaphoreWin32HandleInfoKHR) -> ResultCode;
 impl Device {
     /// [`vkImportSemaphoreWin32HandleKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkImportSemaphoreWin32HandleKHR.html)
@@ -11427,7 +11979,7 @@ impl Device {
         p_import_semaphore_win_32_handle_info: *const ImportSemaphoreWin32HandleInfoKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_ImportSemaphoreWin32HandleKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_ImportSemaphoreWin32HandleKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkImportSemaphoreWin32HandleKHR as usize,
             ))
@@ -11436,7 +11988,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetSemaphoreWin32HandleKHR = unsafe extern "C" fn(
+/// [`vkGetSemaphoreWin32HandleKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSemaphoreWin32HandleKHR.html)
+///
+pub type FN_GetSemaphoreWin32HandleKHR = unsafe extern "C" fn(
     DeviceHandle,
     *const SemaphoreGetWin32HandleInfoKHR,
     *mut HANDLE,
@@ -11467,7 +12021,7 @@ impl Device {
         p_handle: *mut HANDLE,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetSemaphoreWin32HandleKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetSemaphoreWin32HandleKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetSemaphoreWin32HandleKHR as usize,
             ))
@@ -11476,7 +12030,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_ImportSemaphoreFdKHR =
+/// [`vkImportSemaphoreFdKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkImportSemaphoreFdKHR.html)
+///
+pub type FN_ImportSemaphoreFdKHR =
     unsafe extern "C" fn(DeviceHandle, *const ImportSemaphoreFdInfoKHR) -> ResultCode;
 impl Device {
     /// [`vkImportSemaphoreFdKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkImportSemaphoreFdKHR.html)
@@ -11503,7 +12059,7 @@ impl Device {
         p_import_semaphore_fd_info: *const ImportSemaphoreFdInfoKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_ImportSemaphoreFdKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_ImportSemaphoreFdKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkImportSemaphoreFdKHR as usize,
             ))
@@ -11512,7 +12068,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetSemaphoreFdKHR =
+/// [`vkGetSemaphoreFdKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSemaphoreFdKHR.html)
+///
+pub type FN_GetSemaphoreFdKHR =
     unsafe extern "C" fn(DeviceHandle, *const SemaphoreGetFdInfoKHR, *mut c_int) -> ResultCode;
 impl Device {
     /// [`vkGetSemaphoreFdKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSemaphoreFdKHR.html)
@@ -11540,7 +12098,7 @@ impl Device {
         p_fd: *mut c_int,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetSemaphoreFdKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetSemaphoreFdKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetSemaphoreFdKHR as usize,
             ))
@@ -11549,7 +12107,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdPushDescriptorSetKHR = unsafe extern "C" fn(
+/// [`vkCmdPushDescriptorSetKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushDescriptorSetKHR.html)
+///
+pub type FN_CmdPushDescriptorSetKHR = unsafe extern "C" fn(
     CommandBufferHandle,
     PipelineBindPoint,
     PipelineLayout,
@@ -11589,7 +12149,7 @@ impl CommandBuffer {
         p_descriptor_writes: *const WriteDescriptorSet,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdPushDescriptorSetKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdPushDescriptorSetKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdPushDescriptorSetKHR as usize,
             ))
@@ -11607,7 +12167,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdPushDescriptorSetWithTemplateKHR = unsafe extern "C" fn(
+/// [`vkCmdPushDescriptorSetWithTemplateKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushDescriptorSetWithTemplateKHR.html)
+///
+pub type FN_CmdPushDescriptorSetWithTemplateKHR = unsafe extern "C" fn(
     CommandBufferHandle,
     DescriptorUpdateTemplate,
     PipelineLayout,
@@ -11646,7 +12208,7 @@ impl CommandBuffer {
         p_data: *const c_void,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdPushDescriptorSetWithTemplateKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_CmdPushDescriptorSetWithTemplateKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkCmdPushDescriptorSetWithTemplateKHR as usize,
@@ -11657,7 +12219,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CreateDescriptorUpdateTemplateKHR = unsafe extern "C" fn(
+/// [`vkCreateDescriptorUpdateTemplateKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDescriptorUpdateTemplateKHR.html)
+///
+pub type FN_CreateDescriptorUpdateTemplateKHR = unsafe extern "C" fn(
     DeviceHandle,
     *const DescriptorUpdateTemplateCreateInfo,
     *const AllocationCallbacks,
@@ -11694,12 +12258,10 @@ impl Device {
         p_descriptor_update_template: *mut DescriptorUpdateTemplate,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateDescriptorUpdateTemplateKHR>(
-                vtable_get(
-                    self.vtable(),
-                    InstanceCommand::vkCreateDescriptorUpdateTemplateKHR as usize,
-                ),
-            )
+            std::mem::transmute::<vkVoidFunction, FN_CreateDescriptorUpdateTemplateKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommand::vkCreateDescriptorUpdateTemplateKHR as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -11712,7 +12274,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroyDescriptorUpdateTemplateKHR =
+/// [`vkDestroyDescriptorUpdateTemplateKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDescriptorUpdateTemplateKHR.html)
+///
+pub type FN_DestroyDescriptorUpdateTemplateKHR =
     unsafe extern "C" fn(DeviceHandle, DescriptorUpdateTemplate, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyDescriptorUpdateTemplateKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDescriptorUpdateTemplateKHR.html)
@@ -11736,7 +12300,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyDescriptorUpdateTemplateKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyDescriptorUpdateTemplateKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkDestroyDescriptorUpdateTemplateKHR as usize,
@@ -11747,7 +12311,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_UpdateDescriptorSetWithTemplateKHR =
+/// [`vkUpdateDescriptorSetWithTemplateKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkUpdateDescriptorSetWithTemplateKHR.html)
+///
+pub type FN_UpdateDescriptorSetWithTemplateKHR =
     unsafe extern "C" fn(DeviceHandle, DescriptorSet, DescriptorUpdateTemplate, *const c_void);
 impl Device {
     /// [`vkUpdateDescriptorSetWithTemplateKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkUpdateDescriptorSetWithTemplateKHR.html)
@@ -11768,7 +12334,7 @@ impl Device {
         p_data: *const c_void,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_UpdateDescriptorSetWithTemplateKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_UpdateDescriptorSetWithTemplateKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkUpdateDescriptorSetWithTemplateKHR as usize,
@@ -11786,7 +12352,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CreateRenderPass2KHR = unsafe extern "C" fn(
+/// [`vkCreateRenderPass2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateRenderPass2KHR.html)
+///
+pub type FN_CreateRenderPass2KHR = unsafe extern "C" fn(
     DeviceHandle,
     *const RenderPassCreateInfo2,
     *const AllocationCallbacks,
@@ -11823,7 +12391,7 @@ impl Device {
         p_render_pass: *mut RenderPass,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateRenderPass2KHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateRenderPass2KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateRenderPass2KHR as usize,
             ))
@@ -11832,7 +12400,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdBeginRenderPass2KHR =
+/// [`vkCmdBeginRenderPass2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginRenderPass2KHR.html)
+///
+pub type FN_CmdBeginRenderPass2KHR =
     unsafe extern "C" fn(CommandBufferHandle, *const RenderPassBeginInfo, *const SubpassBeginInfo);
 impl CommandBuffer {
     /// [`vkCmdBeginRenderPass2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginRenderPass2KHR.html)
@@ -11863,7 +12433,7 @@ impl CommandBuffer {
         p_subpass_begin_info: *const SubpassBeginInfo,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBeginRenderPass2KHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBeginRenderPass2KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdBeginRenderPass2KHR as usize,
             ))
@@ -11872,7 +12442,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdNextSubpass2KHR =
+/// [`vkCmdNextSubpass2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdNextSubpass2KHR.html)
+///
+pub type FN_CmdNextSubpass2KHR =
     unsafe extern "C" fn(CommandBufferHandle, *const SubpassBeginInfo, *const SubpassEndInfo);
 impl CommandBuffer {
     /// [`vkCmdNextSubpass2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdNextSubpass2KHR.html)
@@ -11903,7 +12475,7 @@ impl CommandBuffer {
         p_subpass_end_info: *const SubpassEndInfo,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdNextSubpass2KHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdNextSubpass2KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdNextSubpass2KHR as usize,
             ))
@@ -11912,8 +12484,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdEndRenderPass2KHR =
-    unsafe extern "C" fn(CommandBufferHandle, *const SubpassEndInfo);
+/// [`vkCmdEndRenderPass2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndRenderPass2KHR.html)
+///
+pub type FN_CmdEndRenderPass2KHR = unsafe extern "C" fn(CommandBufferHandle, *const SubpassEndInfo);
 impl CommandBuffer {
     /// [`vkCmdEndRenderPass2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndRenderPass2KHR.html)
     ///
@@ -11939,7 +12512,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_end_render_pass_2_khr(&self, p_subpass_end_info: *const SubpassEndInfo) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdEndRenderPass2KHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdEndRenderPass2KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdEndRenderPass2KHR as usize,
             ))
@@ -11948,8 +12521,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_GetSwapchainStatusKHR =
-    unsafe extern "C" fn(DeviceHandle, SwapchainKHR) -> ResultCode;
+/// [`vkGetSwapchainStatusKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSwapchainStatusKHR.html)
+///
+pub type FN_GetSwapchainStatusKHR = unsafe extern "C" fn(DeviceHandle, SwapchainKHR) -> ResultCode;
 impl Device {
     /// [`vkGetSwapchainStatusKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSwapchainStatusKHR.html)
     ///
@@ -11977,7 +12551,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn get_swapchain_status_khr(&self, swapchain: SwapchainKHR) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetSwapchainStatusKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetSwapchainStatusKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetSwapchainStatusKHR as usize,
             ))
@@ -11986,7 +12560,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceExternalFencePropertiesKHR = unsafe extern "C" fn(
+/// [`vkGetPhysicalDeviceExternalFencePropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceExternalFencePropertiesKHR.html)
+///
+pub type FN_GetPhysicalDeviceExternalFencePropertiesKHR = unsafe extern "C" fn(
     PhysicalDeviceHandle,
     *const PhysicalDeviceExternalFenceInfo,
     *mut ExternalFenceProperties,
@@ -12009,7 +12585,7 @@ impl PhysicalDevice {
         p_external_fence_properties: *mut ExternalFenceProperties,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceExternalFencePropertiesKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceExternalFencePropertiesKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceExternalFencePropertiesKHR as usize,
@@ -12026,7 +12602,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_ImportFenceWin32HandleKHR =
+/// [`vkImportFenceWin32HandleKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkImportFenceWin32HandleKHR.html)
+///
+pub type FN_ImportFenceWin32HandleKHR =
     unsafe extern "C" fn(DeviceHandle, *const ImportFenceWin32HandleInfoKHR) -> ResultCode;
 impl Device {
     /// [`vkImportFenceWin32HandleKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkImportFenceWin32HandleKHR.html)
@@ -12053,7 +12631,7 @@ impl Device {
         p_import_fence_win_32_handle_info: *const ImportFenceWin32HandleInfoKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_ImportFenceWin32HandleKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_ImportFenceWin32HandleKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkImportFenceWin32HandleKHR as usize,
             ))
@@ -12062,7 +12640,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetFenceWin32HandleKHR = unsafe extern "C" fn(
+/// [`vkGetFenceWin32HandleKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetFenceWin32HandleKHR.html)
+///
+pub type FN_GetFenceWin32HandleKHR = unsafe extern "C" fn(
     DeviceHandle,
     *const FenceGetWin32HandleInfoKHR,
     *mut HANDLE,
@@ -12093,7 +12673,7 @@ impl Device {
         p_handle: *mut HANDLE,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetFenceWin32HandleKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetFenceWin32HandleKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetFenceWin32HandleKHR as usize,
             ))
@@ -12102,7 +12682,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_ImportFenceFdKHR =
+/// [`vkImportFenceFdKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkImportFenceFdKHR.html)
+///
+pub type FN_ImportFenceFdKHR =
     unsafe extern "C" fn(DeviceHandle, *const ImportFenceFdInfoKHR) -> ResultCode;
 impl Device {
     /// [`vkImportFenceFdKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkImportFenceFdKHR.html)
@@ -12129,7 +12711,7 @@ impl Device {
         p_import_fence_fd_info: *const ImportFenceFdInfoKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_ImportFenceFdKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_ImportFenceFdKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkImportFenceFdKHR as usize,
             ))
@@ -12138,7 +12720,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetFenceFdKHR =
+/// [`vkGetFenceFdKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetFenceFdKHR.html)
+///
+pub type FN_GetFenceFdKHR =
     unsafe extern "C" fn(DeviceHandle, *const FenceGetFdInfoKHR, *mut c_int) -> ResultCode;
 impl Device {
     /// [`vkGetFenceFdKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetFenceFdKHR.html)
@@ -12166,7 +12750,7 @@ impl Device {
         p_fd: *mut c_int,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetFenceFdKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetFenceFdKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetFenceFdKHR as usize,
             ))
@@ -12175,7 +12759,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_EnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR =
+/// [`vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR.html)
+///
+pub type FN_EnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR =
     unsafe extern "C" fn(
         PhysicalDeviceHandle,
         u32,
@@ -12219,7 +12805,7 @@ impl PhysicalDevice {
         let command = unsafe {
             std::mem::transmute::<
                 vkVoidFunction,
-                FUN_EnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR,
+                FN_EnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR,
             >(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR
@@ -12238,7 +12824,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR =
+/// [`vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR.html)
+///
+pub type FN_GetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR =
     unsafe extern "C" fn(PhysicalDeviceHandle, *const QueryPoolPerformanceCreateInfoKHR, *mut u32);
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR.html)
@@ -12259,7 +12847,7 @@ impl PhysicalDevice {
         let command = unsafe {
             std::mem::transmute::<
                 vkVoidFunction,
-                FUN_GetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR,
+                FN_GetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR,
             >(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR as usize,
@@ -12269,7 +12857,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_AcquireProfilingLockKHR =
+/// [`vkAcquireProfilingLockKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkAcquireProfilingLockKHR.html)
+///
+pub type FN_AcquireProfilingLockKHR =
     unsafe extern "C" fn(DeviceHandle, *const AcquireProfilingLockInfoKHR) -> ResultCode;
 impl Device {
     /// [`vkAcquireProfilingLockKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkAcquireProfilingLockKHR.html)
@@ -12296,7 +12886,7 @@ impl Device {
         p_info: *const AcquireProfilingLockInfoKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_AcquireProfilingLockKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_AcquireProfilingLockKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkAcquireProfilingLockKHR as usize,
             ))
@@ -12305,7 +12895,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_ReleaseProfilingLockKHR = unsafe extern "C" fn(DeviceHandle);
+/// [`vkReleaseProfilingLockKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkReleaseProfilingLockKHR.html)
+///
+pub type FN_ReleaseProfilingLockKHR = unsafe extern "C" fn(DeviceHandle);
 impl Device {
     /// [`vkReleaseProfilingLockKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkReleaseProfilingLockKHR.html)
     ///
@@ -12319,7 +12911,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn release_profiling_lock_khr(&self) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_ReleaseProfilingLockKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_ReleaseProfilingLockKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkReleaseProfilingLockKHR as usize,
             ))
@@ -12328,7 +12920,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceSurfaceCapabilities2KHR = unsafe extern "C" fn(
+/// [`vkGetPhysicalDeviceSurfaceCapabilities2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSurfaceCapabilities2KHR.html)
+///
+pub type FN_GetPhysicalDeviceSurfaceCapabilities2KHR = unsafe extern "C" fn(
     PhysicalDeviceHandle,
     *const PhysicalDeviceSurfaceInfo2KHR,
     *mut SurfaceCapabilities2KHR,
@@ -12360,7 +12954,7 @@ impl PhysicalDevice {
         p_surface_capabilities: *mut SurfaceCapabilities2KHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceSurfaceCapabilities2KHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceSurfaceCapabilities2KHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceSurfaceCapabilities2KHR as usize,
@@ -12371,7 +12965,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceSurfaceFormats2KHR = unsafe extern "C" fn(
+/// [`vkGetPhysicalDeviceSurfaceFormats2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSurfaceFormats2KHR.html)
+///
+pub type FN_GetPhysicalDeviceSurfaceFormats2KHR = unsafe extern "C" fn(
     PhysicalDeviceHandle,
     *const PhysicalDeviceSurfaceInfo2KHR,
     *mut u32,
@@ -12409,7 +13005,7 @@ impl PhysicalDevice {
         p_surface_formats: *mut SurfaceFormat2KHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceSurfaceFormats2KHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceSurfaceFormats2KHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceSurfaceFormats2KHR as usize,
@@ -12427,7 +13023,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceDisplayProperties2KHR =
+/// [`vkGetPhysicalDeviceDisplayProperties2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceDisplayProperties2KHR.html)
+///
+pub type FN_GetPhysicalDeviceDisplayProperties2KHR =
     unsafe extern "C" fn(PhysicalDeviceHandle, *mut u32, *mut DisplayProperties2KHR) -> ResultCode;
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceDisplayProperties2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceDisplayProperties2KHR.html)
@@ -12459,7 +13057,7 @@ impl PhysicalDevice {
         p_properties: *mut DisplayProperties2KHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceDisplayProperties2KHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceDisplayProperties2KHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceDisplayProperties2KHR as usize,
@@ -12470,12 +13068,13 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceDisplayPlaneProperties2KHR =
-    unsafe extern "C" fn(
-        PhysicalDeviceHandle,
-        *mut u32,
-        *mut DisplayPlaneProperties2KHR,
-    ) -> ResultCode;
+/// [`vkGetPhysicalDeviceDisplayPlaneProperties2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceDisplayPlaneProperties2KHR.html)
+///
+pub type FN_GetPhysicalDeviceDisplayPlaneProperties2KHR = unsafe extern "C" fn(
+    PhysicalDeviceHandle,
+    *mut u32,
+    *mut DisplayPlaneProperties2KHR,
+) -> ResultCode;
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceDisplayPlaneProperties2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceDisplayPlaneProperties2KHR.html)
     ///
@@ -12506,7 +13105,7 @@ impl PhysicalDevice {
         p_properties: *mut DisplayPlaneProperties2KHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceDisplayPlaneProperties2KHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceDisplayPlaneProperties2KHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceDisplayPlaneProperties2KHR as usize,
@@ -12517,7 +13116,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetDisplayModeProperties2KHR = unsafe extern "C" fn(
+/// [`vkGetDisplayModeProperties2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDisplayModeProperties2KHR.html)
+///
+pub type FN_GetDisplayModeProperties2KHR = unsafe extern "C" fn(
     PhysicalDeviceHandle,
     DisplayKHR,
     *mut u32,
@@ -12554,7 +13155,7 @@ impl PhysicalDevice {
         p_properties: *mut DisplayModeProperties2KHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDisplayModeProperties2KHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetDisplayModeProperties2KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetDisplayModeProperties2KHR as usize,
             ))
@@ -12563,7 +13164,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetDisplayPlaneCapabilities2KHR = unsafe extern "C" fn(
+/// [`vkGetDisplayPlaneCapabilities2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDisplayPlaneCapabilities2KHR.html)
+///
+pub type FN_GetDisplayPlaneCapabilities2KHR = unsafe extern "C" fn(
     PhysicalDeviceHandle,
     *const DisplayPlaneInfo2KHR,
     *mut DisplayPlaneCapabilities2KHR,
@@ -12594,7 +13197,7 @@ impl PhysicalDevice {
         p_capabilities: *mut DisplayPlaneCapabilities2KHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDisplayPlaneCapabilities2KHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetDisplayPlaneCapabilities2KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetDisplayPlaneCapabilities2KHR as usize,
             ))
@@ -12603,7 +13206,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetImageMemoryRequirements2KHR = unsafe extern "C" fn(
+/// [`vkGetImageMemoryRequirements2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageMemoryRequirements2KHR.html)
+///
+pub type FN_GetImageMemoryRequirements2KHR = unsafe extern "C" fn(
     DeviceHandle,
     *const ImageMemoryRequirementsInfo2,
     *mut MemoryRequirements2,
@@ -12626,7 +13231,7 @@ impl Device {
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetImageMemoryRequirements2KHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetImageMemoryRequirements2KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetImageMemoryRequirements2KHR as usize,
             ))
@@ -12635,7 +13240,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetBufferMemoryRequirements2KHR = unsafe extern "C" fn(
+/// [`vkGetBufferMemoryRequirements2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferMemoryRequirements2KHR.html)
+///
+pub type FN_GetBufferMemoryRequirements2KHR = unsafe extern "C" fn(
     DeviceHandle,
     *const BufferMemoryRequirementsInfo2,
     *mut MemoryRequirements2,
@@ -12658,7 +13265,7 @@ impl Device {
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetBufferMemoryRequirements2KHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetBufferMemoryRequirements2KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetBufferMemoryRequirements2KHR as usize,
             ))
@@ -12667,7 +13274,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetImageSparseMemoryRequirements2KHR = unsafe extern "C" fn(
+/// [`vkGetImageSparseMemoryRequirements2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageSparseMemoryRequirements2KHR.html)
+///
+pub type FN_GetImageSparseMemoryRequirements2KHR = unsafe extern "C" fn(
     DeviceHandle,
     *const ImageSparseMemoryRequirementsInfo2,
     *mut u32,
@@ -12695,7 +13304,7 @@ impl Device {
         p_sparse_memory_requirements: *mut SparseImageMemoryRequirements2,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetImageSparseMemoryRequirements2KHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetImageSparseMemoryRequirements2KHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetImageSparseMemoryRequirements2KHR as usize,
@@ -12713,7 +13322,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CreateSamplerYcbcrConversionKHR = unsafe extern "C" fn(
+/// [`vkCreateSamplerYcbcrConversionKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateSamplerYcbcrConversionKHR.html)
+///
+pub type FN_CreateSamplerYcbcrConversionKHR = unsafe extern "C" fn(
     DeviceHandle,
     *const SamplerYcbcrConversionCreateInfo,
     *const AllocationCallbacks,
@@ -12750,7 +13361,7 @@ impl Device {
         p_ycbcr_conversion: *mut SamplerYcbcrConversion,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateSamplerYcbcrConversionKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateSamplerYcbcrConversionKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateSamplerYcbcrConversionKHR as usize,
             ))
@@ -12759,7 +13370,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroySamplerYcbcrConversionKHR =
+/// [`vkDestroySamplerYcbcrConversionKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroySamplerYcbcrConversionKHR.html)
+///
+pub type FN_DestroySamplerYcbcrConversionKHR =
     unsafe extern "C" fn(DeviceHandle, SamplerYcbcrConversion, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroySamplerYcbcrConversionKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroySamplerYcbcrConversionKHR.html)
@@ -12783,7 +13396,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroySamplerYcbcrConversionKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroySamplerYcbcrConversionKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroySamplerYcbcrConversionKHR as usize,
             ))
@@ -12792,7 +13405,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_BindBufferMemory2KHR =
+/// [`vkBindBufferMemory2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkBindBufferMemory2KHR.html)
+///
+pub type FN_BindBufferMemory2KHR =
     unsafe extern "C" fn(DeviceHandle, u32, *const BindBufferMemoryInfo) -> ResultCode;
 impl Device {
     /// [`vkBindBufferMemory2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkBindBufferMemory2KHR.html)
@@ -12822,7 +13437,7 @@ impl Device {
         p_bind_infos: *const BindBufferMemoryInfo,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_BindBufferMemory2KHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_BindBufferMemory2KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkBindBufferMemory2KHR as usize,
             ))
@@ -12831,7 +13446,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_BindImageMemory2KHR =
+/// [`vkBindImageMemory2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkBindImageMemory2KHR.html)
+///
+pub type FN_BindImageMemory2KHR =
     unsafe extern "C" fn(DeviceHandle, u32, *const BindImageMemoryInfo) -> ResultCode;
 impl Device {
     /// [`vkBindImageMemory2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkBindImageMemory2KHR.html)
@@ -12860,7 +13477,7 @@ impl Device {
         p_bind_infos: *const BindImageMemoryInfo,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_BindImageMemory2KHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_BindImageMemory2KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkBindImageMemory2KHR as usize,
             ))
@@ -12869,7 +13486,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetDescriptorSetLayoutSupportKHR = unsafe extern "C" fn(
+/// [`vkGetDescriptorSetLayoutSupportKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDescriptorSetLayoutSupportKHR.html)
+///
+pub type FN_GetDescriptorSetLayoutSupportKHR = unsafe extern "C" fn(
     DeviceHandle,
     *const DescriptorSetLayoutCreateInfo,
     *mut DescriptorSetLayoutSupport,
@@ -12892,7 +13511,7 @@ impl Device {
         p_support: *mut DescriptorSetLayoutSupport,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDescriptorSetLayoutSupportKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetDescriptorSetLayoutSupportKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetDescriptorSetLayoutSupportKHR as usize,
             ))
@@ -12901,7 +13520,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdDrawIndirectCountKHR =
+/// [`vkCmdDrawIndirectCountKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndirectCountKHR.html)
+///
+pub type FN_CmdDrawIndirectCountKHR =
     unsafe extern "C" fn(CommandBufferHandle, Buffer, DeviceSize, Buffer, DeviceSize, u32, u32);
 impl CommandBuffer {
     /// [`vkCmdDrawIndirectCountKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndirectCountKHR.html)
@@ -12935,7 +13556,7 @@ impl CommandBuffer {
         stride: u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndirectCountKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdDrawIndirectCountKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdDrawIndirectCountKHR as usize,
             ))
@@ -12954,7 +13575,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdDrawIndexedIndirectCountKHR =
+/// [`vkCmdDrawIndexedIndirectCountKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndexedIndirectCountKHR.html)
+///
+pub type FN_CmdDrawIndexedIndirectCountKHR =
     unsafe extern "C" fn(CommandBufferHandle, Buffer, DeviceSize, Buffer, DeviceSize, u32, u32);
 impl CommandBuffer {
     /// [`vkCmdDrawIndexedIndirectCountKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndexedIndirectCountKHR.html)
@@ -12988,7 +13611,7 @@ impl CommandBuffer {
         stride: u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndexedIndirectCountKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdDrawIndexedIndirectCountKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdDrawIndexedIndirectCountKHR as usize,
             ))
@@ -13007,7 +13630,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_GetSemaphoreCounterValueKHR =
+/// [`vkGetSemaphoreCounterValueKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSemaphoreCounterValueKHR.html)
+///
+pub type FN_GetSemaphoreCounterValueKHR =
     unsafe extern "C" fn(DeviceHandle, Semaphore, *mut u64) -> ResultCode;
 impl Device {
     /// [`vkGetSemaphoreCounterValueKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSemaphoreCounterValueKHR.html)
@@ -13037,7 +13662,7 @@ impl Device {
         p_value: *mut u64,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetSemaphoreCounterValueKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetSemaphoreCounterValueKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetSemaphoreCounterValueKHR as usize,
             ))
@@ -13046,7 +13671,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_WaitSemaphoresKHR =
+/// [`vkWaitSemaphoresKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkWaitSemaphoresKHR.html)
+///
+pub type FN_WaitSemaphoresKHR =
     unsafe extern "C" fn(DeviceHandle, *const SemaphoreWaitInfo, u64) -> ResultCode;
 impl Device {
     /// [`vkWaitSemaphoresKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkWaitSemaphoresKHR.html)
@@ -13077,7 +13704,7 @@ impl Device {
         timeout: u64,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_WaitSemaphoresKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_WaitSemaphoresKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkWaitSemaphoresKHR as usize,
             ))
@@ -13086,7 +13713,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_SignalSemaphoreKHR =
+/// [`vkSignalSemaphoreKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSignalSemaphoreKHR.html)
+///
+pub type FN_SignalSemaphoreKHR =
     unsafe extern "C" fn(DeviceHandle, *const SemaphoreSignalInfo) -> ResultCode;
 impl Device {
     /// [`vkSignalSemaphoreKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSignalSemaphoreKHR.html)
@@ -13114,7 +13743,7 @@ impl Device {
         p_signal_info: *const SemaphoreSignalInfo,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_SignalSemaphoreKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_SignalSemaphoreKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkSignalSemaphoreKHR as usize,
             ))
@@ -13123,7 +13752,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceFragmentShadingRatesKHR = unsafe extern "C" fn(
+/// [`vkGetPhysicalDeviceFragmentShadingRatesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceFragmentShadingRatesKHR.html)
+///
+pub type FN_GetPhysicalDeviceFragmentShadingRatesKHR = unsafe extern "C" fn(
     PhysicalDeviceHandle,
     *mut u32,
     *mut PhysicalDeviceFragmentShadingRateKHR,
@@ -13157,7 +13788,7 @@ impl PhysicalDevice {
         p_fragment_shading_rates: *mut PhysicalDeviceFragmentShadingRateKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceFragmentShadingRatesKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceFragmentShadingRatesKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceFragmentShadingRatesKHR as usize,
@@ -13174,7 +13805,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_CmdSetFragmentShadingRateKHR = unsafe extern "C" fn(
+/// [`vkCmdSetFragmentShadingRateKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetFragmentShadingRateKHR.html)
+///
+pub type FN_CmdSetFragmentShadingRateKHR = unsafe extern "C" fn(
     CommandBufferHandle,
     *const Extent2D,
     *const [FragmentShadingRateCombinerOpKHR; 2 as usize],
@@ -13206,7 +13839,7 @@ impl CommandBuffer {
         combiner_ops: *const [FragmentShadingRateCombinerOpKHR; 2 as usize],
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetFragmentShadingRateKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetFragmentShadingRateKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetFragmentShadingRateKHR as usize,
             ))
@@ -13215,7 +13848,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetRenderingAttachmentLocationsKHR =
+/// [`vkCmdSetRenderingAttachmentLocationsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRenderingAttachmentLocationsKHR.html)
+///
+pub type FN_CmdSetRenderingAttachmentLocationsKHR =
     unsafe extern "C" fn(CommandBufferHandle, *const RenderingAttachmentLocationInfo);
 impl CommandBuffer {
     /// [`vkCmdSetRenderingAttachmentLocationsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRenderingAttachmentLocationsKHR.html)
@@ -13244,7 +13879,7 @@ impl CommandBuffer {
         p_location_info: *const RenderingAttachmentLocationInfo,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetRenderingAttachmentLocationsKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetRenderingAttachmentLocationsKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkCmdSetRenderingAttachmentLocationsKHR as usize,
@@ -13255,7 +13890,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetRenderingInputAttachmentIndicesKHR =
+/// [`vkCmdSetRenderingInputAttachmentIndicesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRenderingInputAttachmentIndicesKHR.html)
+///
+pub type FN_CmdSetRenderingInputAttachmentIndicesKHR =
     unsafe extern "C" fn(CommandBufferHandle, *const RenderingInputAttachmentIndexInfo);
 impl CommandBuffer {
     /// [`vkCmdSetRenderingInputAttachmentIndicesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRenderingInputAttachmentIndicesKHR.html)
@@ -13284,7 +13921,7 @@ impl CommandBuffer {
         p_input_attachment_index_info: *const RenderingInputAttachmentIndexInfo,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetRenderingInputAttachmentIndicesKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetRenderingInputAttachmentIndicesKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkCmdSetRenderingInputAttachmentIndicesKHR as usize,
@@ -13295,7 +13932,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_WaitForPresentKHR =
+/// [`vkWaitForPresentKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkWaitForPresentKHR.html)
+///
+pub type FN_WaitForPresentKHR =
     unsafe extern "C" fn(DeviceHandle, SwapchainKHR, u64, u64) -> ResultCode;
 impl Device {
     /// [`vkWaitForPresentKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkWaitForPresentKHR.html)
@@ -13330,7 +13969,7 @@ impl Device {
         timeout: u64,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_WaitForPresentKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_WaitForPresentKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkWaitForPresentKHR as usize,
             ))
@@ -13339,7 +13978,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetBufferDeviceAddressKHR =
+/// [`vkGetBufferDeviceAddressKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferDeviceAddressKHR.html)
+///
+pub type FN_GetBufferDeviceAddressKHR =
     unsafe extern "C" fn(DeviceHandle, *const BufferDeviceAddressInfo) -> DeviceAddress;
 impl Device {
     /// [`vkGetBufferDeviceAddressKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferDeviceAddressKHR.html)
@@ -13358,7 +13999,7 @@ impl Device {
         p_info: *const BufferDeviceAddressInfo,
     ) -> DeviceAddress {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetBufferDeviceAddressKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetBufferDeviceAddressKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetBufferDeviceAddressKHR as usize,
             ))
@@ -13367,7 +14008,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetBufferOpaqueCaptureAddressKHR =
+/// [`vkGetBufferOpaqueCaptureAddressKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferOpaqueCaptureAddressKHR.html)
+///
+pub type FN_GetBufferOpaqueCaptureAddressKHR =
     unsafe extern "C" fn(DeviceHandle, *const BufferDeviceAddressInfo) -> u64;
 impl Device {
     /// [`vkGetBufferOpaqueCaptureAddressKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferOpaqueCaptureAddressKHR.html)
@@ -13386,7 +14029,7 @@ impl Device {
         p_info: *const BufferDeviceAddressInfo,
     ) -> u64 {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetBufferOpaqueCaptureAddressKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetBufferOpaqueCaptureAddressKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetBufferOpaqueCaptureAddressKHR as usize,
             ))
@@ -13395,7 +14038,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetDeviceMemoryOpaqueCaptureAddressKHR =
+/// [`vkGetDeviceMemoryOpaqueCaptureAddressKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceMemoryOpaqueCaptureAddressKHR.html)
+///
+pub type FN_GetDeviceMemoryOpaqueCaptureAddressKHR =
     unsafe extern "C" fn(DeviceHandle, *const DeviceMemoryOpaqueCaptureAddressInfo) -> u64;
 impl Device {
     /// [`vkGetDeviceMemoryOpaqueCaptureAddressKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceMemoryOpaqueCaptureAddressKHR.html)
@@ -13414,7 +14059,7 @@ impl Device {
         p_info: *const DeviceMemoryOpaqueCaptureAddressInfo,
     ) -> u64 {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceMemoryOpaqueCaptureAddressKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetDeviceMemoryOpaqueCaptureAddressKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetDeviceMemoryOpaqueCaptureAddressKHR as usize,
@@ -13425,7 +14070,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CreateDeferredOperationKHR = unsafe extern "C" fn(
+/// [`vkCreateDeferredOperationKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDeferredOperationKHR.html)
+///
+pub type FN_CreateDeferredOperationKHR = unsafe extern "C" fn(
     DeviceHandle,
     *const AllocationCallbacks,
     *mut DeferredOperationKHR,
@@ -13458,7 +14105,7 @@ impl Device {
         p_deferred_operation: *mut DeferredOperationKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateDeferredOperationKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateDeferredOperationKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateDeferredOperationKHR as usize,
             ))
@@ -13467,7 +14114,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroyDeferredOperationKHR =
+/// [`vkDestroyDeferredOperationKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDeferredOperationKHR.html)
+///
+pub type FN_DestroyDeferredOperationKHR =
     unsafe extern "C" fn(DeviceHandle, DeferredOperationKHR, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyDeferredOperationKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDeferredOperationKHR.html)
@@ -13490,7 +14139,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyDeferredOperationKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyDeferredOperationKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyDeferredOperationKHR as usize,
             ))
@@ -13499,7 +14148,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetDeferredOperationMaxConcurrencyKHR =
+/// [`vkGetDeferredOperationMaxConcurrencyKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeferredOperationMaxConcurrencyKHR.html)
+///
+pub type FN_GetDeferredOperationMaxConcurrencyKHR =
     unsafe extern "C" fn(DeviceHandle, DeferredOperationKHR) -> u32;
 impl Device {
     /// [`vkGetDeferredOperationMaxConcurrencyKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeferredOperationMaxConcurrencyKHR.html)
@@ -13517,7 +14168,7 @@ impl Device {
         operation: DeferredOperationKHR,
     ) -> u32 {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeferredOperationMaxConcurrencyKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetDeferredOperationMaxConcurrencyKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetDeferredOperationMaxConcurrencyKHR as usize,
@@ -13528,7 +14179,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetDeferredOperationResultKHR =
+/// [`vkGetDeferredOperationResultKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeferredOperationResultKHR.html)
+///
+pub type FN_GetDeferredOperationResultKHR =
     unsafe extern "C" fn(DeviceHandle, DeferredOperationKHR) -> ResultCode;
 impl Device {
     /// [`vkGetDeferredOperationResultKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeferredOperationResultKHR.html)
@@ -13554,7 +14207,7 @@ impl Device {
         operation: DeferredOperationKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeferredOperationResultKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetDeferredOperationResultKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetDeferredOperationResultKHR as usize,
             ))
@@ -13563,7 +14216,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DeferredOperationJoinKHR =
+/// [`vkDeferredOperationJoinKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDeferredOperationJoinKHR.html)
+///
+pub type FN_DeferredOperationJoinKHR =
     unsafe extern "C" fn(DeviceHandle, DeferredOperationKHR) -> ResultCode;
 impl Device {
     /// [`vkDeferredOperationJoinKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDeferredOperationJoinKHR.html)
@@ -13592,7 +14247,7 @@ impl Device {
         operation: DeferredOperationKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DeferredOperationJoinKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DeferredOperationJoinKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDeferredOperationJoinKHR as usize,
             ))
@@ -13601,7 +14256,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetPipelineExecutablePropertiesKHR = unsafe extern "C" fn(
+/// [`vkGetPipelineExecutablePropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPipelineExecutablePropertiesKHR.html)
+///
+pub type FN_GetPipelineExecutablePropertiesKHR = unsafe extern "C" fn(
     DeviceHandle,
     *const PipelineInfoKHR,
     *mut u32,
@@ -13638,7 +14295,7 @@ impl Device {
         p_properties: *mut PipelineExecutablePropertiesKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPipelineExecutablePropertiesKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPipelineExecutablePropertiesKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPipelineExecutablePropertiesKHR as usize,
@@ -13656,7 +14313,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetPipelineExecutableStatisticsKHR = unsafe extern "C" fn(
+/// [`vkGetPipelineExecutableStatisticsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPipelineExecutableStatisticsKHR.html)
+///
+pub type FN_GetPipelineExecutableStatisticsKHR = unsafe extern "C" fn(
     DeviceHandle,
     *const PipelineExecutableInfoKHR,
     *mut u32,
@@ -13693,7 +14352,7 @@ impl Device {
         p_statistics: *mut PipelineExecutableStatisticKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPipelineExecutableStatisticsKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPipelineExecutableStatisticsKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPipelineExecutableStatisticsKHR as usize,
@@ -13711,13 +14370,14 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetPipelineExecutableInternalRepresentationsKHR =
-    unsafe extern "C" fn(
-        DeviceHandle,
-        *const PipelineExecutableInfoKHR,
-        *mut u32,
-        *mut PipelineExecutableInternalRepresentationKHR,
-    ) -> ResultCode;
+/// [`vkGetPipelineExecutableInternalRepresentationsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPipelineExecutableInternalRepresentationsKHR.html)
+///
+pub type FN_GetPipelineExecutableInternalRepresentationsKHR = unsafe extern "C" fn(
+    DeviceHandle,
+    *const PipelineExecutableInfoKHR,
+    *mut u32,
+    *mut PipelineExecutableInternalRepresentationKHR,
+) -> ResultCode;
 impl Device {
     /// [`vkGetPipelineExecutableInternalRepresentationsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPipelineExecutableInternalRepresentationsKHR.html)
     ///
@@ -13749,7 +14409,7 @@ impl Device {
         p_internal_representations: *mut PipelineExecutableInternalRepresentationKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPipelineExecutableInternalRepresentationsKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPipelineExecutableInternalRepresentationsKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPipelineExecutableInternalRepresentationsKHR as usize,
@@ -13767,7 +14427,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_MapMemory2KHR =
+/// [`vkMapMemory2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkMapMemory2KHR.html)
+///
+pub type FN_MapMemory2KHR =
     unsafe extern "C" fn(DeviceHandle, *const MemoryMapInfo, *mut *mut c_void) -> ResultCode;
 impl Device {
     /// [`vkMapMemory2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkMapMemory2KHR.html)
@@ -13797,7 +14459,7 @@ impl Device {
         pp_data: *mut *mut c_void,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_MapMemory2KHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_MapMemory2KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkMapMemory2KHR as usize,
             ))
@@ -13806,7 +14468,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_UnmapMemory2KHR =
+/// [`vkUnmapMemory2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkUnmapMemory2KHR.html)
+///
+pub type FN_UnmapMemory2KHR =
     unsafe extern "C" fn(DeviceHandle, *const MemoryUnmapInfo) -> ResultCode;
 impl Device {
     /// [`vkUnmapMemory2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkUnmapMemory2KHR.html)
@@ -13833,7 +14497,7 @@ impl Device {
         p_memory_unmap_info: *const MemoryUnmapInfo,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_UnmapMemory2KHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_UnmapMemory2KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkUnmapMemory2KHR as usize,
             ))
@@ -13842,7 +14506,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR =
+/// [`vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR.html)
+///
+pub type FN_GetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR =
     unsafe extern "C" fn(
         PhysicalDeviceHandle,
         *const PhysicalDeviceVideoEncodeQualityLevelInfoKHR,
@@ -13880,7 +14546,7 @@ impl PhysicalDevice {
         let command = unsafe {
             std::mem::transmute::<
                 vkVoidFunction,
-                FUN_GetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR,
+                FN_GetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR,
             >(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR as usize,
@@ -13896,7 +14562,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetEncodedVideoSessionParametersKHR = unsafe extern "C" fn(
+/// [`vkGetEncodedVideoSessionParametersKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetEncodedVideoSessionParametersKHR.html)
+///
+pub type FN_GetEncodedVideoSessionParametersKHR = unsafe extern "C" fn(
     DeviceHandle,
     *const VideoEncodeSessionParametersGetInfoKHR,
     *mut VideoEncodeSessionParametersFeedbackInfoKHR,
@@ -13936,7 +14604,7 @@ impl Device {
         p_data: *mut c_void,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetEncodedVideoSessionParametersKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetEncodedVideoSessionParametersKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetEncodedVideoSessionParametersKHR as usize,
@@ -13955,7 +14623,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdEncodeVideoKHR =
+/// [`vkCmdEncodeVideoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEncodeVideoKHR.html)
+///
+pub type FN_CmdEncodeVideoKHR =
     unsafe extern "C" fn(CommandBufferHandle, *const VideoEncodeInfoKHR);
 impl CommandBuffer {
     /// [`vkCmdEncodeVideoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEncodeVideoKHR.html)
@@ -13979,7 +14649,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_encode_video_khr(&self, p_encode_info: *const VideoEncodeInfoKHR) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdEncodeVideoKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdEncodeVideoKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdEncodeVideoKHR as usize,
             ))
@@ -13988,7 +14658,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetEvent2KHR =
+/// [`vkCmdSetEvent2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetEvent2KHR.html)
+///
+pub type FN_CmdSetEvent2KHR =
     unsafe extern "C" fn(CommandBufferHandle, Event, *const DependencyInfo);
 impl CommandBuffer {
     /// [`vkCmdSetEvent2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetEvent2KHR.html)
@@ -14021,7 +14693,7 @@ impl CommandBuffer {
         p_dependency_info: *const DependencyInfo,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetEvent2KHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetEvent2KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetEvent2KHR as usize,
             ))
@@ -14030,7 +14702,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdResetEvent2KHR =
+/// [`vkCmdResetEvent2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdResetEvent2KHR.html)
+///
+pub type FN_CmdResetEvent2KHR =
     unsafe extern "C" fn(CommandBufferHandle, Event, PipelineStageFlags2);
 impl CommandBuffer {
     /// [`vkCmdResetEvent2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdResetEvent2KHR.html)
@@ -14062,7 +14736,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_reset_event_2_khr(&self, event: Event, stage_mask: PipelineStageFlags2) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdResetEvent2KHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdResetEvent2KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdResetEvent2KHR as usize,
             ))
@@ -14071,7 +14745,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdWaitEvents2KHR =
+/// [`vkCmdWaitEvents2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWaitEvents2KHR.html)
+///
+pub type FN_CmdWaitEvents2KHR =
     unsafe extern "C" fn(CommandBufferHandle, u32, *const Event, *const DependencyInfo);
 impl CommandBuffer {
     /// [`vkCmdWaitEvents2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWaitEvents2KHR.html)
@@ -14105,7 +14781,7 @@ impl CommandBuffer {
         p_dependency_infos: *const DependencyInfo,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdWaitEvents2KHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdWaitEvents2KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdWaitEvents2KHR as usize,
             ))
@@ -14114,7 +14790,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdPipelineBarrier2KHR =
+/// [`vkCmdPipelineBarrier2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPipelineBarrier2KHR.html)
+///
+pub type FN_CmdPipelineBarrier2KHR =
     unsafe extern "C" fn(CommandBufferHandle, *const DependencyInfo);
 impl CommandBuffer {
     /// [`vkCmdPipelineBarrier2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPipelineBarrier2KHR.html)
@@ -14144,7 +14822,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_pipeline_barrier_2_khr(&self, p_dependency_info: *const DependencyInfo) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdPipelineBarrier2KHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdPipelineBarrier2KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdPipelineBarrier2KHR as usize,
             ))
@@ -14153,7 +14831,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdWriteTimestamp2KHR =
+/// [`vkCmdWriteTimestamp2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteTimestamp2KHR.html)
+///
+pub type FN_CmdWriteTimestamp2KHR =
     unsafe extern "C" fn(CommandBufferHandle, PipelineStageFlags2, QueryPool, u32);
 impl CommandBuffer {
     /// [`vkCmdWriteTimestamp2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteTimestamp2KHR.html)
@@ -14191,7 +14871,7 @@ impl CommandBuffer {
         query: u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdWriteTimestamp2KHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdWriteTimestamp2KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdWriteTimestamp2KHR as usize,
             ))
@@ -14200,7 +14880,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_QueueSubmit2KHR =
+/// [`vkQueueSubmit2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueSubmit2KHR.html)
+///
+pub type FN_QueueSubmit2KHR =
     unsafe extern "C" fn(QueueHandle, u32, *const SubmitInfo2, Fence) -> ResultCode;
 impl Queue {
     /// [`vkQueueSubmit2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueSubmit2KHR.html)
@@ -14235,7 +14917,7 @@ impl Queue {
         fence: Fence,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_QueueSubmit2KHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_QueueSubmit2KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkQueueSubmit2KHR as usize,
             ))
@@ -14244,7 +14926,9 @@ impl Queue {
     }
 }
 
-pub(crate) type FUN_CmdBindIndexBuffer3KHR =
+/// [`vkCmdBindIndexBuffer3KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindIndexBuffer3KHR.html)
+///
+pub type FN_CmdBindIndexBuffer3KHR =
     unsafe extern "C" fn(CommandBufferHandle, *const BindIndexBuffer3InfoKHR);
 impl CommandBuffer {
     /// [`vkCmdBindIndexBuffer3KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindIndexBuffer3KHR.html)
@@ -14269,7 +14953,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_bind_index_buffer_3_khr(&self, p_info: *const BindIndexBuffer3InfoKHR) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBindIndexBuffer3KHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBindIndexBuffer3KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdBindIndexBuffer3KHR as usize,
             ))
@@ -14278,7 +14962,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdBindVertexBuffers3KHR =
+/// [`vkCmdBindVertexBuffers3KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindVertexBuffers3KHR.html)
+///
+pub type FN_CmdBindVertexBuffers3KHR =
     unsafe extern "C" fn(CommandBufferHandle, u32, u32, *const BindVertexBuffer3InfoKHR);
 impl CommandBuffer {
     /// [`vkCmdBindVertexBuffers3KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindVertexBuffers3KHR.html)
@@ -14308,7 +14994,7 @@ impl CommandBuffer {
         p_binding_infos: *const BindVertexBuffer3InfoKHR,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBindVertexBuffers3KHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBindVertexBuffers3KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdBindVertexBuffers3KHR as usize,
             ))
@@ -14317,7 +15003,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdDrawIndirect2KHR =
+/// [`vkCmdDrawIndirect2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndirect2KHR.html)
+///
+pub type FN_CmdDrawIndirect2KHR =
     unsafe extern "C" fn(CommandBufferHandle, *const DrawIndirect2InfoKHR);
 impl CommandBuffer {
     /// [`vkCmdDrawIndirect2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndirect2KHR.html)
@@ -14342,7 +15030,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_draw_indirect_2_khr(&self, p_info: *const DrawIndirect2InfoKHR) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndirect2KHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdDrawIndirect2KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdDrawIndirect2KHR as usize,
             ))
@@ -14351,7 +15039,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdDrawIndexedIndirect2KHR =
+/// [`vkCmdDrawIndexedIndirect2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndexedIndirect2KHR.html)
+///
+pub type FN_CmdDrawIndexedIndirect2KHR =
     unsafe extern "C" fn(CommandBufferHandle, *const DrawIndirect2InfoKHR);
 impl CommandBuffer {
     /// [`vkCmdDrawIndexedIndirect2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndexedIndirect2KHR.html)
@@ -14376,7 +15066,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_draw_indexed_indirect_2_khr(&self, p_info: *const DrawIndirect2InfoKHR) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndexedIndirect2KHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdDrawIndexedIndirect2KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdDrawIndexedIndirect2KHR as usize,
             ))
@@ -14385,7 +15075,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdDispatchIndirect2KHR =
+/// [`vkCmdDispatchIndirect2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchIndirect2KHR.html)
+///
+pub type FN_CmdDispatchIndirect2KHR =
     unsafe extern "C" fn(CommandBufferHandle, *const DispatchIndirect2InfoKHR);
 impl CommandBuffer {
     /// [`vkCmdDispatchIndirect2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchIndirect2KHR.html)
@@ -14410,7 +15102,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_dispatch_indirect_2_khr(&self, p_info: *const DispatchIndirect2InfoKHR) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDispatchIndirect2KHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdDispatchIndirect2KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdDispatchIndirect2KHR as usize,
             ))
@@ -14419,7 +15111,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdCopyMemoryKHR =
+/// [`vkCmdCopyMemoryKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMemoryKHR.html)
+///
+pub type FN_CmdCopyMemoryKHR =
     unsafe extern "C" fn(CommandBufferHandle, *const CopyDeviceMemoryInfoKHR);
 impl CommandBuffer {
     /// [`vkCmdCopyMemoryKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMemoryKHR.html)
@@ -14447,7 +15141,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_copy_memory_khr(&self, p_copy_memory_info: *const CopyDeviceMemoryInfoKHR) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyMemoryKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdCopyMemoryKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdCopyMemoryKHR as usize,
             ))
@@ -14456,7 +15150,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdCopyMemoryToImageKHR =
+/// [`vkCmdCopyMemoryToImageKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMemoryToImageKHR.html)
+///
+pub type FN_CmdCopyMemoryToImageKHR =
     unsafe extern "C" fn(CommandBufferHandle, *const CopyDeviceMemoryImageInfoKHR);
 impl CommandBuffer {
     /// [`vkCmdCopyMemoryToImageKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMemoryToImageKHR.html)
@@ -14487,7 +15183,7 @@ impl CommandBuffer {
         p_copy_memory_info: *const CopyDeviceMemoryImageInfoKHR,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyMemoryToImageKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdCopyMemoryToImageKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdCopyMemoryToImageKHR as usize,
             ))
@@ -14496,7 +15192,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdCopyImageToMemoryKHR =
+/// [`vkCmdCopyImageToMemoryKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyImageToMemoryKHR.html)
+///
+pub type FN_CmdCopyImageToMemoryKHR =
     unsafe extern "C" fn(CommandBufferHandle, *const CopyDeviceMemoryImageInfoKHR);
 impl CommandBuffer {
     /// [`vkCmdCopyImageToMemoryKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyImageToMemoryKHR.html)
@@ -14527,7 +15225,7 @@ impl CommandBuffer {
         p_copy_memory_info: *const CopyDeviceMemoryImageInfoKHR,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyImageToMemoryKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdCopyImageToMemoryKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdCopyImageToMemoryKHR as usize,
             ))
@@ -14536,7 +15234,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdUpdateMemoryKHR = unsafe extern "C" fn(
+/// [`vkCmdUpdateMemoryKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdUpdateMemoryKHR.html)
+///
+pub type FN_CmdUpdateMemoryKHR = unsafe extern "C" fn(
     CommandBufferHandle,
     *const DeviceAddressRangeKHR,
     AddressCommandFlagsKHR,
@@ -14575,7 +15275,7 @@ impl CommandBuffer {
         p_data: *const c_void,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdUpdateMemoryKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdUpdateMemoryKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdUpdateMemoryKHR as usize,
             ))
@@ -14584,7 +15284,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdFillMemoryKHR = unsafe extern "C" fn(
+/// [`vkCmdFillMemoryKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdFillMemoryKHR.html)
+///
+pub type FN_CmdFillMemoryKHR = unsafe extern "C" fn(
     CommandBufferHandle,
     *const DeviceAddressRangeKHR,
     AddressCommandFlagsKHR,
@@ -14621,7 +15323,7 @@ impl CommandBuffer {
         data: u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdFillMemoryKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdFillMemoryKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdFillMemoryKHR as usize,
             ))
@@ -14630,7 +15332,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdCopyQueryPoolResultsToMemoryKHR = unsafe extern "C" fn(
+/// [`vkCmdCopyQueryPoolResultsToMemoryKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyQueryPoolResultsToMemoryKHR.html)
+///
+pub type FN_CmdCopyQueryPoolResultsToMemoryKHR = unsafe extern "C" fn(
     CommandBufferHandle,
     QueryPool,
     u32,
@@ -14674,7 +15378,7 @@ impl CommandBuffer {
         query_result_flags: QueryResultFlags,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyQueryPoolResultsToMemoryKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_CmdCopyQueryPoolResultsToMemoryKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkCmdCopyQueryPoolResultsToMemoryKHR as usize,
@@ -14695,7 +15399,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdDrawIndirectCount2KHR =
+/// [`vkCmdDrawIndirectCount2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndirectCount2KHR.html)
+///
+pub type FN_CmdDrawIndirectCount2KHR =
     unsafe extern "C" fn(CommandBufferHandle, *const DrawIndirectCount2InfoKHR);
 impl CommandBuffer {
     /// [`vkCmdDrawIndirectCount2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndirectCount2KHR.html)
@@ -14720,7 +15426,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_draw_indirect_count_2_khr(&self, p_info: *const DrawIndirectCount2InfoKHR) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndirectCount2KHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdDrawIndirectCount2KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdDrawIndirectCount2KHR as usize,
             ))
@@ -14729,7 +15435,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdDrawIndexedIndirectCount2KHR =
+/// [`vkCmdDrawIndexedIndirectCount2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndexedIndirectCount2KHR.html)
+///
+pub type FN_CmdDrawIndexedIndirectCount2KHR =
     unsafe extern "C" fn(CommandBufferHandle, *const DrawIndirectCount2InfoKHR);
 impl CommandBuffer {
     /// [`vkCmdDrawIndexedIndirectCount2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndexedIndirectCount2KHR.html)
@@ -14757,7 +15465,7 @@ impl CommandBuffer {
         p_info: *const DrawIndirectCount2InfoKHR,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndexedIndirectCount2KHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdDrawIndexedIndirectCount2KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdDrawIndexedIndirectCount2KHR as usize,
             ))
@@ -14766,7 +15474,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdBeginConditionalRendering2EXT =
+/// [`vkCmdBeginConditionalRendering2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginConditionalRendering2EXT.html)
+///
+pub type FN_CmdBeginConditionalRendering2EXT =
     unsafe extern "C" fn(CommandBufferHandle, *const ConditionalRenderingBeginInfo2EXT);
 impl CommandBuffer {
     /// [`vkCmdBeginConditionalRendering2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginConditionalRendering2EXT.html)
@@ -14796,7 +15506,7 @@ impl CommandBuffer {
         p_conditional_rendering_begin: *const ConditionalRenderingBeginInfo2EXT,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBeginConditionalRendering2EXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBeginConditionalRendering2EXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdBeginConditionalRendering2EXT as usize,
             ))
@@ -14805,7 +15515,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdBindTransformFeedbackBuffers2EXT =
+/// [`vkCmdBindTransformFeedbackBuffers2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindTransformFeedbackBuffers2EXT.html)
+///
+pub type FN_CmdBindTransformFeedbackBuffers2EXT =
     unsafe extern "C" fn(CommandBufferHandle, u32, u32, *const BindTransformFeedbackBuffer2InfoEXT);
 impl CommandBuffer {
     /// [`vkCmdBindTransformFeedbackBuffers2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindTransformFeedbackBuffers2EXT.html)
@@ -14838,7 +15550,7 @@ impl CommandBuffer {
         p_binding_infos: *const BindTransformFeedbackBuffer2InfoEXT,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBindTransformFeedbackBuffers2EXT>(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBindTransformFeedbackBuffers2EXT>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkCmdBindTransformFeedbackBuffers2EXT as usize,
@@ -14849,7 +15561,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdBeginTransformFeedback2EXT =
+/// [`vkCmdBeginTransformFeedback2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginTransformFeedback2EXT.html)
+///
+pub type FN_CmdBeginTransformFeedback2EXT =
     unsafe extern "C" fn(CommandBufferHandle, u32, u32, *const BindTransformFeedbackBuffer2InfoEXT);
 impl CommandBuffer {
     /// [`vkCmdBeginTransformFeedback2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginTransformFeedback2EXT.html)
@@ -14883,7 +15597,7 @@ impl CommandBuffer {
         p_counter_infos: *const BindTransformFeedbackBuffer2InfoEXT,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBeginTransformFeedback2EXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBeginTransformFeedback2EXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdBeginTransformFeedback2EXT as usize,
             ))
@@ -14899,7 +15613,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdEndTransformFeedback2EXT =
+/// [`vkCmdEndTransformFeedback2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndTransformFeedback2EXT.html)
+///
+pub type FN_CmdEndTransformFeedback2EXT =
     unsafe extern "C" fn(CommandBufferHandle, u32, u32, *const BindTransformFeedbackBuffer2InfoEXT);
 impl CommandBuffer {
     /// [`vkCmdEndTransformFeedback2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndTransformFeedback2EXT.html)
@@ -14933,7 +15649,7 @@ impl CommandBuffer {
         p_counter_infos: *const BindTransformFeedbackBuffer2InfoEXT,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdEndTransformFeedback2EXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdEndTransformFeedback2EXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdEndTransformFeedback2EXT as usize,
             ))
@@ -14949,7 +15665,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdDrawIndirectByteCount2EXT = unsafe extern "C" fn(
+/// [`vkCmdDrawIndirectByteCount2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndirectByteCount2EXT.html)
+///
+pub type FN_CmdDrawIndirectByteCount2EXT = unsafe extern "C" fn(
     CommandBufferHandle,
     u32,
     u32,
@@ -14987,7 +15705,7 @@ impl CommandBuffer {
         vertex_stride: u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndirectByteCount2EXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdDrawIndirectByteCount2EXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdDrawIndirectByteCount2EXT as usize,
             ))
@@ -15005,7 +15723,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdDrawMeshTasksIndirect2EXT =
+/// [`vkCmdDrawMeshTasksIndirect2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMeshTasksIndirect2EXT.html)
+///
+pub type FN_CmdDrawMeshTasksIndirect2EXT =
     unsafe extern "C" fn(CommandBufferHandle, *const DrawIndirect2InfoKHR);
 impl CommandBuffer {
     /// [`vkCmdDrawMeshTasksIndirect2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMeshTasksIndirect2EXT.html)
@@ -15030,7 +15750,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_draw_mesh_tasks_indirect_2_ext(&self, p_info: *const DrawIndirect2InfoKHR) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawMeshTasksIndirect2EXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdDrawMeshTasksIndirect2EXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdDrawMeshTasksIndirect2EXT as usize,
             ))
@@ -15039,7 +15759,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdDrawMeshTasksIndirectCount2EXT =
+/// [`vkCmdDrawMeshTasksIndirectCount2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMeshTasksIndirectCount2EXT.html)
+///
+pub type FN_CmdDrawMeshTasksIndirectCount2EXT =
     unsafe extern "C" fn(CommandBufferHandle, *const DrawIndirectCount2InfoKHR);
 impl CommandBuffer {
     /// [`vkCmdDrawMeshTasksIndirectCount2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMeshTasksIndirectCount2EXT.html)
@@ -15067,18 +15789,18 @@ impl CommandBuffer {
         p_info: *const DrawIndirectCount2InfoKHR,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawMeshTasksIndirectCount2EXT>(
-                vtable_get(
-                    self.vtable(),
-                    InstanceCommand::vkCmdDrawMeshTasksIndirectCount2EXT as usize,
-                ),
-            )
+            std::mem::transmute::<vkVoidFunction, FN_CmdDrawMeshTasksIndirectCount2EXT>(vtable_get(
+                self.vtable(),
+                InstanceCommand::vkCmdDrawMeshTasksIndirectCount2EXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_info) }
     }
 }
 
-pub(crate) type FUN_CmdWriteMarkerToMemoryAMD =
+/// [`vkCmdWriteMarkerToMemoryAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteMarkerToMemoryAMD.html)
+///
+pub type FN_CmdWriteMarkerToMemoryAMD =
     unsafe extern "C" fn(CommandBufferHandle, *const MemoryMarkerInfoAMD);
 impl CommandBuffer {
     /// [`vkCmdWriteMarkerToMemoryAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteMarkerToMemoryAMD.html)
@@ -15105,7 +15827,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_write_marker_to_memory_amd(&self, p_info: *const MemoryMarkerInfoAMD) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdWriteMarkerToMemoryAMD>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdWriteMarkerToMemoryAMD>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdWriteMarkerToMemoryAMD as usize,
             ))
@@ -15114,7 +15836,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CreateAccelerationStructure2KHR = unsafe extern "C" fn(
+/// [`vkCreateAccelerationStructure2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateAccelerationStructure2KHR.html)
+///
+pub type FN_CreateAccelerationStructure2KHR = unsafe extern "C" fn(
     DeviceHandle,
     *const AccelerationStructureCreateInfo2KHR,
     *const AllocationCallbacks,
@@ -15150,7 +15874,7 @@ impl Device {
         p_acceleration_structure: *mut AccelerationStructureKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateAccelerationStructure2KHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateAccelerationStructure2KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateAccelerationStructure2KHR as usize,
             ))
@@ -15166,8 +15890,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdCopyBuffer2KHR =
-    unsafe extern "C" fn(CommandBufferHandle, *const CopyBufferInfo2);
+/// [`vkCmdCopyBuffer2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyBuffer2KHR.html)
+///
+pub type FN_CmdCopyBuffer2KHR = unsafe extern "C" fn(CommandBufferHandle, *const CopyBufferInfo2);
 impl CommandBuffer {
     /// [`vkCmdCopyBuffer2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyBuffer2KHR.html)
     ///
@@ -15194,7 +15919,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_copy_buffer_2_khr(&self, p_copy_buffer_info: *const CopyBufferInfo2) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyBuffer2KHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdCopyBuffer2KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdCopyBuffer2KHR as usize,
             ))
@@ -15203,8 +15928,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdCopyImage2KHR =
-    unsafe extern "C" fn(CommandBufferHandle, *const CopyImageInfo2);
+/// [`vkCmdCopyImage2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyImage2KHR.html)
+///
+pub type FN_CmdCopyImage2KHR = unsafe extern "C" fn(CommandBufferHandle, *const CopyImageInfo2);
 impl CommandBuffer {
     /// [`vkCmdCopyImage2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyImage2KHR.html)
     ///
@@ -15231,7 +15957,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_copy_image_2_khr(&self, p_copy_image_info: *const CopyImageInfo2) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyImage2KHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdCopyImage2KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdCopyImage2KHR as usize,
             ))
@@ -15240,7 +15966,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdCopyBufferToImage2KHR =
+/// [`vkCmdCopyBufferToImage2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyBufferToImage2KHR.html)
+///
+pub type FN_CmdCopyBufferToImage2KHR =
     unsafe extern "C" fn(CommandBufferHandle, *const CopyBufferToImageInfo2);
 impl CommandBuffer {
     /// [`vkCmdCopyBufferToImage2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyBufferToImage2KHR.html)
@@ -15271,7 +15999,7 @@ impl CommandBuffer {
         p_copy_buffer_to_image_info: *const CopyBufferToImageInfo2,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyBufferToImage2KHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdCopyBufferToImage2KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdCopyBufferToImage2KHR as usize,
             ))
@@ -15280,7 +16008,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdCopyImageToBuffer2KHR =
+/// [`vkCmdCopyImageToBuffer2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyImageToBuffer2KHR.html)
+///
+pub type FN_CmdCopyImageToBuffer2KHR =
     unsafe extern "C" fn(CommandBufferHandle, *const CopyImageToBufferInfo2);
 impl CommandBuffer {
     /// [`vkCmdCopyImageToBuffer2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyImageToBuffer2KHR.html)
@@ -15311,7 +16041,7 @@ impl CommandBuffer {
         p_copy_image_to_buffer_info: *const CopyImageToBufferInfo2,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyImageToBuffer2KHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdCopyImageToBuffer2KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdCopyImageToBuffer2KHR as usize,
             ))
@@ -15320,8 +16050,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdBlitImage2KHR =
-    unsafe extern "C" fn(CommandBufferHandle, *const BlitImageInfo2);
+/// [`vkCmdBlitImage2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBlitImage2KHR.html)
+///
+pub type FN_CmdBlitImage2KHR = unsafe extern "C" fn(CommandBufferHandle, *const BlitImageInfo2);
 impl CommandBuffer {
     /// [`vkCmdBlitImage2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBlitImage2KHR.html)
     ///
@@ -15346,7 +16077,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_blit_image_2_khr(&self, p_blit_image_info: *const BlitImageInfo2) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBlitImage2KHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBlitImage2KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdBlitImage2KHR as usize,
             ))
@@ -15355,7 +16086,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdResolveImage2KHR =
+/// [`vkCmdResolveImage2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdResolveImage2KHR.html)
+///
+pub type FN_CmdResolveImage2KHR =
     unsafe extern "C" fn(CommandBufferHandle, *const ResolveImageInfo2);
 impl CommandBuffer {
     /// [`vkCmdResolveImage2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdResolveImage2KHR.html)
@@ -15381,7 +16114,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_resolve_image_2_khr(&self, p_resolve_image_info: *const ResolveImageInfo2) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdResolveImage2KHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdResolveImage2KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdResolveImage2KHR as usize,
             ))
@@ -15390,8 +16123,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdTraceRaysIndirect2KHR =
-    unsafe extern "C" fn(CommandBufferHandle, DeviceAddress);
+/// [`vkCmdTraceRaysIndirect2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdTraceRaysIndirect2KHR.html)
+///
+pub type FN_CmdTraceRaysIndirect2KHR = unsafe extern "C" fn(CommandBufferHandle, DeviceAddress);
 impl CommandBuffer {
     /// [`vkCmdTraceRaysIndirect2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdTraceRaysIndirect2KHR.html)
     ///
@@ -15415,7 +16149,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_trace_rays_indirect_2_khr(&self, indirect_device_address: DeviceAddress) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdTraceRaysIndirect2KHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdTraceRaysIndirect2KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdTraceRaysIndirect2KHR as usize,
             ))
@@ -15424,7 +16158,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_GetDeviceBufferMemoryRequirementsKHR = unsafe extern "C" fn(
+/// [`vkGetDeviceBufferMemoryRequirementsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceBufferMemoryRequirementsKHR.html)
+///
+pub type FN_GetDeviceBufferMemoryRequirementsKHR = unsafe extern "C" fn(
     DeviceHandle,
     *const DeviceBufferMemoryRequirements,
     *mut MemoryRequirements2,
@@ -15447,7 +16183,7 @@ impl Device {
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceBufferMemoryRequirementsKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetDeviceBufferMemoryRequirementsKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetDeviceBufferMemoryRequirementsKHR as usize,
@@ -15458,7 +16194,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetDeviceImageMemoryRequirementsKHR = unsafe extern "C" fn(
+/// [`vkGetDeviceImageMemoryRequirementsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceImageMemoryRequirementsKHR.html)
+///
+pub type FN_GetDeviceImageMemoryRequirementsKHR = unsafe extern "C" fn(
     DeviceHandle,
     *const DeviceImageMemoryRequirements,
     *mut MemoryRequirements2,
@@ -15481,7 +16219,7 @@ impl Device {
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceImageMemoryRequirementsKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetDeviceImageMemoryRequirementsKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetDeviceImageMemoryRequirementsKHR as usize,
@@ -15492,7 +16230,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetDeviceImageSparseMemoryRequirementsKHR = unsafe extern "C" fn(
+/// [`vkGetDeviceImageSparseMemoryRequirementsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceImageSparseMemoryRequirementsKHR.html)
+///
+pub type FN_GetDeviceImageSparseMemoryRequirementsKHR = unsafe extern "C" fn(
     DeviceHandle,
     *const DeviceImageMemoryRequirements,
     *mut u32,
@@ -15520,7 +16260,7 @@ impl Device {
         p_sparse_memory_requirements: *mut SparseImageMemoryRequirements2,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceImageSparseMemoryRequirementsKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetDeviceImageSparseMemoryRequirementsKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetDeviceImageSparseMemoryRequirementsKHR as usize,
@@ -15538,7 +16278,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdBindIndexBuffer2KHR =
+/// [`vkCmdBindIndexBuffer2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindIndexBuffer2KHR.html)
+///
+pub type FN_CmdBindIndexBuffer2KHR =
     unsafe extern "C" fn(CommandBufferHandle, Buffer, DeviceSize, DeviceSize, IndexType);
 impl CommandBuffer {
     /// [`vkCmdBindIndexBuffer2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindIndexBuffer2KHR.html)
@@ -15573,7 +16315,7 @@ impl CommandBuffer {
         index_type: IndexType,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBindIndexBuffer2KHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBindIndexBuffer2KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdBindIndexBuffer2KHR as usize,
             ))
@@ -15582,7 +16324,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_GetRenderingAreaGranularityKHR =
+/// [`vkGetRenderingAreaGranularityKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRenderingAreaGranularityKHR.html)
+///
+pub type FN_GetRenderingAreaGranularityKHR =
     unsafe extern "C" fn(DeviceHandle, *const RenderingAreaInfo, *mut Extent2D);
 impl Device {
     /// [`vkGetRenderingAreaGranularityKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRenderingAreaGranularityKHR.html)
@@ -15602,7 +16346,7 @@ impl Device {
         p_granularity: *mut Extent2D,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetRenderingAreaGranularityKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetRenderingAreaGranularityKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetRenderingAreaGranularityKHR as usize,
             ))
@@ -15611,7 +16355,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetDeviceImageSubresourceLayoutKHR =
+/// [`vkGetDeviceImageSubresourceLayoutKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceImageSubresourceLayoutKHR.html)
+///
+pub type FN_GetDeviceImageSubresourceLayoutKHR =
     unsafe extern "C" fn(DeviceHandle, *const DeviceImageSubresourceInfo, *mut SubresourceLayout2);
 impl Device {
     /// [`vkGetDeviceImageSubresourceLayoutKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceImageSubresourceLayoutKHR.html)
@@ -15631,7 +16377,7 @@ impl Device {
         p_layout: *mut SubresourceLayout2,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceImageSubresourceLayoutKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetDeviceImageSubresourceLayoutKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetDeviceImageSubresourceLayoutKHR as usize,
@@ -15642,7 +16388,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetImageSubresourceLayout2KHR =
+/// [`vkGetImageSubresourceLayout2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageSubresourceLayout2KHR.html)
+///
+pub type FN_GetImageSubresourceLayout2KHR =
     unsafe extern "C" fn(DeviceHandle, Image, *const ImageSubresource2, *mut SubresourceLayout2);
 impl Device {
     /// [`vkGetImageSubresourceLayout2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageSubresourceLayout2KHR.html)
@@ -15663,7 +16411,7 @@ impl Device {
         p_layout: *mut SubresourceLayout2,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetImageSubresourceLayout2KHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetImageSubresourceLayout2KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetImageSubresourceLayout2KHR as usize,
             ))
@@ -15672,7 +16420,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_WaitForPresent2KHR =
+/// [`vkWaitForPresent2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkWaitForPresent2KHR.html)
+///
+pub type FN_WaitForPresent2KHR =
     unsafe extern "C" fn(DeviceHandle, SwapchainKHR, *const PresentWait2InfoKHR) -> ResultCode;
 impl Device {
     /// [`vkWaitForPresent2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkWaitForPresent2KHR.html)
@@ -15706,7 +16456,7 @@ impl Device {
         p_present_wait_2_info: *const PresentWait2InfoKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_WaitForPresent2KHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_WaitForPresent2KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkWaitForPresent2KHR as usize,
             ))
@@ -15715,7 +16465,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CreatePipelineBinariesKHR = unsafe extern "C" fn(
+/// [`vkCreatePipelineBinariesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreatePipelineBinariesKHR.html)
+///
+pub type FN_CreatePipelineBinariesKHR = unsafe extern "C" fn(
     DeviceHandle,
     *const PipelineBinaryCreateInfoKHR,
     *const AllocationCallbacks,
@@ -15754,7 +16506,7 @@ impl Device {
         p_binaries: *mut PipelineBinaryHandlesInfoKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreatePipelineBinariesKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreatePipelineBinariesKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreatePipelineBinariesKHR as usize,
             ))
@@ -15763,7 +16515,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroyPipelineBinaryKHR =
+/// [`vkDestroyPipelineBinaryKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyPipelineBinaryKHR.html)
+///
+pub type FN_DestroyPipelineBinaryKHR =
     unsafe extern "C" fn(DeviceHandle, PipelineBinaryKHR, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyPipelineBinaryKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyPipelineBinaryKHR.html)
@@ -15786,7 +16540,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyPipelineBinaryKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyPipelineBinaryKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyPipelineBinaryKHR as usize,
             ))
@@ -15795,7 +16549,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetPipelineKeyKHR = unsafe extern "C" fn(
+/// [`vkGetPipelineKeyKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPipelineKeyKHR.html)
+///
+pub type FN_GetPipelineKeyKHR = unsafe extern "C" fn(
     DeviceHandle,
     *const PipelineCreateInfoKHR,
     *mut PipelineBinaryKeyKHR,
@@ -15829,7 +16585,7 @@ impl Device {
         p_pipeline_key: *mut PipelineBinaryKeyKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPipelineKeyKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetPipelineKeyKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetPipelineKeyKHR as usize,
             ))
@@ -15838,7 +16594,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetPipelineBinaryDataKHR = unsafe extern "C" fn(
+/// [`vkGetPipelineBinaryDataKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPipelineBinaryDataKHR.html)
+///
+pub type FN_GetPipelineBinaryDataKHR = unsafe extern "C" fn(
     DeviceHandle,
     *const PipelineBinaryDataInfoKHR,
     *mut PipelineBinaryKeyKHR,
@@ -15877,7 +16635,7 @@ impl Device {
         p_pipeline_binary_data: *mut c_void,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPipelineBinaryDataKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetPipelineBinaryDataKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetPipelineBinaryDataKHR as usize,
             ))
@@ -15894,7 +16652,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_ReleaseCapturedPipelineDataKHR = unsafe extern "C" fn(
+/// [`vkReleaseCapturedPipelineDataKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkReleaseCapturedPipelineDataKHR.html)
+///
+pub type FN_ReleaseCapturedPipelineDataKHR = unsafe extern "C" fn(
     DeviceHandle,
     *const ReleaseCapturedPipelineDataInfoKHR,
     *const AllocationCallbacks,
@@ -15926,7 +16686,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_ReleaseCapturedPipelineDataKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_ReleaseCapturedPipelineDataKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkReleaseCapturedPipelineDataKHR as usize,
             ))
@@ -15935,7 +16695,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_ReleaseSwapchainImagesKHR =
+/// [`vkReleaseSwapchainImagesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkReleaseSwapchainImagesKHR.html)
+///
+pub type FN_ReleaseSwapchainImagesKHR =
     unsafe extern "C" fn(DeviceHandle, *const ReleaseSwapchainImagesInfoKHR) -> ResultCode;
 impl Device {
     /// [`vkReleaseSwapchainImagesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkReleaseSwapchainImagesKHR.html)
@@ -15961,7 +16723,7 @@ impl Device {
         p_release_info: *const ReleaseSwapchainImagesInfoKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_ReleaseSwapchainImagesKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_ReleaseSwapchainImagesKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkReleaseSwapchainImagesKHR as usize,
             ))
@@ -15970,12 +16732,13 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceCooperativeMatrixPropertiesKHR =
-    unsafe extern "C" fn(
-        PhysicalDeviceHandle,
-        *mut u32,
-        *mut CooperativeMatrixPropertiesKHR,
-    ) -> ResultCode;
+/// [`vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR.html)
+///
+pub type FN_GetPhysicalDeviceCooperativeMatrixPropertiesKHR = unsafe extern "C" fn(
+    PhysicalDeviceHandle,
+    *mut u32,
+    *mut CooperativeMatrixPropertiesKHR,
+) -> ResultCode;
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR.html)
     ///
@@ -16006,7 +16769,7 @@ impl PhysicalDevice {
         p_properties: *mut CooperativeMatrixPropertiesKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceCooperativeMatrixPropertiesKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceCooperativeMatrixPropertiesKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR as usize,
@@ -16017,7 +16780,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_CmdSetLineStippleKHR = unsafe extern "C" fn(CommandBufferHandle, u32, u16);
+/// [`vkCmdSetLineStippleKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetLineStippleKHR.html)
+///
+pub type FN_CmdSetLineStippleKHR = unsafe extern "C" fn(CommandBufferHandle, u32, u16);
 impl CommandBuffer {
     /// [`vkCmdSetLineStippleKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetLineStippleKHR.html)
     ///
@@ -16046,7 +16811,7 @@ impl CommandBuffer {
         line_stipple_pattern: u16,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetLineStippleKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetLineStippleKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetLineStippleKHR as usize,
             ))
@@ -16055,7 +16820,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceCalibrateableTimeDomainsKHR =
+/// [`vkGetPhysicalDeviceCalibrateableTimeDomainsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceCalibrateableTimeDomainsKHR.html)
+///
+pub type FN_GetPhysicalDeviceCalibrateableTimeDomainsKHR =
     unsafe extern "C" fn(PhysicalDeviceHandle, *mut u32, *mut TimeDomainKHR) -> ResultCode;
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceCalibrateableTimeDomainsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceCalibrateableTimeDomainsKHR.html)
@@ -16087,7 +16854,7 @@ impl PhysicalDevice {
         p_time_domains: *mut TimeDomainKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceCalibrateableTimeDomainsKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceCalibrateableTimeDomainsKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceCalibrateableTimeDomainsKHR as usize,
@@ -16098,7 +16865,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetCalibratedTimestampsKHR = unsafe extern "C" fn(
+/// [`vkGetCalibratedTimestampsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetCalibratedTimestampsKHR.html)
+///
+pub type FN_GetCalibratedTimestampsKHR = unsafe extern "C" fn(
     DeviceHandle,
     u32,
     *const CalibratedTimestampInfoKHR,
@@ -16133,7 +16902,7 @@ impl Device {
         p_max_deviation: *mut u64,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetCalibratedTimestampsKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetCalibratedTimestampsKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetCalibratedTimestampsKHR as usize,
             ))
@@ -16150,7 +16919,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdBindDescriptorSets2KHR =
+/// [`vkCmdBindDescriptorSets2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindDescriptorSets2KHR.html)
+///
+pub type FN_CmdBindDescriptorSets2KHR =
     unsafe extern "C" fn(CommandBufferHandle, *const BindDescriptorSetsInfo);
 impl CommandBuffer {
     /// [`vkCmdBindDescriptorSets2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindDescriptorSets2KHR.html)
@@ -16180,7 +16951,7 @@ impl CommandBuffer {
         p_bind_descriptor_sets_info: *const BindDescriptorSetsInfo,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBindDescriptorSets2KHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBindDescriptorSets2KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdBindDescriptorSets2KHR as usize,
             ))
@@ -16189,7 +16960,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdPushConstants2KHR =
+/// [`vkCmdPushConstants2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushConstants2KHR.html)
+///
+pub type FN_CmdPushConstants2KHR =
     unsafe extern "C" fn(CommandBufferHandle, *const PushConstantsInfo);
 impl CommandBuffer {
     /// [`vkCmdPushConstants2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushConstants2KHR.html)
@@ -16216,7 +16989,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_push_constants_2_khr(&self, p_push_constants_info: *const PushConstantsInfo) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdPushConstants2KHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdPushConstants2KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdPushConstants2KHR as usize,
             ))
@@ -16225,7 +16998,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdPushDescriptorSet2KHR =
+/// [`vkCmdPushDescriptorSet2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushDescriptorSet2KHR.html)
+///
+pub type FN_CmdPushDescriptorSet2KHR =
     unsafe extern "C" fn(CommandBufferHandle, *const PushDescriptorSetInfo);
 impl CommandBuffer {
     /// [`vkCmdPushDescriptorSet2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushDescriptorSet2KHR.html)
@@ -16255,7 +17030,7 @@ impl CommandBuffer {
         p_push_descriptor_set_info: *const PushDescriptorSetInfo,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdPushDescriptorSet2KHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdPushDescriptorSet2KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdPushDescriptorSet2KHR as usize,
             ))
@@ -16264,7 +17039,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdPushDescriptorSetWithTemplate2KHR =
+/// [`vkCmdPushDescriptorSetWithTemplate2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushDescriptorSetWithTemplate2KHR.html)
+///
+pub type FN_CmdPushDescriptorSetWithTemplate2KHR =
     unsafe extern "C" fn(CommandBufferHandle, *const PushDescriptorSetWithTemplateInfo);
 impl CommandBuffer {
     /// [`vkCmdPushDescriptorSetWithTemplate2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushDescriptorSetWithTemplate2KHR.html)
@@ -16294,7 +17071,7 @@ impl CommandBuffer {
         p_push_descriptor_set_with_template_info: *const PushDescriptorSetWithTemplateInfo,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdPushDescriptorSetWithTemplate2KHR>(
+            std::mem::transmute::<vkVoidFunction, FN_CmdPushDescriptorSetWithTemplate2KHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkCmdPushDescriptorSetWithTemplate2KHR as usize,
@@ -16305,7 +17082,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetDescriptorBufferOffsets2EXT =
+/// [`vkCmdSetDescriptorBufferOffsets2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDescriptorBufferOffsets2EXT.html)
+///
+pub type FN_CmdSetDescriptorBufferOffsets2EXT =
     unsafe extern "C" fn(CommandBufferHandle, *const SetDescriptorBufferOffsetsInfoEXT);
 impl CommandBuffer {
     /// [`vkCmdSetDescriptorBufferOffsets2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDescriptorBufferOffsets2EXT.html)
@@ -16340,18 +17119,18 @@ impl CommandBuffer {
         p_set_descriptor_buffer_offsets_info: *const SetDescriptorBufferOffsetsInfoEXT,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDescriptorBufferOffsets2EXT>(
-                vtable_get(
-                    self.vtable(),
-                    InstanceCommand::vkCmdSetDescriptorBufferOffsets2EXT as usize,
-                ),
-            )
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetDescriptorBufferOffsets2EXT>(vtable_get(
+                self.vtable(),
+                InstanceCommand::vkCmdSetDescriptorBufferOffsets2EXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_set_descriptor_buffer_offsets_info) }
     }
 }
 
-pub(crate) type FUN_CmdBindDescriptorBufferEmbeddedSamplers2EXT =
+/// [`vkCmdBindDescriptorBufferEmbeddedSamplers2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindDescriptorBufferEmbeddedSamplers2EXT.html)
+///
+pub type FN_CmdBindDescriptorBufferEmbeddedSamplers2EXT =
     unsafe extern "C" fn(CommandBufferHandle, *const BindDescriptorBufferEmbeddedSamplersInfoEXT);
 impl CommandBuffer {
     /// [`vkCmdBindDescriptorBufferEmbeddedSamplers2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindDescriptorBufferEmbeddedSamplers2EXT.html)
@@ -16385,7 +17164,7 @@ impl CommandBuffer {
         p_bind_descriptor_buffer_embedded_samplers_info: *const BindDescriptorBufferEmbeddedSamplersInfoEXT,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBindDescriptorBufferEmbeddedSamplers2EXT>(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBindDescriptorBufferEmbeddedSamplers2EXT>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkCmdBindDescriptorBufferEmbeddedSamplers2EXT as usize,
@@ -16396,7 +17175,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdCopyMemoryIndirectKHR =
+/// [`vkCmdCopyMemoryIndirectKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMemoryIndirectKHR.html)
+///
+pub type FN_CmdCopyMemoryIndirectKHR =
     unsafe extern "C" fn(CommandBufferHandle, *const CopyMemoryIndirectInfoKHR);
 impl CommandBuffer {
     /// [`vkCmdCopyMemoryIndirectKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMemoryIndirectKHR.html)
@@ -16426,7 +17207,7 @@ impl CommandBuffer {
         p_copy_memory_indirect_info: *const CopyMemoryIndirectInfoKHR,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyMemoryIndirectKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdCopyMemoryIndirectKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdCopyMemoryIndirectKHR as usize,
             ))
@@ -16435,7 +17216,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdCopyMemoryToImageIndirectKHR =
+/// [`vkCmdCopyMemoryToImageIndirectKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMemoryToImageIndirectKHR.html)
+///
+pub type FN_CmdCopyMemoryToImageIndirectKHR =
     unsafe extern "C" fn(CommandBufferHandle, *const CopyMemoryToImageIndirectInfoKHR);
 impl CommandBuffer {
     /// [`vkCmdCopyMemoryToImageIndirectKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMemoryToImageIndirectKHR.html)
@@ -16465,7 +17248,7 @@ impl CommandBuffer {
         p_copy_memory_to_image_indirect_info: *const CopyMemoryToImageIndirectInfoKHR,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyMemoryToImageIndirectKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdCopyMemoryToImageIndirectKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdCopyMemoryToImageIndirectKHR as usize,
             ))
@@ -16474,7 +17257,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_GetDeviceFaultReportsKHR =
+/// [`vkGetDeviceFaultReportsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceFaultReportsKHR.html)
+///
+pub type FN_GetDeviceFaultReportsKHR =
     unsafe extern "C" fn(DeviceHandle, u64, *mut u32, *mut DeviceFaultInfoKHR) -> ResultCode;
 impl Device {
     /// [`vkGetDeviceFaultReportsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceFaultReportsKHR.html)
@@ -16507,7 +17292,7 @@ impl Device {
         p_fault_info: *mut DeviceFaultInfoKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceFaultReportsKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetDeviceFaultReportsKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetDeviceFaultReportsKHR as usize,
             ))
@@ -16516,7 +17301,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetDeviceFaultDebugInfoKHR =
+/// [`vkGetDeviceFaultDebugInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceFaultDebugInfoKHR.html)
+///
+pub type FN_GetDeviceFaultDebugInfoKHR =
     unsafe extern "C" fn(DeviceHandle, *mut DeviceFaultDebugInfoKHR) -> ResultCode;
 impl Device {
     /// [`vkGetDeviceFaultDebugInfoKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceFaultDebugInfoKHR.html)
@@ -16544,7 +17331,7 @@ impl Device {
         p_debug_info: *mut DeviceFaultDebugInfoKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceFaultDebugInfoKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetDeviceFaultDebugInfoKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetDeviceFaultDebugInfoKHR as usize,
             ))
@@ -16553,7 +17340,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdEndRendering2KHR =
+/// [`vkCmdEndRendering2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndRendering2KHR.html)
+///
+pub type FN_CmdEndRendering2KHR =
     unsafe extern "C" fn(CommandBufferHandle, *const RenderingEndInfoKHR);
 impl CommandBuffer {
     /// [`vkCmdEndRendering2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndRendering2KHR.html)
@@ -16582,7 +17371,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_end_rendering_2_khr(&self, p_rendering_end_info: *const RenderingEndInfoKHR) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdEndRendering2KHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdEndRendering2KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdEndRendering2KHR as usize,
             ))
@@ -16591,7 +17380,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CreateDebugReportCallbackEXT = unsafe extern "C" fn(
+/// [`vkCreateDebugReportCallbackEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDebugReportCallbackEXT.html)
+///
+pub type FN_CreateDebugReportCallbackEXT = unsafe extern "C" fn(
     InstanceHandle,
     *const DebugReportCallbackCreateInfoEXT,
     *const AllocationCallbacks,
@@ -16627,7 +17418,7 @@ impl Instance {
         p_callback: *mut DebugReportCallbackEXT,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateDebugReportCallbackEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateDebugReportCallbackEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateDebugReportCallbackEXT as usize,
             ))
@@ -16636,7 +17427,9 @@ impl Instance {
     }
 }
 
-pub(crate) type FUN_DestroyDebugReportCallbackEXT =
+/// [`vkDestroyDebugReportCallbackEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDebugReportCallbackEXT.html)
+///
+pub type FN_DestroyDebugReportCallbackEXT =
     unsafe extern "C" fn(InstanceHandle, DebugReportCallbackEXT, *const AllocationCallbacks);
 impl Instance {
     /// [`vkDestroyDebugReportCallbackEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDebugReportCallbackEXT.html)
@@ -16660,7 +17453,7 @@ impl Instance {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyDebugReportCallbackEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyDebugReportCallbackEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyDebugReportCallbackEXT as usize,
             ))
@@ -16669,7 +17462,9 @@ impl Instance {
     }
 }
 
-pub(crate) type FUN_DebugReportMessageEXT = unsafe extern "C" fn(
+/// [`vkDebugReportMessageEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDebugReportMessageEXT.html)
+///
+pub type FN_DebugReportMessageEXT = unsafe extern "C" fn(
     InstanceHandle,
     DebugReportFlagsEXT,
     DebugReportObjectTypeEXT,
@@ -16702,7 +17497,7 @@ impl Instance {
         p_message: *const c_char,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DebugReportMessageEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DebugReportMessageEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDebugReportMessageEXT as usize,
             ))
@@ -16722,7 +17517,9 @@ impl Instance {
     }
 }
 
-pub(crate) type FUN_DebugMarkerSetObjectTagEXT =
+/// [`vkDebugMarkerSetObjectTagEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDebugMarkerSetObjectTagEXT.html)
+///
+pub type FN_DebugMarkerSetObjectTagEXT =
     unsafe extern "C" fn(DeviceHandle, *const DebugMarkerObjectTagInfoEXT) -> ResultCode;
 impl Device {
     /// [`vkDebugMarkerSetObjectTagEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDebugMarkerSetObjectTagEXT.html)
@@ -16750,7 +17547,7 @@ impl Device {
         p_tag_info: *const DebugMarkerObjectTagInfoEXT,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DebugMarkerSetObjectTagEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DebugMarkerSetObjectTagEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDebugMarkerSetObjectTagEXT as usize,
             ))
@@ -16759,7 +17556,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DebugMarkerSetObjectNameEXT =
+/// [`vkDebugMarkerSetObjectNameEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDebugMarkerSetObjectNameEXT.html)
+///
+pub type FN_DebugMarkerSetObjectNameEXT =
     unsafe extern "C" fn(DeviceHandle, *const DebugMarkerObjectNameInfoEXT) -> ResultCode;
 impl Device {
     /// [`vkDebugMarkerSetObjectNameEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDebugMarkerSetObjectNameEXT.html)
@@ -16787,7 +17586,7 @@ impl Device {
         p_name_info: *const DebugMarkerObjectNameInfoEXT,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DebugMarkerSetObjectNameEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DebugMarkerSetObjectNameEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDebugMarkerSetObjectNameEXT as usize,
             ))
@@ -16796,7 +17595,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdDebugMarkerBeginEXT =
+/// [`vkCmdDebugMarkerBeginEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDebugMarkerBeginEXT.html)
+///
+pub type FN_CmdDebugMarkerBeginEXT =
     unsafe extern "C" fn(CommandBufferHandle, *const DebugMarkerMarkerInfoEXT);
 impl CommandBuffer {
     /// [`vkCmdDebugMarkerBeginEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDebugMarkerBeginEXT.html)
@@ -16830,7 +17631,7 @@ impl CommandBuffer {
         p_marker_info: *const DebugMarkerMarkerInfoEXT,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDebugMarkerBeginEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdDebugMarkerBeginEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdDebugMarkerBeginEXT as usize,
             ))
@@ -16839,7 +17640,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdDebugMarkerEndEXT = unsafe extern "C" fn(CommandBufferHandle);
+/// [`vkCmdDebugMarkerEndEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDebugMarkerEndEXT.html)
+///
+pub type FN_CmdDebugMarkerEndEXT = unsafe extern "C" fn(CommandBufferHandle);
 impl CommandBuffer {
     /// [`vkCmdDebugMarkerEndEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDebugMarkerEndEXT.html)
     ///
@@ -16869,7 +17672,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_debug_marker_end_ext(&self) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDebugMarkerEndEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdDebugMarkerEndEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdDebugMarkerEndEXT as usize,
             ))
@@ -16878,7 +17681,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdDebugMarkerInsertEXT =
+/// [`vkCmdDebugMarkerInsertEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDebugMarkerInsertEXT.html)
+///
+pub type FN_CmdDebugMarkerInsertEXT =
     unsafe extern "C" fn(CommandBufferHandle, *const DebugMarkerMarkerInfoEXT);
 impl CommandBuffer {
     /// [`vkCmdDebugMarkerInsertEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDebugMarkerInsertEXT.html)
@@ -16912,7 +17717,7 @@ impl CommandBuffer {
         p_marker_info: *const DebugMarkerMarkerInfoEXT,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDebugMarkerInsertEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdDebugMarkerInsertEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdDebugMarkerInsertEXT as usize,
             ))
@@ -16921,7 +17726,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdBindTransformFeedbackBuffersEXT = unsafe extern "C" fn(
+/// [`vkCmdBindTransformFeedbackBuffersEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindTransformFeedbackBuffersEXT.html)
+///
+pub type FN_CmdBindTransformFeedbackBuffersEXT = unsafe extern "C" fn(
     CommandBufferHandle,
     u32,
     u32,
@@ -16968,7 +17775,7 @@ impl CommandBuffer {
         p_sizes: *const DeviceSize,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBindTransformFeedbackBuffersEXT>(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBindTransformFeedbackBuffersEXT>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkCmdBindTransformFeedbackBuffersEXT as usize,
@@ -16988,7 +17795,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdBeginTransformFeedbackEXT =
+/// [`vkCmdBeginTransformFeedbackEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginTransformFeedbackEXT.html)
+///
+pub type FN_CmdBeginTransformFeedbackEXT =
     unsafe extern "C" fn(CommandBufferHandle, u32, u32, *const Buffer, *const DeviceSize);
 impl CommandBuffer {
     /// [`vkCmdBeginTransformFeedbackEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginTransformFeedbackEXT.html)
@@ -17029,7 +17838,7 @@ impl CommandBuffer {
         p_counter_buffer_offsets: *const DeviceSize,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBeginTransformFeedbackEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBeginTransformFeedbackEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdBeginTransformFeedbackEXT as usize,
             ))
@@ -17046,7 +17855,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdEndTransformFeedbackEXT =
+/// [`vkCmdEndTransformFeedbackEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndTransformFeedbackEXT.html)
+///
+pub type FN_CmdEndTransformFeedbackEXT =
     unsafe extern "C" fn(CommandBufferHandle, u32, u32, *const Buffer, *const DeviceSize);
 impl CommandBuffer {
     /// [`vkCmdEndTransformFeedbackEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndTransformFeedbackEXT.html)
@@ -17087,7 +17898,7 @@ impl CommandBuffer {
         p_counter_buffer_offsets: *const DeviceSize,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdEndTransformFeedbackEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdEndTransformFeedbackEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdEndTransformFeedbackEXT as usize,
             ))
@@ -17104,7 +17915,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdBeginQueryIndexedEXT =
+/// [`vkCmdBeginQueryIndexedEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginQueryIndexedEXT.html)
+///
+pub type FN_CmdBeginQueryIndexedEXT =
     unsafe extern "C" fn(CommandBufferHandle, QueryPool, u32, QueryControlFlags, u32);
 impl CommandBuffer {
     /// [`vkCmdBeginQueryIndexedEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginQueryIndexedEXT.html)
@@ -17142,7 +17955,7 @@ impl CommandBuffer {
         index: u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBeginQueryIndexedEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBeginQueryIndexedEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdBeginQueryIndexedEXT as usize,
             ))
@@ -17151,8 +17964,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdEndQueryIndexedEXT =
-    unsafe extern "C" fn(CommandBufferHandle, QueryPool, u32, u32);
+/// [`vkCmdEndQueryIndexedEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndQueryIndexedEXT.html)
+///
+pub type FN_CmdEndQueryIndexedEXT = unsafe extern "C" fn(CommandBufferHandle, QueryPool, u32, u32);
 impl CommandBuffer {
     /// [`vkCmdEndQueryIndexedEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndQueryIndexedEXT.html)
     ///
@@ -17180,7 +17994,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_end_query_indexed_ext(&self, query_pool: QueryPool, query: u32, index: u32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdEndQueryIndexedEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdEndQueryIndexedEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdEndQueryIndexedEXT as usize,
             ))
@@ -17189,7 +18003,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdDrawIndirectByteCountEXT =
+/// [`vkCmdDrawIndirectByteCountEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndirectByteCountEXT.html)
+///
+pub type FN_CmdDrawIndirectByteCountEXT =
     unsafe extern "C" fn(CommandBufferHandle, u32, u32, Buffer, DeviceSize, u32, u32);
 impl CommandBuffer {
     /// [`vkCmdDrawIndirectByteCountEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndirectByteCountEXT.html)
@@ -17228,7 +18044,7 @@ impl CommandBuffer {
         vertex_stride: u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndirectByteCountEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdDrawIndirectByteCountEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdDrawIndirectByteCountEXT as usize,
             ))
@@ -17247,7 +18063,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CreateCuModuleNVX = unsafe extern "C" fn(
+/// [`vkCreateCuModuleNVX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateCuModuleNVX.html)
+///
+pub type FN_CreateCuModuleNVX = unsafe extern "C" fn(
     DeviceHandle,
     *const CuModuleCreateInfoNVX,
     *const AllocationCallbacks,
@@ -17283,7 +18101,7 @@ impl Device {
         p_module: *mut CuModuleNVX,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateCuModuleNVX>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateCuModuleNVX>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateCuModuleNVX as usize,
             ))
@@ -17292,7 +18110,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CreateCuFunctionNVX = unsafe extern "C" fn(
+/// [`vkCreateCuFunctionNVX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateCuFunctionNVX.html)
+///
+pub type FN_CreateCuFunctionNVX = unsafe extern "C" fn(
     DeviceHandle,
     *const CuFunctionCreateInfoNVX,
     *const AllocationCallbacks,
@@ -17328,7 +18148,7 @@ impl Device {
         p_function: *mut CuFunctionNVX,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateCuFunctionNVX>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateCuFunctionNVX>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateCuFunctionNVX as usize,
             ))
@@ -17337,7 +18157,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroyCuModuleNVX =
+/// [`vkDestroyCuModuleNVX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyCuModuleNVX.html)
+///
+pub type FN_DestroyCuModuleNVX =
     unsafe extern "C" fn(DeviceHandle, CuModuleNVX, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyCuModuleNVX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyCuModuleNVX.html)
@@ -17359,7 +18181,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyCuModuleNVX>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyCuModuleNVX>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyCuModuleNVX as usize,
             ))
@@ -17368,7 +18190,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroyCuFunctionNVX =
+/// [`vkDestroyCuFunctionNVX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyCuFunctionNVX.html)
+///
+pub type FN_DestroyCuFunctionNVX =
     unsafe extern "C" fn(DeviceHandle, CuFunctionNVX, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyCuFunctionNVX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyCuFunctionNVX.html)
@@ -17390,7 +18214,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyCuFunctionNVX>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyCuFunctionNVX>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyCuFunctionNVX as usize,
             ))
@@ -17399,7 +18223,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdCuLaunchKernelNVX =
+/// [`vkCmdCuLaunchKernelNVX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCuLaunchKernelNVX.html)
+///
+pub type FN_CmdCuLaunchKernelNVX =
     unsafe extern "C" fn(CommandBufferHandle, *const CuLaunchInfoNVX);
 impl CommandBuffer {
     /// [`vkCmdCuLaunchKernelNVX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCuLaunchKernelNVX.html)
@@ -17425,7 +18251,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_cu_launch_kernel_nvx(&self, p_launch_info: *const CuLaunchInfoNVX) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdCuLaunchKernelNVX>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdCuLaunchKernelNVX>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdCuLaunchKernelNVX as usize,
             ))
@@ -17434,7 +18260,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_GetImageViewHandleNVX =
+/// [`vkGetImageViewHandleNVX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageViewHandleNVX.html)
+///
+pub type FN_GetImageViewHandleNVX =
     unsafe extern "C" fn(DeviceHandle, *const ImageViewHandleInfoNVX) -> u32;
 impl Device {
     /// [`vkGetImageViewHandleNVX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageViewHandleNVX.html)
@@ -17449,7 +18277,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn get_image_view_handle_nvx(&self, p_info: *const ImageViewHandleInfoNVX) -> u32 {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetImageViewHandleNVX>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetImageViewHandleNVX>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetImageViewHandleNVX as usize,
             ))
@@ -17458,7 +18286,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetImageViewHandle64NVX =
+/// [`vkGetImageViewHandle64NVX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageViewHandle64NVX.html)
+///
+pub type FN_GetImageViewHandle64NVX =
     unsafe extern "C" fn(DeviceHandle, *const ImageViewHandleInfoNVX) -> u64;
 impl Device {
     /// [`vkGetImageViewHandle64NVX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageViewHandle64NVX.html)
@@ -17476,7 +18306,7 @@ impl Device {
         p_info: *const ImageViewHandleInfoNVX,
     ) -> u64 {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetImageViewHandle64NVX>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetImageViewHandle64NVX>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetImageViewHandle64NVX as usize,
             ))
@@ -17485,7 +18315,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetImageViewAddressNVX =
+/// [`vkGetImageViewAddressNVX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageViewAddressNVX.html)
+///
+pub type FN_GetImageViewAddressNVX =
     unsafe extern "C" fn(DeviceHandle, ImageView, *mut ImageViewAddressPropertiesNVX) -> ResultCode;
 impl Device {
     /// [`vkGetImageViewAddressNVX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageViewAddressNVX.html)
@@ -17512,7 +18344,7 @@ impl Device {
         p_properties: *mut ImageViewAddressPropertiesNVX,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetImageViewAddressNVX>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetImageViewAddressNVX>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetImageViewAddressNVX as usize,
             ))
@@ -17521,7 +18353,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetDeviceCombinedImageSamplerIndexNVX =
+/// [`vkGetDeviceCombinedImageSamplerIndexNVX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceCombinedImageSamplerIndexNVX.html)
+///
+pub type FN_GetDeviceCombinedImageSamplerIndexNVX =
     unsafe extern "C" fn(DeviceHandle, u64, u64) -> u64;
 impl Device {
     /// [`vkGetDeviceCombinedImageSamplerIndexNVX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceCombinedImageSamplerIndexNVX.html)
@@ -17540,7 +18374,7 @@ impl Device {
         sampler_index: u64,
     ) -> u64 {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceCombinedImageSamplerIndexNVX>(
+            std::mem::transmute::<vkVoidFunction, FN_GetDeviceCombinedImageSamplerIndexNVX>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetDeviceCombinedImageSamplerIndexNVX as usize,
@@ -17551,7 +18385,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdDrawIndirectCountAMD =
+/// [`vkCmdDrawIndirectCountAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndirectCountAMD.html)
+///
+pub type FN_CmdDrawIndirectCountAMD =
     unsafe extern "C" fn(CommandBufferHandle, Buffer, DeviceSize, Buffer, DeviceSize, u32, u32);
 impl CommandBuffer {
     /// [`vkCmdDrawIndirectCountAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndirectCountAMD.html)
@@ -17585,7 +18421,7 @@ impl CommandBuffer {
         stride: u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndirectCountAMD>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdDrawIndirectCountAMD>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdDrawIndirectCountAMD as usize,
             ))
@@ -17604,7 +18440,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdDrawIndexedIndirectCountAMD =
+/// [`vkCmdDrawIndexedIndirectCountAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndexedIndirectCountAMD.html)
+///
+pub type FN_CmdDrawIndexedIndirectCountAMD =
     unsafe extern "C" fn(CommandBufferHandle, Buffer, DeviceSize, Buffer, DeviceSize, u32, u32);
 impl CommandBuffer {
     /// [`vkCmdDrawIndexedIndirectCountAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawIndexedIndirectCountAMD.html)
@@ -17638,7 +18476,7 @@ impl CommandBuffer {
         stride: u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndexedIndirectCountAMD>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdDrawIndexedIndirectCountAMD>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdDrawIndexedIndirectCountAMD as usize,
             ))
@@ -17657,7 +18495,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_GetShaderInfoAMD = unsafe extern "C" fn(
+/// [`vkGetShaderInfoAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetShaderInfoAMD.html)
+///
+pub type FN_GetShaderInfoAMD = unsafe extern "C" fn(
     DeviceHandle,
     Pipeline,
     ShaderStageFlags,
@@ -17698,7 +18538,7 @@ impl Device {
         p_info: *mut c_void,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetShaderInfoAMD>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetShaderInfoAMD>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetShaderInfoAMD as usize,
             ))
@@ -17716,7 +18556,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CreateStreamDescriptorSurfaceGGP = unsafe extern "C" fn(
+/// [`vkCreateStreamDescriptorSurfaceGGP`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateStreamDescriptorSurfaceGGP.html)
+///
+pub type FN_CreateStreamDescriptorSurfaceGGP = unsafe extern "C" fn(
     InstanceHandle,
     *const StreamDescriptorSurfaceCreateInfoGGP,
     *const AllocationCallbacks,
@@ -17753,7 +18595,7 @@ impl Instance {
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateStreamDescriptorSurfaceGGP>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateStreamDescriptorSurfaceGGP>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateStreamDescriptorSurfaceGGP as usize,
             ))
@@ -17762,17 +18604,18 @@ impl Instance {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceExternalImageFormatPropertiesNV =
-    unsafe extern "C" fn(
-        PhysicalDeviceHandle,
-        Format,
-        ImageType,
-        ImageTiling,
-        ImageUsageFlags,
-        ImageCreateFlags,
-        ExternalMemoryHandleTypeFlagsNV,
-        *mut ExternalImageFormatPropertiesNV,
-    ) -> ResultCode;
+/// [`vkGetPhysicalDeviceExternalImageFormatPropertiesNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceExternalImageFormatPropertiesNV.html)
+///
+pub type FN_GetPhysicalDeviceExternalImageFormatPropertiesNV = unsafe extern "C" fn(
+    PhysicalDeviceHandle,
+    Format,
+    ImageType,
+    ImageTiling,
+    ImageUsageFlags,
+    ImageCreateFlags,
+    ExternalMemoryHandleTypeFlagsNV,
+    *mut ExternalImageFormatPropertiesNV,
+) -> ResultCode;
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceExternalImageFormatPropertiesNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceExternalImageFormatPropertiesNV.html)
     ///
@@ -17810,13 +18653,12 @@ impl PhysicalDevice {
         p_external_image_format_properties: *mut ExternalImageFormatPropertiesNV,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<
-                vkVoidFunction,
-                FUN_GetPhysicalDeviceExternalImageFormatPropertiesNV,
-            >(vtable_get(
-                self.vtable(),
-                InstanceCommand::vkGetPhysicalDeviceExternalImageFormatPropertiesNV as usize,
-            ))
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceExternalImageFormatPropertiesNV>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommand::vkGetPhysicalDeviceExternalImageFormatPropertiesNV as usize,
+                ),
+            )
         };
         unsafe {
             (command)(
@@ -17833,7 +18675,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetMemoryWin32HandleNV = unsafe extern "C" fn(
+/// [`vkGetMemoryWin32HandleNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryWin32HandleNV.html)
+///
+pub type FN_GetMemoryWin32HandleNV = unsafe extern "C" fn(
     DeviceHandle,
     DeviceMemory,
     ExternalMemoryHandleTypeFlagsNV,
@@ -17867,7 +18711,7 @@ impl Device {
         p_handle: *mut HANDLE,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetMemoryWin32HandleNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetMemoryWin32HandleNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetMemoryWin32HandleNV as usize,
             ))
@@ -17876,7 +18720,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CreateViSurfaceNN = unsafe extern "C" fn(
+/// [`vkCreateViSurfaceNN`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateViSurfaceNN.html)
+///
+pub type FN_CreateViSurfaceNN = unsafe extern "C" fn(
     InstanceHandle,
     *const ViSurfaceCreateInfoNN,
     *const AllocationCallbacks,
@@ -17913,7 +18759,7 @@ impl Instance {
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateViSurfaceNN>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateViSurfaceNN>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateViSurfaceNN as usize,
             ))
@@ -17922,7 +18768,9 @@ impl Instance {
     }
 }
 
-pub(crate) type FUN_CmdBeginConditionalRenderingEXT =
+/// [`vkCmdBeginConditionalRenderingEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginConditionalRenderingEXT.html)
+///
+pub type FN_CmdBeginConditionalRenderingEXT =
     unsafe extern "C" fn(CommandBufferHandle, *const ConditionalRenderingBeginInfoEXT);
 impl CommandBuffer {
     /// [`vkCmdBeginConditionalRenderingEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginConditionalRenderingEXT.html)
@@ -17958,7 +18806,7 @@ impl CommandBuffer {
         p_conditional_rendering_begin: *const ConditionalRenderingBeginInfoEXT,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBeginConditionalRenderingEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBeginConditionalRenderingEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdBeginConditionalRenderingEXT as usize,
             ))
@@ -17967,7 +18815,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdEndConditionalRenderingEXT = unsafe extern "C" fn(CommandBufferHandle);
+/// [`vkCmdEndConditionalRenderingEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndConditionalRenderingEXT.html)
+///
+pub type FN_CmdEndConditionalRenderingEXT = unsafe extern "C" fn(CommandBufferHandle);
 impl CommandBuffer {
     /// [`vkCmdEndConditionalRenderingEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndConditionalRenderingEXT.html)
     ///
@@ -17993,7 +18843,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_end_conditional_rendering_ext(&self) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdEndConditionalRenderingEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdEndConditionalRenderingEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdEndConditionalRenderingEXT as usize,
             ))
@@ -18002,7 +18852,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetViewportWScalingNV =
+/// [`vkCmdSetViewportWScalingNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetViewportWScalingNV.html)
+///
+pub type FN_CmdSetViewportWScalingNV =
     unsafe extern "C" fn(CommandBufferHandle, u32, u32, *const ViewportWScalingNV);
 impl CommandBuffer {
     /// [`vkCmdSetViewportWScalingNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetViewportWScalingNV.html)
@@ -18032,7 +18884,7 @@ impl CommandBuffer {
         p_viewport_w_scalings: *const ViewportWScalingNV,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetViewportWScalingNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetViewportWScalingNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetViewportWScalingNV as usize,
             ))
@@ -18048,7 +18900,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_ReleaseDisplayEXT =
+/// [`vkReleaseDisplayEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkReleaseDisplayEXT.html)
+///
+pub type FN_ReleaseDisplayEXT =
     unsafe extern "C" fn(PhysicalDeviceHandle, DisplayKHR) -> ResultCode;
 impl PhysicalDevice {
     /// [`vkReleaseDisplayEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkReleaseDisplayEXT.html)
@@ -18070,7 +18924,7 @@ impl PhysicalDevice {
     #[inline(always)]
     pub unsafe fn release_display_ext(&self, display: DisplayKHR) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_ReleaseDisplayEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_ReleaseDisplayEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkReleaseDisplayEXT as usize,
             ))
@@ -18079,7 +18933,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_AcquireXlibDisplayEXT =
+/// [`vkAcquireXlibDisplayEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkAcquireXlibDisplayEXT.html)
+///
+pub type FN_AcquireXlibDisplayEXT =
     unsafe extern "C" fn(PhysicalDeviceHandle, *mut Display, DisplayKHR) -> ResultCode;
 impl PhysicalDevice {
     /// [`vkAcquireXlibDisplayEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkAcquireXlibDisplayEXT.html)
@@ -18107,7 +18963,7 @@ impl PhysicalDevice {
         display: DisplayKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_AcquireXlibDisplayEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_AcquireXlibDisplayEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkAcquireXlibDisplayEXT as usize,
             ))
@@ -18116,7 +18972,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetRandROutputDisplayEXT = unsafe extern "C" fn(
+/// [`vkGetRandROutputDisplayEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRandROutputDisplayEXT.html)
+///
+pub type FN_GetRandROutputDisplayEXT = unsafe extern "C" fn(
     PhysicalDeviceHandle,
     *mut Display,
     RROutput,
@@ -18148,7 +19006,7 @@ impl PhysicalDevice {
         p_display: *mut DisplayKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetRandROutputDisplayEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetRandROutputDisplayEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetRandROutputDisplayEXT as usize,
             ))
@@ -18157,7 +19015,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceSurfaceCapabilities2EXT = unsafe extern "C" fn(
+/// [`vkGetPhysicalDeviceSurfaceCapabilities2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSurfaceCapabilities2EXT.html)
+///
+pub type FN_GetPhysicalDeviceSurfaceCapabilities2EXT = unsafe extern "C" fn(
     PhysicalDeviceHandle,
     SurfaceKHR,
     *mut SurfaceCapabilities2EXT,
@@ -18189,7 +19049,7 @@ impl PhysicalDevice {
         p_surface_capabilities: *mut SurfaceCapabilities2EXT,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceSurfaceCapabilities2EXT>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceSurfaceCapabilities2EXT>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceSurfaceCapabilities2EXT as usize,
@@ -18200,7 +19060,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_DisplayPowerControlEXT =
+/// [`vkDisplayPowerControlEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDisplayPowerControlEXT.html)
+///
+pub type FN_DisplayPowerControlEXT =
     unsafe extern "C" fn(DeviceHandle, DisplayKHR, *const DisplayPowerInfoEXT) -> ResultCode;
 impl Device {
     /// [`vkDisplayPowerControlEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDisplayPowerControlEXT.html)
@@ -18227,7 +19089,7 @@ impl Device {
         p_display_power_info: *const DisplayPowerInfoEXT,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DisplayPowerControlEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DisplayPowerControlEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDisplayPowerControlEXT as usize,
             ))
@@ -18236,7 +19098,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_RegisterDeviceEventEXT = unsafe extern "C" fn(
+/// [`vkRegisterDeviceEventEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkRegisterDeviceEventEXT.html)
+///
+pub type FN_RegisterDeviceEventEXT = unsafe extern "C" fn(
     DeviceHandle,
     *const DeviceEventInfoEXT,
     *const AllocationCallbacks,
@@ -18271,7 +19135,7 @@ impl Device {
         p_fence: *mut Fence,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_RegisterDeviceEventEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_RegisterDeviceEventEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkRegisterDeviceEventEXT as usize,
             ))
@@ -18280,7 +19144,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_RegisterDisplayEventEXT = unsafe extern "C" fn(
+/// [`vkRegisterDisplayEventEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkRegisterDisplayEventEXT.html)
+///
+pub type FN_RegisterDisplayEventEXT = unsafe extern "C" fn(
     DeviceHandle,
     DisplayKHR,
     *const DisplayEventInfoEXT,
@@ -18317,7 +19183,7 @@ impl Device {
         p_fence: *mut Fence,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_RegisterDisplayEventEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_RegisterDisplayEventEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkRegisterDisplayEventEXT as usize,
             ))
@@ -18334,7 +19200,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetSwapchainCounterEXT = unsafe extern "C" fn(
+/// [`vkGetSwapchainCounterEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSwapchainCounterEXT.html)
+///
+pub type FN_GetSwapchainCounterEXT = unsafe extern "C" fn(
     DeviceHandle,
     SwapchainKHR,
     SurfaceCounterFlagsEXT,
@@ -18368,7 +19236,7 @@ impl Device {
         p_counter_value: *mut u64,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetSwapchainCounterEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetSwapchainCounterEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetSwapchainCounterEXT as usize,
             ))
@@ -18377,7 +19245,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetRefreshCycleDurationGOOGLE =
+/// [`vkGetRefreshCycleDurationGOOGLE`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRefreshCycleDurationGOOGLE.html)
+///
+pub type FN_GetRefreshCycleDurationGOOGLE =
     unsafe extern "C" fn(DeviceHandle, SwapchainKHR, *mut RefreshCycleDurationGOOGLE) -> ResultCode;
 impl Device {
     /// [`vkGetRefreshCycleDurationGOOGLE`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRefreshCycleDurationGOOGLE.html)
@@ -18406,7 +19276,7 @@ impl Device {
         p_display_timing_properties: *mut RefreshCycleDurationGOOGLE,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetRefreshCycleDurationGOOGLE>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetRefreshCycleDurationGOOGLE>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetRefreshCycleDurationGOOGLE as usize,
             ))
@@ -18415,7 +19285,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetPastPresentationTimingGOOGLE = unsafe extern "C" fn(
+/// [`vkGetPastPresentationTimingGOOGLE`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPastPresentationTimingGOOGLE.html)
+///
+pub type FN_GetPastPresentationTimingGOOGLE = unsafe extern "C" fn(
     DeviceHandle,
     SwapchainKHR,
     *mut u32,
@@ -18454,7 +19326,7 @@ impl Device {
         p_presentation_timings: *mut PastPresentationTimingGOOGLE,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPastPresentationTimingGOOGLE>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetPastPresentationTimingGOOGLE>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetPastPresentationTimingGOOGLE as usize,
             ))
@@ -18470,7 +19342,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdSetDiscardRectangleEXT =
+/// [`vkCmdSetDiscardRectangleEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDiscardRectangleEXT.html)
+///
+pub type FN_CmdSetDiscardRectangleEXT =
     unsafe extern "C" fn(CommandBufferHandle, u32, u32, *const Rect2D);
 impl CommandBuffer {
     /// [`vkCmdSetDiscardRectangleEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDiscardRectangleEXT.html)
@@ -18500,7 +19374,7 @@ impl CommandBuffer {
         p_discard_rectangles: *const Rect2D,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDiscardRectangleEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetDiscardRectangleEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetDiscardRectangleEXT as usize,
             ))
@@ -18516,8 +19390,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetDiscardRectangleEnableEXT =
-    unsafe extern "C" fn(CommandBufferHandle, Bool32);
+/// [`vkCmdSetDiscardRectangleEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDiscardRectangleEnableEXT.html)
+///
+pub type FN_CmdSetDiscardRectangleEnableEXT = unsafe extern "C" fn(CommandBufferHandle, Bool32);
 impl CommandBuffer {
     /// [`vkCmdSetDiscardRectangleEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDiscardRectangleEnableEXT.html)
     ///
@@ -18541,7 +19416,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_discard_rectangle_enable_ext(&self, discard_rectangle_enable: Bool32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDiscardRectangleEnableEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetDiscardRectangleEnableEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetDiscardRectangleEnableEXT as usize,
             ))
@@ -18550,7 +19425,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetDiscardRectangleModeEXT =
+/// [`vkCmdSetDiscardRectangleModeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDiscardRectangleModeEXT.html)
+///
+pub type FN_CmdSetDiscardRectangleModeEXT =
     unsafe extern "C" fn(CommandBufferHandle, DiscardRectangleModeEXT);
 impl CommandBuffer {
     /// [`vkCmdSetDiscardRectangleModeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDiscardRectangleModeEXT.html)
@@ -18578,7 +19455,7 @@ impl CommandBuffer {
         discard_rectangle_mode: DiscardRectangleModeEXT,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDiscardRectangleModeEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetDiscardRectangleModeEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetDiscardRectangleModeEXT as usize,
             ))
@@ -18587,7 +19464,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_SetHdrMetadataEXT =
+/// [`vkSetHdrMetadataEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetHdrMetadataEXT.html)
+///
+pub type FN_SetHdrMetadataEXT =
     unsafe extern "C" fn(DeviceHandle, u32, *const SwapchainKHR, *const HdrMetadataEXT);
 impl Device {
     /// [`vkSetHdrMetadataEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetHdrMetadataEXT.html)
@@ -18607,7 +19486,7 @@ impl Device {
         p_metadata: *const HdrMetadataEXT,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_SetHdrMetadataEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_SetHdrMetadataEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkSetHdrMetadataEXT as usize,
             ))
@@ -18616,7 +19495,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CreateIOSSurfaceMVK = unsafe extern "C" fn(
+/// [`vkCreateIOSSurfaceMVK`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateIOSSurfaceMVK.html)
+///
+pub type FN_CreateIOSSurfaceMVK = unsafe extern "C" fn(
     InstanceHandle,
     *const IOSSurfaceCreateInfoMVK,
     *const AllocationCallbacks,
@@ -18654,7 +19535,7 @@ impl Instance {
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateIOSSurfaceMVK>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateIOSSurfaceMVK>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateIOSSurfaceMVK as usize,
             ))
@@ -18663,7 +19544,9 @@ impl Instance {
     }
 }
 
-pub(crate) type FUN_CreateMacOSSurfaceMVK = unsafe extern "C" fn(
+/// [`vkCreateMacOSSurfaceMVK`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateMacOSSurfaceMVK.html)
+///
+pub type FN_CreateMacOSSurfaceMVK = unsafe extern "C" fn(
     InstanceHandle,
     *const MacOSSurfaceCreateInfoMVK,
     *const AllocationCallbacks,
@@ -18701,7 +19584,7 @@ impl Instance {
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateMacOSSurfaceMVK>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateMacOSSurfaceMVK>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateMacOSSurfaceMVK as usize,
             ))
@@ -18710,7 +19593,9 @@ impl Instance {
     }
 }
 
-pub(crate) type FUN_SetDebugUtilsObjectNameEXT =
+/// [`vkSetDebugUtilsObjectNameEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetDebugUtilsObjectNameEXT.html)
+///
+pub type FN_SetDebugUtilsObjectNameEXT =
     unsafe extern "C" fn(DeviceHandle, *const DebugUtilsObjectNameInfoEXT) -> ResultCode;
 impl Device {
     /// [`vkSetDebugUtilsObjectNameEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetDebugUtilsObjectNameEXT.html)
@@ -18737,7 +19622,7 @@ impl Device {
         p_name_info: *const DebugUtilsObjectNameInfoEXT,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_SetDebugUtilsObjectNameEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_SetDebugUtilsObjectNameEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkSetDebugUtilsObjectNameEXT as usize,
             ))
@@ -18746,7 +19631,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_SetDebugUtilsObjectTagEXT =
+/// [`vkSetDebugUtilsObjectTagEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetDebugUtilsObjectTagEXT.html)
+///
+pub type FN_SetDebugUtilsObjectTagEXT =
     unsafe extern "C" fn(DeviceHandle, *const DebugUtilsObjectTagInfoEXT) -> ResultCode;
 impl Device {
     /// [`vkSetDebugUtilsObjectTagEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetDebugUtilsObjectTagEXT.html)
@@ -18773,7 +19660,7 @@ impl Device {
         p_tag_info: *const DebugUtilsObjectTagInfoEXT,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_SetDebugUtilsObjectTagEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_SetDebugUtilsObjectTagEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkSetDebugUtilsObjectTagEXT as usize,
             ))
@@ -18782,7 +19669,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_QueueBeginDebugUtilsLabelEXT =
+/// [`vkQueueBeginDebugUtilsLabelEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueBeginDebugUtilsLabelEXT.html)
+///
+pub type FN_QueueBeginDebugUtilsLabelEXT =
     unsafe extern "C" fn(QueueHandle, *const DebugUtilsLabelEXT);
 impl Queue {
     /// [`vkQueueBeginDebugUtilsLabelEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueBeginDebugUtilsLabelEXT.html)
@@ -18797,7 +19686,7 @@ impl Queue {
     #[inline(always)]
     pub unsafe fn begin_debug_utils_label_ext(&self, p_label_info: *const DebugUtilsLabelEXT) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_QueueBeginDebugUtilsLabelEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_QueueBeginDebugUtilsLabelEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkQueueBeginDebugUtilsLabelEXT as usize,
             ))
@@ -18806,7 +19695,9 @@ impl Queue {
     }
 }
 
-pub(crate) type FUN_QueueEndDebugUtilsLabelEXT = unsafe extern "C" fn(QueueHandle);
+/// [`vkQueueEndDebugUtilsLabelEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueEndDebugUtilsLabelEXT.html)
+///
+pub type FN_QueueEndDebugUtilsLabelEXT = unsafe extern "C" fn(QueueHandle);
 impl Queue {
     /// [`vkQueueEndDebugUtilsLabelEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueEndDebugUtilsLabelEXT.html)
     ///
@@ -18820,7 +19711,7 @@ impl Queue {
     #[inline(always)]
     pub unsafe fn end_debug_utils_label_ext(&self) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_QueueEndDebugUtilsLabelEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_QueueEndDebugUtilsLabelEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkQueueEndDebugUtilsLabelEXT as usize,
             ))
@@ -18829,7 +19720,9 @@ impl Queue {
     }
 }
 
-pub(crate) type FUN_QueueInsertDebugUtilsLabelEXT =
+/// [`vkQueueInsertDebugUtilsLabelEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueInsertDebugUtilsLabelEXT.html)
+///
+pub type FN_QueueInsertDebugUtilsLabelEXT =
     unsafe extern "C" fn(QueueHandle, *const DebugUtilsLabelEXT);
 impl Queue {
     /// [`vkQueueInsertDebugUtilsLabelEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueInsertDebugUtilsLabelEXT.html)
@@ -18844,7 +19737,7 @@ impl Queue {
     #[inline(always)]
     pub unsafe fn insert_debug_utils_label_ext(&self, p_label_info: *const DebugUtilsLabelEXT) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_QueueInsertDebugUtilsLabelEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_QueueInsertDebugUtilsLabelEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkQueueInsertDebugUtilsLabelEXT as usize,
             ))
@@ -18853,7 +19746,9 @@ impl Queue {
     }
 }
 
-pub(crate) type FUN_CmdBeginDebugUtilsLabelEXT =
+/// [`vkCmdBeginDebugUtilsLabelEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginDebugUtilsLabelEXT.html)
+///
+pub type FN_CmdBeginDebugUtilsLabelEXT =
     unsafe extern "C" fn(CommandBufferHandle, *const DebugUtilsLabelEXT);
 impl CommandBuffer {
     /// [`vkCmdBeginDebugUtilsLabelEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginDebugUtilsLabelEXT.html)
@@ -18883,7 +19778,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_begin_debug_utils_label_ext(&self, p_label_info: *const DebugUtilsLabelEXT) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBeginDebugUtilsLabelEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBeginDebugUtilsLabelEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdBeginDebugUtilsLabelEXT as usize,
             ))
@@ -18892,7 +19787,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdEndDebugUtilsLabelEXT = unsafe extern "C" fn(CommandBufferHandle);
+/// [`vkCmdEndDebugUtilsLabelEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndDebugUtilsLabelEXT.html)
+///
+pub type FN_CmdEndDebugUtilsLabelEXT = unsafe extern "C" fn(CommandBufferHandle);
 impl CommandBuffer {
     /// [`vkCmdEndDebugUtilsLabelEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndDebugUtilsLabelEXT.html)
     ///
@@ -18921,7 +19818,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_end_debug_utils_label_ext(&self) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdEndDebugUtilsLabelEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdEndDebugUtilsLabelEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdEndDebugUtilsLabelEXT as usize,
             ))
@@ -18930,7 +19827,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdInsertDebugUtilsLabelEXT =
+/// [`vkCmdInsertDebugUtilsLabelEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdInsertDebugUtilsLabelEXT.html)
+///
+pub type FN_CmdInsertDebugUtilsLabelEXT =
     unsafe extern "C" fn(CommandBufferHandle, *const DebugUtilsLabelEXT);
 impl CommandBuffer {
     /// [`vkCmdInsertDebugUtilsLabelEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdInsertDebugUtilsLabelEXT.html)
@@ -18960,7 +19859,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_insert_debug_utils_label_ext(&self, p_label_info: *const DebugUtilsLabelEXT) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdInsertDebugUtilsLabelEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdInsertDebugUtilsLabelEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdInsertDebugUtilsLabelEXT as usize,
             ))
@@ -18969,7 +19868,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CreateDebugUtilsMessengerEXT = unsafe extern "C" fn(
+/// [`vkCreateDebugUtilsMessengerEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDebugUtilsMessengerEXT.html)
+///
+pub type FN_CreateDebugUtilsMessengerEXT = unsafe extern "C" fn(
     InstanceHandle,
     *const DebugUtilsMessengerCreateInfoEXT,
     *const AllocationCallbacks,
@@ -19004,7 +19905,7 @@ impl Instance {
         p_messenger: *mut DebugUtilsMessengerEXT,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateDebugUtilsMessengerEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateDebugUtilsMessengerEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateDebugUtilsMessengerEXT as usize,
             ))
@@ -19013,7 +19914,9 @@ impl Instance {
     }
 }
 
-pub(crate) type FUN_DestroyDebugUtilsMessengerEXT =
+/// [`vkDestroyDebugUtilsMessengerEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDebugUtilsMessengerEXT.html)
+///
+pub type FN_DestroyDebugUtilsMessengerEXT =
     unsafe extern "C" fn(InstanceHandle, DebugUtilsMessengerEXT, *const AllocationCallbacks);
 impl Instance {
     /// [`vkDestroyDebugUtilsMessengerEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDebugUtilsMessengerEXT.html)
@@ -19036,7 +19939,7 @@ impl Instance {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyDebugUtilsMessengerEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyDebugUtilsMessengerEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyDebugUtilsMessengerEXT as usize,
             ))
@@ -19045,7 +19948,9 @@ impl Instance {
     }
 }
 
-pub(crate) type FUN_SubmitDebugUtilsMessageEXT = unsafe extern "C" fn(
+/// [`vkSubmitDebugUtilsMessageEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSubmitDebugUtilsMessageEXT.html)
+///
+pub type FN_SubmitDebugUtilsMessageEXT = unsafe extern "C" fn(
     InstanceHandle,
     DebugUtilsMessageSeverityFlagsEXT,
     DebugUtilsMessageTypeFlagsEXT,
@@ -19069,7 +19974,7 @@ impl Instance {
         p_callback_data: *const DebugUtilsMessengerCallbackDataEXT,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_SubmitDebugUtilsMessageEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_SubmitDebugUtilsMessageEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkSubmitDebugUtilsMessageEXT as usize,
             ))
@@ -19085,7 +19990,9 @@ impl Instance {
     }
 }
 
-pub(crate) type FUN_GetAndroidHardwareBufferPropertiesANDROID = unsafe extern "C" fn(
+/// [`vkGetAndroidHardwareBufferPropertiesANDROID`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetAndroidHardwareBufferPropertiesANDROID.html)
+///
+pub type FN_GetAndroidHardwareBufferPropertiesANDROID = unsafe extern "C" fn(
     DeviceHandle,
     *const AHardwareBuffer,
     *mut AndroidHardwareBufferPropertiesANDROID,
@@ -19116,7 +20023,7 @@ impl Device {
         p_properties: *mut AndroidHardwareBufferPropertiesANDROID,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetAndroidHardwareBufferPropertiesANDROID>(
+            std::mem::transmute::<vkVoidFunction, FN_GetAndroidHardwareBufferPropertiesANDROID>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetAndroidHardwareBufferPropertiesANDROID as usize,
@@ -19127,7 +20034,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetMemoryAndroidHardwareBufferANDROID = unsafe extern "C" fn(
+/// [`vkGetMemoryAndroidHardwareBufferANDROID`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryAndroidHardwareBufferANDROID.html)
+///
+pub type FN_GetMemoryAndroidHardwareBufferANDROID = unsafe extern "C" fn(
     DeviceHandle,
     *const MemoryGetAndroidHardwareBufferInfoANDROID,
     *mut *mut AHardwareBuffer,
@@ -19158,7 +20067,7 @@ impl Device {
         p_buffer: *mut *mut AHardwareBuffer,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetMemoryAndroidHardwareBufferANDROID>(
+            std::mem::transmute::<vkVoidFunction, FN_GetMemoryAndroidHardwareBufferANDROID>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetMemoryAndroidHardwareBufferANDROID as usize,
@@ -19169,7 +20078,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CreateGpaSessionAMD = unsafe extern "C" fn(
+/// [`vkCreateGpaSessionAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateGpaSessionAMD.html)
+///
+pub type FN_CreateGpaSessionAMD = unsafe extern "C" fn(
     DeviceHandle,
     *const GpaSessionCreateInfoAMD,
     *const AllocationCallbacks,
@@ -19205,7 +20116,7 @@ impl Device {
         p_gpa_session: *mut GpaSessionAMD,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateGpaSessionAMD>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateGpaSessionAMD>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateGpaSessionAMD as usize,
             ))
@@ -19214,7 +20125,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroyGpaSessionAMD =
+/// [`vkDestroyGpaSessionAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyGpaSessionAMD.html)
+///
+pub type FN_DestroyGpaSessionAMD =
     unsafe extern "C" fn(DeviceHandle, GpaSessionAMD, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyGpaSessionAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyGpaSessionAMD.html)
@@ -19237,7 +20150,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyGpaSessionAMD>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyGpaSessionAMD>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyGpaSessionAMD as usize,
             ))
@@ -19246,7 +20159,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_SetGpaDeviceClockModeAMD =
+/// [`vkSetGpaDeviceClockModeAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetGpaDeviceClockModeAMD.html)
+///
+pub type FN_SetGpaDeviceClockModeAMD =
     unsafe extern "C" fn(DeviceHandle, *mut GpaDeviceClockModeInfoAMD) -> ResultCode;
 impl Device {
     /// [`vkSetGpaDeviceClockModeAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetGpaDeviceClockModeAMD.html)
@@ -19273,7 +20188,7 @@ impl Device {
         p_info: *mut GpaDeviceClockModeInfoAMD,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_SetGpaDeviceClockModeAMD>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_SetGpaDeviceClockModeAMD>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkSetGpaDeviceClockModeAMD as usize,
             ))
@@ -19282,7 +20197,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetGpaDeviceClockInfoAMD =
+/// [`vkGetGpaDeviceClockInfoAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetGpaDeviceClockInfoAMD.html)
+///
+pub type FN_GetGpaDeviceClockInfoAMD =
     unsafe extern "C" fn(DeviceHandle, *mut GpaDeviceGetClockInfoAMD) -> ResultCode;
 impl Device {
     /// [`vkGetGpaDeviceClockInfoAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetGpaDeviceClockInfoAMD.html)
@@ -19309,7 +20226,7 @@ impl Device {
         p_info: *mut GpaDeviceGetClockInfoAMD,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetGpaDeviceClockInfoAMD>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetGpaDeviceClockInfoAMD>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetGpaDeviceClockInfoAMD as usize,
             ))
@@ -19318,7 +20235,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdBeginGpaSessionAMD =
+/// [`vkCmdBeginGpaSessionAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginGpaSessionAMD.html)
+///
+pub type FN_CmdBeginGpaSessionAMD =
     unsafe extern "C" fn(CommandBufferHandle, GpaSessionAMD) -> ResultCode;
 impl CommandBuffer {
     /// [`vkCmdBeginGpaSessionAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginGpaSessionAMD.html)
@@ -19354,7 +20273,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_begin_gpa_session_amd(&self, gpa_session: GpaSessionAMD) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBeginGpaSessionAMD>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBeginGpaSessionAMD>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdBeginGpaSessionAMD as usize,
             ))
@@ -19363,7 +20282,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdEndGpaSessionAMD =
+/// [`vkCmdEndGpaSessionAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndGpaSessionAMD.html)
+///
+pub type FN_CmdEndGpaSessionAMD =
     unsafe extern "C" fn(CommandBufferHandle, GpaSessionAMD) -> ResultCode;
 impl CommandBuffer {
     /// [`vkCmdEndGpaSessionAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndGpaSessionAMD.html)
@@ -19399,7 +20320,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_end_gpa_session_amd(&self, gpa_session: GpaSessionAMD) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdEndGpaSessionAMD>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdEndGpaSessionAMD>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdEndGpaSessionAMD as usize,
             ))
@@ -19408,7 +20329,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdBeginGpaSampleAMD = unsafe extern "C" fn(
+/// [`vkCmdBeginGpaSampleAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginGpaSampleAMD.html)
+///
+pub type FN_CmdBeginGpaSampleAMD = unsafe extern "C" fn(
     CommandBufferHandle,
     GpaSessionAMD,
     *const GpaSampleBeginInfoAMD,
@@ -19453,7 +20376,7 @@ impl CommandBuffer {
         p_sample_id: *mut u32,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBeginGpaSampleAMD>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBeginGpaSampleAMD>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdBeginGpaSampleAMD as usize,
             ))
@@ -19469,8 +20392,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdEndGpaSampleAMD =
-    unsafe extern "C" fn(CommandBufferHandle, GpaSessionAMD, u32);
+/// [`vkCmdEndGpaSampleAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndGpaSampleAMD.html)
+///
+pub type FN_CmdEndGpaSampleAMD = unsafe extern "C" fn(CommandBufferHandle, GpaSessionAMD, u32);
 impl CommandBuffer {
     /// [`vkCmdEndGpaSampleAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndGpaSampleAMD.html)
     ///
@@ -19496,7 +20420,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_end_gpa_sample_amd(&self, gpa_session: GpaSessionAMD, sample_id: u32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdEndGpaSampleAMD>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdEndGpaSampleAMD>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdEndGpaSampleAMD as usize,
             ))
@@ -19505,7 +20429,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_GetGpaSessionStatusAMD =
+/// [`vkGetGpaSessionStatusAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetGpaSessionStatusAMD.html)
+///
+pub type FN_GetGpaSessionStatusAMD =
     unsafe extern "C" fn(DeviceHandle, GpaSessionAMD) -> ResultCode;
 impl Device {
     /// [`vkGetGpaSessionStatusAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetGpaSessionStatusAMD.html)
@@ -19529,7 +20455,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn get_gpa_session_status_amd(&self, gpa_session: GpaSessionAMD) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetGpaSessionStatusAMD>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetGpaSessionStatusAMD>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetGpaSessionStatusAMD as usize,
             ))
@@ -19538,7 +20464,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetGpaSessionResultsAMD =
+/// [`vkGetGpaSessionResultsAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetGpaSessionResultsAMD.html)
+///
+pub type FN_GetGpaSessionResultsAMD =
     unsafe extern "C" fn(DeviceHandle, GpaSessionAMD, u32, *mut usize, *mut c_void) -> ResultCode;
 impl Device {
     /// [`vkGetGpaSessionResultsAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetGpaSessionResultsAMD.html)
@@ -19571,7 +20499,7 @@ impl Device {
         p_data: *mut c_void,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetGpaSessionResultsAMD>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetGpaSessionResultsAMD>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetGpaSessionResultsAMD as usize,
             ))
@@ -19580,8 +20508,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_ResetGpaSessionAMD =
-    unsafe extern "C" fn(DeviceHandle, GpaSessionAMD) -> ResultCode;
+/// [`vkResetGpaSessionAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkResetGpaSessionAMD.html)
+///
+pub type FN_ResetGpaSessionAMD = unsafe extern "C" fn(DeviceHandle, GpaSessionAMD) -> ResultCode;
 impl Device {
     /// [`vkResetGpaSessionAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkResetGpaSessionAMD.html)
     ///
@@ -19604,7 +20533,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn reset_gpa_session_amd(&self, gpa_session: GpaSessionAMD) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_ResetGpaSessionAMD>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_ResetGpaSessionAMD>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkResetGpaSessionAMD as usize,
             ))
@@ -19613,8 +20542,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdCopyGpaSessionResultsAMD =
-    unsafe extern "C" fn(CommandBufferHandle, GpaSessionAMD);
+/// [`vkCmdCopyGpaSessionResultsAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyGpaSessionResultsAMD.html)
+///
+pub type FN_CmdCopyGpaSessionResultsAMD = unsafe extern "C" fn(CommandBufferHandle, GpaSessionAMD);
 impl CommandBuffer {
     /// [`vkCmdCopyGpaSessionResultsAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyGpaSessionResultsAMD.html)
     ///
@@ -19641,7 +20571,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_copy_gpa_session_results_amd(&self, gpa_session: GpaSessionAMD) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyGpaSessionResultsAMD>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdCopyGpaSessionResultsAMD>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdCopyGpaSessionResultsAMD as usize,
             ))
@@ -19650,7 +20580,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CreateExecutionGraphPipelinesAMDX = unsafe extern "C" fn(
+/// [`vkCreateExecutionGraphPipelinesAMDX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateExecutionGraphPipelinesAMDX.html)
+///
+pub type FN_CreateExecutionGraphPipelinesAMDX = unsafe extern "C" fn(
     DeviceHandle,
     PipelineCache,
     u32,
@@ -19692,12 +20624,10 @@ impl Device {
         p_pipelines: *mut Pipeline,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateExecutionGraphPipelinesAMDX>(
-                vtable_get(
-                    self.vtable(),
-                    InstanceCommand::vkCreateExecutionGraphPipelinesAMDX as usize,
-                ),
-            )
+            std::mem::transmute::<vkVoidFunction, FN_CreateExecutionGraphPipelinesAMDX>(vtable_get(
+                self.vtable(),
+                InstanceCommand::vkCreateExecutionGraphPipelinesAMDX as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -19712,7 +20642,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetExecutionGraphPipelineScratchSizeAMDX = unsafe extern "C" fn(
+/// [`vkGetExecutionGraphPipelineScratchSizeAMDX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetExecutionGraphPipelineScratchSizeAMDX.html)
+///
+pub type FN_GetExecutionGraphPipelineScratchSizeAMDX = unsafe extern "C" fn(
     DeviceHandle,
     Pipeline,
     *mut ExecutionGraphPipelineScratchSizeAMDX,
@@ -19742,7 +20674,7 @@ impl Device {
         p_size_info: *mut ExecutionGraphPipelineScratchSizeAMDX,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetExecutionGraphPipelineScratchSizeAMDX>(
+            std::mem::transmute::<vkVoidFunction, FN_GetExecutionGraphPipelineScratchSizeAMDX>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetExecutionGraphPipelineScratchSizeAMDX as usize,
@@ -19753,7 +20685,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetExecutionGraphPipelineNodeIndexAMDX = unsafe extern "C" fn(
+/// [`vkGetExecutionGraphPipelineNodeIndexAMDX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetExecutionGraphPipelineNodeIndexAMDX.html)
+///
+pub type FN_GetExecutionGraphPipelineNodeIndexAMDX = unsafe extern "C" fn(
     DeviceHandle,
     Pipeline,
     *const PipelineShaderStageNodeCreateInfoAMDX,
@@ -19785,7 +20719,7 @@ impl Device {
         p_node_index: *mut u32,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetExecutionGraphPipelineNodeIndexAMDX>(
+            std::mem::transmute::<vkVoidFunction, FN_GetExecutionGraphPipelineNodeIndexAMDX>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetExecutionGraphPipelineNodeIndexAMDX as usize,
@@ -19796,7 +20730,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdInitializeGraphScratchMemoryAMDX =
+/// [`vkCmdInitializeGraphScratchMemoryAMDX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdInitializeGraphScratchMemoryAMDX.html)
+///
+pub type FN_CmdInitializeGraphScratchMemoryAMDX =
     unsafe extern "C" fn(CommandBufferHandle, Pipeline, DeviceAddress, DeviceSize);
 impl CommandBuffer {
     /// [`vkCmdInitializeGraphScratchMemoryAMDX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdInitializeGraphScratchMemoryAMDX.html)
@@ -19826,7 +20762,7 @@ impl CommandBuffer {
         scratch_size: DeviceSize,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdInitializeGraphScratchMemoryAMDX>(
+            std::mem::transmute::<vkVoidFunction, FN_CmdInitializeGraphScratchMemoryAMDX>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkCmdInitializeGraphScratchMemoryAMDX as usize,
@@ -19837,7 +20773,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdDispatchGraphAMDX = unsafe extern "C" fn(
+/// [`vkCmdDispatchGraphAMDX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchGraphAMDX.html)
+///
+pub type FN_CmdDispatchGraphAMDX = unsafe extern "C" fn(
     CommandBufferHandle,
     DeviceAddress,
     DeviceSize,
@@ -19871,7 +20809,7 @@ impl CommandBuffer {
         p_count_info: *const DispatchGraphCountInfoAMDX,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDispatchGraphAMDX>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdDispatchGraphAMDX>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdDispatchGraphAMDX as usize,
             ))
@@ -19880,7 +20818,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdDispatchGraphIndirectAMDX = unsafe extern "C" fn(
+/// [`vkCmdDispatchGraphIndirectAMDX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchGraphIndirectAMDX.html)
+///
+pub type FN_CmdDispatchGraphIndirectAMDX = unsafe extern "C" fn(
     CommandBufferHandle,
     DeviceAddress,
     DeviceSize,
@@ -19914,7 +20854,7 @@ impl CommandBuffer {
         p_count_info: *const DispatchGraphCountInfoAMDX,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDispatchGraphIndirectAMDX>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdDispatchGraphIndirectAMDX>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdDispatchGraphIndirectAMDX as usize,
             ))
@@ -19923,7 +20863,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdDispatchGraphIndirectCountAMDX =
+/// [`vkCmdDispatchGraphIndirectCountAMDX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchGraphIndirectCountAMDX.html)
+///
+pub type FN_CmdDispatchGraphIndirectCountAMDX =
     unsafe extern "C" fn(CommandBufferHandle, DeviceAddress, DeviceSize, DeviceAddress);
 impl CommandBuffer {
     /// [`vkCmdDispatchGraphIndirectCountAMDX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchGraphIndirectCountAMDX.html)
@@ -19953,18 +20895,18 @@ impl CommandBuffer {
         count_info: DeviceAddress,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDispatchGraphIndirectCountAMDX>(
-                vtable_get(
-                    self.vtable(),
-                    InstanceCommand::vkCmdDispatchGraphIndirectCountAMDX as usize,
-                ),
-            )
+            std::mem::transmute::<vkVoidFunction, FN_CmdDispatchGraphIndirectCountAMDX>(vtable_get(
+                self.vtable(),
+                InstanceCommand::vkCmdDispatchGraphIndirectCountAMDX as usize,
+            ))
         };
         unsafe { (command)(self.handle, scratch, scratch_size, count_info) }
     }
 }
 
-pub(crate) type FUN_WriteSamplerDescriptorsEXT = unsafe extern "C" fn(
+/// [`vkWriteSamplerDescriptorsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkWriteSamplerDescriptorsEXT.html)
+///
+pub type FN_WriteSamplerDescriptorsEXT = unsafe extern "C" fn(
     DeviceHandle,
     u32,
     *const SamplerCreateInfo,
@@ -19997,7 +20939,7 @@ impl Device {
         p_descriptors: *const HostAddressRangeEXT,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_WriteSamplerDescriptorsEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_WriteSamplerDescriptorsEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkWriteSamplerDescriptorsEXT as usize,
             ))
@@ -20006,7 +20948,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_WriteResourceDescriptorsEXT = unsafe extern "C" fn(
+/// [`vkWriteResourceDescriptorsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkWriteResourceDescriptorsEXT.html)
+///
+pub type FN_WriteResourceDescriptorsEXT = unsafe extern "C" fn(
     DeviceHandle,
     u32,
     *const ResourceDescriptorInfoEXT,
@@ -20039,7 +20983,7 @@ impl Device {
         p_descriptors: *const HostAddressRangeEXT,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_WriteResourceDescriptorsEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_WriteResourceDescriptorsEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkWriteResourceDescriptorsEXT as usize,
             ))
@@ -20048,7 +20992,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdBindSamplerHeapEXT =
+/// [`vkCmdBindSamplerHeapEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindSamplerHeapEXT.html)
+///
+pub type FN_CmdBindSamplerHeapEXT =
     unsafe extern "C" fn(CommandBufferHandle, *const BindHeapInfoEXT);
 impl CommandBuffer {
     /// [`vkCmdBindSamplerHeapEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindSamplerHeapEXT.html)
@@ -20074,7 +21020,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_bind_sampler_heap_ext(&self, p_bind_info: *const BindHeapInfoEXT) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBindSamplerHeapEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBindSamplerHeapEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdBindSamplerHeapEXT as usize,
             ))
@@ -20083,7 +21029,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdBindResourceHeapEXT =
+/// [`vkCmdBindResourceHeapEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindResourceHeapEXT.html)
+///
+pub type FN_CmdBindResourceHeapEXT =
     unsafe extern "C" fn(CommandBufferHandle, *const BindHeapInfoEXT);
 impl CommandBuffer {
     /// [`vkCmdBindResourceHeapEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindResourceHeapEXT.html)
@@ -20109,7 +21057,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_bind_resource_heap_ext(&self, p_bind_info: *const BindHeapInfoEXT) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBindResourceHeapEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBindResourceHeapEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdBindResourceHeapEXT as usize,
             ))
@@ -20118,8 +21066,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdPushDataEXT =
-    unsafe extern "C" fn(CommandBufferHandle, *const PushDataInfoEXT);
+/// [`vkCmdPushDataEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushDataEXT.html)
+///
+pub type FN_CmdPushDataEXT = unsafe extern "C" fn(CommandBufferHandle, *const PushDataInfoEXT);
 impl CommandBuffer {
     /// [`vkCmdPushDataEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPushDataEXT.html)
     ///
@@ -20144,7 +21093,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_push_data_ext(&self, p_push_data_info: *const PushDataInfoEXT) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdPushDataEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdPushDataEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdPushDataEXT as usize,
             ))
@@ -20153,7 +21102,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_GetImageOpaqueCaptureDataEXT =
+/// [`vkGetImageOpaqueCaptureDataEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageOpaqueCaptureDataEXT.html)
+///
+pub type FN_GetImageOpaqueCaptureDataEXT =
     unsafe extern "C" fn(DeviceHandle, u32, *const Image, *mut HostAddressRangeEXT) -> ResultCode;
 impl Device {
     /// [`vkGetImageOpaqueCaptureDataEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageOpaqueCaptureDataEXT.html)
@@ -20182,7 +21133,7 @@ impl Device {
         p_datas: *mut HostAddressRangeEXT,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetImageOpaqueCaptureDataEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetImageOpaqueCaptureDataEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetImageOpaqueCaptureDataEXT as usize,
             ))
@@ -20191,7 +21142,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceDescriptorSizeEXT =
+/// [`vkGetPhysicalDeviceDescriptorSizeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceDescriptorSizeEXT.html)
+///
+pub type FN_GetPhysicalDeviceDescriptorSizeEXT =
     unsafe extern "C" fn(PhysicalDeviceHandle, DescriptorType) -> DeviceSize;
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceDescriptorSizeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceDescriptorSizeEXT.html)
@@ -20206,7 +21159,7 @@ impl PhysicalDevice {
     #[inline(always)]
     pub unsafe fn get_descriptor_size_ext(&self, descriptor_type: DescriptorType) -> DeviceSize {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceDescriptorSizeEXT>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceDescriptorSizeEXT>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceDescriptorSizeEXT as usize,
@@ -20217,7 +21170,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_RegisterCustomBorderColorEXT = unsafe extern "C" fn(
+/// [`vkRegisterCustomBorderColorEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkRegisterCustomBorderColorEXT.html)
+///
+pub type FN_RegisterCustomBorderColorEXT = unsafe extern "C" fn(
     DeviceHandle,
     *const SamplerCustomBorderColorCreateInfoEXT,
     Bool32,
@@ -20252,7 +21207,7 @@ impl Device {
         p_index: *mut u32,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_RegisterCustomBorderColorEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_RegisterCustomBorderColorEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkRegisterCustomBorderColorEXT as usize,
             ))
@@ -20261,7 +21216,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_UnregisterCustomBorderColorEXT = unsafe extern "C" fn(DeviceHandle, u32);
+/// [`vkUnregisterCustomBorderColorEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkUnregisterCustomBorderColorEXT.html)
+///
+pub type FN_UnregisterCustomBorderColorEXT = unsafe extern "C" fn(DeviceHandle, u32);
 impl Device {
     /// [`vkUnregisterCustomBorderColorEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkUnregisterCustomBorderColorEXT.html)
     ///
@@ -20275,7 +21232,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn unregister_custom_border_color_ext(&self, index: u32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_UnregisterCustomBorderColorEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_UnregisterCustomBorderColorEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkUnregisterCustomBorderColorEXT as usize,
             ))
@@ -20284,7 +21241,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetTensorOpaqueCaptureDataARM = unsafe extern "C" fn(
+/// [`vkGetTensorOpaqueCaptureDataARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetTensorOpaqueCaptureDataARM.html)
+///
+pub type FN_GetTensorOpaqueCaptureDataARM = unsafe extern "C" fn(
     DeviceHandle,
     u32,
     *const TensorARM,
@@ -20317,7 +21276,7 @@ impl Device {
         p_datas: *mut HostAddressRangeEXT,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetTensorOpaqueCaptureDataARM>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetTensorOpaqueCaptureDataARM>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetTensorOpaqueCaptureDataARM as usize,
             ))
@@ -20326,7 +21285,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdSetSampleLocationsEXT =
+/// [`vkCmdSetSampleLocationsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetSampleLocationsEXT.html)
+///
+pub type FN_CmdSetSampleLocationsEXT =
     unsafe extern "C" fn(CommandBufferHandle, *const SampleLocationsInfoEXT);
 impl CommandBuffer {
     /// [`vkCmdSetSampleLocationsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetSampleLocationsEXT.html)
@@ -20354,7 +21315,7 @@ impl CommandBuffer {
         p_sample_locations_info: *const SampleLocationsInfoEXT,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetSampleLocationsEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetSampleLocationsEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetSampleLocationsEXT as usize,
             ))
@@ -20363,7 +21324,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceMultisamplePropertiesEXT =
+/// [`vkGetPhysicalDeviceMultisamplePropertiesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceMultisamplePropertiesEXT.html)
+///
+pub type FN_GetPhysicalDeviceMultisamplePropertiesEXT =
     unsafe extern "C" fn(PhysicalDeviceHandle, SampleCountFlags, *mut MultisamplePropertiesEXT);
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceMultisamplePropertiesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceMultisamplePropertiesEXT.html)
@@ -20382,7 +21345,7 @@ impl PhysicalDevice {
         p_multisample_properties: *mut MultisamplePropertiesEXT,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceMultisamplePropertiesEXT>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceMultisamplePropertiesEXT>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceMultisamplePropertiesEXT as usize,
@@ -20393,7 +21356,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetImageDrmFormatModifierPropertiesEXT = unsafe extern "C" fn(
+/// [`vkGetImageDrmFormatModifierPropertiesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageDrmFormatModifierPropertiesEXT.html)
+///
+pub type FN_GetImageDrmFormatModifierPropertiesEXT = unsafe extern "C" fn(
     DeviceHandle,
     Image,
     *mut ImageDrmFormatModifierPropertiesEXT,
@@ -20423,7 +21388,7 @@ impl Device {
         p_properties: *mut ImageDrmFormatModifierPropertiesEXT,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetImageDrmFormatModifierPropertiesEXT>(
+            std::mem::transmute::<vkVoidFunction, FN_GetImageDrmFormatModifierPropertiesEXT>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetImageDrmFormatModifierPropertiesEXT as usize,
@@ -20434,7 +21399,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CreateValidationCacheEXT = unsafe extern "C" fn(
+/// [`vkCreateValidationCacheEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateValidationCacheEXT.html)
+///
+pub type FN_CreateValidationCacheEXT = unsafe extern "C" fn(
     DeviceHandle,
     *const ValidationCacheCreateInfoEXT,
     *const AllocationCallbacks,
@@ -20469,7 +21436,7 @@ impl Device {
         p_validation_cache: *mut ValidationCacheEXT,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateValidationCacheEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateValidationCacheEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateValidationCacheEXT as usize,
             ))
@@ -20478,7 +21445,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroyValidationCacheEXT =
+/// [`vkDestroyValidationCacheEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyValidationCacheEXT.html)
+///
+pub type FN_DestroyValidationCacheEXT =
     unsafe extern "C" fn(DeviceHandle, ValidationCacheEXT, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyValidationCacheEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyValidationCacheEXT.html)
@@ -20501,7 +21470,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyValidationCacheEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyValidationCacheEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyValidationCacheEXT as usize,
             ))
@@ -20510,7 +21479,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_MergeValidationCachesEXT = unsafe extern "C" fn(
+/// [`vkMergeValidationCachesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkMergeValidationCachesEXT.html)
+///
+pub type FN_MergeValidationCachesEXT = unsafe extern "C" fn(
     DeviceHandle,
     ValidationCacheEXT,
     u32,
@@ -20543,7 +21514,7 @@ impl Device {
         p_src_caches: *const ValidationCacheEXT,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_MergeValidationCachesEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_MergeValidationCachesEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkMergeValidationCachesEXT as usize,
             ))
@@ -20552,7 +21523,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetValidationCacheDataEXT =
+/// [`vkGetValidationCacheDataEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetValidationCacheDataEXT.html)
+///
+pub type FN_GetValidationCacheDataEXT =
     unsafe extern "C" fn(DeviceHandle, ValidationCacheEXT, *mut usize, *mut c_void) -> ResultCode;
 impl Device {
     /// [`vkGetValidationCacheDataEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetValidationCacheDataEXT.html)
@@ -20585,7 +21558,7 @@ impl Device {
         p_data: *mut c_void,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetValidationCacheDataEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetValidationCacheDataEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetValidationCacheDataEXT as usize,
             ))
@@ -20594,7 +21567,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdBindShadingRateImageNV =
+/// [`vkCmdBindShadingRateImageNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindShadingRateImageNV.html)
+///
+pub type FN_CmdBindShadingRateImageNV =
     unsafe extern "C" fn(CommandBufferHandle, ImageView, ImageLayout);
 impl CommandBuffer {
     /// [`vkCmdBindShadingRateImageNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindShadingRateImageNV.html)
@@ -20626,7 +21601,7 @@ impl CommandBuffer {
         image_layout: ImageLayout,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBindShadingRateImageNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBindShadingRateImageNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdBindShadingRateImageNV as usize,
             ))
@@ -20635,7 +21610,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetViewportShadingRatePaletteNV =
+/// [`vkCmdSetViewportShadingRatePaletteNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetViewportShadingRatePaletteNV.html)
+///
+pub type FN_CmdSetViewportShadingRatePaletteNV =
     unsafe extern "C" fn(CommandBufferHandle, u32, u32, *const ShadingRatePaletteNV);
 impl CommandBuffer {
     /// [`vkCmdSetViewportShadingRatePaletteNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetViewportShadingRatePaletteNV.html)
@@ -20665,7 +21642,7 @@ impl CommandBuffer {
         p_shading_rate_palettes: *const ShadingRatePaletteNV,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetViewportShadingRatePaletteNV>(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetViewportShadingRatePaletteNV>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkCmdSetViewportShadingRatePaletteNV as usize,
@@ -20683,7 +21660,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetCoarseSampleOrderNV = unsafe extern "C" fn(
+/// [`vkCmdSetCoarseSampleOrderNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCoarseSampleOrderNV.html)
+///
+pub type FN_CmdSetCoarseSampleOrderNV = unsafe extern "C" fn(
     CommandBufferHandle,
     CoarseSampleOrderTypeNV,
     u32,
@@ -20720,7 +21699,7 @@ impl CommandBuffer {
         p_custom_sample_orders: *const CoarseSampleOrderCustomNV,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetCoarseSampleOrderNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetCoarseSampleOrderNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetCoarseSampleOrderNV as usize,
             ))
@@ -20736,7 +21715,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CreateAccelerationStructureNV = unsafe extern "C" fn(
+/// [`vkCreateAccelerationStructureNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateAccelerationStructureNV.html)
+///
+pub type FN_CreateAccelerationStructureNV = unsafe extern "C" fn(
     DeviceHandle,
     *const AccelerationStructureCreateInfoNV,
     *const AllocationCallbacks,
@@ -20772,7 +21753,7 @@ impl Device {
         p_acceleration_structure: *mut AccelerationStructureNV,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateAccelerationStructureNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateAccelerationStructureNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateAccelerationStructureNV as usize,
             ))
@@ -20788,7 +21769,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroyAccelerationStructureNV =
+/// [`vkDestroyAccelerationStructureNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyAccelerationStructureNV.html)
+///
+pub type FN_DestroyAccelerationStructureNV =
     unsafe extern "C" fn(DeviceHandle, AccelerationStructureNV, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyAccelerationStructureNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyAccelerationStructureNV.html)
@@ -20812,7 +21795,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyAccelerationStructureNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyAccelerationStructureNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyAccelerationStructureNV as usize,
             ))
@@ -20821,7 +21804,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetAccelerationStructureMemoryRequirementsNV = unsafe extern "C" fn(
+/// [`vkGetAccelerationStructureMemoryRequirementsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetAccelerationStructureMemoryRequirementsNV.html)
+///
+pub type FN_GetAccelerationStructureMemoryRequirementsNV = unsafe extern "C" fn(
     DeviceHandle,
     *const AccelerationStructureMemoryRequirementsInfoNV,
     *mut MemoryRequirements2,
@@ -20844,7 +21829,7 @@ impl Device {
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetAccelerationStructureMemoryRequirementsNV>(
+            std::mem::transmute::<vkVoidFunction, FN_GetAccelerationStructureMemoryRequirementsNV>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetAccelerationStructureMemoryRequirementsNV as usize,
@@ -20855,7 +21840,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_BindAccelerationStructureMemoryNV = unsafe extern "C" fn(
+/// [`vkBindAccelerationStructureMemoryNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkBindAccelerationStructureMemoryNV.html)
+///
+pub type FN_BindAccelerationStructureMemoryNV = unsafe extern "C" fn(
     DeviceHandle,
     u32,
     *const BindAccelerationStructureMemoryInfoNV,
@@ -20887,18 +21874,18 @@ impl Device {
         p_bind_infos: *const BindAccelerationStructureMemoryInfoNV,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_BindAccelerationStructureMemoryNV>(
-                vtable_get(
-                    self.vtable(),
-                    InstanceCommand::vkBindAccelerationStructureMemoryNV as usize,
-                ),
-            )
+            std::mem::transmute::<vkVoidFunction, FN_BindAccelerationStructureMemoryNV>(vtable_get(
+                self.vtable(),
+                InstanceCommand::vkBindAccelerationStructureMemoryNV as usize,
+            ))
         };
         unsafe { (command)(self.handle, bind_info_count, p_bind_infos) }
     }
 }
 
-pub(crate) type FUN_CmdBuildAccelerationStructureNV = unsafe extern "C" fn(
+/// [`vkCmdBuildAccelerationStructureNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBuildAccelerationStructureNV.html)
+///
+pub type FN_CmdBuildAccelerationStructureNV = unsafe extern "C" fn(
     CommandBufferHandle,
     *const AccelerationStructureInfoNV,
     Buffer,
@@ -20947,7 +21934,7 @@ impl CommandBuffer {
         scratch_offset: DeviceSize,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBuildAccelerationStructureNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBuildAccelerationStructureNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdBuildAccelerationStructureNV as usize,
             ))
@@ -20968,7 +21955,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdCopyAccelerationStructureNV = unsafe extern "C" fn(
+/// [`vkCmdCopyAccelerationStructureNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyAccelerationStructureNV.html)
+///
+pub type FN_CmdCopyAccelerationStructureNV = unsafe extern "C" fn(
     CommandBufferHandle,
     AccelerationStructureNV,
     AccelerationStructureNV,
@@ -21003,7 +21992,7 @@ impl CommandBuffer {
         mode: CopyAccelerationStructureModeKHR,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyAccelerationStructureNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdCopyAccelerationStructureNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdCopyAccelerationStructureNV as usize,
             ))
@@ -21012,7 +22001,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdTraceRaysNV = unsafe extern "C" fn(
+/// [`vkCmdTraceRaysNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdTraceRaysNV.html)
+///
+pub type FN_CmdTraceRaysNV = unsafe extern "C" fn(
     CommandBufferHandle,
     Buffer,
     DeviceSize,
@@ -21074,7 +22065,7 @@ impl CommandBuffer {
         depth: u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdTraceRaysNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdTraceRaysNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdTraceRaysNV as usize,
             ))
@@ -21101,7 +22092,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CreateRayTracingPipelinesNV = unsafe extern "C" fn(
+/// [`vkCreateRayTracingPipelinesNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateRayTracingPipelinesNV.html)
+///
+pub type FN_CreateRayTracingPipelinesNV = unsafe extern "C" fn(
     DeviceHandle,
     PipelineCache,
     u32,
@@ -21145,7 +22138,7 @@ impl Device {
         p_pipelines: *mut Pipeline,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateRayTracingPipelinesNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateRayTracingPipelinesNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateRayTracingPipelinesNV as usize,
             ))
@@ -21163,7 +22156,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetRayTracingShaderGroupHandlesKHR =
+/// [`vkGetRayTracingShaderGroupHandlesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRayTracingShaderGroupHandlesKHR.html)
+///
+pub type FN_GetRayTracingShaderGroupHandlesKHR =
     unsafe extern "C" fn(DeviceHandle, Pipeline, u32, u32, usize, *mut c_void) -> ResultCode;
 impl Device {
     /// [`vkGetRayTracingShaderGroupHandlesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRayTracingShaderGroupHandlesKHR.html)
@@ -21194,7 +22189,7 @@ impl Device {
         p_data: *mut c_void,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetRayTracingShaderGroupHandlesKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetRayTracingShaderGroupHandlesKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetRayTracingShaderGroupHandlesKHR as usize,
@@ -21214,7 +22209,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetRayTracingShaderGroupHandlesNV =
+/// [`vkGetRayTracingShaderGroupHandlesNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRayTracingShaderGroupHandlesNV.html)
+///
+pub type FN_GetRayTracingShaderGroupHandlesNV =
     unsafe extern "C" fn(DeviceHandle, Pipeline, u32, u32, usize, *mut c_void) -> ResultCode;
 impl Device {
     /// [`vkGetRayTracingShaderGroupHandlesNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRayTracingShaderGroupHandlesNV.html)
@@ -21246,12 +22243,10 @@ impl Device {
         p_data: *mut c_void,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetRayTracingShaderGroupHandlesNV>(
-                vtable_get(
-                    self.vtable(),
-                    InstanceCommand::vkGetRayTracingShaderGroupHandlesNV as usize,
-                ),
-            )
+            std::mem::transmute::<vkVoidFunction, FN_GetRayTracingShaderGroupHandlesNV>(vtable_get(
+                self.vtable(),
+                InstanceCommand::vkGetRayTracingShaderGroupHandlesNV as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -21266,7 +22261,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetAccelerationStructureHandleNV =
+/// [`vkGetAccelerationStructureHandleNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetAccelerationStructureHandleNV.html)
+///
+pub type FN_GetAccelerationStructureHandleNV =
     unsafe extern "C" fn(DeviceHandle, AccelerationStructureNV, usize, *mut c_void) -> ResultCode;
 impl Device {
     /// [`vkGetAccelerationStructureHandleNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetAccelerationStructureHandleNV.html)
@@ -21296,7 +22293,7 @@ impl Device {
         p_data: *mut c_void,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetAccelerationStructureHandleNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetAccelerationStructureHandleNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetAccelerationStructureHandleNV as usize,
             ))
@@ -21305,7 +22302,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdWriteAccelerationStructuresPropertiesNV = unsafe extern "C" fn(
+/// [`vkCmdWriteAccelerationStructuresPropertiesNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteAccelerationStructuresPropertiesNV.html)
+///
+pub type FN_CmdWriteAccelerationStructuresPropertiesNV = unsafe extern "C" fn(
     CommandBufferHandle,
     u32,
     *const AccelerationStructureNV,
@@ -21344,7 +22343,7 @@ impl CommandBuffer {
         first_query: u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdWriteAccelerationStructuresPropertiesNV>(
+            std::mem::transmute::<vkVoidFunction, FN_CmdWriteAccelerationStructuresPropertiesNV>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkCmdWriteAccelerationStructuresPropertiesNV as usize,
@@ -21364,8 +22363,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CompileDeferredNV =
-    unsafe extern "C" fn(DeviceHandle, Pipeline, u32) -> ResultCode;
+/// [`vkCompileDeferredNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCompileDeferredNV.html)
+///
+pub type FN_CompileDeferredNV = unsafe extern "C" fn(DeviceHandle, Pipeline, u32) -> ResultCode;
 impl Device {
     /// [`vkCompileDeferredNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCompileDeferredNV.html)
     ///
@@ -21389,7 +22389,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn compile_deferred_nv(&self, pipeline: Pipeline, shader: u32) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CompileDeferredNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CompileDeferredNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCompileDeferredNV as usize,
             ))
@@ -21398,7 +22398,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetMemoryHostPointerPropertiesEXT = unsafe extern "C" fn(
+/// [`vkGetMemoryHostPointerPropertiesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryHostPointerPropertiesEXT.html)
+///
+pub type FN_GetMemoryHostPointerPropertiesEXT = unsafe extern "C" fn(
     DeviceHandle,
     ExternalMemoryHandleTypeFlags,
     *const c_void,
@@ -21431,12 +22433,10 @@ impl Device {
         p_memory_host_pointer_properties: *mut MemoryHostPointerPropertiesEXT,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetMemoryHostPointerPropertiesEXT>(
-                vtable_get(
-                    self.vtable(),
-                    InstanceCommand::vkGetMemoryHostPointerPropertiesEXT as usize,
-                ),
-            )
+            std::mem::transmute::<vkVoidFunction, FN_GetMemoryHostPointerPropertiesEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommand::vkGetMemoryHostPointerPropertiesEXT as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -21449,7 +22449,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdWriteBufferMarkerAMD =
+/// [`vkCmdWriteBufferMarkerAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteBufferMarkerAMD.html)
+///
+pub type FN_CmdWriteBufferMarkerAMD =
     unsafe extern "C" fn(CommandBufferHandle, PipelineStageFlags, Buffer, DeviceSize, u32);
 impl CommandBuffer {
     /// [`vkCmdWriteBufferMarkerAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteBufferMarkerAMD.html)
@@ -21485,7 +22487,7 @@ impl CommandBuffer {
         marker: u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdWriteBufferMarkerAMD>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdWriteBufferMarkerAMD>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdWriteBufferMarkerAMD as usize,
             ))
@@ -21494,7 +22496,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdWriteBufferMarker2AMD =
+/// [`vkCmdWriteBufferMarker2AMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteBufferMarker2AMD.html)
+///
+pub type FN_CmdWriteBufferMarker2AMD =
     unsafe extern "C" fn(CommandBufferHandle, PipelineStageFlags2, Buffer, DeviceSize, u32);
 impl CommandBuffer {
     /// [`vkCmdWriteBufferMarker2AMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteBufferMarker2AMD.html)
@@ -21536,7 +22540,7 @@ impl CommandBuffer {
         marker: u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdWriteBufferMarker2AMD>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdWriteBufferMarker2AMD>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdWriteBufferMarker2AMD as usize,
             ))
@@ -21545,7 +22549,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceCalibrateableTimeDomainsEXT =
+/// [`vkGetPhysicalDeviceCalibrateableTimeDomainsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceCalibrateableTimeDomainsEXT.html)
+///
+pub type FN_GetPhysicalDeviceCalibrateableTimeDomainsEXT =
     unsafe extern "C" fn(PhysicalDeviceHandle, *mut u32, *mut TimeDomainKHR) -> ResultCode;
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceCalibrateableTimeDomainsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceCalibrateableTimeDomainsEXT.html)
@@ -21578,7 +22584,7 @@ impl PhysicalDevice {
         p_time_domains: *mut TimeDomainKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceCalibrateableTimeDomainsEXT>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceCalibrateableTimeDomainsEXT>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceCalibrateableTimeDomainsEXT as usize,
@@ -21589,7 +22595,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetCalibratedTimestampsEXT = unsafe extern "C" fn(
+/// [`vkGetCalibratedTimestampsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetCalibratedTimestampsEXT.html)
+///
+pub type FN_GetCalibratedTimestampsEXT = unsafe extern "C" fn(
     DeviceHandle,
     u32,
     *const CalibratedTimestampInfoKHR,
@@ -21625,7 +22633,7 @@ impl Device {
         p_max_deviation: *mut u64,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetCalibratedTimestampsEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetCalibratedTimestampsEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetCalibratedTimestampsEXT as usize,
             ))
@@ -21642,7 +22650,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdDrawMeshTasksNV = unsafe extern "C" fn(CommandBufferHandle, u32, u32);
+/// [`vkCmdDrawMeshTasksNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMeshTasksNV.html)
+///
+pub type FN_CmdDrawMeshTasksNV = unsafe extern "C" fn(CommandBufferHandle, u32, u32);
 impl CommandBuffer {
     /// [`vkCmdDrawMeshTasksNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMeshTasksNV.html)
     ///
@@ -21666,7 +22676,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_draw_mesh_tasks_nv(&self, task_count: u32, first_task: u32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawMeshTasksNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdDrawMeshTasksNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdDrawMeshTasksNV as usize,
             ))
@@ -21675,7 +22685,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdDrawMeshTasksIndirectNV =
+/// [`vkCmdDrawMeshTasksIndirectNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMeshTasksIndirectNV.html)
+///
+pub type FN_CmdDrawMeshTasksIndirectNV =
     unsafe extern "C" fn(CommandBufferHandle, Buffer, DeviceSize, u32, u32);
 impl CommandBuffer {
     /// [`vkCmdDrawMeshTasksIndirectNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMeshTasksIndirectNV.html)
@@ -21706,7 +22718,7 @@ impl CommandBuffer {
         stride: u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawMeshTasksIndirectNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdDrawMeshTasksIndirectNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdDrawMeshTasksIndirectNV as usize,
             ))
@@ -21715,7 +22727,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdDrawMeshTasksIndirectCountNV =
+/// [`vkCmdDrawMeshTasksIndirectCountNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMeshTasksIndirectCountNV.html)
+///
+pub type FN_CmdDrawMeshTasksIndirectCountNV =
     unsafe extern "C" fn(CommandBufferHandle, Buffer, DeviceSize, Buffer, DeviceSize, u32, u32);
 impl CommandBuffer {
     /// [`vkCmdDrawMeshTasksIndirectCountNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMeshTasksIndirectCountNV.html)
@@ -21748,7 +22762,7 @@ impl CommandBuffer {
         stride: u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawMeshTasksIndirectCountNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdDrawMeshTasksIndirectCountNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdDrawMeshTasksIndirectCountNV as usize,
             ))
@@ -21767,7 +22781,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetExclusiveScissorEnableNV =
+/// [`vkCmdSetExclusiveScissorEnableNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetExclusiveScissorEnableNV.html)
+///
+pub type FN_CmdSetExclusiveScissorEnableNV =
     unsafe extern "C" fn(CommandBufferHandle, u32, u32, *const Bool32);
 impl CommandBuffer {
     /// [`vkCmdSetExclusiveScissorEnableNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetExclusiveScissorEnableNV.html)
@@ -21797,7 +22813,7 @@ impl CommandBuffer {
         p_exclusive_scissor_enables: *const Bool32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetExclusiveScissorEnableNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetExclusiveScissorEnableNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetExclusiveScissorEnableNV as usize,
             ))
@@ -21813,7 +22829,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetExclusiveScissorNV =
+/// [`vkCmdSetExclusiveScissorNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetExclusiveScissorNV.html)
+///
+pub type FN_CmdSetExclusiveScissorNV =
     unsafe extern "C" fn(CommandBufferHandle, u32, u32, *const Rect2D);
 impl CommandBuffer {
     /// [`vkCmdSetExclusiveScissorNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetExclusiveScissorNV.html)
@@ -21843,7 +22861,7 @@ impl CommandBuffer {
         p_exclusive_scissors: *const Rect2D,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetExclusiveScissorNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetExclusiveScissorNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetExclusiveScissorNV as usize,
             ))
@@ -21859,7 +22877,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetCheckpointNV = unsafe extern "C" fn(CommandBufferHandle, *const c_void);
+/// [`vkCmdSetCheckpointNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCheckpointNV.html)
+///
+pub type FN_CmdSetCheckpointNV = unsafe extern "C" fn(CommandBufferHandle, *const c_void);
 impl CommandBuffer {
     /// [`vkCmdSetCheckpointNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCheckpointNV.html)
     ///
@@ -21885,7 +22905,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_checkpoint_nv(&self, p_checkpoint_marker: *const c_void) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetCheckpointNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetCheckpointNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetCheckpointNV as usize,
             ))
@@ -21894,7 +22914,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_GetQueueCheckpointDataNV =
+/// [`vkGetQueueCheckpointDataNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetQueueCheckpointDataNV.html)
+///
+pub type FN_GetQueueCheckpointDataNV =
     unsafe extern "C" fn(QueueHandle, *mut u32, *mut CheckpointDataNV);
 impl Queue {
     /// [`vkGetQueueCheckpointDataNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetQueueCheckpointDataNV.html)
@@ -21916,7 +22938,7 @@ impl Queue {
         p_checkpoint_data: *mut CheckpointDataNV,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetQueueCheckpointDataNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetQueueCheckpointDataNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetQueueCheckpointDataNV as usize,
             ))
@@ -21925,7 +22947,9 @@ impl Queue {
     }
 }
 
-pub(crate) type FUN_GetQueueCheckpointData2NV =
+/// [`vkGetQueueCheckpointData2NV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetQueueCheckpointData2NV.html)
+///
+pub type FN_GetQueueCheckpointData2NV =
     unsafe extern "C" fn(QueueHandle, *mut u32, *mut CheckpointData2NV);
 impl Queue {
     /// [`vkGetQueueCheckpointData2NV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetQueueCheckpointData2NV.html)
@@ -21947,7 +22971,7 @@ impl Queue {
         p_checkpoint_data: *mut CheckpointData2NV,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetQueueCheckpointData2NV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetQueueCheckpointData2NV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetQueueCheckpointData2NV as usize,
             ))
@@ -21956,7 +22980,9 @@ impl Queue {
     }
 }
 
-pub(crate) type FUN_SetSwapchainPresentTimingQueueSizeEXT =
+/// [`vkSetSwapchainPresentTimingQueueSizeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetSwapchainPresentTimingQueueSizeEXT.html)
+///
+pub type FN_SetSwapchainPresentTimingQueueSizeEXT =
     unsafe extern "C" fn(DeviceHandle, SwapchainKHR, u32) -> ResultCode;
 impl Device {
     /// [`vkSetSwapchainPresentTimingQueueSizeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetSwapchainPresentTimingQueueSizeEXT.html)
@@ -21985,7 +23011,7 @@ impl Device {
         size: u32,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_SetSwapchainPresentTimingQueueSizeEXT>(
+            std::mem::transmute::<vkVoidFunction, FN_SetSwapchainPresentTimingQueueSizeEXT>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkSetSwapchainPresentTimingQueueSizeEXT as usize,
@@ -21996,7 +23022,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetSwapchainTimingPropertiesEXT = unsafe extern "C" fn(
+/// [`vkGetSwapchainTimingPropertiesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSwapchainTimingPropertiesEXT.html)
+///
+pub type FN_GetSwapchainTimingPropertiesEXT = unsafe extern "C" fn(
     DeviceHandle,
     SwapchainKHR,
     *mut SwapchainTimingPropertiesEXT,
@@ -22034,7 +23062,7 @@ impl Device {
         p_swapchain_timing_properties_counter: *mut u64,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetSwapchainTimingPropertiesEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetSwapchainTimingPropertiesEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetSwapchainTimingPropertiesEXT as usize,
             ))
@@ -22050,7 +23078,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetSwapchainTimeDomainPropertiesEXT = unsafe extern "C" fn(
+/// [`vkGetSwapchainTimeDomainPropertiesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSwapchainTimeDomainPropertiesEXT.html)
+///
+pub type FN_GetSwapchainTimeDomainPropertiesEXT = unsafe extern "C" fn(
     DeviceHandle,
     SwapchainKHR,
     *mut SwapchainTimeDomainPropertiesEXT,
@@ -22088,7 +23118,7 @@ impl Device {
         p_time_domains_counter: *mut u64,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetSwapchainTimeDomainPropertiesEXT>(
+            std::mem::transmute::<vkVoidFunction, FN_GetSwapchainTimeDomainPropertiesEXT>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetSwapchainTimeDomainPropertiesEXT as usize,
@@ -22106,7 +23136,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetPastPresentationTimingEXT = unsafe extern "C" fn(
+/// [`vkGetPastPresentationTimingEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPastPresentationTimingEXT.html)
+///
+pub type FN_GetPastPresentationTimingEXT = unsafe extern "C" fn(
     DeviceHandle,
     *const PastPresentationTimingInfoEXT,
     *mut PastPresentationTimingPropertiesEXT,
@@ -22139,7 +23171,7 @@ impl Device {
         p_past_presentation_timing_properties: *mut PastPresentationTimingPropertiesEXT,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPastPresentationTimingEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetPastPresentationTimingEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetPastPresentationTimingEXT as usize,
             ))
@@ -22154,7 +23186,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_InitializePerformanceApiINTEL =
+/// [`vkInitializePerformanceApiINTEL`](https://docs.vulkan.org/refpages/latest/refpages/source/vkInitializePerformanceApiINTEL.html)
+///
+pub type FN_InitializePerformanceApiINTEL =
     unsafe extern "C" fn(DeviceHandle, *const InitializePerformanceApiInfoINTEL) -> ResultCode;
 impl Device {
     /// [`vkInitializePerformanceApiINTEL`](https://docs.vulkan.org/refpages/latest/refpages/source/vkInitializePerformanceApiINTEL.html)
@@ -22181,7 +23215,7 @@ impl Device {
         p_initialize_info: *const InitializePerformanceApiInfoINTEL,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_InitializePerformanceApiINTEL>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_InitializePerformanceApiINTEL>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkInitializePerformanceApiINTEL as usize,
             ))
@@ -22190,7 +23224,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_UninitializePerformanceApiINTEL = unsafe extern "C" fn(DeviceHandle);
+/// [`vkUninitializePerformanceApiINTEL`](https://docs.vulkan.org/refpages/latest/refpages/source/vkUninitializePerformanceApiINTEL.html)
+///
+pub type FN_UninitializePerformanceApiINTEL = unsafe extern "C" fn(DeviceHandle);
 impl Device {
     /// [`vkUninitializePerformanceApiINTEL`](https://docs.vulkan.org/refpages/latest/refpages/source/vkUninitializePerformanceApiINTEL.html)
     ///
@@ -22204,7 +23240,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn uninitialize_performance_api_intel(&self) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_UninitializePerformanceApiINTEL>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_UninitializePerformanceApiINTEL>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkUninitializePerformanceApiINTEL as usize,
             ))
@@ -22213,7 +23249,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdSetPerformanceMarkerINTEL =
+/// [`vkCmdSetPerformanceMarkerINTEL`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPerformanceMarkerINTEL.html)
+///
+pub type FN_CmdSetPerformanceMarkerINTEL =
     unsafe extern "C" fn(CommandBufferHandle, *const PerformanceMarkerInfoINTEL) -> ResultCode;
 impl CommandBuffer {
     /// [`vkCmdSetPerformanceMarkerINTEL`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPerformanceMarkerINTEL.html)
@@ -22253,7 +23291,7 @@ impl CommandBuffer {
         p_marker_info: *const PerformanceMarkerInfoINTEL,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetPerformanceMarkerINTEL>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetPerformanceMarkerINTEL>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetPerformanceMarkerINTEL as usize,
             ))
@@ -22262,7 +23300,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetPerformanceStreamMarkerINTEL = unsafe extern "C" fn(
+/// [`vkCmdSetPerformanceStreamMarkerINTEL`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPerformanceStreamMarkerINTEL.html)
+///
+pub type FN_CmdSetPerformanceStreamMarkerINTEL = unsafe extern "C" fn(
     CommandBufferHandle,
     *const PerformanceStreamMarkerInfoINTEL,
 ) -> ResultCode;
@@ -22304,7 +23344,7 @@ impl CommandBuffer {
         p_marker_info: *const PerformanceStreamMarkerInfoINTEL,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetPerformanceStreamMarkerINTEL>(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetPerformanceStreamMarkerINTEL>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkCmdSetPerformanceStreamMarkerINTEL as usize,
@@ -22315,7 +23355,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetPerformanceOverrideINTEL =
+/// [`vkCmdSetPerformanceOverrideINTEL`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPerformanceOverrideINTEL.html)
+///
+pub type FN_CmdSetPerformanceOverrideINTEL =
     unsafe extern "C" fn(CommandBufferHandle, *const PerformanceOverrideInfoINTEL) -> ResultCode;
 impl CommandBuffer {
     /// [`vkCmdSetPerformanceOverrideINTEL`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPerformanceOverrideINTEL.html)
@@ -22354,7 +23396,7 @@ impl CommandBuffer {
         p_override_info: *const PerformanceOverrideInfoINTEL,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetPerformanceOverrideINTEL>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetPerformanceOverrideINTEL>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetPerformanceOverrideINTEL as usize,
             ))
@@ -22363,7 +23405,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_AcquirePerformanceConfigurationINTEL = unsafe extern "C" fn(
+/// [`vkAcquirePerformanceConfigurationINTEL`](https://docs.vulkan.org/refpages/latest/refpages/source/vkAcquirePerformanceConfigurationINTEL.html)
+///
+pub type FN_AcquirePerformanceConfigurationINTEL = unsafe extern "C" fn(
     DeviceHandle,
     *const PerformanceConfigurationAcquireInfoINTEL,
     *mut PerformanceConfigurationINTEL,
@@ -22394,7 +23438,7 @@ impl Device {
         p_configuration: *mut PerformanceConfigurationINTEL,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_AcquirePerformanceConfigurationINTEL>(
+            std::mem::transmute::<vkVoidFunction, FN_AcquirePerformanceConfigurationINTEL>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkAcquirePerformanceConfigurationINTEL as usize,
@@ -22405,7 +23449,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_ReleasePerformanceConfigurationINTEL =
+/// [`vkReleasePerformanceConfigurationINTEL`](https://docs.vulkan.org/refpages/latest/refpages/source/vkReleasePerformanceConfigurationINTEL.html)
+///
+pub type FN_ReleasePerformanceConfigurationINTEL =
     unsafe extern "C" fn(DeviceHandle, PerformanceConfigurationINTEL) -> ResultCode;
 impl Device {
     /// [`vkReleasePerformanceConfigurationINTEL`](https://docs.vulkan.org/refpages/latest/refpages/source/vkReleasePerformanceConfigurationINTEL.html)
@@ -22435,7 +23481,7 @@ impl Device {
         configuration: PerformanceConfigurationINTEL,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_ReleasePerformanceConfigurationINTEL>(
+            std::mem::transmute::<vkVoidFunction, FN_ReleasePerformanceConfigurationINTEL>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkReleasePerformanceConfigurationINTEL as usize,
@@ -22446,7 +23492,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_QueueSetPerformanceConfigurationINTEL =
+/// [`vkQueueSetPerformanceConfigurationINTEL`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueSetPerformanceConfigurationINTEL.html)
+///
+pub type FN_QueueSetPerformanceConfigurationINTEL =
     unsafe extern "C" fn(QueueHandle, PerformanceConfigurationINTEL) -> ResultCode;
 impl Queue {
     /// [`vkQueueSetPerformanceConfigurationINTEL`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueSetPerformanceConfigurationINTEL.html)
@@ -22473,7 +23521,7 @@ impl Queue {
         configuration: PerformanceConfigurationINTEL,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_QueueSetPerformanceConfigurationINTEL>(
+            std::mem::transmute::<vkVoidFunction, FN_QueueSetPerformanceConfigurationINTEL>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkQueueSetPerformanceConfigurationINTEL as usize,
@@ -22484,7 +23532,9 @@ impl Queue {
     }
 }
 
-pub(crate) type FUN_GetPerformanceParameterINTEL = unsafe extern "C" fn(
+/// [`vkGetPerformanceParameterINTEL`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPerformanceParameterINTEL.html)
+///
+pub type FN_GetPerformanceParameterINTEL = unsafe extern "C" fn(
     DeviceHandle,
     PerformanceParameterTypeINTEL,
     *mut PerformanceValueINTEL,
@@ -22515,7 +23565,7 @@ impl Device {
         p_value: *mut PerformanceValueINTEL,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPerformanceParameterINTEL>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetPerformanceParameterINTEL>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetPerformanceParameterINTEL as usize,
             ))
@@ -22524,7 +23574,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_SetLocalDimmingAMD = unsafe extern "C" fn(DeviceHandle, SwapchainKHR, Bool32);
+/// [`vkSetLocalDimmingAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetLocalDimmingAMD.html)
+///
+pub type FN_SetLocalDimmingAMD = unsafe extern "C" fn(DeviceHandle, SwapchainKHR, Bool32);
 impl Device {
     /// [`vkSetLocalDimmingAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetLocalDimmingAMD.html)
     ///
@@ -22542,7 +23594,7 @@ impl Device {
         local_dimming_enable: Bool32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_SetLocalDimmingAMD>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_SetLocalDimmingAMD>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkSetLocalDimmingAMD as usize,
             ))
@@ -22551,7 +23603,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CreateImagePipeSurfaceFUCHSIA = unsafe extern "C" fn(
+/// [`vkCreateImagePipeSurfaceFUCHSIA`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateImagePipeSurfaceFUCHSIA.html)
+///
+pub type FN_CreateImagePipeSurfaceFUCHSIA = unsafe extern "C" fn(
     InstanceHandle,
     *const ImagePipeSurfaceCreateInfoFUCHSIA,
     *const AllocationCallbacks,
@@ -22587,7 +23641,7 @@ impl Instance {
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateImagePipeSurfaceFUCHSIA>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateImagePipeSurfaceFUCHSIA>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateImagePipeSurfaceFUCHSIA as usize,
             ))
@@ -22596,7 +23650,9 @@ impl Instance {
     }
 }
 
-pub(crate) type FUN_CreateMetalSurfaceEXT = unsafe extern "C" fn(
+/// [`vkCreateMetalSurfaceEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateMetalSurfaceEXT.html)
+///
+pub type FN_CreateMetalSurfaceEXT = unsafe extern "C" fn(
     InstanceHandle,
     *const MetalSurfaceCreateInfoEXT,
     *const AllocationCallbacks,
@@ -22633,7 +23689,7 @@ impl Instance {
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateMetalSurfaceEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateMetalSurfaceEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateMetalSurfaceEXT as usize,
             ))
@@ -22642,7 +23698,9 @@ impl Instance {
     }
 }
 
-pub(crate) type FUN_GetBufferDeviceAddressEXT =
+/// [`vkGetBufferDeviceAddressEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferDeviceAddressEXT.html)
+///
+pub type FN_GetBufferDeviceAddressEXT =
     unsafe extern "C" fn(DeviceHandle, *const BufferDeviceAddressInfo) -> DeviceAddress;
 impl Device {
     /// [`vkGetBufferDeviceAddressEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferDeviceAddressEXT.html)
@@ -22661,7 +23719,7 @@ impl Device {
         p_info: *const BufferDeviceAddressInfo,
     ) -> DeviceAddress {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetBufferDeviceAddressEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetBufferDeviceAddressEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetBufferDeviceAddressEXT as usize,
             ))
@@ -22670,7 +23728,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceToolPropertiesEXT = unsafe extern "C" fn(
+/// [`vkGetPhysicalDeviceToolPropertiesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceToolPropertiesEXT.html)
+///
+pub type FN_GetPhysicalDeviceToolPropertiesEXT = unsafe extern "C" fn(
     PhysicalDeviceHandle,
     *mut u32,
     *mut PhysicalDeviceToolProperties,
@@ -22705,7 +23765,7 @@ impl PhysicalDevice {
         p_tool_properties: *mut PhysicalDeviceToolProperties,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceToolPropertiesEXT>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceToolPropertiesEXT>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceToolPropertiesEXT as usize,
@@ -22716,12 +23776,13 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceCooperativeMatrixPropertiesNV =
-    unsafe extern "C" fn(
-        PhysicalDeviceHandle,
-        *mut u32,
-        *mut CooperativeMatrixPropertiesNV,
-    ) -> ResultCode;
+/// [`vkGetPhysicalDeviceCooperativeMatrixPropertiesNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceCooperativeMatrixPropertiesNV.html)
+///
+pub type FN_GetPhysicalDeviceCooperativeMatrixPropertiesNV = unsafe extern "C" fn(
+    PhysicalDeviceHandle,
+    *mut u32,
+    *mut CooperativeMatrixPropertiesNV,
+) -> ResultCode;
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceCooperativeMatrixPropertiesNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceCooperativeMatrixPropertiesNV.html)
     ///
@@ -22752,7 +23813,7 @@ impl PhysicalDevice {
         p_properties: *mut CooperativeMatrixPropertiesNV,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceCooperativeMatrixPropertiesNV>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceCooperativeMatrixPropertiesNV>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceCooperativeMatrixPropertiesNV as usize,
@@ -22763,7 +23824,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV =
+/// [`vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV.html)
+///
+pub type FN_GetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV =
     unsafe extern "C" fn(
         PhysicalDeviceHandle,
         *mut u32,
@@ -22801,7 +23864,7 @@ impl PhysicalDevice {
         let command = unsafe {
             std::mem::transmute::<
                 vkVoidFunction,
-                FUN_GetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV,
+                FN_GetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV,
             >(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV
@@ -22812,7 +23875,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceSurfacePresentModes2EXT = unsafe extern "C" fn(
+/// [`vkGetPhysicalDeviceSurfacePresentModes2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSurfacePresentModes2EXT.html)
+///
+pub type FN_GetPhysicalDeviceSurfacePresentModes2EXT = unsafe extern "C" fn(
     PhysicalDeviceHandle,
     *const PhysicalDeviceSurfaceInfo2KHR,
     *mut u32,
@@ -22850,7 +23915,7 @@ impl PhysicalDevice {
         p_present_modes: *mut PresentModeKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceSurfacePresentModes2EXT>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceSurfacePresentModes2EXT>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceSurfacePresentModes2EXT as usize,
@@ -22868,7 +23933,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_AcquireFullScreenExclusiveModeEXT =
+/// [`vkAcquireFullScreenExclusiveModeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkAcquireFullScreenExclusiveModeEXT.html)
+///
+pub type FN_AcquireFullScreenExclusiveModeEXT =
     unsafe extern "C" fn(DeviceHandle, SwapchainKHR) -> ResultCode;
 impl Device {
     /// [`vkAcquireFullScreenExclusiveModeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkAcquireFullScreenExclusiveModeEXT.html)
@@ -22897,18 +23964,18 @@ impl Device {
         swapchain: SwapchainKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_AcquireFullScreenExclusiveModeEXT>(
-                vtable_get(
-                    self.vtable(),
-                    InstanceCommand::vkAcquireFullScreenExclusiveModeEXT as usize,
-                ),
-            )
+            std::mem::transmute::<vkVoidFunction, FN_AcquireFullScreenExclusiveModeEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommand::vkAcquireFullScreenExclusiveModeEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, swapchain) }
     }
 }
 
-pub(crate) type FUN_ReleaseFullScreenExclusiveModeEXT =
+/// [`vkReleaseFullScreenExclusiveModeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkReleaseFullScreenExclusiveModeEXT.html)
+///
+pub type FN_ReleaseFullScreenExclusiveModeEXT =
     unsafe extern "C" fn(DeviceHandle, SwapchainKHR) -> ResultCode;
 impl Device {
     /// [`vkReleaseFullScreenExclusiveModeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkReleaseFullScreenExclusiveModeEXT.html)
@@ -22936,18 +24003,18 @@ impl Device {
         swapchain: SwapchainKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_ReleaseFullScreenExclusiveModeEXT>(
-                vtable_get(
-                    self.vtable(),
-                    InstanceCommand::vkReleaseFullScreenExclusiveModeEXT as usize,
-                ),
-            )
+            std::mem::transmute::<vkVoidFunction, FN_ReleaseFullScreenExclusiveModeEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommand::vkReleaseFullScreenExclusiveModeEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, swapchain) }
     }
 }
 
-pub(crate) type FUN_GetDeviceGroupSurfacePresentModes2EXT = unsafe extern "C" fn(
+/// [`vkGetDeviceGroupSurfacePresentModes2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceGroupSurfacePresentModes2EXT.html)
+///
+pub type FN_GetDeviceGroupSurfacePresentModes2EXT = unsafe extern "C" fn(
     DeviceHandle,
     *const PhysicalDeviceSurfaceInfo2KHR,
     *mut DeviceGroupPresentModeFlagsKHR,
@@ -22979,7 +24046,7 @@ impl Device {
         p_modes: *mut DeviceGroupPresentModeFlagsKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceGroupSurfacePresentModes2EXT>(
+            std::mem::transmute::<vkVoidFunction, FN_GetDeviceGroupSurfacePresentModes2EXT>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetDeviceGroupSurfacePresentModes2EXT as usize,
@@ -22990,7 +24057,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CreateHeadlessSurfaceEXT = unsafe extern "C" fn(
+/// [`vkCreateHeadlessSurfaceEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateHeadlessSurfaceEXT.html)
+///
+pub type FN_CreateHeadlessSurfaceEXT = unsafe extern "C" fn(
     InstanceHandle,
     *const HeadlessSurfaceCreateInfoEXT,
     *const AllocationCallbacks,
@@ -23026,7 +24095,7 @@ impl Instance {
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateHeadlessSurfaceEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateHeadlessSurfaceEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateHeadlessSurfaceEXT as usize,
             ))
@@ -23035,7 +24104,9 @@ impl Instance {
     }
 }
 
-pub(crate) type FUN_CmdSetLineStippleEXT = unsafe extern "C" fn(CommandBufferHandle, u32, u16);
+/// [`vkCmdSetLineStippleEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetLineStippleEXT.html)
+///
+pub type FN_CmdSetLineStippleEXT = unsafe extern "C" fn(CommandBufferHandle, u32, u16);
 impl CommandBuffer {
     /// [`vkCmdSetLineStippleEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetLineStippleEXT.html)
     ///
@@ -23064,7 +24135,7 @@ impl CommandBuffer {
         line_stipple_pattern: u16,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetLineStippleEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetLineStippleEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetLineStippleEXT as usize,
             ))
@@ -23073,7 +24144,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_ResetQueryPoolEXT = unsafe extern "C" fn(DeviceHandle, QueryPool, u32, u32);
+/// [`vkResetQueryPoolEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkResetQueryPoolEXT.html)
+///
+pub type FN_ResetQueryPoolEXT = unsafe extern "C" fn(DeviceHandle, QueryPool, u32, u32);
 impl Device {
     /// [`vkResetQueryPoolEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkResetQueryPoolEXT.html)
     ///
@@ -23093,7 +24166,7 @@ impl Device {
         query_count: u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_ResetQueryPoolEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_ResetQueryPoolEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkResetQueryPoolEXT as usize,
             ))
@@ -23102,7 +24175,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdSetCullModeEXT = unsafe extern "C" fn(CommandBufferHandle, CullModeFlags);
+/// [`vkCmdSetCullModeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCullModeEXT.html)
+///
+pub type FN_CmdSetCullModeEXT = unsafe extern "C" fn(CommandBufferHandle, CullModeFlags);
 impl CommandBuffer {
     /// [`vkCmdSetCullModeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCullModeEXT.html)
     ///
@@ -23131,7 +24206,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_cull_mode_ext(&self, cull_mode: CullModeFlags) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetCullModeEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetCullModeEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetCullModeEXT as usize,
             ))
@@ -23140,7 +24215,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetFrontFaceEXT = unsafe extern "C" fn(CommandBufferHandle, FrontFace);
+/// [`vkCmdSetFrontFaceEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetFrontFaceEXT.html)
+///
+pub type FN_CmdSetFrontFaceEXT = unsafe extern "C" fn(CommandBufferHandle, FrontFace);
 impl CommandBuffer {
     /// [`vkCmdSetFrontFaceEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetFrontFaceEXT.html)
     ///
@@ -23166,7 +24243,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_front_face_ext(&self, front_face: FrontFace) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetFrontFaceEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetFrontFaceEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetFrontFaceEXT as usize,
             ))
@@ -23175,7 +24252,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetPrimitiveTopologyEXT =
+/// [`vkCmdSetPrimitiveTopologyEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPrimitiveTopologyEXT.html)
+///
+pub type FN_CmdSetPrimitiveTopologyEXT =
     unsafe extern "C" fn(CommandBufferHandle, PrimitiveTopology);
 impl CommandBuffer {
     /// [`vkCmdSetPrimitiveTopologyEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPrimitiveTopologyEXT.html)
@@ -23202,7 +24281,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_primitive_topology_ext(&self, primitive_topology: PrimitiveTopology) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetPrimitiveTopologyEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetPrimitiveTopologyEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetPrimitiveTopologyEXT as usize,
             ))
@@ -23211,7 +24290,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetViewportWithCountEXT =
+/// [`vkCmdSetViewportWithCountEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetViewportWithCountEXT.html)
+///
+pub type FN_CmdSetViewportWithCountEXT =
     unsafe extern "C" fn(CommandBufferHandle, u32, *const Viewport);
 impl CommandBuffer {
     /// [`vkCmdSetViewportWithCountEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetViewportWithCountEXT.html)
@@ -23242,7 +24323,7 @@ impl CommandBuffer {
         p_viewports: *const Viewport,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetViewportWithCountEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetViewportWithCountEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetViewportWithCountEXT as usize,
             ))
@@ -23251,7 +24332,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetScissorWithCountEXT =
+/// [`vkCmdSetScissorWithCountEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetScissorWithCountEXT.html)
+///
+pub type FN_CmdSetScissorWithCountEXT =
     unsafe extern "C" fn(CommandBufferHandle, u32, *const Rect2D);
 impl CommandBuffer {
     /// [`vkCmdSetScissorWithCountEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetScissorWithCountEXT.html)
@@ -23282,7 +24365,7 @@ impl CommandBuffer {
         p_scissors: *const Rect2D,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetScissorWithCountEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetScissorWithCountEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetScissorWithCountEXT as usize,
             ))
@@ -23291,7 +24374,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdBindVertexBuffers2EXT = unsafe extern "C" fn(
+/// [`vkCmdBindVertexBuffers2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindVertexBuffers2EXT.html)
+///
+pub type FN_CmdBindVertexBuffers2EXT = unsafe extern "C" fn(
     CommandBufferHandle,
     u32,
     u32,
@@ -23343,7 +24428,7 @@ impl CommandBuffer {
         p_strides: *const DeviceSize,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBindVertexBuffers2EXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBindVertexBuffers2EXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdBindVertexBuffers2EXT as usize,
             ))
@@ -23362,7 +24447,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetDepthTestEnableEXT = unsafe extern "C" fn(CommandBufferHandle, Bool32);
+/// [`vkCmdSetDepthTestEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthTestEnableEXT.html)
+///
+pub type FN_CmdSetDepthTestEnableEXT = unsafe extern "C" fn(CommandBufferHandle, Bool32);
 impl CommandBuffer {
     /// [`vkCmdSetDepthTestEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthTestEnableEXT.html)
     ///
@@ -23388,7 +24475,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_depth_test_enable_ext(&self, depth_test_enable: Bool32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthTestEnableEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetDepthTestEnableEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetDepthTestEnableEXT as usize,
             ))
@@ -23397,7 +24484,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetDepthWriteEnableEXT = unsafe extern "C" fn(CommandBufferHandle, Bool32);
+/// [`vkCmdSetDepthWriteEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthWriteEnableEXT.html)
+///
+pub type FN_CmdSetDepthWriteEnableEXT = unsafe extern "C" fn(CommandBufferHandle, Bool32);
 impl CommandBuffer {
     /// [`vkCmdSetDepthWriteEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthWriteEnableEXT.html)
     ///
@@ -23423,7 +24512,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_depth_write_enable_ext(&self, depth_write_enable: Bool32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthWriteEnableEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetDepthWriteEnableEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetDepthWriteEnableEXT as usize,
             ))
@@ -23432,7 +24521,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetDepthCompareOpEXT = unsafe extern "C" fn(CommandBufferHandle, CompareOp);
+/// [`vkCmdSetDepthCompareOpEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthCompareOpEXT.html)
+///
+pub type FN_CmdSetDepthCompareOpEXT = unsafe extern "C" fn(CommandBufferHandle, CompareOp);
 impl CommandBuffer {
     /// [`vkCmdSetDepthCompareOpEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthCompareOpEXT.html)
     ///
@@ -23458,7 +24549,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_depth_compare_op_ext(&self, depth_compare_op: CompareOp) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthCompareOpEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetDepthCompareOpEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetDepthCompareOpEXT as usize,
             ))
@@ -23467,8 +24558,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetDepthBoundsTestEnableEXT =
-    unsafe extern "C" fn(CommandBufferHandle, Bool32);
+/// [`vkCmdSetDepthBoundsTestEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthBoundsTestEnableEXT.html)
+///
+pub type FN_CmdSetDepthBoundsTestEnableEXT = unsafe extern "C" fn(CommandBufferHandle, Bool32);
 impl CommandBuffer {
     /// [`vkCmdSetDepthBoundsTestEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthBoundsTestEnableEXT.html)
     ///
@@ -23494,7 +24586,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_depth_bounds_test_enable_ext(&self, depth_bounds_test_enable: Bool32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthBoundsTestEnableEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetDepthBoundsTestEnableEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetDepthBoundsTestEnableEXT as usize,
             ))
@@ -23503,7 +24595,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetStencilTestEnableEXT = unsafe extern "C" fn(CommandBufferHandle, Bool32);
+/// [`vkCmdSetStencilTestEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetStencilTestEnableEXT.html)
+///
+pub type FN_CmdSetStencilTestEnableEXT = unsafe extern "C" fn(CommandBufferHandle, Bool32);
 impl CommandBuffer {
     /// [`vkCmdSetStencilTestEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetStencilTestEnableEXT.html)
     ///
@@ -23529,7 +24623,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_stencil_test_enable_ext(&self, stencil_test_enable: Bool32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetStencilTestEnableEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetStencilTestEnableEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetStencilTestEnableEXT as usize,
             ))
@@ -23538,7 +24632,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetStencilOpEXT = unsafe extern "C" fn(
+/// [`vkCmdSetStencilOpEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetStencilOpEXT.html)
+///
+pub type FN_CmdSetStencilOpEXT = unsafe extern "C" fn(
     CommandBufferHandle,
     StencilFaceFlags,
     StencilOp,
@@ -23578,7 +24674,7 @@ impl CommandBuffer {
         compare_op: CompareOp,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetStencilOpEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetStencilOpEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetStencilOpEXT as usize,
             ))
@@ -23596,7 +24692,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CopyMemoryToImageEXT =
+/// [`vkCopyMemoryToImageEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyMemoryToImageEXT.html)
+///
+pub type FN_CopyMemoryToImageEXT =
     unsafe extern "C" fn(DeviceHandle, *const CopyMemoryToImageInfo) -> ResultCode;
 impl Device {
     /// [`vkCopyMemoryToImageEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyMemoryToImageEXT.html)
@@ -23626,7 +24724,7 @@ impl Device {
         p_copy_memory_to_image_info: *const CopyMemoryToImageInfo,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CopyMemoryToImageEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CopyMemoryToImageEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCopyMemoryToImageEXT as usize,
             ))
@@ -23635,7 +24733,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CopyImageToMemoryEXT =
+/// [`vkCopyImageToMemoryEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyImageToMemoryEXT.html)
+///
+pub type FN_CopyImageToMemoryEXT =
     unsafe extern "C" fn(DeviceHandle, *const CopyImageToMemoryInfo) -> ResultCode;
 impl Device {
     /// [`vkCopyImageToMemoryEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyImageToMemoryEXT.html)
@@ -23665,7 +24765,7 @@ impl Device {
         p_copy_image_to_memory_info: *const CopyImageToMemoryInfo,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CopyImageToMemoryEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CopyImageToMemoryEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCopyImageToMemoryEXT as usize,
             ))
@@ -23674,7 +24774,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CopyImageToImageEXT =
+/// [`vkCopyImageToImageEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyImageToImageEXT.html)
+///
+pub type FN_CopyImageToImageEXT =
     unsafe extern "C" fn(DeviceHandle, *const CopyImageToImageInfo) -> ResultCode;
 impl Device {
     /// [`vkCopyImageToImageEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyImageToImageEXT.html)
@@ -23704,7 +24806,7 @@ impl Device {
         p_copy_image_to_image_info: *const CopyImageToImageInfo,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CopyImageToImageEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CopyImageToImageEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCopyImageToImageEXT as usize,
             ))
@@ -23713,7 +24815,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_TransitionImageLayoutEXT =
+/// [`vkTransitionImageLayoutEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkTransitionImageLayoutEXT.html)
+///
+pub type FN_TransitionImageLayoutEXT =
     unsafe extern "C" fn(DeviceHandle, u32, *const HostImageLayoutTransitionInfo) -> ResultCode;
 impl Device {
     /// [`vkTransitionImageLayoutEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkTransitionImageLayoutEXT.html)
@@ -23744,7 +24848,7 @@ impl Device {
         p_transitions: *const HostImageLayoutTransitionInfo,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_TransitionImageLayoutEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_TransitionImageLayoutEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkTransitionImageLayoutEXT as usize,
             ))
@@ -23753,7 +24857,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetImageSubresourceLayout2EXT =
+/// [`vkGetImageSubresourceLayout2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageSubresourceLayout2EXT.html)
+///
+pub type FN_GetImageSubresourceLayout2EXT =
     unsafe extern "C" fn(DeviceHandle, Image, *const ImageSubresource2, *mut SubresourceLayout2);
 impl Device {
     /// [`vkGetImageSubresourceLayout2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageSubresourceLayout2EXT.html)
@@ -23775,7 +24881,7 @@ impl Device {
         p_layout: *mut SubresourceLayout2,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetImageSubresourceLayout2EXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetImageSubresourceLayout2EXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetImageSubresourceLayout2EXT as usize,
             ))
@@ -23784,7 +24890,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_ReleaseSwapchainImagesEXT =
+/// [`vkReleaseSwapchainImagesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkReleaseSwapchainImagesEXT.html)
+///
+pub type FN_ReleaseSwapchainImagesEXT =
     unsafe extern "C" fn(DeviceHandle, *const ReleaseSwapchainImagesInfoKHR) -> ResultCode;
 impl Device {
     /// [`vkReleaseSwapchainImagesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkReleaseSwapchainImagesEXT.html)
@@ -23811,7 +24919,7 @@ impl Device {
         p_release_info: *const ReleaseSwapchainImagesInfoKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_ReleaseSwapchainImagesEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_ReleaseSwapchainImagesEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkReleaseSwapchainImagesEXT as usize,
             ))
@@ -23820,7 +24928,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetGeneratedCommandsMemoryRequirementsNV = unsafe extern "C" fn(
+/// [`vkGetGeneratedCommandsMemoryRequirementsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetGeneratedCommandsMemoryRequirementsNV.html)
+///
+pub type FN_GetGeneratedCommandsMemoryRequirementsNV = unsafe extern "C" fn(
     DeviceHandle,
     *const GeneratedCommandsMemoryRequirementsInfoNV,
     *mut MemoryRequirements2,
@@ -23842,7 +24952,7 @@ impl Device {
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetGeneratedCommandsMemoryRequirementsNV>(
+            std::mem::transmute::<vkVoidFunction, FN_GetGeneratedCommandsMemoryRequirementsNV>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetGeneratedCommandsMemoryRequirementsNV as usize,
@@ -23853,7 +24963,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdPreprocessGeneratedCommandsNV =
+/// [`vkCmdPreprocessGeneratedCommandsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPreprocessGeneratedCommandsNV.html)
+///
+pub type FN_CmdPreprocessGeneratedCommandsNV =
     unsafe extern "C" fn(CommandBufferHandle, *const GeneratedCommandsInfoNV);
 impl CommandBuffer {
     /// [`vkCmdPreprocessGeneratedCommandsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPreprocessGeneratedCommandsNV.html)
@@ -23882,7 +24994,7 @@ impl CommandBuffer {
         p_generated_commands_info: *const GeneratedCommandsInfoNV,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdPreprocessGeneratedCommandsNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdPreprocessGeneratedCommandsNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdPreprocessGeneratedCommandsNV as usize,
             ))
@@ -23891,7 +25003,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdExecuteGeneratedCommandsNV =
+/// [`vkCmdExecuteGeneratedCommandsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdExecuteGeneratedCommandsNV.html)
+///
+pub type FN_CmdExecuteGeneratedCommandsNV =
     unsafe extern "C" fn(CommandBufferHandle, Bool32, *const GeneratedCommandsInfoNV);
 impl CommandBuffer {
     /// [`vkCmdExecuteGeneratedCommandsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdExecuteGeneratedCommandsNV.html)
@@ -23922,7 +25036,7 @@ impl CommandBuffer {
         p_generated_commands_info: *const GeneratedCommandsInfoNV,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdExecuteGeneratedCommandsNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdExecuteGeneratedCommandsNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdExecuteGeneratedCommandsNV as usize,
             ))
@@ -23931,7 +25045,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdBindPipelineShaderGroupNV =
+/// [`vkCmdBindPipelineShaderGroupNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindPipelineShaderGroupNV.html)
+///
+pub type FN_CmdBindPipelineShaderGroupNV =
     unsafe extern "C" fn(CommandBufferHandle, PipelineBindPoint, Pipeline, u32);
 impl CommandBuffer {
     /// [`vkCmdBindPipelineShaderGroupNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindPipelineShaderGroupNV.html)
@@ -23962,7 +25078,7 @@ impl CommandBuffer {
         group_index: u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBindPipelineShaderGroupNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBindPipelineShaderGroupNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdBindPipelineShaderGroupNV as usize,
             ))
@@ -23971,7 +25087,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CreateIndirectCommandsLayoutNV = unsafe extern "C" fn(
+/// [`vkCreateIndirectCommandsLayoutNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateIndirectCommandsLayoutNV.html)
+///
+pub type FN_CreateIndirectCommandsLayoutNV = unsafe extern "C" fn(
     DeviceHandle,
     *const IndirectCommandsLayoutCreateInfoNV,
     *const AllocationCallbacks,
@@ -24007,7 +25125,7 @@ impl Device {
         p_indirect_commands_layout: *mut IndirectCommandsLayoutNV,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateIndirectCommandsLayoutNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateIndirectCommandsLayoutNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateIndirectCommandsLayoutNV as usize,
             ))
@@ -24023,7 +25141,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroyIndirectCommandsLayoutNV =
+/// [`vkDestroyIndirectCommandsLayoutNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyIndirectCommandsLayoutNV.html)
+///
+pub type FN_DestroyIndirectCommandsLayoutNV =
     unsafe extern "C" fn(DeviceHandle, IndirectCommandsLayoutNV, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyIndirectCommandsLayoutNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyIndirectCommandsLayoutNV.html)
@@ -24046,7 +25166,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyIndirectCommandsLayoutNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyIndirectCommandsLayoutNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyIndirectCommandsLayoutNV as usize,
             ))
@@ -24055,7 +25175,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdSetDepthBias2EXT =
+/// [`vkCmdSetDepthBias2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthBias2EXT.html)
+///
+pub type FN_CmdSetDepthBias2EXT =
     unsafe extern "C" fn(CommandBufferHandle, *const DepthBiasInfoEXT);
 impl CommandBuffer {
     /// [`vkCmdSetDepthBias2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthBias2EXT.html)
@@ -24080,7 +25202,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_depth_bias_2_ext(&self, p_depth_bias_info: *const DepthBiasInfoEXT) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthBias2EXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetDepthBias2EXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetDepthBias2EXT as usize,
             ))
@@ -24089,7 +25211,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_AcquireDrmDisplayEXT =
+/// [`vkAcquireDrmDisplayEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkAcquireDrmDisplayEXT.html)
+///
+pub type FN_AcquireDrmDisplayEXT =
     unsafe extern "C" fn(PhysicalDeviceHandle, i32, DisplayKHR) -> ResultCode;
 impl PhysicalDevice {
     /// [`vkAcquireDrmDisplayEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkAcquireDrmDisplayEXT.html)
@@ -24112,7 +25236,7 @@ impl PhysicalDevice {
     #[inline(always)]
     pub unsafe fn acquire_drm_display_ext(&self, drm_fd: i32, display: DisplayKHR) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_AcquireDrmDisplayEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_AcquireDrmDisplayEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkAcquireDrmDisplayEXT as usize,
             ))
@@ -24121,7 +25245,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetDrmDisplayEXT =
+/// [`vkGetDrmDisplayEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDrmDisplayEXT.html)
+///
+pub type FN_GetDrmDisplayEXT =
     unsafe extern "C" fn(PhysicalDeviceHandle, i32, u32, *mut DisplayKHR) -> ResultCode;
 impl PhysicalDevice {
     /// [`vkGetDrmDisplayEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDrmDisplayEXT.html)
@@ -24150,7 +25276,7 @@ impl PhysicalDevice {
         display: *mut DisplayKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDrmDisplayEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetDrmDisplayEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetDrmDisplayEXT as usize,
             ))
@@ -24159,7 +25285,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_CreatePrivateDataSlotEXT = unsafe extern "C" fn(
+/// [`vkCreatePrivateDataSlotEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreatePrivateDataSlotEXT.html)
+///
+pub type FN_CreatePrivateDataSlotEXT = unsafe extern "C" fn(
     DeviceHandle,
     *const PrivateDataSlotCreateInfo,
     *const AllocationCallbacks,
@@ -24195,7 +25323,7 @@ impl Device {
         p_private_data_slot: *mut PrivateDataSlot,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreatePrivateDataSlotEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreatePrivateDataSlotEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreatePrivateDataSlotEXT as usize,
             ))
@@ -24204,7 +25332,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroyPrivateDataSlotEXT =
+/// [`vkDestroyPrivateDataSlotEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyPrivateDataSlotEXT.html)
+///
+pub type FN_DestroyPrivateDataSlotEXT =
     unsafe extern "C" fn(DeviceHandle, PrivateDataSlot, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyPrivateDataSlotEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyPrivateDataSlotEXT.html)
@@ -24228,7 +25358,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyPrivateDataSlotEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyPrivateDataSlotEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyPrivateDataSlotEXT as usize,
             ))
@@ -24237,7 +25367,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_SetPrivateDataEXT =
+/// [`vkSetPrivateDataEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetPrivateDataEXT.html)
+///
+pub type FN_SetPrivateDataEXT =
     unsafe extern "C" fn(DeviceHandle, ObjectType, u64, PrivateDataSlot, u64) -> ResultCode;
 impl Device {
     /// [`vkSetPrivateDataEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetPrivateDataEXT.html)
@@ -24267,7 +25399,7 @@ impl Device {
         data: u64,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_SetPrivateDataEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_SetPrivateDataEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkSetPrivateDataEXT as usize,
             ))
@@ -24284,7 +25416,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetPrivateDataEXT =
+/// [`vkGetPrivateDataEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPrivateDataEXT.html)
+///
+pub type FN_GetPrivateDataEXT =
     unsafe extern "C" fn(DeviceHandle, ObjectType, u64, PrivateDataSlot, *mut u64);
 impl Device {
     /// [`vkGetPrivateDataEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPrivateDataEXT.html)
@@ -24306,7 +25440,7 @@ impl Device {
         p_data: *mut u64,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPrivateDataEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetPrivateDataEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetPrivateDataEXT as usize,
             ))
@@ -24323,7 +25457,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_QueueSetPerfHintQCOM =
+/// [`vkQueueSetPerfHintQCOM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueSetPerfHintQCOM.html)
+///
+pub type FN_QueueSetPerfHintQCOM =
     unsafe extern "C" fn(QueueHandle, *const PerfHintInfoQCOM) -> ResultCode;
 impl Queue {
     /// [`vkQueueSetPerfHintQCOM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueSetPerfHintQCOM.html)
@@ -24349,7 +25485,7 @@ impl Queue {
         p_perf_hint_info: *const PerfHintInfoQCOM,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_QueueSetPerfHintQCOM>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_QueueSetPerfHintQCOM>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkQueueSetPerfHintQCOM as usize,
             ))
@@ -24358,7 +25494,9 @@ impl Queue {
     }
 }
 
-pub(crate) type FUN_CreateCudaModuleNV = unsafe extern "C" fn(
+/// [`vkCreateCudaModuleNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateCudaModuleNV.html)
+///
+pub type FN_CreateCudaModuleNV = unsafe extern "C" fn(
     DeviceHandle,
     *const CudaModuleCreateInfoNV,
     *const AllocationCallbacks,
@@ -24394,7 +25532,7 @@ impl Device {
         p_module: *mut CudaModuleNV,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateCudaModuleNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateCudaModuleNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateCudaModuleNV as usize,
             ))
@@ -24403,7 +25541,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetCudaModuleCacheNV =
+/// [`vkGetCudaModuleCacheNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetCudaModuleCacheNV.html)
+///
+pub type FN_GetCudaModuleCacheNV =
     unsafe extern "C" fn(DeviceHandle, CudaModuleNV, *mut usize, *mut c_void) -> ResultCode;
 impl Device {
     /// [`vkGetCudaModuleCacheNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetCudaModuleCacheNV.html)
@@ -24435,7 +25575,7 @@ impl Device {
         p_cache_data: *mut c_void,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetCudaModuleCacheNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetCudaModuleCacheNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetCudaModuleCacheNV as usize,
             ))
@@ -24444,7 +25584,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CreateCudaFunctionNV = unsafe extern "C" fn(
+/// [`vkCreateCudaFunctionNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateCudaFunctionNV.html)
+///
+pub type FN_CreateCudaFunctionNV = unsafe extern "C" fn(
     DeviceHandle,
     *const CudaFunctionCreateInfoNV,
     *const AllocationCallbacks,
@@ -24480,7 +25622,7 @@ impl Device {
         p_function: *mut CudaFunctionNV,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateCudaFunctionNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateCudaFunctionNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateCudaFunctionNV as usize,
             ))
@@ -24489,7 +25631,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroyCudaModuleNV =
+/// [`vkDestroyCudaModuleNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyCudaModuleNV.html)
+///
+pub type FN_DestroyCudaModuleNV =
     unsafe extern "C" fn(DeviceHandle, CudaModuleNV, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyCudaModuleNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyCudaModuleNV.html)
@@ -24511,7 +25655,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyCudaModuleNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyCudaModuleNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyCudaModuleNV as usize,
             ))
@@ -24520,7 +25664,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroyCudaFunctionNV =
+/// [`vkDestroyCudaFunctionNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyCudaFunctionNV.html)
+///
+pub type FN_DestroyCudaFunctionNV =
     unsafe extern "C" fn(DeviceHandle, CudaFunctionNV, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyCudaFunctionNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyCudaFunctionNV.html)
@@ -24542,7 +25688,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyCudaFunctionNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyCudaFunctionNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyCudaFunctionNV as usize,
             ))
@@ -24551,7 +25697,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdCudaLaunchKernelNV =
+/// [`vkCmdCudaLaunchKernelNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCudaLaunchKernelNV.html)
+///
+pub type FN_CmdCudaLaunchKernelNV =
     unsafe extern "C" fn(CommandBufferHandle, *const CudaLaunchInfoNV);
 impl CommandBuffer {
     /// [`vkCmdCudaLaunchKernelNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCudaLaunchKernelNV.html)
@@ -24577,7 +25725,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_cuda_launch_kernel_nv(&self, p_launch_info: *const CudaLaunchInfoNV) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdCudaLaunchKernelNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdCudaLaunchKernelNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdCudaLaunchKernelNV as usize,
             ))
@@ -24586,7 +25734,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdDispatchTileQCOM =
+/// [`vkCmdDispatchTileQCOM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchTileQCOM.html)
+///
+pub type FN_CmdDispatchTileQCOM =
     unsafe extern "C" fn(CommandBufferHandle, *const DispatchTileInfoQCOM);
 impl CommandBuffer {
     /// [`vkCmdDispatchTileQCOM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchTileQCOM.html)
@@ -24611,7 +25761,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_dispatch_tile_qcom(&self, p_dispatch_tile_info: *const DispatchTileInfoQCOM) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDispatchTileQCOM>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdDispatchTileQCOM>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdDispatchTileQCOM as usize,
             ))
@@ -24620,7 +25770,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdBeginPerTileExecutionQCOM =
+/// [`vkCmdBeginPerTileExecutionQCOM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginPerTileExecutionQCOM.html)
+///
+pub type FN_CmdBeginPerTileExecutionQCOM =
     unsafe extern "C" fn(CommandBufferHandle, *const PerTileBeginInfoQCOM);
 impl CommandBuffer {
     /// [`vkCmdBeginPerTileExecutionQCOM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginPerTileExecutionQCOM.html)
@@ -24649,7 +25801,7 @@ impl CommandBuffer {
         p_per_tile_begin_info: *const PerTileBeginInfoQCOM,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBeginPerTileExecutionQCOM>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBeginPerTileExecutionQCOM>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdBeginPerTileExecutionQCOM as usize,
             ))
@@ -24658,7 +25810,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdEndPerTileExecutionQCOM =
+/// [`vkCmdEndPerTileExecutionQCOM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndPerTileExecutionQCOM.html)
+///
+pub type FN_CmdEndPerTileExecutionQCOM =
     unsafe extern "C" fn(CommandBufferHandle, *const PerTileEndInfoQCOM);
 impl CommandBuffer {
     /// [`vkCmdEndPerTileExecutionQCOM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndPerTileExecutionQCOM.html)
@@ -24687,7 +25841,7 @@ impl CommandBuffer {
         p_per_tile_end_info: *const PerTileEndInfoQCOM,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdEndPerTileExecutionQCOM>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdEndPerTileExecutionQCOM>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdEndPerTileExecutionQCOM as usize,
             ))
@@ -24696,8 +25850,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_SetLatencySleepModeLegacyNV =
-    unsafe extern "C" fn(DeviceHandle, Bool32, Bool32, u32);
+/// [`vkSetLatencySleepModeLegacyNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetLatencySleepModeLegacyNV.html)
+///
+pub type FN_SetLatencySleepModeLegacyNV = unsafe extern "C" fn(DeviceHandle, Bool32, Bool32, u32);
 impl Device {
     /// [`vkSetLatencySleepModeLegacyNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetLatencySleepModeLegacyNV.html)
     ///
@@ -24717,7 +25872,7 @@ impl Device {
         minimum_interval_us: u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_SetLatencySleepModeLegacyNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_SetLatencySleepModeLegacyNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkSetLatencySleepModeLegacyNV as usize,
             ))
@@ -24733,7 +25888,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_LatencySleepLegacyNV = unsafe extern "C" fn(DeviceHandle, Semaphore, u64);
+/// [`vkLatencySleepLegacyNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkLatencySleepLegacyNV.html)
+///
+pub type FN_LatencySleepLegacyNV = unsafe extern "C" fn(DeviceHandle, Semaphore, u64);
 impl Device {
     /// [`vkLatencySleepLegacyNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkLatencySleepLegacyNV.html)
     ///
@@ -24748,7 +25905,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn latency_sleep_legacy_nv(&self, signal_semaphore: Semaphore, value: u64) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_LatencySleepLegacyNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_LatencySleepLegacyNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkLatencySleepLegacyNV as usize,
             ))
@@ -24757,7 +25914,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_SetLatencyMarkerLegacyNV = unsafe extern "C" fn(DeviceHandle, u64, u32);
+/// [`vkSetLatencyMarkerLegacyNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetLatencyMarkerLegacyNV.html)
+///
+pub type FN_SetLatencyMarkerLegacyNV = unsafe extern "C" fn(DeviceHandle, u64, u32);
 impl Device {
     /// [`vkSetLatencyMarkerLegacyNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetLatencyMarkerLegacyNV.html)
     ///
@@ -24772,7 +25931,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn set_latency_marker_legacy_nv(&self, frame_id: u64, marker: u32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_SetLatencyMarkerLegacyNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_SetLatencyMarkerLegacyNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkSetLatencyMarkerLegacyNV as usize,
             ))
@@ -24781,7 +25940,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetLatencyTimingsLegacyNV = unsafe extern "C" fn(DeviceHandle, *mut c_void);
+/// [`vkGetLatencyTimingsLegacyNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetLatencyTimingsLegacyNV.html)
+///
+pub type FN_GetLatencyTimingsLegacyNV = unsafe extern "C" fn(DeviceHandle, *mut c_void);
 impl Device {
     /// [`vkGetLatencyTimingsLegacyNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetLatencyTimingsLegacyNV.html)
     ///
@@ -24796,7 +25957,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn get_latency_timings_legacy_nv(&self, p_timings: *mut c_void) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetLatencyTimingsLegacyNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetLatencyTimingsLegacyNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetLatencyTimingsLegacyNV as usize,
             ))
@@ -24805,7 +25966,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_QueueNotifyOutOfBandLegacyNV = unsafe extern "C" fn(QueueHandle, u32);
+/// [`vkQueueNotifyOutOfBandLegacyNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueNotifyOutOfBandLegacyNV.html)
+///
+pub type FN_QueueNotifyOutOfBandLegacyNV = unsafe extern "C" fn(QueueHandle, u32);
 impl Queue {
     /// [`vkQueueNotifyOutOfBandLegacyNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueNotifyOutOfBandLegacyNV.html)
     ///
@@ -24820,7 +25983,7 @@ impl Queue {
     #[inline(always)]
     pub unsafe fn notify_out_of_band_legacy_nv(&self, queue_type: u32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_QueueNotifyOutOfBandLegacyNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_QueueNotifyOutOfBandLegacyNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkQueueNotifyOutOfBandLegacyNV as usize,
             ))
@@ -24829,7 +25992,9 @@ impl Queue {
     }
 }
 
-pub(crate) type FUN_GetSleepStatusLegacyNV = unsafe extern "C" fn(DeviceHandle, *mut Bool32);
+/// [`vkGetSleepStatusLegacyNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSleepStatusLegacyNV.html)
+///
+pub type FN_GetSleepStatusLegacyNV = unsafe extern "C" fn(DeviceHandle, *mut Bool32);
 impl Device {
     /// [`vkGetSleepStatusLegacyNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSleepStatusLegacyNV.html)
     ///
@@ -24844,7 +26009,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn get_sleep_status_legacy_nv(&self, p_low_latency_mode: *mut Bool32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetSleepStatusLegacyNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetSleepStatusLegacyNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetSleepStatusLegacyNV as usize,
             ))
@@ -24853,7 +26018,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_ShutdownLatencyDeviceLegacyNV = unsafe extern "C" fn(DeviceHandle);
+/// [`vkShutdownLatencyDeviceLegacyNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkShutdownLatencyDeviceLegacyNV.html)
+///
+pub type FN_ShutdownLatencyDeviceLegacyNV = unsafe extern "C" fn(DeviceHandle);
 impl Device {
     /// [`vkShutdownLatencyDeviceLegacyNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkShutdownLatencyDeviceLegacyNV.html)
     ///
@@ -24868,7 +26035,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn shutdown_latency_device_legacy_nv(&self) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_ShutdownLatencyDeviceLegacyNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_ShutdownLatencyDeviceLegacyNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkShutdownLatencyDeviceLegacyNV as usize,
             ))
@@ -24877,7 +26044,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_ExportMetalObjectsEXT =
+/// [`vkExportMetalObjectsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkExportMetalObjectsEXT.html)
+///
+pub type FN_ExportMetalObjectsEXT =
     unsafe extern "C" fn(DeviceHandle, *mut ExportMetalObjectsInfoEXT);
 impl Device {
     /// [`vkExportMetalObjectsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkExportMetalObjectsEXT.html)
@@ -24895,7 +26064,7 @@ impl Device {
         p_metal_objects_info: *mut ExportMetalObjectsInfoEXT,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_ExportMetalObjectsEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_ExportMetalObjectsEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkExportMetalObjectsEXT as usize,
             ))
@@ -24904,7 +26073,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetDescriptorSetLayoutSizeEXT =
+/// [`vkGetDescriptorSetLayoutSizeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDescriptorSetLayoutSizeEXT.html)
+///
+pub type FN_GetDescriptorSetLayoutSizeEXT =
     unsafe extern "C" fn(DeviceHandle, DescriptorSetLayout, *mut DeviceSize);
 impl Device {
     /// [`vkGetDescriptorSetLayoutSizeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDescriptorSetLayoutSizeEXT.html)
@@ -24928,7 +26099,7 @@ impl Device {
         p_layout_size_in_bytes: *mut DeviceSize,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDescriptorSetLayoutSizeEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetDescriptorSetLayoutSizeEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetDescriptorSetLayoutSizeEXT as usize,
             ))
@@ -24937,7 +26108,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetDescriptorSetLayoutBindingOffsetEXT =
+/// [`vkGetDescriptorSetLayoutBindingOffsetEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDescriptorSetLayoutBindingOffsetEXT.html)
+///
+pub type FN_GetDescriptorSetLayoutBindingOffsetEXT =
     unsafe extern "C" fn(DeviceHandle, DescriptorSetLayout, u32, *mut DeviceSize);
 impl Device {
     /// [`vkGetDescriptorSetLayoutBindingOffsetEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDescriptorSetLayoutBindingOffsetEXT.html)
@@ -24962,7 +26135,7 @@ impl Device {
         p_offset: *mut DeviceSize,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDescriptorSetLayoutBindingOffsetEXT>(
+            std::mem::transmute::<vkVoidFunction, FN_GetDescriptorSetLayoutBindingOffsetEXT>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetDescriptorSetLayoutBindingOffsetEXT as usize,
@@ -24973,7 +26146,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetDescriptorEXT =
+/// [`vkGetDescriptorEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDescriptorEXT.html)
+///
+pub type FN_GetDescriptorEXT =
     unsafe extern "C" fn(DeviceHandle, *const DescriptorGetInfoEXT, usize, *mut c_void);
 impl Device {
     /// [`vkGetDescriptorEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDescriptorEXT.html)
@@ -24998,7 +26173,7 @@ impl Device {
         p_descriptor: *mut c_void,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDescriptorEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetDescriptorEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetDescriptorEXT as usize,
             ))
@@ -25007,7 +26182,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdBindDescriptorBuffersEXT =
+/// [`vkCmdBindDescriptorBuffersEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindDescriptorBuffersEXT.html)
+///
+pub type FN_CmdBindDescriptorBuffersEXT =
     unsafe extern "C" fn(CommandBufferHandle, u32, *const DescriptorBufferBindingInfoEXT);
 impl CommandBuffer {
     /// [`vkCmdBindDescriptorBuffersEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindDescriptorBuffersEXT.html)
@@ -25043,7 +26220,7 @@ impl CommandBuffer {
         p_binding_infos: *const DescriptorBufferBindingInfoEXT,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBindDescriptorBuffersEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBindDescriptorBuffersEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdBindDescriptorBuffersEXT as usize,
             ))
@@ -25052,7 +26229,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetDescriptorBufferOffsetsEXT = unsafe extern "C" fn(
+/// [`vkCmdSetDescriptorBufferOffsetsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDescriptorBufferOffsetsEXT.html)
+///
+pub type FN_CmdSetDescriptorBufferOffsetsEXT = unsafe extern "C" fn(
     CommandBufferHandle,
     PipelineBindPoint,
     PipelineLayout,
@@ -25099,7 +26278,7 @@ impl CommandBuffer {
         p_offsets: *const DeviceSize,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDescriptorBufferOffsetsEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetDescriptorBufferOffsetsEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetDescriptorBufferOffsetsEXT as usize,
             ))
@@ -25118,7 +26297,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdBindDescriptorBufferEmbeddedSamplersEXT =
+/// [`vkCmdBindDescriptorBufferEmbeddedSamplersEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindDescriptorBufferEmbeddedSamplersEXT.html)
+///
+pub type FN_CmdBindDescriptorBufferEmbeddedSamplersEXT =
     unsafe extern "C" fn(CommandBufferHandle, PipelineBindPoint, PipelineLayout, u32);
 impl CommandBuffer {
     /// [`vkCmdBindDescriptorBufferEmbeddedSamplersEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindDescriptorBufferEmbeddedSamplersEXT.html)
@@ -25154,7 +26335,7 @@ impl CommandBuffer {
         set: u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBindDescriptorBufferEmbeddedSamplersEXT>(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBindDescriptorBufferEmbeddedSamplersEXT>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkCmdBindDescriptorBufferEmbeddedSamplersEXT as usize,
@@ -25165,7 +26346,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_GetBufferOpaqueCaptureDescriptorDataEXT = unsafe extern "C" fn(
+/// [`vkGetBufferOpaqueCaptureDescriptorDataEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferOpaqueCaptureDescriptorDataEXT.html)
+///
+pub type FN_GetBufferOpaqueCaptureDescriptorDataEXT = unsafe extern "C" fn(
     DeviceHandle,
     *const BufferCaptureDescriptorDataInfoEXT,
     *mut c_void,
@@ -25201,7 +26384,7 @@ impl Device {
         p_data: *mut c_void,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetBufferOpaqueCaptureDescriptorDataEXT>(
+            std::mem::transmute::<vkVoidFunction, FN_GetBufferOpaqueCaptureDescriptorDataEXT>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetBufferOpaqueCaptureDescriptorDataEXT as usize,
@@ -25212,7 +26395,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetImageOpaqueCaptureDescriptorDataEXT = unsafe extern "C" fn(
+/// [`vkGetImageOpaqueCaptureDescriptorDataEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageOpaqueCaptureDescriptorDataEXT.html)
+///
+pub type FN_GetImageOpaqueCaptureDescriptorDataEXT = unsafe extern "C" fn(
     DeviceHandle,
     *const ImageCaptureDescriptorDataInfoEXT,
     *mut c_void,
@@ -25248,7 +26433,7 @@ impl Device {
         p_data: *mut c_void,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetImageOpaqueCaptureDescriptorDataEXT>(
+            std::mem::transmute::<vkVoidFunction, FN_GetImageOpaqueCaptureDescriptorDataEXT>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetImageOpaqueCaptureDescriptorDataEXT as usize,
@@ -25259,12 +26444,13 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetImageViewOpaqueCaptureDescriptorDataEXT = unsafe extern "C" fn(
+/// [`vkGetImageViewOpaqueCaptureDescriptorDataEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageViewOpaqueCaptureDescriptorDataEXT.html)
+///
+pub type FN_GetImageViewOpaqueCaptureDescriptorDataEXT = unsafe extern "C" fn(
     DeviceHandle,
     *const ImageViewCaptureDescriptorDataInfoEXT,
     *mut c_void,
-)
-    -> ResultCode;
+) -> ResultCode;
 impl Device {
     /// [`vkGetImageViewOpaqueCaptureDescriptorDataEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageViewOpaqueCaptureDescriptorDataEXT.html)
     ///
@@ -25296,7 +26482,7 @@ impl Device {
         p_data: *mut c_void,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetImageViewOpaqueCaptureDescriptorDataEXT>(
+            std::mem::transmute::<vkVoidFunction, FN_GetImageViewOpaqueCaptureDescriptorDataEXT>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetImageViewOpaqueCaptureDescriptorDataEXT as usize,
@@ -25307,7 +26493,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetSamplerOpaqueCaptureDescriptorDataEXT = unsafe extern "C" fn(
+/// [`vkGetSamplerOpaqueCaptureDescriptorDataEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSamplerOpaqueCaptureDescriptorDataEXT.html)
+///
+pub type FN_GetSamplerOpaqueCaptureDescriptorDataEXT = unsafe extern "C" fn(
     DeviceHandle,
     *const SamplerCaptureDescriptorDataInfoEXT,
     *mut c_void,
@@ -25343,7 +26531,7 @@ impl Device {
         p_data: *mut c_void,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetSamplerOpaqueCaptureDescriptorDataEXT>(
+            std::mem::transmute::<vkVoidFunction, FN_GetSamplerOpaqueCaptureDescriptorDataEXT>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetSamplerOpaqueCaptureDescriptorDataEXT as usize,
@@ -25354,7 +26542,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetAccelerationStructureOpaqueCaptureDescriptorDataEXT =
+/// [`vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT.html)
+///
+pub type FN_GetAccelerationStructureOpaqueCaptureDescriptorDataEXT =
     unsafe extern "C" fn(
         DeviceHandle,
         *const AccelerationStructureCaptureDescriptorDataInfoEXT,
@@ -25393,7 +26583,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<
                 vkVoidFunction,
-                FUN_GetAccelerationStructureOpaqueCaptureDescriptorDataEXT,
+                FN_GetAccelerationStructureOpaqueCaptureDescriptorDataEXT,
             >(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT as usize,
@@ -25403,7 +26593,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdSetFragmentShadingRateEnumNV = unsafe extern "C" fn(
+/// [`vkCmdSetFragmentShadingRateEnumNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetFragmentShadingRateEnumNV.html)
+///
+pub type FN_CmdSetFragmentShadingRateEnumNV = unsafe extern "C" fn(
     CommandBufferHandle,
     FragmentShadingRateNV,
     *const [FragmentShadingRateCombinerOpKHR; 2 as usize],
@@ -25435,7 +26627,7 @@ impl CommandBuffer {
         combiner_ops: *const [FragmentShadingRateCombinerOpKHR; 2 as usize],
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetFragmentShadingRateEnumNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetFragmentShadingRateEnumNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetFragmentShadingRateEnumNV as usize,
             ))
@@ -25444,7 +26636,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_GetDeviceFaultInfoEXT = unsafe extern "C" fn(
+/// [`vkGetDeviceFaultInfoEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceFaultInfoEXT.html)
+///
+pub type FN_GetDeviceFaultInfoEXT = unsafe extern "C" fn(
     DeviceHandle,
     *mut DeviceFaultCountsEXT,
     *mut DeviceFaultInfoEXT,
@@ -25479,7 +26673,7 @@ impl Device {
         p_fault_info: *mut DeviceFaultInfoEXT,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceFaultInfoEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetDeviceFaultInfoEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetDeviceFaultInfoEXT as usize,
             ))
@@ -25488,7 +26682,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_AcquireWinrtDisplayNV =
+/// [`vkAcquireWinrtDisplayNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkAcquireWinrtDisplayNV.html)
+///
+pub type FN_AcquireWinrtDisplayNV =
     unsafe extern "C" fn(PhysicalDeviceHandle, DisplayKHR) -> ResultCode;
 impl PhysicalDevice {
     /// [`vkAcquireWinrtDisplayNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkAcquireWinrtDisplayNV.html)
@@ -25513,7 +26709,7 @@ impl PhysicalDevice {
     #[inline(always)]
     pub unsafe fn acquire_winrt_display_nv(&self, display: DisplayKHR) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_AcquireWinrtDisplayNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_AcquireWinrtDisplayNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkAcquireWinrtDisplayNV as usize,
             ))
@@ -25522,7 +26718,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetWinrtDisplayNV =
+/// [`vkGetWinrtDisplayNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetWinrtDisplayNV.html)
+///
+pub type FN_GetWinrtDisplayNV =
     unsafe extern "C" fn(PhysicalDeviceHandle, u32, *mut DisplayKHR) -> ResultCode;
 impl PhysicalDevice {
     /// [`vkGetWinrtDisplayNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetWinrtDisplayNV.html)
@@ -25551,7 +26749,7 @@ impl PhysicalDevice {
         p_display: *mut DisplayKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetWinrtDisplayNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetWinrtDisplayNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetWinrtDisplayNV as usize,
             ))
@@ -25560,7 +26758,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_CreateDirectFBSurfaceEXT = unsafe extern "C" fn(
+/// [`vkCreateDirectFBSurfaceEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDirectFBSurfaceEXT.html)
+///
+pub type FN_CreateDirectFBSurfaceEXT = unsafe extern "C" fn(
     InstanceHandle,
     *const DirectFBSurfaceCreateInfoEXT,
     *const AllocationCallbacks,
@@ -25596,7 +26796,7 @@ impl Instance {
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateDirectFBSurfaceEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateDirectFBSurfaceEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateDirectFBSurfaceEXT as usize,
             ))
@@ -25605,7 +26805,9 @@ impl Instance {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceDirectFBPresentationSupportEXT =
+/// [`vkGetPhysicalDeviceDirectFBPresentationSupportEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceDirectFBPresentationSupportEXT.html)
+///
+pub type FN_GetPhysicalDeviceDirectFBPresentationSupportEXT =
     unsafe extern "C" fn(PhysicalDeviceHandle, u32, *mut IDirectFB) -> Bool32;
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceDirectFBPresentationSupportEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceDirectFBPresentationSupportEXT.html)
@@ -25624,7 +26826,7 @@ impl PhysicalDevice {
         dfb: *mut IDirectFB,
     ) -> Bool32 {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceDirectFBPresentationSupportEXT>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceDirectFBPresentationSupportEXT>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceDirectFBPresentationSupportEXT as usize,
@@ -25635,7 +26837,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_CmdSetVertexInputEXT = unsafe extern "C" fn(
+/// [`vkCmdSetVertexInputEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetVertexInputEXT.html)
+///
+pub type FN_CmdSetVertexInputEXT = unsafe extern "C" fn(
     CommandBufferHandle,
     u32,
     *const VertexInputBindingDescription2EXT,
@@ -25676,7 +26880,7 @@ impl CommandBuffer {
         p_vertex_attribute_descriptions: *const VertexInputAttributeDescription2EXT,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetVertexInputEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetVertexInputEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetVertexInputEXT as usize,
             ))
@@ -25693,7 +26897,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_GetMemoryZirconHandleFUCHSIA = unsafe extern "C" fn(
+/// [`vkGetMemoryZirconHandleFUCHSIA`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryZirconHandleFUCHSIA.html)
+///
+pub type FN_GetMemoryZirconHandleFUCHSIA = unsafe extern "C" fn(
     DeviceHandle,
     *const MemoryGetZirconHandleInfoFUCHSIA,
     *mut zx_handle_t,
@@ -25724,7 +26930,7 @@ impl Device {
         p_zircon_handle: *mut zx_handle_t,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetMemoryZirconHandleFUCHSIA>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetMemoryZirconHandleFUCHSIA>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetMemoryZirconHandleFUCHSIA as usize,
             ))
@@ -25733,7 +26939,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetMemoryZirconHandlePropertiesFUCHSIA = unsafe extern "C" fn(
+/// [`vkGetMemoryZirconHandlePropertiesFUCHSIA`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryZirconHandlePropertiesFUCHSIA.html)
+///
+pub type FN_GetMemoryZirconHandlePropertiesFUCHSIA = unsafe extern "C" fn(
     DeviceHandle,
     ExternalMemoryHandleTypeFlags,
     zx_handle_t,
@@ -25765,7 +26973,7 @@ impl Device {
         p_memory_zircon_handle_properties: *mut MemoryZirconHandlePropertiesFUCHSIA,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetMemoryZirconHandlePropertiesFUCHSIA>(
+            std::mem::transmute::<vkVoidFunction, FN_GetMemoryZirconHandlePropertiesFUCHSIA>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetMemoryZirconHandlePropertiesFUCHSIA as usize,
@@ -25783,7 +26991,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_ImportSemaphoreZirconHandleFUCHSIA =
+/// [`vkImportSemaphoreZirconHandleFUCHSIA`](https://docs.vulkan.org/refpages/latest/refpages/source/vkImportSemaphoreZirconHandleFUCHSIA.html)
+///
+pub type FN_ImportSemaphoreZirconHandleFUCHSIA =
     unsafe extern "C" fn(DeviceHandle, *const ImportSemaphoreZirconHandleInfoFUCHSIA) -> ResultCode;
 impl Device {
     /// [`vkImportSemaphoreZirconHandleFUCHSIA`](https://docs.vulkan.org/refpages/latest/refpages/source/vkImportSemaphoreZirconHandleFUCHSIA.html)
@@ -25810,7 +27020,7 @@ impl Device {
         p_import_semaphore_zircon_handle_info: *const ImportSemaphoreZirconHandleInfoFUCHSIA,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_ImportSemaphoreZirconHandleFUCHSIA>(
+            std::mem::transmute::<vkVoidFunction, FN_ImportSemaphoreZirconHandleFUCHSIA>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkImportSemaphoreZirconHandleFUCHSIA as usize,
@@ -25821,7 +27031,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetSemaphoreZirconHandleFUCHSIA = unsafe extern "C" fn(
+/// [`vkGetSemaphoreZirconHandleFUCHSIA`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSemaphoreZirconHandleFUCHSIA.html)
+///
+pub type FN_GetSemaphoreZirconHandleFUCHSIA = unsafe extern "C" fn(
     DeviceHandle,
     *const SemaphoreGetZirconHandleInfoFUCHSIA,
     *mut zx_handle_t,
@@ -25852,7 +27064,7 @@ impl Device {
         p_zircon_handle: *mut zx_handle_t,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetSemaphoreZirconHandleFUCHSIA>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetSemaphoreZirconHandleFUCHSIA>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetSemaphoreZirconHandleFUCHSIA as usize,
             ))
@@ -25861,7 +27073,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CreateBufferCollectionFUCHSIA = unsafe extern "C" fn(
+/// [`vkCreateBufferCollectionFUCHSIA`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateBufferCollectionFUCHSIA.html)
+///
+pub type FN_CreateBufferCollectionFUCHSIA = unsafe extern "C" fn(
     DeviceHandle,
     *const BufferCollectionCreateInfoFUCHSIA,
     *const AllocationCallbacks,
@@ -25898,7 +27112,7 @@ impl Device {
         p_collection: *mut BufferCollectionFUCHSIA,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateBufferCollectionFUCHSIA>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateBufferCollectionFUCHSIA>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateBufferCollectionFUCHSIA as usize,
             ))
@@ -25907,12 +27121,13 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_SetBufferCollectionImageConstraintsFUCHSIA = unsafe extern "C" fn(
+/// [`vkSetBufferCollectionImageConstraintsFUCHSIA`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetBufferCollectionImageConstraintsFUCHSIA.html)
+///
+pub type FN_SetBufferCollectionImageConstraintsFUCHSIA = unsafe extern "C" fn(
     DeviceHandle,
     BufferCollectionFUCHSIA,
     *const ImageConstraintsInfoFUCHSIA,
-)
-    -> ResultCode;
+) -> ResultCode;
 impl Device {
     /// [`vkSetBufferCollectionImageConstraintsFUCHSIA`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetBufferCollectionImageConstraintsFUCHSIA.html)
     ///
@@ -25940,7 +27155,7 @@ impl Device {
         p_image_constraints_info: *const ImageConstraintsInfoFUCHSIA,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_SetBufferCollectionImageConstraintsFUCHSIA>(
+            std::mem::transmute::<vkVoidFunction, FN_SetBufferCollectionImageConstraintsFUCHSIA>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkSetBufferCollectionImageConstraintsFUCHSIA as usize,
@@ -25951,12 +27166,13 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_SetBufferCollectionBufferConstraintsFUCHSIA =
-    unsafe extern "C" fn(
-        DeviceHandle,
-        BufferCollectionFUCHSIA,
-        *const BufferConstraintsInfoFUCHSIA,
-    ) -> ResultCode;
+/// [`vkSetBufferCollectionBufferConstraintsFUCHSIA`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetBufferCollectionBufferConstraintsFUCHSIA.html)
+///
+pub type FN_SetBufferCollectionBufferConstraintsFUCHSIA = unsafe extern "C" fn(
+    DeviceHandle,
+    BufferCollectionFUCHSIA,
+    *const BufferConstraintsInfoFUCHSIA,
+) -> ResultCode;
 impl Device {
     /// [`vkSetBufferCollectionBufferConstraintsFUCHSIA`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetBufferCollectionBufferConstraintsFUCHSIA.html)
     ///
@@ -25984,7 +27200,7 @@ impl Device {
         p_buffer_constraints_info: *const BufferConstraintsInfoFUCHSIA,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_SetBufferCollectionBufferConstraintsFUCHSIA>(
+            std::mem::transmute::<vkVoidFunction, FN_SetBufferCollectionBufferConstraintsFUCHSIA>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkSetBufferCollectionBufferConstraintsFUCHSIA as usize,
@@ -25995,7 +27211,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroyBufferCollectionFUCHSIA =
+/// [`vkDestroyBufferCollectionFUCHSIA`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyBufferCollectionFUCHSIA.html)
+///
+pub type FN_DestroyBufferCollectionFUCHSIA =
     unsafe extern "C" fn(DeviceHandle, BufferCollectionFUCHSIA, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyBufferCollectionFUCHSIA`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyBufferCollectionFUCHSIA.html)
@@ -26017,7 +27235,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyBufferCollectionFUCHSIA>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyBufferCollectionFUCHSIA>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyBufferCollectionFUCHSIA as usize,
             ))
@@ -26026,7 +27244,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetBufferCollectionPropertiesFUCHSIA = unsafe extern "C" fn(
+/// [`vkGetBufferCollectionPropertiesFUCHSIA`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetBufferCollectionPropertiesFUCHSIA.html)
+///
+pub type FN_GetBufferCollectionPropertiesFUCHSIA = unsafe extern "C" fn(
     DeviceHandle,
     BufferCollectionFUCHSIA,
     *mut BufferCollectionPropertiesFUCHSIA,
@@ -26057,7 +27277,7 @@ impl Device {
         p_properties: *mut BufferCollectionPropertiesFUCHSIA,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetBufferCollectionPropertiesFUCHSIA>(
+            std::mem::transmute::<vkVoidFunction, FN_GetBufferCollectionPropertiesFUCHSIA>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetBufferCollectionPropertiesFUCHSIA as usize,
@@ -26068,7 +27288,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI =
+/// [`vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI.html)
+///
+pub type FN_GetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI =
     unsafe extern "C" fn(DeviceHandle, RenderPass, *mut Extent2D) -> ResultCode;
 impl Device {
     /// [`vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI.html)
@@ -26097,7 +27319,7 @@ impl Device {
         p_max_workgroup_size: *mut Extent2D,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI>(
+            std::mem::transmute::<vkVoidFunction, FN_GetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI as usize,
@@ -26108,7 +27330,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdSubpassShadingHUAWEI = unsafe extern "C" fn(CommandBufferHandle);
+/// [`vkCmdSubpassShadingHUAWEI`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSubpassShadingHUAWEI.html)
+///
+pub type FN_CmdSubpassShadingHUAWEI = unsafe extern "C" fn(CommandBufferHandle);
 impl CommandBuffer {
     /// [`vkCmdSubpassShadingHUAWEI`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSubpassShadingHUAWEI.html)
     ///
@@ -26132,7 +27356,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_subpass_shading_huawei(&self) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSubpassShadingHUAWEI>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSubpassShadingHUAWEI>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSubpassShadingHUAWEI as usize,
             ))
@@ -26141,7 +27365,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdBindInvocationMaskHUAWEI =
+/// [`vkCmdBindInvocationMaskHUAWEI`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindInvocationMaskHUAWEI.html)
+///
+pub type FN_CmdBindInvocationMaskHUAWEI =
     unsafe extern "C" fn(CommandBufferHandle, ImageView, ImageLayout);
 impl CommandBuffer {
     /// [`vkCmdBindInvocationMaskHUAWEI`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindInvocationMaskHUAWEI.html)
@@ -26173,7 +27399,7 @@ impl CommandBuffer {
         image_layout: ImageLayout,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBindInvocationMaskHUAWEI>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBindInvocationMaskHUAWEI>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdBindInvocationMaskHUAWEI as usize,
             ))
@@ -26182,7 +27408,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_GetMemoryRemoteAddressNV = unsafe extern "C" fn(
+/// [`vkGetMemoryRemoteAddressNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryRemoteAddressNV.html)
+///
+pub type FN_GetMemoryRemoteAddressNV = unsafe extern "C" fn(
     DeviceHandle,
     *const MemoryGetRemoteAddressInfoNV,
     *mut RemoteAddressNV,
@@ -26212,7 +27440,7 @@ impl Device {
         p_address: *mut RemoteAddressNV,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetMemoryRemoteAddressNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetMemoryRemoteAddressNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetMemoryRemoteAddressNV as usize,
             ))
@@ -26221,7 +27449,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetPipelinePropertiesEXT =
+/// [`vkGetPipelinePropertiesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPipelinePropertiesEXT.html)
+///
+pub type FN_GetPipelinePropertiesEXT =
     unsafe extern "C" fn(DeviceHandle, *const PipelineInfoKHR, *mut BaseOutStructure) -> ResultCode;
 impl Device {
     /// [`vkGetPipelinePropertiesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPipelinePropertiesEXT.html)
@@ -26248,7 +27478,7 @@ impl Device {
         p_pipeline_properties: *mut BaseOutStructure,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPipelinePropertiesEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetPipelinePropertiesEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetPipelinePropertiesEXT as usize,
             ))
@@ -26257,7 +27487,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdSetPatchControlPointsEXT = unsafe extern "C" fn(CommandBufferHandle, u32);
+/// [`vkCmdSetPatchControlPointsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPatchControlPointsEXT.html)
+///
+pub type FN_CmdSetPatchControlPointsEXT = unsafe extern "C" fn(CommandBufferHandle, u32);
 impl CommandBuffer {
     /// [`vkCmdSetPatchControlPointsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPatchControlPointsEXT.html)
     ///
@@ -26283,7 +27515,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_patch_control_points_ext(&self, patch_control_points: u32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetPatchControlPointsEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetPatchControlPointsEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetPatchControlPointsEXT as usize,
             ))
@@ -26292,8 +27524,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetRasterizerDiscardEnableEXT =
-    unsafe extern "C" fn(CommandBufferHandle, Bool32);
+/// [`vkCmdSetRasterizerDiscardEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRasterizerDiscardEnableEXT.html)
+///
+pub type FN_CmdSetRasterizerDiscardEnableEXT = unsafe extern "C" fn(CommandBufferHandle, Bool32);
 impl CommandBuffer {
     /// [`vkCmdSetRasterizerDiscardEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRasterizerDiscardEnableEXT.html)
     ///
@@ -26319,7 +27552,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_rasterizer_discard_enable_ext(&self, rasterizer_discard_enable: Bool32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetRasterizerDiscardEnableEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetRasterizerDiscardEnableEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetRasterizerDiscardEnableEXT as usize,
             ))
@@ -26328,7 +27561,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetDepthBiasEnableEXT = unsafe extern "C" fn(CommandBufferHandle, Bool32);
+/// [`vkCmdSetDepthBiasEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthBiasEnableEXT.html)
+///
+pub type FN_CmdSetDepthBiasEnableEXT = unsafe extern "C" fn(CommandBufferHandle, Bool32);
 impl CommandBuffer {
     /// [`vkCmdSetDepthBiasEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthBiasEnableEXT.html)
     ///
@@ -26354,7 +27589,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_depth_bias_enable_ext(&self, depth_bias_enable: Bool32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthBiasEnableEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetDepthBiasEnableEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetDepthBiasEnableEXT as usize,
             ))
@@ -26363,7 +27598,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetLogicOpEXT = unsafe extern "C" fn(CommandBufferHandle, LogicOp);
+/// [`vkCmdSetLogicOpEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetLogicOpEXT.html)
+///
+pub type FN_CmdSetLogicOpEXT = unsafe extern "C" fn(CommandBufferHandle, LogicOp);
 impl CommandBuffer {
     /// [`vkCmdSetLogicOpEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetLogicOpEXT.html)
     ///
@@ -26389,7 +27626,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_logic_op_ext(&self, logic_op: LogicOp) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetLogicOpEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetLogicOpEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetLogicOpEXT as usize,
             ))
@@ -26398,8 +27635,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetPrimitiveRestartEnableEXT =
-    unsafe extern "C" fn(CommandBufferHandle, Bool32);
+/// [`vkCmdSetPrimitiveRestartEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPrimitiveRestartEnableEXT.html)
+///
+pub type FN_CmdSetPrimitiveRestartEnableEXT = unsafe extern "C" fn(CommandBufferHandle, Bool32);
 impl CommandBuffer {
     /// [`vkCmdSetPrimitiveRestartEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPrimitiveRestartEnableEXT.html)
     ///
@@ -26425,7 +27663,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_primitive_restart_enable_ext(&self, primitive_restart_enable: Bool32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetPrimitiveRestartEnableEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetPrimitiveRestartEnableEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetPrimitiveRestartEnableEXT as usize,
             ))
@@ -26434,7 +27672,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CreateScreenSurfaceQNX = unsafe extern "C" fn(
+/// [`vkCreateScreenSurfaceQNX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateScreenSurfaceQNX.html)
+///
+pub type FN_CreateScreenSurfaceQNX = unsafe extern "C" fn(
     InstanceHandle,
     *const ScreenSurfaceCreateInfoQNX,
     *const AllocationCallbacks,
@@ -26470,7 +27710,7 @@ impl Instance {
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateScreenSurfaceQNX>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateScreenSurfaceQNX>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateScreenSurfaceQNX as usize,
             ))
@@ -26479,7 +27719,9 @@ impl Instance {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceScreenPresentationSupportQNX =
+/// [`vkGetPhysicalDeviceScreenPresentationSupportQNX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceScreenPresentationSupportQNX.html)
+///
+pub type FN_GetPhysicalDeviceScreenPresentationSupportQNX =
     unsafe extern "C" fn(PhysicalDeviceHandle, u32, *mut _screen_window) -> Bool32;
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceScreenPresentationSupportQNX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceScreenPresentationSupportQNX.html)
@@ -26498,7 +27740,7 @@ impl PhysicalDevice {
         window: *mut _screen_window,
     ) -> Bool32 {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceScreenPresentationSupportQNX>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceScreenPresentationSupportQNX>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceScreenPresentationSupportQNX as usize,
@@ -26509,7 +27751,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_CmdSetColorWriteEnableEXT =
+/// [`vkCmdSetColorWriteEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetColorWriteEnableEXT.html)
+///
+pub type FN_CmdSetColorWriteEnableEXT =
     unsafe extern "C" fn(CommandBufferHandle, u32, *const Bool32);
 impl CommandBuffer {
     /// [`vkCmdSetColorWriteEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetColorWriteEnableEXT.html)
@@ -26538,7 +27782,7 @@ impl CommandBuffer {
         p_color_write_enables: *const Bool32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetColorWriteEnableEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetColorWriteEnableEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetColorWriteEnableEXT as usize,
             ))
@@ -26547,7 +27791,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdDrawMultiEXT =
+/// [`vkCmdDrawMultiEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMultiEXT.html)
+///
+pub type FN_CmdDrawMultiEXT =
     unsafe extern "C" fn(CommandBufferHandle, u32, *const MultiDrawInfoEXT, u32, u32, u32);
 impl CommandBuffer {
     /// [`vkCmdDrawMultiEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMultiEXT.html)
@@ -26582,7 +27828,7 @@ impl CommandBuffer {
         stride: u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawMultiEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdDrawMultiEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdDrawMultiEXT as usize,
             ))
@@ -26600,7 +27846,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdDrawMultiIndexedEXT = unsafe extern "C" fn(
+/// [`vkCmdDrawMultiIndexedEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMultiIndexedEXT.html)
+///
+pub type FN_CmdDrawMultiIndexedEXT = unsafe extern "C" fn(
     CommandBufferHandle,
     u32,
     *const MultiDrawIndexedInfoEXT,
@@ -26644,7 +27892,7 @@ impl CommandBuffer {
         p_vertex_offset: *const i32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawMultiIndexedEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdDrawMultiIndexedEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdDrawMultiIndexedEXT as usize,
             ))
@@ -26663,7 +27911,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CreateMicromapEXT = unsafe extern "C" fn(
+/// [`vkCreateMicromapEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateMicromapEXT.html)
+///
+pub type FN_CreateMicromapEXT = unsafe extern "C" fn(
     DeviceHandle,
     *const MicromapCreateInfoEXT,
     *const AllocationCallbacks,
@@ -26700,7 +27950,7 @@ impl Device {
         p_micromap: *mut MicromapEXT,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateMicromapEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateMicromapEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateMicromapEXT as usize,
             ))
@@ -26709,7 +27959,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroyMicromapEXT =
+/// [`vkDestroyMicromapEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyMicromapEXT.html)
+///
+pub type FN_DestroyMicromapEXT =
     unsafe extern "C" fn(DeviceHandle, MicromapEXT, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyMicromapEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyMicromapEXT.html)
@@ -26733,7 +27985,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyMicromapEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyMicromapEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyMicromapEXT as usize,
             ))
@@ -26742,7 +27994,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdBuildMicromapsEXT =
+/// [`vkCmdBuildMicromapsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBuildMicromapsEXT.html)
+///
+pub type FN_CmdBuildMicromapsEXT =
     unsafe extern "C" fn(CommandBufferHandle, u32, *const MicromapBuildInfoEXT);
 impl CommandBuffer {
     /// [`vkCmdBuildMicromapsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBuildMicromapsEXT.html)
@@ -26772,7 +28026,7 @@ impl CommandBuffer {
         p_infos: *const MicromapBuildInfoEXT,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBuildMicromapsEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBuildMicromapsEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdBuildMicromapsEXT as usize,
             ))
@@ -26781,7 +28035,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_BuildMicromapsEXT = unsafe extern "C" fn(
+/// [`vkBuildMicromapsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkBuildMicromapsEXT.html)
+///
+pub type FN_BuildMicromapsEXT = unsafe extern "C" fn(
     DeviceHandle,
     DeferredOperationKHR,
     u32,
@@ -26826,7 +28082,7 @@ impl Device {
         p_infos: *const MicromapBuildInfoEXT,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_BuildMicromapsEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_BuildMicromapsEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkBuildMicromapsEXT as usize,
             ))
@@ -26835,7 +28091,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CopyMicromapEXT = unsafe extern "C" fn(
+/// [`vkCopyMicromapEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyMicromapEXT.html)
+///
+pub type FN_CopyMicromapEXT = unsafe extern "C" fn(
     DeviceHandle,
     DeferredOperationKHR,
     *const CopyMicromapInfoEXT,
@@ -26878,7 +28136,7 @@ impl Device {
         p_info: *const CopyMicromapInfoEXT,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CopyMicromapEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CopyMicromapEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCopyMicromapEXT as usize,
             ))
@@ -26887,7 +28145,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CopyMicromapToMemoryEXT = unsafe extern "C" fn(
+/// [`vkCopyMicromapToMemoryEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyMicromapToMemoryEXT.html)
+///
+pub type FN_CopyMicromapToMemoryEXT = unsafe extern "C" fn(
     DeviceHandle,
     DeferredOperationKHR,
     *const CopyMicromapToMemoryInfoEXT,
@@ -26930,7 +28190,7 @@ impl Device {
         p_info: *const CopyMicromapToMemoryInfoEXT,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CopyMicromapToMemoryEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CopyMicromapToMemoryEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCopyMicromapToMemoryEXT as usize,
             ))
@@ -26939,7 +28199,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CopyMemoryToMicromapEXT = unsafe extern "C" fn(
+/// [`vkCopyMemoryToMicromapEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyMemoryToMicromapEXT.html)
+///
+pub type FN_CopyMemoryToMicromapEXT = unsafe extern "C" fn(
     DeviceHandle,
     DeferredOperationKHR,
     *const CopyMemoryToMicromapInfoEXT,
@@ -26982,7 +28244,7 @@ impl Device {
         p_info: *const CopyMemoryToMicromapInfoEXT,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CopyMemoryToMicromapEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CopyMemoryToMicromapEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCopyMemoryToMicromapEXT as usize,
             ))
@@ -26991,7 +28253,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_WriteMicromapsPropertiesEXT = unsafe extern "C" fn(
+/// [`vkWriteMicromapsPropertiesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkWriteMicromapsPropertiesEXT.html)
+///
+pub type FN_WriteMicromapsPropertiesEXT = unsafe extern "C" fn(
     DeviceHandle,
     u32,
     *const MicromapEXT,
@@ -27037,7 +28301,7 @@ impl Device {
         stride: usize,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_WriteMicromapsPropertiesEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_WriteMicromapsPropertiesEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkWriteMicromapsPropertiesEXT as usize,
             ))
@@ -27056,7 +28320,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdCopyMicromapEXT =
+/// [`vkCmdCopyMicromapEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMicromapEXT.html)
+///
+pub type FN_CmdCopyMicromapEXT =
     unsafe extern "C" fn(CommandBufferHandle, *const CopyMicromapInfoEXT);
 impl CommandBuffer {
     /// [`vkCmdCopyMicromapEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMicromapEXT.html)
@@ -27082,7 +28348,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_copy_micromap_ext(&self, p_info: *const CopyMicromapInfoEXT) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyMicromapEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdCopyMicromapEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdCopyMicromapEXT as usize,
             ))
@@ -27091,7 +28357,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdCopyMicromapToMemoryEXT =
+/// [`vkCmdCopyMicromapToMemoryEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMicromapToMemoryEXT.html)
+///
+pub type FN_CmdCopyMicromapToMemoryEXT =
     unsafe extern "C" fn(CommandBufferHandle, *const CopyMicromapToMemoryInfoEXT);
 impl CommandBuffer {
     /// [`vkCmdCopyMicromapToMemoryEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMicromapToMemoryEXT.html)
@@ -27120,7 +28388,7 @@ impl CommandBuffer {
         p_info: *const CopyMicromapToMemoryInfoEXT,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyMicromapToMemoryEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdCopyMicromapToMemoryEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdCopyMicromapToMemoryEXT as usize,
             ))
@@ -27129,7 +28397,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdCopyMemoryToMicromapEXT =
+/// [`vkCmdCopyMemoryToMicromapEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMemoryToMicromapEXT.html)
+///
+pub type FN_CmdCopyMemoryToMicromapEXT =
     unsafe extern "C" fn(CommandBufferHandle, *const CopyMemoryToMicromapInfoEXT);
 impl CommandBuffer {
     /// [`vkCmdCopyMemoryToMicromapEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMemoryToMicromapEXT.html)
@@ -27158,7 +28428,7 @@ impl CommandBuffer {
         p_info: *const CopyMemoryToMicromapInfoEXT,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyMemoryToMicromapEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdCopyMemoryToMicromapEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdCopyMemoryToMicromapEXT as usize,
             ))
@@ -27167,7 +28437,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdWriteMicromapsPropertiesEXT =
+/// [`vkCmdWriteMicromapsPropertiesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteMicromapsPropertiesEXT.html)
+///
+pub type FN_CmdWriteMicromapsPropertiesEXT =
     unsafe extern "C" fn(CommandBufferHandle, u32, *const MicromapEXT, QueryType, QueryPool, u32);
 impl CommandBuffer {
     /// [`vkCmdWriteMicromapsPropertiesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteMicromapsPropertiesEXT.html)
@@ -27200,7 +28472,7 @@ impl CommandBuffer {
         first_query: u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdWriteMicromapsPropertiesEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdWriteMicromapsPropertiesEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdWriteMicromapsPropertiesEXT as usize,
             ))
@@ -27218,7 +28490,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_GetDeviceMicromapCompatibilityEXT = unsafe extern "C" fn(
+/// [`vkGetDeviceMicromapCompatibilityEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceMicromapCompatibilityEXT.html)
+///
+pub type FN_GetDeviceMicromapCompatibilityEXT = unsafe extern "C" fn(
     DeviceHandle,
     *const MicromapVersionInfoEXT,
     *mut AccelerationStructureCompatibilityKHR,
@@ -27241,18 +28515,18 @@ impl Device {
         p_compatibility: *mut AccelerationStructureCompatibilityKHR,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceMicromapCompatibilityEXT>(
-                vtable_get(
-                    self.vtable(),
-                    InstanceCommand::vkGetDeviceMicromapCompatibilityEXT as usize,
-                ),
-            )
+            std::mem::transmute::<vkVoidFunction, FN_GetDeviceMicromapCompatibilityEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommand::vkGetDeviceMicromapCompatibilityEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_version_info, p_compatibility) }
     }
 }
 
-pub(crate) type FUN_GetMicromapBuildSizesEXT = unsafe extern "C" fn(
+/// [`vkGetMicromapBuildSizesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMicromapBuildSizesEXT.html)
+///
+pub type FN_GetMicromapBuildSizesEXT = unsafe extern "C" fn(
     DeviceHandle,
     AccelerationStructureBuildTypeKHR,
     *const MicromapBuildInfoEXT,
@@ -27277,7 +28551,7 @@ impl Device {
         p_size_info: *mut MicromapBuildSizesInfoEXT,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetMicromapBuildSizesEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetMicromapBuildSizesEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetMicromapBuildSizesEXT as usize,
             ))
@@ -27286,7 +28560,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdDrawClusterHUAWEI = unsafe extern "C" fn(CommandBufferHandle, u32, u32, u32);
+/// [`vkCmdDrawClusterHUAWEI`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawClusterHUAWEI.html)
+///
+pub type FN_CmdDrawClusterHUAWEI = unsafe extern "C" fn(CommandBufferHandle, u32, u32, u32);
 impl CommandBuffer {
     /// [`vkCmdDrawClusterHUAWEI`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawClusterHUAWEI.html)
     ///
@@ -27315,7 +28591,7 @@ impl CommandBuffer {
         group_count_z: u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawClusterHUAWEI>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdDrawClusterHUAWEI>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdDrawClusterHUAWEI as usize,
             ))
@@ -27324,7 +28600,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdDrawClusterIndirectHUAWEI =
+/// [`vkCmdDrawClusterIndirectHUAWEI`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawClusterIndirectHUAWEI.html)
+///
+pub type FN_CmdDrawClusterIndirectHUAWEI =
     unsafe extern "C" fn(CommandBufferHandle, Buffer, DeviceSize);
 impl CommandBuffer {
     /// [`vkCmdDrawClusterIndirectHUAWEI`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawClusterIndirectHUAWEI.html)
@@ -27349,7 +28627,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_draw_cluster_indirect_huawei(&self, buffer: Buffer, offset: DeviceSize) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawClusterIndirectHUAWEI>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdDrawClusterIndirectHUAWEI>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdDrawClusterIndirectHUAWEI as usize,
             ))
@@ -27358,8 +28636,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_SetDeviceMemoryPriorityEXT =
-    unsafe extern "C" fn(DeviceHandle, DeviceMemory, f32);
+/// [`vkSetDeviceMemoryPriorityEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetDeviceMemoryPriorityEXT.html)
+///
+pub type FN_SetDeviceMemoryPriorityEXT = unsafe extern "C" fn(DeviceHandle, DeviceMemory, f32);
 impl Device {
     /// [`vkSetDeviceMemoryPriorityEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetDeviceMemoryPriorityEXT.html)
     ///
@@ -27373,7 +28652,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn set_device_memory_priority_ext(&self, memory: DeviceMemory, priority: f32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_SetDeviceMemoryPriorityEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_SetDeviceMemoryPriorityEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkSetDeviceMemoryPriorityEXT as usize,
             ))
@@ -27382,7 +28661,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdSetDispatchParametersARM =
+/// [`vkCmdSetDispatchParametersARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDispatchParametersARM.html)
+///
+pub type FN_CmdSetDispatchParametersARM =
     unsafe extern "C" fn(CommandBufferHandle, *const DispatchParametersARM);
 impl CommandBuffer {
     /// [`vkCmdSetDispatchParametersARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDispatchParametersARM.html)
@@ -27410,7 +28691,7 @@ impl CommandBuffer {
         p_dispatch_parameters: *const DispatchParametersARM,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDispatchParametersARM>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetDispatchParametersARM>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetDispatchParametersARM as usize,
             ))
@@ -27419,7 +28700,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_GetDescriptorSetLayoutHostMappingInfoVALVE = unsafe extern "C" fn(
+/// [`vkGetDescriptorSetLayoutHostMappingInfoVALVE`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDescriptorSetLayoutHostMappingInfoVALVE.html)
+///
+pub type FN_GetDescriptorSetLayoutHostMappingInfoVALVE = unsafe extern "C" fn(
     DeviceHandle,
     *const DescriptorSetBindingReferenceVALVE,
     *mut DescriptorSetLayoutHostMappingInfoVALVE,
@@ -27441,7 +28724,7 @@ impl Device {
         p_host_mapping: *mut DescriptorSetLayoutHostMappingInfoVALVE,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDescriptorSetLayoutHostMappingInfoVALVE>(
+            std::mem::transmute::<vkVoidFunction, FN_GetDescriptorSetLayoutHostMappingInfoVALVE>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetDescriptorSetLayoutHostMappingInfoVALVE as usize,
@@ -27452,7 +28735,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetDescriptorSetHostMappingVALVE =
+/// [`vkGetDescriptorSetHostMappingVALVE`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDescriptorSetHostMappingVALVE.html)
+///
+pub type FN_GetDescriptorSetHostMappingVALVE =
     unsafe extern "C" fn(DeviceHandle, DescriptorSet, *mut *mut c_void);
 impl Device {
     /// [`vkGetDescriptorSetHostMappingVALVE`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDescriptorSetHostMappingVALVE.html)
@@ -27471,7 +28756,7 @@ impl Device {
         pp_data: *mut *mut c_void,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDescriptorSetHostMappingVALVE>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetDescriptorSetHostMappingVALVE>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetDescriptorSetHostMappingVALVE as usize,
             ))
@@ -27480,7 +28765,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdCopyMemoryIndirectNV =
+/// [`vkCmdCopyMemoryIndirectNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMemoryIndirectNV.html)
+///
+pub type FN_CmdCopyMemoryIndirectNV =
     unsafe extern "C" fn(CommandBufferHandle, DeviceAddress, u32, u32);
 impl CommandBuffer {
     /// [`vkCmdCopyMemoryIndirectNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMemoryIndirectNV.html)
@@ -27513,7 +28800,7 @@ impl CommandBuffer {
         stride: u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyMemoryIndirectNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdCopyMemoryIndirectNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdCopyMemoryIndirectNV as usize,
             ))
@@ -27522,7 +28809,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdCopyMemoryToImageIndirectNV = unsafe extern "C" fn(
+/// [`vkCmdCopyMemoryToImageIndirectNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMemoryToImageIndirectNV.html)
+///
+pub type FN_CmdCopyMemoryToImageIndirectNV = unsafe extern "C" fn(
     CommandBufferHandle,
     DeviceAddress,
     u32,
@@ -27565,7 +28854,7 @@ impl CommandBuffer {
         p_image_subresources: *const ImageSubresourceLayers,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyMemoryToImageIndirectNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdCopyMemoryToImageIndirectNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdCopyMemoryToImageIndirectNV as usize,
             ))
@@ -27584,7 +28873,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdDecompressMemoryNV =
+/// [`vkCmdDecompressMemoryNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDecompressMemoryNV.html)
+///
+pub type FN_CmdDecompressMemoryNV =
     unsafe extern "C" fn(CommandBufferHandle, u32, *const DecompressMemoryRegionNV);
 impl CommandBuffer {
     /// [`vkCmdDecompressMemoryNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDecompressMemoryNV.html)
@@ -27615,7 +28906,7 @@ impl CommandBuffer {
         p_decompress_memory_regions: *const DecompressMemoryRegionNV,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDecompressMemoryNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdDecompressMemoryNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdDecompressMemoryNV as usize,
             ))
@@ -27630,7 +28921,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdDecompressMemoryIndirectCountNV =
+/// [`vkCmdDecompressMemoryIndirectCountNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDecompressMemoryIndirectCountNV.html)
+///
+pub type FN_CmdDecompressMemoryIndirectCountNV =
     unsafe extern "C" fn(CommandBufferHandle, DeviceAddress, DeviceAddress, u32);
 impl CommandBuffer {
     /// [`vkCmdDecompressMemoryIndirectCountNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDecompressMemoryIndirectCountNV.html)
@@ -27662,7 +28955,7 @@ impl CommandBuffer {
         stride: u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDecompressMemoryIndirectCountNV>(
+            std::mem::transmute::<vkVoidFunction, FN_CmdDecompressMemoryIndirectCountNV>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkCmdDecompressMemoryIndirectCountNV as usize,
@@ -27680,7 +28973,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_GetPipelineIndirectMemoryRequirementsNV =
+/// [`vkGetPipelineIndirectMemoryRequirementsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPipelineIndirectMemoryRequirementsNV.html)
+///
+pub type FN_GetPipelineIndirectMemoryRequirementsNV =
     unsafe extern "C" fn(DeviceHandle, *const ComputePipelineCreateInfo, *mut MemoryRequirements2);
 impl Device {
     /// [`vkGetPipelineIndirectMemoryRequirementsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPipelineIndirectMemoryRequirementsNV.html)
@@ -27699,7 +28994,7 @@ impl Device {
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPipelineIndirectMemoryRequirementsNV>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPipelineIndirectMemoryRequirementsNV>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPipelineIndirectMemoryRequirementsNV as usize,
@@ -27710,7 +29005,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdUpdatePipelineIndirectBufferNV =
+/// [`vkCmdUpdatePipelineIndirectBufferNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdUpdatePipelineIndirectBufferNV.html)
+///
+pub type FN_CmdUpdatePipelineIndirectBufferNV =
     unsafe extern "C" fn(CommandBufferHandle, PipelineBindPoint, Pipeline);
 impl CommandBuffer {
     /// [`vkCmdUpdatePipelineIndirectBufferNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdUpdatePipelineIndirectBufferNV.html)
@@ -27741,18 +29038,18 @@ impl CommandBuffer {
         pipeline: Pipeline,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdUpdatePipelineIndirectBufferNV>(
-                vtable_get(
-                    self.vtable(),
-                    InstanceCommand::vkCmdUpdatePipelineIndirectBufferNV as usize,
-                ),
-            )
+            std::mem::transmute::<vkVoidFunction, FN_CmdUpdatePipelineIndirectBufferNV>(vtable_get(
+                self.vtable(),
+                InstanceCommand::vkCmdUpdatePipelineIndirectBufferNV as usize,
+            ))
         };
         unsafe { (command)(self.handle, pipeline_bind_point, pipeline) }
     }
 }
 
-pub(crate) type FUN_GetPipelineIndirectDeviceAddressNV =
+/// [`vkGetPipelineIndirectDeviceAddressNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPipelineIndirectDeviceAddressNV.html)
+///
+pub type FN_GetPipelineIndirectDeviceAddressNV =
     unsafe extern "C" fn(DeviceHandle, *const PipelineIndirectDeviceAddressInfoNV) -> DeviceAddress;
 impl Device {
     /// [`vkGetPipelineIndirectDeviceAddressNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPipelineIndirectDeviceAddressNV.html)
@@ -27770,7 +29067,7 @@ impl Device {
         p_info: *const PipelineIndirectDeviceAddressInfoNV,
     ) -> DeviceAddress {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPipelineIndirectDeviceAddressNV>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPipelineIndirectDeviceAddressNV>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPipelineIndirectDeviceAddressNV as usize,
@@ -27781,7 +29078,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetNativeBufferPropertiesOHOS = unsafe extern "C" fn(
+/// [`vkGetNativeBufferPropertiesOHOS`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetNativeBufferPropertiesOHOS.html)
+///
+pub type FN_GetNativeBufferPropertiesOHOS = unsafe extern "C" fn(
     DeviceHandle,
     *const OH_NativeBuffer,
     *mut NativeBufferPropertiesOHOS,
@@ -27812,7 +29111,7 @@ impl Device {
         p_properties: *mut NativeBufferPropertiesOHOS,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetNativeBufferPropertiesOHOS>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetNativeBufferPropertiesOHOS>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetNativeBufferPropertiesOHOS as usize,
             ))
@@ -27821,7 +29120,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetMemoryNativeBufferOHOS = unsafe extern "C" fn(
+/// [`vkGetMemoryNativeBufferOHOS`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryNativeBufferOHOS.html)
+///
+pub type FN_GetMemoryNativeBufferOHOS = unsafe extern "C" fn(
     DeviceHandle,
     *const MemoryGetNativeBufferInfoOHOS,
     *mut *mut OH_NativeBuffer,
@@ -27851,7 +29152,7 @@ impl Device {
         p_buffer: *mut *mut OH_NativeBuffer,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetMemoryNativeBufferOHOS>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetMemoryNativeBufferOHOS>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetMemoryNativeBufferOHOS as usize,
             ))
@@ -27860,7 +29161,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdSetDepthClampEnableEXT = unsafe extern "C" fn(CommandBufferHandle, Bool32);
+/// [`vkCmdSetDepthClampEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthClampEnableEXT.html)
+///
+pub type FN_CmdSetDepthClampEnableEXT = unsafe extern "C" fn(CommandBufferHandle, Bool32);
 impl CommandBuffer {
     /// [`vkCmdSetDepthClampEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthClampEnableEXT.html)
     ///
@@ -27885,7 +29188,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_depth_clamp_enable_ext(&self, depth_clamp_enable: Bool32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthClampEnableEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetDepthClampEnableEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetDepthClampEnableEXT as usize,
             ))
@@ -27894,7 +29197,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetPolygonModeEXT = unsafe extern "C" fn(CommandBufferHandle, PolygonMode);
+/// [`vkCmdSetPolygonModeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPolygonModeEXT.html)
+///
+pub type FN_CmdSetPolygonModeEXT = unsafe extern "C" fn(CommandBufferHandle, PolygonMode);
 impl CommandBuffer {
     /// [`vkCmdSetPolygonModeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPolygonModeEXT.html)
     ///
@@ -27919,7 +29224,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_polygon_mode_ext(&self, polygon_mode: PolygonMode) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetPolygonModeEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetPolygonModeEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetPolygonModeEXT as usize,
             ))
@@ -27928,7 +29233,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetRasterizationSamplesEXT =
+/// [`vkCmdSetRasterizationSamplesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRasterizationSamplesEXT.html)
+///
+pub type FN_CmdSetRasterizationSamplesEXT =
     unsafe extern "C" fn(CommandBufferHandle, SampleCountFlags);
 impl CommandBuffer {
     /// [`vkCmdSetRasterizationSamplesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRasterizationSamplesEXT.html)
@@ -27957,7 +29264,7 @@ impl CommandBuffer {
         rasterization_samples: SampleCountFlags,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetRasterizationSamplesEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetRasterizationSamplesEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetRasterizationSamplesEXT as usize,
             ))
@@ -27966,7 +29273,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetSampleMaskEXT =
+/// [`vkCmdSetSampleMaskEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetSampleMaskEXT.html)
+///
+pub type FN_CmdSetSampleMaskEXT =
     unsafe extern "C" fn(CommandBufferHandle, SampleCountFlags, *const SampleMask);
 impl CommandBuffer {
     /// [`vkCmdSetSampleMaskEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetSampleMaskEXT.html)
@@ -27999,7 +29308,7 @@ impl CommandBuffer {
         p_sample_mask: *const SampleMask,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetSampleMaskEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetSampleMaskEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetSampleMaskEXT as usize,
             ))
@@ -28008,8 +29317,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetAlphaToCoverageEnableEXT =
-    unsafe extern "C" fn(CommandBufferHandle, Bool32);
+/// [`vkCmdSetAlphaToCoverageEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetAlphaToCoverageEnableEXT.html)
+///
+pub type FN_CmdSetAlphaToCoverageEnableEXT = unsafe extern "C" fn(CommandBufferHandle, Bool32);
 impl CommandBuffer {
     /// [`vkCmdSetAlphaToCoverageEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetAlphaToCoverageEnableEXT.html)
     ///
@@ -28034,7 +29344,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_alpha_to_coverage_enable_ext(&self, alpha_to_coverage_enable: Bool32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetAlphaToCoverageEnableEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetAlphaToCoverageEnableEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetAlphaToCoverageEnableEXT as usize,
             ))
@@ -28043,7 +29353,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetAlphaToOneEnableEXT = unsafe extern "C" fn(CommandBufferHandle, Bool32);
+/// [`vkCmdSetAlphaToOneEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetAlphaToOneEnableEXT.html)
+///
+pub type FN_CmdSetAlphaToOneEnableEXT = unsafe extern "C" fn(CommandBufferHandle, Bool32);
 impl CommandBuffer {
     /// [`vkCmdSetAlphaToOneEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetAlphaToOneEnableEXT.html)
     ///
@@ -28068,7 +29380,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_alpha_to_one_enable_ext(&self, alpha_to_one_enable: Bool32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetAlphaToOneEnableEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetAlphaToOneEnableEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetAlphaToOneEnableEXT as usize,
             ))
@@ -28077,7 +29389,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetLogicOpEnableEXT = unsafe extern "C" fn(CommandBufferHandle, Bool32);
+/// [`vkCmdSetLogicOpEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetLogicOpEnableEXT.html)
+///
+pub type FN_CmdSetLogicOpEnableEXT = unsafe extern "C" fn(CommandBufferHandle, Bool32);
 impl CommandBuffer {
     /// [`vkCmdSetLogicOpEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetLogicOpEnableEXT.html)
     ///
@@ -28102,7 +29416,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_logic_op_enable_ext(&self, logic_op_enable: Bool32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetLogicOpEnableEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetLogicOpEnableEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetLogicOpEnableEXT as usize,
             ))
@@ -28111,7 +29425,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetColorBlendEnableEXT =
+/// [`vkCmdSetColorBlendEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetColorBlendEnableEXT.html)
+///
+pub type FN_CmdSetColorBlendEnableEXT =
     unsafe extern "C" fn(CommandBufferHandle, u32, u32, *const Bool32);
 impl CommandBuffer {
     /// [`vkCmdSetColorBlendEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetColorBlendEnableEXT.html)
@@ -28142,7 +29458,7 @@ impl CommandBuffer {
         p_color_blend_enables: *const Bool32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetColorBlendEnableEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetColorBlendEnableEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetColorBlendEnableEXT as usize,
             ))
@@ -28158,7 +29474,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetColorBlendEquationEXT =
+/// [`vkCmdSetColorBlendEquationEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetColorBlendEquationEXT.html)
+///
+pub type FN_CmdSetColorBlendEquationEXT =
     unsafe extern "C" fn(CommandBufferHandle, u32, u32, *const ColorBlendEquationEXT);
 impl CommandBuffer {
     /// [`vkCmdSetColorBlendEquationEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetColorBlendEquationEXT.html)
@@ -28189,7 +29507,7 @@ impl CommandBuffer {
         p_color_blend_equations: *const ColorBlendEquationEXT,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetColorBlendEquationEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetColorBlendEquationEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetColorBlendEquationEXT as usize,
             ))
@@ -28205,7 +29523,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetColorWriteMaskEXT =
+/// [`vkCmdSetColorWriteMaskEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetColorWriteMaskEXT.html)
+///
+pub type FN_CmdSetColorWriteMaskEXT =
     unsafe extern "C" fn(CommandBufferHandle, u32, u32, *const ColorComponentFlags);
 impl CommandBuffer {
     /// [`vkCmdSetColorWriteMaskEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetColorWriteMaskEXT.html)
@@ -28236,7 +29556,7 @@ impl CommandBuffer {
         p_color_write_masks: *const ColorComponentFlags,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetColorWriteMaskEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetColorWriteMaskEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetColorWriteMaskEXT as usize,
             ))
@@ -28252,7 +29572,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetTessellationDomainOriginEXT =
+/// [`vkCmdSetTessellationDomainOriginEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetTessellationDomainOriginEXT.html)
+///
+pub type FN_CmdSetTessellationDomainOriginEXT =
     unsafe extern "C" fn(CommandBufferHandle, TessellationDomainOrigin);
 impl CommandBuffer {
     /// [`vkCmdSetTessellationDomainOriginEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetTessellationDomainOriginEXT.html)
@@ -28281,18 +29603,18 @@ impl CommandBuffer {
         domain_origin: TessellationDomainOrigin,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetTessellationDomainOriginEXT>(
-                vtable_get(
-                    self.vtable(),
-                    InstanceCommand::vkCmdSetTessellationDomainOriginEXT as usize,
-                ),
-            )
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetTessellationDomainOriginEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommand::vkCmdSetTessellationDomainOriginEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, domain_origin) }
     }
 }
 
-pub(crate) type FUN_CmdSetRasterizationStreamEXT = unsafe extern "C" fn(CommandBufferHandle, u32);
+/// [`vkCmdSetRasterizationStreamEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRasterizationStreamEXT.html)
+///
+pub type FN_CmdSetRasterizationStreamEXT = unsafe extern "C" fn(CommandBufferHandle, u32);
 impl CommandBuffer {
     /// [`vkCmdSetRasterizationStreamEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRasterizationStreamEXT.html)
     ///
@@ -28317,7 +29639,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_rasterization_stream_ext(&self, rasterization_stream: u32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetRasterizationStreamEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetRasterizationStreamEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetRasterizationStreamEXT as usize,
             ))
@@ -28326,7 +29648,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetConservativeRasterizationModeEXT =
+/// [`vkCmdSetConservativeRasterizationModeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetConservativeRasterizationModeEXT.html)
+///
+pub type FN_CmdSetConservativeRasterizationModeEXT =
     unsafe extern "C" fn(CommandBufferHandle, ConservativeRasterizationModeEXT);
 impl CommandBuffer {
     /// [`vkCmdSetConservativeRasterizationModeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetConservativeRasterizationModeEXT.html)
@@ -28355,7 +29679,7 @@ impl CommandBuffer {
         conservative_rasterization_mode: ConservativeRasterizationModeEXT,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetConservativeRasterizationModeEXT>(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetConservativeRasterizationModeEXT>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkCmdSetConservativeRasterizationModeEXT as usize,
@@ -28366,7 +29690,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetExtraPrimitiveOverestimationSizeEXT =
+/// [`vkCmdSetExtraPrimitiveOverestimationSizeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetExtraPrimitiveOverestimationSizeEXT.html)
+///
+pub type FN_CmdSetExtraPrimitiveOverestimationSizeEXT =
     unsafe extern "C" fn(CommandBufferHandle, f32);
 impl CommandBuffer {
     /// [`vkCmdSetExtraPrimitiveOverestimationSizeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetExtraPrimitiveOverestimationSizeEXT.html)
@@ -28395,7 +29721,7 @@ impl CommandBuffer {
         extra_primitive_overestimation_size: f32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetExtraPrimitiveOverestimationSizeEXT>(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetExtraPrimitiveOverestimationSizeEXT>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkCmdSetExtraPrimitiveOverestimationSizeEXT as usize,
@@ -28406,7 +29732,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetDepthClipEnableEXT = unsafe extern "C" fn(CommandBufferHandle, Bool32);
+/// [`vkCmdSetDepthClipEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthClipEnableEXT.html)
+///
+pub type FN_CmdSetDepthClipEnableEXT = unsafe extern "C" fn(CommandBufferHandle, Bool32);
 impl CommandBuffer {
     /// [`vkCmdSetDepthClipEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthClipEnableEXT.html)
     ///
@@ -28431,7 +29759,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_depth_clip_enable_ext(&self, depth_clip_enable: Bool32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthClipEnableEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetDepthClipEnableEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetDepthClipEnableEXT as usize,
             ))
@@ -28440,8 +29768,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetSampleLocationsEnableEXT =
-    unsafe extern "C" fn(CommandBufferHandle, Bool32);
+/// [`vkCmdSetSampleLocationsEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetSampleLocationsEnableEXT.html)
+///
+pub type FN_CmdSetSampleLocationsEnableEXT = unsafe extern "C" fn(CommandBufferHandle, Bool32);
 impl CommandBuffer {
     /// [`vkCmdSetSampleLocationsEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetSampleLocationsEnableEXT.html)
     ///
@@ -28466,7 +29795,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_sample_locations_enable_ext(&self, sample_locations_enable: Bool32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetSampleLocationsEnableEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetSampleLocationsEnableEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetSampleLocationsEnableEXT as usize,
             ))
@@ -28475,7 +29804,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetColorBlendAdvancedEXT =
+/// [`vkCmdSetColorBlendAdvancedEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetColorBlendAdvancedEXT.html)
+///
+pub type FN_CmdSetColorBlendAdvancedEXT =
     unsafe extern "C" fn(CommandBufferHandle, u32, u32, *const ColorBlendAdvancedEXT);
 impl CommandBuffer {
     /// [`vkCmdSetColorBlendAdvancedEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetColorBlendAdvancedEXT.html)
@@ -28506,7 +29837,7 @@ impl CommandBuffer {
         p_color_blend_advanced: *const ColorBlendAdvancedEXT,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetColorBlendAdvancedEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetColorBlendAdvancedEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetColorBlendAdvancedEXT as usize,
             ))
@@ -28522,7 +29853,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetProvokingVertexModeEXT =
+/// [`vkCmdSetProvokingVertexModeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetProvokingVertexModeEXT.html)
+///
+pub type FN_CmdSetProvokingVertexModeEXT =
     unsafe extern "C" fn(CommandBufferHandle, ProvokingVertexModeEXT);
 impl CommandBuffer {
     /// [`vkCmdSetProvokingVertexModeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetProvokingVertexModeEXT.html)
@@ -28551,7 +29884,7 @@ impl CommandBuffer {
         provoking_vertex_mode: ProvokingVertexModeEXT,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetProvokingVertexModeEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetProvokingVertexModeEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetProvokingVertexModeEXT as usize,
             ))
@@ -28560,7 +29893,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetLineRasterizationModeEXT =
+/// [`vkCmdSetLineRasterizationModeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetLineRasterizationModeEXT.html)
+///
+pub type FN_CmdSetLineRasterizationModeEXT =
     unsafe extern "C" fn(CommandBufferHandle, LineRasterizationModeEXT);
 impl CommandBuffer {
     /// [`vkCmdSetLineRasterizationModeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetLineRasterizationModeEXT.html)
@@ -28589,7 +29924,7 @@ impl CommandBuffer {
         line_rasterization_mode: LineRasterizationModeEXT,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetLineRasterizationModeEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetLineRasterizationModeEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetLineRasterizationModeEXT as usize,
             ))
@@ -28598,7 +29933,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetLineStippleEnableEXT = unsafe extern "C" fn(CommandBufferHandle, Bool32);
+/// [`vkCmdSetLineStippleEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetLineStippleEnableEXT.html)
+///
+pub type FN_CmdSetLineStippleEnableEXT = unsafe extern "C" fn(CommandBufferHandle, Bool32);
 impl CommandBuffer {
     /// [`vkCmdSetLineStippleEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetLineStippleEnableEXT.html)
     ///
@@ -28623,7 +29960,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_line_stipple_enable_ext(&self, stippled_line_enable: Bool32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetLineStippleEnableEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetLineStippleEnableEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetLineStippleEnableEXT as usize,
             ))
@@ -28632,8 +29969,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetDepthClipNegativeOneToOneEXT =
-    unsafe extern "C" fn(CommandBufferHandle, Bool32);
+/// [`vkCmdSetDepthClipNegativeOneToOneEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthClipNegativeOneToOneEXT.html)
+///
+pub type FN_CmdSetDepthClipNegativeOneToOneEXT = unsafe extern "C" fn(CommandBufferHandle, Bool32);
 impl CommandBuffer {
     /// [`vkCmdSetDepthClipNegativeOneToOneEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthClipNegativeOneToOneEXT.html)
     ///
@@ -28658,7 +29996,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_depth_clip_negative_one_to_one_ext(&self, negative_one_to_one: Bool32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthClipNegativeOneToOneEXT>(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetDepthClipNegativeOneToOneEXT>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkCmdSetDepthClipNegativeOneToOneEXT as usize,
@@ -28669,8 +30007,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetViewportWScalingEnableNV =
-    unsafe extern "C" fn(CommandBufferHandle, Bool32);
+/// [`vkCmdSetViewportWScalingEnableNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetViewportWScalingEnableNV.html)
+///
+pub type FN_CmdSetViewportWScalingEnableNV = unsafe extern "C" fn(CommandBufferHandle, Bool32);
 impl CommandBuffer {
     /// [`vkCmdSetViewportWScalingEnableNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetViewportWScalingEnableNV.html)
     ///
@@ -28695,7 +30034,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_viewport_w_scaling_enable_nv(&self, viewport_w_scaling_enable: Bool32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetViewportWScalingEnableNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetViewportWScalingEnableNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetViewportWScalingEnableNV as usize,
             ))
@@ -28704,7 +30043,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetViewportSwizzleNV =
+/// [`vkCmdSetViewportSwizzleNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetViewportSwizzleNV.html)
+///
+pub type FN_CmdSetViewportSwizzleNV =
     unsafe extern "C" fn(CommandBufferHandle, u32, u32, *const ViewportSwizzleNV);
 impl CommandBuffer {
     /// [`vkCmdSetViewportSwizzleNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetViewportSwizzleNV.html)
@@ -28735,7 +30076,7 @@ impl CommandBuffer {
         p_viewport_swizzles: *const ViewportSwizzleNV,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetViewportSwizzleNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetViewportSwizzleNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetViewportSwizzleNV as usize,
             ))
@@ -28751,8 +30092,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetCoverageToColorEnableNV =
-    unsafe extern "C" fn(CommandBufferHandle, Bool32);
+/// [`vkCmdSetCoverageToColorEnableNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCoverageToColorEnableNV.html)
+///
+pub type FN_CmdSetCoverageToColorEnableNV = unsafe extern "C" fn(CommandBufferHandle, Bool32);
 impl CommandBuffer {
     /// [`vkCmdSetCoverageToColorEnableNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCoverageToColorEnableNV.html)
     ///
@@ -28777,7 +30119,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_coverage_to_color_enable_nv(&self, coverage_to_color_enable: Bool32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetCoverageToColorEnableNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetCoverageToColorEnableNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetCoverageToColorEnableNV as usize,
             ))
@@ -28786,8 +30128,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetCoverageToColorLocationNV =
-    unsafe extern "C" fn(CommandBufferHandle, u32);
+/// [`vkCmdSetCoverageToColorLocationNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCoverageToColorLocationNV.html)
+///
+pub type FN_CmdSetCoverageToColorLocationNV = unsafe extern "C" fn(CommandBufferHandle, u32);
 impl CommandBuffer {
     /// [`vkCmdSetCoverageToColorLocationNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCoverageToColorLocationNV.html)
     ///
@@ -28812,7 +30155,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_coverage_to_color_location_nv(&self, coverage_to_color_location: u32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetCoverageToColorLocationNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetCoverageToColorLocationNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetCoverageToColorLocationNV as usize,
             ))
@@ -28821,7 +30164,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetCoverageModulationModeNV =
+/// [`vkCmdSetCoverageModulationModeNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCoverageModulationModeNV.html)
+///
+pub type FN_CmdSetCoverageModulationModeNV =
     unsafe extern "C" fn(CommandBufferHandle, CoverageModulationModeNV);
 impl CommandBuffer {
     /// [`vkCmdSetCoverageModulationModeNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCoverageModulationModeNV.html)
@@ -28850,7 +30195,7 @@ impl CommandBuffer {
         coverage_modulation_mode: CoverageModulationModeNV,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetCoverageModulationModeNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetCoverageModulationModeNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetCoverageModulationModeNV as usize,
             ))
@@ -28859,7 +30204,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetCoverageModulationTableEnableNV =
+/// [`vkCmdSetCoverageModulationTableEnableNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCoverageModulationTableEnableNV.html)
+///
+pub type FN_CmdSetCoverageModulationTableEnableNV =
     unsafe extern "C" fn(CommandBufferHandle, Bool32);
 impl CommandBuffer {
     /// [`vkCmdSetCoverageModulationTableEnableNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCoverageModulationTableEnableNV.html)
@@ -28888,7 +30235,7 @@ impl CommandBuffer {
         coverage_modulation_table_enable: Bool32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetCoverageModulationTableEnableNV>(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetCoverageModulationTableEnableNV>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkCmdSetCoverageModulationTableEnableNV as usize,
@@ -28899,7 +30246,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetCoverageModulationTableNV =
+/// [`vkCmdSetCoverageModulationTableNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCoverageModulationTableNV.html)
+///
+pub type FN_CmdSetCoverageModulationTableNV =
     unsafe extern "C" fn(CommandBufferHandle, u32, *const f32);
 impl CommandBuffer {
     /// [`vkCmdSetCoverageModulationTableNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCoverageModulationTableNV.html)
@@ -28929,7 +30278,7 @@ impl CommandBuffer {
         p_coverage_modulation_table: *const f32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetCoverageModulationTableNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetCoverageModulationTableNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetCoverageModulationTableNV as usize,
             ))
@@ -28944,8 +30293,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetShadingRateImageEnableNV =
-    unsafe extern "C" fn(CommandBufferHandle, Bool32);
+/// [`vkCmdSetShadingRateImageEnableNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetShadingRateImageEnableNV.html)
+///
+pub type FN_CmdSetShadingRateImageEnableNV = unsafe extern "C" fn(CommandBufferHandle, Bool32);
 impl CommandBuffer {
     /// [`vkCmdSetShadingRateImageEnableNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetShadingRateImageEnableNV.html)
     ///
@@ -28970,7 +30320,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_shading_rate_image_enable_nv(&self, shading_rate_image_enable: Bool32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetShadingRateImageEnableNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetShadingRateImageEnableNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetShadingRateImageEnableNV as usize,
             ))
@@ -28979,7 +30329,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetRepresentativeFragmentTestEnableNV =
+/// [`vkCmdSetRepresentativeFragmentTestEnableNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRepresentativeFragmentTestEnableNV.html)
+///
+pub type FN_CmdSetRepresentativeFragmentTestEnableNV =
     unsafe extern "C" fn(CommandBufferHandle, Bool32);
 impl CommandBuffer {
     /// [`vkCmdSetRepresentativeFragmentTestEnableNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRepresentativeFragmentTestEnableNV.html)
@@ -29008,7 +30360,7 @@ impl CommandBuffer {
         representative_fragment_test_enable: Bool32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetRepresentativeFragmentTestEnableNV>(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetRepresentativeFragmentTestEnableNV>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkCmdSetRepresentativeFragmentTestEnableNV as usize,
@@ -29019,7 +30371,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetCoverageReductionModeNV =
+/// [`vkCmdSetCoverageReductionModeNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCoverageReductionModeNV.html)
+///
+pub type FN_CmdSetCoverageReductionModeNV =
     unsafe extern "C" fn(CommandBufferHandle, CoverageReductionModeNV);
 impl CommandBuffer {
     /// [`vkCmdSetCoverageReductionModeNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetCoverageReductionModeNV.html)
@@ -29048,7 +30402,7 @@ impl CommandBuffer {
         coverage_reduction_mode: CoverageReductionModeNV,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetCoverageReductionModeNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetCoverageReductionModeNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetCoverageReductionModeNV as usize,
             ))
@@ -29057,7 +30411,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CreateTensorARM = unsafe extern "C" fn(
+/// [`vkCreateTensorARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateTensorARM.html)
+///
+pub type FN_CreateTensorARM = unsafe extern "C" fn(
     DeviceHandle,
     *const TensorCreateInfoARM,
     *const AllocationCallbacks,
@@ -29093,7 +30449,7 @@ impl Device {
         p_tensor: *mut TensorARM,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateTensorARM>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateTensorARM>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateTensorARM as usize,
             ))
@@ -29102,7 +30458,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroyTensorARM =
+/// [`vkDestroyTensorARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyTensorARM.html)
+///
+pub type FN_DestroyTensorARM =
     unsafe extern "C" fn(DeviceHandle, TensorARM, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyTensorARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyTensorARM.html)
@@ -29125,7 +30483,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyTensorARM>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyTensorARM>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyTensorARM as usize,
             ))
@@ -29134,7 +30492,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CreateTensorViewARM = unsafe extern "C" fn(
+/// [`vkCreateTensorViewARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateTensorViewARM.html)
+///
+pub type FN_CreateTensorViewARM = unsafe extern "C" fn(
     DeviceHandle,
     *const TensorViewCreateInfoARM,
     *const AllocationCallbacks,
@@ -29170,7 +30530,7 @@ impl Device {
         p_view: *mut TensorViewARM,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateTensorViewARM>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateTensorViewARM>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateTensorViewARM as usize,
             ))
@@ -29179,7 +30539,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroyTensorViewARM =
+/// [`vkDestroyTensorViewARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyTensorViewARM.html)
+///
+pub type FN_DestroyTensorViewARM =
     unsafe extern "C" fn(DeviceHandle, TensorViewARM, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyTensorViewARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyTensorViewARM.html)
@@ -29202,7 +30564,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyTensorViewARM>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyTensorViewARM>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyTensorViewARM as usize,
             ))
@@ -29211,7 +30573,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetTensorMemoryRequirementsARM = unsafe extern "C" fn(
+/// [`vkGetTensorMemoryRequirementsARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetTensorMemoryRequirementsARM.html)
+///
+pub type FN_GetTensorMemoryRequirementsARM = unsafe extern "C" fn(
     DeviceHandle,
     *const TensorMemoryRequirementsInfoARM,
     *mut MemoryRequirements2,
@@ -29233,7 +30597,7 @@ impl Device {
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetTensorMemoryRequirementsARM>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetTensorMemoryRequirementsARM>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetTensorMemoryRequirementsARM as usize,
             ))
@@ -29242,7 +30606,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_BindTensorMemoryARM =
+/// [`vkBindTensorMemoryARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkBindTensorMemoryARM.html)
+///
+pub type FN_BindTensorMemoryARM =
     unsafe extern "C" fn(DeviceHandle, u32, *const BindTensorMemoryInfoARM) -> ResultCode;
 impl Device {
     /// [`vkBindTensorMemoryARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkBindTensorMemoryARM.html)
@@ -29270,7 +30636,7 @@ impl Device {
         p_bind_infos: *const BindTensorMemoryInfoARM,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_BindTensorMemoryARM>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_BindTensorMemoryARM>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkBindTensorMemoryARM as usize,
             ))
@@ -29279,7 +30645,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetDeviceTensorMemoryRequirementsARM = unsafe extern "C" fn(
+/// [`vkGetDeviceTensorMemoryRequirementsARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceTensorMemoryRequirementsARM.html)
+///
+pub type FN_GetDeviceTensorMemoryRequirementsARM = unsafe extern "C" fn(
     DeviceHandle,
     *const DeviceTensorMemoryRequirementsARM,
     *mut MemoryRequirements2,
@@ -29301,7 +30669,7 @@ impl Device {
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceTensorMemoryRequirementsARM>(
+            std::mem::transmute::<vkVoidFunction, FN_GetDeviceTensorMemoryRequirementsARM>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetDeviceTensorMemoryRequirementsARM as usize,
@@ -29312,8 +30680,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdCopyTensorARM =
-    unsafe extern "C" fn(CommandBufferHandle, *const CopyTensorInfoARM);
+/// [`vkCmdCopyTensorARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyTensorARM.html)
+///
+pub type FN_CmdCopyTensorARM = unsafe extern "C" fn(CommandBufferHandle, *const CopyTensorInfoARM);
 impl CommandBuffer {
     /// [`vkCmdCopyTensorARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyTensorARM.html)
     ///
@@ -29339,7 +30708,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_copy_tensor_arm(&self, p_copy_tensor_info: *const CopyTensorInfoARM) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyTensorARM>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdCopyTensorARM>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdCopyTensorARM as usize,
             ))
@@ -29348,7 +30717,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceExternalTensorPropertiesARM = unsafe extern "C" fn(
+/// [`vkGetPhysicalDeviceExternalTensorPropertiesARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceExternalTensorPropertiesARM.html)
+///
+pub type FN_GetPhysicalDeviceExternalTensorPropertiesARM = unsafe extern "C" fn(
     PhysicalDeviceHandle,
     *const PhysicalDeviceExternalTensorInfoARM,
     *mut ExternalTensorPropertiesARM,
@@ -29370,7 +30741,7 @@ impl PhysicalDevice {
         p_external_tensor_properties: *mut ExternalTensorPropertiesARM,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceExternalTensorPropertiesARM>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceExternalTensorPropertiesARM>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceExternalTensorPropertiesARM as usize,
@@ -29387,7 +30758,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetTensorOpaqueCaptureDescriptorDataARM = unsafe extern "C" fn(
+/// [`vkGetTensorOpaqueCaptureDescriptorDataARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetTensorOpaqueCaptureDescriptorDataARM.html)
+///
+pub type FN_GetTensorOpaqueCaptureDescriptorDataARM = unsafe extern "C" fn(
     DeviceHandle,
     *const TensorCaptureDescriptorDataInfoARM,
     *mut c_void,
@@ -29418,7 +30791,7 @@ impl Device {
         p_data: *mut c_void,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetTensorOpaqueCaptureDescriptorDataARM>(
+            std::mem::transmute::<vkVoidFunction, FN_GetTensorOpaqueCaptureDescriptorDataARM>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetTensorOpaqueCaptureDescriptorDataARM as usize,
@@ -29429,12 +30802,13 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetTensorViewOpaqueCaptureDescriptorDataARM =
-    unsafe extern "C" fn(
-        DeviceHandle,
-        *const TensorViewCaptureDescriptorDataInfoARM,
-        *mut c_void,
-    ) -> ResultCode;
+/// [`vkGetTensorViewOpaqueCaptureDescriptorDataARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetTensorViewOpaqueCaptureDescriptorDataARM.html)
+///
+pub type FN_GetTensorViewOpaqueCaptureDescriptorDataARM = unsafe extern "C" fn(
+    DeviceHandle,
+    *const TensorViewCaptureDescriptorDataInfoARM,
+    *mut c_void,
+) -> ResultCode;
 impl Device {
     /// [`vkGetTensorViewOpaqueCaptureDescriptorDataARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetTensorViewOpaqueCaptureDescriptorDataARM.html)
     ///
@@ -29461,7 +30835,7 @@ impl Device {
         p_data: *mut c_void,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetTensorViewOpaqueCaptureDescriptorDataARM>(
+            std::mem::transmute::<vkVoidFunction, FN_GetTensorViewOpaqueCaptureDescriptorDataARM>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetTensorViewOpaqueCaptureDescriptorDataARM as usize,
@@ -29472,7 +30846,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetShaderModuleIdentifierEXT =
+/// [`vkGetShaderModuleIdentifierEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetShaderModuleIdentifierEXT.html)
+///
+pub type FN_GetShaderModuleIdentifierEXT =
     unsafe extern "C" fn(DeviceHandle, ShaderModule, *mut ShaderModuleIdentifierEXT);
 impl Device {
     /// [`vkGetShaderModuleIdentifierEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetShaderModuleIdentifierEXT.html)
@@ -29491,7 +30867,7 @@ impl Device {
         p_identifier: *mut ShaderModuleIdentifierEXT,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetShaderModuleIdentifierEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetShaderModuleIdentifierEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetShaderModuleIdentifierEXT as usize,
             ))
@@ -29500,7 +30876,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetShaderModuleCreateInfoIdentifierEXT = unsafe extern "C" fn(
+/// [`vkGetShaderModuleCreateInfoIdentifierEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetShaderModuleCreateInfoIdentifierEXT.html)
+///
+pub type FN_GetShaderModuleCreateInfoIdentifierEXT = unsafe extern "C" fn(
     DeviceHandle,
     *const ShaderModuleCreateInfo,
     *mut ShaderModuleIdentifierEXT,
@@ -29522,7 +30900,7 @@ impl Device {
         p_identifier: *mut ShaderModuleIdentifierEXT,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetShaderModuleCreateInfoIdentifierEXT>(
+            std::mem::transmute::<vkVoidFunction, FN_GetShaderModuleCreateInfoIdentifierEXT>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetShaderModuleCreateInfoIdentifierEXT as usize,
@@ -29533,13 +30911,14 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceOpticalFlowImageFormatsNV = unsafe extern "C" fn(
+/// [`vkGetPhysicalDeviceOpticalFlowImageFormatsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceOpticalFlowImageFormatsNV.html)
+///
+pub type FN_GetPhysicalDeviceOpticalFlowImageFormatsNV = unsafe extern "C" fn(
     PhysicalDeviceHandle,
     *const OpticalFlowImageFormatInfoNV,
     *mut u32,
     *mut OpticalFlowImageFormatPropertiesNV,
-)
-    -> ResultCode;
+) -> ResultCode;
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceOpticalFlowImageFormatsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceOpticalFlowImageFormatsNV.html)
     ///
@@ -29572,7 +30951,7 @@ impl PhysicalDevice {
         p_image_format_properties: *mut OpticalFlowImageFormatPropertiesNV,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceOpticalFlowImageFormatsNV>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceOpticalFlowImageFormatsNV>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceOpticalFlowImageFormatsNV as usize,
@@ -29590,7 +30969,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_CreateOpticalFlowSessionNV = unsafe extern "C" fn(
+/// [`vkCreateOpticalFlowSessionNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateOpticalFlowSessionNV.html)
+///
+pub type FN_CreateOpticalFlowSessionNV = unsafe extern "C" fn(
     DeviceHandle,
     *const OpticalFlowSessionCreateInfoNV,
     *const AllocationCallbacks,
@@ -29626,7 +31007,7 @@ impl Device {
         p_session: *mut OpticalFlowSessionNV,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateOpticalFlowSessionNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateOpticalFlowSessionNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateOpticalFlowSessionNV as usize,
             ))
@@ -29635,7 +31016,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroyOpticalFlowSessionNV =
+/// [`vkDestroyOpticalFlowSessionNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyOpticalFlowSessionNV.html)
+///
+pub type FN_DestroyOpticalFlowSessionNV =
     unsafe extern "C" fn(DeviceHandle, OpticalFlowSessionNV, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyOpticalFlowSessionNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyOpticalFlowSessionNV.html)
@@ -29657,7 +31040,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyOpticalFlowSessionNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyOpticalFlowSessionNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyOpticalFlowSessionNV as usize,
             ))
@@ -29666,7 +31049,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_BindOpticalFlowSessionImageNV = unsafe extern "C" fn(
+/// [`vkBindOpticalFlowSessionImageNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkBindOpticalFlowSessionImageNV.html)
+///
+pub type FN_BindOpticalFlowSessionImageNV = unsafe extern "C" fn(
     DeviceHandle,
     OpticalFlowSessionNV,
     OpticalFlowSessionBindingPointNV,
@@ -29704,7 +31089,7 @@ impl Device {
         layout: ImageLayout,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_BindOpticalFlowSessionImageNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_BindOpticalFlowSessionImageNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkBindOpticalFlowSessionImageNV as usize,
             ))
@@ -29713,7 +31098,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdOpticalFlowExecuteNV = unsafe extern "C" fn(
+/// [`vkCmdOpticalFlowExecuteNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdOpticalFlowExecuteNV.html)
+///
+pub type FN_CmdOpticalFlowExecuteNV = unsafe extern "C" fn(
     CommandBufferHandle,
     OpticalFlowSessionNV,
     *const OpticalFlowExecuteInfoNV,
@@ -29745,7 +31132,7 @@ impl CommandBuffer {
         p_execute_info: *const OpticalFlowExecuteInfoNV,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdOpticalFlowExecuteNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdOpticalFlowExecuteNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdOpticalFlowExecuteNV as usize,
             ))
@@ -29754,7 +31141,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_AntiLagUpdateAMD = unsafe extern "C" fn(DeviceHandle, *const AntiLagDataAMD);
+/// [`vkAntiLagUpdateAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkAntiLagUpdateAMD.html)
+///
+pub type FN_AntiLagUpdateAMD = unsafe extern "C" fn(DeviceHandle, *const AntiLagDataAMD);
 impl Device {
     /// [`vkAntiLagUpdateAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkAntiLagUpdateAMD.html)
     ///
@@ -29768,7 +31157,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn anti_lag_update_amd(&self, p_data: *const AntiLagDataAMD) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_AntiLagUpdateAMD>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_AntiLagUpdateAMD>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkAntiLagUpdateAMD as usize,
             ))
@@ -29777,7 +31166,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CreateShadersEXT = unsafe extern "C" fn(
+/// [`vkCreateShadersEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateShadersEXT.html)
+///
+pub type FN_CreateShadersEXT = unsafe extern "C" fn(
     DeviceHandle,
     u32,
     *const ShaderCreateInfoEXT,
@@ -29817,7 +31208,7 @@ impl Device {
         p_shaders: *mut ShaderEXT,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateShadersEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateShadersEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateShadersEXT as usize,
             ))
@@ -29834,7 +31225,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroyShaderEXT =
+/// [`vkDestroyShaderEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyShaderEXT.html)
+///
+pub type FN_DestroyShaderEXT =
     unsafe extern "C" fn(DeviceHandle, ShaderEXT, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyShaderEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyShaderEXT.html)
@@ -29857,7 +31250,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyShaderEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyShaderEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyShaderEXT as usize,
             ))
@@ -29866,7 +31259,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetShaderBinaryDataEXT =
+/// [`vkGetShaderBinaryDataEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetShaderBinaryDataEXT.html)
+///
+pub type FN_GetShaderBinaryDataEXT =
     unsafe extern "C" fn(DeviceHandle, ShaderEXT, *mut usize, *mut c_void) -> ResultCode;
 impl Device {
     /// [`vkGetShaderBinaryDataEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetShaderBinaryDataEXT.html)
@@ -29899,7 +31294,7 @@ impl Device {
         p_data: *mut c_void,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetShaderBinaryDataEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetShaderBinaryDataEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetShaderBinaryDataEXT as usize,
             ))
@@ -29908,7 +31303,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdBindShadersEXT =
+/// [`vkCmdBindShadersEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindShadersEXT.html)
+///
+pub type FN_CmdBindShadersEXT =
     unsafe extern "C" fn(CommandBufferHandle, u32, *const ShaderStageFlags, *const ShaderEXT);
 impl CommandBuffer {
     /// [`vkCmdBindShadersEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindShadersEXT.html)
@@ -29942,7 +31339,7 @@ impl CommandBuffer {
         p_shaders: *const ShaderEXT,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBindShadersEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBindShadersEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdBindShadersEXT as usize,
             ))
@@ -29951,7 +31348,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdSetDepthClampRangeEXT =
+/// [`vkCmdSetDepthClampRangeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthClampRangeEXT.html)
+///
+pub type FN_CmdSetDepthClampRangeEXT =
     unsafe extern "C" fn(CommandBufferHandle, DepthClampModeEXT, *const DepthClampRangeEXT);
 impl CommandBuffer {
     /// [`vkCmdSetDepthClampRangeEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetDepthClampRangeEXT.html)
@@ -29984,7 +31383,7 @@ impl CommandBuffer {
         p_depth_clamp_range: *const DepthClampRangeEXT,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthClampRangeEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetDepthClampRangeEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetDepthClampRangeEXT as usize,
             ))
@@ -29993,7 +31392,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_GetFramebufferTilePropertiesQCOM = unsafe extern "C" fn(
+/// [`vkGetFramebufferTilePropertiesQCOM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetFramebufferTilePropertiesQCOM.html)
+///
+pub type FN_GetFramebufferTilePropertiesQCOM = unsafe extern "C" fn(
     DeviceHandle,
     Framebuffer,
     *mut u32,
@@ -30028,7 +31429,7 @@ impl Device {
         p_properties: *mut TilePropertiesQCOM,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetFramebufferTilePropertiesQCOM>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetFramebufferTilePropertiesQCOM>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetFramebufferTilePropertiesQCOM as usize,
             ))
@@ -30037,7 +31438,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetDynamicRenderingTilePropertiesQCOM =
+/// [`vkGetDynamicRenderingTilePropertiesQCOM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDynamicRenderingTilePropertiesQCOM.html)
+///
+pub type FN_GetDynamicRenderingTilePropertiesQCOM =
     unsafe extern "C" fn(DeviceHandle, *const RenderingInfo, *mut TilePropertiesQCOM) -> ResultCode;
 impl Device {
     /// [`vkGetDynamicRenderingTilePropertiesQCOM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDynamicRenderingTilePropertiesQCOM.html)
@@ -30063,7 +31466,7 @@ impl Device {
         p_properties: *mut TilePropertiesQCOM,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDynamicRenderingTilePropertiesQCOM>(
+            std::mem::transmute::<vkVoidFunction, FN_GetDynamicRenderingTilePropertiesQCOM>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetDynamicRenderingTilePropertiesQCOM as usize,
@@ -30074,12 +31477,13 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceCooperativeVectorPropertiesNV =
-    unsafe extern "C" fn(
-        PhysicalDeviceHandle,
-        *mut u32,
-        *mut CooperativeVectorPropertiesNV,
-    ) -> ResultCode;
+/// [`vkGetPhysicalDeviceCooperativeVectorPropertiesNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceCooperativeVectorPropertiesNV.html)
+///
+pub type FN_GetPhysicalDeviceCooperativeVectorPropertiesNV = unsafe extern "C" fn(
+    PhysicalDeviceHandle,
+    *mut u32,
+    *mut CooperativeVectorPropertiesNV,
+) -> ResultCode;
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceCooperativeVectorPropertiesNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceCooperativeVectorPropertiesNV.html)
     ///
@@ -30110,7 +31514,7 @@ impl PhysicalDevice {
         p_properties: *mut CooperativeVectorPropertiesNV,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceCooperativeVectorPropertiesNV>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceCooperativeVectorPropertiesNV>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceCooperativeVectorPropertiesNV as usize,
@@ -30121,7 +31525,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_ConvertCooperativeVectorMatrixNV =
+/// [`vkConvertCooperativeVectorMatrixNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkConvertCooperativeVectorMatrixNV.html)
+///
+pub type FN_ConvertCooperativeVectorMatrixNV =
     unsafe extern "C" fn(DeviceHandle, *const ConvertCooperativeVectorMatrixInfoNV) -> ResultCode;
 impl Device {
     /// [`vkConvertCooperativeVectorMatrixNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkConvertCooperativeVectorMatrixNV.html)
@@ -30148,7 +31554,7 @@ impl Device {
         p_info: *const ConvertCooperativeVectorMatrixInfoNV,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_ConvertCooperativeVectorMatrixNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_ConvertCooperativeVectorMatrixNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkConvertCooperativeVectorMatrixNV as usize,
             ))
@@ -30157,7 +31563,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdConvertCooperativeVectorMatrixNV =
+/// [`vkCmdConvertCooperativeVectorMatrixNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdConvertCooperativeVectorMatrixNV.html)
+///
+pub type FN_CmdConvertCooperativeVectorMatrixNV =
     unsafe extern "C" fn(CommandBufferHandle, u32, *const ConvertCooperativeVectorMatrixInfoNV);
 impl CommandBuffer {
     /// [`vkCmdConvertCooperativeVectorMatrixNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdConvertCooperativeVectorMatrixNV.html)
@@ -30187,7 +31595,7 @@ impl CommandBuffer {
         p_infos: *const ConvertCooperativeVectorMatrixInfoNV,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdConvertCooperativeVectorMatrixNV>(
+            std::mem::transmute::<vkVoidFunction, FN_CmdConvertCooperativeVectorMatrixNV>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkCmdConvertCooperativeVectorMatrixNV as usize,
@@ -30198,7 +31606,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_SetLatencySleepModeNV =
+/// [`vkSetLatencySleepModeNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetLatencySleepModeNV.html)
+///
+pub type FN_SetLatencySleepModeNV =
     unsafe extern "C" fn(DeviceHandle, SwapchainKHR, *const LatencySleepModeInfoNV) -> ResultCode;
 impl Device {
     /// [`vkSetLatencySleepModeNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetLatencySleepModeNV.html)
@@ -30225,7 +31635,7 @@ impl Device {
         p_sleep_mode_info: *const LatencySleepModeInfoNV,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_SetLatencySleepModeNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_SetLatencySleepModeNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkSetLatencySleepModeNV as usize,
             ))
@@ -30234,7 +31644,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_LatencySleepNV =
+/// [`vkLatencySleepNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkLatencySleepNV.html)
+///
+pub type FN_LatencySleepNV =
     unsafe extern "C" fn(DeviceHandle, SwapchainKHR, *const LatencySleepInfoNV) -> ResultCode;
 impl Device {
     /// [`vkLatencySleepNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkLatencySleepNV.html)
@@ -30260,7 +31672,7 @@ impl Device {
         p_sleep_info: *const LatencySleepInfoNV,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_LatencySleepNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_LatencySleepNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkLatencySleepNV as usize,
             ))
@@ -30269,7 +31681,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_SetLatencyMarkerNV =
+/// [`vkSetLatencyMarkerNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetLatencyMarkerNV.html)
+///
+pub type FN_SetLatencyMarkerNV =
     unsafe extern "C" fn(DeviceHandle, SwapchainKHR, *const SetLatencyMarkerInfoNV);
 impl Device {
     /// [`vkSetLatencyMarkerNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetLatencyMarkerNV.html)
@@ -30288,7 +31702,7 @@ impl Device {
         p_latency_marker_info: *const SetLatencyMarkerInfoNV,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_SetLatencyMarkerNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_SetLatencyMarkerNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkSetLatencyMarkerNV as usize,
             ))
@@ -30297,7 +31711,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetLatencyTimingsNV =
+/// [`vkGetLatencyTimingsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetLatencyTimingsNV.html)
+///
+pub type FN_GetLatencyTimingsNV =
     unsafe extern "C" fn(DeviceHandle, SwapchainKHR, *mut GetLatencyMarkerInfoNV);
 impl Device {
     /// [`vkGetLatencyTimingsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetLatencyTimingsNV.html)
@@ -30316,7 +31732,7 @@ impl Device {
         p_latency_marker_info: *mut GetLatencyMarkerInfoNV,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetLatencyTimingsNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetLatencyTimingsNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetLatencyTimingsNV as usize,
             ))
@@ -30325,7 +31741,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_QueueNotifyOutOfBandNV =
+/// [`vkQueueNotifyOutOfBandNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueNotifyOutOfBandNV.html)
+///
+pub type FN_QueueNotifyOutOfBandNV =
     unsafe extern "C" fn(QueueHandle, *const OutOfBandQueueTypeInfoNV);
 impl Queue {
     /// [`vkQueueNotifyOutOfBandNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueNotifyOutOfBandNV.html)
@@ -30340,7 +31758,7 @@ impl Queue {
     #[inline(always)]
     pub unsafe fn notify_out_of_band_nv(&self, p_queue_type_info: *const OutOfBandQueueTypeInfoNV) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_QueueNotifyOutOfBandNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_QueueNotifyOutOfBandNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkQueueNotifyOutOfBandNV as usize,
             ))
@@ -30349,7 +31767,9 @@ impl Queue {
     }
 }
 
-pub(crate) type FUN_CreateDataGraphPipelinesARM = unsafe extern "C" fn(
+/// [`vkCreateDataGraphPipelinesARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDataGraphPipelinesARM.html)
+///
+pub type FN_CreateDataGraphPipelinesARM = unsafe extern "C" fn(
     DeviceHandle,
     DeferredOperationKHR,
     PipelineCache,
@@ -30394,7 +31814,7 @@ impl Device {
         p_pipelines: *mut Pipeline,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateDataGraphPipelinesARM>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateDataGraphPipelinesARM>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateDataGraphPipelinesARM as usize,
             ))
@@ -30413,7 +31833,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CreateDataGraphPipelineSessionARM = unsafe extern "C" fn(
+/// [`vkCreateDataGraphPipelineSessionARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDataGraphPipelineSessionARM.html)
+///
+pub type FN_CreateDataGraphPipelineSessionARM = unsafe extern "C" fn(
     DeviceHandle,
     *const DataGraphPipelineSessionCreateInfoARM,
     *const AllocationCallbacks,
@@ -30449,18 +31871,18 @@ impl Device {
         p_session: *mut DataGraphPipelineSessionARM,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateDataGraphPipelineSessionARM>(
-                vtable_get(
-                    self.vtable(),
-                    InstanceCommand::vkCreateDataGraphPipelineSessionARM as usize,
-                ),
-            )
+            std::mem::transmute::<vkVoidFunction, FN_CreateDataGraphPipelineSessionARM>(vtable_get(
+                self.vtable(),
+                InstanceCommand::vkCreateDataGraphPipelineSessionARM as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_session) }
     }
 }
 
-pub(crate) type FUN_GetDataGraphPipelineSessionBindPointRequirementsARM =
+/// [`vkGetDataGraphPipelineSessionBindPointRequirementsARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDataGraphPipelineSessionBindPointRequirementsARM.html)
+///
+pub type FN_GetDataGraphPipelineSessionBindPointRequirementsARM =
     unsafe extern "C" fn(
         DeviceHandle,
         *const DataGraphPipelineSessionBindPointRequirementsInfoARM,
@@ -30500,7 +31922,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<
                 vkVoidFunction,
-                FUN_GetDataGraphPipelineSessionBindPointRequirementsARM,
+                FN_GetDataGraphPipelineSessionBindPointRequirementsARM,
             >(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetDataGraphPipelineSessionBindPointRequirementsARM as usize,
@@ -30517,7 +31939,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetDataGraphPipelineSessionMemoryRequirementsARM = unsafe extern "C" fn(
+/// [`vkGetDataGraphPipelineSessionMemoryRequirementsARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDataGraphPipelineSessionMemoryRequirementsARM.html)
+///
+pub type FN_GetDataGraphPipelineSessionMemoryRequirementsARM = unsafe extern "C" fn(
     DeviceHandle,
     *const DataGraphPipelineSessionMemoryRequirementsInfoARM,
     *mut MemoryRequirements2,
@@ -30539,19 +31963,20 @@ impl Device {
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
         let command = unsafe {
-            std::mem::transmute::<
-                vkVoidFunction,
-                FUN_GetDataGraphPipelineSessionMemoryRequirementsARM,
-            >(vtable_get(
-                self.vtable(),
-                InstanceCommand::vkGetDataGraphPipelineSessionMemoryRequirementsARM as usize,
-            ))
+            std::mem::transmute::<vkVoidFunction, FN_GetDataGraphPipelineSessionMemoryRequirementsARM>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommand::vkGetDataGraphPipelineSessionMemoryRequirementsARM as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, p_info, p_memory_requirements) }
     }
 }
 
-pub(crate) type FUN_BindDataGraphPipelineSessionMemoryARM = unsafe extern "C" fn(
+/// [`vkBindDataGraphPipelineSessionMemoryARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkBindDataGraphPipelineSessionMemoryARM.html)
+///
+pub type FN_BindDataGraphPipelineSessionMemoryARM = unsafe extern "C" fn(
     DeviceHandle,
     u32,
     *const BindDataGraphPipelineSessionMemoryInfoARM,
@@ -30582,7 +32007,7 @@ impl Device {
         p_bind_infos: *const BindDataGraphPipelineSessionMemoryInfoARM,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_BindDataGraphPipelineSessionMemoryARM>(
+            std::mem::transmute::<vkVoidFunction, FN_BindDataGraphPipelineSessionMemoryARM>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkBindDataGraphPipelineSessionMemoryARM as usize,
@@ -30593,7 +32018,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroyDataGraphPipelineSessionARM =
+/// [`vkDestroyDataGraphPipelineSessionARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDataGraphPipelineSessionARM.html)
+///
+pub type FN_DestroyDataGraphPipelineSessionARM =
     unsafe extern "C" fn(DeviceHandle, DataGraphPipelineSessionARM, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyDataGraphPipelineSessionARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDataGraphPipelineSessionARM.html)
@@ -30615,7 +32042,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyDataGraphPipelineSessionARM>(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyDataGraphPipelineSessionARM>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkDestroyDataGraphPipelineSessionARM as usize,
@@ -30626,7 +32053,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdDispatchDataGraphARM = unsafe extern "C" fn(
+/// [`vkCmdDispatchDataGraphARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDispatchDataGraphARM.html)
+///
+pub type FN_CmdDispatchDataGraphARM = unsafe extern "C" fn(
     CommandBufferHandle,
     DataGraphPipelineSessionARM,
     *const DataGraphPipelineDispatchInfoARM,
@@ -30661,7 +32090,7 @@ impl CommandBuffer {
         p_info: *const DataGraphPipelineDispatchInfoARM,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDispatchDataGraphARM>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdDispatchDataGraphARM>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdDispatchDataGraphARM as usize,
             ))
@@ -30670,13 +32099,14 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_GetDataGraphPipelineAvailablePropertiesARM = unsafe extern "C" fn(
+/// [`vkGetDataGraphPipelineAvailablePropertiesARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDataGraphPipelineAvailablePropertiesARM.html)
+///
+pub type FN_GetDataGraphPipelineAvailablePropertiesARM = unsafe extern "C" fn(
     DeviceHandle,
     *const DataGraphPipelineInfoARM,
     *mut u32,
     *mut DataGraphPipelinePropertyARM,
-)
-    -> ResultCode;
+) -> ResultCode;
 impl Device {
     /// [`vkGetDataGraphPipelineAvailablePropertiesARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDataGraphPipelineAvailablePropertiesARM.html)
     ///
@@ -30708,7 +32138,7 @@ impl Device {
         p_properties: *mut DataGraphPipelinePropertyARM,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDataGraphPipelineAvailablePropertiesARM>(
+            std::mem::transmute::<vkVoidFunction, FN_GetDataGraphPipelineAvailablePropertiesARM>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetDataGraphPipelineAvailablePropertiesARM as usize,
@@ -30726,7 +32156,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetDataGraphPipelinePropertiesARM = unsafe extern "C" fn(
+/// [`vkGetDataGraphPipelinePropertiesARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDataGraphPipelinePropertiesARM.html)
+///
+pub type FN_GetDataGraphPipelinePropertiesARM = unsafe extern "C" fn(
     DeviceHandle,
     *const DataGraphPipelineInfoARM,
     u32,
@@ -30760,24 +32192,24 @@ impl Device {
         p_properties: *mut DataGraphPipelinePropertyQueryResultARM,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDataGraphPipelinePropertiesARM>(
-                vtable_get(
-                    self.vtable(),
-                    InstanceCommand::vkGetDataGraphPipelinePropertiesARM as usize,
-                ),
-            )
+            std::mem::transmute::<vkVoidFunction, FN_GetDataGraphPipelinePropertiesARM>(vtable_get(
+                self.vtable(),
+                InstanceCommand::vkGetDataGraphPipelinePropertiesARM as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_pipeline_info, properties_count, p_properties) }
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceQueueFamilyDataGraphPropertiesARM =
-    unsafe extern "C" fn(
-        PhysicalDeviceHandle,
-        u32,
-        *mut u32,
-        *mut QueueFamilyDataGraphPropertiesARM,
-    ) -> ResultCode;
+/// [`vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM.html)
+///
+pub type FN_GetPhysicalDeviceQueueFamilyDataGraphPropertiesARM = unsafe extern "C" fn(
+    PhysicalDeviceHandle,
+    u32,
+    *mut u32,
+    *mut QueueFamilyDataGraphPropertiesARM,
+)
+    -> ResultCode;
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM.html)
     ///
@@ -30811,7 +32243,7 @@ impl PhysicalDevice {
         let command = unsafe {
             std::mem::transmute::<
                 vkVoidFunction,
-                FUN_GetPhysicalDeviceQueueFamilyDataGraphPropertiesARM,
+                FN_GetPhysicalDeviceQueueFamilyDataGraphPropertiesARM,
             >(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM as usize,
@@ -30828,7 +32260,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM =
+/// [`vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM.html)
+///
+pub type FN_GetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM =
     unsafe extern "C" fn(
         PhysicalDeviceHandle,
         *const PhysicalDeviceQueueFamilyDataGraphProcessingEngineInfoARM,
@@ -30851,7 +32285,7 @@ impl PhysicalDevice {
         p_queue_family_data_graph_processing_engine_properties: *mut QueueFamilyDataGraphProcessingEnginePropertiesARM,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM>(vtable_get(self.vtable(), InstanceCommand::vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM as usize))
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM>(vtable_get(self.vtable(), InstanceCommand::vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM as usize))
         };
         unsafe {
             (command)(
@@ -30863,7 +32297,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceQueueFamilyDataGraphEngineOperationPropertiesARM =
+/// [`vkGetPhysicalDeviceQueueFamilyDataGraphEngineOperationPropertiesARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceQueueFamilyDataGraphEngineOperationPropertiesARM.html)
+///
+pub type FN_GetPhysicalDeviceQueueFamilyDataGraphEngineOperationPropertiesARM =
     unsafe extern "C" fn(
         PhysicalDeviceHandle,
         u32,
@@ -30900,7 +32336,7 @@ impl PhysicalDevice {
         let command = unsafe {
             std::mem::transmute::<
                 vkVoidFunction,
-                FUN_GetPhysicalDeviceQueueFamilyDataGraphEngineOperationPropertiesARM,
+                FN_GetPhysicalDeviceQueueFamilyDataGraphEngineOperationPropertiesARM,
             >(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetPhysicalDeviceQueueFamilyDataGraphEngineOperationPropertiesARM
@@ -30918,7 +32354,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_CmdSetAttachmentFeedbackLoopEnableEXT =
+/// [`vkCmdSetAttachmentFeedbackLoopEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetAttachmentFeedbackLoopEnableEXT.html)
+///
+pub type FN_CmdSetAttachmentFeedbackLoopEnableEXT =
     unsafe extern "C" fn(CommandBufferHandle, ImageAspectFlags);
 impl CommandBuffer {
     /// [`vkCmdSetAttachmentFeedbackLoopEnableEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetAttachmentFeedbackLoopEnableEXT.html)
@@ -30949,7 +32387,7 @@ impl CommandBuffer {
         aspect_mask: ImageAspectFlags,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetAttachmentFeedbackLoopEnableEXT>(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetAttachmentFeedbackLoopEnableEXT>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkCmdSetAttachmentFeedbackLoopEnableEXT as usize,
@@ -30960,7 +32398,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_GetScreenBufferPropertiesQNX = unsafe extern "C" fn(
+/// [`vkGetScreenBufferPropertiesQNX`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetScreenBufferPropertiesQNX.html)
+///
+pub type FN_GetScreenBufferPropertiesQNX = unsafe extern "C" fn(
     DeviceHandle,
     *const _screen_buffer,
     *mut ScreenBufferPropertiesQNX,
@@ -30991,7 +32431,7 @@ impl Device {
         p_properties: *mut ScreenBufferPropertiesQNX,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetScreenBufferPropertiesQNX>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetScreenBufferPropertiesQNX>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetScreenBufferPropertiesQNX as usize,
             ))
@@ -31000,7 +32440,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdBindTileMemoryQCOM =
+/// [`vkCmdBindTileMemoryQCOM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindTileMemoryQCOM.html)
+///
+pub type FN_CmdBindTileMemoryQCOM =
     unsafe extern "C" fn(CommandBufferHandle, *const TileMemoryBindInfoQCOM);
 impl CommandBuffer {
     /// [`vkCmdBindTileMemoryQCOM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindTileMemoryQCOM.html)
@@ -31032,7 +32474,7 @@ impl CommandBuffer {
         p_tile_memory_bind_info: *const TileMemoryBindInfoQCOM,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBindTileMemoryQCOM>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBindTileMemoryQCOM>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdBindTileMemoryQCOM as usize,
             ))
@@ -31041,7 +32483,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdDecompressMemoryEXT =
+/// [`vkCmdDecompressMemoryEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDecompressMemoryEXT.html)
+///
+pub type FN_CmdDecompressMemoryEXT =
     unsafe extern "C" fn(CommandBufferHandle, *const DecompressMemoryInfoEXT);
 impl CommandBuffer {
     /// [`vkCmdDecompressMemoryEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDecompressMemoryEXT.html)
@@ -31070,7 +32514,7 @@ impl CommandBuffer {
         p_decompress_memory_info_ext: *const DecompressMemoryInfoEXT,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDecompressMemoryEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdDecompressMemoryEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdDecompressMemoryEXT as usize,
             ))
@@ -31079,7 +32523,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdDecompressMemoryIndirectCountEXT = unsafe extern "C" fn(
+/// [`vkCmdDecompressMemoryIndirectCountEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDecompressMemoryIndirectCountEXT.html)
+///
+pub type FN_CmdDecompressMemoryIndirectCountEXT = unsafe extern "C" fn(
     CommandBufferHandle,
     MemoryDecompressionMethodFlagsEXT,
     DeviceAddress,
@@ -31118,7 +32564,7 @@ impl CommandBuffer {
         stride: u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDecompressMemoryIndirectCountEXT>(
+            std::mem::transmute::<vkVoidFunction, FN_CmdDecompressMemoryIndirectCountEXT>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkCmdDecompressMemoryIndirectCountEXT as usize,
@@ -31138,7 +32584,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CreateExternalComputeQueueNV = unsafe extern "C" fn(
+/// [`vkCreateExternalComputeQueueNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateExternalComputeQueueNV.html)
+///
+pub type FN_CreateExternalComputeQueueNV = unsafe extern "C" fn(
     DeviceHandle,
     *const ExternalComputeQueueCreateInfoNV,
     *const AllocationCallbacks,
@@ -31174,7 +32622,7 @@ impl Device {
         p_external_queue: *mut ExternalComputeQueueNV,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateExternalComputeQueueNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateExternalComputeQueueNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateExternalComputeQueueNV as usize,
             ))
@@ -31183,7 +32631,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroyExternalComputeQueueNV =
+/// [`vkDestroyExternalComputeQueueNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyExternalComputeQueueNV.html)
+///
+pub type FN_DestroyExternalComputeQueueNV =
     unsafe extern "C" fn(DeviceHandle, ExternalComputeQueueNV, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyExternalComputeQueueNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyExternalComputeQueueNV.html)
@@ -31205,7 +32655,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyExternalComputeQueueNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyExternalComputeQueueNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyExternalComputeQueueNV as usize,
             ))
@@ -31214,7 +32664,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetExternalComputeQueueDataNV = unsafe extern "C" fn(
+/// [`vkGetExternalComputeQueueDataNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetExternalComputeQueueDataNV.html)
+///
+pub type FN_GetExternalComputeQueueDataNV = unsafe extern "C" fn(
     ExternalComputeQueueNV,
     *mut ExternalComputeQueueDataParamsNV,
     *mut c_void,
@@ -31239,7 +32691,7 @@ pub unsafe fn get_external_compute_queue_data_nv(
         .expect("vkx setup should have been run")
         .commands;
     let command = unsafe {
-        std::mem::transmute::<vkVoidFunction, FUN_GetExternalComputeQueueDataNV>(vtable_get(
+        std::mem::transmute::<vkVoidFunction, FN_GetExternalComputeQueueDataNV>(vtable_get(
             &commands,
             GlobalCommand::vkGetExternalComputeQueueDataNV as usize,
         ))
@@ -31247,7 +32699,9 @@ pub unsafe fn get_external_compute_queue_data_nv(
     unsafe { (command)(external_queue, params, p_data) }
 }
 
-pub(crate) type FUN_GetClusterAccelerationStructureBuildSizesNV = unsafe extern "C" fn(
+/// [`vkGetClusterAccelerationStructureBuildSizesNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetClusterAccelerationStructureBuildSizesNV.html)
+///
+pub type FN_GetClusterAccelerationStructureBuildSizesNV = unsafe extern "C" fn(
     DeviceHandle,
     *const ClusterAccelerationStructureInputInfoNV,
     *mut AccelerationStructureBuildSizesInfoKHR,
@@ -31269,7 +32723,7 @@ impl Device {
         p_size_info: *mut AccelerationStructureBuildSizesInfoKHR,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetClusterAccelerationStructureBuildSizesNV>(
+            std::mem::transmute::<vkVoidFunction, FN_GetClusterAccelerationStructureBuildSizesNV>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetClusterAccelerationStructureBuildSizesNV as usize,
@@ -31280,7 +32734,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdBuildClusterAccelerationStructureIndirectNV =
+/// [`vkCmdBuildClusterAccelerationStructureIndirectNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBuildClusterAccelerationStructureIndirectNV.html)
+///
+pub type FN_CmdBuildClusterAccelerationStructureIndirectNV =
     unsafe extern "C" fn(CommandBufferHandle, *const ClusterAccelerationStructureCommandsInfoNV);
 impl CommandBuffer {
     /// [`vkCmdBuildClusterAccelerationStructureIndirectNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBuildClusterAccelerationStructureIndirectNV.html)
@@ -31308,7 +32764,7 @@ impl CommandBuffer {
         p_command_infos: *const ClusterAccelerationStructureCommandsInfoNV,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBuildClusterAccelerationStructureIndirectNV>(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBuildClusterAccelerationStructureIndirectNV>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkCmdBuildClusterAccelerationStructureIndirectNV as usize,
@@ -31319,7 +32775,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_GetPartitionedAccelerationStructuresBuildSizesNV = unsafe extern "C" fn(
+/// [`vkGetPartitionedAccelerationStructuresBuildSizesNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPartitionedAccelerationStructuresBuildSizesNV.html)
+///
+pub type FN_GetPartitionedAccelerationStructuresBuildSizesNV = unsafe extern "C" fn(
     DeviceHandle,
     *const PartitionedAccelerationStructureInstancesInputNV,
     *mut AccelerationStructureBuildSizesInfoKHR,
@@ -31341,19 +32799,20 @@ impl Device {
         p_size_info: *mut AccelerationStructureBuildSizesInfoKHR,
     ) {
         let command = unsafe {
-            std::mem::transmute::<
-                vkVoidFunction,
-                FUN_GetPartitionedAccelerationStructuresBuildSizesNV,
-            >(vtable_get(
-                self.vtable(),
-                InstanceCommand::vkGetPartitionedAccelerationStructuresBuildSizesNV as usize,
-            ))
+            std::mem::transmute::<vkVoidFunction, FN_GetPartitionedAccelerationStructuresBuildSizesNV>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommand::vkGetPartitionedAccelerationStructuresBuildSizesNV as usize,
+                ),
+            )
         };
         unsafe { (command)(self.handle, p_info, p_size_info) }
     }
 }
 
-pub(crate) type FUN_CmdBuildPartitionedAccelerationStructuresNV =
+/// [`vkCmdBuildPartitionedAccelerationStructuresNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBuildPartitionedAccelerationStructuresNV.html)
+///
+pub type FN_CmdBuildPartitionedAccelerationStructuresNV =
     unsafe extern "C" fn(CommandBufferHandle, *const BuildPartitionedAccelerationStructureInfoNV);
 impl CommandBuffer {
     /// [`vkCmdBuildPartitionedAccelerationStructuresNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBuildPartitionedAccelerationStructuresNV.html)
@@ -31381,7 +32840,7 @@ impl CommandBuffer {
         p_build_info: *const BuildPartitionedAccelerationStructureInfoNV,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBuildPartitionedAccelerationStructuresNV>(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBuildPartitionedAccelerationStructuresNV>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkCmdBuildPartitionedAccelerationStructuresNV as usize,
@@ -31392,7 +32851,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_GetGeneratedCommandsMemoryRequirementsEXT = unsafe extern "C" fn(
+/// [`vkGetGeneratedCommandsMemoryRequirementsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetGeneratedCommandsMemoryRequirementsEXT.html)
+///
+pub type FN_GetGeneratedCommandsMemoryRequirementsEXT = unsafe extern "C" fn(
     DeviceHandle,
     *const GeneratedCommandsMemoryRequirementsInfoEXT,
     *mut MemoryRequirements2,
@@ -31414,7 +32875,7 @@ impl Device {
         p_memory_requirements: *mut MemoryRequirements2,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetGeneratedCommandsMemoryRequirementsEXT>(
+            std::mem::transmute::<vkVoidFunction, FN_GetGeneratedCommandsMemoryRequirementsEXT>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetGeneratedCommandsMemoryRequirementsEXT as usize,
@@ -31425,7 +32886,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdPreprocessGeneratedCommandsEXT =
+/// [`vkCmdPreprocessGeneratedCommandsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPreprocessGeneratedCommandsEXT.html)
+///
+pub type FN_CmdPreprocessGeneratedCommandsEXT =
     unsafe extern "C" fn(CommandBufferHandle, *const GeneratedCommandsInfoEXT, CommandBufferHandle);
 impl CommandBuffer {
     /// [`vkCmdPreprocessGeneratedCommandsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPreprocessGeneratedCommandsEXT.html)
@@ -31454,18 +32917,18 @@ impl CommandBuffer {
         state_command_buffer: CommandBufferHandle,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdPreprocessGeneratedCommandsEXT>(
-                vtable_get(
-                    self.vtable(),
-                    InstanceCommand::vkCmdPreprocessGeneratedCommandsEXT as usize,
-                ),
-            )
+            std::mem::transmute::<vkVoidFunction, FN_CmdPreprocessGeneratedCommandsEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommand::vkCmdPreprocessGeneratedCommandsEXT as usize,
+            ))
         };
         unsafe { (command)(self.handle, p_generated_commands_info, state_command_buffer) }
     }
 }
 
-pub(crate) type FUN_CmdExecuteGeneratedCommandsEXT =
+/// [`vkCmdExecuteGeneratedCommandsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdExecuteGeneratedCommandsEXT.html)
+///
+pub type FN_CmdExecuteGeneratedCommandsEXT =
     unsafe extern "C" fn(CommandBufferHandle, Bool32, *const GeneratedCommandsInfoEXT);
 impl CommandBuffer {
     /// [`vkCmdExecuteGeneratedCommandsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdExecuteGeneratedCommandsEXT.html)
@@ -31495,7 +32958,7 @@ impl CommandBuffer {
         p_generated_commands_info: *const GeneratedCommandsInfoEXT,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdExecuteGeneratedCommandsEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdExecuteGeneratedCommandsEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdExecuteGeneratedCommandsEXT as usize,
             ))
@@ -31504,7 +32967,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CreateIndirectCommandsLayoutEXT = unsafe extern "C" fn(
+/// [`vkCreateIndirectCommandsLayoutEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateIndirectCommandsLayoutEXT.html)
+///
+pub type FN_CreateIndirectCommandsLayoutEXT = unsafe extern "C" fn(
     DeviceHandle,
     *const IndirectCommandsLayoutCreateInfoEXT,
     *const AllocationCallbacks,
@@ -31540,7 +33005,7 @@ impl Device {
         p_indirect_commands_layout: *mut IndirectCommandsLayoutEXT,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateIndirectCommandsLayoutEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateIndirectCommandsLayoutEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateIndirectCommandsLayoutEXT as usize,
             ))
@@ -31556,7 +33021,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroyIndirectCommandsLayoutEXT =
+/// [`vkDestroyIndirectCommandsLayoutEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyIndirectCommandsLayoutEXT.html)
+///
+pub type FN_DestroyIndirectCommandsLayoutEXT =
     unsafe extern "C" fn(DeviceHandle, IndirectCommandsLayoutEXT, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyIndirectCommandsLayoutEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyIndirectCommandsLayoutEXT.html)
@@ -31579,7 +33046,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyIndirectCommandsLayoutEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyIndirectCommandsLayoutEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyIndirectCommandsLayoutEXT as usize,
             ))
@@ -31588,7 +33055,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CreateIndirectExecutionSetEXT = unsafe extern "C" fn(
+/// [`vkCreateIndirectExecutionSetEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateIndirectExecutionSetEXT.html)
+///
+pub type FN_CreateIndirectExecutionSetEXT = unsafe extern "C" fn(
     DeviceHandle,
     *const IndirectExecutionSetCreateInfoEXT,
     *const AllocationCallbacks,
@@ -31624,7 +33093,7 @@ impl Device {
         p_indirect_execution_set: *mut IndirectExecutionSetEXT,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateIndirectExecutionSetEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateIndirectExecutionSetEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateIndirectExecutionSetEXT as usize,
             ))
@@ -31640,7 +33109,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroyIndirectExecutionSetEXT =
+/// [`vkDestroyIndirectExecutionSetEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyIndirectExecutionSetEXT.html)
+///
+pub type FN_DestroyIndirectExecutionSetEXT =
     unsafe extern "C" fn(DeviceHandle, IndirectExecutionSetEXT, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyIndirectExecutionSetEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyIndirectExecutionSetEXT.html)
@@ -31663,7 +33134,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyIndirectExecutionSetEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyIndirectExecutionSetEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyIndirectExecutionSetEXT as usize,
             ))
@@ -31672,7 +33143,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_UpdateIndirectExecutionSetPipelineEXT = unsafe extern "C" fn(
+/// [`vkUpdateIndirectExecutionSetPipelineEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkUpdateIndirectExecutionSetPipelineEXT.html)
+///
+pub type FN_UpdateIndirectExecutionSetPipelineEXT = unsafe extern "C" fn(
     DeviceHandle,
     IndirectExecutionSetEXT,
     u32,
@@ -31696,7 +33169,7 @@ impl Device {
         p_execution_set_writes: *const WriteIndirectExecutionSetPipelineEXT,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_UpdateIndirectExecutionSetPipelineEXT>(
+            std::mem::transmute::<vkVoidFunction, FN_UpdateIndirectExecutionSetPipelineEXT>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkUpdateIndirectExecutionSetPipelineEXT as usize,
@@ -31714,7 +33187,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_UpdateIndirectExecutionSetShaderEXT = unsafe extern "C" fn(
+/// [`vkUpdateIndirectExecutionSetShaderEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkUpdateIndirectExecutionSetShaderEXT.html)
+///
+pub type FN_UpdateIndirectExecutionSetShaderEXT = unsafe extern "C" fn(
     DeviceHandle,
     IndirectExecutionSetEXT,
     u32,
@@ -31738,7 +33213,7 @@ impl Device {
         p_execution_set_writes: *const WriteIndirectExecutionSetShaderEXT,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_UpdateIndirectExecutionSetShaderEXT>(
+            std::mem::transmute::<vkVoidFunction, FN_UpdateIndirectExecutionSetShaderEXT>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkUpdateIndirectExecutionSetShaderEXT as usize,
@@ -31756,7 +33231,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CreateSurfaceOHOS = unsafe extern "C" fn(
+/// [`vkCreateSurfaceOHOS`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateSurfaceOHOS.html)
+///
+pub type FN_CreateSurfaceOHOS = unsafe extern "C" fn(
     InstanceHandle,
     *const SurfaceCreateInfoOHOS,
     *const AllocationCallbacks,
@@ -31792,7 +33269,7 @@ impl Instance {
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateSurfaceOHOS>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateSurfaceOHOS>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateSurfaceOHOS as usize,
             ))
@@ -31801,7 +33278,9 @@ impl Instance {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV =
+/// [`vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV.html)
+///
+pub type FN_GetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV =
     unsafe extern "C" fn(
         PhysicalDeviceHandle,
         *mut u32,
@@ -31839,7 +33318,7 @@ impl PhysicalDevice {
         let command = unsafe {
             std::mem::transmute::<
                 vkVoidFunction,
-                FUN_GetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV,
+                FN_GetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV,
             >(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV
@@ -31850,7 +33329,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_GetMemoryMetalHandleEXT = unsafe extern "C" fn(
+/// [`vkGetMemoryMetalHandleEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryMetalHandleEXT.html)
+///
+pub type FN_GetMemoryMetalHandleEXT = unsafe extern "C" fn(
     DeviceHandle,
     *const MemoryGetMetalHandleInfoEXT,
     *mut *mut c_void,
@@ -31881,7 +33362,7 @@ impl Device {
         p_handle: *mut *mut c_void,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetMemoryMetalHandleEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_GetMemoryMetalHandleEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetMemoryMetalHandleEXT as usize,
             ))
@@ -31890,7 +33371,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetMemoryMetalHandlePropertiesEXT = unsafe extern "C" fn(
+/// [`vkGetMemoryMetalHandlePropertiesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetMemoryMetalHandlePropertiesEXT.html)
+///
+pub type FN_GetMemoryMetalHandlePropertiesEXT = unsafe extern "C" fn(
     DeviceHandle,
     ExternalMemoryHandleTypeFlags,
     *const c_void,
@@ -31923,12 +33406,10 @@ impl Device {
         p_memory_metal_handle_properties: *mut MemoryMetalHandlePropertiesEXT,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetMemoryMetalHandlePropertiesEXT>(
-                vtable_get(
-                    self.vtable(),
-                    InstanceCommand::vkGetMemoryMetalHandlePropertiesEXT as usize,
-                ),
-            )
+            std::mem::transmute::<vkVoidFunction, FN_GetMemoryMetalHandlePropertiesEXT>(vtable_get(
+                self.vtable(),
+                InstanceCommand::vkGetMemoryMetalHandlePropertiesEXT as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -31941,7 +33422,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_EnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM =
+/// [`vkEnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM.html)
+///
+pub type FN_EnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM =
     unsafe extern "C" fn(
         PhysicalDeviceHandle,
         u32,
@@ -31985,7 +33468,7 @@ impl PhysicalDevice {
         let command = unsafe {
             std::mem::transmute::<
                 vkVoidFunction,
-                FUN_EnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM,
+                FN_EnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM,
             >(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkEnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM
@@ -32004,7 +33487,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_EnumeratePhysicalDeviceShaderInstrumentationMetricsARM =
+/// [`vkEnumeratePhysicalDeviceShaderInstrumentationMetricsARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumeratePhysicalDeviceShaderInstrumentationMetricsARM.html)
+///
+pub type FN_EnumeratePhysicalDeviceShaderInstrumentationMetricsARM =
     unsafe extern "C" fn(
         PhysicalDeviceHandle,
         *mut u32,
@@ -32043,7 +33528,7 @@ impl PhysicalDevice {
         let command = unsafe {
             std::mem::transmute::<
                 vkVoidFunction,
-                FUN_EnumeratePhysicalDeviceShaderInstrumentationMetricsARM,
+                FN_EnumeratePhysicalDeviceShaderInstrumentationMetricsARM,
             >(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkEnumeratePhysicalDeviceShaderInstrumentationMetricsARM as usize,
@@ -32053,7 +33538,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_CreateShaderInstrumentationARM = unsafe extern "C" fn(
+/// [`vkCreateShaderInstrumentationARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateShaderInstrumentationARM.html)
+///
+pub type FN_CreateShaderInstrumentationARM = unsafe extern "C" fn(
     DeviceHandle,
     *const ShaderInstrumentationCreateInfoARM,
     *const AllocationCallbacks,
@@ -32089,7 +33576,7 @@ impl Device {
         p_instrumentation: *mut ShaderInstrumentationARM,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateShaderInstrumentationARM>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateShaderInstrumentationARM>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateShaderInstrumentationARM as usize,
             ))
@@ -32098,7 +33585,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroyShaderInstrumentationARM =
+/// [`vkDestroyShaderInstrumentationARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyShaderInstrumentationARM.html)
+///
+pub type FN_DestroyShaderInstrumentationARM =
     unsafe extern "C" fn(DeviceHandle, ShaderInstrumentationARM, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyShaderInstrumentationARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyShaderInstrumentationARM.html)
@@ -32121,7 +33610,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyShaderInstrumentationARM>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyShaderInstrumentationARM>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyShaderInstrumentationARM as usize,
             ))
@@ -32130,7 +33619,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdBeginShaderInstrumentationARM =
+/// [`vkCmdBeginShaderInstrumentationARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginShaderInstrumentationARM.html)
+///
+pub type FN_CmdBeginShaderInstrumentationARM =
     unsafe extern "C" fn(CommandBufferHandle, ShaderInstrumentationARM);
 impl CommandBuffer {
     /// [`vkCmdBeginShaderInstrumentationARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginShaderInstrumentationARM.html)
@@ -32161,7 +33652,7 @@ impl CommandBuffer {
         instrumentation: ShaderInstrumentationARM,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBeginShaderInstrumentationARM>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBeginShaderInstrumentationARM>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdBeginShaderInstrumentationARM as usize,
             ))
@@ -32170,7 +33661,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdEndShaderInstrumentationARM = unsafe extern "C" fn(CommandBufferHandle);
+/// [`vkCmdEndShaderInstrumentationARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndShaderInstrumentationARM.html)
+///
+pub type FN_CmdEndShaderInstrumentationARM = unsafe extern "C" fn(CommandBufferHandle);
 impl CommandBuffer {
     /// [`vkCmdEndShaderInstrumentationARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndShaderInstrumentationARM.html)
     ///
@@ -32197,7 +33690,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_end_shader_instrumentation_arm(&self) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdEndShaderInstrumentationARM>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdEndShaderInstrumentationARM>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdEndShaderInstrumentationARM as usize,
             ))
@@ -32206,7 +33699,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_GetShaderInstrumentationValuesARM = unsafe extern "C" fn(
+/// [`vkGetShaderInstrumentationValuesARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetShaderInstrumentationValuesARM.html)
+///
+pub type FN_GetShaderInstrumentationValuesARM = unsafe extern "C" fn(
     DeviceHandle,
     ShaderInstrumentationARM,
     *mut u32,
@@ -32246,12 +33741,10 @@ impl Device {
         flags: ShaderInstrumentationValuesFlagsARM,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetShaderInstrumentationValuesARM>(
-                vtable_get(
-                    self.vtable(),
-                    InstanceCommand::vkGetShaderInstrumentationValuesARM as usize,
-                ),
-            )
+            std::mem::transmute::<vkVoidFunction, FN_GetShaderInstrumentationValuesARM>(vtable_get(
+                self.vtable(),
+                InstanceCommand::vkGetShaderInstrumentationValuesARM as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -32265,7 +33758,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_ClearShaderInstrumentationMetricsARM =
+/// [`vkClearShaderInstrumentationMetricsARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkClearShaderInstrumentationMetricsARM.html)
+///
+pub type FN_ClearShaderInstrumentationMetricsARM =
     unsafe extern "C" fn(DeviceHandle, ShaderInstrumentationARM);
 impl Device {
     /// [`vkClearShaderInstrumentationMetricsARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkClearShaderInstrumentationMetricsARM.html)
@@ -32283,7 +33778,7 @@ impl Device {
         instrumentation: ShaderInstrumentationARM,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_ClearShaderInstrumentationMetricsARM>(
+            std::mem::transmute::<vkVoidFunction, FN_ClearShaderInstrumentationMetricsARM>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkClearShaderInstrumentationMetricsARM as usize,
@@ -32294,7 +33789,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdEndRendering2EXT =
+/// [`vkCmdEndRendering2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndRendering2EXT.html)
+///
+pub type FN_CmdEndRendering2EXT =
     unsafe extern "C" fn(CommandBufferHandle, *const RenderingEndInfoKHR);
 impl CommandBuffer {
     /// [`vkCmdEndRendering2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdEndRendering2EXT.html)
@@ -32323,7 +33820,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_end_rendering_2_ext(&self, p_rendering_end_info: *const RenderingEndInfoKHR) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdEndRendering2EXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdEndRendering2EXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdEndRendering2EXT as usize,
             ))
@@ -32332,7 +33829,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdBeginCustomResolveEXT =
+/// [`vkCmdBeginCustomResolveEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginCustomResolveEXT.html)
+///
+pub type FN_CmdBeginCustomResolveEXT =
     unsafe extern "C" fn(CommandBufferHandle, *const BeginCustomResolveInfoEXT);
 impl CommandBuffer {
     /// [`vkCmdBeginCustomResolveEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginCustomResolveEXT.html)
@@ -32363,7 +33862,7 @@ impl CommandBuffer {
         p_begin_custom_resolve_info: *const BeginCustomResolveInfoEXT,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBeginCustomResolveEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBeginCustomResolveEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdBeginCustomResolveEXT as usize,
             ))
@@ -32372,7 +33871,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceQueueFamilyDataGraphOpticalFlowImageFormatsARM =
+/// [`vkGetPhysicalDeviceQueueFamilyDataGraphOpticalFlowImageFormatsARM`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceQueueFamilyDataGraphOpticalFlowImageFormatsARM.html)
+///
+pub type FN_GetPhysicalDeviceQueueFamilyDataGraphOpticalFlowImageFormatsARM =
     unsafe extern "C" fn(
         PhysicalDeviceHandle,
         u32,
@@ -32417,7 +33918,7 @@ impl PhysicalDevice {
         let command = unsafe {
             std::mem::transmute::<
                 vkVoidFunction,
-                FUN_GetPhysicalDeviceQueueFamilyDataGraphOpticalFlowImageFormatsARM,
+                FN_GetPhysicalDeviceQueueFamilyDataGraphOpticalFlowImageFormatsARM,
             >(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetPhysicalDeviceQueueFamilyDataGraphOpticalFlowImageFormatsARM
@@ -32437,7 +33938,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_CmdSetComputeOccupancyPriorityNV =
+/// [`vkCmdSetComputeOccupancyPriorityNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetComputeOccupancyPriorityNV.html)
+///
+pub type FN_CmdSetComputeOccupancyPriorityNV =
     unsafe extern "C" fn(CommandBufferHandle, *const ComputeOccupancyPriorityParametersNV);
 impl CommandBuffer {
     /// [`vkCmdSetComputeOccupancyPriorityNV`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetComputeOccupancyPriorityNV.html)
@@ -32465,7 +33968,7 @@ impl CommandBuffer {
         p_parameters: *const ComputeOccupancyPriorityParametersNV,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetComputeOccupancyPriorityNV>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetComputeOccupancyPriorityNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetComputeOccupancyPriorityNV as usize,
             ))
@@ -32474,13 +33977,14 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceCooperativeMatrixProperties2EXT =
-    unsafe extern "C" fn(
-        PhysicalDeviceHandle,
-        *const PhysicalDeviceCooperativeMatrixInfo2EXT,
-        *mut u32,
-        *mut CooperativeMatrixProperties2EXT,
-    ) -> ResultCode;
+/// [`vkGetPhysicalDeviceCooperativeMatrixProperties2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceCooperativeMatrixProperties2EXT.html)
+///
+pub type FN_GetPhysicalDeviceCooperativeMatrixProperties2EXT = unsafe extern "C" fn(
+    PhysicalDeviceHandle,
+    *const PhysicalDeviceCooperativeMatrixInfo2EXT,
+    *mut u32,
+    *mut CooperativeMatrixProperties2EXT,
+) -> ResultCode;
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceCooperativeMatrixProperties2EXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceCooperativeMatrixProperties2EXT.html)
     ///
@@ -32512,13 +34016,12 @@ impl PhysicalDevice {
         p_properties: *mut CooperativeMatrixProperties2EXT,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<
-                vkVoidFunction,
-                FUN_GetPhysicalDeviceCooperativeMatrixProperties2EXT,
-            >(vtable_get(
-                self.vtable(),
-                InstanceCommand::vkGetPhysicalDeviceCooperativeMatrixProperties2EXT as usize,
-            ))
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceCooperativeMatrixProperties2EXT>(
+                vtable_get(
+                    self.vtable(),
+                    InstanceCommand::vkGetPhysicalDeviceCooperativeMatrixProperties2EXT as usize,
+                ),
+            )
         };
         unsafe {
             (command)(
@@ -32531,7 +34034,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_CreateUbmSurfaceSEC = unsafe extern "C" fn(
+/// [`vkCreateUbmSurfaceSEC`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateUbmSurfaceSEC.html)
+///
+pub type FN_CreateUbmSurfaceSEC = unsafe extern "C" fn(
     InstanceHandle,
     *const UbmSurfaceCreateInfoSEC,
     *const AllocationCallbacks,
@@ -32567,7 +34072,7 @@ impl Instance {
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateUbmSurfaceSEC>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateUbmSurfaceSEC>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateUbmSurfaceSEC as usize,
             ))
@@ -32576,7 +34081,9 @@ impl Instance {
     }
 }
 
-pub(crate) type FUN_GetPhysicalDeviceUbmPresentationSupportSEC =
+/// [`vkGetPhysicalDeviceUbmPresentationSupportSEC`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceUbmPresentationSupportSEC.html)
+///
+pub type FN_GetPhysicalDeviceUbmPresentationSupportSEC =
     unsafe extern "C" fn(PhysicalDeviceHandle, u32, *mut ubm_device) -> Bool32;
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceUbmPresentationSupportSEC`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceUbmPresentationSupportSEC.html)
@@ -32595,7 +34102,7 @@ impl PhysicalDevice {
         device: *mut ubm_device,
     ) -> Bool32 {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceUbmPresentationSupportSEC>(
+            std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceUbmPresentationSupportSEC>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetPhysicalDeviceUbmPresentationSupportSEC as usize,
@@ -32606,7 +34113,9 @@ impl PhysicalDevice {
     }
 }
 
-pub(crate) type FUN_CmdSetPrimitiveRestartIndexEXT = unsafe extern "C" fn(CommandBufferHandle, u32);
+/// [`vkCmdSetPrimitiveRestartIndexEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPrimitiveRestartIndexEXT.html)
+///
+pub type FN_CmdSetPrimitiveRestartIndexEXT = unsafe extern "C" fn(CommandBufferHandle, u32);
 impl CommandBuffer {
     /// [`vkCmdSetPrimitiveRestartIndexEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetPrimitiveRestartIndexEXT.html)
     ///
@@ -32633,7 +34142,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_primitive_restart_index_ext(&self, primitive_restart_index: u32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetPrimitiveRestartIndexEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetPrimitiveRestartIndexEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetPrimitiveRestartIndexEXT as usize,
             ))
@@ -32642,7 +34151,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CreateAccelerationStructureKHR = unsafe extern "C" fn(
+/// [`vkCreateAccelerationStructureKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateAccelerationStructureKHR.html)
+///
+pub type FN_CreateAccelerationStructureKHR = unsafe extern "C" fn(
     DeviceHandle,
     *const AccelerationStructureCreateInfoKHR,
     *const AllocationCallbacks,
@@ -32684,7 +34195,7 @@ impl Device {
         p_acceleration_structure: *mut AccelerationStructureKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateAccelerationStructureKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateAccelerationStructureKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateAccelerationStructureKHR as usize,
             ))
@@ -32700,7 +34211,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_DestroyAccelerationStructureKHR =
+/// [`vkDestroyAccelerationStructureKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyAccelerationStructureKHR.html)
+///
+pub type FN_DestroyAccelerationStructureKHR =
     unsafe extern "C" fn(DeviceHandle, AccelerationStructureKHR, *const AllocationCallbacks);
 impl Device {
     /// [`vkDestroyAccelerationStructureKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyAccelerationStructureKHR.html)
@@ -32723,7 +34236,7 @@ impl Device {
         p_allocator: *const AllocationCallbacks,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_DestroyAccelerationStructureKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_DestroyAccelerationStructureKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyAccelerationStructureKHR as usize,
             ))
@@ -32732,7 +34245,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdBuildAccelerationStructuresKHR = unsafe extern "C" fn(
+/// [`vkCmdBuildAccelerationStructuresKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBuildAccelerationStructuresKHR.html)
+///
+pub type FN_CmdBuildAccelerationStructuresKHR = unsafe extern "C" fn(
     CommandBufferHandle,
     u32,
     *const AccelerationStructureBuildGeometryInfoKHR,
@@ -32766,18 +34281,18 @@ impl CommandBuffer {
         pp_build_range_infos: *const *const AccelerationStructureBuildRangeInfoKHR,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBuildAccelerationStructuresKHR>(
-                vtable_get(
-                    self.vtable(),
-                    InstanceCommand::vkCmdBuildAccelerationStructuresKHR as usize,
-                ),
-            )
+            std::mem::transmute::<vkVoidFunction, FN_CmdBuildAccelerationStructuresKHR>(vtable_get(
+                self.vtable(),
+                InstanceCommand::vkCmdBuildAccelerationStructuresKHR as usize,
+            ))
         };
         unsafe { (command)(self.handle, info_count, p_infos, pp_build_range_infos) }
     }
 }
 
-pub(crate) type FUN_CmdBuildAccelerationStructuresIndirectKHR = unsafe extern "C" fn(
+/// [`vkCmdBuildAccelerationStructuresIndirectKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBuildAccelerationStructuresIndirectKHR.html)
+///
+pub type FN_CmdBuildAccelerationStructuresIndirectKHR = unsafe extern "C" fn(
     CommandBufferHandle,
     u32,
     *const AccelerationStructureBuildGeometryInfoKHR,
@@ -32815,7 +34330,7 @@ impl CommandBuffer {
         pp_max_primitive_counts: *const *const u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdBuildAccelerationStructuresIndirectKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_CmdBuildAccelerationStructuresIndirectKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkCmdBuildAccelerationStructuresIndirectKHR as usize,
@@ -32835,7 +34350,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_BuildAccelerationStructuresKHR = unsafe extern "C" fn(
+/// [`vkBuildAccelerationStructuresKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkBuildAccelerationStructuresKHR.html)
+///
+pub type FN_BuildAccelerationStructuresKHR = unsafe extern "C" fn(
     DeviceHandle,
     DeferredOperationKHR,
     u32,
@@ -32881,7 +34398,7 @@ impl Device {
         pp_build_range_infos: *const *const AccelerationStructureBuildRangeInfoKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_BuildAccelerationStructuresKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_BuildAccelerationStructuresKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkBuildAccelerationStructuresKHR as usize,
             ))
@@ -32898,7 +34415,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CopyAccelerationStructureKHR = unsafe extern "C" fn(
+/// [`vkCopyAccelerationStructureKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyAccelerationStructureKHR.html)
+///
+pub type FN_CopyAccelerationStructureKHR = unsafe extern "C" fn(
     DeviceHandle,
     DeferredOperationKHR,
     *const CopyAccelerationStructureInfoKHR,
@@ -32940,7 +34459,7 @@ impl Device {
         p_info: *const CopyAccelerationStructureInfoKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CopyAccelerationStructureKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CopyAccelerationStructureKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCopyAccelerationStructureKHR as usize,
             ))
@@ -32949,7 +34468,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CopyAccelerationStructureToMemoryKHR = unsafe extern "C" fn(
+/// [`vkCopyAccelerationStructureToMemoryKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyAccelerationStructureToMemoryKHR.html)
+///
+pub type FN_CopyAccelerationStructureToMemoryKHR = unsafe extern "C" fn(
     DeviceHandle,
     DeferredOperationKHR,
     *const CopyAccelerationStructureToMemoryInfoKHR,
@@ -32991,7 +34512,7 @@ impl Device {
         p_info: *const CopyAccelerationStructureToMemoryInfoKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CopyAccelerationStructureToMemoryKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_CopyAccelerationStructureToMemoryKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkCopyAccelerationStructureToMemoryKHR as usize,
@@ -33002,7 +34523,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CopyMemoryToAccelerationStructureKHR = unsafe extern "C" fn(
+/// [`vkCopyMemoryToAccelerationStructureKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCopyMemoryToAccelerationStructureKHR.html)
+///
+pub type FN_CopyMemoryToAccelerationStructureKHR = unsafe extern "C" fn(
     DeviceHandle,
     DeferredOperationKHR,
     *const CopyMemoryToAccelerationStructureInfoKHR,
@@ -33044,7 +34567,7 @@ impl Device {
         p_info: *const CopyMemoryToAccelerationStructureInfoKHR,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CopyMemoryToAccelerationStructureKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_CopyMemoryToAccelerationStructureKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkCopyMemoryToAccelerationStructureKHR as usize,
@@ -33055,7 +34578,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_WriteAccelerationStructuresPropertiesKHR = unsafe extern "C" fn(
+/// [`vkWriteAccelerationStructuresPropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkWriteAccelerationStructuresPropertiesKHR.html)
+///
+pub type FN_WriteAccelerationStructuresPropertiesKHR = unsafe extern "C" fn(
     DeviceHandle,
     u32,
     *const AccelerationStructureKHR,
@@ -33100,7 +34625,7 @@ impl Device {
         stride: usize,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_WriteAccelerationStructuresPropertiesKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_WriteAccelerationStructuresPropertiesKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkWriteAccelerationStructuresPropertiesKHR as usize,
@@ -33121,7 +34646,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdCopyAccelerationStructureKHR =
+/// [`vkCmdCopyAccelerationStructureKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyAccelerationStructureKHR.html)
+///
+pub type FN_CmdCopyAccelerationStructureKHR =
     unsafe extern "C" fn(CommandBufferHandle, *const CopyAccelerationStructureInfoKHR);
 impl CommandBuffer {
     /// [`vkCmdCopyAccelerationStructureKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyAccelerationStructureKHR.html)
@@ -33149,7 +34676,7 @@ impl CommandBuffer {
         p_info: *const CopyAccelerationStructureInfoKHR,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyAccelerationStructureKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdCopyAccelerationStructureKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdCopyAccelerationStructureKHR as usize,
             ))
@@ -33158,7 +34685,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdCopyAccelerationStructureToMemoryKHR =
+/// [`vkCmdCopyAccelerationStructureToMemoryKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyAccelerationStructureToMemoryKHR.html)
+///
+pub type FN_CmdCopyAccelerationStructureToMemoryKHR =
     unsafe extern "C" fn(CommandBufferHandle, *const CopyAccelerationStructureToMemoryInfoKHR);
 impl CommandBuffer {
     /// [`vkCmdCopyAccelerationStructureToMemoryKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyAccelerationStructureToMemoryKHR.html)
@@ -33186,7 +34715,7 @@ impl CommandBuffer {
         p_info: *const CopyAccelerationStructureToMemoryInfoKHR,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyAccelerationStructureToMemoryKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_CmdCopyAccelerationStructureToMemoryKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkCmdCopyAccelerationStructureToMemoryKHR as usize,
@@ -33197,7 +34726,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdCopyMemoryToAccelerationStructureKHR =
+/// [`vkCmdCopyMemoryToAccelerationStructureKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMemoryToAccelerationStructureKHR.html)
+///
+pub type FN_CmdCopyMemoryToAccelerationStructureKHR =
     unsafe extern "C" fn(CommandBufferHandle, *const CopyMemoryToAccelerationStructureInfoKHR);
 impl CommandBuffer {
     /// [`vkCmdCopyMemoryToAccelerationStructureKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyMemoryToAccelerationStructureKHR.html)
@@ -33225,7 +34756,7 @@ impl CommandBuffer {
         p_info: *const CopyMemoryToAccelerationStructureInfoKHR,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdCopyMemoryToAccelerationStructureKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_CmdCopyMemoryToAccelerationStructureKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkCmdCopyMemoryToAccelerationStructureKHR as usize,
@@ -33236,11 +34767,12 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_GetAccelerationStructureDeviceAddressKHR =
-    unsafe extern "C" fn(
-        DeviceHandle,
-        *const AccelerationStructureDeviceAddressInfoKHR,
-    ) -> DeviceAddress;
+/// [`vkGetAccelerationStructureDeviceAddressKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetAccelerationStructureDeviceAddressKHR.html)
+///
+pub type FN_GetAccelerationStructureDeviceAddressKHR = unsafe extern "C" fn(
+    DeviceHandle,
+    *const AccelerationStructureDeviceAddressInfoKHR,
+) -> DeviceAddress;
 impl Device {
     /// [`vkGetAccelerationStructureDeviceAddressKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetAccelerationStructureDeviceAddressKHR.html)
     ///
@@ -33257,7 +34789,7 @@ impl Device {
         p_info: *const AccelerationStructureDeviceAddressInfoKHR,
     ) -> DeviceAddress {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetAccelerationStructureDeviceAddressKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetAccelerationStructureDeviceAddressKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetAccelerationStructureDeviceAddressKHR as usize,
@@ -33268,7 +34800,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdWriteAccelerationStructuresPropertiesKHR = unsafe extern "C" fn(
+/// [`vkCmdWriteAccelerationStructuresPropertiesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteAccelerationStructuresPropertiesKHR.html)
+///
+pub type FN_CmdWriteAccelerationStructuresPropertiesKHR = unsafe extern "C" fn(
     CommandBufferHandle,
     u32,
     *const AccelerationStructureKHR,
@@ -33306,7 +34840,7 @@ impl CommandBuffer {
         first_query: u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdWriteAccelerationStructuresPropertiesKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_CmdWriteAccelerationStructuresPropertiesKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkCmdWriteAccelerationStructuresPropertiesKHR as usize,
@@ -33326,7 +34860,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_GetDeviceAccelerationStructureCompatibilityKHR = unsafe extern "C" fn(
+/// [`vkGetDeviceAccelerationStructureCompatibilityKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceAccelerationStructureCompatibilityKHR.html)
+///
+pub type FN_GetDeviceAccelerationStructureCompatibilityKHR = unsafe extern "C" fn(
     DeviceHandle,
     *const AccelerationStructureVersionInfoKHR,
     *mut AccelerationStructureCompatibilityKHR,
@@ -33348,7 +34884,7 @@ impl Device {
         p_compatibility: *mut AccelerationStructureCompatibilityKHR,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetDeviceAccelerationStructureCompatibilityKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetDeviceAccelerationStructureCompatibilityKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetDeviceAccelerationStructureCompatibilityKHR as usize,
@@ -33359,7 +34895,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetAccelerationStructureBuildSizesKHR = unsafe extern "C" fn(
+/// [`vkGetAccelerationStructureBuildSizesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetAccelerationStructureBuildSizesKHR.html)
+///
+pub type FN_GetAccelerationStructureBuildSizesKHR = unsafe extern "C" fn(
     DeviceHandle,
     AccelerationStructureBuildTypeKHR,
     *const AccelerationStructureBuildGeometryInfoKHR,
@@ -33388,7 +34926,7 @@ impl Device {
         p_size_info: *mut AccelerationStructureBuildSizesInfoKHR,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetAccelerationStructureBuildSizesKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetAccelerationStructureBuildSizesKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetAccelerationStructureBuildSizesKHR as usize,
@@ -33407,7 +34945,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdTraceRaysKHR = unsafe extern "C" fn(
+/// [`vkCmdTraceRaysKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdTraceRaysKHR.html)
+///
+pub type FN_CmdTraceRaysKHR = unsafe extern "C" fn(
     CommandBufferHandle,
     *const StridedDeviceAddressRegionKHR,
     *const StridedDeviceAddressRegionKHR,
@@ -33449,7 +34989,7 @@ impl CommandBuffer {
         depth: u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdTraceRaysKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdTraceRaysKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdTraceRaysKHR as usize,
             ))
@@ -33469,7 +35009,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CreateRayTracingPipelinesKHR = unsafe extern "C" fn(
+/// [`vkCreateRayTracingPipelinesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateRayTracingPipelinesKHR.html)
+///
+pub type FN_CreateRayTracingPipelinesKHR = unsafe extern "C" fn(
     DeviceHandle,
     DeferredOperationKHR,
     PipelineCache,
@@ -33517,7 +35059,7 @@ impl Device {
         p_pipelines: *mut Pipeline,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CreateRayTracingPipelinesKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CreateRayTracingPipelinesKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCreateRayTracingPipelinesKHR as usize,
             ))
@@ -33536,7 +35078,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_GetRayTracingCaptureReplayShaderGroupHandlesKHR =
+/// [`vkGetRayTracingCaptureReplayShaderGroupHandlesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRayTracingCaptureReplayShaderGroupHandlesKHR.html)
+///
+pub type FN_GetRayTracingCaptureReplayShaderGroupHandlesKHR =
     unsafe extern "C" fn(DeviceHandle, Pipeline, u32, u32, usize, *mut c_void) -> ResultCode;
 impl Device {
     /// [`vkGetRayTracingCaptureReplayShaderGroupHandlesKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRayTracingCaptureReplayShaderGroupHandlesKHR.html)
@@ -33567,7 +35111,7 @@ impl Device {
         p_data: *mut c_void,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetRayTracingCaptureReplayShaderGroupHandlesKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetRayTracingCaptureReplayShaderGroupHandlesKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetRayTracingCaptureReplayShaderGroupHandlesKHR as usize,
@@ -33587,7 +35131,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdTraceRaysIndirectKHR = unsafe extern "C" fn(
+/// [`vkCmdTraceRaysIndirectKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdTraceRaysIndirectKHR.html)
+///
+pub type FN_CmdTraceRaysIndirectKHR = unsafe extern "C" fn(
     CommandBufferHandle,
     *const StridedDeviceAddressRegionKHR,
     *const StridedDeviceAddressRegionKHR,
@@ -33625,7 +35171,7 @@ impl CommandBuffer {
         indirect_device_address: DeviceAddress,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdTraceRaysIndirectKHR>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdTraceRaysIndirectKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdTraceRaysIndirectKHR as usize,
             ))
@@ -33643,7 +35189,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_GetRayTracingShaderGroupStackSizeKHR =
+/// [`vkGetRayTracingShaderGroupStackSizeKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRayTracingShaderGroupStackSizeKHR.html)
+///
+pub type FN_GetRayTracingShaderGroupStackSizeKHR =
     unsafe extern "C" fn(DeviceHandle, Pipeline, u32, ShaderGroupShaderKHR) -> DeviceSize;
 impl Device {
     /// [`vkGetRayTracingShaderGroupStackSizeKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetRayTracingShaderGroupStackSizeKHR.html)
@@ -33663,7 +35211,7 @@ impl Device {
         group_shader: ShaderGroupShaderKHR,
     ) -> DeviceSize {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetRayTracingShaderGroupStackSizeKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_GetRayTracingShaderGroupStackSizeKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkGetRayTracingShaderGroupStackSizeKHR as usize,
@@ -33674,8 +35222,9 @@ impl Device {
     }
 }
 
-pub(crate) type FUN_CmdSetRayTracingPipelineStackSizeKHR =
-    unsafe extern "C" fn(CommandBufferHandle, u32);
+/// [`vkCmdSetRayTracingPipelineStackSizeKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRayTracingPipelineStackSizeKHR.html)
+///
+pub type FN_CmdSetRayTracingPipelineStackSizeKHR = unsafe extern "C" fn(CommandBufferHandle, u32);
 impl CommandBuffer {
     /// [`vkCmdSetRayTracingPipelineStackSizeKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRayTracingPipelineStackSizeKHR.html)
     ///
@@ -33699,7 +35248,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_ray_tracing_pipeline_stack_size_khr(&self, pipeline_stack_size: u32) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdSetRayTracingPipelineStackSizeKHR>(
+            std::mem::transmute::<vkVoidFunction, FN_CmdSetRayTracingPipelineStackSizeKHR>(
                 vtable_get(
                     self.vtable(),
                     InstanceCommand::vkCmdSetRayTracingPipelineStackSizeKHR as usize,
@@ -33710,7 +35259,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdDrawMeshTasksEXT = unsafe extern "C" fn(CommandBufferHandle, u32, u32, u32);
+/// [`vkCmdDrawMeshTasksEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMeshTasksEXT.html)
+///
+pub type FN_CmdDrawMeshTasksEXT = unsafe extern "C" fn(CommandBufferHandle, u32, u32, u32);
 impl CommandBuffer {
     /// [`vkCmdDrawMeshTasksEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMeshTasksEXT.html)
     ///
@@ -33739,7 +35290,7 @@ impl CommandBuffer {
         group_count_z: u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawMeshTasksEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdDrawMeshTasksEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdDrawMeshTasksEXT as usize,
             ))
@@ -33748,7 +35299,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdDrawMeshTasksIndirectEXT =
+/// [`vkCmdDrawMeshTasksIndirectEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMeshTasksIndirectEXT.html)
+///
+pub type FN_CmdDrawMeshTasksIndirectEXT =
     unsafe extern "C" fn(CommandBufferHandle, Buffer, DeviceSize, u32, u32);
 impl CommandBuffer {
     /// [`vkCmdDrawMeshTasksIndirectEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMeshTasksIndirectEXT.html)
@@ -33785,7 +35338,7 @@ impl CommandBuffer {
         stride: u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawMeshTasksIndirectEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdDrawMeshTasksIndirectEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdDrawMeshTasksIndirectEXT as usize,
             ))
@@ -33794,7 +35347,9 @@ impl CommandBuffer {
     }
 }
 
-pub(crate) type FUN_CmdDrawMeshTasksIndirectCountEXT =
+/// [`vkCmdDrawMeshTasksIndirectCountEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMeshTasksIndirectCountEXT.html)
+///
+pub type FN_CmdDrawMeshTasksIndirectCountEXT =
     unsafe extern "C" fn(CommandBufferHandle, Buffer, DeviceSize, Buffer, DeviceSize, u32, u32);
 impl CommandBuffer {
     /// [`vkCmdDrawMeshTasksIndirectCountEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdDrawMeshTasksIndirectCountEXT.html)
@@ -33833,7 +35388,7 @@ impl CommandBuffer {
         stride: u32,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_CmdDrawMeshTasksIndirectCountEXT>(vtable_get(
+            std::mem::transmute::<vkVoidFunction, FN_CmdDrawMeshTasksIndirectCountEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdDrawMeshTasksIndirectCountEXT as usize,
             ))

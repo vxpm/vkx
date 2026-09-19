@@ -1,3 +1,57 @@
+//! # vkx
+//! Auto-generated Vulkan bindings with utilities and a loader. Unlike most Vulkan crates in rust,
+//! `vkx` does not parse `vk.xml` directly - it uses Khronos Group's [`vulkan-object`] python library
+//! instead.
+//!
+//! `vkx` tries to add as much documentation as possible to the generated code, reducing the need to
+//! open Vulkan documentation to know some basics regarding an item. It also aliases every generated
+//! item to their raw Vulkan API name, so searching `vkx`'s documentation for something like
+//! `vkGetBufferDeviceAddressKHR` will get you to [`Device::get_buffer_device_address_khr`].
+//!
+//! `vkx` does not try to "rustify" the Vulkan API too much - arguments are kept as pointers, and
+//! return values through out parameters are kept like that. It also does _not_ introduce lifetimes
+//! into structures to add some pseudo-safety to structure chains.
+//!
+//! This version of `vkx` has been built against Vulkan
+#![doc = concat!(include_str!("../version.md"), ".")]
+//!
+//! # Quickstart
+//! Call [`setup`]: this will dynamically load the Vulkan library using [`libloading`] and build a
+//! vtable with all global commands. From there, you can create an instance using either
+//! [`create_instance`] (if you want to build vtables yourself) or (the recommended approach)
+//! [`Instance::create`].
+//!
+//! # Dispatchable handles
+//! All dispatchable handles are suffixed with `Handle` to indicate they're the just the handle
+//! itself: [`InstanceHandle`], [`PhysicalDeviceHandle`], [`DeviceHandle`], [`QueueHandle`] and
+//! [`CommandBufferHandle`].
+//!
+//! However, `vkx` also provides a loader for instance-level commands that can be used by using
+//! special dispatchable handle wrappers: [`Instance`], [`PhysicalDevice`], [`Device`], [`Queue`]
+//! and [`CommandBuffer`].
+//!
+//! These special wrappers can only be created from special methods on their respective parents,
+//! e.g. to create a [`Device`], use [`PhysicalDevice::create_device`]. The only exception is
+//! [`Instance`] since it is the "entrypoint" and uses [`Instance::create`].
+//!
+//! # Special items
+//! These items are not in the Vulkan API - they're purely `vkx` utilities:
+//! - [`Version`]
+//! - [`Extension`]
+//! - [`SuccessCode`]
+//! - [`ErrorCode`]
+//! - Dispatchable handle wrappers
+//!
+//! # Safety
+//! Almost everything is `unsafe`: the Vulkan library is dynamically loaded, so there's no guarantee
+//! whatsoever about what it might do. In practice, however, it's just going to be a valid vulkan
+//! implementation, and the safety precautions are now on you.
+//!
+//! In general, you're responsible for guaranteeing pointers and structure-chain lifetimes are
+//! valid.
+//!
+//! [`vulkan-object`]: https://github.com/KhronosGroup/vulkan-object
+
 mod internal;
 mod loader;
 mod platform;
@@ -24,3 +78,5 @@ pub use handles::*;
 pub use internal::*;
 pub use loader::*;
 pub use structs::*;
+
+pub use libloading;
