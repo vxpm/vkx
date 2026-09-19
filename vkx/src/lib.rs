@@ -21,6 +21,33 @@
 //! [`create_instance`] (if you want to build vtables yourself) or (the recommended approach)
 //! [`Instance::create`].
 //!
+//! ```rust
+//! // always run setup before using vkx!
+//! unsafe { vkx::setup() };
+//!
+//! let app_info = vkx::ApplicationInfo {
+//!     p_application_name: c"example".as_ptr(),
+//!     application_version: vkx::Version::V1_0.get(),
+//!     p_engine_name: c"vkx".as_ptr(),
+//!     api_version: vkx::Version::V1_3.get(),
+//!     ..Default::default()
+//! };
+//!
+//! let instance_layers = &[c"VK_LAYER_KHRONOS_validation".as_ptr()];
+//! let instance = vkx::Instance::create(
+//!     &vkx::InstanceCreateInfo {
+//!         p_application_info: &app_info,
+//!         enabled_layer_count: instance_layers.len() as u32,
+//!         pp_enabled_layer_names: instance_layers.as_ptr(),
+//!         ..Default::default()
+//!     },
+//!     std::ptr::null(),
+//! )
+//! .unwrap();
+//!
+//! // have fun with your instance
+//! ```
+//!
 //! # Dispatchable handles
 //! All dispatchable handles are suffixed with `Handle` to indicate they're the just the handle
 //! itself: [`InstanceHandle`], [`PhysicalDeviceHandle`], [`DeviceHandle`], [`QueueHandle`] and
@@ -48,7 +75,8 @@
 //! implementation, and the safety precautions are now on you.
 //!
 //! In general, you're responsible for guaranteeing pointers and structure-chain lifetimes are
-//! valid.
+//! valid. You also need to ensure dispatchable handles outlive their parents, otherwise they might
+//! cause a use-after-free (the vtable is deallocated by the instance/device on drop).
 //!
 //! [`vulkan-object`]: https://github.com/KhronosGroup/vulkan-object
 

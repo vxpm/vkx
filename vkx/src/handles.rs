@@ -12,8 +12,8 @@ use crate::internal::*;
 
 /// [`VkInstance`](https://docs.vulkan.org/refpages/latest/refpages/source/VkInstance.html)
 ///
-/// # Handle type
-/// Dispatchable
+/// # About
+/// Dispatchable handle.
 #[doc(alias = "VkInstance")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -28,8 +28,9 @@ impl InstanceHandle {
 
 /// [`VkPhysicalDevice`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevice.html)
 ///
-/// # Handle type
-/// Dispatchable
+/// # About
+/// Dispatchable handle.
+/// Child of [`Instance`].
 #[doc(alias = "VkPhysicalDevice")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -44,8 +45,9 @@ impl PhysicalDeviceHandle {
 
 /// [`VkDevice`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDevice.html)
 ///
-/// # Handle type
-/// Dispatchable
+/// # About
+/// Dispatchable handle.
+/// Child of [`PhysicalDevice`].
 #[doc(alias = "VkDevice")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -60,8 +62,9 @@ impl DeviceHandle {
 
 /// [`VkQueue`](https://docs.vulkan.org/refpages/latest/refpages/source/VkQueue.html)
 ///
-/// # Handle type
-/// Dispatchable
+/// # About
+/// Dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkQueue")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -76,8 +79,9 @@ impl QueueHandle {
 
 /// [`VkSemaphore`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSemaphore.html)
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkSemaphore")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -92,8 +96,9 @@ impl Semaphore {
 
 /// [`VkCommandBuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandBuffer.html)
 ///
-/// # Handle type
-/// Dispatchable
+/// # About
+/// Dispatchable handle.
+/// Child of [`CommandPool`].
 #[doc(alias = "VkCommandBuffer")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -108,8 +113,9 @@ impl CommandBufferHandle {
 
 /// [`VkFence`](https://docs.vulkan.org/refpages/latest/refpages/source/VkFence.html)
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkFence")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -124,8 +130,9 @@ impl Fence {
 
 /// [`VkDeviceMemory`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceMemory.html)
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkDeviceMemory")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -140,8 +147,9 @@ impl DeviceMemory {
 
 /// [`VkBuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBuffer.html)
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkBuffer")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -156,8 +164,9 @@ impl Buffer {
 
 /// [`VkImage`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImage.html)
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkImage")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -172,8 +181,9 @@ impl Image {
 
 /// [`VkQueryPool`](https://docs.vulkan.org/refpages/latest/refpages/source/VkQueryPool.html)
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkQueryPool")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -188,8 +198,9 @@ impl QueryPool {
 
 /// [`VkImageView`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageView.html)
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkImageView")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -204,8 +215,9 @@ impl ImageView {
 
 /// [`VkCommandPool`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandPool.html)
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkCommandPool")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -220,8 +232,9 @@ impl CommandPool {
 
 /// [`VkRenderPass`](https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPass.html)
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkRenderPass")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -236,8 +249,9 @@ impl RenderPass {
 
 /// [`VkFramebuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/VkFramebuffer.html)
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkFramebuffer")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -252,8 +266,9 @@ impl Framebuffer {
 
 /// [`VkEvent`](https://docs.vulkan.org/refpages/latest/refpages/source/VkEvent.html)
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkEvent")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -268,8 +283,9 @@ impl Event {
 
 /// [`VkBufferView`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferView.html)
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkBufferView")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -284,8 +300,9 @@ impl BufferView {
 
 /// [`VkShaderModule`](https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderModule.html)
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkShaderModule")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -300,8 +317,9 @@ impl ShaderModule {
 
 /// [`VkPipelineCache`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCache.html)
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkPipelineCache")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -316,8 +334,9 @@ impl PipelineCache {
 
 /// [`VkPipeline`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipeline.html)
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkPipeline")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -332,8 +351,9 @@ impl Pipeline {
 
 /// [`VkPipelineLayout`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineLayout.html)
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkPipelineLayout")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -348,8 +368,9 @@ impl PipelineLayout {
 
 /// [`VkDescriptorSetLayout`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorSetLayout.html)
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkDescriptorSetLayout")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -364,8 +385,9 @@ impl DescriptorSetLayout {
 
 /// [`VkSampler`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSampler.html)
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkSampler")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -380,8 +402,9 @@ impl Sampler {
 
 /// [`VkDescriptorSet`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorSet.html)
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`DescriptorPool`].
 #[doc(alias = "VkDescriptorSet")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -396,8 +419,9 @@ impl DescriptorSet {
 
 /// [`VkDescriptorPool`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorPool.html)
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkDescriptorPool")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -412,8 +436,9 @@ impl DescriptorPool {
 
 /// [`VkDescriptorUpdateTemplate`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorUpdateTemplate.html)
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkDescriptorUpdateTemplate")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -432,8 +457,9 @@ pub type DescriptorUpdateTemplateKHR = DescriptorUpdateTemplate;
 
 /// [`VkSamplerYcbcrConversion`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerYcbcrConversion.html)
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkSamplerYcbcrConversion")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -452,8 +478,9 @@ pub type SamplerYcbcrConversionKHR = SamplerYcbcrConversion;
 
 /// [`VkPrivateDataSlot`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPrivateDataSlot.html)
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkPrivateDataSlot")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -478,8 +505,9 @@ pub type PrivateDataSlotEXT = PrivateDataSlot;
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Instance`].
 #[doc(alias = "VkSurfaceKHR")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -500,8 +528,9 @@ impl SurfaceKHR {
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkSwapchainKHR")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -522,8 +551,9 @@ impl SwapchainKHR {
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`PhysicalDevice`].
 #[doc(alias = "VkDisplayKHR")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -544,8 +574,9 @@ impl DisplayKHR {
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`DisplayKHR`].
 #[doc(alias = "VkDisplayModeKHR")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -566,8 +597,9 @@ impl DisplayModeKHR {
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkVideoSessionKHR")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -588,8 +620,9 @@ impl VideoSessionKHR {
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkVideoSessionParametersKHR")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -610,8 +643,9 @@ impl VideoSessionParametersKHR {
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkDeferredOperationKHR")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -633,8 +667,9 @@ impl DeferredOperationKHR {
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkAccelerationStructureKHR")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -655,8 +690,9 @@ impl AccelerationStructureKHR {
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkPipelineBinaryKHR")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -678,8 +714,9 @@ impl PipelineBinaryKHR {
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Instance`].
 #[doc(alias = "VkDebugReportCallbackEXT")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -700,8 +737,9 @@ impl DebugReportCallbackEXT {
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkCuModuleNVX")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -722,8 +760,9 @@ impl CuModuleNVX {
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkCuFunctionNVX")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -744,8 +783,9 @@ impl CuFunctionNVX {
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Instance`].
 #[doc(alias = "VkDebugUtilsMessengerEXT")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -766,8 +806,9 @@ impl DebugUtilsMessengerEXT {
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkGpaSessionAMD")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -789,8 +830,9 @@ impl GpaSessionAMD {
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkTensorARM")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -811,8 +853,9 @@ impl TensorARM {
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkValidationCacheEXT")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -834,8 +877,9 @@ impl ValidationCacheEXT {
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkAccelerationStructureNV")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -856,8 +900,9 @@ impl AccelerationStructureNV {
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkPerformanceConfigurationINTEL")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -878,8 +923,9 @@ impl PerformanceConfigurationINTEL {
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkIndirectCommandsLayoutNV")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -900,8 +946,9 @@ impl IndirectCommandsLayoutNV {
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkCudaModuleNV")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -922,8 +969,9 @@ impl CudaModuleNV {
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkCudaFunctionNV")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -944,8 +992,9 @@ impl CudaFunctionNV {
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkBufferCollectionFUCHSIA")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -967,8 +1016,9 @@ impl BufferCollectionFUCHSIA {
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkMicromapEXT")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -989,8 +1039,9 @@ impl MicromapEXT {
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkTensorViewARM")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -1011,8 +1062,9 @@ impl TensorViewARM {
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkOpticalFlowSessionNV")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -1033,8 +1085,9 @@ impl OpticalFlowSessionNV {
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkShaderEXT")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -1055,8 +1108,9 @@ impl ShaderEXT {
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkDataGraphPipelineSessionARM")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -1077,8 +1131,9 @@ impl DataGraphPipelineSessionARM {
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
-/// # Handle type
-/// Dispatchable
+/// # About
+/// Dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkExternalComputeQueueNV")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -1099,8 +1154,9 @@ impl ExternalComputeQueueNV {
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkIndirectExecutionSetEXT")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -1121,8 +1177,9 @@ impl IndirectExecutionSetEXT {
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkIndirectCommandsLayoutEXT")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
@@ -1143,8 +1200,9 @@ impl IndirectCommandsLayoutEXT {
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
-/// # Handle type
-/// Non-dispatchable
+/// # About
+/// Non-dispatchable handle.
+/// Child of [`Device`].
 #[doc(alias = "VkShaderInstrumentationARM")]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]

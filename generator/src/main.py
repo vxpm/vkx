@@ -596,11 +596,15 @@ class Context:
         self.vulkan_doc_header(out, x.name)
         self.requirements_doc_header(out, None, x.extensions)
 
-        out.writeln("/// # Handle type")
+        out.writeln("/// # About")
         if x.dispatchable:
-            out.writeln("/// Dispatchable")
+            out.writeln("/// Dispatchable handle.")
         else:
-            out.writeln("/// Non-dispatchable")
+            out.writeln("/// Non-dispatchable handle.")
+
+        if x.parent is not None:
+            parent = names.handle(x.parent.name)
+            out.writeln(f"/// Child of [`{parent}`].")
 
         # definition
         out.writeln(f'#[doc(alias = "{x.name}")]')

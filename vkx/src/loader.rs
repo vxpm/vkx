@@ -26,7 +26,14 @@ pub(crate) struct Global {
 
 pub(crate) static GLOBAL: OnceLock<Global> = OnceLock::new();
 
-/// Setups the loader. This needs to be called before anything else in the crate can be used.
+/// Setups the loader. This needs to be called before calling anything else in `vkx`, but only once.
+///
+/// # Panics
+/// Panics if the function is called multiple times.
+///
+/// # Safety
+/// This function will dynamically load the Vulkan library and build a global command vtable. This
+/// is inherently unsafe (see [`Library::new`]).
 pub unsafe fn setup() -> Result<(), libloading::Error> {
     const PATH: &str = cfg_select! {
         any(target_os = "android", target_os = "fuchsia") => "libvulkan.so",
@@ -151,6 +158,14 @@ impl Drop for Instance {
     }
 }
 
+/// An [`InstanceHandle`](crate::InstanceHandle) wrapper that carries a vtable generated at creation
+/// time.
+///
+/// This type is like a smart version of an [`InstanceHandle`](crate::InstanceHandle): it knows how
+/// to call every instance function and will also destroy itself at drop time.
+///
+/// Child handles of this instance carry a reference to the same vtable, so calling any
+/// function on them _after_ this instance is destroyed is an use-after-free (UB).
 pub struct PhysicalDevice {
     pub(crate) handle: crate::PhysicalDeviceHandle,
     pub(crate) vtable: *const VTable<{ crate::InstanceCommand::VARIANTS.len() }>,
@@ -189,6 +204,14 @@ impl PhysicalDevice {
     }
 }
 
+/// An [`DeviceHandle`](crate::DeviceHandle) wrapper that carries a vtable generated at creation
+/// time.
+///
+/// This type is like a smart version of a [`DeviceHandle`](crate::DeviceHandle): it knows how
+/// to call every device function and will also destroy itself at drop time.
+///
+/// Child handles of this instance carry a reference to the same vtable, but calling any
+/// function on them _after_ this device is destroyed is an use-after-free (UB).
 pub struct Device {
     pub(crate) handle: crate::DeviceHandle,
     pub(crate) vtable: *const VTable<{ crate::InstanceCommand::VARIANTS.len() }>,
@@ -256,6 +279,10 @@ impl Drop for Device {
     }
 }
 
+/// A [`QueueHandle`](crate::QueueHandle) wrapper that carries it's parent [`Device`]'s vtable.
+///
+/// This type is like a smart version of a [`QueueHandle`](crate::QueueHandle): it knows how
+/// to call every queue function.
 pub struct Queue {
     pub(crate) handle: crate::QueueHandle,
     pub(crate) vtable: *const VTable<{ crate::InstanceCommand::VARIANTS.len() }>,
@@ -275,6 +302,11 @@ impl Queue {
     }
 }
 
+/// A [`CommandBufferHandle`](crate::CommandBufferHandle) wrapper that carries it's parent
+/// [`Device`]'s vtable.
+///
+/// This type is like a smart version of a [`CommandBufferHandle`](crate::CommandBufferHandle): it
+/// knows how to call every command buffer function.
 pub struct CommandBuffer {
     pub(crate) handle: crate::CommandBufferHandle,
     pub(crate) vtable: *const VTable<{ crate::InstanceCommand::VARIANTS.len() }>,
